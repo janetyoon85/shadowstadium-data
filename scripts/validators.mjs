@@ -89,6 +89,10 @@ export function validateDataset(games) {
     }
   }
 
+  // rescheduledTo integrity (B-5d)
+  const rsErrors = validateRescheduledTo(games);
+  errors.push(...rsErrors);
+
   return {
     valid: errors.length === 0,
     errors,
@@ -96,4 +100,58 @@ export function validateDataset(games) {
     counts: cnt,
     totalGames: games.length,
   };
+}
+
+/**
+ * B-5d: rescheduledTo 필드 정합성 검증.
+ * - cancelled 게임만 rescheduledTo 가질 수 있음
+ * - 값은 YYYY-MM-DD 형식
+ * - 가리키는 날짜에 같은 (home, away, venueId) doubleheaderNum=2 게임이 실제 존재해야 함 (orphan reference 금지)
+ * - cancelled date와 rescheduledTo가 같은 시즌(연도)에 속함
+ */
+export function validateRescheduledTo(games) {
+  const errors = [];
+  let orphanCount = 0;
+  let badCount = 0;
+  for (const g of games) {
+    if (g.rescheduledTo == null) continue;
+    const key = `${g.gameId || g.venueId + '_' + g.date}`;
+    // status check: only cancelled can have rescheduledTo
+    if (g.status !== 'cancelled') {
+      badCount++;
+      if (badCount <= 5) errors.push(`rescheduledTo on non-cancelled game ${key} (status=${g.status})`);
+      continue;
+    }
+    // format check
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(g.rescheduledTo)) {
+      badCount++;
+      if (badCount <= 5) errors.push(`rescheduledTo bad format ${key}: ${g.rescheduledTo}`);
+      continue;
+    }
+    // same season check
+    const cancelYear = g.date?.slice(0, 4);
+    const targetYear = g.rescheduledTo.slice(0, 4);
+    if (cancelYear && cancelYear !== targetYear) {
+      badCount++;
+      if (badCount <= 5) errors.push(`rescheduledTo cross-season ${key}: ${g.date} → ${g.rescheduledTo}`);
+      continue;
+    }
+    // orphan reference check: target doubleheaderNum=2 game must exist
+    const target = games.find((x) =>
+      x.date === g.rescheduledTo &&
+      x.venueId === g.venueId &&
+      x.home === g.home &&
+      x.away === g.away &&
+      x.doubleheaderNum === 2,
+    );
+    if (!target) {
+      orphanCount++;
+      if (orphanCount <= 5) {
+        errors.push(`rescheduledTo orphan ${key} → ${g.rescheduledTo} (no doubleheaderNum=2 game found for matchup)`);
+      }
+    }
+  }
+  if (badCount > 5) errors.push(`... and ${badCount - 5} more rescheduledTo errors`);
+  if (orphanCount > 5) errors.push(`... and ${orphanCount - 5} more orphan references`);
+  return errors;
 }
