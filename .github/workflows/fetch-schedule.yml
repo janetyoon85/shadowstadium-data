@@ -1,9 +1,8 @@
 name: Daily Schedule Fetch
 
 on:
-  schedule:
-    # 매일 03:00 KST = 18:00 UTC (전날)
-    - cron: '0 18 * * *'
+  # schedule:
+  #   - cron: '0 18 * * *'  # B-4.5 검증 통과 후 재활성 (3회로 확장 예정)
   workflow_dispatch:  # 수동 실행 가능 (테스트용)
 
 permissions:
