@@ -1,0 +1,59 @@
+name: Daily Schedule Fetch
+
+on:
+  schedule:
+    # 매일 03:00 KST = 18:00 UTC (전날)
+    - cron: '0 18 * * *'
+  workflow_dispatch:  # 수동 실행 가능 (테스트용)
+
+permissions:
+  contents: write   # commit + push
+  issues: write     # 실패 시 issue 생성
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run crawler
+        id: crawler
+        run: node scripts/fetch-schedule.mjs
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if [[ -n "$(git status --porcelain games_2026.json)" ]]; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "changed=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add games_2026.json
+          git commit -m "chore(data): daily schedule sync ($(date +'%Y-%m-%d'))"
+          git push
+
+      - name: Create issue on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const date = new Date().toISOString().split('T')[0];
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `🚨 Schedule fetch failed - ${date}`,
+              body: `Daily crawler failed at ${date}.\n\nWorkflow run: ${context.runId}\nLogs: https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
+              labels: ['bug', 'crawler']
+            });

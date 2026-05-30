@@ -11,11 +11,16 @@ Naver Sports API → `games_2026.json` 자동 갱신 스크립트.
 
 ## 실행
 
+### 로컬
 ```bash
 node scripts/fetch-schedule.mjs
 ```
-
 요구: Node 18+ (native `fetch`).
+
+### CI (GitHub Actions)
+[.github/workflows/fetch-schedule.yml](../.github/workflows/fetch-schedule.yml)에서 매일 03:00 KST 자동 실행. `GITHUB_TOKEN`은 워크플로에 의해 자동 주입(`permissions.contents: write`)되므로 commit + push도 자동.
+
+수동 트리거: GitHub Actions 탭 → "Daily Schedule Fetch" → "Run workflow".
 
 ## 동작
 
