@@ -19,3 +19,9 @@ https://raw.githubusercontent.com/janetyoon85/shadowstadium-data/main/games_2026
 
 ## 스키마
 `OfficialGame[]` (자세한 필드는 [shadowstadium/App.tsx](https://github.com/janetyoon85/shadowstadium/blob/main/App.tsx)의 `OfficialGame` 타입 참고).
+
+## 공개 페이지 (GitHub Pages)
+- 랜딩: https://janetyoon85.github.io/shadowstadium-data/
+- 개인정보처리방침: https://janetyoon85.github.io/shadowstadium-data/privacy-policy.html
+
+활성화: GitHub Settings → Pages → Source: `main` branch / `/docs` folder.
