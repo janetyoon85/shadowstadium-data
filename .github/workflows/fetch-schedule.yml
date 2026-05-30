@@ -25,6 +25,10 @@ jobs:
         id: crawler
         run: node scripts/fetch-schedule.mjs
 
+      - name: Infer rescheduledTo
+        id: infer
+        run: node scripts/infer-rescheduled.mjs
+
       - name: Check for changes
         id: changes
         run: |
