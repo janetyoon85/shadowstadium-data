@@ -1,8 +1,11 @@
 name: Daily Schedule Fetch
 
 on:
-  # schedule:
-  #   - cron: '0 18 * * *'  # B-4.5 검증 통과 후 재활성 (3회로 확장 예정)
+  schedule:
+    # GitHub Actions cron 은 UTC 기준. KST = UTC+9.
+    - cron: '0 18 * * *'  # 03:00 KST (전날 18:00 UTC)
+    - cron: '0 5 * * *'   # 14:00 KST (당일 05:00 UTC)
+    - cron: '0 8 * * *'   # 17:00 KST (당일 08:00 UTC)
   workflow_dispatch:  # 수동 실행 가능 (테스트용)
 
 permissions:
