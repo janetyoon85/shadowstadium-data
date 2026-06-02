@@ -63,3 +63,9 @@ jobs:
               body: `Daily crawler failed at ${date}.\n\nWorkflow run: ${context.runId}\nLogs: https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
               labels: ['bug', 'crawler']
             });
+      - name: Discord 알림 (실패 시)
+        if: failure()
+        run: |
+          curl -H "Content-Type: application/json" \
+            -d "{\"content\":\"🔴 그늘각 크롤러 실패\n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}\"}" \
+            "${{ secrets.DISCORD_WEBHOOK_URL }}"
