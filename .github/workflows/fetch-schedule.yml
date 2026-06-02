@@ -16,6 +16,8 @@ jobs:
   fetch:
     runs-on: ubuntu-latest
     steps:
+      - name: TEMP 실패 테스트 (테스트 후 삭제)
+        run: exit 1
       - name: Checkout
         uses: actions/checkout@v4
 
