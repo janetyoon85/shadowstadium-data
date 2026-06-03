@@ -24,7 +24,10 @@ export async function sendGame(gameId, leadHours, { title, body, venueId, date, 
   return admin.messaging().send({
     topic: gameTopic(gameId, leadHours),
     notification: { title, body },
+    // gameId 가 클라이언트 라우팅 1순위 (App Link 와 동일 lookup). venueId/date/doubleheaderNum 은
+    // gameId 미해석 시 fallback. FCM data 는 string-only — 전부 String() 처리.
     data: {
+      gameId: String(gameId),
       venueId: String(venueId),
       date: String(date),
       doubleheaderNum: String(doubleheaderNum ?? ''),
