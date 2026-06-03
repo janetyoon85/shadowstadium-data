@@ -1,0 +1,14 @@
+{
+  "name": "shadowstadium-data",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Shadowstadium 일정 데이터 + FCM reminder sender",
+  "scripts": {
+    "fetch": "node scripts/fetch-schedule.mjs",
+    "infer": "node scripts/infer-rescheduled.mjs"
+  },
+  "dependencies": {
+    "firebase-admin": "^13.0.0"
+  }
+}
