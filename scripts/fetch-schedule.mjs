@@ -159,6 +159,31 @@ async function main() {
   console.log(`\n[doubleheader] ${dh.count} groups detected`);
   for (const s of dh.samples) console.log(`  ${s.key} → ${s.times.join(', ')}`);
 
+  // Merge manually-curated entries (e.g. KBO 올스타전 — Naver가 publish 안 한 경기).
+  // Dedup 키: (date+venueId+league) — Naver가 추후 같은 슬롯을 자체 gameId로 publish 하면
+  // 크롤링 데이터가 우선 채택되고 manual 엔트리는 자동으로 빠짐 (중복 2건 방지).
+  const manualPath = path.join(REPO_ROOT, 'manual_games.json');
+  let manualAdded = 0;
+  let manualTotal = 0;
+  try {
+    const manualGames = JSON.parse(await fs.readFile(manualPath, 'utf-8'));
+    manualTotal = manualGames.length;
+    const crawledSlots = new Set(allGames.map((g) => `${g.date}|${g.venueId}|${g.league}`));
+    for (const m of manualGames) {
+      const slot = `${m.date}|${m.venueId}|${m.league}`;
+      if (crawledSlots.has(slot)) {
+        console.warn(`[manual] slot ${slot} already crawled — skipping manual entry (gameId=${m.gameId})`);
+        continue;
+      }
+      allGames.push(m);
+      manualAdded++;
+    }
+    console.log(`\n[manual] merged ${manualAdded}/${manualTotal} entries from manual_games.json`);
+  } catch (e) {
+    if (e.code === 'ENOENT') console.log(`\n[manual] no manual_games.json (optional)`);
+    else throw e;
+  }
+
   sortGames(allGames);
 
   // Save staging artifact (with metadata)
@@ -173,6 +198,7 @@ async function main() {
         categoryCounts,
         mappingFailures: uniqueFails,
         doubleheaderCount: dh.count,
+        manualAddedCount: manualAdded,
         games: allGames.map(serializeGame),
       },
       null,
