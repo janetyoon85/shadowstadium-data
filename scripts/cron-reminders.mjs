@@ -48,13 +48,24 @@ async function loadJson(file, fallback) {
   }
 }
 
-function buildContent(g) {
+const WEEKDAYS_KO = ['일', '월', '화', '수', '목', '금', '토'];
+
+function buildContent(g, leadHours) {
   const icon = SPORT_ICON[g.league] ?? '🏟️';
   const dh = g.doubleheaderNum ? ` (${g.doubleheaderNum}차전)` : '';
   const stadium = g.stadium ? ` · ${g.stadium}` : '';
+  // 발송일(=오늘 KST) ≠ 경기일이면 본문에 경기 날짜 명시. 같은 날(예: 1·3·6·12h) 은 생략.
+  const nowKst = new Date(Date.now() + 9 * 3600 * 1000);
+  const sendDate = `${nowKst.getUTCFullYear()}-${String(nowKst.getUTCMonth() + 1).padStart(2, '0')}-${String(nowKst.getUTCDate()).padStart(2, '0')}`;
+  let dateLabel = '';
+  if (g.date !== sendDate) {
+    const [yy, mm, dd] = g.date.split('-').map(Number);
+    const wd = WEEKDAYS_KO[new Date(yy, mm - 1, dd).getDay()];
+    dateLabel = `${mm}/${dd}(${wd}) `;
+  }
   return {
     title: `${icon} ${g.away} vs ${g.home}${stadium}`,
-    body: `${g.time} 경기${dh} · 그늘 자리·날씨 확인`,
+    body: `${leadHours}시간 전 · ${dateLabel}${g.time} 경기${dh} · 그늘·날씨 확인`,
   };
 }
 
@@ -99,7 +110,7 @@ async function main() {
   // 발송
   let sentCount = 0;
   for (const s of sends) {
-    const { title, body } = buildContent(s.g);
+    const { title, body } = buildContent(s.g, s.L);
     try {
       const id = await sendGame(s.g.gameId, s.L, {
         title,
