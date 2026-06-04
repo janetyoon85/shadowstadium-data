@@ -53,8 +53,8 @@ function buildContent(g) {
   const dh = g.doubleheaderNum ? ` (${g.doubleheaderNum}차전)` : '';
   const stadium = g.stadium ? ` · ${g.stadium}` : '';
   return {
-    title: `${icon} ${g.away} vs ${g.home}${dh}`,
-    body: `${g.time}${stadium} · 좌석 그늘·날씨 확인`,
+    title: `${icon} ${g.away} vs ${g.home}${stadium}`,
+    body: `${g.time} 경기${dh} · 그늘 자리·날씨 확인`,
   };
 }
 
