@@ -22,7 +22,9 @@ const CATEGORIES = [
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 async function fetchPage(cat, page) {
-  const url = `${API_BASE}?fromDate=${SEASON_START}&toDate=${SEASON_END}&upperCategoryId=${cat.upperCategoryId}&categoryId=${cat.categoryId}&fields=basic,stadium&size=${PAGE_SIZE}&page=${page}`;
+  // baseball 필드 → KBO 응답에 home/awayStarterName(선발투수) 포함. 발표 전(경기 전날 밤 10시 이전)
+  // 이면 빈 문자열로 옴 → convertGame 에서 비어있으면 누락. K리그엔 해당 필드 없음(무시).
+  const url = `${API_BASE}?fromDate=${SEASON_START}&toDate=${SEASON_END}&upperCategoryId=${cat.upperCategoryId}&categoryId=${cat.categoryId}&fields=basic,stadium,baseball&size=${PAGE_SIZE}&page=${page}`;
   const res = await fetch(url, { headers: { 'User-Agent': USER_AGENT } });
   if (!res.ok) throw new Error(`HTTP ${res.status} for ${cat.categoryId} page=${page}`);
   const json = await res.json();
@@ -71,6 +73,14 @@ function convertGame(n, cat, stadiumMap, mapFailures) {
     gameId: n.gameId,
     status,
   };
+  // 선발투수 — KBO 만, 발표된(비어있지 않은) 경우만. away/home 모두 있을 때만 의미 있게 표시되지만
+  // 데이터는 각각 있는 대로 저장(앱이 양쪽 다 있을 때만 렌더).
+  if (cat.league === 'KBO') {
+    const away = (n.awayStarterName || '').trim();
+    const home = (n.homeStarterName || '').trim();
+    if (away) game.awayPitcher = away;
+    if (home) game.homePitcher = home;
+  }
   return game;
 }
 
@@ -124,6 +134,8 @@ function serializeGame(g) {
   };
   if (g.rescheduledTo) out.rescheduledTo = g.rescheduledTo;
   if (g.doubleheaderNum) out.doubleheaderNum = g.doubleheaderNum;
+  if (g.awayPitcher) out.awayPitcher = g.awayPitcher;
+  if (g.homePitcher) out.homePitcher = g.homePitcher;
   return out;
 }
 
