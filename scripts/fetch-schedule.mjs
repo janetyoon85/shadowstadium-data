@@ -81,6 +81,12 @@ function convertGame(n, cat, stadiumMap, mapFailures) {
     if (away) game.awayPitcher = away;
     if (home) game.homePitcher = home;
   }
+  // 최종 스코어 — 종료(RESULT) 경기만. 야구·축구 공통 (awayTeamScore/homeTeamScore).
+  // away/home 은 위 away/home 팀명과 같은 출처라 점수도 같은 정렬로 짝지어짐.
+  if (status === 'completed') {
+    if (typeof n.awayTeamScore === 'number') game.awayScore = n.awayTeamScore;
+    if (typeof n.homeTeamScore === 'number') game.homeScore = n.homeTeamScore;
+  }
   return game;
 }
 
@@ -136,6 +142,9 @@ function serializeGame(g) {
   if (g.doubleheaderNum) out.doubleheaderNum = g.doubleheaderNum;
   if (g.awayPitcher) out.awayPitcher = g.awayPitcher;
   if (g.homePitcher) out.homePitcher = g.homePitcher;
+  // 0 도 유효 점수라 typeof 가드 (falsy 체크 금지).
+  if (typeof g.awayScore === 'number') out.awayScore = g.awayScore;
+  if (typeof g.homeScore === 'number') out.homeScore = g.homeScore;
   return out;
 }
 
