@@ -39,6 +39,12 @@ jobs:
           FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
         run: node scripts/cron-reminders.mjs
 
+      # 캐시 워밍 piggyback — KST 13:00–19:30, 오늘 경기 구장 /api/kma 데움.
+      # 윈도우 밖/경기 없음 = no-op. 실패해도 리마인더 발송과 무관 → continue-on-error.
+      - name: Warm weather cache
+        continue-on-error: true
+        run: node scripts/warm-weather.mjs
+
       - name: Commit sent state
         run: |
           git add sent-reminders.json
