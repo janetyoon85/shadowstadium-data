@@ -12,6 +12,10 @@ const PAGE_SIZE = 200;
 const REQUEST_DELAY_MS = 1100;
 const USER_AGENT = 'shadowstadium-crawler/1.0 (+https://github.com/janetyoon85/shadowstadium-data)';
 const API_BASE = 'https://api-gw.sports.naver.com/schedule/games';
+const RECORD_API = (gameId) => `${API_BASE}/${gameId}/record`;
+// 세이브 투수 캐시 — schedule API 엔 세이브 필드가 없어 게임당 /record 1요청이 필요.
+// 종료 경기는 결과가 불변이라 gameId→savePitcher(없으면 null)로 캐시 후 신규 종료분만 fetch.
+const SAVES_PATH = path.join(REPO_ROOT, 'saves.json');
 
 const CATEGORIES = [
   { categoryId: 'kbo', upperCategoryId: 'kbaseball', league: 'KBO' },
@@ -86,6 +90,15 @@ function convertGame(n, cat, stadiumMap, mapFailures) {
   if (status === 'completed') {
     if (typeof n.awayTeamScore === 'number') game.awayScore = n.awayTeamScore;
     if (typeof n.homeTeamScore === 'number') game.homeScore = n.homeTeamScore;
+    // 승/패 투수 — KBO 종료 경기만. schedule API 의 win/losePitcherName 에 이미 포함(추가 요청 0).
+    // 무승부(DRAW)면 둘 다 빈 문자열 → 누락(앱이 둘 다 있을 때만 렌더). 세이브는 schedule API 에
+    // 없어 별도 /record 엔드포인트로 enrichSaves 에서 채움.
+    if (cat.league === 'KBO') {
+      const wp = (n.winPitcherName || '').trim();
+      const lp = (n.losePitcherName || '').trim();
+      if (wp) game.winPitcher = wp;
+      if (lp) game.losePitcher = lp;
+    }
   }
   return game;
 }
@@ -125,6 +138,71 @@ function sortGames(games) {
   });
 }
 
+// /record 엔드포인트의 pitchingResult[].wls 에서 세이브(wls==='S') 투수명 추출.
+// 세이브 없는 경기(대부분)·DRAW → null. name 은 성만(예: '조동욱') — schedule 투수명과 동일 표기.
+async function fetchSavePitcher(gameId) {
+  const res = await fetch(RECORD_API(gameId), { headers: { 'User-Agent': USER_AGENT } });
+  if (!res.ok) throw new Error(`HTTP ${res.status} record ${gameId}`);
+  const json = await res.json();
+  const pr = json?.result?.recordData?.pitchingResult;
+  if (!Array.isArray(pr)) return null;
+  const sv = pr.find((p) => p && p.wls === 'S');
+  if (!sv) return null;
+  const name = (sv.name || '').trim();
+  return name || null;
+}
+
+// 종료 KBO 경기에 세이브 투수(savePitcher) 부착. saves.json 캐시로 신규 종료분만 /record fetch.
+// graceful: /record 실패한 게임은 캐시 안 함(다음 run 재시도) + savePitcher 미부착(승/패 점수는 유지).
+// 캐시는 현 데이터셋의 종료 KBO gameId 로 prune — 시즌 넘어가도 무한 증식 방지.
+async function enrichSaves(allGames) {
+  let cache = {};
+  try {
+    cache = JSON.parse(await fs.readFile(SAVES_PATH, 'utf-8'));
+  } catch (e) {
+    if (e.code !== 'ENOENT') throw e;
+    console.log('[saves] no saves.json yet — backfilling from scratch');
+  }
+
+  const targets = allGames.filter(
+    (g) => g.league === 'KBO' && g.status === 'completed' && g.gameId,
+  );
+  let fromCache = 0;
+  let fetched = 0;
+  let failed = 0;
+
+  for (const g of targets) {
+    if (!Object.prototype.hasOwnProperty.call(cache, g.gameId)) {
+      try {
+        await sleep(REQUEST_DELAY_MS);
+        cache[g.gameId] = await fetchSavePitcher(g.gameId);
+        fetched++;
+      } catch (e) {
+        failed++;
+        console.warn(`[saves] fetch failed ${g.gameId}: ${e.message}`);
+        continue; // 캐시 안 함 → 다음 run 재시도. savePitcher 미부착.
+      }
+    } else {
+      fromCache++;
+    }
+    const sv = cache[g.gameId];
+    if (sv) g.savePitcher = sv;
+  }
+
+  // prune: 현 데이터셋의 종료 KBO gameId 만 남김 (캐시한 값이 있는 것만).
+  const validIds = new Set(targets.map((g) => g.gameId));
+  const pruned = {};
+  for (const id of validIds) {
+    if (Object.prototype.hasOwnProperty.call(cache, id)) pruned[id] = cache[id];
+  }
+  await fs.writeFile(SAVES_PATH, JSON.stringify(pruned, null, 2) + '\n', 'utf-8');
+
+  const withSave = targets.filter((g) => g.savePitcher).length;
+  console.log(
+    `[saves] completedKBO=${targets.length} cached=${fromCache} fetched=${fetched} failed=${failed} withSave=${withSave}`,
+  );
+}
+
 function serializeGame(g) {
   const out = {
     date: g.date,
@@ -145,6 +223,10 @@ function serializeGame(g) {
   // 0 도 유효 점수라 typeof 가드 (falsy 체크 금지).
   if (typeof g.awayScore === 'number') out.awayScore = g.awayScore;
   if (typeof g.homeScore === 'number') out.homeScore = g.homeScore;
+  // 종료 경기 승/패/세 투수 (KBO). 있는 것만 — 무승부·세이브 없는 경기는 일부/전부 누락.
+  if (g.winPitcher) out.winPitcher = g.winPitcher;
+  if (g.losePitcher) out.losePitcher = g.losePitcher;
+  if (g.savePitcher) out.savePitcher = g.savePitcher;
   return out;
 }
 
@@ -204,6 +286,9 @@ async function main() {
     if (e.code === 'ENOENT') console.log(`\n[manual] no manual_games.json (optional)`);
     else throw e;
   }
+
+  // 세이브 투수 부착 (종료 KBO만, /record 캐시). 네트워크 단계라 sort/serialize 전에 1회.
+  await enrichSaves(allGames);
 
   sortGames(allGames);
 
