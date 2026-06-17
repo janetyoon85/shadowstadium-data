@@ -208,8 +208,9 @@ async function enrichSaves(allGames) {
   );
 }
 
-// scorePlayer HTML(<li>[time]이름[time]</li> 반복) → [{m,n}]. 골 1개=li 1개, 순서·개수는 스코어와 일치.
+// scorePlayer HTML(<li>[time]이름[time]</li> 반복) → [{m,n,og?}]. 골 1개=li 1개, 순서·개수는 스코어와 일치.
 // home: "이름 <span class='time'>MM:SS</span>", away: "<span class='time'>MM:SS</span> 이름" — 위치 달라도 동일 파싱.
+// 자책골: Naver 가 득점한(이득 본) 팀 목록에 "{상대선수}(자책골)" 로 귀속 → 이름에서 분리해 og 플래그.
 function parseScorerHtml(html) {
   if (!html || typeof html !== 'string') return [];
   const out = [];
@@ -217,36 +218,63 @@ function parseScorerHtml(html) {
     const li = chunk.split('</li>')[0];
     const tm = li.match(/<span class='time'>(\d+):\d+<\/span>/);
     const m = tm ? parseInt(tm[1], 10) : null;
-    const n = li.replace(/<span class='time'>[^<]*<\/span>/g, '').replace(/<[^>]*>/g, '').trim();
+    let n = li.replace(/<span class='time'>[^<]*<\/span>/g, '').replace(/<[^>]*>/g, '').trim();
+    let og = false;
+    if (/자책골/.test(n)) {
+      og = true;
+      n = n.replace(/\s*\(?\s*자책골\s*\)?\s*/g, '').trim();
+    }
     if (!n) continue;
-    out.push(m != null ? { m, n } : { n });
+    const s = { n };
+    if (m != null) s.m = m;
+    if (og) s.og = true;
+    out.push(s);
   }
   return out;
 }
 
-// 종료 축구 경기 /relay 1요청에서 득점자 추출.
-// - 득점/분/팀: homeScorePlayer/awayScorePlayer (전 경기 완전, 스코어와 일치, 절대분 MM:SS).
-// - PK: 기본 relay(후반) textRelays 의 eventType==='PK' 선수명 집합 + 후반(m>45) 매칭만 표기.
-//   1전반 PK 는 미표기(graceful·드묾). 모르는 eventType 은 그냥 무시 → 크래시·오표기 없음.
-async function fetchScorers(gameId) {
-  const res = await fetch(RELAY_API(gameId), { headers: { 'User-Agent': USER_AGENT } });
-  if (!res.ok) throw new Error(`HTTP ${res.status} relay ${gameId}`);
+// relay 이벤트 time → 절대분. "29'"→29, "+3"(half=1)→48/(half=2)→93, 숫자만→그대로.
+function absMinFromEvent(e) {
+  const t = (e && e.time != null ? String(e.time) : '').trim();
+  const plus = t.match(/^\+(\d+)$/);
+  if (plus) return (e.half === '1' ? 45 : 90) + parseInt(plus[1], 10);
+  const norm = t.match(/^(\d+)'?$/);
+  if (norm) return parseInt(norm[1], 10);
+  return null;
+}
+
+async function fetchRelayHalf(gameId, half) {
+  const res = await fetch(`${RELAY_API(gameId)}?half=${half}`, { headers: { 'User-Agent': USER_AGENT } });
+  if (!res.ok) throw new Error(`HTTP ${res.status} relay ${gameId} half=${half}`);
   const json = await res.json();
-  const d = json?.result?.textRelayData;
+  return json?.result?.textRelayData || null;
+}
+
+// 종료 축구 경기 /relay 에서 득점자 추출. 전·후반 2요청 — 기본 relay 는 후반 이벤트만 줘서
+// 전반 PK 를 놓침(scorePlayer 골 목록은 양쪽 동일·전 경기 완전이라 어느 쪽이든 사용).
+// - 득점/분/팀/자책골: home/awayScorePlayer.
+// - PK: 전·후반 textRelays eventType==='PK' → 절대분. 득점자와 이름+분(±1) 둘 다 일치 시에만 (PK).
+//   (자책골은 PK 아님 / 모르는 eventType 은 무시 → 일반 골 오표기 0.)
+async function fetchScorers(gameId) {
+  const d1 = await fetchRelayHalf(gameId, 1);
+  const d2 = await fetchRelayHalf(gameId, 2);
+  const d = d2 || d1;
   if (!d) return { home: [], away: [] };
   const home = parseScorerHtml(d.homeScorePlayer);
   const away = parseScorerHtml(d.awayScorePlayer);
-  // 후반 PK 선수명 집합 (오표기 방지: 후반 골에만 적용).
-  const pkNames = new Set(
-    (Array.isArray(d.textRelays) ? d.textRelays : [])
-      .filter((e) => e && e.eventType === 'PK' && e.playerName)
-      .map((e) => e.playerName.trim()),
-  );
-  const flag = (arr) => arr.map((s) => (s.m != null && s.m > 45 && pkNames.has(s.n) ? { ...s, pk: true } : s));
-  return { home: flag(home), away: flag(away) };
+  const pkEvents = [...(d1?.textRelays || []), ...(d2?.textRelays || [])]
+    .filter((e) => e && e.eventType === 'PK' && e.playerName)
+    .map((e) => ({ name: e.playerName.trim(), min: absMinFromEvent(e) }));
+  const markPk = (arr) =>
+    arr.map((s) => {
+      if (s.og || s.m == null) return s;
+      const hit = pkEvents.some((p) => p.name === s.n && p.min != null && Math.abs(p.min - s.m) <= 1);
+      return hit ? { ...s, pk: true } : s;
+    });
+  return { home: markPk(home), away: markPk(away) };
 }
 
-// 종료 축구 경기에 득점자(scorers) 부착. scorers.json 캐시로 신규 종료분만 /relay fetch.
+// 종료 축구 경기에 득점자(scorers) 부착. scorers.json 캐시로 신규 종료분만 /relay fetch(전·후반 2요청).
 // graceful: 실패 게임은 캐시 안 함(다음 run 재시도)+미부착(점수 유지). 0골 경기는 미부착.
 async function enrichScorers(allGames) {
   let cache = {};
