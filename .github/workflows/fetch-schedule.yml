@@ -35,7 +35,7 @@ jobs:
       - name: Check for changes
         id: changes
         run: |
-          if [[ -n "$(git status --porcelain games_2026.json saves.json)" ]]; then
+          if [[ -n "$(git status --porcelain games_2026.json saves.json scorers.json)" ]]; then
             echo "changed=true" >> $GITHUB_OUTPUT
           else
             echo "changed=false" >> $GITHUB_OUTPUT
@@ -46,7 +46,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add games_2026.json saves.json
+          git add games_2026.json saves.json scorers.json
           git commit -m "chore(data): daily schedule sync ($(date +'%Y-%m-%d'))"
           git push
 

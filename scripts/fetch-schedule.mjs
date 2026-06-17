@@ -13,9 +13,14 @@ const REQUEST_DELAY_MS = 1100;
 const USER_AGENT = 'shadowstadium-crawler/1.0 (+https://github.com/janetyoon85/shadowstadium-data)';
 const API_BASE = 'https://api-gw.sports.naver.com/schedule/games';
 const RECORD_API = (gameId) => `${API_BASE}/${gameId}/record`;
+const RELAY_API = (gameId) => `${API_BASE}/${gameId}/relay`;
 // 세이브 투수 캐시 — schedule API 엔 세이브 필드가 없어 게임당 /record 1요청이 필요.
 // 종료 경기는 결과가 불변이라 gameId→savePitcher(없으면 null)로 캐시 후 신규 종료분만 fetch.
 const SAVES_PATH = path.join(REPO_ROOT, 'saves.json');
+// 축구 득점자 캐시 — schedule API 엔 득점자 없어 게임당 /relay 1요청.
+// gameId→{home:[{m,n,pk?}],away:[...]} (0-0 면 빈 배열) 캐시 후 신규 종료분만 fetch.
+const SCORERS_PATH = path.join(REPO_ROOT, 'scorers.json');
+const SOCCER_LEAGUES = new Set(['K리그1', 'K리그2']);
 
 const CATEGORIES = [
   { categoryId: 'kbo', upperCategoryId: 'kbaseball', league: 'KBO' },
@@ -203,6 +208,94 @@ async function enrichSaves(allGames) {
   );
 }
 
+// scorePlayer HTML(<li>[time]이름[time]</li> 반복) → [{m,n}]. 골 1개=li 1개, 순서·개수는 스코어와 일치.
+// home: "이름 <span class='time'>MM:SS</span>", away: "<span class='time'>MM:SS</span> 이름" — 위치 달라도 동일 파싱.
+function parseScorerHtml(html) {
+  if (!html || typeof html !== 'string') return [];
+  const out = [];
+  for (const chunk of html.split('<li>').slice(1)) {
+    const li = chunk.split('</li>')[0];
+    const tm = li.match(/<span class='time'>(\d+):\d+<\/span>/);
+    const m = tm ? parseInt(tm[1], 10) : null;
+    const n = li.replace(/<span class='time'>[^<]*<\/span>/g, '').replace(/<[^>]*>/g, '').trim();
+    if (!n) continue;
+    out.push(m != null ? { m, n } : { n });
+  }
+  return out;
+}
+
+// 종료 축구 경기 /relay 1요청에서 득점자 추출.
+// - 득점/분/팀: homeScorePlayer/awayScorePlayer (전 경기 완전, 스코어와 일치, 절대분 MM:SS).
+// - PK: 기본 relay(후반) textRelays 의 eventType==='PK' 선수명 집합 + 후반(m>45) 매칭만 표기.
+//   1전반 PK 는 미표기(graceful·드묾). 모르는 eventType 은 그냥 무시 → 크래시·오표기 없음.
+async function fetchScorers(gameId) {
+  const res = await fetch(RELAY_API(gameId), { headers: { 'User-Agent': USER_AGENT } });
+  if (!res.ok) throw new Error(`HTTP ${res.status} relay ${gameId}`);
+  const json = await res.json();
+  const d = json?.result?.textRelayData;
+  if (!d) return { home: [], away: [] };
+  const home = parseScorerHtml(d.homeScorePlayer);
+  const away = parseScorerHtml(d.awayScorePlayer);
+  // 후반 PK 선수명 집합 (오표기 방지: 후반 골에만 적용).
+  const pkNames = new Set(
+    (Array.isArray(d.textRelays) ? d.textRelays : [])
+      .filter((e) => e && e.eventType === 'PK' && e.playerName)
+      .map((e) => e.playerName.trim()),
+  );
+  const flag = (arr) => arr.map((s) => (s.m != null && s.m > 45 && pkNames.has(s.n) ? { ...s, pk: true } : s));
+  return { home: flag(home), away: flag(away) };
+}
+
+// 종료 축구 경기에 득점자(scorers) 부착. scorers.json 캐시로 신규 종료분만 /relay fetch.
+// graceful: 실패 게임은 캐시 안 함(다음 run 재시도)+미부착(점수 유지). 0골 경기는 미부착.
+async function enrichScorers(allGames) {
+  let cache = {};
+  try {
+    cache = JSON.parse(await fs.readFile(SCORERS_PATH, 'utf-8'));
+  } catch (e) {
+    if (e.code !== 'ENOENT') throw e;
+    console.log('[scorers] no scorers.json yet — backfilling from scratch');
+  }
+
+  const targets = allGames.filter(
+    (g) => SOCCER_LEAGUES.has(g.league) && g.status === 'completed' && g.gameId,
+  );
+  let fromCache = 0;
+  let fetched = 0;
+  let failed = 0;
+
+  for (const g of targets) {
+    if (!Object.prototype.hasOwnProperty.call(cache, g.gameId)) {
+      try {
+        await sleep(REQUEST_DELAY_MS);
+        cache[g.gameId] = await fetchScorers(g.gameId);
+        fetched++;
+      } catch (e) {
+        failed++;
+        console.warn(`[scorers] fetch failed ${g.gameId}: ${e.message}`);
+        continue; // 캐시 안 함 → 다음 run 재시도. scorers 미부착.
+      }
+    } else {
+      fromCache++;
+    }
+    const sc = cache[g.gameId];
+    if (sc && ((sc.home && sc.home.length) || (sc.away && sc.away.length))) g.scorers = sc;
+  }
+
+  // prune: 현 데이터셋의 종료 축구 gameId 만 남김.
+  const validIds = new Set(targets.map((g) => g.gameId));
+  const pruned = {};
+  for (const id of validIds) {
+    if (Object.prototype.hasOwnProperty.call(cache, id)) pruned[id] = cache[id];
+  }
+  await fs.writeFile(SCORERS_PATH, JSON.stringify(pruned, null, 2) + '\n', 'utf-8');
+
+  const withScorers = targets.filter((g) => g.scorers).length;
+  console.log(
+    `[scorers] completedSoccer=${targets.length} cached=${fromCache} fetched=${fetched} failed=${failed} withScorers=${withScorers}`,
+  );
+}
+
 function serializeGame(g) {
   const out = {
     date: g.date,
@@ -227,6 +320,8 @@ function serializeGame(g) {
   if (g.winPitcher) out.winPitcher = g.winPitcher;
   if (g.losePitcher) out.losePitcher = g.losePitcher;
   if (g.savePitcher) out.savePitcher = g.savePitcher;
+  // 축구 득점자 — 종료 경기, 골 있을 때만. {home,away} 각 [{m,n,pk?}].
+  if (g.scorers) out.scorers = g.scorers;
   return out;
 }
 
@@ -289,6 +384,8 @@ async function main() {
 
   // 세이브 투수 부착 (종료 KBO만, /record 캐시). 네트워크 단계라 sort/serialize 전에 1회.
   await enrichSaves(allGames);
+  // 축구 득점자 부착 (종료 K리그만, /relay 캐시).
+  await enrichScorers(allGames);
 
   sortGames(allGames);
 
