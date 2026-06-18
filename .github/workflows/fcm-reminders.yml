@@ -6,9 +6,13 @@ name: FCM Reminders
 # 15분 주기는 짧은 1h lead 의 안정성(최대 14분 지연) 위함. 공개 repo 라 분 무제한.
 
 on:
-  schedule:
-    - cron: '*/15 * * * *'  # UTC, 모든 15분 (00, 15, 30, 45)
-  workflow_dispatch:  # 수동 실행 (테스트용)
+  # ⚠️ 비활성화 2026-06-18: 매일 실패하던 FCM 푸시 cron 정지 (코드 보존, 삭제 X).
+  # 앱은 현재 expo 로컬 알림(6h 전)을 사용하고 FCM 서버 푸시는 미연동 → 레거시 상태.
+  # FCM 푸시 실연동 시 아래 schedule 주석을 해제하면 매 15분 cron 복원.
+  # 참고: 이 cron 은 warm-weather(날씨 캐시 워밍) piggyback 도 함께 돌렸음 → 함께 정지됨.
+  # schedule:
+  #   - cron: '*/15 * * * *'  # UTC, 모든 15분 (00, 15, 30, 45)
+  workflow_dispatch:  # 수동 실행 (테스트용) — 비활성화 후에도 수동 트리거 가능
 
 permissions:
   contents: write   # sent-reminders.json commit + push
