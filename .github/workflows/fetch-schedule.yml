@@ -3,9 +3,10 @@ name: Daily Schedule Fetch
 on:
   schedule:
     # GitHub Actions cron 은 UTC 기준. KST = UTC+9.
-    - cron: '40 13 * * *'  # 22:40 KST (당일 13:40 UTC) — 밤 10시 선발투수 발표분 반영
-    - cron: '0 5 * * *'    # 14:00 KST (당일 05:00 UTC)
-    - cron: '0 8 * * *'    # 17:00 KST (당일 08:00 UTC)
+    # MLB/NPB/EPL/EFL 편입(2026-09) 이후 경기 종료 시각이 하루 전체에 걸쳐 흩어져 있어
+    # 3회/일 → 매시 정각으로 상향. 네이버 비공식 API라 공식 rate limit 문서는 없음 —
+    # 하루 24회(카테고리 조회만 ~720req/day)로 시작, 문제 생기면 다시 줄일 것.
+    - cron: '0 * * * *'    # 매시 정각 (UTC = KST 매시)
   workflow_dispatch:  # 수동 실행 가능 (테스트용)
 
 permissions:
