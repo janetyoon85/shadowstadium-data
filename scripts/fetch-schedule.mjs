@@ -25,7 +25,7 @@ const SOCCER_LEAGUES = new Set(['K리그1', 'K리그2']);
 const BASEBALL_LEAGUES = new Set(['KBO', 'MLB', 'NPB']);
 // 득점자를 다른 엔드포인트(/schedule/games/{id}?fields=all의 game.scorers, 이미 구조화된 JSON)로
 // 가져오는 리그. K리그(SOCCER_LEAGUES)는 /relay HTML 파싱 방식이라 별도 — 서로 다른 스키마.
-const ENGLISH_SOCCER_LEAGUES = new Set(['EPL', 'EFL']);
+const STRUCTURED_SCORER_LEAGUES = new Set(['EPL', 'EFL', 'LALIGA']);
 
 const CATEGORIES = [
   { categoryId: 'kbo', upperCategoryId: 'kbaseball', league: 'KBO' },
@@ -35,6 +35,7 @@ const CATEGORIES = [
   { categoryId: 'npb', upperCategoryId: 'wbaseball', league: 'NPB' },
   { categoryId: 'epl', upperCategoryId: 'wfootball', league: 'EPL' },
   { categoryId: 'england2', upperCategoryId: 'wfootball', league: 'EFL' },
+  { categoryId: 'primera', upperCategoryId: 'wfootball', league: 'LALIGA' },
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -295,7 +296,7 @@ async function fetchScorers(gameId) {
 // EPL/EFL 득점자 — K리그(/relay HTML 파싱)와 완전히 다른 스키마. 이미 구조화된 JSON으로
 // /schedule/games/{gameId}?fields=all 의 game.scorers.{home,away}[].{time,addedTime,playerName,ownGoal}
 // 에 그대로 들어있음(실측 확인, 2026-09). PK 여부 필드는 이 스키마에 없어 pk는 항상 미표기.
-async function fetchEnglishScorers(gameId) {
+async function fetchStructuredScorers(gameId) {
   const res = await fetch(`${API_BASE}/${gameId}?fields=all`, { headers: { 'User-Agent': USER_AGENT } });
   if (!res.ok) throw new Error(`HTTP ${res.status} game ${gameId}`);
   const json = await res.json();
@@ -327,7 +328,7 @@ async function enrichScorers(allGames) {
 
   const targets = allGames.filter(
     (g) =>
-      (SOCCER_LEAGUES.has(g.league) || ENGLISH_SOCCER_LEAGUES.has(g.league)) &&
+      (SOCCER_LEAGUES.has(g.league) || STRUCTURED_SCORER_LEAGUES.has(g.league)) &&
       g.status === 'completed' &&
       g.gameId,
   );
@@ -339,8 +340,8 @@ async function enrichScorers(allGames) {
     if (!Object.prototype.hasOwnProperty.call(cache, g.gameId)) {
       try {
         await sleep(REQUEST_DELAY_MS);
-        cache[g.gameId] = ENGLISH_SOCCER_LEAGUES.has(g.league)
-          ? await fetchEnglishScorers(g.gameId)
+        cache[g.gameId] = STRUCTURED_SCORER_LEAGUES.has(g.league)
+          ? await fetchStructuredScorers(g.gameId)
           : await fetchScorers(g.gameId);
         fetched++;
       } catch (e) {
