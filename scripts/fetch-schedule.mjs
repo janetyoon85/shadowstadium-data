@@ -460,8 +460,24 @@ async function main() {
   const exportGames = allGames.filter((g) => g.venueId);
   const filteredOut = allGames.length - exportGames.length;
   const serialized = exportGames.map(serializeGame);
-  await fs.writeFile(prodPath, JSON.stringify(serialized, null, 2) + '\n', 'utf-8');
-  console.log(`\n[update] ${prodPath} replaced (${serialized.length} games, ${filteredOut} filtered out for missing venueId)`);
+
+  // 이 스크립트가 모르는 리그(MLB/NPB/EPL/EFL 등 — buildGameData.py가 별도로 채워 넣는 파일럿
+  // 리그)는 건드리지 않고 보존한다. 예전엔 games_2026.json을 통째로 덮어써서, 매 크론 실행마다
+  // 수동으로 병합해둔 해외 리그 데이터가 지워지는 사고가 있었음(2026-09-09).
+  const knownLeagues = new Set(CATEGORIES.map((c) => c.league));
+  let preserved = [];
+  try {
+    const existing = JSON.parse(await fs.readFile(prodPath, 'utf-8'));
+    preserved = existing.filter((g) => !knownLeagues.has(g.league));
+  } catch (e) {
+    if (e.code !== 'ENOENT') throw e;
+  }
+  console.log(`\n[preserve] keeping ${preserved.length} games from leagues this script doesn't manage`);
+
+  const finalGames = [...serialized, ...preserved];
+  sortGames(finalGames);
+  await fs.writeFile(prodPath, JSON.stringify(finalGames, null, 2) + '\n', 'utf-8');
+  console.log(`\n[update] ${prodPath} replaced (${serialized.length} own + ${preserved.length} preserved = ${finalGames.length} games, ${filteredOut} filtered out for missing venueId)`);
 
   const dur = ((Date.now() - startMs) / 1000).toFixed(1);
   console.log(`\n[done] ${new Date().toISOString()} (${dur}s)`);
