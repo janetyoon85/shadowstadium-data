@@ -21,11 +21,20 @@ const SAVES_PATH = path.join(REPO_ROOT, 'saves.json');
 // gameId→{home:[{m,n,pk?}],away:[...]} (0-0 면 빈 배열) 캐시 후 신규 종료분만 fetch.
 const SCORERS_PATH = path.join(REPO_ROOT, 'scorers.json');
 const SOCCER_LEAGUES = new Set(['K리그1', 'K리그2']);
+// 승/패 투수 필드(schedule API 기본 포함)를 표시하는 리그 — 야구 공통(K리그는 해당 없음).
+const BASEBALL_LEAGUES = new Set(['KBO', 'MLB', 'NPB']);
+// 득점자를 다른 엔드포인트(/schedule/games/{id}?fields=all의 game.scorers, 이미 구조화된 JSON)로
+// 가져오는 리그. K리그(SOCCER_LEAGUES)는 /relay HTML 파싱 방식이라 별도 — 서로 다른 스키마.
+const ENGLISH_SOCCER_LEAGUES = new Set(['EPL', 'EFL']);
 
 const CATEGORIES = [
   { categoryId: 'kbo', upperCategoryId: 'kbaseball', league: 'KBO' },
   { categoryId: 'kleague', upperCategoryId: 'kfootball', league: 'K리그1' },
   { categoryId: 'kleague2', upperCategoryId: 'kfootball', league: 'K리그2' },
+  { categoryId: 'mlb', upperCategoryId: 'wbaseball', league: 'MLB' },
+  { categoryId: 'npb', upperCategoryId: 'wbaseball', league: 'NPB' },
+  { categoryId: 'epl', upperCategoryId: 'wfootball', league: 'EPL' },
+  { categoryId: 'england2', upperCategoryId: 'wfootball', league: 'EFL' },
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -95,10 +104,10 @@ function convertGame(n, cat, stadiumMap, mapFailures) {
   if (status === 'completed') {
     if (typeof n.awayTeamScore === 'number') game.awayScore = n.awayTeamScore;
     if (typeof n.homeTeamScore === 'number') game.homeScore = n.homeTeamScore;
-    // 승/패 투수 — KBO 종료 경기만. schedule API 의 win/losePitcherName 에 이미 포함(추가 요청 0).
-    // 무승부(DRAW)면 둘 다 빈 문자열 → 누락(앱이 둘 다 있을 때만 렌더). 세이브는 schedule API 에
-    // 없어 별도 /record 엔드포인트로 enrichSaves 에서 채움.
-    if (cat.league === 'KBO') {
+    // 승/패 투수 — 야구 리그(KBO/MLB/NPB) 종료 경기만. schedule API 의 win/losePitcherName 에
+    // 이미 포함(추가 요청 0). 무승부(DRAW)면 둘 다 빈 문자열 → 누락(앱이 둘 다 있을 때만 렌더).
+    // 세이브는 schedule API 에 없어 별도 /record 엔드포인트로 enrichSaves 에서 채움.
+    if (BASEBALL_LEAGUES.has(cat.league)) {
       const wp = (n.winPitcherName || '').trim();
       const lp = (n.losePitcherName || '').trim();
       if (wp) game.winPitcher = wp;
@@ -143,23 +152,32 @@ function sortGames(games) {
   });
 }
 
-// /record 엔드포인트의 pitchingResult[].wls 에서 세이브(wls==='S') 투수명 추출.
-// 세이브 없는 경기(대부분)·DRAW → null. name 은 성만(예: '조동욱') — schedule 투수명과 동일 표기.
+// /record 엔드포인트에서 세이브 투수명 추출. 리그별 스키마가 다름:
+// - KBO: pitchingResult 단일 배열, wls 영문코드('S').
+// - MLB/NPB: homePitcher/awayPitcher 배열 분리, wls 한글('세'). (실측 확인됨, 2026-09)
+// 세이브 없는 경기(대부분)·DRAW → null. name 은 성만 — schedule 투수명과 동일 표기.
 async function fetchSavePitcher(gameId) {
   const res = await fetch(RECORD_API(gameId), { headers: { 'User-Agent': USER_AGENT } });
   if (!res.ok) throw new Error(`HTTP ${res.status} record ${gameId}`);
   const json = await res.json();
-  const pr = json?.result?.recordData?.pitchingResult;
-  if (!Array.isArray(pr)) return null;
-  const sv = pr.find((p) => p && p.wls === 'S');
-  if (!sv) return null;
-  const name = (sv.name || '').trim();
-  return name || null;
+  const rd = json?.result?.recordData;
+  if (!rd) return null;
+  if (Array.isArray(rd.pitchingResult)) {
+    const sv = rd.pitchingResult.find((p) => p && p.wls === 'S');
+    return sv ? (sv.name || '').trim() || null : null;
+  }
+  for (const key of ['homePitcher', 'awayPitcher']) {
+    const arr = rd[key];
+    if (!Array.isArray(arr)) continue;
+    const sv = arr.find((p) => p && p.wls === '세');
+    if (sv) return (sv.name || '').trim() || null;
+  }
+  return null;
 }
 
-// 종료 KBO 경기에 세이브 투수(savePitcher) 부착. saves.json 캐시로 신규 종료분만 /record fetch.
-// graceful: /record 실패한 게임은 캐시 안 함(다음 run 재시도) + savePitcher 미부착(승/패 점수는 유지).
-// 캐시는 현 데이터셋의 종료 KBO gameId 로 prune — 시즌 넘어가도 무한 증식 방지.
+// 종료 야구(KBO/MLB/NPB) 경기에 세이브 투수(savePitcher) 부착. saves.json 캐시로 신규 종료분만
+// /record fetch. graceful: /record 실패한 게임은 캐시 안 함(다음 run 재시도) + savePitcher 미부착
+// (승/패 점수는 유지). 캐시는 현 데이터셋의 종료 gameId 로 prune — 시즌 넘어가도 무한 증식 방지.
 async function enrichSaves(allGames) {
   let cache = {};
   try {
@@ -170,7 +188,7 @@ async function enrichSaves(allGames) {
   }
 
   const targets = allGames.filter(
-    (g) => g.league === 'KBO' && g.status === 'completed' && g.gameId,
+    (g) => BASEBALL_LEAGUES.has(g.league) && g.status === 'completed' && g.gameId,
   );
   let fromCache = 0;
   let fetched = 0;
@@ -194,7 +212,7 @@ async function enrichSaves(allGames) {
     if (sv) g.savePitcher = sv;
   }
 
-  // prune: 현 데이터셋의 종료 KBO gameId 만 남김 (캐시한 값이 있는 것만).
+  // prune: 현 데이터셋의 종료 야구(KBO/MLB/NPB) gameId 만 남김 (캐시한 값이 있는 것만).
   const validIds = new Set(targets.map((g) => g.gameId));
   const pruned = {};
   for (const id of validIds) {
@@ -204,7 +222,7 @@ async function enrichSaves(allGames) {
 
   const withSave = targets.filter((g) => g.savePitcher).length;
   console.log(
-    `[saves] completedKBO=${targets.length} cached=${fromCache} fetched=${fetched} failed=${failed} withSave=${withSave}`,
+    `[saves] completedBaseball=${targets.length} cached=${fromCache} fetched=${fetched} failed=${failed} withSave=${withSave}`,
   );
 }
 
@@ -274,7 +292,29 @@ async function fetchScorers(gameId) {
   return { home: markPk(home), away: markPk(away) };
 }
 
-// 종료 축구 경기에 득점자(scorers) 부착. scorers.json 캐시로 신규 종료분만 /relay fetch(전·후반 2요청).
+// EPL/EFL 득점자 — K리그(/relay HTML 파싱)와 완전히 다른 스키마. 이미 구조화된 JSON으로
+// /schedule/games/{gameId}?fields=all 의 game.scorers.{home,away}[].{time,addedTime,playerName,ownGoal}
+// 에 그대로 들어있음(실측 확인, 2026-09). PK 여부 필드는 이 스키마에 없어 pk는 항상 미표기.
+async function fetchEnglishScorers(gameId) {
+  const res = await fetch(`${API_BASE}/${gameId}?fields=all`, { headers: { 'User-Agent': USER_AGENT } });
+  if (!res.ok) throw new Error(`HTTP ${res.status} game ${gameId}`);
+  const json = await res.json();
+  const scorers = json?.result?.game?.scorers;
+  if (!scorers) return { home: [], away: [] };
+  const conv = (arr) =>
+    (arr || [])
+      .filter((s) => s && (s.playerName || '').trim())
+      .map((s) => {
+        const out = { n: s.playerName.trim() };
+        if (s.time != null) out.m = s.time;
+        if (s.ownGoal) out.og = true;
+        return out;
+      });
+  return { home: conv(scorers.home), away: conv(scorers.away) };
+}
+
+// 종료 축구 경기에 득점자(scorers) 부착. scorers.json 캐시로 신규 종료분만 fetch(리그별로 다른
+// 엔드포인트/스키마 — K리그는 /relay 전·후반 2요청, EPL/EFL은 /schedule/games/{id}?fields=all 1요청).
 // graceful: 실패 게임은 캐시 안 함(다음 run 재시도)+미부착(점수 유지). 0골 경기는 미부착.
 async function enrichScorers(allGames) {
   let cache = {};
@@ -286,7 +326,10 @@ async function enrichScorers(allGames) {
   }
 
   const targets = allGames.filter(
-    (g) => SOCCER_LEAGUES.has(g.league) && g.status === 'completed' && g.gameId,
+    (g) =>
+      (SOCCER_LEAGUES.has(g.league) || ENGLISH_SOCCER_LEAGUES.has(g.league)) &&
+      g.status === 'completed' &&
+      g.gameId,
   );
   let fromCache = 0;
   let fetched = 0;
@@ -296,7 +339,9 @@ async function enrichScorers(allGames) {
     if (!Object.prototype.hasOwnProperty.call(cache, g.gameId)) {
       try {
         await sleep(REQUEST_DELAY_MS);
-        cache[g.gameId] = await fetchScorers(g.gameId);
+        cache[g.gameId] = ENGLISH_SOCCER_LEAGUES.has(g.league)
+          ? await fetchEnglishScorers(g.gameId)
+          : await fetchScorers(g.gameId);
         fetched++;
       } catch (e) {
         failed++;

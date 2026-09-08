@@ -1,11 +1,17 @@
 const REQUIRED_FIELDS = ['date', 'time', 'league', 'venueId', 'home', 'away'];
-const VALID_LEAGUES = ['KBO', 'K리그1', 'K리그2'];
+const VALID_LEAGUES = ['KBO', 'K리그1', 'K리그2', 'MLB', 'NPB', 'EPL', 'EFL'];
 const VALID_STATUSES = ['scheduled', 'cancelled', 'postponed', 'completed'];
 
 const MIN_COUNTS = {
   KBO: 500,
   'K리그1': 150,
   'K리그2': 200,
+  // 해외 리그는 SEASON_START~END(3~11월) 윈도우라 KBO/K리그보다 낮게 잡음(EPL/EFL은
+  // 8~5월 시즌이라 이 윈도우엔 절반 정도만 걸림) — 완전 fetch 실패만 잡는 느슨한 안전망.
+  MLB: 1500,
+  NPB: 500,
+  EPL: 150,
+  EFL: 250,
 };
 
 export function validateGame(game) {
@@ -43,7 +49,7 @@ export function validateDataset(games) {
   if (missingVenue > 0) warnings.push(`${missingVenue} games missing venueId → will be filtered from prod output`);
 
   // League counts (only games that will actually be exported = have venueId)
-  const cnt = { KBO: 0, 'K리그1': 0, 'K리그2': 0 };
+  const cnt = { KBO: 0, 'K리그1': 0, 'K리그2': 0, MLB: 0, NPB: 0, EPL: 0, EFL: 0 };
   for (const g of games) {
     if (!g.venueId) continue;
     if (cnt[g.league] !== undefined) cnt[g.league]++;
