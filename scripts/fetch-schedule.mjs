@@ -25,7 +25,7 @@ const SOCCER_LEAGUES = new Set(['K리그1', 'K리그2']);
 const BASEBALL_LEAGUES = new Set(['KBO', 'MLB', 'NPB']);
 // 득점자를 다른 엔드포인트(/schedule/games/{id}?fields=all의 game.scorers, 이미 구조화된 JSON)로
 // 가져오는 리그. K리그(SOCCER_LEAGUES)는 /relay HTML 파싱 방식이라 별도 — 서로 다른 스키마.
-const STRUCTURED_SCORER_LEAGUES = new Set(['EPL', 'EFL', 'LALIGA', 'BUNDESLIGA']);
+const STRUCTURED_SCORER_LEAGUES = new Set(['EPL', 'EFL', 'LALIGA', 'BUNDESLIGA', 'SERIEA']);
 
 const CATEGORIES = [
   { categoryId: 'kbo', upperCategoryId: 'kbaseball', league: 'KBO' },
@@ -37,6 +37,7 @@ const CATEGORIES = [
   { categoryId: 'england2', upperCategoryId: 'wfootball', league: 'EFL' },
   { categoryId: 'primera', upperCategoryId: 'wfootball', league: 'LALIGA' },
   { categoryId: 'bundesliga', upperCategoryId: 'wfootball', league: 'BUNDESLIGA' },
+  { categoryId: 'seria', upperCategoryId: 'wfootball', league: 'SERIEA' },
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));

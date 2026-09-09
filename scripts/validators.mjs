@@ -1,5 +1,5 @@
 const REQUIRED_FIELDS = ['date', 'time', 'league', 'venueId', 'home', 'away'];
-const VALID_LEAGUES = ['KBO', 'K리그1', 'K리그2', 'MLB', 'NPB', 'EPL', 'EFL', 'LALIGA', 'BUNDESLIGA'];
+const VALID_LEAGUES = ['KBO', 'K리그1', 'K리그2', 'MLB', 'NPB', 'EPL', 'EFL', 'LALIGA', 'BUNDESLIGA', 'SERIEA'];
 const VALID_STATUSES = ['scheduled', 'cancelled', 'postponed', 'completed'];
 
 const MIN_COUNTS = {
@@ -14,6 +14,7 @@ const MIN_COUNTS = {
   EFL: 250,
   LALIGA: 150,
   BUNDESLIGA: 100,
+  SERIEA: 100,
 };
 
 export function validateGame(game) {
@@ -51,7 +52,7 @@ export function validateDataset(games) {
   if (missingVenue > 0) warnings.push(`${missingVenue} games missing venueId → will be filtered from prod output`);
 
   // League counts (only games that will actually be exported = have venueId)
-  const cnt = { KBO: 0, 'K리그1': 0, 'K리그2': 0, MLB: 0, NPB: 0, EPL: 0, EFL: 0, LALIGA: 0, BUNDESLIGA: 0 };
+  const cnt = { KBO: 0, 'K리그1': 0, 'K리그2': 0, MLB: 0, NPB: 0, EPL: 0, EFL: 0, LALIGA: 0, BUNDESLIGA: 0, SERIEA: 0 };
   for (const g of games) {
     if (!g.venueId) continue;
     if (cnt[g.league] !== undefined) cnt[g.league]++;
