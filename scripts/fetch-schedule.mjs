@@ -96,9 +96,10 @@ function convertGame(n, cat, stadiumMap, mapFailures) {
     gameId: n.gameId,
     status,
   };
-  // 선발투수 — KBO 만, 발표된(비어있지 않은) 경우만. away/home 모두 있을 때만 의미 있게 표시되지만
-  // 데이터는 각각 있는 대로 저장(앱이 양쪽 다 있을 때만 렌더).
-  if (cat.league === 'KBO') {
+  // 선발투수 — 야구 리그(KBO/MLB/NPB) 공통, 발표된(비어있지 않은) 경우만. MLB/NPB도 schedule
+  // API가 같은 필드(homeStarterName/awayStarterName)로 제공하는 것 확인(2026-09-09 실측).
+  // away/home 모두 있을 때만 의미 있게 표시되지만 데이터는 각각 있는 대로 저장(앱이 양쪽 다 있을 때만 렌더).
+  if (BASEBALL_LEAGUES.has(cat.league)) {
     const away = (n.awayStarterName || '').trim();
     const home = (n.homeStarterName || '').trim();
     if (away) game.awayPitcher = away;
