@@ -49,7 +49,18 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add games_2026.json saves.json scorers.json
           git commit -m "chore(data): daily schedule sync ($(date +'%Y-%m-%d'))"
-          git push
+          # FCM Reminders(15분 간격)가 같은 브랜치에 동시에 push할 수 있어
+          # non-fast-forward 거부 시 rebase 후 재시도 (최대 5회).
+          for i in 1 2 3 4 5; do
+            if git push; then
+              exit 0
+            fi
+            echo "push rejected, rebasing onto origin/main and retrying ($i/5)"
+            git pull --rebase origin main
+            sleep $((RANDOM % 10 + 1))
+          done
+          echo "push failed after 5 retries"
+          exit 1
 
       - name: Create issue on failure
         if: failure()
