@@ -57,6 +57,24 @@ const CATEGORIES = [
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
+// naverStadiumMap.json에 없는 새 stadium 텍스트를 Discord로 능동 알림(빌드 실패로 안 만들어
+// 다른 리그 업데이트는 그대로 진행). 웹훅 미설정 시(로컬 실행 등) 조용히 스킵.
+async function notifyMappingFailures(uniqueFails) {
+  const webhook = process.env.DISCORD_WEBHOOK_URL;
+  if (!webhook) return;
+  const lines = uniqueFails.map((f) => `• ${f.categoryId} → "${f.stadium}"`).join('\n');
+  const content = `🟡 그늘각 — 미매핑 구장 발견 (${uniqueFails.length}건)\n승격/강등·개축으로 새 구장이 생겼을 수 있어요. naverStadiumMap.json에 추가하고 App.tsx VENUES도 확인해주세요.\n${lines}`;
+  try {
+    await fetch(webhook, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ content }),
+    });
+  } catch (e) {
+    console.warn('[discord] mapping-failure notify failed:', e.message);
+  }
+}
+
 async function fetchPage(cat, page) {
   // baseball 필드 → KBO 응답에 home/awayStarterName(선발투수) 포함. 발표 전(경기 전날 밤 10시 이전)
   // 이면 빈 문자열로 옴 → convertGame 에서 비어있으면 누락. K리그엔 해당 필드 없음(무시).
@@ -441,6 +459,10 @@ async function main() {
   if (uniqueFails.length > 0) {
     console.warn(`\n[mapping failures] ${uniqueFails.length} distinct stadium texts:`);
     for (const f of uniqueFails) console.warn(`  ${f.categoryId} → "${f.stadium}"`);
+    // 승격·강등으로 새 팀/새 구장이 생기면 naverStadiumMap.json에 없는 stadium 텍스트가
+    // 나타남 — 그 경기는 venueId 없이 필터되어 조용히 사라지므로(에러 아님, 빌드는 성공)
+    // 실패로 처리하지 않고 별도 Discord 알림으로 능동적으로 알림.
+    await notifyMappingFailures(uniqueFails);
   } else {
     console.log(`\n[mapping] all stadium texts mapped successfully`);
   }
