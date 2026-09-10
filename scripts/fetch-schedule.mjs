@@ -25,7 +25,7 @@ const SOCCER_LEAGUES = new Set(['K리그1', 'K리그2']);
 const BASEBALL_LEAGUES = new Set(['KBO', 'MLB', 'NPB']);
 // 득점자를 다른 엔드포인트(/schedule/games/{id}?fields=all의 game.scorers, 이미 구조화된 JSON)로
 // 가져오는 리그. K리그(SOCCER_LEAGUES)는 /relay HTML 파싱 방식이라 별도 — 서로 다른 스키마.
-const STRUCTURED_SCORER_LEAGUES = new Set(['EPL', 'EFL', 'LALIGA', 'BUNDESLIGA', 'SERIEA', 'LIGUE1', 'EREDIVISIE', 'MLS', 'SAUDI', 'J1']);
+const STRUCTURED_SCORER_LEAGUES = new Set(['EPL', 'EFL', 'LALIGA', 'BUNDESLIGA', 'SERIEA', 'LIGUE1', 'EREDIVISIE', 'MLS', 'SAUDI', 'J1', 'UCL']);
 
 const CATEGORIES = [
   { categoryId: 'kbo', upperCategoryId: 'kbaseball', league: 'KBO' },
@@ -45,6 +45,9 @@ const CATEGORIES = [
   { categoryId: 'saudiarabia', upperCategoryId: 'kfootball', league: 'SAUDI' },
   // J1리그도 마찬가지로 upperCategoryId='kfootball'.
   { categoryId: 'jleague', upperCategoryId: 'kfootball', league: 'J1' },
+  // UEFA 챔피언스리그 — upperCategoryId='wfootball'. 36개 참가팀 중 24개는 기존 리그
+  // venueId 재사용(naverStadiumMap.json champs 섹션에서 같은 값으로 매핑), 12개만 신규.
+  { categoryId: 'champs', upperCategoryId: 'wfootball', league: 'UCL' },
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));

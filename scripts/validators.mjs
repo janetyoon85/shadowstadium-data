@@ -1,5 +1,5 @@
 const REQUIRED_FIELDS = ['date', 'time', 'league', 'venueId', 'home', 'away'];
-const VALID_LEAGUES = ['KBO', 'K리그1', 'K리그2', 'MLB', 'NPB', 'EPL', 'EFL', 'LALIGA', 'BUNDESLIGA', 'SERIEA', 'LIGUE1', 'EREDIVISIE', 'MLS', 'SAUDI', 'J1'];
+const VALID_LEAGUES = ['KBO', 'K리그1', 'K리그2', 'MLB', 'NPB', 'EPL', 'EFL', 'LALIGA', 'BUNDESLIGA', 'SERIEA', 'LIGUE1', 'EREDIVISIE', 'MLS', 'SAUDI', 'J1', 'UCL'];
 const VALID_STATUSES = ['scheduled', 'cancelled', 'postponed', 'completed'];
 
 const MIN_COUNTS = {
