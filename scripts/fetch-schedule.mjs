@@ -25,7 +25,7 @@ const SOCCER_LEAGUES = new Set(['K리그1', 'K리그2']);
 const BASEBALL_LEAGUES = new Set(['KBO', 'MLB', 'NPB']);
 // 득점자를 다른 엔드포인트(/schedule/games/{id}?fields=all의 game.scorers, 이미 구조화된 JSON)로
 // 가져오는 리그. K리그(SOCCER_LEAGUES)는 /relay HTML 파싱 방식이라 별도 — 서로 다른 스키마.
-const STRUCTURED_SCORER_LEAGUES = new Set(['EPL', 'EFL', 'LALIGA', 'BUNDESLIGA', 'SERIEA', 'LIGUE1', 'EREDIVISIE', 'MLS', 'SAUDI', 'J1', 'SCOTLAND', 'UCL', 'UEL', 'ACL']);
+const STRUCTURED_SCORER_LEAGUES = new Set(['EPL', 'EFL', 'LALIGA', 'BUNDESLIGA', 'SERIEA', 'LIGUE1', 'EREDIVISIE', 'MLS', 'SAUDI', 'J1', 'SCOTLAND', 'DENMARK', 'UCL', 'UEL', 'ACL']);
 
 const CATEGORIES = [
   { categoryId: 'kbo', upperCategoryId: 'kbaseball', league: 'KBO' },
@@ -43,6 +43,8 @@ const CATEGORIES = [
   { categoryId: 'mls', upperCategoryId: 'wfootball', league: 'MLS' },
   // 스코티시 프리미어십 — Naver categoryId='spl'(과거 명칭 Scottish Premier League 흔적), upperCategoryId='wfootball'.
   { categoryId: 'spl', upperCategoryId: 'wfootball', league: 'SCOTLAND' },
+  // 덴마크 수페르리지엔 — Naver categoryId='denmark', upperCategoryId='wfootball'.
+  { categoryId: 'denmark', upperCategoryId: 'wfootball', league: 'DENMARK' },
   // 사우디 프로페셔널리그 — 네이버 API 구조상 K리그와 같은 upperCategoryId('kfootball')를 씀.
   { categoryId: 'saudiarabia', upperCategoryId: 'kfootball', league: 'SAUDI' },
   // J1리그도 마찬가지로 upperCategoryId='kfootball'.
