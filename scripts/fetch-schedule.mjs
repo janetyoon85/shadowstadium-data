@@ -30,6 +30,7 @@ const STRUCTURED_SCORER_LEAGUES = new Set([
   'FACUP', 'DFBPOKAL', 'COUPEDEFRANCE', 'COPADELREY', 'COPPAITALIA',
   'COMMUNITYSHIELD', 'UEFASUPERCUP', 'GERMANSUPERCUP', 'SPANISHSUPERCUP', 'ITALIANSUPERCUP', 'FRENCHSUPERCUP',
   'WORLDCUP', 'AFRICACUP', 'INTERCONTINENTALCUP', 'U17WORLDCUP', 'CLUBFRIENDLY',
+  'CONCACAFCUP', 'UECL', 'UNL',
 ]);
 
 const CATEGORIES = [
@@ -87,6 +88,11 @@ const CATEGORIES = [
   // 클럽 친선경기 — 55개는 기존 구장 재사용으로 즉시 매핑, 나머지(약 123개)는 미등록으로
   // 남겨둠(사용자가 Discord 알림 보고 수동으로 추가하기로 함, 2026-09).
   { categoryId: 'clubfriendly', upperCategoryId: 'wfootball', league: 'CLUBFRIENDLY' },
+  // 북중미챔피언스컵 — 신규 구장 22개 등록 완료. 컨퍼런스리그·네이션스리그는 categoryId만
+  // 확보하고 구장 리서치는 진행 중(2026-09) — 매핑 안 된 구장은 정상적으로 필터링됨.
+  { categoryId: 'concacafcup', upperCategoryId: 'wfootball', league: 'CONCACAFCUP' },
+  { categoryId: 'uecl', upperCategoryId: 'wfootball', league: 'UECL' },
+  { categoryId: 'unl', upperCategoryId: 'wfootball', league: 'UNL' },
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
