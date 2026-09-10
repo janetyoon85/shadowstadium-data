@@ -25,7 +25,11 @@ const SOCCER_LEAGUES = new Set(['K리그1', 'K리그2']);
 const BASEBALL_LEAGUES = new Set(['KBO', 'MLB', 'NPB']);
 // 득점자를 다른 엔드포인트(/schedule/games/{id}?fields=all의 game.scorers, 이미 구조화된 JSON)로
 // 가져오는 리그. K리그(SOCCER_LEAGUES)는 /relay HTML 파싱 방식이라 별도 — 서로 다른 스키마.
-const STRUCTURED_SCORER_LEAGUES = new Set(['EPL', 'EFL', 'LALIGA', 'BUNDESLIGA', 'SERIEA', 'LIGUE1', 'EREDIVISIE', 'MLS', 'SAUDI', 'J1', 'SCOTLAND', 'DENMARK', 'UCL', 'UEL', 'ACL']);
+const STRUCTURED_SCORER_LEAGUES = new Set([
+  'EPL', 'EFL', 'LALIGA', 'BUNDESLIGA', 'SERIEA', 'LIGUE1', 'EREDIVISIE', 'MLS', 'SAUDI', 'J1', 'SCOTLAND', 'DENMARK', 'UCL', 'UEL', 'ACL', 'ACL2',
+  'FACUP', 'DFBPOKAL', 'COUPEDEFRANCE', 'COPADELREY', 'COPPAITALIA',
+  'COMMUNITYSHIELD', 'UEFASUPERCUP', 'GERMANSUPERCUP', 'SPANISHSUPERCUP', 'ITALIANSUPERCUP', 'FRENCHSUPERCUP',
+]);
 
 const CATEGORIES = [
   { categoryId: 'kbo', upperCategoryId: 'kbaseball', league: 'KBO' },
@@ -55,8 +59,24 @@ const CATEGORIES = [
   // UEFA 유로파리그 — 36개 참가팀 중 14개는 기존 리그 venueId 재사용, 22개 신규.
   { categoryId: 'europa', upperCategoryId: 'wfootball', league: 'UEL' },
   // AFC 챔피언스리그 엘리트 — upperCategoryId='kfootball'(K리그·사우디·J1과 동일).
-  // acl2(ACL Two, 하위 리그)는 제외 — Elite만.
   { categoryId: 'acl', upperCategoryId: 'kfootball', league: 'ACL' },
+  // AFC 챔피언스리그 투(2단계 대회) — 2026-09부터 편입. 33개 신규 구장(아시아 각국).
+  { categoryId: 'acl2', upperCategoryId: 'kfootball', league: 'ACL2' },
+  // 클럽 컵대회 — 대부분 기존 등록 리그(EPL/EFL/라리가/분데스리가/세리에A 등)와 같은
+  // 팀·구장을 재사용, 하위리그 대진에서만 신규 구장 필요.
+  { categoryId: 'facup', upperCategoryId: 'wfootball', league: 'FACUP' },
+  { categoryId: 'dfbpokal', upperCategoryId: 'wfootball', league: 'DFBPOKAL' },
+  { categoryId: 'coupedefrance', upperCategoryId: 'wfootball', league: 'COUPEDEFRANCE' },
+  { categoryId: 'copadelrey', upperCategoryId: 'wfootball', league: 'COPADELREY' },
+  { categoryId: 'coppaitalia', upperCategoryId: 'wfootball', league: 'COPPAITALIA' },
+  // 슈퍼컵류 — 전부 기존 등록 구장 재사용 확인 완료(스페인은 사우디 킹압둘라스포츠시티,
+  // 프랑스는 랑스 홈구장 등 매년 개최지가 바뀔 수 있어 향후 새 구장이 필요할 수 있음).
+  { categoryId: 'communityshield', upperCategoryId: 'wfootball', league: 'COMMUNITYSHIELD' },
+  { categoryId: 'uefasupercup', upperCategoryId: 'wfootball', league: 'UEFASUPERCUP' },
+  { categoryId: 'germansupercup', upperCategoryId: 'wfootball', league: 'GERMANSUPERCUP' },
+  { categoryId: 'spanishsupercup', upperCategoryId: 'wfootball', league: 'SPANISHSUPERCUP' },
+  { categoryId: 'italiansupercup', upperCategoryId: 'wfootball', league: 'ITALIANSUPERCUP' },
+  { categoryId: 'frenchsupercup', upperCategoryId: 'wfootball', league: 'FRENCHSUPERCUP' },
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
