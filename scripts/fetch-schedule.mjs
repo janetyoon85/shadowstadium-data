@@ -29,6 +29,7 @@ const STRUCTURED_SCORER_LEAGUES = new Set([
   'EPL', 'EFL', 'LALIGA', 'BUNDESLIGA', 'SERIEA', 'LIGUE1', 'EREDIVISIE', 'MLS', 'SAUDI', 'J1', 'SCOTLAND', 'DENMARK', 'UCL', 'UEL', 'ACL', 'ACL2',
   'FACUP', 'DFBPOKAL', 'COUPEDEFRANCE', 'COPADELREY', 'COPPAITALIA',
   'COMMUNITYSHIELD', 'UEFASUPERCUP', 'GERMANSUPERCUP', 'SPANISHSUPERCUP', 'ITALIANSUPERCUP', 'FRENCHSUPERCUP',
+  'WORLDCUP', 'AFRICACUP', 'INTERCONTINENTALCUP', 'U17WORLDCUP', 'CLUBFRIENDLY',
 ]);
 
 const CATEGORIES = [
@@ -77,6 +78,15 @@ const CATEGORIES = [
   { categoryId: 'spanishsupercup', upperCategoryId: 'wfootball', league: 'SPANISHSUPERCUP' },
   { categoryId: 'italiansupercup', upperCategoryId: 'wfootball', league: 'ITALIANSUPERCUP' },
   { categoryId: 'frenchsupercup', upperCategoryId: 'wfootball', league: 'FRENCHSUPERCUP' },
+  // 국가대표 토너먼트. 아프리카컵·U17월드컵은 SEASON_START(3월) 이전에 열려 라이브 크롤러
+  // 윈도우 밖일 수 있음(과거분은 buildGameData.py 번들 fetch로 별도 확보) — 정상 동작.
+  { categoryId: 'worldcup', upperCategoryId: 'wfootball', league: 'WORLDCUP' },
+  { categoryId: 'africacup', upperCategoryId: 'wfootball', league: 'AFRICACUP' },
+  { categoryId: 'intercontinentalcup', upperCategoryId: 'wfootball', league: 'INTERCONTINENTALCUP' },
+  { categoryId: 'u17worldcup', upperCategoryId: 'wfootball', league: 'U17WORLDCUP' },
+  // 클럽 친선경기 — 55개는 기존 구장 재사용으로 즉시 매핑, 나머지(약 123개)는 미등록으로
+  // 남겨둠(사용자가 Discord 알림 보고 수동으로 추가하기로 함, 2026-09).
+  { categoryId: 'clubfriendly', upperCategoryId: 'wfootball', league: 'CLUBFRIENDLY' },
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
