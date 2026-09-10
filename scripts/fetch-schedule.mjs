@@ -25,7 +25,7 @@ const SOCCER_LEAGUES = new Set(['K리그1', 'K리그2']);
 const BASEBALL_LEAGUES = new Set(['KBO', 'MLB', 'NPB']);
 // 득점자를 다른 엔드포인트(/schedule/games/{id}?fields=all의 game.scorers, 이미 구조화된 JSON)로
 // 가져오는 리그. K리그(SOCCER_LEAGUES)는 /relay HTML 파싱 방식이라 별도 — 서로 다른 스키마.
-const STRUCTURED_SCORER_LEAGUES = new Set(['EPL', 'EFL', 'LALIGA', 'BUNDESLIGA', 'SERIEA', 'LIGUE1', 'EREDIVISIE', 'MLS', 'SAUDI', 'J1', 'UCL', 'UEL']);
+const STRUCTURED_SCORER_LEAGUES = new Set(['EPL', 'EFL', 'LALIGA', 'BUNDESLIGA', 'SERIEA', 'LIGUE1', 'EREDIVISIE', 'MLS', 'SAUDI', 'J1', 'UCL', 'UEL', 'ACL']);
 
 const CATEGORIES = [
   { categoryId: 'kbo', upperCategoryId: 'kbaseball', league: 'KBO' },
@@ -50,6 +50,9 @@ const CATEGORIES = [
   { categoryId: 'champs', upperCategoryId: 'wfootball', league: 'UCL' },
   // UEFA 유로파리그 — 36개 참가팀 중 14개는 기존 리그 venueId 재사용, 22개 신규.
   { categoryId: 'europa', upperCategoryId: 'wfootball', league: 'UEL' },
+  // AFC 챔피언스리그 엘리트 — upperCategoryId='kfootball'(K리그·사우디·J1과 동일).
+  // acl2(ACL Two, 하위 리그)는 제외 — Elite만.
+  { categoryId: 'acl', upperCategoryId: 'kfootball', league: 'ACL' },
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
