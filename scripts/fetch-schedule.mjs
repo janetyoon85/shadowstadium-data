@@ -439,6 +439,16 @@ async function main() {
   const startMs = Date.now();
   console.log(`[start] ${new Date().toISOString()}`);
 
+  // 실제 크롤링 없이 Discord 알림 경로만 검증하는 테스트 모드 (workflow_dispatch test_discord=true).
+  if (process.env.TEST_DISCORD === 'true') {
+    console.log('[test] TEST_DISCORD=true — 크롤링 생략, 가짜 미매핑 구장으로 알림만 발송');
+    await notifyMappingFailures([
+      { categoryId: 'kleague', stadium: '(테스트) 새로생긴 어딘가 스타디움' },
+    ]);
+    console.log('[test] 알림 발송 완료 (webhook 미설정이면 조용히 스킵됨)');
+    return;
+  }
+
   const stadiumMap = JSON.parse(await fs.readFile(path.join(__dirname, 'naverStadiumMap.json'), 'utf-8'));
 
   const allGames = [];

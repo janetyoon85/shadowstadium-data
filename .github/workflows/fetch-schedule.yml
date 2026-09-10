@@ -10,6 +10,11 @@ on:
     # push 경합이 잦았음 — 7분으로 옮겨 겹칠 확률을 낮춤(완전 회피는 아니라 재시도도 유지).
     - cron: '7 * * * *'    # 매시 7분 (UTC = KST 매시)
   workflow_dispatch:  # 수동 실행 가능 (테스트용)
+    inputs:
+      test_discord:
+        description: '실제 크롤링 없이 미매핑 구장 Discord 알림만 테스트 발송'
+        type: boolean
+        default: false
 
 permissions:
   contents: write   # commit + push
@@ -31,6 +36,7 @@ jobs:
         id: crawler
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          TEST_DISCORD: ${{ inputs.test_discord }}
         run: node scripts/fetch-schedule.mjs
 
       - name: Infer rescheduledTo
