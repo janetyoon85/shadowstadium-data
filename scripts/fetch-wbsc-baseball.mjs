@@ -1,4 +1,5 @@
-// WBSC 공식 사이트(wbsc.org) 기반 연령별 국가대표 야구월드컵(U-18/U-15/U-23) 자동 수집.
+// WBSC 공식 사이트(wbsc.org 및 대륙연맹 서브사이트 wbscasia.org 등) 기반 연령별 국가대표
+// 야구월드컵/대륙선수권(U-18/U-15/U-23 월드컵, BFA U-18 아시아선수권 등) 자동 수집.
 // Naver·ESPN 둘 다 커버 안 하는 대회라 세 번째 파이프라인 신설(2026-09). 매일 1회 GitHub
 // Actions로 자동 실행(.github/workflows/fetch-wbsc-baseball.yml).
 //
@@ -9,6 +10,10 @@
 // 이미 끝난 대회(예: 2025 U-18)도 계속 등록해두는 게 안전(재조회해도 gameId 기준 스킵이라
 // 데이터 변화 없이 속도만 조금 씀 — 원본 로직은 앱 저장소 scripts/fetchWbscBaseball.mjs 와
 // 동일, 저장소 분리라 부득이 복사 유지. 새 국가/구장 나오면 양쪽 다 갱신해야 함).
+//
+// 대륙선수권(BFA 등)은 wbsc.org 가 아니라 대륙연맹 서브사이트에 있음 — 대회별 domain 필드로
+// 지정(생략 시 www.wbsc.org). Super Round처럼 아직 팀 미확정인 경기는 "1st Place After Super
+// Round" 같은 플레이스홀더가 오므로 TEAM_KO 미확인(unknown team) 경고 없이 조용히 스킵.
 
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -25,7 +30,12 @@ const TEAM_KO = {
   China: '중국', Germany: '독일', Australia: '호주', 'South Africa': '남아프리카공화국',
   Czechia: '체코', 'Great Britain': '영국', 'Dominican Republic': '도미니카공화국', Mexico: '멕시코',
   Nicaragua: '니카라과', Venezuela: '베네수엘라',
+  'Hong Kong, China': '홍콩', Philippines: '필리핀', Singapore: '싱가포르', 'Sri Lanka': '스리랑카', Thailand: '태국',
 };
+
+function isTbdPlaceholder(name) {
+  return typeof name === 'string' && / Place After /.test(name);
+}
 
 const VENUE_MAP = {
   'Okinawa Cellular Stadium NAHA': 'okinawa_cellular_naha',
@@ -35,12 +45,16 @@ const VENUE_MAP = {
   'Estadio Nacional Soberania': 'estadio_nacional_soberania_managua',
   'Estadio Rigoberto López Pérez': 'estadio_rigoberto_lopez_perez_leon',
   'Estadio Roberto Clemente': 'estadio_roberto_clemente_masaya',
+  'Taipei Dome': 'taipei_dome',
+  'Taipei Tianmu Baseball Stadium': 'tianmu_baseball_stadium',
+  'XinZhuang Baseball Stadium': 'xinzhuang_baseball_stadium',
 };
 
 const TOURNAMENTS = [
   { tournamentkey: '2025-u18-baseball-world-cup', league: 'U18BASEBALLWORLDCUP' },
   { tournamentkey: '2026-vii-u-15-baseball-world-cup', league: 'U15BASEBALLWORLDCUP' },
   { tournamentkey: '2026-vi-wbsc-u-23-baseball-world-cup', league: 'U23BASEBALLWORLDCUP' },
+  { tournamentkey: '2026-bfa-xiv-u18-championship', league: 'U18ASIANBASEBALL', domain: 'www.wbscasia.org' },
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -49,8 +63,8 @@ function unescapeHtml(s) {
   return s.replace(/&quot;/g, '"').replace(/&#039;/g, "'").replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
 }
 
-async function fetchTournamentGames(tournamentkey) {
-  const url = `https://www.wbsc.org/en/events/${tournamentkey}/schedule-and-results`;
+async function fetchTournamentGames(tournamentkey, domain = 'www.wbsc.org') {
+  const url = `https://${domain}/en/events/${tournamentkey}/schedule-and-results`;
   const res = await fetch(url, { headers: { 'User-Agent': USER_AGENT } });
   if (!res.ok) throw new Error(`HTTP ${res.status} ${tournamentkey}`);
   const html = await res.text();
@@ -77,12 +91,13 @@ function wbscStatusToOurs(g) {
   return 'live';
 }
 
-async function fetchWbscBaseballTournament(tournamentkey, league, unknownTeams, unknownVenues) {
-  const rawGames = await fetchTournamentGames(tournamentkey);
+async function fetchWbscBaseballTournament(tournamentkey, league, unknownTeams, unknownVenues, domain) {
+  const rawGames = await fetchTournamentGames(tournamentkey, domain);
   const games = [];
   for (const g of rawGames) {
     const homeEn = g.homelabel;
     const awayEn = g.awaylabel;
+    if (isTbdPlaceholder(homeEn) || isTbdPlaceholder(awayEn)) continue;
     const homeKo = TEAM_KO[homeEn];
     const awayKo = TEAM_KO[awayEn];
     if (!homeKo) unknownTeams.add(`${league}:${homeEn}`);
@@ -115,7 +130,7 @@ async function notifyUnknowns(unknownTeams, unknownVenues) {
   const lines = [];
   if (unknownTeams.size) lines.push(`**미확인 팀명(TEAM_KO에 추가 필요)**\n${[...unknownTeams].map((x) => `• ${x}`).join('\n')}`);
   if (unknownVenues.size) lines.push(`**미확인 구장(VENUE_MAP에 추가 필요)**\n${[...unknownVenues].map((x) => `• ${x}`).join('\n')}`);
-  const content = `🟡 그늘각 — WBSC 야구(U-18/U-15/U-23) 미확인 항목\nscripts/fetch-wbsc-baseball.mjs 에서 매핑 추가해주세요(구장 실좌표 리서치 필요할 수 있음).\n${lines.join('\n\n')}`;
+  const content = `🟡 그늘각 — WBSC 야구(U-18/U-15/U-23 월드컵·BFA 아시아선수권) 미확인 항목\nscripts/fetch-wbsc-baseball.mjs 에서 매핑 추가해주세요(구장 실좌표 리서치 필요할 수 있음).\n${lines.join('\n\n')}`;
   try {
     await fetch(webhook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ content }) });
   } catch (e) {
@@ -127,12 +142,12 @@ async function main() {
   const unknownTeams = new Set();
   const unknownVenues = new Set();
   const allNew = [];
-  for (const { tournamentkey, league } of TOURNAMENTS) {
+  for (const { tournamentkey, league, domain } of TOURNAMENTS) {
     console.log(`Fetching ${league} (${tournamentkey}) ...`);
     await sleep(REQUEST_DELAY_MS);
     let gs;
     try {
-      gs = await fetchWbscBaseballTournament(tournamentkey, league, unknownTeams, unknownVenues);
+      gs = await fetchWbscBaseballTournament(tournamentkey, league, unknownTeams, unknownVenues, domain);
     } catch (e) {
       console.warn(`  failed: ${e.message}`);
       continue;
