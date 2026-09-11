@@ -62,6 +62,7 @@ const VENUE_MAP = {
   'Peoria Stadium': 'peoria_stadium_az',
   'Sloan Park': 'sloan_park',
   'Goodyear Ballpark': 'goodyear_ballpark',
+  'Kino Veterans Memorial Stadium': 'kino_veterans_memorial_stadium',
   'Estadio Nido de los Aguilas': 'estadio_nido_de_los_aguilas_mexicali',
   'Estadio Emilio Ibarra Almada': 'estadio_emilio_ibarra_almada',
   "Estadio Manuel Ciclon Echeverria": 'estadio_manuel_ciclon_echeverria',

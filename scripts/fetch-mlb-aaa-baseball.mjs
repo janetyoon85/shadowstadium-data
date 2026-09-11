@@ -103,6 +103,7 @@ async function fetchAaaBaseball(startDate, endDate, unknownTeams, unknownVenues)
     for (const g of d.games || []) {
       const homeEn = g.teams?.home?.team?.name;
       const awayEn = g.teams?.away?.team?.name;
+      if (homeEn === 'To Be Determined' || awayEn === 'To Be Determined') continue; // 플레이오프 대진 미확정
       const homeKo = TEAM_KO[homeEn];
       const awayKo = TEAM_KO[awayEn];
       if (!homeKo) unknownTeams.add(homeEn);
