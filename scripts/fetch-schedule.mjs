@@ -145,6 +145,8 @@ const CATEGORIES = [
   { categoryId: 'u20worldcup', upperCategoryId: 'wfootball', league: 'U20WORLDCUP' },
   { categoryId: 'u20womenworldcup', upperCategoryId: 'wfootball', league: 'U20WOMENWORLDCUP' },
   { categoryId: 'u17womenasiancup', upperCategoryId: 'kfootball', league: 'U17WOMENASIANCUP' },
+  // 프리미어12(WBSC 국가대표 야구) — 다음 대회 2027년이라 이 SEASON 윈도우 안에서는 대부분 0건 정상.
+  { categoryId: 'premier12', upperCategoryId: 'kbaseball', league: 'PREMIER12' },
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
