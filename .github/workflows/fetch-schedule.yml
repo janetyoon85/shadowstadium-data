@@ -46,7 +46,7 @@ jobs:
       - name: Check for changes
         id: changes
         run: |
-          if [[ -n "$(git status --porcelain games_2026.json saves.json scorers.json)" ]]; then
+          if [[ -n "$(git status --porcelain games_2026.json saves.json scorers.json assists.json euro_assists.json)" ]]; then
             echo "changed=true" >> $GITHUB_OUTPUT
           else
             echo "changed=false" >> $GITHUB_OUTPUT
@@ -57,7 +57,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add games_2026.json saves.json scorers.json
+          git add games_2026.json saves.json scorers.json assists.json euro_assists.json
           git commit -m "chore(data): daily schedule sync ($(date +'%Y-%m-%d'))"
           # FCM Reminders(15분 간격)가 같은 브랜치에 동시에 push할 수 있어
           # non-fast-forward 거부 시 rebase 후 재시도 (최대 5회).

@@ -7,7 +7,7 @@ const VALID_LEAGUES = [
   'CONCACAFCUP', 'UECL', 'UNL',
   'EFLCUP', 'WCQUEFA', 'AMATCHFRIENDLY', 'HYBRIDFRIENDLY', 'KOREACUP', 'WCQAFC', 'ASIANCUP', 'U17ASIANCUP', 'U20ASIANCUP', 'U23ASIANCUP', 'WOMENASIANCUP', 'U20WOMENASIANCUP', 'AFFCUP', 'E1MEN', 'E1WOMEN', 'KLEAGUESUPERCUP',
 ];
-const VALID_STATUSES = ['scheduled', 'cancelled', 'postponed', 'completed'];
+const VALID_STATUSES = ['scheduled', 'live', 'cancelled', 'postponed', 'completed'];
 
 const MIN_COUNTS = {
   KBO: 500,

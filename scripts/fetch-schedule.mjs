@@ -14,13 +14,30 @@ const USER_AGENT = 'shadowstadium-crawler/1.0 (+https://github.com/janetyoon85/s
 const API_BASE = 'https://api-gw.sports.naver.com/schedule/games';
 const RECORD_API = (gameId) => `${API_BASE}/${gameId}/record`;
 const RELAY_API = (gameId) => `${API_BASE}/${gameId}/relay`;
+const LINEUP_API = (gameId) => `${API_BASE}/${gameId}/lineup`;
 // 세이브 투수 캐시 — schedule API 엔 세이브 필드가 없어 게임당 /record 1요청이 필요.
 // 종료 경기는 결과가 불변이라 gameId→savePitcher(없으면 null)로 캐시 후 신규 종료분만 fetch.
 const SAVES_PATH = path.join(REPO_ROOT, 'saves.json');
 // 축구 득점자 캐시 — schedule API 엔 득점자 없어 게임당 /relay 1요청.
 // gameId→{home:[{m,n,pk?}],away:[...]} (0-0 면 빈 배열) 캐시 후 신규 종료분만 fetch.
 const SCORERS_PATH = path.join(REPO_ROOT, 'scorers.json');
+// K리그 어시스트 — /lineup 엔드포인트에 선수별 누적 assists 카운트가 있음(해외 리그는 이 필드 자체가
+// 없어 K리그1/2 전용). 득점자처럼 특정 골에 귀속은 안 되고 "이 경기 어시스트 총 N개" 수준.
+const ASSISTS_PATH = path.join(REPO_ROOT, 'assists.json');
 const SOCCER_LEAGUES = new Set(['K리그1', 'K리그2']);
+// 유럽 5대리그 어시스트 — Naver 에는 없어 ESPN 비공개 API(site.api.espn.com, 인증 불필요, Naver와
+// 같은 방식으로 이용)의 goal 이벤트 텍스트("Assisted by X")에서 파싱. 선수명이 영어라 한글 득점자와
+// 문자열로 매칭 불가 → 킥오프 시각(UTC, ±5분 허용)으로 경기를 매칭하고, 골 개수가 양쪽 다 정확히
+// 일치할 때만 시간순으로 짝지어 부착(개수 불일치 시 완전히 스킵 — 오귀속 방지).
+const ESPN_LEAGUE_SLUG = {
+  EPL: 'eng.1',
+  EFL: 'eng.2',
+  LALIGA: 'esp.1',
+  BUNDESLIGA: 'ger.1',
+  SERIEA: 'ita.1',
+  LIGUE1: 'fra.1',
+};
+const EURO_ASSISTS_PATH = path.join(REPO_ROOT, 'euro_assists.json');
 // 승/패 투수 필드(schedule API 기본 포함)를 표시하는 리그 — 야구 공통(K리그는 해당 없음).
 const BASEBALL_LEAGUES = new Set(['KBO', 'MLB', 'NPB']);
 // 득점자를 다른 엔드포인트(/schedule/games/{id}?fields=all의 game.scorers, 이미 구조화된 JSON)로
@@ -179,6 +196,9 @@ function convertGame(n, cat, stadiumMap, mapFailures) {
   let status = 'scheduled';
   if (n.cancel) status = 'cancelled';
   else if (n.statusCode === 'RESULT') status = 'completed';
+  // BEFORE(경기전)/RESULT(종료) 둘 다 아니면 진행중 — 실제 값(LIVE 등)은 리그마다 다를 수 있어
+  // 화이트리스트 대신 이 두 값만 배제하는 방식으로 판별(10분 주기 폴링 — 라이브 스코어 수준 아님).
+  else if (n.statusCode !== 'BEFORE') status = 'live';
 
   const game = {
     date: n.gameDate,
@@ -201,11 +221,13 @@ function convertGame(n, cat, stadiumMap, mapFailures) {
     if (away) game.awayPitcher = away;
     if (home) game.homePitcher = home;
   }
-  // 최종 스코어 — 종료(RESULT) 경기만. 야구·축구 공통 (awayTeamScore/homeTeamScore).
+  // 스코어 — 종료(completed) + 진행중(live) 둘 다. 야구·축구 공통 (awayTeamScore/homeTeamScore).
   // away/home 은 위 away/home 팀명과 같은 출처라 점수도 같은 정렬로 짝지어짐.
-  if (status === 'completed') {
+  if (status === 'completed' || status === 'live') {
     if (typeof n.awayTeamScore === 'number') game.awayScore = n.awayTeamScore;
     if (typeof n.homeTeamScore === 'number') game.homeScore = n.homeTeamScore;
+  }
+  if (status === 'completed') {
     // 승/패 투수 — 야구 리그(KBO/MLB/NPB) 종료 경기만. schedule API 의 win/losePitcherName 에
     // 이미 포함(추가 요청 0). 무승부(DRAW)면 둘 다 빈 문자열 → 누락(앱이 둘 다 있을 때만 렌더).
     // 세이브는 schedule API 에 없어 별도 /record 엔드포인트로 enrichSaves 에서 채움.
@@ -394,6 +416,76 @@ async function fetchScorers(gameId) {
   return { home: markPk(home), away: markPk(away) };
 }
 
+// K리그 어시스트 — /lineup 의 home/away.players(선발 포지션별 배열의 배열)를 평탄화해
+// assists>0 인 선수만 [{n,count}]로 추출. 특정 골에 귀속은 못 함(누적치만 제공하는 스키마).
+function extractAssists(playersNested) {
+  const flat = (playersNested || []).flat();
+  return flat
+    .filter((p) => p && typeof p.assists === 'number' && p.assists > 0 && (p.name || '').trim())
+    .map((p) => ({ n: p.name.trim(), count: p.assists }));
+}
+
+async function fetchLineupAssists(gameId) {
+  const res = await fetch(LINEUP_API(gameId), { headers: { 'User-Agent': USER_AGENT } });
+  if (!res.ok) throw new Error(`HTTP ${res.status} lineup ${gameId}`);
+  const json = await res.json();
+  const lineup = json?.result?.lineUpData?.lineup;
+  if (!lineup) return { home: [], away: [] };
+  return {
+    home: extractAssists(lineup.home?.players),
+    away: extractAssists(lineup.away?.players),
+  };
+}
+
+async function fetchEspnScoreboard(slug, yyyymmdd) {
+  const res = await fetch(`https://site.api.espn.com/apis/site/v2/sports/soccer/${slug}/scoreboard?dates=${yyyymmdd}`, {
+    headers: { 'User-Agent': USER_AGENT },
+  });
+  if (!res.ok) throw new Error(`HTTP ${res.status} espn scoreboard ${slug} ${yyyymmdd}`);
+  const json = await res.json();
+  return json.events || [];
+}
+
+async function fetchEspnSummary(slug, eventId) {
+  const res = await fetch(`https://site.api.espn.com/apis/site/v2/sports/soccer/${slug}/summary?event=${eventId}`, {
+    headers: { 'User-Agent': USER_AGENT },
+  });
+  if (!res.ok) throw new Error(`HTTP ${res.status} espn summary ${slug} ${eventId}`);
+  return res.json();
+}
+
+// "... Assisted by Morgan Rogers." / "... Assisted by Jorrel Hato following a fast break." /
+// "... Assisted by William Osula with a through ball following a fast break." 에서 이름만 추출
+// ("with"/"following"/"after" 로 시작하는 부가 설명은 모두 제거).
+function parseAssistFromText(text) {
+  const m = /Assisted by ([^.]+?)(?:\s+with\s|\s+following\s|\s+after\s|\.|$)/.exec(text || '');
+  return m ? m[1].trim() : null;
+}
+
+// ESPN keyEvents(경기 전체 시간순 골 이벤트) → {home:[{a,m}],away:[{a,m}]}. 자책골은 ESPN 이
+// "실점한(자책한) 팀"으로 team 을 표기하지만 Naver 는 "이득 본(수혜)" 팀 목록에 자책골을 넣으므로
+// team 필드는 자책골이어도 이미 "득점 수혜팀"(Naver 와 동일 관례, 실측 확인: Chelsea 소속 주앙 페드로의
+// 자책골 이벤트의 team 이 수혜팀인 Brighton — 뒤집으면 안 됨) 이라 별도 반전 불필요.
+function extractEspnGoalsBySide(summaryJson, homeTeamName, awayTeamName) {
+  const events = summaryJson.keyEvents || [];
+  const home = [];
+  const away = [];
+  for (const e of events) {
+    const typeText = (e.type && e.type.text) || '';
+    if (!/goal/i.test(typeText)) continue;
+    const isOwnGoal = /own goal/i.test(typeText);
+    const scoringTeam = e.team && e.team.displayName;
+    const side = scoringTeam === homeTeamName ? 'home' : scoringTeam === awayTeamName ? 'away' : null;
+    if (side == null) continue; // 팀명 매칭 실패 — 이 이벤트는 버림(개수 불일치로 이어져 전체 스킵됨).
+    const assist = isOwnGoal ? null : parseAssistFromText(e.text);
+    const clockDigits = (e.clock && e.clock.displayValue) || '';
+    const clockNum = parseInt(clockDigits, 10);
+    const entry = { a: assist, m: Number.isFinite(clockNum) ? clockNum : null };
+    (side === 'home' ? home : away).push(entry);
+  }
+  return { home, away };
+}
+
 // EPL/EFL 득점자 — K리그(/relay HTML 파싱)와 완전히 다른 스키마. 이미 구조화된 JSON으로
 // /schedule/games/{gameId}?fields=all 의 game.scorers.{home,away}[].{time,addedTime,playerName,ownGoal}
 // 에 그대로 들어있음(실측 확인, 2026-09). PK 여부 필드는 이 스키마에 없어 pk는 항상 미표기.
@@ -415,8 +507,10 @@ async function fetchStructuredScorers(gameId) {
   return { home: conv(scorers.home), away: conv(scorers.away) };
 }
 
-// 종료 축구 경기에 득점자(scorers) 부착. scorers.json 캐시로 신규 종료분만 fetch(리그별로 다른
-// 엔드포인트/스키마 — K리그는 /relay 전·후반 2요청, EPL/EFL은 /schedule/games/{id}?fields=all 1요청).
+// 종료+진행중 축구 경기에 득점자(scorers) 부착. scorers.json 캐시로 신규/미확정분만 fetch(리그별로
+// 다른 엔드포인트/스키마 — K리그는 /relay 전·후반 2요청, EPL/EFL은 /schedule/games/{id}?fields=all 1요청).
+// 진행중(live) 경기는 골이 계속 늘 수 있어 매 실행마다 재조회(final:false)하고, 종료(completed) 시
+// 1회만 확정 조회(final:true) 후 캐시 고정 — 10분 주기 폴링(라이브 스코어 수준 정밀도 아님).
 // graceful: 실패 게임은 캐시 안 함(다음 run 재시도)+미부착(점수 유지). 0골 경기는 미부착.
 async function enrichScorers(allGames) {
   let cache = {};
@@ -430,7 +524,7 @@ async function enrichScorers(allGames) {
   const targets = allGames.filter(
     (g) =>
       (SOCCER_LEAGUES.has(g.league) || STRUCTURED_SCORER_LEAGUES.has(g.league)) &&
-      g.status === 'completed' &&
+      (g.status === 'completed' || g.status === 'live') &&
       g.gameId,
   );
   let fromCache = 0;
@@ -438,26 +532,32 @@ async function enrichScorers(allGames) {
   let failed = 0;
 
   for (const g of targets) {
-    if (!Object.prototype.hasOwnProperty.call(cache, g.gameId)) {
+    const cached = cache[g.gameId];
+    const needsFetch = !cached || g.status === 'live' || (g.status === 'completed' && cached.final === false);
+    if (needsFetch) {
       try {
         await sleep(REQUEST_DELAY_MS);
-        cache[g.gameId] = STRUCTURED_SCORER_LEAGUES.has(g.league)
+        const sc = STRUCTURED_SCORER_LEAGUES.has(g.league)
           ? await fetchStructuredScorers(g.gameId)
           : await fetchScorers(g.gameId);
+        cache[g.gameId] = { home: sc.home, away: sc.away, final: g.status === 'completed' };
         fetched++;
       } catch (e) {
         failed++;
         console.warn(`[scorers] fetch failed ${g.gameId}: ${e.message}`);
-        continue; // 캐시 안 함 → 다음 run 재시도. scorers 미부착.
+        if (!cached) continue; // 이전 데이터도 없으면 미부착, 다음 run 재시도.
+        // 이전(직전 run) 캐시가 있으면 그걸로라도 부착 — 아래에서 사용.
       }
     } else {
       fromCache++;
     }
     const sc = cache[g.gameId];
-    if (sc && ((sc.home && sc.home.length) || (sc.away && sc.away.length))) g.scorers = sc;
+    if (sc && ((sc.home && sc.home.length) || (sc.away && sc.away.length))) {
+      g.scorers = { home: sc.home, away: sc.away };
+    }
   }
 
-  // prune: 현 데이터셋의 종료 축구 gameId 만 남김.
+  // prune: 현 데이터셋의 종료+진행중 축구 gameId 만 남김.
   const validIds = new Set(targets.map((g) => g.gameId));
   const pruned = {};
   for (const id of validIds) {
@@ -467,7 +567,200 @@ async function enrichScorers(allGames) {
 
   const withScorers = targets.filter((g) => g.scorers).length;
   console.log(
-    `[scorers] completedSoccer=${targets.length} cached=${fromCache} fetched=${fetched} failed=${failed} withScorers=${withScorers}`,
+    `[scorers] completedOrLiveSoccer=${targets.length} cached=${fromCache} fetched=${fetched} failed=${failed} withScorers=${withScorers}`,
+  );
+}
+
+// K리그 어시스트 부착 — enrichScorers 와 동일한 live=매번 재조회/completed=1회 확정 캐시 패턴.
+// 해외 리그(STRUCTURED_SCORER_LEAGUES)는 /lineup 에 assists 필드 자체가 없어 대상에서 제외.
+async function enrichAssists(allGames) {
+  let cache = {};
+  try {
+    cache = JSON.parse(await fs.readFile(ASSISTS_PATH, 'utf-8'));
+  } catch (e) {
+    if (e.code !== 'ENOENT') throw e;
+    console.log('[assists] no assists.json yet — backfilling from scratch');
+  }
+
+  const targets = allGames.filter(
+    (g) => SOCCER_LEAGUES.has(g.league) && (g.status === 'completed' || g.status === 'live') && g.gameId,
+  );
+  let fromCache = 0;
+  let fetched = 0;
+  let failed = 0;
+
+  for (const g of targets) {
+    const cached = cache[g.gameId];
+    const needsFetch = !cached || g.status === 'live' || (g.status === 'completed' && cached.final === false);
+    if (needsFetch) {
+      try {
+        await sleep(REQUEST_DELAY_MS);
+        const as = await fetchLineupAssists(g.gameId);
+        cache[g.gameId] = { home: as.home, away: as.away, final: g.status === 'completed' };
+        fetched++;
+      } catch (e) {
+        failed++;
+        console.warn(`[assists] fetch failed ${g.gameId}: ${e.message}`);
+        if (!cached) continue;
+      }
+    } else {
+      fromCache++;
+    }
+    const as = cache[g.gameId];
+    if (as && ((as.home && as.home.length) || (as.away && as.away.length))) {
+      g.assists = { home: as.home, away: as.away };
+    }
+  }
+
+  const validIds = new Set(targets.map((g) => g.gameId));
+  const pruned = {};
+  for (const id of validIds) {
+    if (Object.prototype.hasOwnProperty.call(cache, id)) pruned[id] = cache[id];
+  }
+  await fs.writeFile(ASSISTS_PATH, JSON.stringify(pruned, null, 2) + '\n', 'utf-8');
+
+  const withAssists = targets.filter((g) => g.assists).length;
+  console.log(
+    `[assists] completedOrLiveKleague=${targets.length} cached=${fromCache} fetched=${fetched} failed=${failed} withAssists=${withAssists}`,
+  );
+}
+
+// game.date/time 은 Naver 표기 그대로 KST(UTC+9) 로 저장돼 있음(실측: 첼시-브라이턴 2026-08-30
+// 22:00 KST = ESPN 2026-08-30T13:00Z 일치 확인) → UTC ms 로 변환해 ESPN 이벤트와 매칭.
+function naverKickoffUtcMs(g) {
+  return Date.parse(`${g.date}T${g.time}:00+09:00`);
+}
+
+// 유럽 5대리그(EPL/EFL/LALIGA/BUNDESLIGA/SERIEA/LIGUE1) 어시스트 — ESPN summary 의 goal 텍스트에서
+// 파싱해 이미 붙어있는 g.scorers(enrichScorers 가 먼저 실행되어 있어야 함) 항목에 a 필드로 부착.
+// 이름 매칭이 불가능해(언어 다름) 킥오프 시각+골 개수 일치로만 안전하게 짝짓고, 조금이라도 불확실하면
+// (이벤트 미발견/개수 불일치) 그 경기는 그냥 스킵 — 오귀속보다 미부착이 낫다는 원칙.
+async function enrichEuroAssists(allGames) {
+  let cache = {};
+  try {
+    cache = JSON.parse(await fs.readFile(EURO_ASSISTS_PATH, 'utf-8'));
+  } catch (e) {
+    if (e.code !== 'ENOENT') throw e;
+    console.log('[euroAssists] no euro_assists.json yet — backfilling from scratch');
+  }
+
+  const targets = allGames.filter(
+    (g) =>
+      ESPN_LEAGUE_SLUG[g.league] &&
+      (g.status === 'completed' || g.status === 'live') &&
+      g.gameId &&
+      g.scorers &&
+      ((g.scorers.home && g.scorers.home.length) || (g.scorers.away && g.scorers.away.length)),
+  );
+
+  let fromCache = 0;
+  let fetched = 0;
+  let failed = 0;
+  let noMatch = 0;
+  let countMismatch = 0;
+  const scoreboardCache = new Map(); // `${slug}:${yyyymmdd}` → events[], 같은 실행 내 중복 요청 방지.
+
+  for (const g of targets) {
+    const cached = cache[g.gameId];
+    const needsFetch = !cached || g.status === 'live' || (g.status === 'completed' && cached.final === false);
+    if (needsFetch) {
+      try {
+        const slug = ESPN_LEAGUE_SLUG[g.league];
+        const kickoffMs = naverKickoffUtcMs(g);
+        const yyyymmdd = new Date(kickoffMs).toISOString().slice(0, 10).replace(/-/g, '');
+        const sbKey = `${slug}:${yyyymmdd}`;
+        let events = scoreboardCache.get(sbKey);
+        if (!events) {
+          await sleep(REQUEST_DELAY_MS);
+          events = await fetchEspnScoreboard(slug, yyyymmdd);
+          scoreboardCache.set(sbKey, events);
+        }
+        // 같은 리그 안에서도 여러 경기가 동시 킥오프하는 경우가 흔함(EPL 토요일 15시 동시킥오프 등) —
+        // 시각만으로는 여러 후보 중 아무거나 골라버릴 수 있어(실측 확인: 맨시티전 조회에 브라이턴전이
+        // 잘못 매칭됨), 시각으로 후보를 추린 뒤 최종 스코어까지 일치하는 것만 채택.
+        const timeCandidates = events.filter((e) => Math.abs(Date.parse(e.date) - kickoffMs) <= 5 * 60 * 1000);
+        const match =
+          timeCandidates.length <= 1
+            ? timeCandidates[0]
+            : timeCandidates.find((e) => {
+                const comp = e.competitions?.[0];
+                const h = comp?.competitors?.find((c) => c.homeAway === 'home');
+                const a = comp?.competitors?.find((c) => c.homeAway === 'away');
+                return h && a && Number(h.score) === g.homeScore && Number(a.score) === g.awayScore;
+              });
+        if (!match) {
+          noMatch++;
+          // completed 인데 이벤트 자체를 못 찾으면(ESPN 미중계 등) 영구 불가로 보고 확정 캐시 —
+          // live 는 다음 run 에 스코어보드가 갱신될 수 있어 재시도 유지(캐시 안 함).
+          if (g.status === 'completed') {
+            cache[g.gameId] = { homeAssists: [], awayAssists: [], final: true };
+          }
+          if (!cached) continue;
+        } else {
+          const comp = match.competitions?.[0];
+          const homeC = comp?.competitors?.find((c) => c.homeAway === 'home');
+          const awayC = comp?.competitors?.find((c) => c.homeAway === 'away');
+          await sleep(REQUEST_DELAY_MS);
+          const summary = await fetchEspnSummary(slug, match.id);
+          const espnGoals = extractEspnGoalsBySide(summary, homeC?.team?.displayName, awayC?.team?.displayName);
+          const naverHomeLen = (g.scorers.home || []).length;
+          const naverAwayLen = (g.scorers.away || []).length;
+          if (espnGoals.home.length !== naverHomeLen || espnGoals.away.length !== naverAwayLen) {
+            countMismatch++;
+            // completed 인데 골 개수가 계속 안 맞으면(팀명 매칭 실패 등 구조적 문제) 매 10분 재시도해도
+            // 안 맞을 확률이 높음 — 확정 캐시로 고정해 무한 재시도 방지(live 는 계속 재시도).
+            if (g.status === 'completed') {
+              cache[g.gameId] = { homeAssists: [], awayAssists: [], final: true };
+            }
+            if (!cached) continue;
+          } else {
+            // 시간순 정렬 후 짝짓기 — 원본 배열 순서(App 표시 순서)는 건드리지 않고 객체 참조로만 a 부착.
+            const zip = (naverArr, espnArr) => {
+              const naverSorted = [...naverArr].sort((a, b) => (a.m ?? 999) - (b.m ?? 999));
+              const espnSorted = [...espnArr].sort((a, b) => (a.m ?? 999) - (b.m ?? 999));
+              naverSorted.forEach((s, i) => {
+                if (espnSorted[i]?.a) s.a = espnSorted[i].a;
+              });
+            };
+            zip(g.scorers.home || [], espnGoals.home);
+            zip(g.scorers.away || [], espnGoals.away);
+            cache[g.gameId] = {
+              homeAssists: (g.scorers.home || []).map((s) => s.a || null),
+              awayAssists: (g.scorers.away || []).map((s) => s.a || null),
+              final: g.status === 'completed',
+            };
+            fetched++;
+          }
+        }
+      } catch (e) {
+        failed++;
+        console.warn(`[euroAssists] fetch failed ${g.gameId}: ${e.message}`);
+        if (!cached) continue;
+      }
+    } else {
+      fromCache++;
+    }
+    // 캐시 적중(또는 방금 실패해 이전 캐시로 폴백)이면 캐시된 이름을 원본 순서 그대로 재적용.
+    const c = cache[g.gameId];
+    if (c && !needsFetch) {
+      (g.scorers.home || []).forEach((s, i) => {
+        if (c.homeAssists?.[i]) s.a = c.homeAssists[i];
+      });
+      (g.scorers.away || []).forEach((s, i) => {
+        if (c.awayAssists?.[i]) s.a = c.awayAssists[i];
+      });
+    }
+  }
+
+  const validIds = new Set(targets.map((g) => g.gameId));
+  const pruned = {};
+  for (const id of validIds) {
+    if (Object.prototype.hasOwnProperty.call(cache, id)) pruned[id] = cache[id];
+  }
+  await fs.writeFile(EURO_ASSISTS_PATH, JSON.stringify(pruned, null, 2) + '\n', 'utf-8');
+
+  console.log(
+    `[euroAssists] targets=${targets.length} cached=${fromCache} fetched=${fetched} failed=${failed} noMatch=${noMatch} countMismatch=${countMismatch}`,
   );
 }
 
@@ -495,8 +788,11 @@ function serializeGame(g) {
   if (g.winPitcher) out.winPitcher = g.winPitcher;
   if (g.losePitcher) out.losePitcher = g.losePitcher;
   if (g.savePitcher) out.savePitcher = g.savePitcher;
-  // 축구 득점자 — 종료 경기, 골 있을 때만. {home,away} 각 [{m,n,pk?}].
+  // 축구 득점자 — 종료+진행중 경기, 골 있을 때만. {home,away} 각 [{m,n,pk?,og?}].
   if (g.scorers) out.scorers = g.scorers;
+  // K리그 어시스트 — 종료+진행중, 이 경기 누적 어시스트 있을 때만. {home,away} 각 [{n,count}].
+  // 득점자와 달리 특정 골에 귀속되지 않음(스키마 한계, K리그1/2 전용 — 해외 리그는 미제공).
+  if (g.assists) out.assists = g.assists;
   return out;
 }
 
@@ -573,8 +869,12 @@ async function main() {
 
   // 세이브 투수 부착 (종료 KBO만, /record 캐시). 네트워크 단계라 sort/serialize 전에 1회.
   await enrichSaves(allGames);
-  // 축구 득점자 부착 (종료 K리그만, /relay 캐시).
+  // 축구 득점자 부착 (종료+진행중, /relay 또는 /schedule/games/{id}?fields=all 캐시).
   await enrichScorers(allGames);
+  // K리그 어시스트 부착 (종료+진행중, /lineup 캐시 — K리그1/2 전용).
+  await enrichAssists(allGames);
+  // 유럽 5대리그 어시스트 부착 (ESPN, 종료+진행중 — 킥오프 시각+골 개수 일치 시에만).
+  await enrichEuroAssists(allGames);
 
   sortGames(allGames);
 
