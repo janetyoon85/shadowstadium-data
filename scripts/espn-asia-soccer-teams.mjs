@@ -1,0 +1,62 @@
+// ESPN(site.api.espn.com) 소스 아시아축구 3개리그(태국/인도네시아/인도) 팀명→한글/venueId 매핑.
+// 나머지 요청국(베트남/UAE/카타르/우즈베키스탄/이란)은 네이버·ESPN 둘 다 데이터 없어 미포함.
+// 키는 정규화된 이름 — fetchEspnSoccerLeagues.mjs 의 normalizeTeamName() 과 동일 로직 적용 필요.
+import { normalizeTeamName } from "./espn-soccer-teams.mjs";
+export { normalizeTeamName };
+
+export const ASIA_TEAMS = {
+  THAILAND: {
+    "ratchaburifc": { ko: "랏차부리 FC", venueId: "ratchaburi_stadium", en: "Ratchaburi FC" },
+    "lamphunwarriors": { ko: "람푼 워리어스", venueId: "mae_guang_stadium_lamphun", en: "Lamphun Warriors" },
+    "buriramunited": { ko: "부리람 유나이티드", venueId: "buriram_chang_arena", en: "Buriram United" },
+    "muangthongunited": { ko: "무앙통 유나이티드", venueId: "thunderdome_stadium_nonthaburi", en: "Muangthong United" },
+    "ptprachuapfc": { ko: "PT 프라추아프 FC", venueId: "sam_ao_stadium_prachuap", en: "PT Prachuap FC" },
+    "bangkokunited": { ko: "방콕 유나이티드", venueId: "bg_stadium_pathumthani", en: "Bangkok United" },
+    "nakhonratchasimafc": { ko: "나콘랏차시마 FC", venueId: "80th_birthday_stadium_korat", en: "Nakhon Ratchasima FC" },
+    "portfc": { ko: "포트 FC", venueId: "pat_stadium_bangkok", en: "Port FC" },
+    "chonburifc": { ko: "촌부리 FC", venueId: "chonburi_uta_stadium", en: "Chonburi FC" },
+    "sukhothaifc": { ko: "수코타이 FC", venueId: "thalay_luang_stadium_sukhothai", en: "Sukhothai FC" },
+    "uthaithanifc": { ko: "우타이타니 FC", venueId: "uthai_thani_provincial_stadium", en: "Uthai Thani FC" },
+    "chiangraiunited": { ko: "치앙라이 유나이티드", venueId: "singha_chiangrai_stadium", en: "Chiangrai United" },
+    "ayutthayaunited": { ko: "아유타야 유나이티드", venueId: "ayutthaya_stadium", en: "Ayutthaya United" },
+    "bgpathumunited": { ko: "BG 파툼 유나이티드", venueId: "bg_stadium_pathumthani", en: "BG Pathum United" },
+    "rayongfc": { ko: "라용 FC", venueId: "rayong_stadium", en: "Rayong FC" },
+    "kanchanaburipowerfc": { ko: "칸차나부리 파워 FC", venueId: "kanchanaburi_provincial_stadium", en: "Kanchanaburi Power FC" },
+  },
+  INDONESIA: {
+    "persib": { ko: "페르십 반둥", venueId: "gelora_bandung_lautan_api", en: "Persib" },
+    "psmmakassar": { ko: "PSM 마카사르", venueId: "gelora_bj_habibie_stadium", en: "PSM Makassar" },
+    "malutunited": { ko: "말루트 유나이티드", venueId: "gelora_kie_raha_ternate", en: "Malut United" },
+    "dewaunited": { ko: "데와 유나이티드", venueId: "banten_international_stadium", en: "Dewa United" },
+    "persebayasurabaya": { ko: "페르세바야 수라바야", venueId: "gelora_bung_tomo_stadium", en: "Persebaya Surabaya" },
+    "persita": { ko: "페르시타 탕에랑", venueId: "benteng_taruna_stadium", en: "Persita" },
+    "psbsbiak": { ko: "PSBS 비악", venueId: "maguwoharjo_stadium", en: "PSBS Biak" },
+    "semenpadang": { ko: "세멘 파당", venueId: "agus_salim_stadium_padang", en: "Semen Padang" },
+    "aremaindonesia": { ko: "아레마 인도네시아", venueId: "kanjuruhan_stadium", en: "Arema Indonesia" },
+    "persijap": { ko: "페르시자프 자파라", venueId: "gelora_bumi_kartini_jepara", en: "Persijap" },
+    "persikkediri": { ko: "페르식 크디리", venueId: "brawijaya_stadium_kediri", en: "Persik Kediri" },
+    "maduraunitedfc": { ko: "마두라 유나이티드", venueId: "gelora_ratu_pamelingan_pamekasan", en: "Madura United FC" },
+    "baliunited": { ko: "발리 유나이티드", venueId: "kapten_wayan_dipta_stadium", en: "Bali United" },
+    "psimyogyakarta": { ko: "PSIM 족자카르타", venueId: "sultan_agung_stadium_bantul", en: "PSIM Yogyakarta" },
+    "persija": { ko: "페르시자 자카르타", venueId: "gelora_bung_karno_stadium", en: "Persija" },
+    "borneofc": { ko: "보르네오 FC", venueId: "segiri_stadium_samarinda", en: "Borneo FC" },
+    "persissolo": { ko: "페르시스 솔로", venueId: "manahan_stadium", en: "Persis Solo" },
+    "bhayangkarapresisi": { ko: "바양카라 프레시시", venueId: "sumpah_pemuda_stadium_lampung", en: "Bhayangkara Presisi" },
+  },
+  INDIA: {
+    "mohunbagansupergiant": { ko: "모훈 바간 슈퍼 자이언트", venueId: "salt_lake_stadium_kolkata", en: "Mohun Bagan Super Giant" },
+    "sceastbengal": { ko: "SC 이스트벵골", venueId: "salt_lake_stadium_kolkata", en: "SC East Bengal" },
+    "fcgoa": { ko: "FC 고아", venueId: "jawaharlal_nehru_goa", en: "FC Goa" },
+    "jamshedpurfc": { ko: "잠셰드푸르 FC", venueId: "jrd_tata_sports_complex", en: "Jamshedpur FC" },
+    "bengalurufc": { ko: "벵갈루루 FC", venueId: "sree_kanteerava_stadium", en: "Bengaluru FC" },
+    "mumbaicityfc": { ko: "뭄바이 시티 FC", venueId: "mumbai_football_arena", en: "Mumbai City FC" },
+    "mohammedansc": { ko: "모하메단 SC", venueId: "kishore_bharati_krirangan", en: "Mohammedan SC" },
+    "keralablastersfc": { ko: "케랄라 블래스터스 FC", venueId: "jawaharlal_nehru_stadium_kochi", en: "Kerala Blasters FC" },
+    "odishafc": { ko: "오디샤 FC", venueId: "kalinga_stadium", en: "Odisha FC" },
+    "punjabfc": { ko: "펀자브 FC", venueId: "jawaharlal_nehru_stadium_delhi", en: "Punjab FC" },
+    "northeastunitedfc": { ko: "노스이스트 유나이티드 FC", venueId: "indira_gandhi_stadium_guwahati", en: "NorthEast United FC" },
+    "interkashi": { ko: "인터 카시", venueId: "kishore_bharati_krirangan", en: "Inter Kashi" },
+    "sportingclubdelhi": { ko: "스포르팅 클럽 델리", venueId: "jawaharlal_nehru_stadium_delhi", en: "Sporting Club Delhi" },
+    "chennaiyinfc": { ko: "첸나이인 FC", venueId: "jawaharlal_nehru_stadium_chennai", en: "Chennaiyin FC" },
+  },
+};
