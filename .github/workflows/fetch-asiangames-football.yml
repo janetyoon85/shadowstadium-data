@@ -45,15 +45,15 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add games_2026.json
           git commit -m "chore(data): 아시안게임 축구 동기화 ($(date +'%Y-%m-%d %H:%M'))"
-          for i in 1 2 3 4 5; do
+          for i in $(seq 1 10); do
             if git push; then
               exit 0
             fi
-            echo "push rejected, rebasing onto origin/main and retrying ($i/5)"
+            echo "push rejected, rebasing onto origin/main and retrying ($i/10)"
             git pull --rebase origin main
-            sleep $((RANDOM % 10 + 1))
+            sleep $((RANDOM % 15 + 1))
           done
-          echo "push failed after 5 retries"
+          echo "push failed after 10 retries"
           exit 1
 
       - name: Create issue on failure

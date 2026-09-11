@@ -59,17 +59,18 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add games_2026.json saves.json scorers.json assists.json euro_assists.json
           git commit -m "chore(data): daily schedule sync ($(date +'%Y-%m-%d'))"
-          # FCM Reminders(15분 간격)가 같은 브랜치에 동시에 push할 수 있어
-          # non-fast-forward 거부 시 rebase 후 재시도 (최대 5회).
-          for i in 1 2 3 4 5; do
+          # FCM Reminders(15분 간격) + WBSC/아시안게임 야구·축구 크롤러들(10분 간격, 2026-09
+          # 추가)까지 같은 브랜치에 동시에 push할 수 있어 non-fast-forward 거부가 잦아짐 —
+          # rebase 후 재시도 (최대 10회, 동시 writer 늘어난 만큼 5회에서 상향).
+          for i in $(seq 1 10); do
             if git push; then
               exit 0
             fi
-            echo "push rejected, rebasing onto origin/main and retrying ($i/5)"
+            echo "push rejected, rebasing onto origin/main and retrying ($i/10)"
             git pull --rebase origin main
-            sleep $((RANDOM % 10 + 1))
+            sleep $((RANDOM % 15 + 1))
           done
-          echo "push failed after 5 retries"
+          echo "push failed after 10 retries"
           exit 1
 
       - name: Create issue on failure

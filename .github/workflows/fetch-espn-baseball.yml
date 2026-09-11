@@ -47,15 +47,15 @@ jobs:
           git commit -m "chore(data): ESPN 야구(WBC/카리브해시리즈/올림픽) 동기화 ($(date +'%Y-%m-%d'))"
           # 매시 도는 메인 크롤러(fetch-schedule.yml)와 같은 브랜치에 동시에 push할 수 있어
           # non-fast-forward 거부 시 rebase 후 재시도.
-          for i in 1 2 3 4 5; do
+          for i in $(seq 1 10); do
             if git push; then
               exit 0
             fi
-            echo "push rejected, rebasing onto origin/main and retrying ($i/5)"
+            echo "push rejected, rebasing onto origin/main and retrying ($i/10)"
             git pull --rebase origin main
-            sleep $((RANDOM % 10 + 1))
+            sleep $((RANDOM % 15 + 1))
           done
-          echo "push failed after 5 retries"
+          echo "push failed after 10 retries"
           exit 1
 
       - name: Create issue on failure
