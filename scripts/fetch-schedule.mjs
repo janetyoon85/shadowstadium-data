@@ -32,6 +32,7 @@ const STRUCTURED_SCORER_LEAGUES = new Set([
   'WORLDCUP', 'AFRICACUP', 'INTERCONTINENTALCUP', 'U17WORLDCUP', 'CLUBFRIENDLY',
   'CONCACAFCUP', 'UECL', 'UNL',
   'EFLCUP', 'WCQUEFA', 'AMATCHFRIENDLY', 'HYBRIDFRIENDLY',
+  'KOREACUP', 'WCQAFC', 'ASIANCUP', 'U17ASIANCUP', 'U20ASIANCUP', 'U23ASIANCUP', 'WOMENASIANCUP', 'U20WOMENASIANCUP', 'AFFCUP', 'E1MEN', 'E1WOMEN', 'KLEAGUESUPERCUP',
 ]);
 
 const CATEGORIES = [
@@ -99,6 +100,24 @@ const CATEGORIES = [
   { categoryId: 'wcquefa', upperCategoryId: 'wfootball', league: 'WCQUEFA' },
   { categoryId: 'amatchfriendly', upperCategoryId: 'wfootball', league: 'AMATCHFRIENDLY' },
   { categoryId: 'hybridfriendly', upperCategoryId: 'wfootball', league: 'HYBRIDFRIENDLY' },
+  // 2026-09 국가대표(한국)/아시안컵류/코리아컵 — Naver 웹 번들 JS에서 categoryId 확보.
+  // 전부 upperCategoryId='kfootball'. amatch/amatchwomen(대한민국 전용 categoryId)은
+  // 전세계 국가대표 필터(amatchfriendly)에 흡수 — "국가대표" 필터가 한국 경기만 보여주는
+  // 것처럼 보이지 않도록 league를 AMATCHFRIENDLY로 공유.
+  { categoryId: 'koreacup', upperCategoryId: 'kfootball', league: 'KOREACUP' },
+  { categoryId: 'wcqafc', upperCategoryId: 'kfootball', league: 'WCQAFC' },
+  { categoryId: 'asiancup', upperCategoryId: 'kfootball', league: 'ASIANCUP' },
+  { categoryId: 'u17asiancup', upperCategoryId: 'kfootball', league: 'U17ASIANCUP' },
+  { categoryId: 'u20asiancup', upperCategoryId: 'kfootball', league: 'U20ASIANCUP' },
+  { categoryId: 'u23asiancup', upperCategoryId: 'kfootball', league: 'U23ASIANCUP' },
+  { categoryId: 'womenasiancup', upperCategoryId: 'kfootball', league: 'WOMENASIANCUP' },
+  { categoryId: 'u20womenasiancup', upperCategoryId: 'kfootball', league: 'U20WOMENASIANCUP' },
+  { categoryId: 'affcup', upperCategoryId: 'kfootball', league: 'AFFCUP' },
+  { categoryId: 'e1men', upperCategoryId: 'kfootball', league: 'E1MEN' },
+  { categoryId: 'e1women', upperCategoryId: 'kfootball', league: 'E1WOMEN' },
+  { categoryId: 'kleaguesupercup', upperCategoryId: 'kfootball', league: 'KLEAGUESUPERCUP' },
+  { categoryId: 'amatch', upperCategoryId: 'kfootball', league: 'AMATCHFRIENDLY' },
+  { categoryId: 'amatchwomen', upperCategoryId: 'kfootball', league: 'AMATCHFRIENDLY' },
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
