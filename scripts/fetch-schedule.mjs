@@ -196,9 +196,11 @@ function convertGame(n, cat, stadiumMap, mapFailures) {
   let status = 'scheduled';
   if (n.cancel) status = 'cancelled';
   else if (n.statusCode === 'RESULT') status = 'completed';
-  // BEFORE(경기전)/RESULT(종료) 둘 다 아니면 진행중 — 실제 값(LIVE 등)은 리그마다 다를 수 있어
-  // 화이트리스트 대신 이 두 값만 배제하는 방식으로 판별(10분 주기 폴링 — 라이브 스코어 수준 아님).
-  else if (n.statusCode !== 'BEFORE') status = 'live';
+  // BEFORE(경기전, 킥오프 훨씬 전)/READY(경기전, 킥오프 임박 — statusInfo 도 "경기전")/RESULT(종료)
+  // 셋 다 아니면 진행중으로 판별(실측: KBO 킥오프 ~1시간 전부터 BEFORE→READY로 바뀌는데 둘 다
+  // 경기 시작 전 — READY 를 놓치면 시작 전 경기가 "경기중 0:0"으로 잘못 표시됨, 실사용자 리포트).
+  // 리그마다 다른 실제 진행중 코드값(LIVE 등)까지 화이트리스트로 다 알 수는 없어 이 세 값만 배제.
+  else if (n.statusCode !== 'BEFORE' && n.statusCode !== 'READY') status = 'live';
 
   const game = {
     date: n.gameDate,
