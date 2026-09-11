@@ -50,6 +50,7 @@ const STRUCTURED_SCORER_LEAGUES = new Set([
   'CONCACAFCUP', 'UECL', 'UNL',
   'EFLCUP', 'WCQUEFA', 'AMATCHFRIENDLY', 'HYBRIDFRIENDLY',
   'KOREACUP', 'WCQAFC', 'ASIANCUP', 'U17ASIANCUP', 'U20ASIANCUP', 'U23ASIANCUP', 'WOMENASIANCUP', 'U20WOMENASIANCUP', 'AFFCUP', 'E1MEN', 'E1WOMEN', 'KLEAGUESUPERCUP',
+  'COPAAMERICA', 'CLUBWORLDCUP', 'UEFAEURO', 'U20WORLDCUP', 'U20WOMENWORLDCUP', 'U17WOMENASIANCUP',
 ]);
 
 const CATEGORIES = [
@@ -135,6 +136,15 @@ const CATEGORIES = [
   { categoryId: 'kleaguesupercup', upperCategoryId: 'kfootball', league: 'KLEAGUESUPERCUP' },
   { categoryId: 'amatch', upperCategoryId: 'kfootball', league: 'AMATCHFRIENDLY' },
   { categoryId: 'amatchwomen', upperCategoryId: 'kfootball', league: 'AMATCHFRIENDLY' },
+  // 2026-09 코파아메리카/FIFA클럽월드컵/UEFA유로/U-20월드컵/U-20여자월드컵/U-17여자아시안컵 — 대부분
+  // 과거(2024/2025) 대회라 이 라이브 크롤러(SEASON 윈도우) 안에서는 0건이 정상(번들 쪽에 과거분 확보).
+  // U-20여자월드컵·U-17여자아시안컵만 2026년 진행중이라 여기서도 실제로 잡힘.
+  { categoryId: 'copaamerica', upperCategoryId: 'wfootball', league: 'COPAAMERICA' },
+  { categoryId: 'clubworldcup', upperCategoryId: 'wfootball', league: 'CLUBWORLDCUP' },
+  { categoryId: 'uefaeuro', upperCategoryId: 'wfootball', league: 'UEFAEURO' },
+  { categoryId: 'u20worldcup', upperCategoryId: 'wfootball', league: 'U20WORLDCUP' },
+  { categoryId: 'u20womenworldcup', upperCategoryId: 'wfootball', league: 'U20WOMENWORLDCUP' },
+  { categoryId: 'u17womenasiancup', upperCategoryId: 'kfootball', league: 'U17WOMENASIANCUP' },
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
