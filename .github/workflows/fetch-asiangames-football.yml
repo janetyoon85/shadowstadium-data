@@ -1,0 +1,77 @@
+name: Asian Games Football Fetch
+
+on:
+  schedule:
+    # GitHub Actions 자체 cron은 안전망으로만 사용(매시 1회) — 실제 10분 주기는 cron-job.org
+    # 외부 트리거(workflow_dispatch)가 담당, 다른 라이브 크롤러들과 동일 패턴. 대회기간(9/14~10/3)
+    # 지나면 cron-job.org 트리거는 꺼도 됨.
+    - cron: '30 * * * *'
+  workflow_dispatch:  # cron-job.org 10분 주기 트리거 + 수동 실행용
+
+permissions:
+  contents: write   # commit + push
+  issues: write     # 실패 시 issue 생성
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run Asian Games football fetch
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: node scripts/fetch-asiangames-football.mjs
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if [[ -n "$(git status --porcelain games_2026.json)" ]]; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "changed=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add games_2026.json
+          git commit -m "chore(data): 아시안게임 축구 동기화 ($(date +'%Y-%m-%d %H:%M'))"
+          for i in 1 2 3 4 5; do
+            if git push; then
+              exit 0
+            fi
+            echo "push rejected, rebasing onto origin/main and retrying ($i/5)"
+            git pull --rebase origin main
+            sleep $((RANDOM % 10 + 1))
+          done
+          echo "push failed after 5 retries"
+          exit 1
+
+      - name: Create issue on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const date = new Date().toISOString().split('T')[0];
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `🚨 Asian Games football fetch failed - ${date}`,
+              body: `Asian Games football fetch failed at ${date}.\n\nWorkflow run: ${context.runId}\nLogs: https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
+              labels: ['bug', 'crawler']
+            });
+      - name: Discord 알림 (실패 시)
+        if: failure()
+        run: |
+          curl -H "Content-Type: application/json" \
+            -d "{\"content\":\"🔴 그늘각 아시안게임 축구 크롤러 실패\n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}\"}" \
+            "${{ secrets.DISCORD_WEBHOOK_URL }}"
