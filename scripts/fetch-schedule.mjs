@@ -31,6 +31,7 @@ const STRUCTURED_SCORER_LEAGUES = new Set([
   'COMMUNITYSHIELD', 'UEFASUPERCUP', 'GERMANSUPERCUP', 'SPANISHSUPERCUP', 'ITALIANSUPERCUP', 'FRENCHSUPERCUP',
   'WORLDCUP', 'AFRICACUP', 'INTERCONTINENTALCUP', 'U17WORLDCUP', 'CLUBFRIENDLY',
   'CONCACAFCUP', 'UECL', 'UNL',
+  'EFLCUP', 'WCQUEFA', 'AMATCHFRIENDLY', 'HYBRIDFRIENDLY',
 ]);
 
 const CATEGORIES = [
@@ -93,6 +94,11 @@ const CATEGORIES = [
   { categoryId: 'concacafcup', upperCategoryId: 'wfootball', league: 'CONCACAFCUP' },
   { categoryId: 'uecl', upperCategoryId: 'wfootball', league: 'UECL' },
   { categoryId: 'unl', upperCategoryId: 'wfootball', league: 'UNL' },
+  // EFL컵/월드컵 유럽예선/국가대표친선/특별친선 — Naver 웹 번들 JS에서 categoryId 확보(2026-09).
+  { categoryId: 'carlingcup', upperCategoryId: 'wfootball', league: 'EFLCUP' },
+  { categoryId: 'wcquefa', upperCategoryId: 'wfootball', league: 'WCQUEFA' },
+  { categoryId: 'amatchfriendly', upperCategoryId: 'wfootball', league: 'AMATCHFRIENDLY' },
+  { categoryId: 'hybridfriendly', upperCategoryId: 'wfootball', league: 'HYBRIDFRIENDLY' },
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
