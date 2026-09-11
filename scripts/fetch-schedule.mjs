@@ -172,7 +172,9 @@ async function notifyMappingFailures(uniqueFails) {
 async function fetchPage(cat, page) {
   // baseball 필드 → KBO 응답에 home/awayStarterName(선발투수) 포함. 발표 전(경기 전날 밤 10시 이전)
   // 이면 빈 문자열로 옴 → convertGame 에서 비어있으면 누락. K리그엔 해당 필드 없음(무시).
-  const url = `${API_BASE}?fromDate=${SEASON_START}&toDate=${SEASON_END}&upperCategoryId=${cat.upperCategoryId}&categoryId=${cat.categoryId}&fields=basic,stadium,baseball&size=${PAGE_SIZE}&page=${page}`;
+  // fields=all — basic,stadium,baseball 의 상위집합(실측 확인) + phaseCode/leg/aggregateScore 등
+  // 토너먼트 라운드 정보 포함. 페이로드는 커지지만 별도 요청 없이 한 번에 확보 가능.
+  const url = `${API_BASE}?fromDate=${SEASON_START}&toDate=${SEASON_END}&upperCategoryId=${cat.upperCategoryId}&categoryId=${cat.categoryId}&fields=all&size=${PAGE_SIZE}&page=${page}`;
   const res = await fetch(url, { headers: { 'User-Agent': USER_AGENT } });
   if (!res.ok) throw new Error(`HTTP ${res.status} for ${cat.categoryId} page=${page}`);
   const json = await res.json();
@@ -266,6 +268,15 @@ function convertGame(n, cat, stadiumMap, mapFailures) {
       if (wp) game.winPitcher = wp;
       if (lp) game.losePitcher = lp;
     }
+  }
+  // 토너먼트 라운드 — phaseCode(GROUP/PO/T32/T16/T8/T4/T3/T2 등, 실측 확인, 2026-09)만 있고
+  // 리그전(KBO 등)에는 필드 자체가 없음. leg 는 1/2(다전제 토너먼트 1차전/2차전)만 저장 —
+  // leg:0(단판)은 표시할 게 없어 생략. 합계 스코어는 leg 있는 경기에만 의미 있어 같이 조건.
+  if (n.phaseCode) game.phaseCode = n.phaseCode;
+  if (n.leg === 1 || n.leg === 2) {
+    game.leg = n.leg;
+    if (typeof n.homeAggregateScore === 'number') game.homeAggregateScore = n.homeAggregateScore;
+    if (typeof n.awayAggregateScore === 'number') game.awayAggregateScore = n.awayAggregateScore;
   }
   return game;
 }
@@ -824,6 +835,11 @@ function serializeGame(g) {
   // K리그 어시스트 — 종료+진행중, 이 경기 누적 어시스트 있을 때만. {home,away} 각 [{n,count}].
   // 득점자와 달리 특정 골에 귀속되지 않음(스키마 한계, K리그1/2 전용 — 해외 리그는 미제공).
   if (g.assists) out.assists = g.assists;
+  // 토너먼트 라운드/차전 — 있는 리그(국가대표·클럽컵 등)만, 리그전은 필드 자체 없음.
+  if (g.phaseCode) out.phaseCode = g.phaseCode;
+  if (g.leg) out.leg = g.leg;
+  if (typeof g.homeAggregateScore === 'number') out.homeAggregateScore = g.homeAggregateScore;
+  if (typeof g.awayAggregateScore === 'number') out.awayAggregateScore = g.awayAggregateScore;
   return out;
 }
 
