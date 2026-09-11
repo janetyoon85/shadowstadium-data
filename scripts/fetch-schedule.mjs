@@ -196,7 +196,15 @@ async function fetchCategory(cat) {
   return all;
 }
 
+// 토너먼트 후반(16강 등) 팀이 아직 안 정해진 경기는 Naver가 팀명 자체를 "미정" 문자열로 보냄
+// (빈 문자열이 아니라 이 한글 텍스트 그대로) — 실사용자 리포트로 "미정 vs 미정" 카드가 보이는
+// 버그 확인, 대진 확정되면 같은 gameId로 나중에 실제 팀명으로 갱신되니 그때까지 조용히 스킵.
+function isTbdTeamName(name) {
+  return !name || name === '미정';
+}
+
 function convertGame(n, cat, stadiumMap, mapFailures) {
+  if (isTbdTeamName(n.homeTeamName) || isTbdTeamName(n.awayTeamName)) return null;
   const dt = n.gameDateTime || '';
   const time = dt.includes('T') ? dt.split('T')[1].slice(0, 5) : '00:00';
   const catMap = stadiumMap[cat.categoryId] || {};
@@ -841,7 +849,7 @@ async function main() {
 
   for (const cat of CATEGORIES) {
     const raw = await fetchCategory(cat);
-    const converted = raw.map((g) => convertGame(g, cat, stadiumMap, mapFailures));
+    const converted = raw.map((g) => convertGame(g, cat, stadiumMap, mapFailures)).filter(Boolean);
     categoryCounts[cat.league] = converted.length;
     allGames.push(...converted);
     await sleep(REQUEST_DELAY_MS);
