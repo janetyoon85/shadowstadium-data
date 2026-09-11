@@ -1,0 +1,27 @@
+name: Check Future Tournament Editions
+
+on:
+  schedule:
+    # 다음 대회가 몇 년 뒤 얘기라 자주 돌 필요 없음 — 매주 월요일 1회.
+    - cron: '0 1 * * 1'
+  workflow_dispatch:  # 수동 실행용(테스트)
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Check future editions
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: node scripts/check-future-editions.mjs
