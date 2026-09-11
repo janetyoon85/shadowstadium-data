@@ -229,6 +229,13 @@ function convertGame(n, cat, stadiumMap, mapFailures) {
     if (typeof n.awayTeamScore === 'number') game.awayScore = n.awayTeamScore;
     if (typeof n.homeTeamScore === 'number') game.homeScore = n.homeTeamScore;
   }
+  // 인닝 정보 — 야구 진행중 경기만. schedule API 의 statusInfo 에 이미 "N회초"/"N회말" 형태로
+  // 포함(추가 요청 0). "N회초"=원정 공격/홈 수비, "N회말"=홈 공격/원정 수비(야구 규칙, 고정) —
+  // 클라이언트에서 team 이름과 조합해 "공격중" 표시. "경기중 0:0"만 뜨는 밋밋함 보완용.
+  if (status === 'live' && BASEBALL_LEAGUES.has(cat.league)) {
+    const info = (n.statusInfo || '').trim();
+    if (/^\d+회(초|말)$/.test(info)) game.inningInfo = info;
+  }
   if (status === 'completed') {
     // 승/패 투수 — 야구 리그(KBO/MLB/NPB) 종료 경기만. schedule API 의 win/losePitcherName 에
     // 이미 포함(추가 요청 0). 무승부(DRAW)면 둘 다 빈 문자열 → 누락(앱이 둘 다 있을 때만 렌더).
@@ -786,6 +793,8 @@ function serializeGame(g) {
   // 0 도 유효 점수라 typeof 가드 (falsy 체크 금지).
   if (typeof g.awayScore === 'number') out.awayScore = g.awayScore;
   if (typeof g.homeScore === 'number') out.homeScore = g.homeScore;
+  // 야구 진행중 인닝 정보 ("5회말" 등) — 앱에서 team 이름과 조합해 공격/수비 표시.
+  if (g.inningInfo) out.inningInfo = g.inningInfo;
   // 종료 경기 승/패/세 투수 (KBO). 있는 것만 — 무승부·세이브 없는 경기는 일부/전부 누락.
   if (g.winPitcher) out.winPitcher = g.winPitcher;
   if (g.losePitcher) out.losePitcher = g.losePitcher;
