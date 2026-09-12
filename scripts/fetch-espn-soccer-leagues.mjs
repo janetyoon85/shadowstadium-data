@@ -55,6 +55,27 @@ function toKstDateTime(utcIso) {
   return { date: `${yyyy}-${mm}-${dd}`, time: `${hh}:${mi}` };
 }
 
+// ESPN scoreboard 응답에 이미 comp.details(득점/카드 등 이벤트 배열)가 포함돼 있어서 별도 요청
+// 불필요. scoringPlay:true 인 항목만 골(자책골 포함) — 카드/교체 등은 false.
+function extractScorers(comp, homeTeamId, awayTeamId) {
+  const home = [];
+  const away = [];
+  for (const d of comp.details || []) {
+    if (!d.scoringPlay) continue;
+    const scorer = d.athletesInvolved?.[0];
+    if (!scorer?.displayName) continue;
+    const entry = { n: scorer.displayName };
+    const m = /^(\d+)/.exec(d.clock?.displayValue || '');
+    if (m) entry.m = parseInt(m[1], 10);
+    if (d.penaltyKick) entry.pk = true;
+    if (d.ownGoal) entry.og = true;
+    const teamId = String(d.team?.id ?? '');
+    if (teamId === String(homeTeamId)) home.push(entry);
+    else if (teamId === String(awayTeamId)) away.push(entry);
+  }
+  return home.length || away.length ? { home, away } : undefined;
+}
+
 function espnStatusToOurs(statusType) {
   const name = statusType?.name || '';
   if (/POSTPONED/i.test(name)) return 'postponed';
@@ -100,6 +121,8 @@ async function fetchEspnLeagueRange(code, slug, fromYmd, toYmd, unknownTeams, un
       const as = away.score != null ? parseInt(away.score, 10) : NaN;
       if (!Number.isNaN(hs)) out.homeScore = hs;
       if (!Number.isNaN(as)) out.awayScore = as;
+      const scorers = extractScorers(comp, home.team?.id, away.team?.id);
+      if (scorers) out.scorers = scorers;
     }
     games.push(out);
   }
