@@ -1,11 +1,12 @@
-name: Daily ESPN Olympic Football Fetch
+name: ESPN Olympic Football Fetch
 
 on:
   schedule:
-    # GitHub Actions cron 은 UTC 기준. 올림픽축구는 4년에 한 번만 열려 하루 1회면 충분 — 날짜
-    # 하드코딩 없이 롤링 윈도우(오늘 ±)로 조회해서 다음 대회도 자동으로 잡힘.
-    - cron: '10 0 * * *'
-  workflow_dispatch:  # 수동 실행 가능 (테스트용)
+    # GitHub Actions 자체 cron은 안전망(매시 1회, 지연·누락 잦아 신뢰 못 함 — 다른 라이브
+    # 크롤러들과 동일 이유). 대회 기간 중 실시간 스코어 갱신은 cron-job.org 외부 트리거(10분
+    # 주기)가 담당 — 올림픽축구 워크플로 추가할 때 등록 필요(다른 라이브 크롤러들처럼).
+    - cron: '15 * * * *'
+  workflow_dispatch:  # cron-job.org 10분 주기 트리거 + 수동 실행용
 
 permissions:
   contents: write   # commit + push
