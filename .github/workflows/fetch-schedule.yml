@@ -3,13 +3,14 @@ name: Daily Schedule Fetch
 on:
   schedule:
     # GitHub Actions cron 은 UTC 기준. KST = UTC+9.
-    # MLB/NPB/EPL/EFL 편입(2026-09) 이후 경기 종료 시각이 하루 전체에 걸쳐 흩어져 있어
-    # 3회/일 → 매시 정각으로 상향. 네이버 비공식 API라 공식 rate limit 문서는 없음 —
-    # 하루 24회(카테고리 조회만 ~720req/day)로 시작, 문제 생기면 다시 줄일 것.
-    # FCM Reminders 가 매시 00/15/30/45 에 도는 것과 정각(0분)에 정면충돌해서
-    # push 경합이 잦았음 — 7분으로 옮겨 겹칠 확률을 낮춤(완전 회피는 아니라 재시도도 유지).
-    - cron: '7 * * * *'    # 매시 7분 (UTC = KST 매시)
-  workflow_dispatch:  # 수동 실행 가능 (테스트용)
+    # K리그/KBO는 앱의 핵심 리그인데 매시 1회만 돌아서(2026-09) 라이브 스코어가 최대 1시간까지
+    # stale — 사용자가 직관 중 실시간으로 겪은 버그(목동 K리그2 경기, 서버는 이미 득점 반영
+    # 됐는데 우리 데이터는 다음 정각까지 0:0 고정). 다른 라이브 크롤러들과 동일하게 GH 자체
+    # cron은 매시 안전망으로만 두고, 실제 10분 주기는 cron-job.org 외부 트리거가 담당 —
+    # 이 워크플로 추가할 때 cron-job.org 등록 필요(다른 라이브 크롤러들처럼).
+    # FCM Reminders 가 매시 00/15/30/45 에 도는 것과 정각(0분) 겹침 방지로 7분 유지.
+    - cron: '7 * * * *'    # 매시 7분 (UTC = KST 매시) — 안전망
+  workflow_dispatch:  # cron-job.org 10분 주기 트리거 + 수동 실행용
     inputs:
       test_discord:
         description: '실제 크롤링 없이 미매핑 구장 Discord 알림만 테스트 발송'
