@@ -79,6 +79,17 @@ function toKstDateTime(utcIso) {
   return { date: `${yyyy}-${mm}-${dd}`, time: `${hh}:${mi}` };
 }
 
+// statsapi linescore.inningState: Top/Middle(초 마무리~말 시작 전)/Bottom/End(말 마무리~다음 회 전).
+// 정확한 순간(중/종료)까지 구분하는 라벨이 기존 스키마(^\d+회(초|말)$, 네이버 공용)에 없어
+// Top·Middle -> 초, Bottom·End -> 말로 근사(경기 흐름 파악엔 충분, 기존 방위각 180도 근사와 같은 성격).
+function inningInfoFrom(linescore) {
+  const inning = linescore?.currentInning;
+  const state = linescore?.inningState;
+  if (!inning || !state) return undefined;
+  const half = /^(Top|Middle)$/i.test(state) ? '초' : '말';
+  return `${inning}회${half}`;
+}
+
 function mlbStatusToOurs(g) {
   const abs = g.status?.abstractGameState;
   const detailed = g.status?.detailedState || '';
@@ -94,7 +105,7 @@ function ymd(d) {
 }
 
 async function fetchAaaBaseball(startDate, endDate, unknownTeams, unknownVenues) {
-  const url = `https://statsapi.mlb.com/api/v1/schedule?sportId=11&startDate=${startDate}&endDate=${endDate}`;
+  const url = `https://statsapi.mlb.com/api/v1/schedule?sportId=11&startDate=${startDate}&endDate=${endDate}&hydrate=linescore`;
   const res = await fetch(url, { headers: { 'User-Agent': USER_AGENT } });
   if (!res.ok) throw new Error(`HTTP ${res.status} AAA`);
   const j = await res.json();
@@ -126,6 +137,10 @@ async function fetchAaaBaseball(startDate, endDate, unknownTeams, unknownVenues)
         const as = g.teams?.away?.score;
         if (typeof hs === 'number') out.homeScore = hs;
         if (typeof as === 'number') out.awayScore = as;
+      }
+      if (status === 'live') {
+        const inningInfo = inningInfoFrom(g.linescore);
+        if (inningInfo) out.inningInfo = inningInfo;
       }
       games.push(out);
     }
@@ -178,7 +193,7 @@ async function main() {
       const idx = games.findIndex((x) => x.gameId === key);
       if (idx >= 0) {
         const prev = games[idx];
-        if (prev.status !== g.status || prev.homeScore !== g.homeScore || prev.awayScore !== g.awayScore) {
+        if (prev.status !== g.status || prev.homeScore !== g.homeScore || prev.awayScore !== g.awayScore || prev.inningInfo !== g.inningInfo) {
           games[idx] = { ...prev, ...g };
           updated++;
         }
