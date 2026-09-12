@@ -3,10 +3,10 @@ name: ESPN Olympic Football Fetch
 on:
   schedule:
     # GitHub Actions 자체 cron은 안전망(매시 1회, 지연·누락 잦아 신뢰 못 함 — 다른 라이브
-    # 크롤러들과 동일 이유). 대회 기간 중 실시간 스코어 갱신은 cron-job.org 외부 트리거(10분
+    # 크롤러들과 동일 이유). 대회 기간 중 실시간 스코어 갱신은 cron-job.org 외부 트리거(5분
     # 주기)가 담당 — 올림픽축구 워크플로 추가할 때 등록 필요(다른 라이브 크롤러들처럼).
     - cron: '15 * * * *'
-  workflow_dispatch:  # cron-job.org 10분 주기 트리거 + 수동 실행용
+  workflow_dispatch:  # cron-job.org 5분 주기 트리거 + 수동 실행용
 
 permissions:
   contents: write   # commit + push

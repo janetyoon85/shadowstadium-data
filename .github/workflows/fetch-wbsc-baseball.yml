@@ -3,11 +3,11 @@ name: WBSC Baseball Fetch
 on:
   schedule:
     # GitHub Actions 자체 cron은 지연·누락이 잦아 신뢰 못 함(기존 크롤러들과 동일 이유) — 매시
-    # 1회만 안전망으로 두고, 실제 10분 주기 라이브 갱신은 cron-job.org 외부 트리거가 담당
+    # 1회만 안전망으로 두고, 실제 5분 주기 라이브 갱신은 cron-job.org 외부 트리거가 담당
     # (workflow_dispatch 호출, 다른 라이브 크롤러들과 같은 방식 — BFA U-18 아시아선수권처럼
     # 진행 중인 대회가 있을 때 점수가 몇 시간씩 안 바뀌는 걸 막기 위함).
     - cron: '10 * * * *'
-  workflow_dispatch:  # cron-job.org 10분 주기 트리거 + 수동 실행용
+  workflow_dispatch:  # cron-job.org 5분 주기 트리거 + 수동 실행용
 
 permissions:
   contents: write   # commit + push

@@ -2,11 +2,11 @@ name: Asian Games Baseball Fetch
 
 on:
   schedule:
-    # GitHub Actions 자체 cron은 지연·누락이 잦아 안전망으로만 사용(매시 1회) — 실제 10분 주기는
+    # GitHub Actions 자체 cron은 지연·누락이 잦아 안전망으로만 사용(매시 1회) — 실제 5분 주기는
     # cron-job.org 외부 트리거(workflow_dispatch)가 담당, 다른 라이브 크롤러들과 동일 패턴.
-    # 대회 자체가 9/21~27 짧은 기간이라 그 기간에만 10분 트리거 켜두면 충분.
+    # 대회 자체가 9/21~27 짧은 기간이라 그 기간에만 5분 트리거 켜두면 충분.
     - cron: '20 * * * *'
-  workflow_dispatch:  # cron-job.org 10분 주기 트리거 + 수동 실행용
+  workflow_dispatch:  # cron-job.org 5분 주기 트리거 + 수동 실행용
 
 permissions:
   contents: write   # commit + push

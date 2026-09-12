@@ -2,11 +2,11 @@ name: Asian Games Football Fetch
 
 on:
   schedule:
-    # GitHub Actions 자체 cron은 안전망으로만 사용(매시 1회) — 실제 10분 주기는 cron-job.org
+    # GitHub Actions 자체 cron은 안전망으로만 사용(매시 1회) — 실제 5분 주기는 cron-job.org
     # 외부 트리거(workflow_dispatch)가 담당, 다른 라이브 크롤러들과 동일 패턴. 대회기간(9/14~10/3)
     # 지나면 cron-job.org 트리거는 꺼도 됨.
     - cron: '30 * * * *'
-  workflow_dispatch:  # cron-job.org 10분 주기 트리거 + 수동 실행용
+  workflow_dispatch:  # cron-job.org 5분 주기 트리거 + 수동 실행용
 
 permissions:
   contents: write   # commit + push

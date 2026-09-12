@@ -2,9 +2,9 @@ name: MLB Winter Baseball Fetch
 
 on:
   schedule:
-    # GitHub 자체 cron은 안전망(매시 1회) — 10분 주기는 cron-job.org 외부 트리거가 담당.
+    # GitHub 자체 cron은 안전망(매시 1회) — 5분 주기는 cron-job.org 외부 트리거가 담당.
     - cron: '40 * * * *'
-  workflow_dispatch:  # cron-job.org 10분 주기 트리거 + 수동 실행용
+  workflow_dispatch:  # cron-job.org 5분 주기 트리거 + 수동 실행용
 
 permissions:
   contents: write   # commit + push

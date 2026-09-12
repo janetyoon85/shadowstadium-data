@@ -6,11 +6,11 @@ on:
     # K리그/KBO는 앱의 핵심 리그인데 매시 1회만 돌아서(2026-09) 라이브 스코어가 최대 1시간까지
     # stale — 사용자가 직관 중 실시간으로 겪은 버그(목동 K리그2 경기, 서버는 이미 득점 반영
     # 됐는데 우리 데이터는 다음 정각까지 0:0 고정). 다른 라이브 크롤러들과 동일하게 GH 자체
-    # cron은 매시 안전망으로만 두고, 실제 10분 주기는 cron-job.org 외부 트리거가 담당 —
+    # cron은 매시 안전망으로만 두고, 실제 5분 주기는 cron-job.org 외부 트리거가 담당 —
     # 이 워크플로 추가할 때 cron-job.org 등록 필요(다른 라이브 크롤러들처럼).
     # FCM Reminders 가 매시 00/15/30/45 에 도는 것과 정각(0분) 겹침 방지로 7분 유지.
     - cron: '7 * * * *'    # 매시 7분 (UTC = KST 매시) — 안전망
-  workflow_dispatch:  # cron-job.org 10분 주기 트리거 + 수동 실행용
+  workflow_dispatch:  # cron-job.org 5분 주기 트리거 + 수동 실행용
     inputs:
       test_discord:
         description: '실제 크롤링 없이 미매핑 구장 Discord 알림만 테스트 발송'
@@ -60,7 +60,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add games_2026.json saves.json scorers.json assists.json euro_assists.json
           git commit -m "chore(data): daily schedule sync ($(date +'%Y-%m-%d'))"
-          # FCM Reminders(15분 간격) + WBSC/아시안게임 야구·축구 크롤러들(10분 간격, 2026-09
+          # FCM Reminders(15분 간격) + WBSC/아시안게임 야구·축구 크롤러들(5분 간격, 2026-09
           # 추가)까지 같은 브랜치에 동시에 push할 수 있어 non-fast-forward 거부가 잦아짐 —
           # rebase 후 재시도 (최대 10회, 동시 writer 늘어난 만큼 5회에서 상향).
           for i in $(seq 1 10); do
