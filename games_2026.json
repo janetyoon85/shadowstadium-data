@@ -221102,12 +221102,12 @@
     "stadium": "미즈호 PayPay 돔 후쿠오카",
     "timeTbd": false,
     "gameId": "20260912JLSF0",
-    "status": "live",
+    "status": "completed",
     "awayPitcher": "오지마",
     "homePitcher": "러틀리지",
-    "awayScore": 2,
+    "awayScore": 4,
     "homeScore": 5,
-    "inningInfo": "9회초"
+    "savePitcher": "스기야마"
   },
   {
     "date": "2026-09-12",
@@ -221124,7 +221124,7 @@
     "homePitcher": "에스피노자",
     "awayScore": 3,
     "homeScore": 5,
-    "inningInfo": "8회말"
+    "inningInfo": "9회초"
   },
   {
     "date": "2026-09-12",
@@ -221154,12 +221154,14 @@
     "stadium": "도쿄 돔",
     "timeTbd": false,
     "gameId": "20260912HSYO0",
-    "status": "live",
+    "status": "completed",
     "awayPitcher": "무라카미",
     "homePitcher": "타케마루",
     "awayScore": 0,
     "homeScore": 1,
-    "inningInfo": "9회초"
+    "winPitcher": "타케마루",
+    "losePitcher": "무라카미",
+    "savePitcher": "라이델"
   },
   {
     "date": "2026-09-12",
@@ -221175,7 +221177,7 @@
     "awayPitcher": "다카나시",
     "homePitcher": "와쿠이",
     "awayScore": 6,
-    "homeScore": 4,
+    "homeScore": 5,
     "inningInfo": "7회말"
   },
   {
@@ -221238,9 +221240,14 @@
     "gameId": "202609120509169",
     "status": "live",
     "awayScore": 1,
-    "homeScore": 0,
+    "homeScore": 1,
     "scorers": {
-      "home": [],
+      "home": [
+        {
+          "n": "모따",
+          "m": 25
+        }
+      ],
       "away": [
         {
           "n": "클리말라",
@@ -221249,7 +221256,12 @@
       ]
     },
     "assists": {
-      "home": [],
+      "home": [
+        {
+          "n": "이탈로",
+          "count": 1
+        }
+      ],
       "away": [
         {
           "n": "정승원",
