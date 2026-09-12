@@ -57,6 +57,16 @@ const FUTURE_EDITIONS = [
     kind: 'unknown-vendor',
     resolved: false,
   },
+  {
+    // 벤더(ESPN)는 이미 확정·자동화돼있음(fetch-espn-olympic-football.mjs, 롤링 윈도우라 대회
+    // 일정이 뜨면 팀명은 자동 매칭됨) — 다만 개최지가 매 대회 바뀌어 VENUE_MAP이 비어있는 채라
+    // 실제 경기가 뜨기 시작해도 구장 미매핑으로 스킵됨. 대회 임박 시 ESPN에 뜨는 실제 구장명을
+    // 확인해 VENUE_MAP(앱·데이터 저장소 양쪽)을 채워야 함.
+    name: '2028 LA 올림픽 축구 — 구장 매핑',
+    approxDate: '2028-06-01', // 개막(7월 예정) 전 리허설/조편성 발표 시점 감안 여유 있게
+    kind: 'venue-pending',
+    registryFile: 'scripts/fetch-espn-olympic-football.mjs',
+  },
 ];
 
 const USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36';
@@ -120,6 +130,16 @@ async function main() {
         `벤더를 예측할 수 없는 대회라 자동 탐지가 안 됨 — 공식 결과 사이트부터 다시 찾아야 함 ` +
         `(방법: reference_multisport_games_data 메모리 참고, WebSearch로 "[대회명] official results" → ` +
         `서버렌더링이면 data-page류 속성, SPA면 JS 번들에서 백엔드 API 역추적).`
+      );
+      continue;
+    }
+
+    if (ed.kind === 'venue-pending') {
+      messages.push(
+        `📅 **${ed.name}** — 예정일 약 ${ed.approxDate} (D${daysLeft >= 0 ? '-' + daysLeft : '+' + -daysLeft})\n` +
+        `크롤러는 이미 자동화돼있음(벤더 확정) — ESPN에 조편성/일정이 뜨면 팀명은 자동 매칭되지만 ` +
+        `개최 구장이 VENUE_MAP에 없어서 경기가 스킵될 수 있음. ${ed.registryFile} 실행해서 실제 뜨는 ` +
+        `구장명을 확인하고 VENUE_MAP(앱·데이터 저장소 양쪽)에 채워넣을 것.`
       );
       continue;
     }
