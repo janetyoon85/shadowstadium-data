@@ -168,12 +168,28 @@ async function notifyUnknowns(unknownTeams, unknownVenues) {
 // 대회 하나만 조회 실패해도 try/catch로 조용히 넘어가던 게 2026-09-12~13 wbscasia.org
 // 장애를 하루 넘게 못 알아챈 원인(다른 3개 wbsc.org 대회는 정상이라 워크플로 자체는 계속
 // success로 표시됨) — 이제 실패한 대회 목록을 모아 개별 Discord 알림으로 즉시 노출.
+// 5분 주기 트리거라 차단이 길어지면 같은 실패로 계속 알림이 옴(2026-09-13, IP/ASN 차단
+// 추정 — 헤더를 바꿔도 그대로 403). 대회별 마지막 알림 시각을 파일로 남겨 쿨다운 동안은
+// 재알림하지 않음(그래도 매 실행 로그엔 남으니 완전히 조용해지진 않음).
+const ALERT_STATE_PATH = path.join(REPO_ROOT, '.wbsc-alert-state.json');
+const ALERT_COOLDOWN_MS = 6 * 3600 * 1000;
 async function notifyFetchFailures(failed) {
   if (failed.length === 0) return;
   const webhook = process.env.DISCORD_WEBHOOK_URL;
-  if (!webhook) return;
-  const lines = failed.map(({ league, tournamentkey, error }) => `• ${league} (${tournamentkey}): ${error}`);
-  const content = `🔴 그늘각 — WBSC 야구 일부 대회 조회 실패(워크플로는 success로 표시되지만 데이터 갱신 안 됨)\n${lines.join('\n')}`;
+  let state = {};
+  try {
+    state = JSON.parse(await fs.readFile(ALERT_STATE_PATH, 'utf-8'));
+  } catch {}
+  const now = Date.now();
+  const toAlert = failed.filter(({ tournamentkey }) => {
+    const last = state[tournamentkey];
+    return !last || now - last > ALERT_COOLDOWN_MS;
+  });
+  for (const { tournamentkey } of failed) state[tournamentkey] = now;
+  await fs.writeFile(ALERT_STATE_PATH, JSON.stringify(state, null, 2), 'utf-8');
+  if (toAlert.length === 0 || !webhook) return;
+  const lines = toAlert.map(({ league, tournamentkey, error }) => `• ${league} (${tournamentkey}): ${error}`);
+  const content = `🔴 그늘각 — WBSC 야구 일부 대회 조회 실패(워크플로는 success로 표시되지만 데이터 갱신 안 됨, ${ALERT_COOLDOWN_MS / 3600000}시간 쿨다운)\n${lines.join('\n')}`;
   try {
     await fetch(webhook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ content }) });
   } catch (e) {
