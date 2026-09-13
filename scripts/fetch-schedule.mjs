@@ -703,14 +703,18 @@ async function enrichEuroAssists(allGames) {
   let noMatch = 0;
   let countMismatch = 0;
   const scoreboardCache = new Map(); // `${slug}:${yyyymmdd}` → events[], 같은 실행 내 중복 요청 방지.
+  // homeNats/awayNats 없는 옛 캐시(국적 필드 도입 전, 2026-09-13) 백필 — 한 번에 다 하면 실행이
+  // 25분+ 로 늘어나 5분 간격 외부 트리거와 겹쳐 실행이 계속 밀리고 push 경합 실패가 반복됨
+  // (2026-09-13 실측). 실행당 예산을 두고 나머지는 다음 실행들로 자연 분산.
+  const BACKFILL_BUDGET = 40;
+  let backfillUsed = 0;
 
   for (const g of targets) {
     const cached = cache[g.gameId];
-    // homeNats/awayNats 없는 옛 캐시(국적 필드 도입 전, 2026-09-13)는 한 번만 강제 재조회 —
-    // 어시스트는 이미 맞으니 재조회 후 다음 실행부턴 이 조건에 다시 안 걸림(자연 소멸).
-    const needsFetch =
-      !cached || g.status === 'live' || (g.status === 'completed' && cached.final === false) ||
-      !('homeNats' in cached) || !('awayNats' in cached);
+    const isBackfillOnly = cached && cached.final !== false && g.status !== 'live' && (!('homeNats' in cached) || !('awayNats' in cached));
+    if (isBackfillOnly && backfillUsed >= BACKFILL_BUDGET) continue; // 이번 실행 예산 소진 — 다음 실행에서 재시도.
+    const needsFetch = !cached || g.status === 'live' || (g.status === 'completed' && cached.final === false) || isBackfillOnly;
+    if (isBackfillOnly) backfillUsed++;
     if (needsFetch) {
       try {
         const slug = ESPN_LEAGUE_SLUG[g.league];
@@ -821,7 +825,7 @@ async function enrichEuroAssists(allGames) {
   await fs.writeFile(EURO_ASSISTS_PATH, JSON.stringify(pruned, null, 2) + '\n', 'utf-8');
 
   console.log(
-    `[euroAssists] targets=${targets.length} cached=${fromCache} fetched=${fetched} failed=${failed} noMatch=${noMatch} countMismatch=${countMismatch}`,
+    `[euroAssists] targets=${targets.length} cached=${fromCache} fetched=${fetched} failed=${failed} noMatch=${noMatch} countMismatch=${countMismatch} backfillUsed=${backfillUsed}/${BACKFILL_BUDGET}`,
   );
 }
 
