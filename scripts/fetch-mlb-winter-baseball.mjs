@@ -207,7 +207,7 @@ async function main() {
   }
   await notifyUnknowns(unknownTeams, unknownVenues);
 
-  const gamesPath = path.join(REPO_ROOT, 'games_2026.json');
+  const gamesPath = path.join(REPO_ROOT, 'games.json');
   const games = JSON.parse(await fs.readFile(gamesPath, 'utf-8'));
   const existingIds = new Set(games.map((g) => g.gameId || `${g.date}|${g.time}|${g.league}|${g.venueId}|${g.home}|${g.away}`));
   let added = 0;

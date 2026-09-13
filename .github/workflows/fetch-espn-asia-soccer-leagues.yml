@@ -30,7 +30,7 @@ jobs:
       - name: Check for changes
         id: changes
         run: |
-          if [[ -n "$(git status --porcelain games_2026.json)" ]]; then
+          if [[ -n "$(git status --porcelain games.json)" ]]; then
             echo "changed=true" >> $GITHUB_OUTPUT
           else
             echo "changed=false" >> $GITHUB_OUTPUT
@@ -41,7 +41,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add games_2026.json
+          git add games.json
           git commit -m "chore(data): 아시아축구 3개리그(ESPN) 동기화 ($(date +'%Y-%m-%d %H:%M'))"
           for i in $(seq 1 10); do
             if git push; then

@@ -33,7 +33,7 @@ jobs:
       - name: Check for changes
         id: changes
         run: |
-          if [[ -n "$(git status --porcelain games_2026.json)" ]]; then
+          if [[ -n "$(git status --porcelain games.json)" ]]; then
             echo "changed=true" >> $GITHUB_OUTPUT
           else
             echo "changed=false" >> $GITHUB_OUTPUT
@@ -44,7 +44,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add games_2026.json
+          git add games.json
           git commit -m "chore(data): WBSC 야구(U-18/U-15/U-23 월드컵) 동기화 ($(date +'%Y-%m-%d'))"
           # 다른 야간 크롤러들과 같은 브랜치에 동시에 push할 수 있어 non-fast-forward 거부 시
           # rebase 후 재시도.

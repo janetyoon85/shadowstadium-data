@@ -21,7 +21,7 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
-const PROD_PATH = path.join(REPO_ROOT, 'games_2026.json');
+const PROD_PATH = path.join(REPO_ROOT, 'games.json');
 
 const WINDOW_DAYS = 30;
 const HIGH_MAX_DAYS = 7;

@@ -34,7 +34,7 @@ if (!FORCE && (kstMin < WINDOW_START || kstMin > WINDOW_END)) {
 }
 
 function loadGames() {
-  const a = JSON.parse(fs.readFileSync('games_2026.json', 'utf8'));
+  const a = JSON.parse(fs.readFileSync('games.json', 'utf8'));
   let m = [];
   try { m = JSON.parse(fs.readFileSync('manual_games.json', 'utf8')); } catch {}
   return [...a, ...m];

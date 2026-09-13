@@ -32,7 +32,7 @@ jobs:
       - name: Check for changes
         id: changes
         run: |
-          if [[ -n "$(git status --porcelain games_2026.json)" ]]; then
+          if [[ -n "$(git status --porcelain games.json)" ]]; then
             echo "changed=true" >> $GITHUB_OUTPUT
           else
             echo "changed=false" >> $GITHUB_OUTPUT
@@ -43,7 +43,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add games_2026.json
+          git add games.json
           git commit -m "chore(data): ESPN 야구(WBC/카리브해시리즈/올림픽) 동기화 ($(date +'%Y-%m-%d'))"
           # 매시 도는 메인 크롤러(fetch-schedule.yml)와 같은 브랜치에 동시에 push할 수 있어
           # non-fast-forward 거부 시 rebase 후 재시도.

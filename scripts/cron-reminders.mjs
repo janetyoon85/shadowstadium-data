@@ -27,7 +27,7 @@ import { sendGame } from './send-reminders.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
-const GAMES_FILE = path.join(REPO_ROOT, 'games_2026.json');
+const GAMES_FILE = path.join(REPO_ROOT, 'games.json');
 const SENT_FILE = path.join(REPO_ROOT, 'sent-reminders.json');
 
 const LEAD_HOURS = [1, 3, 6, 12, 24];
@@ -75,7 +75,7 @@ async function main() {
   const now = Date.now();
 
   if (!Array.isArray(games) || games.length === 0) {
-    console.error('[reminders] games_2026.json empty/invalid');
+    console.error('[reminders] games.json empty/invalid');
     process.exit(1);
   }
 

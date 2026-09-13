@@ -44,10 +44,16 @@ jobs:
         id: infer
         run: node scripts/infer-rescheduled.mjs
 
+      # games_2026.json → games.json 리네임 전환기 호환용 레거시 별칭(2026-09).
+      # OTA 못 받은 구버전 앱이 여전히 옛 URL로 fetch하므로 당분간 병행 — TODO(2026-10초):
+      # 신규 클라이언트 채택률 확인 후 이 스텝과 git add 목록의 games_2026.json 제거.
+      - name: Write legacy filename alias (transition compat)
+        run: cp games.json games_2026.json
+
       - name: Check for changes
         id: changes
         run: |
-          if [[ -n "$(git status --porcelain games_2026.json saves.json scorers.json assists.json euro_assists.json)" ]]; then
+          if [[ -n "$(git status --porcelain games.json games_2026.json saves.json scorers.json assists.json euro_assists.json)" ]]; then
             echo "changed=true" >> $GITHUB_OUTPUT
           else
             echo "changed=false" >> $GITHUB_OUTPUT
@@ -58,7 +64,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add games_2026.json saves.json scorers.json assists.json euro_assists.json
+          git add games.json games_2026.json saves.json scorers.json assists.json euro_assists.json
           git commit -m "chore(data): daily schedule sync ($(date +'%Y-%m-%d'))"
           # FCM Reminders(15분 간격) + WBSC/아시안게임 야구·축구 크롤러들(5분 간격, 2026-09
           # 추가)까지 같은 브랜치에 동시에 push할 수 있어 non-fast-forward 거부가 잦아짐 —

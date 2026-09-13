@@ -1,6 +1,6 @@
 # Schedule crawler
 
-Naver Sports API → `games_2026.json` 자동 갱신 스크립트.
+Naver Sports API → `games.json` 자동 갱신 스크립트.
 
 ## 구성
 
@@ -30,12 +30,12 @@ node scripts/fetch-schedule.mjs
 3. Naver 응답 → `OfficialGame` 스키마 변환
 4. 같은 `(date, stadium, home, away)` 그룹 크기 2 → 시간순 `doubleheaderNum: 1, 2` 부여
 5. `staging.json` 저장 (디버깅용)
-6. `validators.mjs` 통과 시만 `../games_2026.json` 덮어씀
+6. `validators.mjs` 통과 시만 `../games.json` 덮어씀
 7. 매핑 실패 stadium 게임은 prod에서 **자동 필터링** (warning 로그만, 갱신은 진행). 시범경기 임시 venue (마산, 이천(두산) 등)는 의도적 누락
 
 ## 종료 코드
 
-- `0` — 성공 (`games_2026.json` 갱신됨, 매핑 누락 게임은 제외)
+- `0` — 성공 (`games.json` 갱신됨, 매핑 누락 게임은 제외)
 - `1` — validator 실패 (필수 필드·게임 수·gameId 중복)
 
 ## 매핑 실패 처리
@@ -135,7 +135,7 @@ Exit: `0` 정상, `1` JSON 손상 등 fatal.
   run: node scripts/infer-rescheduled.mjs
 ```
 
-`Check for changes` step이 두 스크립트의 결과(games_2026.json)를 묶어서 감지 → 변경 있으면 1 commit.
+`Check for changes` step이 두 스크립트의 결과(games.json)를 묶어서 감지 → 변경 있으면 1 commit.
 
 ## 다음 단계
 

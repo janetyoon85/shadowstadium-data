@@ -960,17 +960,17 @@ async function main() {
   }
 
   if (!result.valid) {
-    console.error(`\n[fail] validator rejected — games_2026.json NOT updated`);
+    console.error(`\n[fail] validator rejected — games.json NOT updated`);
     process.exit(1);
   }
 
-  const prodPath = path.join(REPO_ROOT, 'games_2026.json');
+  const prodPath = path.join(REPO_ROOT, 'games.json');
   const exportGames = allGames.filter((g) => g.venueId);
   const filteredOut = allGames.length - exportGames.length;
   const serialized = exportGames.map(serializeGame);
 
   // 이 스크립트가 모르는 리그(MLB/NPB/EPL/EFL 등 — buildGameData.py가 별도로 채워 넣는 파일럿
-  // 리그)는 건드리지 않고 보존한다. 예전엔 games_2026.json을 통째로 덮어써서, 매 크론 실행마다
+  // 리그)는 건드리지 않고 보존한다. 예전엔 games.json을 통째로 덮어써서, 매 크론 실행마다
   // 수동으로 병합해둔 해외 리그 데이터가 지워지는 사고가 있었음(2026-09-09).
   const knownLeagues = new Set(CATEGORIES.map((c) => c.league));
   let preserved = [];
