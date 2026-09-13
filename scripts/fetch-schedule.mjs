@@ -712,7 +712,7 @@ async function enrichEuroAssists(allGames) {
   // homeNats/awayNats 없는 옛 캐시(국적 필드 도입 전, 2026-09-13) 백필 — 한 번에 다 하면 실행이
   // 25분+ 로 늘어나 5분 간격 외부 트리거와 겹쳐 실행이 계속 밀리고 push 경합 실패가 반복됨
   // (2026-09-13 실측). 실행당 예산을 두고 나머지는 다음 실행들로 자연 분산.
-  const BACKFILL_BUDGET = 40;
+  const BACKFILL_BUDGET = 80; // 실행시간 2.6~3.7분으로 안정 확인(2026-09-13) — 여유 있어 상향.
   let backfillUsed = 0;
 
   for (const g of targets) {
