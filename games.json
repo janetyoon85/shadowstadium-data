@@ -457,9 +457,9 @@
     "stadium": "Okinawa Cellular Stadium NAHA",
     "timeTbd": false,
     "gameId": "U18BASEBALLWORLDCUP_WBSC_173045",
-    "status": "live",
+    "status": "completed",
     "homeScore": 0,
-    "awayScore": 0
+    "awayScore": 13
   },
   {
     "date": "2025-09-08",
@@ -19866,33 +19866,6 @@
   {
     "date": "2026-03-04",
     "time": "19:00",
-    "league": "ACL",
-    "venueId": "seoulwc",
-    "home": "서울",
-    "away": "비셀 고베",
-    "stadium": "서울월드컵경기장",
-    "timeTbd": false,
-    "gameId": "U8avFl0tEXRq1RV",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 0,
-    "scorers": {
-      "home": [],
-      "away": [
-        {
-          "n": "마테우스 툴레르",
-          "m": 23
-        }
-      ]
-    },
-    "phaseCode": "T16",
-    "leg": 1,
-    "homeAggregateScore": 1,
-    "awayAggregateScore": 3
-  },
-  {
-    "date": "2026-03-04",
-    "time": "19:00",
     "league": "ACL2",
     "venueId": "panasonic_stadium_suita",
     "home": "감바 오사카",
@@ -19921,6 +19894,33 @@
     "leg": 1,
     "homeAggregateScore": 3,
     "awayAggregateScore": 2
+  },
+  {
+    "date": "2026-03-04",
+    "time": "19:00",
+    "league": "ACL",
+    "venueId": "seoulwc",
+    "home": "서울",
+    "away": "비셀 고베",
+    "stadium": "서울월드컵경기장",
+    "timeTbd": false,
+    "gameId": "U8avFl0tEXRq1RV",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "마테우스 툴레르",
+          "m": 23
+        }
+      ]
+    },
+    "phaseCode": "T16",
+    "leg": 1,
+    "homeAggregateScore": 1,
+    "awayAggregateScore": 3
   },
   {
     "date": "2026-03-04",
@@ -39581,6 +39581,70 @@
   {
     "date": "2026-03-28",
     "time": "14:00",
+    "league": "K리그2",
+    "venueId": "asan",
+    "home": "충남아산",
+    "away": "화성",
+    "stadium": "아산 이순신",
+    "timeTbd": false,
+    "gameId": "20260328343934",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "장준영",
+          "m": 41
+        }
+      ],
+      "away": []
+    },
+    "assists": {
+      "home": [
+        {
+          "n": "은고이",
+          "count": 1
+        }
+      ],
+      "away": []
+    }
+  },
+  {
+    "date": "2026-03-28",
+    "time": "14:00",
+    "league": "K리그2",
+    "venueId": "yongin",
+    "home": "용인",
+    "away": "수원",
+    "stadium": "용인 미르",
+    "timeTbd": false,
+    "gameId": "20260328420233",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "페신",
+          "m": 3
+        }
+      ]
+    },
+    "assists": {
+      "home": [],
+      "away": [
+        {
+          "n": "브루노 실바",
+          "count": 1
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-03-28",
+    "time": "14:00",
     "league": "KBO",
     "venueId": "changwon",
     "home": "NC",
@@ -39669,70 +39733,6 @@
     "homeScore": 7,
     "winPitcher": "김민",
     "losePitcher": "조상우"
-  },
-  {
-    "date": "2026-03-28",
-    "time": "14:00",
-    "league": "K리그2",
-    "venueId": "asan",
-    "home": "충남아산",
-    "away": "화성",
-    "stadium": "아산 이순신",
-    "timeTbd": false,
-    "gameId": "20260328343934",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 1,
-    "scorers": {
-      "home": [
-        {
-          "n": "장준영",
-          "m": 41
-        }
-      ],
-      "away": []
-    },
-    "assists": {
-      "home": [
-        {
-          "n": "은고이",
-          "count": 1
-        }
-      ],
-      "away": []
-    }
-  },
-  {
-    "date": "2026-03-28",
-    "time": "14:00",
-    "league": "K리그2",
-    "venueId": "yongin",
-    "home": "용인",
-    "away": "수원",
-    "stadium": "용인 미르",
-    "timeTbd": false,
-    "gameId": "20260328420233",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 0,
-    "scorers": {
-      "home": [],
-      "away": [
-        {
-          "n": "페신",
-          "m": 3
-        }
-      ]
-    },
-    "assists": {
-      "home": [],
-      "away": [
-        {
-          "n": "브루노 실바",
-          "count": 1
-        }
-      ]
-    }
   },
   {
     "date": "2026-03-28",
@@ -40766,6 +40766,87 @@
   {
     "date": "2026-03-29",
     "time": "14:00",
+    "league": "K리그2",
+    "venueId": "cheongju",
+    "home": "충북청주",
+    "away": "부산",
+    "stadium": "청주 종합",
+    "timeTbd": false,
+    "gameId": "20260329370638",
+    "status": "completed",
+    "awayScore": 2,
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "이라클리",
+          "m": 81
+        }
+      ],
+      "away": [
+        {
+          "n": "가브리엘",
+          "m": 42
+        },
+        {
+          "n": "백가온",
+          "m": 87
+        }
+      ]
+    },
+    "assists": {
+      "home": [
+        {
+          "n": "허승찬",
+          "count": 1
+        }
+      ],
+      "away": [
+        {
+          "n": "김찬",
+          "count": 1
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-03-29",
+    "time": "14:00",
+    "league": "K리그2",
+    "venueId": "suwonfc",
+    "home": "수원FC",
+    "away": "파주",
+    "stadium": "수원 종합",
+    "timeTbd": false,
+    "gameId": "20260329294039",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "윌리안",
+          "m": 5,
+          "pk": true
+        },
+        {
+          "n": "윌리안",
+          "m": 33,
+          "pk": true
+        }
+      ],
+      "away": [
+        {
+          "n": "보르하 바스톤",
+          "m": 21,
+          "pk": true
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-03-29",
+    "time": "14:00",
     "league": "KBO",
     "venueId": "changwon",
     "home": "NC",
@@ -40854,87 +40935,6 @@
     "homeScore": 11,
     "winPitcher": "김건우",
     "losePitcher": "이의리"
-  },
-  {
-    "date": "2026-03-29",
-    "time": "14:00",
-    "league": "K리그2",
-    "venueId": "cheongju",
-    "home": "충북청주",
-    "away": "부산",
-    "stadium": "청주 종합",
-    "timeTbd": false,
-    "gameId": "20260329370638",
-    "status": "completed",
-    "awayScore": 2,
-    "homeScore": 1,
-    "scorers": {
-      "home": [
-        {
-          "n": "이라클리",
-          "m": 81
-        }
-      ],
-      "away": [
-        {
-          "n": "가브리엘",
-          "m": 42
-        },
-        {
-          "n": "백가온",
-          "m": 87
-        }
-      ]
-    },
-    "assists": {
-      "home": [
-        {
-          "n": "허승찬",
-          "count": 1
-        }
-      ],
-      "away": [
-        {
-          "n": "김찬",
-          "count": 1
-        }
-      ]
-    }
-  },
-  {
-    "date": "2026-03-29",
-    "time": "14:00",
-    "league": "K리그2",
-    "venueId": "suwonfc",
-    "home": "수원FC",
-    "away": "파주",
-    "stadium": "수원 종합",
-    "timeTbd": false,
-    "gameId": "20260329294039",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "윌리안",
-          "m": 5,
-          "pk": true
-        },
-        {
-          "n": "윌리안",
-          "m": 33,
-          "pk": true
-        }
-      ],
-      "away": [
-        {
-          "n": "보르하 바스톤",
-          "m": 21,
-          "pk": true
-        }
-      ]
-    }
   },
   {
     "date": "2026-03-29",
@@ -46696,24 +46696,6 @@
   {
     "date": "2026-04-04",
     "time": "14:00",
-    "league": "KBO",
-    "venueId": "jamsil",
-    "home": "두산",
-    "away": "한화",
-    "stadium": "잠실",
-    "timeTbd": false,
-    "gameId": "20260404HHOB02026",
-    "status": "completed",
-    "awayPitcher": "왕옌청",
-    "homePitcher": "곽빈",
-    "awayScore": 9,
-    "homeScore": 3,
-    "winPitcher": "왕옌청",
-    "losePitcher": "곽빈"
-  },
-  {
-    "date": "2026-04-04",
-    "time": "14:00",
     "league": "K리그1",
     "venueId": "jeju",
     "home": "제주",
@@ -46849,6 +46831,24 @@
         }
       ]
     }
+  },
+  {
+    "date": "2026-04-04",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "jamsil",
+    "home": "두산",
+    "away": "한화",
+    "stadium": "잠실",
+    "timeTbd": false,
+    "gameId": "20260404HHOB02026",
+    "status": "completed",
+    "awayPitcher": "왕옌청",
+    "homePitcher": "곽빈",
+    "awayScore": 9,
+    "homeScore": 3,
+    "winPitcher": "왕옌청",
+    "losePitcher": "곽빈"
   },
   {
     "date": "2026-04-04",
@@ -49552,100 +49552,6 @@
   {
     "date": "2026-04-05",
     "time": "14:00",
-    "league": "KBO",
-    "venueId": "gocheok",
-    "home": "키움",
-    "away": "LG",
-    "stadium": "고척",
-    "timeTbd": false,
-    "gameId": "20260405LGWO02026",
-    "status": "completed",
-    "awayPitcher": "톨허스트",
-    "homePitcher": "와일스",
-    "awayScore": 6,
-    "homeScore": 5,
-    "winPitcher": "톨허스트",
-    "losePitcher": "와일스",
-    "savePitcher": "유영찬"
-  },
-  {
-    "date": "2026-04-05",
-    "time": "14:00",
-    "league": "KBO",
-    "venueId": "gwangju",
-    "home": "KIA",
-    "away": "NC",
-    "stadium": "광주",
-    "timeTbd": false,
-    "gameId": "20260405NCHT02026",
-    "status": "completed",
-    "awayPitcher": "토다",
-    "homePitcher": "올러",
-    "awayScore": 0,
-    "homeScore": 3,
-    "winPitcher": "올러",
-    "losePitcher": "토다",
-    "savePitcher": "정해영"
-  },
-  {
-    "date": "2026-04-05",
-    "time": "14:00",
-    "league": "KBO",
-    "venueId": "jamsil",
-    "home": "두산",
-    "away": "한화",
-    "stadium": "잠실",
-    "timeTbd": false,
-    "gameId": "20260405HHOB02026",
-    "status": "completed",
-    "awayPitcher": "황준서",
-    "homePitcher": "잭로그",
-    "awayScore": 0,
-    "homeScore": 8,
-    "winPitcher": "잭로그",
-    "losePitcher": "황준서"
-  },
-  {
-    "date": "2026-04-05",
-    "time": "14:00",
-    "league": "KBO",
-    "venueId": "sajik",
-    "home": "롯데",
-    "away": "SSG",
-    "stadium": "사직",
-    "timeTbd": false,
-    "gameId": "20260405SKLT02026",
-    "status": "completed",
-    "awayPitcher": "베니지아노",
-    "homePitcher": "박세웅",
-    "awayScore": 4,
-    "homeScore": 3,
-    "winPitcher": "김민",
-    "losePitcher": "최준용",
-    "savePitcher": "조병현"
-  },
-  {
-    "date": "2026-04-05",
-    "time": "14:00",
-    "league": "KBO",
-    "venueId": "suwonkt",
-    "home": "KT",
-    "away": "삼성",
-    "stadium": "수원",
-    "timeTbd": false,
-    "gameId": "20260405SSKT02026",
-    "status": "completed",
-    "awayPitcher": "오러클린",
-    "homePitcher": "보쉴리",
-    "awayScore": 0,
-    "homeScore": 2,
-    "winPitcher": "보쉴리",
-    "losePitcher": "오러클린",
-    "savePitcher": "박영현"
-  },
-  {
-    "date": "2026-04-05",
-    "time": "14:00",
     "league": "K리그1",
     "venueId": "anyang",
     "home": "안양",
@@ -49760,6 +49666,100 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 0
+  },
+  {
+    "date": "2026-04-05",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "gocheok",
+    "home": "키움",
+    "away": "LG",
+    "stadium": "고척",
+    "timeTbd": false,
+    "gameId": "20260405LGWO02026",
+    "status": "completed",
+    "awayPitcher": "톨허스트",
+    "homePitcher": "와일스",
+    "awayScore": 6,
+    "homeScore": 5,
+    "winPitcher": "톨허스트",
+    "losePitcher": "와일스",
+    "savePitcher": "유영찬"
+  },
+  {
+    "date": "2026-04-05",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "gwangju",
+    "home": "KIA",
+    "away": "NC",
+    "stadium": "광주",
+    "timeTbd": false,
+    "gameId": "20260405NCHT02026",
+    "status": "completed",
+    "awayPitcher": "토다",
+    "homePitcher": "올러",
+    "awayScore": 0,
+    "homeScore": 3,
+    "winPitcher": "올러",
+    "losePitcher": "토다",
+    "savePitcher": "정해영"
+  },
+  {
+    "date": "2026-04-05",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "jamsil",
+    "home": "두산",
+    "away": "한화",
+    "stadium": "잠실",
+    "timeTbd": false,
+    "gameId": "20260405HHOB02026",
+    "status": "completed",
+    "awayPitcher": "황준서",
+    "homePitcher": "잭로그",
+    "awayScore": 0,
+    "homeScore": 8,
+    "winPitcher": "잭로그",
+    "losePitcher": "황준서"
+  },
+  {
+    "date": "2026-04-05",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "sajik",
+    "home": "롯데",
+    "away": "SSG",
+    "stadium": "사직",
+    "timeTbd": false,
+    "gameId": "20260405SKLT02026",
+    "status": "completed",
+    "awayPitcher": "베니지아노",
+    "homePitcher": "박세웅",
+    "awayScore": 4,
+    "homeScore": 3,
+    "winPitcher": "김민",
+    "losePitcher": "최준용",
+    "savePitcher": "조병현"
+  },
+  {
+    "date": "2026-04-05",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "suwonkt",
+    "home": "KT",
+    "away": "삼성",
+    "stadium": "수원",
+    "timeTbd": false,
+    "gameId": "20260405SSKT02026",
+    "status": "completed",
+    "awayPitcher": "오러클린",
+    "homePitcher": "보쉴리",
+    "awayScore": 0,
+    "homeScore": 2,
+    "winPitcher": "보쉴리",
+    "losePitcher": "오러클린",
+    "savePitcher": "박영현"
   },
   {
     "date": "2026-04-05",
@@ -56164,25 +56164,6 @@
   {
     "date": "2026-04-11",
     "time": "14:00",
-    "league": "KBO",
-    "venueId": "daejeon",
-    "home": "한화",
-    "away": "KIA",
-    "stadium": "대전",
-    "timeTbd": false,
-    "gameId": "20260411HTHH02026",
-    "status": "completed",
-    "awayPitcher": "이의리",
-    "homePitcher": "왕옌청",
-    "awayScore": 6,
-    "homeScore": 5,
-    "winPitcher": "황동하",
-    "losePitcher": "박상원",
-    "savePitcher": "성영탁"
-  },
-  {
-    "date": "2026-04-11",
-    "time": "14:00",
     "league": "K리그1",
     "venueId": "pohang",
     "home": "포항",
@@ -56333,6 +56314,25 @@
         }
       ]
     }
+  },
+  {
+    "date": "2026-04-11",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "daejeon",
+    "home": "한화",
+    "away": "KIA",
+    "stadium": "대전",
+    "timeTbd": false,
+    "gameId": "20260411HTHH02026",
+    "status": "completed",
+    "awayPitcher": "이의리",
+    "homePitcher": "왕옌청",
+    "awayScore": 6,
+    "homeScore": 5,
+    "winPitcher": "황동하",
+    "losePitcher": "박상원",
+    "savePitcher": "성영탁"
   },
   {
     "date": "2026-04-11",
@@ -59100,97 +59100,6 @@
   {
     "date": "2026-04-12",
     "time": "14:00",
-    "league": "KBO",
-    "venueId": "daegu",
-    "home": "삼성",
-    "away": "NC",
-    "stadium": "대구",
-    "timeTbd": false,
-    "gameId": "20260412NCSS02026",
-    "status": "completed",
-    "awayPitcher": "토다",
-    "homePitcher": "원태인",
-    "awayScore": 3,
-    "homeScore": 9,
-    "winPitcher": "장찬희",
-    "losePitcher": "토다"
-  },
-  {
-    "date": "2026-04-12",
-    "time": "14:00",
-    "league": "KBO",
-    "venueId": "daejeon",
-    "home": "한화",
-    "away": "KIA",
-    "stadium": "대전",
-    "timeTbd": false,
-    "gameId": "20260412HTHH02026",
-    "status": "completed",
-    "awayPitcher": "올러",
-    "homePitcher": "쿠싱",
-    "awayScore": 9,
-    "homeScore": 3,
-    "winPitcher": "올러",
-    "losePitcher": "쿠싱"
-  },
-  {
-    "date": "2026-04-12",
-    "time": "14:00",
-    "league": "KBO",
-    "venueId": "gocheok",
-    "home": "키움",
-    "away": "롯데",
-    "stadium": "고척",
-    "timeTbd": false,
-    "gameId": "20260412LTWO02026",
-    "status": "completed",
-    "awayPitcher": "박세웅",
-    "homePitcher": "안우진",
-    "awayScore": 0,
-    "homeScore": 2,
-    "winPitcher": "배동현",
-    "losePitcher": "박세웅",
-    "savePitcher": "김재웅"
-  },
-  {
-    "date": "2026-04-12",
-    "time": "14:00",
-    "league": "KBO",
-    "venueId": "jamsil",
-    "home": "LG",
-    "away": "SSG",
-    "stadium": "잠실",
-    "timeTbd": false,
-    "gameId": "20260412SKLG02026",
-    "status": "completed",
-    "awayPitcher": "베니지아노",
-    "homePitcher": "톨허스트",
-    "awayScore": 1,
-    "homeScore": 9,
-    "winPitcher": "톨허스트",
-    "losePitcher": "베니지아노"
-  },
-  {
-    "date": "2026-04-12",
-    "time": "14:00",
-    "league": "KBO",
-    "venueId": "suwonkt",
-    "home": "KT",
-    "away": "두산",
-    "stadium": "수원",
-    "timeTbd": false,
-    "gameId": "20260412OBKT02026",
-    "status": "completed",
-    "awayPitcher": "최승용",
-    "homePitcher": "보쉴리",
-    "awayScore": 1,
-    "homeScore": 6,
-    "winPitcher": "보쉴리",
-    "losePitcher": "최승용"
-  },
-  {
-    "date": "2026-04-12",
-    "time": "14:00",
     "league": "K리그1",
     "venueId": "daejeonwc",
     "home": "대전",
@@ -59283,6 +59192,97 @@
         }
       ]
     }
+  },
+  {
+    "date": "2026-04-12",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "daegu",
+    "home": "삼성",
+    "away": "NC",
+    "stadium": "대구",
+    "timeTbd": false,
+    "gameId": "20260412NCSS02026",
+    "status": "completed",
+    "awayPitcher": "토다",
+    "homePitcher": "원태인",
+    "awayScore": 3,
+    "homeScore": 9,
+    "winPitcher": "장찬희",
+    "losePitcher": "토다"
+  },
+  {
+    "date": "2026-04-12",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "daejeon",
+    "home": "한화",
+    "away": "KIA",
+    "stadium": "대전",
+    "timeTbd": false,
+    "gameId": "20260412HTHH02026",
+    "status": "completed",
+    "awayPitcher": "올러",
+    "homePitcher": "쿠싱",
+    "awayScore": 9,
+    "homeScore": 3,
+    "winPitcher": "올러",
+    "losePitcher": "쿠싱"
+  },
+  {
+    "date": "2026-04-12",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "gocheok",
+    "home": "키움",
+    "away": "롯데",
+    "stadium": "고척",
+    "timeTbd": false,
+    "gameId": "20260412LTWO02026",
+    "status": "completed",
+    "awayPitcher": "박세웅",
+    "homePitcher": "안우진",
+    "awayScore": 0,
+    "homeScore": 2,
+    "winPitcher": "배동현",
+    "losePitcher": "박세웅",
+    "savePitcher": "김재웅"
+  },
+  {
+    "date": "2026-04-12",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "jamsil",
+    "home": "LG",
+    "away": "SSG",
+    "stadium": "잠실",
+    "timeTbd": false,
+    "gameId": "20260412SKLG02026",
+    "status": "completed",
+    "awayPitcher": "베니지아노",
+    "homePitcher": "톨허스트",
+    "awayScore": 1,
+    "homeScore": 9,
+    "winPitcher": "톨허스트",
+    "losePitcher": "베니지아노"
+  },
+  {
+    "date": "2026-04-12",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "suwonkt",
+    "home": "KT",
+    "away": "두산",
+    "stadium": "수원",
+    "timeTbd": false,
+    "gameId": "20260412OBKT02026",
+    "status": "completed",
+    "awayPitcher": "최승용",
+    "homePitcher": "보쉴리",
+    "awayScore": 1,
+    "homeScore": 6,
+    "winPitcher": "보쉴리",
+    "losePitcher": "최승용"
   },
   {
     "date": "2026-04-12",
@@ -65276,24 +65276,6 @@
   {
     "date": "2026-04-18",
     "time": "14:00",
-    "league": "KBO",
-    "venueId": "daegu",
-    "home": "삼성",
-    "away": "LG",
-    "stadium": "대구",
-    "timeTbd": false,
-    "gameId": "20260418LGSS02026",
-    "status": "completed",
-    "awayPitcher": "임찬규",
-    "homePitcher": "오러클린",
-    "awayScore": 2,
-    "homeScore": 7,
-    "winPitcher": "이승민",
-    "losePitcher": "임찬규"
-  },
-  {
-    "date": "2026-04-18",
-    "time": "14:00",
     "league": "K리그1",
     "venueId": "gangwon",
     "home": "강원",
@@ -65424,6 +65406,24 @@
         }
       ]
     }
+  },
+  {
+    "date": "2026-04-18",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "daegu",
+    "home": "삼성",
+    "away": "LG",
+    "stadium": "대구",
+    "timeTbd": false,
+    "gameId": "20260418LGSS02026",
+    "status": "completed",
+    "awayPitcher": "임찬규",
+    "homePitcher": "오러클린",
+    "awayScore": 2,
+    "homeScore": 7,
+    "winPitcher": "이승민",
+    "losePitcher": "임찬규"
   },
   {
     "date": "2026-04-18",
@@ -67785,79 +67785,6 @@
   {
     "date": "2026-04-19",
     "time": "14:00",
-    "league": "KBO",
-    "venueId": "changwon",
-    "home": "NC",
-    "away": "SSG",
-    "stadium": "창원",
-    "timeTbd": false,
-    "gameId": "20260419SKNC02026",
-    "status": "completed",
-    "awayPitcher": "이기순",
-    "homePitcher": "토다",
-    "awayScore": 2,
-    "homeScore": 9,
-    "winPitcher": "배재환",
-    "losePitcher": "이기순"
-  },
-  {
-    "date": "2026-04-19",
-    "time": "14:00",
-    "league": "KBO",
-    "venueId": "daegu",
-    "home": "삼성",
-    "away": "LG",
-    "stadium": "대구",
-    "timeTbd": false,
-    "gameId": "20260419LGSS02026",
-    "status": "completed",
-    "awayPitcher": "톨허스트",
-    "homePitcher": "원태인",
-    "awayScore": 5,
-    "homeScore": 0,
-    "winPitcher": "톨허스트",
-    "losePitcher": "원태인"
-  },
-  {
-    "date": "2026-04-19",
-    "time": "14:00",
-    "league": "KBO",
-    "venueId": "jamsil",
-    "home": "두산",
-    "away": "KIA",
-    "stadium": "잠실",
-    "timeTbd": false,
-    "gameId": "20260419HTOB02026",
-    "status": "completed",
-    "awayPitcher": "양현종",
-    "homePitcher": "최민석",
-    "awayScore": 3,
-    "homeScore": 6,
-    "winPitcher": "최민석",
-    "losePitcher": "양현종",
-    "savePitcher": "김택연"
-  },
-  {
-    "date": "2026-04-19",
-    "time": "14:00",
-    "league": "KBO",
-    "venueId": "sajik",
-    "home": "롯데",
-    "away": "한화",
-    "stadium": "사직",
-    "timeTbd": false,
-    "gameId": "20260419HHLT02026",
-    "status": "completed",
-    "awayPitcher": "에르난데스",
-    "homePitcher": "박세웅",
-    "awayScore": 9,
-    "homeScore": 1,
-    "winPitcher": "에르난데스",
-    "losePitcher": "박세웅"
-  },
-  {
-    "date": "2026-04-19",
-    "time": "14:00",
     "league": "K리그1",
     "venueId": "ulsan",
     "home": "울산",
@@ -67969,6 +67896,79 @@
         }
       ]
     }
+  },
+  {
+    "date": "2026-04-19",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "changwon",
+    "home": "NC",
+    "away": "SSG",
+    "stadium": "창원",
+    "timeTbd": false,
+    "gameId": "20260419SKNC02026",
+    "status": "completed",
+    "awayPitcher": "이기순",
+    "homePitcher": "토다",
+    "awayScore": 2,
+    "homeScore": 9,
+    "winPitcher": "배재환",
+    "losePitcher": "이기순"
+  },
+  {
+    "date": "2026-04-19",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "daegu",
+    "home": "삼성",
+    "away": "LG",
+    "stadium": "대구",
+    "timeTbd": false,
+    "gameId": "20260419LGSS02026",
+    "status": "completed",
+    "awayPitcher": "톨허스트",
+    "homePitcher": "원태인",
+    "awayScore": 5,
+    "homeScore": 0,
+    "winPitcher": "톨허스트",
+    "losePitcher": "원태인"
+  },
+  {
+    "date": "2026-04-19",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "jamsil",
+    "home": "두산",
+    "away": "KIA",
+    "stadium": "잠실",
+    "timeTbd": false,
+    "gameId": "20260419HTOB02026",
+    "status": "completed",
+    "awayPitcher": "양현종",
+    "homePitcher": "최민석",
+    "awayScore": 3,
+    "homeScore": 6,
+    "winPitcher": "최민석",
+    "losePitcher": "양현종",
+    "savePitcher": "김택연"
+  },
+  {
+    "date": "2026-04-19",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "sajik",
+    "home": "롯데",
+    "away": "한화",
+    "stadium": "사직",
+    "timeTbd": false,
+    "gameId": "20260419HHLT02026",
+    "status": "completed",
+    "awayPitcher": "에르난데스",
+    "homePitcher": "박세웅",
+    "awayScore": 9,
+    "homeScore": 1,
+    "winPitcher": "에르난데스",
+    "losePitcher": "박세웅"
   },
   {
     "date": "2026-04-19",
@@ -74817,25 +74817,6 @@
   {
     "date": "2026-04-25",
     "time": "14:00",
-    "league": "KBO",
-    "venueId": "jamsil",
-    "home": "두산",
-    "away": "LG",
-    "stadium": "잠실",
-    "timeTbd": false,
-    "gameId": "20260425LGOB02026",
-    "status": "completed",
-    "awayPitcher": "톨허스트",
-    "homePitcher": "최민석",
-    "awayScore": 7,
-    "homeScore": 5,
-    "winPitcher": "김진수",
-    "losePitcher": "이병헌",
-    "savePitcher": "장현식"
-  },
-  {
-    "date": "2026-04-25",
-    "time": "14:00",
     "league": "K리그1",
     "venueId": "gangwon",
     "home": "강원",
@@ -74970,6 +74951,25 @@
         }
       ]
     }
+  },
+  {
+    "date": "2026-04-25",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "jamsil",
+    "home": "두산",
+    "away": "LG",
+    "stadium": "잠실",
+    "timeTbd": false,
+    "gameId": "20260425LGOB02026",
+    "status": "completed",
+    "awayPitcher": "톨허스트",
+    "homePitcher": "최민석",
+    "awayScore": 7,
+    "homeScore": 5,
+    "winPitcher": "김진수",
+    "losePitcher": "이병헌",
+    "savePitcher": "장현식"
   },
   {
     "date": "2026-04-25",
@@ -77645,96 +77645,6 @@
   {
     "date": "2026-04-26",
     "time": "14:00",
-    "league": "KBO",
-    "venueId": "daejeon",
-    "home": "한화",
-    "away": "NC",
-    "stadium": "대전",
-    "timeTbd": false,
-    "gameId": "20260426NCHH02026",
-    "status": "completed",
-    "awayPitcher": "버하겐",
-    "homePitcher": "문동주",
-    "awayScore": 5,
-    "homeScore": 3,
-    "winPitcher": "배재환",
-    "losePitcher": "김서현",
-    "savePitcher": "류진욱"
-  },
-  {
-    "date": "2026-04-26",
-    "time": "14:00",
-    "league": "KBO",
-    "venueId": "gocheok",
-    "home": "키움",
-    "away": "삼성",
-    "stadium": "고척",
-    "timeTbd": false,
-    "gameId": "20260426SSWO02026",
-    "status": "completed",
-    "awayPitcher": "장찬희",
-    "homePitcher": "박준현",
-    "awayScore": 0,
-    "homeScore": 2,
-    "winPitcher": "박준현",
-    "losePitcher": "장찬희",
-    "savePitcher": "유토"
-  },
-  {
-    "date": "2026-04-26",
-    "time": "14:00",
-    "league": "KBO",
-    "venueId": "gwangju",
-    "home": "KIA",
-    "away": "롯데",
-    "stadium": "광주",
-    "timeTbd": false,
-    "gameId": "20260426LTHT02026",
-    "status": "completed",
-    "awayPitcher": "나균안",
-    "homePitcher": "황동하",
-    "awayScore": 5,
-    "homeScore": 5
-  },
-  {
-    "date": "2026-04-26",
-    "time": "14:00",
-    "league": "KBO",
-    "venueId": "jamsil",
-    "home": "두산",
-    "away": "LG",
-    "stadium": "잠실",
-    "timeTbd": false,
-    "gameId": "20260426LGOB02026",
-    "status": "completed",
-    "awayPitcher": "송승기",
-    "homePitcher": "벤자민",
-    "awayScore": 3,
-    "homeScore": 4,
-    "winPitcher": "이영하",
-    "losePitcher": "박시원"
-  },
-  {
-    "date": "2026-04-26",
-    "time": "14:00",
-    "league": "KBO",
-    "venueId": "munhak",
-    "home": "SSG",
-    "away": "KT",
-    "stadium": "문학",
-    "timeTbd": false,
-    "gameId": "20260426KTSK02026",
-    "status": "completed",
-    "awayPitcher": "오원석",
-    "homePitcher": "베니지아노",
-    "awayScore": 12,
-    "homeScore": 2,
-    "winPitcher": "오원석",
-    "losePitcher": "베니지아노"
-  },
-  {
-    "date": "2026-04-26",
-    "time": "14:00",
     "league": "K리그1",
     "venueId": "jeonju",
     "home": "전북",
@@ -77866,6 +77776,96 @@
       ],
       "away": []
     }
+  },
+  {
+    "date": "2026-04-26",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "daejeon",
+    "home": "한화",
+    "away": "NC",
+    "stadium": "대전",
+    "timeTbd": false,
+    "gameId": "20260426NCHH02026",
+    "status": "completed",
+    "awayPitcher": "버하겐",
+    "homePitcher": "문동주",
+    "awayScore": 5,
+    "homeScore": 3,
+    "winPitcher": "배재환",
+    "losePitcher": "김서현",
+    "savePitcher": "류진욱"
+  },
+  {
+    "date": "2026-04-26",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "gocheok",
+    "home": "키움",
+    "away": "삼성",
+    "stadium": "고척",
+    "timeTbd": false,
+    "gameId": "20260426SSWO02026",
+    "status": "completed",
+    "awayPitcher": "장찬희",
+    "homePitcher": "박준현",
+    "awayScore": 0,
+    "homeScore": 2,
+    "winPitcher": "박준현",
+    "losePitcher": "장찬희",
+    "savePitcher": "유토"
+  },
+  {
+    "date": "2026-04-26",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "gwangju",
+    "home": "KIA",
+    "away": "롯데",
+    "stadium": "광주",
+    "timeTbd": false,
+    "gameId": "20260426LTHT02026",
+    "status": "completed",
+    "awayPitcher": "나균안",
+    "homePitcher": "황동하",
+    "awayScore": 5,
+    "homeScore": 5
+  },
+  {
+    "date": "2026-04-26",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "jamsil",
+    "home": "두산",
+    "away": "LG",
+    "stadium": "잠실",
+    "timeTbd": false,
+    "gameId": "20260426LGOB02026",
+    "status": "completed",
+    "awayPitcher": "송승기",
+    "homePitcher": "벤자민",
+    "awayScore": 3,
+    "homeScore": 4,
+    "winPitcher": "이영하",
+    "losePitcher": "박시원"
+  },
+  {
+    "date": "2026-04-26",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "munhak",
+    "home": "SSG",
+    "away": "KT",
+    "stadium": "문학",
+    "timeTbd": false,
+    "gameId": "20260426KTSK02026",
+    "status": "completed",
+    "awayPitcher": "오원석",
+    "homePitcher": "베니지아노",
+    "awayScore": 12,
+    "homeScore": 2,
+    "winPitcher": "오원석",
+    "losePitcher": "베니지아노"
   },
   {
     "date": "2026-04-26",
@@ -83401,25 +83401,6 @@
   {
     "date": "2026-05-02",
     "time": "14:00",
-    "league": "KBO",
-    "venueId": "munhak",
-    "home": "SSG",
-    "away": "롯데",
-    "stadium": "문학",
-    "timeTbd": false,
-    "gameId": "20260502LTSK02026",
-    "status": "completed",
-    "awayPitcher": "나균안",
-    "homePitcher": "베니지아노",
-    "awayScore": 7,
-    "homeScore": 5,
-    "winPitcher": "나균안",
-    "losePitcher": "노경은",
-    "savePitcher": "김원중"
-  },
-  {
-    "date": "2026-05-02",
-    "time": "14:00",
     "league": "K리그1",
     "venueId": "seoulwc",
     "home": "서울",
@@ -83501,6 +83482,25 @@
         }
       ]
     }
+  },
+  {
+    "date": "2026-05-02",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "munhak",
+    "home": "SSG",
+    "away": "롯데",
+    "stadium": "문학",
+    "timeTbd": false,
+    "gameId": "20260502LTSK02026",
+    "status": "completed",
+    "awayPitcher": "나균안",
+    "homePitcher": "베니지아노",
+    "awayScore": 7,
+    "homeScore": 5,
+    "winPitcher": "나균안",
+    "losePitcher": "노경은",
+    "savePitcher": "김원중"
   },
   {
     "date": "2026-05-02",
@@ -83672,6 +83672,46 @@
     "time": "16:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
+    "home": "대한민국",
+    "away": "필리핀",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
+    "timeTbd": false,
+    "gameId": "INfbBvjkK2ARSQU",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 5,
+    "scorers": {
+      "home": [
+        {
+          "n": "백서영",
+          "m": 6
+        },
+        {
+          "n": "백서영",
+          "m": 14
+        },
+        {
+          "n": "백서영",
+          "m": 34
+        },
+        {
+          "n": "백서영",
+          "m": 55
+        },
+        {
+          "n": "김희나",
+          "m": 67
+        }
+      ],
+      "away": []
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-02",
+    "time": "16:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
     "home": "일본",
     "away": "레바논",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
@@ -83734,46 +83774,6 @@
         {
           "n": "나나미",
           "m": 80
-        }
-      ],
-      "away": []
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-02",
-    "time": "16:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
-    "home": "대한민국",
-    "away": "필리핀",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
-    "timeTbd": false,
-    "gameId": "INfbBvjkK2ARSQU",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 5,
-    "scorers": {
-      "home": [
-        {
-          "n": "백서영",
-          "m": 6
-        },
-        {
-          "n": "백서영",
-          "m": 14
-        },
-        {
-          "n": "백서영",
-          "m": 34
-        },
-        {
-          "n": "백서영",
-          "m": 55
-        },
-        {
-          "n": "김희나",
-          "m": 67
         }
       ],
       "away": []
@@ -84388,35 +84388,6 @@
     "time": "20:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
-    "home": "호주",
-    "away": "인도",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
-    "timeTbd": false,
-    "gameId": "fS1J3kxSwziVvHl",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "무이티스",
-          "m": 25
-        },
-        {
-          "n": "바스넷",
-          "m": 59,
-          "og": true
-        }
-      ],
-      "away": []
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-02",
-    "time": "20:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
     "home": "북한",
     "away": "차이니스 타이베이",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
@@ -84466,6 +84437,35 @@
         {
           "n": "유종향",
           "m": 90
+        }
+      ],
+      "away": []
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-02",
+    "time": "20:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
+    "home": "호주",
+    "away": "인도",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
+    "timeTbd": false,
+    "gameId": "fS1J3kxSwziVvHl",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "무이티스",
+          "m": 25
+        },
+        {
+          "n": "바스넷",
+          "m": 59,
+          "og": true
         }
       ],
       "away": []
@@ -86571,98 +86571,6 @@
   {
     "date": "2026-05-03",
     "time": "14:00",
-    "league": "KBO",
-    "venueId": "daegu",
-    "home": "삼성",
-    "away": "한화",
-    "stadium": "대구",
-    "timeTbd": false,
-    "gameId": "20260503HHSS02026",
-    "status": "completed",
-    "awayPitcher": "왕옌청",
-    "homePitcher": "후라도",
-    "awayScore": 6,
-    "homeScore": 7,
-    "winPitcher": "김재윤",
-    "losePitcher": "쿠싱"
-  },
-  {
-    "date": "2026-05-03",
-    "time": "14:00",
-    "league": "KBO",
-    "venueId": "gocheok",
-    "home": "키움",
-    "away": "두산",
-    "stadium": "고척",
-    "timeTbd": false,
-    "gameId": "20260503OBWO02026",
-    "status": "completed",
-    "awayPitcher": "곽빈",
-    "homePitcher": "박준현",
-    "awayScore": 14,
-    "homeScore": 3,
-    "winPitcher": "곽빈",
-    "losePitcher": "박준현"
-  },
-  {
-    "date": "2026-05-03",
-    "time": "14:00",
-    "league": "KBO",
-    "venueId": "gwangju",
-    "home": "KIA",
-    "away": "KT",
-    "stadium": "광주",
-    "timeTbd": false,
-    "gameId": "20260503KTHT02026",
-    "status": "completed",
-    "awayPitcher": "사우어",
-    "homePitcher": "네일",
-    "awayScore": 6,
-    "homeScore": 4,
-    "winPitcher": "사우어",
-    "losePitcher": "네일",
-    "savePitcher": "박영현"
-  },
-  {
-    "date": "2026-05-03",
-    "time": "14:00",
-    "league": "KBO",
-    "venueId": "jamsil",
-    "home": "LG",
-    "away": "NC",
-    "stadium": "잠실",
-    "timeTbd": false,
-    "gameId": "20260503NCLG02026",
-    "status": "completed",
-    "awayPitcher": "신민혁",
-    "homePitcher": "이상영",
-    "awayScore": 10,
-    "homeScore": 3,
-    "winPitcher": "김영규",
-    "losePitcher": "이상영"
-  },
-  {
-    "date": "2026-05-03",
-    "time": "14:00",
-    "league": "KBO",
-    "venueId": "munhak",
-    "home": "SSG",
-    "away": "롯데",
-    "stadium": "문학",
-    "timeTbd": false,
-    "gameId": "20260503LTSK02026",
-    "status": "completed",
-    "awayPitcher": "김진욱",
-    "homePitcher": "백승건",
-    "awayScore": 5,
-    "homeScore": 2,
-    "winPitcher": "현도훈",
-    "losePitcher": "김민",
-    "savePitcher": "최준용"
-  },
-  {
-    "date": "2026-05-03",
-    "time": "14:00",
     "league": "K리그2",
     "venueId": "daegujeon",
     "home": "대구",
@@ -86779,6 +86687,98 @@
         }
       ]
     }
+  },
+  {
+    "date": "2026-05-03",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "daegu",
+    "home": "삼성",
+    "away": "한화",
+    "stadium": "대구",
+    "timeTbd": false,
+    "gameId": "20260503HHSS02026",
+    "status": "completed",
+    "awayPitcher": "왕옌청",
+    "homePitcher": "후라도",
+    "awayScore": 6,
+    "homeScore": 7,
+    "winPitcher": "김재윤",
+    "losePitcher": "쿠싱"
+  },
+  {
+    "date": "2026-05-03",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "gocheok",
+    "home": "키움",
+    "away": "두산",
+    "stadium": "고척",
+    "timeTbd": false,
+    "gameId": "20260503OBWO02026",
+    "status": "completed",
+    "awayPitcher": "곽빈",
+    "homePitcher": "박준현",
+    "awayScore": 14,
+    "homeScore": 3,
+    "winPitcher": "곽빈",
+    "losePitcher": "박준현"
+  },
+  {
+    "date": "2026-05-03",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "gwangju",
+    "home": "KIA",
+    "away": "KT",
+    "stadium": "광주",
+    "timeTbd": false,
+    "gameId": "20260503KTHT02026",
+    "status": "completed",
+    "awayPitcher": "사우어",
+    "homePitcher": "네일",
+    "awayScore": 6,
+    "homeScore": 4,
+    "winPitcher": "사우어",
+    "losePitcher": "네일",
+    "savePitcher": "박영현"
+  },
+  {
+    "date": "2026-05-03",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "jamsil",
+    "home": "LG",
+    "away": "NC",
+    "stadium": "잠실",
+    "timeTbd": false,
+    "gameId": "20260503NCLG02026",
+    "status": "completed",
+    "awayPitcher": "신민혁",
+    "homePitcher": "이상영",
+    "awayScore": 10,
+    "homeScore": 3,
+    "winPitcher": "김영규",
+    "losePitcher": "이상영"
+  },
+  {
+    "date": "2026-05-03",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "munhak",
+    "home": "SSG",
+    "away": "롯데",
+    "stadium": "문학",
+    "timeTbd": false,
+    "gameId": "20260503LTSK02026",
+    "status": "completed",
+    "awayPitcher": "김진욱",
+    "homePitcher": "백승건",
+    "awayScore": 5,
+    "homeScore": 2,
+    "winPitcher": "현도훈",
+    "losePitcher": "김민",
+    "savePitcher": "최준용"
   },
   {
     "date": "2026-05-03",
@@ -89395,6 +89395,83 @@
   {
     "date": "2026-05-05",
     "time": "14:00",
+    "league": "K리그1",
+    "venueId": "bucheon",
+    "home": "부천",
+    "away": "제주",
+    "stadium": "부천 종합",
+    "timeTbd": false,
+    "gameId": "20260505260468",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "남태희",
+          "m": 74
+        }
+      ]
+    },
+    "assists": {
+      "home": [],
+      "away": [
+        {
+          "n": "김륜성",
+          "count": 1
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-05-05",
+    "time": "14:00",
+    "league": "K리그1",
+    "venueId": "jeonju",
+    "home": "전북",
+    "away": "광주",
+    "stadium": "전주 월드컵",
+    "timeTbd": false,
+    "gameId": "20260505052267",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 4,
+    "scorers": {
+      "home": [
+        {
+          "n": "오베르단",
+          "m": 42
+        },
+        {
+          "n": "김승섭",
+          "m": 49
+        },
+        {
+          "n": "티아고",
+          "m": 86
+        },
+        {
+          "n": "이승우",
+          "m": 97,
+          "pk": true
+        }
+      ],
+      "away": []
+    },
+    "assists": {
+      "home": [
+        {
+          "n": "오베르단",
+          "count": 1
+        }
+      ],
+      "away": []
+    }
+  },
+  {
+    "date": "2026-05-05",
+    "time": "14:00",
     "league": "KBO",
     "venueId": "daegu",
     "home": "삼성",
@@ -89480,83 +89557,6 @@
     "homeScore": 5,
     "winPitcher": "박영현",
     "losePitcher": "정철원"
-  },
-  {
-    "date": "2026-05-05",
-    "time": "14:00",
-    "league": "K리그1",
-    "venueId": "bucheon",
-    "home": "부천",
-    "away": "제주",
-    "stadium": "부천 종합",
-    "timeTbd": false,
-    "gameId": "20260505260468",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 0,
-    "scorers": {
-      "home": [],
-      "away": [
-        {
-          "n": "남태희",
-          "m": 74
-        }
-      ]
-    },
-    "assists": {
-      "home": [],
-      "away": [
-        {
-          "n": "김륜성",
-          "count": 1
-        }
-      ]
-    }
-  },
-  {
-    "date": "2026-05-05",
-    "time": "14:00",
-    "league": "K리그1",
-    "venueId": "jeonju",
-    "home": "전북",
-    "away": "광주",
-    "stadium": "전주 월드컵",
-    "timeTbd": false,
-    "gameId": "20260505052267",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 4,
-    "scorers": {
-      "home": [
-        {
-          "n": "오베르단",
-          "m": 42
-        },
-        {
-          "n": "김승섭",
-          "m": 49
-        },
-        {
-          "n": "티아고",
-          "m": 86
-        },
-        {
-          "n": "이승우",
-          "m": 97,
-          "pk": true
-        }
-      ],
-      "away": []
-    },
-    "assists": {
-      "home": [
-        {
-          "n": "오베르단",
-          "count": 1
-        }
-      ],
-      "away": []
-    }
   },
   {
     "date": "2026-05-05",
@@ -89848,6 +89848,38 @@
     "time": "20:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
+    "home": "인도",
+    "away": "일본",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
+    "timeTbd": false,
+    "gameId": "SyGtvWeiJaOs0ZA",
+    "status": "completed",
+    "awayScore": 3,
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "하야시",
+          "m": 59
+        },
+        {
+          "n": "이케다",
+          "m": 76
+        },
+        {
+          "n": "이케다",
+          "m": 81
+        }
+      ]
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-05",
+    "time": "20:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
     "home": "필리핀",
     "away": "북한",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
@@ -89890,38 +89922,6 @@
         {
           "n": "송원용",
           "m": 85
-        }
-      ]
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-05",
-    "time": "20:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
-    "home": "인도",
-    "away": "일본",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
-    "timeTbd": false,
-    "gameId": "SyGtvWeiJaOs0ZA",
-    "status": "completed",
-    "awayScore": 3,
-    "homeScore": 0,
-    "scorers": {
-      "home": [],
-      "away": [
-        {
-          "n": "하야시",
-          "m": 59
-        },
-        {
-          "n": "이케다",
-          "m": 76
-        },
-        {
-          "n": "이케다",
-          "m": 81
         }
       ]
     },
@@ -92518,21 +92518,6 @@
     "time": "20:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
-    "home": "필리핀",
-    "away": "차이니스 타이베이",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
-    "timeTbd": false,
-    "gameId": "iI57xIcnv4pTYV5",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 0,
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-08",
-    "time": "20:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
     "home": "북한",
     "away": "대한민국",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
@@ -92558,6 +92543,21 @@
       ],
       "away": []
     },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-08",
+    "time": "20:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
+    "home": "필리핀",
+    "away": "차이니스 타이베이",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
+    "timeTbd": false,
+    "gameId": "iI57xIcnv4pTYV5",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 0,
     "phaseCode": "GROUP"
   },
   {
@@ -93259,25 +93259,6 @@
   {
     "date": "2026-05-09",
     "time": "14:00",
-    "league": "KBO",
-    "venueId": "daejeon",
-    "home": "한화",
-    "away": "LG",
-    "stadium": "대전",
-    "timeTbd": false,
-    "gameId": "20260509LGHH02026",
-    "status": "completed",
-    "awayPitcher": "치리노스",
-    "homePitcher": "왕옌청",
-    "awayScore": 3,
-    "homeScore": 11,
-    "winPitcher": "왕옌청",
-    "losePitcher": "치리노스",
-    "savePitcher": "쿠싱"
-  },
-  {
-    "date": "2026-05-09",
-    "time": "14:00",
     "league": "K리그1",
     "venueId": "jeju",
     "home": "제주",
@@ -93389,6 +93370,25 @@
         }
       ]
     }
+  },
+  {
+    "date": "2026-05-09",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "daejeon",
+    "home": "한화",
+    "away": "LG",
+    "stadium": "대전",
+    "timeTbd": false,
+    "gameId": "20260509LGHH02026",
+    "status": "completed",
+    "awayPitcher": "치리노스",
+    "homePitcher": "왕옌청",
+    "awayScore": 3,
+    "homeScore": 11,
+    "winPitcher": "왕옌청",
+    "losePitcher": "치리노스",
+    "savePitcher": "쿠싱"
   },
   {
     "date": "2026-05-09",
@@ -95617,6 +95617,52 @@
   {
     "date": "2026-05-10",
     "time": "14:00",
+    "league": "K리그1",
+    "venueId": "ulsan",
+    "home": "울산",
+    "away": "부천",
+    "stadium": "울산 문수",
+    "timeTbd": false,
+    "gameId": "20260510012677",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "이동경",
+          "m": 23
+        }
+      ],
+      "away": []
+    },
+    "assists": {
+      "home": [
+        {
+          "n": "말컹",
+          "count": 1
+        }
+      ],
+      "away": []
+    }
+  },
+  {
+    "date": "2026-05-10",
+    "time": "14:00",
+    "league": "K리그2",
+    "venueId": "seongnam",
+    "home": "성남",
+    "away": "전남",
+    "stadium": "탄천 종합",
+    "timeTbd": false,
+    "gameId": "20260510080785",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 0
+  },
+  {
+    "date": "2026-05-10",
+    "time": "14:00",
     "league": "KBO",
     "venueId": "changwon",
     "home": "NC",
@@ -95704,52 +95750,6 @@
     "homeScore": 7,
     "winPitcher": "박세웅",
     "losePitcher": "이의리"
-  },
-  {
-    "date": "2026-05-10",
-    "time": "14:00",
-    "league": "K리그1",
-    "venueId": "ulsan",
-    "home": "울산",
-    "away": "부천",
-    "stadium": "울산 문수",
-    "timeTbd": false,
-    "gameId": "20260510012677",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 1,
-    "scorers": {
-      "home": [
-        {
-          "n": "이동경",
-          "m": 23
-        }
-      ],
-      "away": []
-    },
-    "assists": {
-      "home": [
-        {
-          "n": "말컹",
-          "count": 1
-        }
-      ],
-      "away": []
-    }
-  },
-  {
-    "date": "2026-05-10",
-    "time": "14:00",
-    "league": "K리그2",
-    "venueId": "seongnam",
-    "home": "성남",
-    "away": "전남",
-    "stadium": "탄천 종합",
-    "timeTbd": false,
-    "gameId": "20260510080785",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 0
   },
   {
     "date": "2026-05-10",
@@ -98711,34 +98711,6 @@
     "time": "01:00",
     "league": "U17ASIANCUP",
     "venueId": "king_abdullah_sports_city",
-    "home": "중국",
-    "away": "카타르",
-    "stadium": "킹 압둘라 스포츠 시티 피치 퓨처 C",
-    "timeTbd": false,
-    "gameId": "OW7BBRLBR5Yg9Mi",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "하시판",
-          "m": 14
-        },
-        {
-          "n": "장 보린",
-          "m": 71
-        }
-      ],
-      "away": []
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-13",
-    "time": "01:00",
-    "league": "U17ASIANCUP",
-    "venueId": "king_abdullah_sports_city",
     "home": "일본",
     "away": "인도네시아",
     "stadium": "킹 압둘라 스포츠 시티 피치 스타스 A",
@@ -98768,6 +98740,34 @@
           "m": 70
         }
       ]
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-13",
+    "time": "01:00",
+    "league": "U17ASIANCUP",
+    "venueId": "king_abdullah_sports_city",
+    "home": "중국",
+    "away": "카타르",
+    "stadium": "킹 압둘라 스포츠 시티 피치 퓨처 C",
+    "timeTbd": false,
+    "gameId": "OW7BBRLBR5Yg9Mi",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "하시판",
+          "m": 14
+        },
+        {
+          "n": "장 보린",
+          "m": 71
+        }
+      ],
+      "away": []
     },
     "phaseCode": "GROUP"
   },
@@ -127069,7 +127069,7 @@
     "stadium": "한신 고시엔 구장",
     "timeTbd": false,
     "gameId": "20260608RTHS0",
-    "status": "scheduled"
+    "status": "cancelled"
   },
   {
     "date": "2026-06-09",
@@ -212072,17 +212072,20 @@
       "home": [
         {
           "n": "Michael Ngadeu",
-          "m": 90
+          "m": 90,
+          "nat": "Cameroon"
         }
       ],
       "away": [
         {
           "n": "Luis Nlavo",
-          "m": 8
+          "m": 8,
+          "nat": "Equatorial Guinea"
         },
         {
           "n": "Gao Tianyi",
-          "m": 11
+          "m": 11,
+          "nat": "China PR"
         },
         {
           "n": "Yang Haoyu",
@@ -212158,17 +212161,20 @@
         },
         {
           "n": "Alexandre Jesus",
-          "m": 83
+          "m": 83,
+          "nat": "Brazil"
         }
       ],
       "away": [
         {
           "n": "Eduardo Fernandes Rodrigues De Souza",
-          "m": 75
+          "m": 75,
+          "nat": "Brazil"
         },
         {
           "n": "Gilson Benchimol",
-          "m": 78
+          "m": 78,
+          "nat": "Cape Verde Islands"
         }
       ]
     }
@@ -212197,11 +212203,13 @@
         {
           "n": "Tibe De Vlieger",
           "m": 77,
-          "pk": true
+          "pk": true,
+          "nat": "Belgium"
         },
         {
           "n": "El Hadji Seck",
-          "m": 90
+          "m": 90,
+          "nat": "Senegal"
         }
       ]
     }
@@ -212237,15 +212245,18 @@
       "home": [
         {
           "n": "Cleber",
-          "m": 32
+          "m": 32,
+          "nat": "Brazil"
         },
         {
           "n": "Oscar Taty Maritu",
-          "m": 40
+          "m": 40,
+          "nat": "Congo DR"
         },
         {
           "n": "Cleber",
-          "m": 64
+          "m": 64,
+          "nat": "Brazil"
         },
         {
           "n": "Bunyamin Abdusalam",
@@ -212253,7 +212264,8 @@
         },
         {
           "n": "Cleber",
-          "m": 90
+          "m": 90,
+          "nat": "Brazil"
         }
       ],
       "away": []
@@ -212276,7 +212288,8 @@
       "home": [
         {
           "n": "Bruno Xadas",
-          "m": 6
+          "m": 6,
+          "nat": "Portugal"
         },
         {
           "n": "Ji Shengpan",
@@ -212286,7 +212299,8 @@
       "away": [
         {
           "n": "Alexandru Mitrita",
-          "m": 45
+          "m": 45,
+          "nat": "Romania"
         }
       ]
     }
@@ -212357,14 +212371,16 @@
       "home": [
         {
           "n": "William Hofvander",
-          "m": 10
+          "m": 10,
+          "nat": "Sweden"
         }
       ],
       "away": [
         {
           "n": "Victor Lind",
           "m": 18,
-          "pk": true
+          "pk": true,
+          "nat": "Denmark"
         }
       ]
     }
@@ -212578,17 +212594,20 @@
       "home": [
         {
           "n": "Tomás Rayer",
-          "m": 64
+          "m": 64,
+          "nat": "Argentina"
         }
       ],
       "away": [
         {
           "n": "Rodney Redes",
-          "m": 18
+          "m": 18,
+          "nat": "Paraguay"
         },
         {
           "n": "Hugo Sandoval",
-          "m": 80
+          "m": 80,
+          "nat": "Paraguay"
         }
       ]
     }
@@ -212695,17 +212714,20 @@
       "home": [
         {
           "n": "Sede Junior Dion",
-          "m": 76
+          "m": 76,
+          "nat": "Chad"
         }
       ],
       "away": [
         {
           "n": "Siyanda Mthanti",
-          "m": 14
+          "m": 14,
+          "nat": "South Africa"
         },
         {
           "n": "Teboho Mokoena",
-          "m": 88
+          "m": 88,
+          "nat": "South Africa"
         }
       ]
     }
@@ -212789,7 +212811,8 @@
       "home": [
         {
           "n": "Damián Suárez",
-          "m": 9
+          "m": 9,
+          "nat": "Uruguay"
         }
       ],
       "away": []
@@ -212812,11 +212835,13 @@
       "home": [
         {
           "n": "Gamid Agalarov",
-          "m": 51
+          "m": 51,
+          "nat": "Russia"
         },
         {
           "n": "Houssem Eddine Mrezigue",
-          "m": 64
+          "m": 64,
+          "nat": "Algeria"
         }
       ],
       "away": []
@@ -212894,11 +212919,13 @@
       "away": [
         {
           "n": "Akpa Chukwu Hemsley",
-          "m": 90
+          "m": 90,
+          "nat": "Belgium"
         },
         {
           "n": "István Átrok",
-          "m": 90
+          "m": 90,
+          "nat": "Hungary"
         }
       ]
     }
@@ -212920,17 +212947,20 @@
       "home": [
         {
           "n": "Pedro Rocha",
-          "m": 61
+          "m": 61,
+          "nat": "Brazil"
         }
       ],
       "away": [
         {
           "n": "Gustavo Mosquito",
-          "m": 64
+          "m": 64,
+          "nat": "Brazil"
         },
         {
           "n": "Bruno Santos",
-          "m": 84
+          "m": 84,
+          "nat": "Brazil"
         }
       ]
     }
@@ -213055,15 +213085,18 @@
       "home": [
         {
           "n": "Alexandros Kyziridis",
-          "m": 6
+          "m": 6,
+          "nat": "Greece"
         },
         {
           "n": "Andrei Borza",
-          "m": 27
+          "m": 27,
+          "nat": "Romania"
         },
         {
           "n": "Ermin Mahmic",
-          "m": 88
+          "m": 88,
+          "nat": "Bosnia and Herzegovina"
         }
       ],
       "away": []
@@ -213086,21 +213119,25 @@
       "home": [
         {
           "n": "Guven Yalcin",
-          "m": 20
+          "m": 20,
+          "nat": "Türkiye"
         },
         {
           "n": "Adrian Benedyczak",
-          "m": 52
+          "m": 52,
+          "nat": "Poland"
         }
       ],
       "away": [
         {
           "n": "Gift Orban",
-          "m": 59
+          "m": 59,
+          "nat": "Nigeria"
         },
         {
           "n": "Gift Orban",
-          "m": 83
+          "m": 83,
+          "nat": "Nigeria"
         }
       ]
     }
@@ -213176,19 +213213,23 @@
       "home": [
         {
           "n": "Brenner",
-          "m": 3
+          "m": 3,
+          "nat": "Brazil"
         },
         {
           "n": "Tiago Ribeiro",
-          "m": 47
+          "m": 47,
+          "nat": "Portugal"
         },
         {
           "n": "Vinícius Lopes",
-          "m": 52
+          "m": 52,
+          "nat": "Brazil"
         },
         {
           "n": "Fernando",
-          "m": 90
+          "m": 90,
+          "nat": "Brazil"
         }
       ],
       "away": []
@@ -213211,7 +213252,8 @@
       "home": [
         {
           "n": "Anton Kurochkin",
-          "m": 2
+          "m": 2,
+          "nat": "Sweden"
         },
         {
           "n": "Viggo Elfstrom",
@@ -213222,7 +213264,8 @@
       "away": [
         {
           "n": "Momoh Kamara",
-          "m": 63
+          "m": 63,
+          "nat": "Sierra Leone"
         }
       ]
     }
@@ -213284,11 +213327,13 @@
       "home": [
         {
           "n": "Oskar Spiten-Nysæter",
-          "m": 37
+          "m": 37,
+          "nat": "Norway"
         },
         {
           "n": "Trent Kone-Doherty",
-          "m": 73
+          "m": 73,
+          "nat": "Republic of Ireland"
         }
       ],
       "away": []
@@ -213311,21 +213356,25 @@
       "home": [
         {
           "n": "Claus Niyukuri",
-          "m": 28
+          "m": 28,
+          "nat": "Burundi"
         },
         {
           "n": "Sondre Sörli",
-          "m": 80
+          "m": 80,
+          "nat": "Norway"
         }
       ],
       "away": [
         {
           "n": "Petter Strand",
-          "m": 83
+          "m": 83,
+          "nat": "Norway"
         },
         {
           "n": "Gabriel Rajkovic",
-          "m": 90
+          "m": 90,
+          "nat": "Norway"
         }
       ]
     }
@@ -213435,17 +213484,20 @@
       "home": [
         {
           "n": "Felipe Chamorro",
-          "m": 45
+          "m": 45,
+          "nat": "Chile"
         },
         {
           "n": "Matías Pinto",
-          "m": 88
+          "m": 88,
+          "nat": "Chile"
         }
       ],
       "away": [
         {
           "n": "Ignacio Tapia",
-          "m": 41
+          "m": 41,
+          "nat": "Argentina"
         }
       ]
     }
@@ -213508,17 +213560,20 @@
       "home": [
         {
           "n": "Iaroslav Gladyshev",
-          "m": 25
+          "m": 25,
+          "nat": "Russia"
         },
         {
           "n": "Arthur Gomes",
-          "m": 34
+          "m": 34,
+          "nat": "Brazil"
         }
       ],
       "away": [
         {
           "n": "Danil Prutsev",
-          "m": 21
+          "m": 21,
+          "nat": "Russia"
         }
       ]
     }
@@ -213540,11 +213595,13 @@
       "home": [
         {
           "n": "Mfundo Vilakazi",
-          "m": 30
+          "m": 30,
+          "nat": "South Africa"
         },
         {
           "n": "Wandile Duba",
-          "m": 65
+          "m": 65,
+          "nat": "South Africa"
         },
         {
           "n": "Samukelo Xulo",
@@ -213555,7 +213612,8 @@
       "away": [
         {
           "n": "Aphiwe Baliti",
-          "m": 68
+          "m": 68,
+          "nat": "South Africa"
         },
         {
           "n": "Michel N'Guessan",
@@ -213612,7 +213670,8 @@
       "home": [
         {
           "n": "Samuel Moutoussamy",
-          "m": 1
+          "m": 1,
+          "nat": "Congo DR"
         }
       ],
       "away": [
@@ -213641,23 +213700,28 @@
       "home": [
         {
           "n": "Santiago González",
-          "m": 11
+          "m": 11,
+          "nat": "Argentina"
         },
         {
           "n": "Luis Iberico",
-          "m": 42
+          "m": 42,
+          "nat": "Peru"
         },
         {
           "n": "Yoshimar Yotún",
-          "m": 64
+          "m": 64,
+          "nat": "Peru"
         },
         {
           "n": "Yoshimar Yotún",
-          "m": 75
+          "m": 75,
+          "nat": "Peru"
         },
         {
           "n": "Juan David Cuesta",
-          "m": 90
+          "m": 90,
+          "nat": "Colombia"
         }
       ],
       "away": []
@@ -213787,13 +213851,15 @@
       "home": [
         {
           "n": "Marcos Montiel",
-          "m": 90
+          "m": 90,
+          "nat": "Uruguay"
         }
       ],
       "away": [
         {
           "n": "Nicolás Wunsch",
-          "m": 77
+          "m": 77,
+          "nat": "Uruguay"
         }
       ]
     }
@@ -213848,11 +213914,13 @@
       "home": [
         {
           "n": "Thanasis Androutsos",
-          "m": 24
+          "m": 24,
+          "nat": "Greece"
         },
         {
           "n": "Andreas Bouchalakis",
-          "m": 32
+          "m": 32,
+          "nat": "Greece"
         }
       ],
       "away": []
@@ -213938,11 +214006,13 @@
       "away": [
         {
           "n": "Kwadwo Opoku",
-          "m": 77
+          "m": 77,
+          "nat": "Ghana"
         },
         {
           "n": "Kwadwo Opoku",
-          "m": 90
+          "m": 90,
+          "nat": "Ghana"
         }
       ]
     }
@@ -213978,7 +214048,8 @@
       "home": [
         {
           "n": "Florian Ayé",
-          "m": 26
+          "m": 26,
+          "nat": "France"
         }
       ],
       "away": []
@@ -214001,24 +214072,29 @@
       "home": [
         {
           "n": "Paul Onuachu",
-          "m": 5
+          "m": 5,
+          "nat": "Nigeria"
         },
         {
           "n": "Mohamed Salah",
           "m": 14,
-          "pk": true
+          "pk": true,
+          "nat": "Egypt"
         },
         {
           "n": "Paul Onuachu",
-          "m": 22
+          "m": 22,
+          "nat": "Nigeria"
         },
         {
           "n": "Ernest Muçi",
-          "m": 59
+          "m": 59,
+          "nat": "Albania"
         },
         {
           "n": "Franculino Djú",
-          "m": 78
+          "m": 78,
+          "nat": "Guinea-Bissau"
         }
       ],
       "away": []
@@ -214130,15 +214206,18 @@
       "home": [
         {
           "n": "Chris Lokesa",
-          "m": 69
+          "m": 69,
+          "nat": "Belgium"
         },
         {
           "n": "Jearl Margaritha",
-          "m": 85
+          "m": 85,
+          "nat": "Curaçao"
         },
         {
           "n": "Elohim Kaboré",
-          "m": 90
+          "m": 90,
+          "nat": "Burkina Faso"
         }
       ],
       "away": []
@@ -214161,11 +214240,13 @@
       "home": [
         {
           "n": "Leander Alvheim",
-          "m": 14
+          "m": 14,
+          "nat": "Norway"
         },
         {
           "n": "Leander Alvheim",
-          "m": 77
+          "m": 77,
+          "nat": "Norway"
         }
       ],
       "away": []
@@ -214295,13 +214376,15 @@
       "home": [
         {
           "n": "Gastón Ávila",
-          "m": 45
+          "m": 45,
+          "nat": "Argentina"
         }
       ],
       "away": [
         {
           "n": "Matías Cóccaro",
-          "m": 90
+          "m": 90,
+          "nat": "Uruguay"
         }
       ]
     }
@@ -214323,17 +214406,20 @@
       "home": [
         {
           "n": "Arnaldo Castillo",
-          "m": 33
+          "m": 33,
+          "nat": "Paraguay"
         },
         {
           "n": "Luis Pavez",
-          "m": 39
+          "m": 39,
+          "nat": "Chile"
         }
       ],
       "away": [
         {
           "n": "Sebastián Sáez",
-          "m": 59
+          "m": 59,
+          "nat": "Argentina"
         }
       ]
     }
@@ -214356,7 +214442,8 @@
       "away": [
         {
           "n": "Andrei Mostovoy",
-          "m": 85
+          "m": 85,
+          "nat": "Russia"
         }
       ]
     }
@@ -214457,21 +214544,25 @@
       "home": [
         {
           "n": "Vicente Taborda",
-          "m": 29
+          "m": 29,
+          "nat": "Argentina"
         },
         {
           "n": "Andrews Tetteh",
-          "m": 38
+          "m": 38,
+          "nat": "Greece"
         },
         {
           "n": "Andrews Tetteh",
-          "m": 52
+          "m": 52,
+          "nat": "Greece"
         }
       ],
       "away": [
         {
           "n": "Ognjen Ugresic",
-          "m": 90
+          "m": 90,
+          "nat": "Serbia"
         }
       ]
     }
@@ -214493,30 +214584,36 @@
       "home": [
         {
           "n": "Luiz Da Silva",
-          "m": 30
+          "m": 30,
+          "nat": "Peru"
         },
         {
           "n": "Facundo Castelli",
-          "m": 57
+          "m": 57,
+          "nat": "Argentina"
         },
         {
           "n": "Agustín González",
           "m": 68,
-          "pk": true
+          "pk": true,
+          "nat": "Uruguay"
         },
         {
           "n": "Agustín González",
-          "m": 89
+          "m": 89,
+          "nat": "Uruguay"
         }
       ],
       "away": [
         {
           "n": "Adrian Fernandez",
-          "m": 75
+          "m": 75,
+          "nat": "Paraguay"
         },
         {
           "n": "Adrian Fernandez",
-          "m": 80
+          "m": 80,
+          "nat": "Paraguay"
         }
       ]
     }
@@ -214632,19 +214729,23 @@
       "away": [
         {
           "n": "Billy Arce",
-          "m": 24
+          "m": 24,
+          "nat": "Ecuador"
         },
         {
           "n": "Dorny Romero",
-          "m": 43
+          "m": 43,
+          "nat": "Dominican Republic"
         },
         {
           "n": "Billy Arce",
-          "m": 75
+          "m": 75,
+          "nat": "Ecuador"
         },
         {
           "n": "Bruno Miranda",
-          "m": 86
+          "m": 86,
+          "nat": "Bolivia"
         }
       ]
     }
@@ -214666,27 +214767,32 @@
       "home": [
         {
           "n": "Brian Aguirre",
-          "m": 48
+          "m": 48,
+          "nat": "Argentina"
         },
         {
           "n": "Bruno Henrique",
           "m": 90,
-          "pk": true
+          "pk": true,
+          "nat": "Brazil"
         }
       ],
       "away": [
         {
           "n": "Gabriel Barbosa",
-          "m": 8
+          "m": 8,
+          "nat": "Brazil"
         },
         {
           "n": "Gabriel Barbosa",
           "m": 29,
-          "pk": true
+          "pk": true,
+          "nat": "Brazil"
         },
         {
           "n": "Christian Oliva",
-          "m": 39
+          "m": 39,
+          "nat": "Uruguay"
         }
       ]
     }
@@ -214709,7 +214815,8 @@
       "away": [
         {
           "n": "Samuel Lino",
-          "m": 65
+          "m": 65,
+          "nat": "Brazil"
         }
       ]
     }
@@ -214731,22 +214838,26 @@
       "home": [
         {
           "n": "Matheus Pereira",
-          "m": 30
+          "m": 30,
+          "nat": "Brazil"
         },
         {
           "n": "Lucas Romero",
-          "m": 71
+          "m": 71,
+          "nat": "Paraguay"
         },
         {
           "n": "Kaio Jorge",
           "m": 82,
-          "pk": true
+          "pk": true,
+          "nat": "Brazil"
         }
       ],
       "away": [
         {
           "n": "João Cruz",
-          "m": 45
+          "m": 45,
+          "nat": "Brazil"
         }
       ]
     }
@@ -214798,31 +214909,37 @@
       "home": [
         {
           "n": "Agustín Manzur",
-          "m": 26
+          "m": 26,
+          "nat": "Palestine"
         },
         {
           "n": "Elvio Vera",
           "m": 43,
-          "pk": true
+          "pk": true,
+          "nat": "Paraguay"
         },
         {
           "n": "Elvio Vera",
-          "m": 67
+          "m": 67,
+          "nat": "Paraguay"
         },
         {
           "n": "Elvio Vera",
-          "m": 70
+          "m": 70,
+          "nat": "Paraguay"
         }
       ],
       "away": [
         {
           "n": "Javier Fleitas",
-          "m": 37
+          "m": 37,
+          "nat": "Paraguay"
         },
         {
           "n": "William Mendieta",
           "m": 90,
-          "pk": true
+          "pk": true,
+          "nat": "Paraguay"
         }
       ]
     }
@@ -214878,7 +214995,8 @@
       "away": [
         {
           "n": "João Guilherme",
-          "m": 4
+          "m": 4,
+          "nat": "Brazil"
         }
       ]
     }
@@ -214900,21 +215018,25 @@
       "home": [
         {
           "n": "Lucas Rodríguez",
-          "m": 9
+          "m": 9,
+          "nat": "Uruguay"
         },
         {
           "n": "Francisco Calvo",
-          "m": 67
+          "m": 67,
+          "nat": "Costa Rica"
         }
       ],
       "away": [
         {
           "n": "Bruno Larregui",
-          "m": 3
+          "m": 3,
+          "nat": "Uruguay"
         },
         {
           "n": "Agustín Alaniz",
-          "m": 90
+          "m": 90,
+          "nat": "Uruguay"
         }
       ]
     }
@@ -214951,7 +215073,8 @@
       "away": [
         {
           "n": "Leonardo Godoy",
-          "m": 57
+          "m": 57,
+          "nat": "Argentina"
         }
       ]
     }
@@ -214973,7 +215096,8 @@
       "home": [
         {
           "n": "Carlos Izquierdoz",
-          "m": 90
+          "m": 90,
+          "nat": "Argentina"
         }
       ],
       "away": []
@@ -215010,13 +215134,15 @@
       "home": [
         {
           "n": "Matías Almirón",
-          "m": 33
+          "m": 33,
+          "nat": "Uruguay"
         }
       ],
       "away": [
         {
           "n": "Erick Castillo",
-          "m": 43
+          "m": 43,
+          "nat": "Ecuador"
         }
       ]
     }
@@ -215039,7 +215165,8 @@
       "away": [
         {
           "n": "Miku Fedor",
-          "m": 79
+          "m": 79,
+          "nat": "Venezuela"
         }
       ]
     }
@@ -215113,22 +215240,26 @@
       "home": [
         {
           "n": "Mateo Rodas",
-          "m": 21
+          "m": 21,
+          "nat": "Colombia"
         },
         {
           "n": "Facundo Boné",
-          "m": 53
+          "m": 53,
+          "nat": "Uruguay"
         }
       ],
       "away": [
         {
           "n": "Antony Vásquez",
-          "m": 6
+          "m": 6,
+          "nat": "Colombia"
         },
         {
           "n": "Ricardo Márquez",
           "m": 79,
-          "pk": true
+          "pk": true,
+          "nat": "Colombia"
         }
       ]
     }
@@ -215151,7 +215282,8 @@
       "away": [
         {
           "n": "Eddy Mejía",
-          "m": 87
+          "m": 87,
+          "nat": "Ecuador"
         }
       ]
     }
@@ -215174,22 +215306,26 @@
         {
           "n": "Federico Andrada",
           "m": 43,
-          "pk": true
+          "pk": true,
+          "nat": "Argentina"
         },
         {
           "n": "Marcelo Díaz",
           "m": 90,
-          "pk": true
+          "pk": true,
+          "nat": "El Salvador"
         }
       ],
       "away": [
         {
           "n": "Juan Carlos Portillo",
-          "m": 26
+          "m": 26,
+          "nat": "El Salvador"
         },
         {
           "n": "Leonardo Menjívar",
-          "m": 80
+          "m": 80,
+          "nat": "El Salvador"
         }
       ]
     }
@@ -215212,11 +215348,13 @@
       "away": [
         {
           "n": "Wilma Torres",
-          "m": 70
+          "m": 70,
+          "nat": "El Salvador"
         },
         {
           "n": "Gerson Mayén",
-          "m": 88
+          "m": 88,
+          "nat": "El Salvador"
         }
       ]
     }
@@ -215239,7 +215377,8 @@
       "away": [
         {
           "n": "Juan Uribe",
-          "m": 79
+          "m": 79,
+          "nat": "Mexico"
         }
       ]
     }
@@ -215276,17 +215415,20 @@
         {
           "n": "Giovanni Bogado",
           "m": 80,
-          "pk": true
+          "pk": true,
+          "nat": "Paraguay"
         }
       ],
       "away": [
         {
           "n": "Cristhian Ocampos",
-          "m": 35
+          "m": 35,
+          "nat": "Paraguay"
         },
         {
           "n": "Cristhian Ocampos",
-          "m": 52
+          "m": 52,
+          "nat": "Paraguay"
         }
       ]
     }
@@ -215308,22 +215450,26 @@
       "home": [
         {
           "n": "Rodrígo Pollero",
-          "m": 8
+          "m": 8,
+          "nat": "Uruguay"
         },
         {
           "n": "José Agustin Peréz",
-          "m": 57
+          "m": 57,
+          "nat": "Uruguay"
         },
         {
           "n": "Valentin Adamo",
           "m": 86,
-          "pk": true
+          "pk": true,
+          "nat": "Uruguay"
         }
       ],
       "away": [
         {
           "n": "José Ochoa",
-          "m": 26
+          "m": 26,
+          "nat": "Guatemala"
         }
       ]
     }
@@ -215360,22 +215506,26 @@
         {
           "n": "Jaime Arrascaita",
           "m": 24,
-          "pk": true
+          "pk": true,
+          "nat": "Bolivia"
         },
         {
           "n": "Dilan Saavedra",
-          "m": 41
+          "m": 41,
+          "nat": "Bolivia"
         },
         {
           "n": "Kevin Salvatierra",
-          "m": 76
+          "m": 76,
+          "nat": "Bolivia"
         }
       ],
       "away": [
         {
           "n": "David Robles",
           "m": 90,
-          "pk": true
+          "pk": true,
+          "nat": "Paraguay"
         }
       ]
     }
@@ -215397,21 +215547,25 @@
       "home": [
         {
           "n": "Hiram Muñoz",
-          "m": 35
+          "m": 35,
+          "nat": "Mexico"
         }
       ],
       "away": [
         {
           "n": "Alonso Hernández",
-          "m": 7
+          "m": 7,
+          "nat": "USA"
         },
         {
           "n": "Geancarlo Castro",
-          "m": 65
+          "m": 65,
+          "nat": "Costa Rica"
         },
         {
           "n": "Geancarlo Castro",
-          "m": 73
+          "m": 73,
+          "nat": "Costa Rica"
         }
       ]
     }
@@ -215448,21 +215602,25 @@
         {
           "n": "Gonzalo Montiel",
           "m": 30,
-          "pk": true
+          "pk": true,
+          "nat": "Argentina"
         },
         {
           "n": "Tomás Galván",
-          "m": 54
+          "m": 54,
+          "nat": "Argentina"
         },
         {
           "n": "Tomás Galván",
-          "m": 80
+          "m": 80,
+          "nat": "Argentina"
         }
       ],
       "away": [
         {
           "n": "Alex Arce",
-          "m": 68
+          "m": 68,
+          "nat": "Paraguay"
         }
       ]
     }
@@ -215502,17 +215660,20 @@
       "home": [
         {
           "n": "Matheus Bidu",
-          "m": 2
+          "m": 2,
+          "nat": "Brazil"
         }
       ],
       "away": [
         {
           "n": "Marcinho",
-          "m": 40
+          "m": 40,
+          "nat": "Brazil"
         },
         {
           "n": "Marcinho",
-          "m": 77
+          "m": 77,
+          "nat": "Brazil"
         }
       ]
     }
@@ -215534,17 +215695,20 @@
       "home": [
         {
           "n": "César Munder",
-          "m": 65
+          "m": 65,
+          "nat": "Chile"
         },
         {
           "n": "Gonzalo Tapia",
-          "m": 90
+          "m": 90,
+          "nat": "Chile"
         }
       ],
       "away": [
         {
           "n": "Cecilio Waterman",
-          "m": 38
+          "m": 38,
+          "nat": "Panama"
         }
       ]
     }
@@ -215566,7 +215730,8 @@
       "home": [
         {
           "n": "Federico Martínez",
-          "m": 73
+          "m": 73,
+          "nat": "Uruguay"
         }
       ],
       "away": []
@@ -215589,7 +215754,8 @@
       "home": [
         {
           "n": "José Paradela",
-          "m": 89
+          "m": 89,
+          "nat": "Argentina"
         }
       ],
       "away": []
@@ -215612,11 +215778,13 @@
       "home": [
         {
           "n": "José Alí Meza",
-          "m": 24
+          "m": 24,
+          "nat": "Venezuela"
         },
         {
           "n": "Miguel González",
-          "m": 73
+          "m": 73,
+          "nat": "Venezuela"
         }
       ],
       "away": []
@@ -215639,13 +215807,15 @@
       "home": [
         {
           "n": "Jordy Monroy",
-          "m": 67
+          "m": 67,
+          "nat": "Armenia"
         }
       ],
       "away": [
         {
           "n": "Leonardo Castro",
-          "m": 69
+          "m": 69,
+          "nat": "Colombia"
         }
       ]
     }
@@ -215667,7 +215837,8 @@
       "home": [
         {
           "n": "Rafael Águila",
-          "m": 22
+          "m": 22,
+          "nat": "Panama"
         },
         {
           "n": "Diego Alexis Ortez Argueta",
@@ -215675,7 +215846,8 @@
         },
         {
           "n": "Styven Vásquez",
-          "m": 45
+          "m": 45,
+          "nat": "El Salvador"
         }
       ],
       "away": []
@@ -215698,15 +215870,18 @@
       "home": [
         {
           "n": "Bernardo Cuesta",
-          "m": 45
+          "m": 45,
+          "nat": "Argentina"
         },
         {
           "n": "Bernardo Cuesta",
-          "m": 63
+          "m": 63,
+          "nat": "Argentina"
         },
         {
           "n": "Jesús Alcántar",
-          "m": 82
+          "m": 82,
+          "nat": "Mexico"
         }
       ],
       "away": []
@@ -215743,17 +215918,20 @@
       "home": [
         {
           "n": "Nelson Amarilla",
-          "m": 34
+          "m": 34,
+          "nat": "Paraguay"
         },
         {
           "n": "Pedro Azogue",
-          "m": 74
+          "m": 74,
+          "nat": "Bolivia"
         }
       ],
       "away": [
         {
           "n": "Moises Villarroel",
-          "m": 43
+          "m": 43,
+          "nat": "Bolivia"
         }
       ]
     }
@@ -215775,14 +215953,16 @@
       "home": [
         {
           "n": "Michael Carcelen",
-          "m": 6
+          "m": 6,
+          "nat": "Ecuador"
         }
       ],
       "away": [
         {
           "n": "Johnny Raul Quiñonez",
           "m": 90,
-          "pk": true
+          "pk": true,
+          "nat": "Ecuador"
         }
       ]
     }
@@ -215805,7 +215985,8 @@
       "away": [
         {
           "n": "Enrique Caicedo",
-          "m": 67
+          "m": 67,
+          "nat": "Ecuador"
         }
       ]
     }
@@ -215827,17 +216008,20 @@
       "home": [
         {
           "n": "Leonel Pérez",
-          "m": 71
+          "m": 71,
+          "nat": "Argentina"
         }
       ],
       "away": [
         {
           "n": "Lautaro Godoy",
-          "m": 24
+          "m": 24,
+          "nat": "Argentina"
         },
         {
           "n": "Ramiro Ruiz Rodriguez",
-          "m": 90
+          "m": 90,
+          "nat": "Argentina"
         }
       ]
     }
@@ -215859,7 +216043,8 @@
       "home": [
         {
           "n": "Brian Martínez",
-          "m": 40
+          "m": 40,
+          "nat": "Spain"
         }
       ],
       "away": []
@@ -216026,12 +216211,14 @@
       "away": [
         {
           "n": "Édgar Yoel Bárcenas",
-          "m": 8
+          "m": 8,
+          "nat": "Panama"
         },
         {
           "n": "Ivi",
           "m": 73,
-          "pk": true
+          "pk": true,
+          "nat": "Spain"
         }
       ]
     }
@@ -216133,13 +216320,15 @@
         {
           "n": "Jacques Siwe",
           "m": 26,
-          "pk": true
+          "pk": true,
+          "nat": "France"
         }
       ],
       "away": [
         {
           "n": "Egas Cacintura",
-          "m": 56
+          "m": 56,
+          "nat": "Angola"
         }
       ]
     }
@@ -216270,7 +216459,8 @@
       "away": [
         {
           "n": "Bo Hegland",
-          "m": 65
+          "m": 65,
+          "nat": "Norway"
         }
       ]
     }
@@ -216292,25 +216482,30 @@
       "home": [
         {
           "n": "Olle Lindberg",
-          "m": 83
+          "m": 83,
+          "nat": "Sweden"
         }
       ],
       "away": [
         {
           "n": "Nino Zugelj",
-          "m": 59
+          "m": 59,
+          "nat": "Slovenia"
         },
         {
           "n": "Alexander Simmelhack",
-          "m": 63
+          "m": 63,
+          "nat": "Denmark"
         },
         {
           "n": "Sam Larsson",
-          "m": 75
+          "m": 75,
+          "nat": "Sweden"
         },
         {
           "n": "Sam Larsson",
-          "m": 79
+          "m": 79,
+          "nat": "Sweden"
         }
       ]
     }
@@ -216356,30 +216551,36 @@
       "home": [
         {
           "n": "Juan",
-          "m": 51
+          "m": 51,
+          "nat": "Brazil"
         },
         {
           "n": "Juan",
           "m": 90,
-          "pk": true
+          "pk": true,
+          "nat": "Brazil"
         }
       ],
       "away": [
         {
           "n": "Halil Dervisoglu",
-          "m": 5
+          "m": 5,
+          "nat": "Türkiye"
         },
         {
           "n": "Myenty Abena",
-          "m": 10
+          "m": 10,
+          "nat": "Suriname"
         },
         {
           "n": "Kacper Kozlowski",
-          "m": 34
+          "m": 34,
+          "nat": "Poland"
         },
         {
           "n": "Kacper Kozlowski",
-          "m": 45
+          "m": 45,
+          "nat": "Poland"
         }
       ]
     }
@@ -216504,7 +216705,8 @@
       "away": [
         {
           "n": "Nahuel López",
-          "m": 22
+          "m": 22,
+          "nat": "Uruguay"
         }
       ]
     }
@@ -216606,11 +216808,13 @@
         {
           "n": "Juan Manuel García",
           "m": 20,
-          "pk": true
+          "pk": true,
+          "nat": "Argentina"
         },
         {
           "n": "Thiago Servin",
-          "m": 82
+          "m": 82,
+          "nat": "Paraguay"
         }
       ],
       "away": []
@@ -216768,7 +216972,8 @@
       "home": [
         {
           "n": "Pablo Vegetti",
-          "m": 87
+          "m": 87,
+          "nat": "Argentina"
         }
       ],
       "away": []
@@ -216805,7 +217010,8 @@
       "home": [
         {
           "n": "Eric Ramírez",
-          "m": 30
+          "m": 30,
+          "nat": "Venezuela"
         }
       ],
       "away": []
@@ -216828,7 +217034,8 @@
       "home": [
         {
           "n": "Renê",
-          "m": 63
+          "m": 63,
+          "nat": "Brazil"
         }
       ],
       "away": []
@@ -216852,15 +217059,18 @@
         {
           "n": "Daniel Castro",
           "m": 39,
-          "pk": true
+          "pk": true,
+          "nat": "Chile"
         },
         {
           "n": "Daniel Castro",
-          "m": 62
+          "m": 62,
+          "nat": "Chile"
         },
         {
           "n": "Vicente Álvarez",
-          "m": 77
+          "m": 77,
+          "nat": "Chile"
         }
       ],
       "away": []
@@ -216883,17 +217093,20 @@
       "home": [
         {
           "n": "Néider Ospina",
-          "m": 18
+          "m": 18,
+          "nat": "Colombia"
         }
       ],
       "away": [
         {
           "n": "Sebastián Guzmán",
-          "m": 23
+          "m": 23,
+          "nat": "Colombia"
         },
         {
           "n": "Sergio Aguayo",
-          "m": 65
+          "m": 65,
+          "nat": "Mexico"
         }
       ]
     }
@@ -216929,35 +217142,42 @@
       "home": [
         {
           "n": "Christian Ortíz",
-          "m": 5
+          "m": 5,
+          "nat": "Argentina"
         },
         {
           "n": "Walter Herrera",
           "m": 45,
-          "pk": true
+          "pk": true,
+          "nat": "Argentina"
         },
         {
           "n": "Valentín Burgoa",
-          "m": 75
+          "m": 75,
+          "nat": "Argentina"
         },
         {
           "n": "Valentín Burgoa",
-          "m": 90
+          "m": 90,
+          "nat": "Argentina"
         }
       ],
       "away": [
         {
           "n": "Diego Dorregaray",
           "m": 35,
-          "pk": true
+          "pk": true,
+          "nat": "Argentina"
         },
         {
           "n": "Edison Mero",
-          "m": 38
+          "m": 38,
+          "nat": "Ecuador"
         },
         {
           "n": "Diego Dorregaray",
-          "m": 77
+          "m": 77,
+          "nat": "Argentina"
         }
       ]
     }
@@ -216979,7 +217199,8 @@
       "home": [
         {
           "n": "Aníbal Leguizamón",
-          "m": 75
+          "m": 75,
+          "nat": "Argentina"
         }
       ],
       "away": []
@@ -217003,13 +217224,15 @@
         {
           "n": "Renato Ibarra",
           "m": 22,
-          "pk": true
+          "pk": true,
+          "nat": "Ecuador"
         }
       ],
       "away": [
         {
           "n": "Cristhian Solano",
-          "m": 7
+          "m": 7,
+          "nat": "Ecuador"
         }
       ]
     }
@@ -217049,25 +217272,30 @@
       "home": [
         {
           "n": "Braian Cuello",
-          "m": 25
+          "m": 25,
+          "nat": "Argentina"
         },
         {
           "n": "Cristian Tarragona",
-          "m": 48
+          "m": 48,
+          "nat": "Argentina"
         },
         {
           "n": "Misael Aguirre",
-          "m": 74
+          "m": 74,
+          "nat": "Argentina"
         }
       ],
       "away": [
         {
           "n": "Leonel Mosevich",
-          "m": 13
+          "m": 13,
+          "nat": "Argentina"
         },
         {
           "n": "Hernán De La Fuente",
-          "m": 87
+          "m": 87,
+          "nat": "Argentina"
         }
       ]
     }
@@ -217932,113 +218160,6 @@
   {
     "date": "2026-09-09",
     "time": "03:45",
-    "league": "EFL",
-    "venueId": "southampton_st_marys",
-    "home": "사우샘프턴",
-    "away": "스완지",
-    "stadium": "세인트 메리스 스타디움",
-    "timeTbd": false,
-    "gameId": "YEzthB2I7ULBOnY",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 3,
-    "scorers": {
-      "home": [
-        {
-          "n": "아자즈",
-          "m": 9
-        },
-        {
-          "n": "래린",
-          "m": 33
-        },
-        {
-          "n": "레오 시엔자",
-          "m": 78
-        }
-      ],
-      "away": [
-        {
-          "n": "비포트니크",
-          "m": 52
-        }
-      ]
-    }
-  },
-  {
-    "date": "2026-09-09",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "watford_vicarage_road",
-    "home": "왓퍼드",
-    "away": "프레스턴",
-    "stadium": "비커리지 로드",
-    "timeTbd": false,
-    "gameId": "2n8KOshcekINj3A",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "에도 카옘베",
-          "m": 69,
-          "nat": "Congo DR"
-        },
-        {
-          "n": "둠비아",
-          "m": 76,
-          "a": "Iker Bravo",
-          "nat": "Mali",
-          "aNat": "Spain"
-        }
-      ],
-      "away": [
-        {
-          "n": "랭",
-          "m": 5,
-          "nat": "England"
-        }
-      ]
-    }
-  },
-  {
-    "date": "2026-09-09",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "wrexham_racecourse_ground",
-    "home": "렉섬",
-    "away": "번리",
-    "stadium": "레이스코스 그라운드",
-    "timeTbd": false,
-    "gameId": "8059agG5ekMqb6q",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 1,
-    "scorers": {
-      "home": [
-        {
-          "n": "에코미에",
-          "m": 55,
-          "a": "Chris Willock",
-          "nat": "Wales",
-          "aNat": "England"
-        }
-      ],
-      "away": [
-        {
-          "n": "암두니",
-          "m": 26,
-          "a": "Róbert Bozeník",
-          "nat": "England",
-          "aNat": "Slovakia"
-        }
-      ]
-    }
-  },
-  {
-    "date": "2026-09-09",
-    "time": "03:45",
     "league": "EFLCUP",
     "venueId": "bournemouth_dean_court",
     "home": "본머스",
@@ -218165,6 +218286,113 @@
       "away": []
     },
     "phaseCode": "T32"
+  },
+  {
+    "date": "2026-09-09",
+    "time": "03:45",
+    "league": "EFL",
+    "venueId": "southampton_st_marys",
+    "home": "사우샘프턴",
+    "away": "스완지",
+    "stadium": "세인트 메리스 스타디움",
+    "timeTbd": false,
+    "gameId": "YEzthB2I7ULBOnY",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "아자즈",
+          "m": 9
+        },
+        {
+          "n": "래린",
+          "m": 33
+        },
+        {
+          "n": "레오 시엔자",
+          "m": 78
+        }
+      ],
+      "away": [
+        {
+          "n": "비포트니크",
+          "m": 52
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-09",
+    "time": "03:45",
+    "league": "EFL",
+    "venueId": "watford_vicarage_road",
+    "home": "왓퍼드",
+    "away": "프레스턴",
+    "stadium": "비커리지 로드",
+    "timeTbd": false,
+    "gameId": "2n8KOshcekINj3A",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "에도 카옘베",
+          "m": 69,
+          "nat": "Congo DR"
+        },
+        {
+          "n": "둠비아",
+          "m": 76,
+          "a": "Iker Bravo",
+          "nat": "Mali",
+          "aNat": "Spain"
+        }
+      ],
+      "away": [
+        {
+          "n": "랭",
+          "m": 5,
+          "nat": "England"
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-09",
+    "time": "03:45",
+    "league": "EFL",
+    "venueId": "wrexham_racecourse_ground",
+    "home": "렉섬",
+    "away": "번리",
+    "stadium": "레이스코스 그라운드",
+    "timeTbd": false,
+    "gameId": "8059agG5ekMqb6q",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "에코미에",
+          "m": 55,
+          "a": "Chris Willock",
+          "nat": "Wales",
+          "aNat": "England"
+        }
+      ],
+      "away": [
+        {
+          "n": "암두니",
+          "m": 26,
+          "a": "Róbert Bozeník",
+          "nat": "England",
+          "aNat": "Slovakia"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-09",
@@ -218728,7 +218956,8 @@
       "home": [
         {
           "n": "Juan Barahona",
-          "m": 90
+          "m": 90,
+          "nat": "El Salvador"
         }
       ],
       "away": []
@@ -219622,15 +219851,18 @@
       "home": [
         {
           "n": "Kutlwano Letlhaku",
-          "m": 58
+          "m": 58,
+          "nat": "South Africa"
         },
         {
           "n": "Siyanda Mthanti",
-          "m": 79
+          "m": 79,
+          "nat": "South Africa"
         },
         {
           "n": "Tashreeq Matthews",
-          "m": 90
+          "m": 90,
+          "nat": "South Africa"
         }
       ],
       "away": []
@@ -220085,19 +220317,23 @@
         {
           "n": "Vangelis Pavlidis",
           "m": 45,
-          "pk": true
+          "pk": true,
+          "nat": "Greece"
         },
         {
           "n": "Andreas Schjelderup",
-          "m": 55
+          "m": 55,
+          "nat": "Norway"
         },
         {
           "n": "Gianluca Prestianni",
-          "m": 59
+          "m": 59,
+          "nat": "Argentina"
         },
         {
           "n": "Fredrik Aursnes",
-          "m": 72
+          "m": 72,
+          "nat": "Norway"
         }
       ]
     }
@@ -220162,11 +220398,13 @@
       "away": [
         {
           "n": "Steven Guerra",
-          "m": 35
+          "m": 35,
+          "nat": "El Salvador"
         },
         {
           "n": "José Posada",
-          "m": 64
+          "m": 64,
+          "nat": "El Salvador"
         }
       ]
     }
@@ -221423,22 +221661,26 @@
       "home": [
         {
           "n": "Kings Kangwa",
-          "m": 53
+          "m": 53,
+          "nat": "Zambia"
         },
         {
           "n": "Vicente Taborda",
           "m": 81,
-          "pk": true
+          "pk": true,
+          "nat": "Argentina"
         },
         {
           "n": "Elmin Rastoder",
-          "m": 90
+          "m": 90,
+          "nat": "Switzerland"
         }
       ],
       "away": [
         {
           "n": "Dimitris Theodoridis",
-          "m": 74
+          "m": 74,
+          "nat": "Greece"
         }
       ]
     }
@@ -221618,17 +221860,20 @@
       "home": [
         {
           "n": "Ianis Stoica",
-          "m": 45
+          "m": 45,
+          "nat": "Romania"
         },
         {
           "n": "Ianis Stoica",
-          "m": 56
+          "m": 56,
+          "nat": "Romania"
         }
       ],
       "away": [
         {
           "n": "Gabri Martínez",
-          "m": 5
+          "m": 5,
+          "nat": "Spain"
         }
       ]
     }
@@ -221874,13 +222119,15 @@
       "home": [
         {
           "n": "Francisco Chaverra",
-          "m": 60
+          "m": 60,
+          "nat": "Colombia"
         }
       ],
       "away": [
         {
           "n": "Johan Andrés Martínez",
-          "m": 39
+          "m": 39,
+          "nat": "Colombia"
         }
       ]
     }
@@ -221944,21 +222191,25 @@
       "home": [
         {
           "n": "Juninho",
-          "m": 45
+          "m": 45,
+          "nat": "Brazil"
         },
         {
           "n": "Robert Morales",
-          "m": 70
+          "m": 70,
+          "nat": "Paraguay"
         },
         {
           "n": "Pedro Vite",
-          "m": 87
+          "m": 87,
+          "nat": "Ecuador"
         }
       ],
       "away": [
         {
           "n": "José Alvarado",
-          "m": 53
+          "m": 53,
+          "nat": "Mexico"
         }
       ]
     }
@@ -222316,17 +222567,20 @@
       "home": [
         {
           "n": "Martin Kramaric",
-          "m": 64
+          "m": 64,
+          "nat": "Slovenia"
         },
         {
           "n": "Kirill Stolbov",
-          "m": 88
+          "m": 88,
+          "nat": "Russia"
         }
       ],
       "away": [
         {
           "n": "Ivan Timoshenko",
-          "m": 59
+          "m": 59,
+          "nat": "Russia"
         }
       ]
     }
@@ -222537,13 +222791,15 @@
       "home": [
         {
           "n": "Julius Lindberg",
-          "m": 56
+          "m": 56,
+          "nat": "Sweden"
         }
       ],
       "away": [
         {
           "n": "Jacob Bergstrom",
-          "m": 17
+          "m": 17,
+          "nat": "Sweden"
         }
       ]
     }
@@ -222565,11 +222821,13 @@
       "home": [
         {
           "n": "Emir Han Topcu",
-          "m": 21
+          "m": 21,
+          "nat": "Türkiye"
         },
         {
           "n": "Leandro Trossard",
-          "m": 27
+          "m": 27,
+          "nat": "Belgium"
         },
         {
           "n": "Yakup Kırtay",
@@ -222597,13 +222855,15 @@
       "home": [
         {
           "n": "Philipp Pomer",
-          "m": 86
+          "m": 86,
+          "nat": "Austria"
         }
       ],
       "away": [
         {
           "n": "Karim Konaté",
-          "m": 84
+          "m": 84,
+          "nat": "Ivory Coast"
         }
       ]
     }
@@ -222625,13 +222885,15 @@
       "home": [
         {
           "n": "Bradley Grobler",
-          "m": 87
+          "m": 87,
+          "nat": "South Africa"
         }
       ],
       "away": [
         {
           "n": "Bethuel Muzeu",
-          "m": 63
+          "m": 63,
+          "nat": "Namibia"
         }
       ]
     }
@@ -222782,7 +223044,8 @@
       "away": [
         {
           "n": "Tawfik Bentayeb",
-          "m": 43
+          "m": 43,
+          "nat": "Morocco"
         }
       ]
     }
@@ -222976,7 +223239,8 @@
         {
           "n": "Cristhian Ocampos",
           "m": 85,
-          "pk": true
+          "pk": true,
+          "nat": "Paraguay"
         }
       ],
       "away": []
@@ -222999,13 +223263,15 @@
       "home": [
         {
           "n": "Alan Soñora",
-          "m": 90
+          "m": 90,
+          "nat": "USA"
         }
       ],
       "away": [
         {
           "n": "Ronaldo Martínez",
-          "m": 27
+          "m": 27,
+          "nat": "Paraguay"
         }
       ]
     }
@@ -223027,17 +223293,20 @@
       "home": [
         {
           "n": "Bruno Duarte",
-          "m": 49
+          "m": 49,
+          "nat": "Argentina"
         }
       ],
       "away": [
         {
           "n": "Nilton Ramírez",
-          "m": 45
+          "m": 45,
+          "nat": "Peru"
         },
         {
           "n": "Janio Posito",
-          "m": 89
+          "m": 89,
+          "nat": "Peru"
         }
       ]
     }
@@ -223066,7 +223335,8 @@
         {
           "n": "Luciano Nequecaur",
           "m": 89,
-          "pk": true
+          "pk": true,
+          "nat": "Argentina"
         }
       ]
     }
@@ -223089,11 +223359,13 @@
       "away": [
         {
           "n": "Leonardo Viviani",
-          "m": 25
+          "m": 25,
+          "nat": "Bolivia"
         },
         {
           "n": "Michael Rangel",
-          "m": 43
+          "m": 43,
+          "nat": "Colombia"
         }
       ]
     }
@@ -223129,11 +223401,13 @@
       "home": [
         {
           "n": "Leandro Miguel Fernandez",
-          "m": 11
+          "m": 11,
+          "nat": "Argentina"
         },
         {
           "n": "David Barbona",
-          "m": 57
+          "m": 57,
+          "nat": "Argentina"
         }
       ],
       "away": []
@@ -223372,21 +223646,25 @@
         {
           "n": "Andrés Rentería",
           "m": 79,
-          "pk": true
+          "pk": true,
+          "nat": "Colombia"
         },
         {
           "n": "Darwin López",
-          "m": 85
+          "m": 85,
+          "nat": "Colombia"
         }
       ],
       "away": [
         {
           "n": "Jhonier Blanco",
-          "m": 10
+          "m": 10,
+          "nat": "Colombia"
         },
         {
           "n": "Mariano Vazquez",
-          "m": 54
+          "m": 54,
+          "nat": "Argentina"
         }
       ]
     }
@@ -223459,12 +223737,14 @@
       "home": [
         {
           "n": "Jorge Hugo Rojas",
-          "m": 30
+          "m": 30,
+          "nat": "Bolivia"
         },
         {
           "n": "Stiven Plaza",
           "m": 90,
-          "pk": true
+          "pk": true,
+          "nat": "Ecuador"
         }
       ],
       "away": [
@@ -223493,30 +223773,36 @@
       "home": [
         {
           "n": "Tiago",
-          "m": 45
+          "m": 45,
+          "nat": "Brazil"
         },
         {
           "n": "Rodrigo Moledo",
-          "m": 90
+          "m": 90,
+          "nat": "Brazil"
         },
         {
           "n": "Rodrigo Moledo",
-          "m": 90
+          "m": 90,
+          "nat": "Brazil"
         }
       ],
       "away": [
         {
           "n": "Luiz Gustavo",
-          "m": 14
+          "m": 14,
+          "nat": "Brazil"
         },
         {
           "n": "Arthur Dias",
-          "m": 30
+          "m": 30,
+          "nat": "Brazil"
         },
         {
           "n": "Kevin Viveros",
           "m": 63,
-          "pk": true
+          "pk": true,
+          "nat": "Colombia"
         }
       ]
     }
@@ -223539,7 +223825,8 @@
       "away": [
         {
           "n": "Bernardo Cuesta",
-          "m": 50
+          "m": 50,
+          "nat": "Argentina"
         }
       ]
     }
@@ -223640,15 +223927,18 @@
       "home": [
         {
           "n": "Ángel Romero",
-          "m": 5
+          "m": 5,
+          "nat": "Paraguay"
         },
         {
           "n": "Enner Valencia",
-          "m": 11
+          "m": 11,
+          "nat": "Ecuador"
         },
         {
           "n": "Ángel Romero",
-          "m": 56
+          "m": 56,
+          "nat": "Paraguay"
         }
       ],
       "away": [
@@ -223691,7 +223981,8 @@
       "away": [
         {
           "n": "Mathías Tomás",
-          "m": 90
+          "m": 90,
+          "nat": "Uruguay"
         }
       ]
     }
@@ -223727,7 +224018,8 @@
       "home": [
         {
           "n": "Nahuel Bustos",
-          "m": 61
+          "m": 61,
+          "nat": "Argentina"
         }
       ],
       "away": []
@@ -223787,11 +224079,13 @@
       "away": [
         {
           "n": "Brian Martínez",
-          "m": 11
+          "m": 11,
+          "nat": "Spain"
         },
         {
           "n": "Brian Martínez",
-          "m": 19
+          "m": 19,
+          "nat": "Spain"
         }
       ]
     }
@@ -223853,7 +224147,7 @@
     "stadium": "Estadio Banorte",
     "timeTbd": false,
     "gameId": "LIGAMX_ESPN_401876979",
-    "status": "live",
+    "status": "completed",
     "homeScore": 0,
     "awayScore": 3,
     "scorers": {
@@ -223861,15 +224155,18 @@
       "away": [
         {
           "n": "Salomón Rondón",
-          "m": 13
+          "m": 13,
+          "nat": "Venezuela"
         },
         {
           "n": "Kenedy",
-          "m": 20
+          "m": 20,
+          "nat": "Brazil"
         },
         {
           "n": "Oussama Idrissi",
-          "m": 38
+          "m": 38,
+          "nat": "Morocco"
         }
       ]
     }
@@ -223884,7 +224181,7 @@
     "stadium": "Estadio Caliente",
     "timeTbd": false,
     "gameId": "LIGAMX_ESPN_401876978",
-    "status": "live",
+    "status": "completed",
     "homeScore": 0,
     "awayScore": 1,
     "scorers": {
@@ -223892,7 +224189,8 @@
       "away": [
         {
           "n": "Mateo Coronel",
-          "m": 30
+          "m": 30,
+          "nat": "Argentina"
         }
       ]
     }
@@ -224660,7 +224958,19 @@
     "stadium": "TEDA Football Stadium",
     "timeTbd": false,
     "gameId": "CHINA_ESPN_401861291",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "Aitor Córdoba",
+          "m": 10,
+          "nat": "Spain"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-09-12",
@@ -224672,7 +224982,36 @@
     "stadium": "Stadion Fakel",
     "timeTbd": false,
     "gameId": "RUSSIA_ESPN_401879856",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 2,
+    "awayScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "Ravil Netfullin",
+          "m": 13,
+          "nat": "Russia"
+        },
+        {
+          "n": "Butta Magomedov",
+          "m": 51,
+          "nat": "Russia"
+        }
+      ],
+      "away": [
+        {
+          "n": "Egor Golenkov",
+          "m": 74,
+          "nat": "Russia"
+        },
+        {
+          "n": "Brayan Gil",
+          "m": 90,
+          "pk": true,
+          "nat": "El Salvador"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-12",
@@ -224783,7 +225122,26 @@
     "stadium": "Wuhan Sports Center Stadium",
     "timeTbd": false,
     "gameId": "CHINA_ESPN_401861418",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "Jhonder Cádiz",
+          "m": 52,
+          "pk": true,
+          "nat": "Venezuela"
+        }
+      ],
+      "away": [
+        {
+          "n": "Gustavo",
+          "m": 90,
+          "nat": "Brazil"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-12",
@@ -224866,7 +225224,19 @@
     "stadium": "Princess Magogo Stadium",
     "timeTbd": false,
     "gameId": "SOUTHAFRICA_ESPN_401902046",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "Thandolwenkosi Ngwenya",
+          "m": 37,
+          "nat": "Zimbabwe"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-09-12",
@@ -224878,7 +225248,25 @@
     "stadium": "Old Peter Mokaba Stadium",
     "timeTbd": false,
     "gameId": "SOUTHAFRICA_ESPN_401902045",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "Brandon Peterson",
+          "m": 73,
+          "og": true
+        }
+      ],
+      "away": [
+        {
+          "n": "Lebohang Maboe",
+          "m": 29,
+          "nat": "South Africa"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-12",
@@ -224890,7 +225278,41 @@
     "stadium": "Friends Arena",
     "timeTbd": false,
     "gameId": "SWEDEN_ESPN_401874086",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 4,
+    "scorers": {
+      "home": [
+        {
+          "n": "Johan Hove",
+          "m": 24,
+          "pk": true,
+          "nat": "Norway"
+        }
+      ],
+      "away": [
+        {
+          "n": "Jens Magnusson",
+          "m": 60,
+          "nat": "Sweden"
+        },
+        {
+          "n": "Mamadou Diagné",
+          "m": 69,
+          "nat": "Senegal"
+        },
+        {
+          "n": "Ismet Lushaku",
+          "m": 71,
+          "nat": "Kosovo"
+        },
+        {
+          "n": "Abdelrahman Boudah Saidi",
+          "m": 78,
+          "nat": "Sweden"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-12",
@@ -224987,7 +225409,30 @@
     "stadium": "Saint Petersburg Stadium",
     "timeTbd": false,
     "gameId": "RUSSIA_ESPN_401879857",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 2,
+    "awayScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "Kevin Andrade",
+          "m": 47,
+          "nat": "Colombia"
+        },
+        {
+          "n": "Luiz Henrique",
+          "m": 70,
+          "nat": "Brazil"
+        }
+      ],
+      "away": [
+        {
+          "n": "Aleksandr Rudenko",
+          "m": 18,
+          "nat": "Russia"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-12",
@@ -225226,7 +225671,25 @@
     "stadium": "Freethielstadion",
     "timeTbd": false,
     "gameId": "BELGIUM_ESPN_401878995",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 2,
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "Chris Lokesa",
+          "m": 52,
+          "pk": true,
+          "nat": "Belgium"
+        },
+        {
+          "n": "Jearl Margaritha",
+          "m": 55,
+          "nat": "Curaçao"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-09-12",
@@ -225701,7 +226164,24 @@
     "stadium": "Arasen Stadion",
     "timeTbd": false,
     "gameId": "NORWAY_ESPN_401873905",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 2,
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "Ruben Gabrielsen",
+          "m": 25,
+          "nat": "Norway"
+        },
+        {
+          "n": "Thomas Lehne Olsen",
+          "m": 90,
+          "nat": "Norway"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-09-12",
@@ -225713,7 +226193,24 @@
     "stadium": "Esenyurt Necmi Kadioglu Stadi",
     "timeTbd": false,
     "gameId": "TURKEY_ESPN_401888297",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 0,
+    "awayScore": 2,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "Ali Sowe",
+          "m": 21,
+          "nat": "Gambia"
+        },
+        {
+          "n": "Emrecan Bulut",
+          "m": 90,
+          "nat": "Türkiye"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-12",
@@ -225725,7 +226222,45 @@
     "stadium": "Samsun 19 Mayis Stadium",
     "timeTbd": false,
     "gameId": "TURKEY_ESPN_401888383",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 5,
+    "scorers": {
+      "home": [
+        {
+          "n": "Logi Tomasson",
+          "m": 5,
+          "nat": "Iceland"
+        }
+      ],
+      "away": [
+        {
+          "n": "Jesús Ramírez",
+          "m": 1,
+          "nat": "Venezuela"
+        },
+        {
+          "n": "Cengiz Ünder",
+          "m": 10,
+          "nat": "Türkiye"
+        },
+        {
+          "n": "Cengiz Ünder",
+          "m": 15,
+          "nat": "Türkiye"
+        },
+        {
+          "n": "Alexandros Kyziridis",
+          "m": 69,
+          "nat": "Greece"
+        },
+        {
+          "n": "Jesús Ramírez",
+          "m": 71,
+          "nat": "Venezuela"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-12",
@@ -225797,7 +226332,35 @@
     "stadium": "Estádio da Madeira",
     "timeTbd": false,
     "gameId": "PORTUGAL_ESPN_401885441",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "Matchoi Djoló",
+          "m": 81,
+          "nat": "Portugal"
+        }
+      ],
+      "away": [
+        {
+          "n": "Chissumba",
+          "m": 34,
+          "nat": "Portugal"
+        },
+        {
+          "n": "Dawda Camara",
+          "m": 36,
+          "nat": "Mauritania"
+        },
+        {
+          "n": "Dawda Camara",
+          "m": 42,
+          "nat": "Mauritania"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -225809,7 +226372,30 @@
     "stadium": "Cashpoint-Arena",
     "timeTbd": false,
     "gameId": "AUSTRIA_ESPN_401881787",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "Yann Litawumba",
+          "m": 25,
+          "nat": "France"
+        }
+      ],
+      "away": [
+        {
+          "n": "Yannick Oberleitner",
+          "m": 6,
+          "nat": "Germany"
+        },
+        {
+          "n": "Alexander Hofleitner",
+          "m": 38,
+          "nat": "Austria"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -225853,7 +226439,36 @@
     "stadium": "Estadio Municipal Oyarzún Arenas",
     "timeTbd": false,
     "gameId": "CHILE_ESPN_401850659",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "Fernando Ovelar",
+          "m": 74,
+          "nat": "Paraguay"
+        }
+      ],
+      "away": [
+        {
+          "n": "Alan Medina",
+          "m": 23,
+          "pk": true,
+          "nat": "Mexico"
+        },
+        {
+          "n": "Josue Ovalle",
+          "m": 76,
+          "nat": "Chile"
+        },
+        {
+          "n": "Alan Medina",
+          "m": 90,
+          "nat": "Mexico"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -225865,7 +226480,29 @@
     "stadium": "Estadio Los Chankas",
     "timeTbd": false,
     "gameId": "PERU_ESPN_401886201",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "Oshiro Takeuchi",
+          "m": 59,
+          "nat": "Peru"
+        }
+      ],
+      "away": [
+        {
+          "n": "Pedro Santiago Cejas",
+          "m": 33
+        },
+        {
+          "n": "Sebastián Enciso",
+          "m": 39,
+          "nat": "Peru"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -225877,7 +226514,19 @@
     "stadium": "RZD Arena",
     "timeTbd": false,
     "gameId": "RUSSIA_ESPN_401879863",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "Viktor Okishor",
+          "m": 90,
+          "nat": "Russia"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-09-13",
@@ -225889,7 +226538,25 @@
     "stadium": "Buffalo City Stadium",
     "timeTbd": false,
     "gameId": "SOUTHAFRICA_ESPN_401902044",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "Sirgio Kammies",
+          "m": 78,
+          "nat": "South Africa"
+        }
+      ],
+      "away": [
+        {
+          "n": "Antonio Van Wyk",
+          "m": 90,
+          "nat": "South Africa"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -225901,7 +226568,31 @@
     "stadium": "Gamla Ullevi",
     "timeTbd": false,
     "gameId": "SWEDEN_ESPN_401874088",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 2,
+    "awayScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "Sam Larsson",
+          "m": 37,
+          "nat": "Sweden"
+        },
+        {
+          "n": "Felix Eriksson",
+          "m": 52,
+          "nat": "Sweden"
+        }
+      ],
+      "away": [
+        {
+          "n": "Rocco Ascone",
+          "m": 73,
+          "pk": true,
+          "nat": "France"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -225956,7 +226647,19 @@
     "stadium": "Georgios Karaiskakis Stadium",
     "timeTbd": false,
     "gameId": "GREECE_ESPN_401896762",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 0,
+    "awayScore": 1,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "Kenan Kodro",
+          "m": 66,
+          "nat": "Bosnia and Herzegovina"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -225968,7 +226671,56 @@
     "stadium": "Lerkendal Stadion",
     "timeTbd": false,
     "gameId": "NORWAY_ESPN_401873926",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 5,
+    "awayScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "Ole Selnaes",
+          "m": 3,
+          "nat": "Norway"
+        },
+        {
+          "n": "Amin Chiakha",
+          "m": 5,
+          "nat": "Algeria"
+        },
+        {
+          "n": "Noah Sahsah",
+          "m": 34,
+          "nat": "Denmark"
+        },
+        {
+          "n": "Aslak Witry",
+          "m": 43,
+          "nat": "Norway"
+        },
+        {
+          "n": "Noah Sahsah",
+          "m": 47,
+          "nat": "Denmark"
+        }
+      ],
+      "away": [
+        {
+          "n": "Troy Nyhammer",
+          "m": 71,
+          "nat": "Norway"
+        },
+        {
+          "n": "Heine Larsen",
+          "m": 75,
+          "pk": true,
+          "nat": "Norway"
+        },
+        {
+          "n": "Ole Selnaes",
+          "m": 77,
+          "og": true
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -226103,7 +226855,42 @@
     "stadium": "Parque Osvaldo Roberto",
     "timeTbd": false,
     "gameId": "URUGUAY_ESPN_401916232",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 3,
+    "awayScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "Sebastián Da Silva",
+          "m": 21,
+          "pk": true,
+          "nat": "Uruguay"
+        },
+        {
+          "n": "Esteban Da Silva",
+          "m": 77,
+          "nat": "Uruguay"
+        },
+        {
+          "n": "Tomás Habib",
+          "m": 90,
+          "pk": true,
+          "nat": "Argentina"
+        }
+      ],
+      "away": [
+        {
+          "n": "Rodrigo Saravia",
+          "m": 48,
+          "pk": true,
+          "nat": "Uruguay"
+        },
+        {
+          "n": "Facundo Agustín Aristegui Lemos",
+          "m": 72
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -226115,7 +226902,45 @@
     "stadium": "Het Kuipje",
     "timeTbd": false,
     "gameId": "BELGIUM_ESPN_401878994",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 4,
+    "awayScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "Norman Bassette",
+          "m": 12,
+          "nat": "Belgium"
+        },
+        {
+          "n": "Amando Lapage",
+          "m": 56,
+          "nat": "Belgium"
+        },
+        {
+          "n": "Pape Diong",
+          "m": 77,
+          "nat": "Senegal"
+        },
+        {
+          "n": "Thomas Van Den Keybus",
+          "m": 90,
+          "nat": "Belgium"
+        }
+      ],
+      "away": [
+        {
+          "n": "Bruny Nsimba",
+          "m": 66,
+          "nat": "Belgium"
+        },
+        {
+          "n": "Adnane Abid",
+          "m": 71,
+          "nat": "Belgium"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -226244,7 +227069,42 @@
     "stadium": "Estádio Municipal de Rio Maior",
     "timeTbd": false,
     "gameId": "PORTUGAL_ESPN_401885444",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 4,
+    "scorers": {
+      "home": [
+        {
+          "n": "Henrique Araújo",
+          "m": 43,
+          "pk": true,
+          "nat": "Portugal"
+        }
+      ],
+      "away": [
+        {
+          "n": "André Silva",
+          "m": 45,
+          "nat": "Portugal"
+        },
+        {
+          "n": "Jakub Kiwior",
+          "m": 60,
+          "nat": "Poland"
+        },
+        {
+          "n": "Borja Sainz",
+          "m": 66,
+          "nat": "Spain"
+        },
+        {
+          "n": "Santiago Gimenez",
+          "m": 90,
+          "pk": true,
+          "nat": "Mexico"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -226256,7 +227116,36 @@
     "stadium": "Kirbiyik Holding Stadyumu",
     "timeTbd": false,
     "gameId": "TURKEY_ESPN_401888296",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 2,
+    "awayScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "Paolo Fernandes",
+          "m": 63,
+          "nat": "Spain"
+        },
+        {
+          "n": "Gaïus Makouta",
+          "m": 75,
+          "nat": "Congo"
+        }
+      ],
+      "away": [
+        {
+          "n": "Rhaldney",
+          "m": 28,
+          "nat": "Brazil"
+        },
+        {
+          "n": "Juan",
+          "m": 73,
+          "pk": true,
+          "nat": "Brazil"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -226268,7 +227157,19 @@
     "stadium": "Medas Konya Büyüksehir Stadyumu",
     "timeTbd": false,
     "gameId": "TURKEY_ESPN_401888294",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "Rajmund Tóth",
+          "m": 2,
+          "nat": "Hungary"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-09-13",
@@ -226298,7 +227199,29 @@
     "stadium": "Lavanttal-Arena",
     "timeTbd": false,
     "gameId": "AUSTRIA_ESPN_401881789",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 0,
+    "awayScore": 3,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "Serge Raux Yao",
+          "m": 13,
+          "nat": "France"
+        },
+        {
+          "n": "Nenad Cvetkovic",
+          "m": 35,
+          "nat": "Serbia"
+        },
+        {
+          "n": "Petter Dahl",
+          "m": 82,
+          "nat": "Norway"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -226328,7 +227251,51 @@
     "stadium": "Bautista Gargantini",
     "timeTbd": false,
     "gameId": "ARGENTINA_ESPN_401841567",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 4,
+    "awayScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "Gonzalo Rios",
+          "m": 10,
+          "nat": "Argentina"
+        },
+        {
+          "n": "José Florentín",
+          "m": 19,
+          "nat": "Paraguay"
+        },
+        {
+          "n": "Alex Arce",
+          "m": 45,
+          "pk": true,
+          "nat": "Paraguay"
+        },
+        {
+          "n": "Alex Arce",
+          "m": 75,
+          "nat": "Paraguay"
+        }
+      ],
+      "away": [
+        {
+          "n": "Tomás Fernandez",
+          "m": 13,
+          "nat": "Argentina"
+        },
+        {
+          "n": "Lucas Castro",
+          "m": 59,
+          "nat": "Argentina"
+        },
+        {
+          "n": "Joaquin Pombo",
+          "m": 90,
+          "nat": "Argentina"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -226340,7 +227307,30 @@
     "stadium": "Estadio Jorge Luis Hirschi",
     "timeTbd": false,
     "gameId": "ARGENTINA_ESPN_401841554",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 2,
+    "awayScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "Adolfo Gaich",
+          "m": 19,
+          "nat": "Argentina"
+        },
+        {
+          "n": "Guido Carrillo",
+          "m": 90,
+          "nat": "Argentina"
+        }
+      ],
+      "away": [
+        {
+          "n": "Guido Mainero",
+          "m": 24,
+          "nat": "Argentina"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -226352,7 +227342,26 @@
     "stadium": "VEB Arena",
     "timeTbd": false,
     "gameId": "RUSSIA_ESPN_401879858",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "Ivan Oblyakov",
+          "m": 6,
+          "pk": true,
+          "nat": "Russia"
+        }
+      ],
+      "away": [
+        {
+          "n": "Anderson Arroyo",
+          "m": 58,
+          "nat": "Colombia"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -226364,7 +227373,40 @@
     "stadium": "Estadio El Cobre",
     "timeTbd": false,
     "gameId": "CHILE_ESPN_401850658",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 3,
+    "awayScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "Juan Eduardo Fuentes",
+          "m": 41,
+          "nat": "Chile"
+        },
+        {
+          "n": "Christian Moreno",
+          "m": 56,
+          "nat": "Argentina"
+        },
+        {
+          "n": "Guillermo Pacheco",
+          "m": 60,
+          "nat": "Chile"
+        }
+      ],
+      "away": [
+        {
+          "n": "Pablo Rodríguez",
+          "m": 45,
+          "nat": "Chile"
+        },
+        {
+          "n": "Lucas Pratto",
+          "m": 86,
+          "nat": "Argentina"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -226420,7 +227462,25 @@
     "stadium": "Panthessaliko Stadium",
     "timeTbd": false,
     "gameId": "GREECE_ESPN_401896822",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "Pedro Marques",
+          "m": 73,
+          "nat": "Portugal"
+        }
+      ],
+      "away": [
+        {
+          "n": "Sotiris Tsiloulis",
+          "m": 24,
+          "nat": "Greece"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -226432,7 +227492,20 @@
     "stadium": "Juan Maldonado Gamarra",
     "timeTbd": false,
     "gameId": "PERU_ESPN_401886203",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 0,
+    "awayScore": 1,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "Piero Magallanes",
+          "m": 80,
+          "pk": true,
+          "nat": "Peru"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -226505,7 +227578,38 @@
     "stadium": "Stade Joseph Marien",
     "timeTbd": false,
     "gameId": "BELGIUM_ESPN_401878992",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 5,
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "Besfort Zeneli",
+          "m": 3,
+          "nat": "Sweden"
+        },
+        {
+          "n": "Relebohile Mofokeng",
+          "m": 7,
+          "nat": "South Africa"
+        },
+        {
+          "n": "Ilan Henri Hurtevent",
+          "m": 65
+        },
+        {
+          "n": "Raul Florucz",
+          "m": 88,
+          "nat": "Austria"
+        },
+        {
+          "n": "Raul Florucz",
+          "m": 90,
+          "nat": "Austria"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-09-13",
@@ -226517,7 +227621,26 @@
     "stadium": "King Power at Den Dreef Stadion",
     "timeTbd": false,
     "gameId": "BELGIUM_ESPN_401878993",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "Davis Opoku",
+          "m": 25,
+          "nat": "Belgium"
+        }
+      ],
+      "away": [
+        {
+          "n": "Krys Kouassi",
+          "m": 90,
+          "pk": true,
+          "nat": "France"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -226663,7 +227786,29 @@
     "stadium": "Estadio Jesús Bermúdez",
     "timeTbd": false,
     "gameId": "BOLIVIA_ESPN_401906657",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 0,
+    "awayScore": 3,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "Weslen Junior",
+          "m": 45,
+          "nat": "Brazil"
+        },
+        {
+          "n": "Maximiliano Núñez",
+          "m": 61,
+          "nat": "Argentina"
+        },
+        {
+          "n": "Wilson Alvarez",
+          "m": 90,
+          "nat": "Bolivia"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -226675,7 +227820,30 @@
     "stadium": "Arena do Grêmio",
     "timeTbd": false,
     "gameId": "BRASILEIRAO_ESPN_401841236",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "Mathías Villasanti",
+          "m": 39,
+          "nat": "Paraguay"
+        }
+      ],
+      "away": [
+        {
+          "n": "Thiago Mendes",
+          "m": 76,
+          "nat": "Brazil"
+        },
+        {
+          "n": "Facundo Colidio",
+          "m": 80,
+          "nat": "Argentina"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -226687,7 +227855,35 @@
     "stadium": "Arena MRV",
     "timeTbd": false,
     "gameId": "BRASILEIRAO_ESPN_401841231",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 3,
+    "awayScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "Reiner",
+          "m": 61,
+          "nat": "Brazil"
+        },
+        {
+          "n": "Tomás Cuello",
+          "m": 63,
+          "nat": "Argentina"
+        },
+        {
+          "n": "Vitão",
+          "m": 81,
+          "nat": "Brazil"
+        }
+      ],
+      "away": [
+        {
+          "n": "Rodrigo Castillo",
+          "m": 90,
+          "nat": "Argentina"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -226699,7 +227895,9 @@
     "stadium": "Estadio Jocay",
     "timeTbd": false,
     "gameId": "ECUADOR_ESPN_401859692",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-09-13",
@@ -226809,7 +228007,25 @@
     "stadium": "Defensores del Chaco",
     "timeTbd": false,
     "gameId": "PARAGUAY_ESPN_401888600",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "Diego Fernández",
+          "m": 38,
+          "nat": "Paraguay"
+        }
+      ],
+      "away": [
+        {
+          "n": "Alexis Cañete",
+          "m": 43,
+          "nat": "Paraguay"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -226839,7 +228055,29 @@
     "stadium": "Estádio do Fontelo",
     "timeTbd": false,
     "gameId": "PORTUGAL_ESPN_401885447",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 2,
+    "awayScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "Lorougnon Gohi",
+          "m": 53
+        },
+        {
+          "n": "Mohamed Bouldini",
+          "m": 90,
+          "nat": "Morocco"
+        }
+      ],
+      "away": [
+        {
+          "n": "Gonçalo Nogueira",
+          "m": 67,
+          "nat": "Portugal"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -226851,7 +228089,25 @@
     "stadium": "Parque Alfredo Víctor Viera",
     "timeTbd": false,
     "gameId": "URUGUAY_ESPN_401916233",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "Santiago Benítez",
+          "m": 90,
+          "nat": "Uruguay"
+        }
+      ],
+      "away": [
+        {
+          "n": "Maximiliano Silvera",
+          "m": 62,
+          "nat": "Uruguay"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -226863,7 +228119,30 @@
     "stadium": "Arena Condá",
     "timeTbd": false,
     "gameId": "BRASILEIRAO_ESPN_401841228",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "Maurício Garcez",
+          "m": 45,
+          "nat": "Brazil"
+        }
+      ],
+      "away": [
+        {
+          "n": "Bruno Henrique",
+          "m": 25,
+          "nat": "Brazil"
+        },
+        {
+          "n": "Johan Carbonero",
+          "m": 67,
+          "nat": "Colombia"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -226875,7 +228154,24 @@
     "stadium": "Estadio Olímpico General José Antonio Anzoátegui",
     "timeTbd": false,
     "gameId": "VENEZUELA_ESPN_401903336",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 0,
+    "awayScore": 2,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "Richard Figueroa",
+          "m": 18,
+          "nat": "Venezuela"
+        },
+        {
+          "n": "Richard Figueroa",
+          "m": 70,
+          "nat": "Venezuela"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -227007,7 +228303,30 @@
     "stadium": "Monumental Presidente José Fierro",
     "timeTbd": false,
     "gameId": "ARGENTINA_ESPN_401841559",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "Clever Ferreira",
+          "m": 83,
+          "nat": "Paraguay"
+        }
+      ],
+      "away": [
+        {
+          "n": "Tobías Andrada",
+          "m": 22,
+          "nat": "Argentina"
+        },
+        {
+          "n": "Thiago Almada",
+          "m": 90,
+          "nat": "Argentina"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -227019,7 +228338,33 @@
     "stadium": "Estadio Marcelino Imbers",
     "timeTbd": false,
     "gameId": "ELSALVADOR_ESPN_401899790",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 3,
+    "awayScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "Edgar Cruz",
+          "m": 64,
+          "nat": "El Salvador"
+        },
+        {
+          "n": "Mario Martínez",
+          "m": 70,
+          "nat": "El Salvador"
+        },
+        {
+          "n": "Jefferson Antonio Díaz Molina",
+          "m": 85
+        }
+      ],
+      "away": [
+        {
+          "n": "Nayan Andrés Bello Vivas",
+          "m": 6
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -227031,7 +228376,24 @@
     "stadium": "Estadio Metropolitano de Mérida",
     "timeTbd": false,
     "gameId": "VENEZUELA_ESPN_401903338",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 2,
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "Jesús Lobo",
+          "m": 62,
+          "nat": "Venezuela"
+        },
+        {
+          "n": "Ronaldo Chacón",
+          "m": 78,
+          "nat": "Venezuela"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-09-13",
@@ -227043,7 +228405,40 @@
     "stadium": "Metropolitano de Techo",
     "timeTbd": false,
     "gameId": "COLOMBIA_ESPN_401877891",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 3,
+    "awayScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "Diego Duarte",
+          "m": 16,
+          "nat": "Paraguay"
+        },
+        {
+          "n": "Fabricio Sanguinetti",
+          "m": 41,
+          "nat": "Uruguay"
+        },
+        {
+          "n": "Yojan Garcés",
+          "m": 87,
+          "nat": "Colombia"
+        }
+      ],
+      "away": [
+        {
+          "n": "Larry Vásquez",
+          "m": 12,
+          "og": true
+        },
+        {
+          "n": "Néider Ospina",
+          "m": 32,
+          "nat": "Colombia"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -227055,7 +228450,40 @@
     "stadium": "Estadio Hernando Siles",
     "timeTbd": false,
     "gameId": "BOLIVIA_ESPN_401906483",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 5,
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "Darwin Lom",
+          "m": 20,
+          "nat": "Guatemala"
+        },
+        {
+          "n": "Adrián Estacio",
+          "m": 40,
+          "pk": true,
+          "nat": "Colombia"
+        },
+        {
+          "n": "Darwin Lom",
+          "m": 53,
+          "nat": "Guatemala"
+        },
+        {
+          "n": "Adrián Estacio",
+          "m": 69,
+          "nat": "Colombia"
+        },
+        {
+          "n": "Gabriel Sotomayor",
+          "m": 78,
+          "nat": "Bolivia"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-09-13",
@@ -227067,7 +228495,24 @@
     "stadium": "Allianz Parque",
     "timeTbd": false,
     "gameId": "BRASILEIRAO_ESPN_401841234",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 2,
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "Murilo",
+          "m": 45,
+          "nat": "Brazil"
+        },
+        {
+          "n": "Vitor Roque",
+          "m": 50,
+          "nat": "Brazil"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-09-13",
@@ -227079,7 +228524,35 @@
     "stadium": "Estadio Christian Benítez Betancourt",
     "timeTbd": false,
     "gameId": "ECUADOR_ESPN_401859690",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 3,
+    "awayScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "Edison Mero",
+          "m": 23,
+          "nat": "Ecuador"
+        },
+        {
+          "n": "Edison Mero",
+          "m": 51,
+          "nat": "Ecuador"
+        },
+        {
+          "n": "Diego Dorregaray",
+          "m": 84,
+          "nat": "Argentina"
+        }
+      ],
+      "away": [
+        {
+          "n": "Miguel Perea",
+          "m": 55,
+          "nat": "Ecuador"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -227091,7 +228564,35 @@
     "stadium": "Estadio Juan Francisco Barraza",
     "timeTbd": false,
     "gameId": "ELSALVADOR_ESPN_401899789",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 3,
+    "awayScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "Diego Gregori",
+          "m": 4,
+          "nat": "Spain"
+        },
+        {
+          "n": "Federico Andrada",
+          "m": 53,
+          "nat": "Argentina"
+        },
+        {
+          "n": "Carlos Garay",
+          "m": 68,
+          "nat": "El Salvador"
+        }
+      ],
+      "away": [
+        {
+          "n": "Brayan Paz",
+          "m": 86,
+          "nat": "El Salvador"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -227103,7 +228604,35 @@
     "stadium": "Estadio Ricardo Gregor",
     "timeTbd": false,
     "gameId": "PARAGUAY_ESPN_401888668",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "Paul Charpentier",
+          "m": 79,
+          "nat": "Argentina"
+        }
+      ],
+      "away": [
+        {
+          "n": "Alan Morinigo",
+          "m": 60,
+          "nat": "Paraguay"
+        },
+        {
+          "n": "Néstor Camacho",
+          "m": 72,
+          "nat": "Paraguay"
+        },
+        {
+          "n": "Armando Ruiz Díaz",
+          "m": 84,
+          "nat": "Paraguay"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -227115,7 +228644,24 @@
     "stadium": "Estadio Olímpico de la UCV",
     "timeTbd": false,
     "gameId": "VENEZUELA_ESPN_401903348",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 0,
+    "awayScore": 2,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "Daniel De Sousa",
+          "m": 21,
+          "nat": "Venezuela"
+        },
+        {
+          "n": "Williams Lugo",
+          "m": 67,
+          "nat": "Venezuela"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -227266,7 +228812,30 @@
     "stadium": "Mario Alberto Kempes",
     "timeTbd": false,
     "gameId": "ARGENTINA_ESPN_401841563",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 2,
+    "awayScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "Agustín Álvarez Martínez",
+          "m": 39,
+          "nat": "Uruguay"
+        },
+        {
+          "n": "Valentin Depietri",
+          "m": 75,
+          "nat": "Argentina"
+        }
+      ],
+      "away": [
+        {
+          "n": "Eric Ramírez",
+          "m": 90,
+          "nat": "Argentina"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -227278,7 +228847,41 @@
     "stadium": "Estadio Municipal de La Cisterna",
     "timeTbd": false,
     "gameId": "CHILE_ESPN_401850655",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 2,
+    "awayScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "Enzo Roco",
+          "m": 29,
+          "nat": "Chile"
+        },
+        {
+          "n": "Joe Abrigo",
+          "m": 57,
+          "nat": "Chile"
+        }
+      ],
+      "away": [
+        {
+          "n": "Fernando Zampedri",
+          "m": 2,
+          "nat": "Chile"
+        },
+        {
+          "n": "Diego Corral",
+          "m": 22,
+          "nat": "Chile"
+        },
+        {
+          "n": "Fernando Zampedri",
+          "m": 73,
+          "pk": true,
+          "nat": "Chile"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -227290,7 +228893,25 @@
     "stadium": "Estadio Carlos Ugalde Álvarez",
     "timeTbd": false,
     "gameId": "COSTARICA_ESPN_401876896",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "Juan Rodriguez",
+          "m": 90,
+          "nat": "Nicaragua"
+        }
+      ],
+      "away": [
+        {
+          "n": "Dariel Castrillo",
+          "m": 11,
+          "nat": "Costa Rica"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -227302,7 +228923,9 @@
     "stadium": "Estadio Arquitecto Antonio Eleuterio Ubilla",
     "timeTbd": false,
     "gameId": "URUGUAY_ESPN_401916234",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-09-13",
@@ -227314,7 +228937,24 @@
     "stadium": "Complejo Deportivo Socialista",
     "timeTbd": false,
     "gameId": "VENEZUELA_ESPN_401903337",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 0,
+    "awayScore": 2,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "Sebastián Mendoza",
+          "m": 58,
+          "nat": "Venezuela"
+        },
+        {
+          "n": "Yohandry Orozco",
+          "m": 82,
+          "nat": "Venezuela"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -227356,7 +228996,51 @@
     "stadium": "Estadio Nemesio Díez Riega",
     "timeTbd": false,
     "gameId": "LIGAMX_ESPN_401876982",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 5,
+    "awayScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "Alexis Vega",
+          "m": 19,
+          "pk": true,
+          "nat": "Mexico"
+        },
+        {
+          "n": "Jesús Angulo",
+          "m": 22,
+          "nat": "Mexico"
+        },
+        {
+          "n": "Federico Viñas",
+          "m": 29,
+          "nat": "Uruguay"
+        },
+        {
+          "n": "Paulinho",
+          "m": 53,
+          "nat": "Portugal"
+        },
+        {
+          "n": "Jorge Rodríguez",
+          "m": 60,
+          "og": true
+        }
+      ],
+      "away": [
+        {
+          "n": "Florián Monzón",
+          "m": 51,
+          "nat": "Argentina"
+        },
+        {
+          "n": "Duk",
+          "m": 79,
+          "nat": "Cape Verde Islands"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -227368,7 +229052,29 @@
     "stadium": "La Independencia",
     "timeTbd": false,
     "gameId": "COLOMBIA_ESPN_401877880",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 2,
+    "awayScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "Santiago Mera",
+          "m": 8,
+          "nat": "Colombia"
+        },
+        {
+          "n": "Alejandro Maya Giraldo",
+          "m": 69
+        }
+      ],
+      "away": [
+        {
+          "n": "Jeison Medina",
+          "m": 27,
+          "nat": "Colombia"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -227450,7 +229156,25 @@
     "stadium": "Joao Havelange Stadium",
     "timeTbd": false,
     "gameId": "BRASILEIRAO_ESPN_401841229",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "Vitinho",
+          "m": 56,
+          "nat": "Brazil"
+        }
+      ],
+      "away": [
+        {
+          "n": "Lucas Monzón",
+          "m": 30,
+          "og": true
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -227616,7 +229340,47 @@
     "stadium": "Estadio Ramón Tahuichi",
     "timeTbd": false,
     "gameId": "BOLIVIA_ESPN_401906482",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 6,
+    "awayScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "Gerardo Cuasace Osinaga",
+          "m": 31
+        },
+        {
+          "n": "Gerardo Cuasace Osinaga",
+          "m": 42
+        },
+        {
+          "n": "Bayron Garces",
+          "m": 51,
+          "nat": "Colombia"
+        },
+        {
+          "n": "Marc Enoumba",
+          "m": 78,
+          "nat": "Bolivia"
+        },
+        {
+          "n": "César Menacho",
+          "m": 83,
+          "nat": "Bolivia"
+        },
+        {
+          "n": "Roberto Melgar Simoes",
+          "m": 90,
+          "nat": "Bolivia"
+        }
+      ],
+      "away": [
+        {
+          "n": "Juan Felipe Fajardo Gallego",
+          "m": 61
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -227628,7 +229392,30 @@
     "stadium": "Estádio Vila Belmiro (Urbano Caldeira)",
     "timeTbd": false,
     "gameId": "BRASILEIRAO_ESPN_401841233",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 2,
+    "awayScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "Benjamín Rollheiser",
+          "m": 28,
+          "nat": "Argentina"
+        },
+        {
+          "n": "Fabrício Bruno",
+          "m": 32,
+          "og": true
+        }
+      ],
+      "away": [
+        {
+          "n": "Matheus Pereira",
+          "m": 90,
+          "nat": "Brazil"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -227640,7 +229427,26 @@
     "stadium": "Rodrigo Paz Delgado",
     "timeTbd": false,
     "gameId": "ECUADOR_ESPN_401859691",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "Deyverson",
+          "m": 52,
+          "pk": true,
+          "nat": "Brazil"
+        }
+      ],
+      "away": [
+        {
+          "n": "Eddie Guevara",
+          "m": 73,
+          "nat": "Ecuador"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -227800,7 +229606,7 @@
     "stadium": "Estadio Óscar Alberto Quiteño",
     "timeTbd": false,
     "gameId": "ELSALVADOR_ESPN_401899718",
-    "status": "scheduled"
+    "status": "postponed"
   },
   {
     "date": "2026-09-13",
@@ -227812,7 +229618,30 @@
     "stadium": "Estadio Alejandro Villanueva",
     "timeTbd": false,
     "gameId": "PERU_ESPN_401886202",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "Federico Girotti",
+          "m": 77,
+          "nat": "Argentina"
+        }
+      ],
+      "away": [
+        {
+          "n": "Alex Valera",
+          "m": 16,
+          "nat": "Peru"
+        },
+        {
+          "n": "Lisandro Alzugaray",
+          "m": 90,
+          "nat": "Argentina"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -227839,7 +229668,9 @@
     "stadium": "Estadio BBVA",
     "timeTbd": false,
     "gameId": "LIGAMX_ESPN_401876974",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-09-13",
@@ -227851,7 +229682,19 @@
     "stadium": "Armando Maestre Pavajeau",
     "timeTbd": false,
     "gameId": "COLOMBIA_ESPN_401878007",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "Ever Meza",
+          "m": 4,
+          "nat": "Colombia"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-09-13",
@@ -227933,7 +229776,24 @@
     "stadium": "Estadio Ricardo Saprissa",
     "timeTbd": false,
     "gameId": "COSTARICA_ESPN_401876854",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 0,
+    "awayScore": 2,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "Keyner Brown",
+          "m": 82,
+          "nat": "Costa Rica"
+        },
+        {
+          "n": "Ronaldo Araya",
+          "m": 89,
+          "nat": "Costa Rica"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -228013,7 +229873,50 @@
     "stadium": "Estadio Banorte",
     "timeTbd": false,
     "gameId": "LIGAMX_ESPN_401876981",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 4,
+    "awayScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "Érik Lira",
+          "m": 19,
+          "nat": "Mexico"
+        },
+        {
+          "n": "José Paradela",
+          "m": 35,
+          "nat": "Argentina"
+        },
+        {
+          "n": "Jesús Orozco",
+          "m": 45,
+          "nat": "Mexico"
+        },
+        {
+          "n": "Gabriel Fernandez",
+          "m": 72,
+          "nat": "Uruguay"
+        }
+      ],
+      "away": [
+        {
+          "n": "Brian Rodríguez",
+          "m": 52,
+          "nat": "Uruguay"
+        },
+        {
+          "n": "Óscar Perea",
+          "m": 90,
+          "nat": "Colombia"
+        },
+        {
+          "n": "Miguel Borja",
+          "m": 90,
+          "nat": "Colombia"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -228554,7 +230457,31 @@
     "stadium": "Jan Breydel Stadium",
     "timeTbd": false,
     "gameId": "BELGIUM_ESPN_401878991",
-    "status": "scheduled"
+    "status": "live",
+    "homeScore": 2,
+    "awayScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "Hugo Vetlesen",
+          "m": 13,
+          "pk": true,
+          "nat": "Norway"
+        },
+        {
+          "n": "Hugo Vetlesen",
+          "m": 50,
+          "nat": "Norway"
+        }
+      ],
+      "away": [
+        {
+          "n": "Snayder Porozo",
+          "m": 19,
+          "nat": "Ecuador"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -228566,7 +230493,19 @@
     "stadium": "Akhmat-Arena",
     "timeTbd": false,
     "gameId": "RUSSIA_ESPN_401879859",
-    "status": "scheduled"
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 1,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "Gamid Agalarov",
+          "m": 48,
+          "nat": "Russia"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -228638,7 +230577,9 @@
     "stadium": "Boras Arena",
     "timeTbd": false,
     "gameId": "SWEDEN_ESPN_401842818",
-    "status": "scheduled"
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-09-13",
@@ -228650,7 +230591,25 @@
     "stadium": "Tele2 Arena",
     "timeTbd": false,
     "gameId": "SWEDEN_ESPN_401842821",
-    "status": "scheduled"
+    "status": "live",
+    "homeScore": 1,
+    "awayScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "Paulos Abraham",
+          "m": 8,
+          "nat": "Sweden"
+        }
+      ],
+      "away": [
+        {
+          "n": "Mads Hansen",
+          "m": 29,
+          "nat": "Denmark"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -228662,7 +230621,9 @@
     "stadium": "Generali-Arena",
     "timeTbd": false,
     "gameId": "AUSTRIA_ESPN_401881788",
-    "status": "scheduled"
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-09-13",
@@ -228674,7 +230635,19 @@
     "stadium": "Tivoli Stadion Tirol",
     "timeTbd": false,
     "gameId": "AUSTRIA_ESPN_401881786",
-    "status": "scheduled"
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 1,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "Oliver Lukic",
+          "m": 14,
+          "nat": "Croatia"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-13",
@@ -228700,7 +230673,24 @@
     "stadium": "Viking Stadion",
     "timeTbd": false,
     "gameId": "NORWAY_ESPN_401843437",
-    "status": "scheduled"
+    "status": "live",
+    "homeScore": 2,
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "Peter Christiansen",
+          "m": 4,
+          "nat": "Denmark"
+        },
+        {
+          "n": "Henrik Heggheim",
+          "m": 6,
+          "nat": "Norway"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-09-13",
@@ -229475,90 +231465,6 @@
     "timeTbd": false,
     "gameId": "upO9CkHhvhMO8ao",
     "status": "scheduled"
-  },
-  {
-    "date": "2026-09-14",
-    "time": "03:00",
-    "league": "VENEZUELA",
-    "venueId": "estadio_jose_alberto_perez",
-    "home": "트루히야노스",
-    "away": "라요 술리아노",
-    "stadium": "Estadio José Alberto Pérez",
-    "timeTbd": true,
-    "gameId": "VENEZUELA_ESPN_401903345",
-    "status": "postponed"
-  },
-  {
-    "date": "2026-09-14",
-    "time": "03:00",
-    "league": "VENEZUELA",
-    "venueId": "estadio_jose_antonio_paez",
-    "home": "포르투게사",
-    "away": "에스투디안테스 데 메리다",
-    "stadium": "Estadio General José Antonio Páez",
-    "timeTbd": true,
-    "gameId": "VENEZUELA_ESPN_401903323",
-    "status": "postponed"
-  },
-  {
-    "date": "2026-09-14",
-    "time": "03:00",
-    "league": "VENEZUELA",
-    "venueId": "estadio_misael_delgado",
-    "home": "카라보보",
-    "away": "데포르티보 라과이라",
-    "stadium": "Estadio Misael Delgado",
-    "timeTbd": true,
-    "gameId": "VENEZUELA_ESPN_401903324",
-    "status": "postponed"
-  },
-  {
-    "date": "2026-09-14",
-    "time": "03:00",
-    "league": "VENEZUELA",
-    "venueId": "estadio_monumental_maturin",
-    "home": "모나가스 SC",
-    "away": "사모라 FC",
-    "stadium": "Estadio Monumental de Maturín",
-    "timeTbd": true,
-    "gameId": "VENEZUELA_ESPN_401903334",
-    "status": "postponed"
-  },
-  {
-    "date": "2026-09-14",
-    "time": "03:00",
-    "league": "VENEZUELA",
-    "venueId": "estadio_olimpico_ucv_caracas",
-    "home": "UCV FC",
-    "away": "안소아테기 FC",
-    "stadium": "Estadio Olímpico de la UCV",
-    "timeTbd": true,
-    "gameId": "VENEZUELA_ESPN_401903335",
-    "status": "postponed"
-  },
-  {
-    "date": "2026-09-14",
-    "time": "03:00",
-    "league": "VENEZUELA",
-    "venueId": "estadio_olimpico_ucv_caracas",
-    "home": "메트로폴리타노스",
-    "away": "카라카스 FC",
-    "stadium": "Estadio Olímpico de la UCV",
-    "timeTbd": true,
-    "gameId": "VENEZUELA_ESPN_401903346",
-    "status": "postponed"
-  },
-  {
-    "date": "2026-09-14",
-    "time": "03:00",
-    "league": "VENEZUELA",
-    "venueId": "estadio_pueblo_nuevo",
-    "home": "데포르티보 타치라",
-    "away": "아카데미아 푸에르토카베요",
-    "stadium": "Estadio Pueblo Nuevo",
-    "timeTbd": true,
-    "gameId": "VENEZUELA_ESPN_401903333",
-    "status": "postponed"
   },
   {
     "date": "2026-09-14",
@@ -231190,18 +233096,6 @@
   {
     "date": "2026-09-16",
     "time": "03:45",
-    "league": "EFL",
-    "venueId": "middlesbrough_riverside",
-    "home": "미들즈브러",
-    "away": "밀월",
-    "stadium": "리버사이드 스타디움",
-    "timeTbd": false,
-    "gameId": "YK3SlqCpysSMqvp",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-09-16",
-    "time": "03:45",
     "league": "EFLCUP",
     "venueId": "westham_london_stadium",
     "home": "웨스트햄",
@@ -231211,6 +233105,18 @@
     "gameId": "BEYKs4U9wOfqzBu",
     "status": "scheduled",
     "phaseCode": "T32"
+  },
+  {
+    "date": "2026-09-16",
+    "time": "03:45",
+    "league": "EFL",
+    "venueId": "middlesbrough_riverside",
+    "home": "미들즈브러",
+    "away": "밀월",
+    "stadium": "리버사이드 스타디움",
+    "timeTbd": false,
+    "gameId": "YK3SlqCpysSMqvp",
+    "status": "scheduled"
   },
   {
     "date": "2026-09-16",
@@ -231325,6 +233231,18 @@
   },
   {
     "date": "2026-09-16",
+    "time": "07:00",
+    "league": "VENEZUELA",
+    "venueId": "estadio_misael_delgado",
+    "home": "카라보보",
+    "away": "데포르티보 라과이라",
+    "stadium": "Estadio Misael Delgado",
+    "timeTbd": false,
+    "gameId": "VENEZUELA_ESPN_401903324",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-09-16",
     "time": "07:05",
     "league": "AAA",
     "venueId": "coolray_field_lawrenceville",
@@ -231357,6 +233275,18 @@
     "stadium": "Sahlen Field",
     "timeTbd": false,
     "gameId": "AAA_MLBSTATS_816907",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-09-16",
+    "time": "07:30",
+    "league": "VENEZUELA",
+    "venueId": "estadio_pueblo_nuevo",
+    "home": "데포르티보 타치라",
+    "away": "아카데미아 푸에르토카베요",
+    "stadium": "Estadio Pueblo Nuevo",
+    "timeTbd": false,
+    "gameId": "VENEZUELA_ESPN_401903333",
     "status": "scheduled"
   },
   {
@@ -231513,6 +233443,18 @@
     "status": "scheduled",
     "awayPitcher": "셰인 바즈",
     "homePitcher": "션 머나야"
+  },
+  {
+    "date": "2026-09-16",
+    "time": "08:30",
+    "league": "VENEZUELA",
+    "venueId": "estadio_olimpico_ucv_caracas",
+    "home": "UCV FC",
+    "away": "안소아테기 FC",
+    "stadium": "Estadio Olímpico de la UCV",
+    "timeTbd": false,
+    "gameId": "VENEZUELA_ESPN_401903335",
+    "status": "scheduled"
   },
   {
     "date": "2026-09-16",
@@ -231833,19 +233775,6 @@
   {
     "date": "2026-09-16",
     "time": "19:00",
-    "league": "ACL",
-    "venueId": "jeonju",
-    "home": "전북",
-    "away": "가시와 레이솔",
-    "stadium": "전주월드컵경기장",
-    "timeTbd": false,
-    "gameId": "0WBFlYqROuXJyd0",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-09-16",
-    "time": "19:00",
     "league": "ACL2",
     "venueId": "seoulwc",
     "home": "서울",
@@ -231853,6 +233782,19 @@
     "stadium": "서울월드컵경기장",
     "timeTbd": false,
     "gameId": "2idpicTW6SmPYVP",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-09-16",
+    "time": "19:00",
+    "league": "ACL",
+    "venueId": "jeonju",
+    "home": "전북",
+    "away": "가시와 레이솔",
+    "stadium": "전주월드컵경기장",
+    "timeTbd": false,
+    "gameId": "0WBFlYqROuXJyd0",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -231883,19 +233825,6 @@
   {
     "date": "2026-09-16",
     "time": "21:15",
-    "league": "ACL",
-    "venueId": "port_fc_thammasat",
-    "home": "포트",
-    "away": "비셀 고베",
-    "stadium": "탐마삿 스타디움",
-    "timeTbd": false,
-    "gameId": "zFLANpfUBEd95sS",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-09-16",
-    "time": "21:15",
     "league": "ACL2",
     "venueId": "cahn_hang_day",
     "home": "비에트텔",
@@ -231903,6 +233832,19 @@
     "stadium": "선번동 항더이 (항더이 스타디움)",
     "timeTbd": false,
     "gameId": "gqA22tVR2bUJFof",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-09-16",
+    "time": "21:15",
+    "league": "ACL",
+    "venueId": "port_fc_thammasat",
+    "home": "포트",
+    "away": "비셀 고베",
+    "stadium": "탐마삿 스타디움",
+    "timeTbd": false,
+    "gameId": "zFLANpfUBEd95sS",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -232392,6 +234334,18 @@
   },
   {
     "date": "2026-09-17",
+    "time": "05:30",
+    "league": "VENEZUELA",
+    "venueId": "estadio_monumental_maturin",
+    "home": "모나가스 SC",
+    "away": "사모라 FC",
+    "stadium": "Estadio Monumental de Maturín",
+    "timeTbd": false,
+    "gameId": "VENEZUELA_ESPN_401903334",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-09-17",
     "time": "06:00",
     "league": "CHILE",
     "venueId": "estadio_francisco_sanchez_coquimbo",
@@ -232404,6 +234358,18 @@
   },
   {
     "date": "2026-09-17",
+    "time": "06:00",
+    "league": "VENEZUELA",
+    "venueId": "estadio_jose_alberto_perez",
+    "home": "트루히야노스",
+    "away": "라요 술리아노",
+    "stadium": "Estadio José Alberto Pérez",
+    "timeTbd": false,
+    "gameId": "VENEZUELA_ESPN_401903345",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-09-17",
     "time": "07:00",
     "league": "BOLIVIA",
     "venueId": "estadio_victor_ugarte",
@@ -232412,6 +234378,18 @@
     "stadium": "Estadio Víctor Agustín Ugarte",
     "timeTbd": false,
     "gameId": "BOLIVIA_ESPN_401906477",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-09-17",
+    "time": "07:00",
+    "league": "VENEZUELA",
+    "venueId": "estadio_jose_antonio_paez",
+    "home": "포르투게사",
+    "away": "에스투디안테스 데 메리다",
+    "stadium": "Estadio General José Antonio Páez",
+    "timeTbd": false,
+    "gameId": "VENEZUELA_ESPN_401903323",
     "status": "scheduled"
   },
   {
@@ -232552,6 +234530,18 @@
     "status": "scheduled",
     "awayPitcher": "잭 휠러",
     "homePitcher": "잭슨 켄트"
+  },
+  {
+    "date": "2026-09-17",
+    "time": "08:00",
+    "league": "VENEZUELA",
+    "venueId": "estadio_olimpico_ucv_caracas",
+    "home": "메트로폴리타노스",
+    "away": "카라카스 FC",
+    "stadium": "Estadio Olímpico de la UCV",
+    "timeTbd": false,
+    "gameId": "VENEZUELA_ESPN_401903346",
+    "status": "scheduled"
   },
   {
     "date": "2026-09-17",
@@ -237658,11 +239648,11 @@
     "time": "03:00",
     "league": "VENEZUELA",
     "venueId": "estadio_olimpico_ucv_caracas",
-    "home": "UCV FC",
-    "away": "카라보보",
+    "home": "데포르티보 라과이라",
+    "away": "데포르티보 타치라",
     "stadium": "Estadio Olímpico de la UCV",
     "timeTbd": true,
-    "gameId": "VENEZUELA_ESPN_401903331",
+    "gameId": "VENEZUELA_ESPN_401903320",
     "status": "scheduled"
   },
   {
@@ -237670,11 +239660,11 @@
     "time": "03:00",
     "league": "VENEZUELA",
     "venueId": "estadio_olimpico_ucv_caracas",
-    "home": "데포르티보 라과이라",
-    "away": "데포르티보 타치라",
+    "home": "UCV FC",
+    "away": "카라보보",
     "stadium": "Estadio Olímpico de la UCV",
     "timeTbd": true,
-    "gameId": "VENEZUELA_ESPN_401903320",
+    "gameId": "VENEZUELA_ESPN_401903331",
     "status": "scheduled"
   },
   {
@@ -248606,19 +250596,6 @@
   {
     "date": "2026-10-14",
     "time": "01:00",
-    "league": "ACL",
-    "venueId": "al_sadd_jassim_bin_hamad",
-    "home": "알 사드",
-    "away": "알 힐랄",
-    "stadium": "자심 빈 하마드 스타디움",
-    "timeTbd": false,
-    "gameId": "zcfrVKksVO8hhNi",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-14",
-    "time": "01:00",
     "league": "ACL2",
     "venueId": "al_seeb_stadium",
     "home": "알 시브",
@@ -248626,6 +250603,19 @@
     "stadium": "알-시브 스타디움",
     "timeTbd": false,
     "gameId": "OQsSGAzKGbKHXDT",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-14",
+    "time": "01:00",
+    "league": "ACL",
+    "venueId": "al_sadd_jassim_bin_hamad",
+    "home": "알 사드",
+    "away": "알 힐랄",
+    "stadium": "자심 빈 하마드 스타디움",
+    "timeTbd": false,
+    "gameId": "zcfrVKksVO8hhNi",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -248869,6 +250859,30 @@
   },
   {
     "date": "2026-10-14",
+    "time": "09:00",
+    "league": "COLOMBIA",
+    "venueId": "estadio_alfonso_lopez_bucaramanga",
+    "home": "아틀레티코 부카라망가",
+    "away": "아길라스 도라다스",
+    "stadium": "Estadio Alfonso López",
+    "timeTbd": false,
+    "gameId": "COLOMBIA_ESPN_401877951",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-14",
+    "time": "09:00",
+    "league": "COSTARICA",
+    "venueId": "estadio_fello_meza_cartago",
+    "home": "카르타히네스",
+    "away": "푼타레나스 FC",
+    "stadium": "Estadio José Rafael \"Fello\" Meza Ivankovich",
+    "timeTbd": false,
+    "gameId": "COSTARICA_ESPN_401876843",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-14",
     "time": "10:30",
     "league": "AFL",
     "venueId": "scottsdale_stadium",
@@ -248889,6 +250903,18 @@
     "stadium": "Surprise Stadium",
     "timeTbd": false,
     "gameId": "AFL_MLBSTATS_867713",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-14",
+    "time": "11:00",
+    "league": "COSTARICA",
+    "venueId": "estadio_carlos_ugalde",
+    "home": "AD 산카를로스",
+    "away": "인테르 데 산카를로스",
+    "stadium": "Estadio Carlos Ugalde Álvarez",
+    "timeTbd": false,
+    "gameId": "COSTARICA_ESPN_401876893",
     "status": "scheduled"
   },
   {
@@ -254141,19 +256167,6 @@
   {
     "date": "2026-10-28",
     "time": "01:00",
-    "league": "ACL",
-    "venueId": "shabab_alahli_al_rashid",
-    "home": "샤바브 알 아흘리",
-    "away": "에스테그랄",
-    "stadium": "알라시드 스타디움",
-    "timeTbd": false,
-    "gameId": "uVJg9XVeZVSJFpb",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-28",
-    "time": "01:00",
     "league": "ACL2",
     "venueId": "al_seeb_stadium",
     "home": "알 시브",
@@ -254161,6 +256174,19 @@
     "stadium": "알-시브 스타디움",
     "timeTbd": false,
     "gameId": "AW3p0efTl1zL9Jt",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-28",
+    "time": "01:00",
+    "league": "ACL",
+    "venueId": "shabab_alahli_al_rashid",
+    "home": "샤바브 알 아흘리",
+    "away": "에스테그랄",
+    "stadium": "알라시드 스타디움",
+    "timeTbd": false,
+    "gameId": "uVJg9XVeZVSJFpb",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -254231,19 +256257,6 @@
   {
     "date": "2026-10-28",
     "time": "03:15",
-    "league": "ACL",
-    "venueId": "al_shamal_al_bayt",
-    "home": "알샤말",
-    "away": "알 힐랄",
-    "stadium": "알베이트 스타디움",
-    "timeTbd": false,
-    "gameId": "3aZWRb5fy3Nyk9x",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-28",
-    "time": "03:15",
     "league": "ACL2",
     "venueId": "al_zawraa_stadium",
     "home": "알 쇼르타",
@@ -254251,6 +256264,19 @@
     "stadium": "알-자우라 스타디움",
     "timeTbd": false,
     "gameId": "HCihM9DqxKOXBbt",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-28",
+    "time": "03:15",
+    "league": "ACL",
+    "venueId": "al_shamal_al_bayt",
+    "home": "알샤말",
+    "away": "알 힐랄",
+    "stadium": "알베이트 스타디움",
+    "timeTbd": false,
+    "gameId": "3aZWRb5fy3Nyk9x",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -256643,19 +258669,6 @@
   {
     "date": "2026-11-04",
     "time": "01:00",
-    "league": "ACL",
-    "venueId": "basra_international",
-    "home": "에스테그랄",
-    "away": "알샤말",
-    "stadium": "바스라 인터내셔널 스타디움",
-    "timeTbd": false,
-    "gameId": "CbaeNHtf2qOthye",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-11-04",
-    "time": "01:00",
     "league": "ACL2",
     "venueId": "amman_international_stadium",
     "home": "알 후세인",
@@ -256663,6 +258676,19 @@
     "stadium": "암만 인터내셔널 스태디엄",
     "timeTbd": false,
     "gameId": "87Yzcj2B505kzbh",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-11-04",
+    "time": "01:00",
+    "league": "ACL",
+    "venueId": "basra_international",
+    "home": "에스테그랄",
+    "away": "알샤말",
+    "stadium": "바스라 인터내셔널 스타디움",
+    "timeTbd": false,
+    "gameId": "CbaeNHtf2qOthye",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -256920,19 +258946,6 @@
   {
     "date": "2026-11-04",
     "time": "19:00",
-    "league": "ACL",
-    "venueId": "pohang",
-    "home": "포항",
-    "away": "감바 오사카",
-    "stadium": "포항스틸야드",
-    "timeTbd": false,
-    "gameId": "pmIB9z9UAQ4XPV2",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-11-04",
-    "time": "19:00",
     "league": "ACL2",
     "venueId": "seoulwc",
     "home": "서울",
@@ -256940,6 +258953,19 @@
     "stadium": "서울월드컵경기장",
     "timeTbd": false,
     "gameId": "lZapB69mvTiiYds",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-11-04",
+    "time": "19:00",
+    "league": "ACL",
+    "venueId": "pohang",
+    "home": "포항",
+    "away": "감바 오사카",
+    "stadium": "포항스틸야드",
+    "timeTbd": false,
+    "gameId": "pmIB9z9UAQ4XPV2",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -262269,19 +264295,6 @@
   {
     "date": "2026-11-25",
     "time": "01:00",
-    "league": "ACL",
-    "venueId": "shabab_alahli_al_rashid",
-    "home": "샤바브 알 아흘리",
-    "away": "알 카디시야",
-    "stadium": "알라시드 스타디움",
-    "timeTbd": false,
-    "gameId": "Rsba5lmQWhdIFqs",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-11-25",
-    "time": "01:00",
     "league": "ACL2",
     "venueId": "al_seeb_stadium",
     "home": "알 시브",
@@ -262289,6 +264302,19 @@
     "stadium": "알-시브 스타디움",
     "timeTbd": false,
     "gameId": "zVJrrC6Kzu5rPRu",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-11-25",
+    "time": "01:00",
+    "league": "ACL",
+    "venueId": "shabab_alahli_al_rashid",
+    "home": "샤바브 알 아흘리",
+    "away": "알 카디시야",
+    "stadium": "알라시드 스타디움",
+    "timeTbd": false,
+    "gameId": "Rsba5lmQWhdIFqs",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },

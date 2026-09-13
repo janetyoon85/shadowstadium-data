@@ -160,6 +160,22 @@ async function notifyUnknowns(unknownTeams, unknownVenues) {
   }
 }
 
+// 리그 하나만 조회 실패해도 조용히 넘어가면 워크플로 자체는 계속 success로 표시돼서 장애를
+// 못 알아챔(2026-09-12~13 다수 리그가 이렇게 조용히 멈춰 있었음 — fetch-wbsc-baseball.mjs에서
+// 겪은 것과 같은 문제 클래스). 실패한 리그 목록을 모아 별도 Discord 알림.
+async function notifyFetchFailures(failed) {
+  if (failed.length === 0) return;
+  const webhook = process.env.DISCORD_WEBHOOK_URL;
+  if (!webhook) return;
+  const lines = failed.map(({ code, slug, error }) => `• ${code} (${slug}): ${error}`);
+  const content = `🔴 그늘각 — 해외축구(ESPN) 일부 리그 조회 실패(워크플로는 success로 표시되지만 데이터 갱신 안 됨)\n${lines.join('\n')}`;
+  try {
+    await fetch(webhook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ content }) });
+  } catch (e) {
+    console.warn('[discord] espn-soccer fetch-failure notify failed:', e.message);
+  }
+}
+
 async function main() {
   const now = new Date();
   const start = new Date(now.getTime() - 7 * 86400000);
@@ -170,6 +186,7 @@ async function main() {
   const unknownTeams = new Set();
   const unknownVenues = new Set();
   const allNew = [];
+  const failedLeagues = [];
   for (const { code, slug } of LEAGUES) {
     console.log(`Fetching ${code} (${slug}) ${startDate}~${endDate} ...`);
     let gs;
@@ -177,12 +194,14 @@ async function main() {
       gs = await fetchEspnLeague(code, slug, startDate, endDate, unknownTeams, unknownVenues);
     } catch (e) {
       console.warn(`  failed: ${e.message}`);
+      failedLeagues.push({ code, slug, error: e.message });
       continue;
     }
     console.log(`  -> ${gs.length} games`);
     allNew.push(...gs);
   }
   await notifyUnknowns(unknownTeams, unknownVenues);
+  await notifyFetchFailures(failedLeagues);
 
   const gamesPath = path.join(REPO_ROOT, 'games.json');
   const games = JSON.parse(await fs.readFile(gamesPath, 'utf-8'));
