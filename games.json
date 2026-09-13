@@ -16970,13 +16970,17 @@
       "home": [
         {
           "n": "아크파 아크프로",
-          "m": 64
+          "m": 64,
+          "nat": "France"
         }
       ],
       "away": [
         {
           "n": "호일룬",
-          "m": 2
+          "m": 2,
+          "a": "Antonio Vergara",
+          "nat": "Denmark",
+          "aNat": "Italy"
         },
         {
           "n": "루카쿠",
@@ -17979,11 +17983,15 @@
       "away": [
         {
           "n": "파블로비치",
-          "m": 89
+          "m": 89,
+          "a": "Koni De Winter",
+          "nat": "Serbia",
+          "aNat": "Belgium"
         },
         {
           "n": "하파엘 레앙",
-          "m": 90
+          "m": 90,
+          "a": "Christopher Nkunku"
         }
       ]
     }
@@ -18287,17 +18295,25 @@
       "home": [
         {
           "n": "코네",
-          "m": 23
+          "m": 23,
+          "a": "Armand Laurienté",
+          "nat": "Canada",
+          "aNat": "France"
         },
         {
           "n": "토르스트베트",
-          "m": 69
+          "m": 69,
+          "a": "Armand Laurienté",
+          "nat": "Norway",
+          "aNat": "France"
         }
       ],
       "away": [
         {
           "n": "무사",
-          "m": 88
+          "m": 88,
+          "a": "Davide Zappacosta",
+          "aNat": "Italy"
         }
       ]
     }
@@ -18732,11 +18748,14 @@
       "home": [
         {
           "n": "시메오네",
-          "m": 21
+          "m": 21,
+          "nat": "Argentina"
         },
         {
           "n": "사파타",
-          "m": 53
+          "m": 53,
+          "a": "Rafa Obrador",
+          "nat": "Colombia"
         }
       ],
       "away": []
@@ -18928,29 +18947,43 @@
       "home": [
         {
           "n": "웨슬리",
-          "m": 39
+          "m": 39,
+          "a": "Niccolò Pisilli",
+          "nat": "Brazil",
+          "aNat": "Italy"
         },
         {
           "n": "은디카",
-          "m": 54
+          "m": 54,
+          "a": "Lorenzo Pellegrini",
+          "nat": "Ivory Coast",
+          "aNat": "Italy"
         },
         {
           "n": "말런",
-          "m": 65
+          "m": 65,
+          "a": "Manu Koné",
+          "nat": "Netherlands",
+          "aNat": "France"
         }
       ],
       "away": [
         {
           "n": "프란시스코 콘세이상",
-          "m": 47
+          "m": 47,
+          "a": "Bremer",
+          "nat": "Portugal",
+          "aNat": "Brazil"
         },
         {
           "n": "보가",
-          "m": 78
+          "m": 78,
+          "nat": "Ivory Coast"
         },
         {
           "n": "가티",
-          "m": 90
+          "m": 90,
+          "nat": "Italy"
         }
       ]
     }
@@ -19280,7 +19313,9 @@
       "away": [
         {
           "n": "오드가르드",
-          "m": 90
+          "m": 90,
+          "a": "Remo Freuler",
+          "nat": "Denmark"
         }
       ]
     }
@@ -19803,6 +19838,33 @@
   {
     "date": "2026-03-04",
     "time": "19:00",
+    "league": "ACL",
+    "venueId": "seoulwc",
+    "home": "서울",
+    "away": "비셀 고베",
+    "stadium": "서울월드컵경기장",
+    "timeTbd": false,
+    "gameId": "U8avFl0tEXRq1RV",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "마테우스 툴레르",
+          "m": 23
+        }
+      ]
+    },
+    "phaseCode": "T16",
+    "leg": 1,
+    "homeAggregateScore": 1,
+    "awayAggregateScore": 3
+  },
+  {
+    "date": "2026-03-04",
+    "time": "19:00",
     "league": "ACL2",
     "venueId": "panasonic_stadium_suita",
     "home": "감바 오사카",
@@ -19831,33 +19893,6 @@
     "leg": 1,
     "homeAggregateScore": 3,
     "awayAggregateScore": 2
-  },
-  {
-    "date": "2026-03-04",
-    "time": "19:00",
-    "league": "ACL",
-    "venueId": "seoulwc",
-    "home": "서울",
-    "away": "비셀 고베",
-    "stadium": "서울월드컵경기장",
-    "timeTbd": false,
-    "gameId": "U8avFl0tEXRq1RV",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 0,
-    "scorers": {
-      "home": [],
-      "away": [
-        {
-          "n": "마테우스 툴레르",
-          "m": 23
-        }
-      ]
-    },
-    "phaseCode": "T16",
-    "leg": 1,
-    "homeAggregateScore": 1,
-    "awayAggregateScore": 3
   },
   {
     "date": "2026-03-04",
@@ -20951,17 +20986,25 @@
       "home": [
         {
           "n": "알리슨 산토스",
-          "m": 7
+          "m": 7,
+          "a": "Leonardo Spinazzola",
+          "nat": "Brazil",
+          "aNat": "Italy"
         },
         {
           "n": "엘마스",
-          "m": 68
+          "m": 68,
+          "a": "Matteo Politano",
+          "aNat": "Italy"
         }
       ],
       "away": [
         {
           "n": "카사데이",
-          "m": 87
+          "m": 87,
+          "a": "Ché Adams",
+          "nat": "Italy",
+          "aNat": "Scotland"
         }
       ]
     }
@@ -21671,17 +21714,22 @@
       "home": [
         {
           "n": "에스포지토",
-          "m": 56
+          "m": 56,
+          "a": "Adam Obert",
+          "aNat": "Slovakia"
         }
       ],
       "away": [
         {
           "n": "바투리나",
-          "m": 14
+          "m": 14,
+          "nat": "Croatia"
         },
         {
           "n": "다 쿤하",
-          "m": 76
+          "m": 76,
+          "a": "Ignace Van der Brempt",
+          "nat": "France"
         }
       ]
     }
@@ -22264,21 +22312,28 @@
       "home": [
         {
           "n": "스카마카",
-          "m": 75
+          "m": 75,
+          "a": "Nicola Zalewski",
+          "nat": "Italy",
+          "aNat": "Poland"
         },
         {
           "n": "스카마카",
-          "m": 79
+          "m": 79,
+          "nat": "Italy"
         }
       ],
       "away": [
         {
           "n": "크리스텐센",
-          "m": 39
+          "m": 39,
+          "a": "Nicolò Zaniolo",
+          "aNat": "Italy"
         },
         {
           "n": "데이비스",
-          "m": 55
+          "m": 55,
+          "nat": "England"
         }
       ]
     }
@@ -22676,19 +22731,29 @@
       "home": [
         {
           "n": "캄비아소",
-          "m": 54
+          "m": 54,
+          "a": "Kenan Yildiz",
+          "nat": "Italy",
+          "aNat": "Türkiye"
         },
         {
           "n": "튀랑",
-          "m": 65
+          "m": 65,
+          "nat": "France"
         },
         {
           "n": "이을디즈",
-          "m": 75
+          "m": 75,
+          "a": "Francisco Conceição",
+          "nat": "Türkiye",
+          "aNat": "Portugal"
         },
         {
           "n": "보가",
-          "m": 90
+          "m": 90,
+          "a": "Manuel Locatelli",
+          "nat": "Ivory Coast",
+          "aNat": "Italy"
         }
       ],
       "away": []
@@ -23805,17 +23870,23 @@
       "home": [
         {
           "n": "로우",
-          "m": 49
+          "m": 49,
+          "a": "Nadir Zortea",
+          "aNat": "Italy"
         }
       ],
       "away": [
         {
           "n": "프레세",
-          "m": 53
+          "m": 53,
+          "nat": "Denmark"
         },
         {
           "n": "보위",
-          "m": 57
+          "m": 57,
+          "a": "Gift Orban",
+          "nat": "Scotland",
+          "aNat": "Nigeria"
         }
       ]
     }
@@ -65470,17 +65541,26 @@
       "home": [
         {
           "n": "버크",
-          "m": 85
+          "m": 85,
+          "a": "Andrej Ilic",
+          "nat": "Scotland",
+          "aNat": "Serbia"
         }
       ],
       "away": [
         {
           "n": "비머",
-          "m": 11
+          "m": 11,
+          "a": "Joakim Mæhle",
+          "nat": "Austria",
+          "aNat": "Denmark"
         },
         {
           "n": "페이치노비치",
-          "m": 46
+          "m": 46,
+          "a": "Christian Eriksen",
+          "nat": "Germany",
+          "aNat": "Denmark"
         }
       ]
     }
@@ -65502,17 +65582,26 @@
       "home": [
         {
           "n": "시크",
-          "m": 12
+          "m": 12,
+          "a": "Andrej Ilic",
+          "nat": "Scotland",
+          "aNat": "Serbia"
         }
       ],
       "away": [
         {
           "n": "리더",
-          "m": 15
+          "m": 15,
+          "a": "Joakim Mæhle",
+          "nat": "Austria",
+          "aNat": "Denmark"
         },
         {
           "n": "리더",
-          "m": 90
+          "m": 90,
+          "a": "Christian Eriksen",
+          "nat": "Germany",
+          "aNat": "Denmark"
         }
       ]
     }
@@ -65566,21 +65655,28 @@
       "home": [
         {
           "n": "스타게",
-          "m": 37
+          "m": 37,
+          "a": "Yukinari Sugawara",
+          "nat": "Denmark"
         },
         {
           "n": "스타게",
-          "m": 57
+          "m": 57,
+          "a": "Cameron Puertas",
+          "nat": "Denmark"
         },
         {
           "n": "푸에르타스",
-          "m": 90
+          "m": 90,
+          "a": "Romano Schmid"
         }
       ],
       "away": [
         {
           "n": "글라첼",
-          "m": 41
+          "m": 41,
+          "a": "Nicolás Capaldo",
+          "aNat": "Argentina"
         }
       ]
     }
@@ -66016,21 +66112,30 @@
       "home": [
         {
           "n": "라르손",
-          "m": 34
+          "m": 34,
+          "a": "Ayoube Amaimouni-Echghouyab",
+          "aNat": "Morocco"
         }
       ],
       "away": [
         {
           "n": "디오망데",
-          "m": 27
+          "m": 27,
+          "a": "Lukas Klostermann",
+          "aNat": "Germany"
         },
         {
           "n": "누사",
-          "m": 70
+          "m": 70,
+          "a": "Max Finkgräfe",
+          "nat": "Norway",
+          "aNat": "Germany"
         },
         {
           "n": "하더",
-          "m": 81
+          "m": 81,
+          "a": "Antonio Nusa",
+          "aNat": "Norway"
         }
       ]
     }
@@ -68021,17 +68126,25 @@
       "home": [
         {
           "n": "만잠비",
-          "m": 24
+          "m": 24,
+          "a": "Vincenzo Grifo",
+          "aNat": "Italy"
         },
         {
           "n": "에게슈타인",
-          "m": 83
+          "m": 83,
+          "a": "Vincenzo Grifo",
+          "nat": "Germany",
+          "aNat": "Italy"
         }
       ],
       "away": [
         {
           "n": "지브지바제",
-          "m": 58
+          "m": 58,
+          "a": "Mathias Honsak",
+          "nat": "Georgia",
+          "aNat": "Austria"
         }
       ]
     }
@@ -68217,29 +68330,42 @@
       "home": [
         {
           "n": "라파엘 게레이로",
-          "m": 31
+          "m": 31,
+          "a": "Jamal Musiala",
+          "aNat": "Germany"
         },
         {
           "n": "잭슨",
-          "m": 33
+          "m": 33,
+          "a": "Luis Díaz",
+          "aNat": "Colombia"
         },
         {
           "n": "데이비스",
-          "m": 37
+          "m": 37,
+          "a": "Luis Díaz",
+          "nat": "Canada",
+          "aNat": "Colombia"
         },
         {
           "n": "케인",
-          "m": 52
+          "m": 52,
+          "nat": "England"
         }
       ],
       "away": [
         {
           "n": "퓌리히",
-          "m": 21
+          "m": 21,
+          "a": "Bilal El Khannouss",
+          "nat": "Germany",
+          "aNat": "Morocco"
         },
         {
           "n": "체마 안드레스",
-          "m": 88
+          "m": 88,
+          "a": "Atakan Karazor",
+          "aNat": "Türkiye"
         }
       ]
     }
@@ -73526,21 +73652,27 @@
       "home": [
         {
           "n": "핑크그레페",
-          "m": 22
+          "m": 22,
+          "nat": "Germany"
         },
         {
           "n": "카르도주",
-          "m": 25
+          "m": 25,
+          "nat": "Brazil"
         },
         {
           "n": "바쿠",
-          "m": 63
+          "m": 63,
+          "a": "Yan Diomande",
+          "nat": "Germany"
         }
       ],
       "away": [
         {
           "n": "두키",
-          "m": 78
+          "m": 78,
+          "a": "Josip Juranovic",
+          "aNat": "Croatia"
         }
       ]
     }
@@ -74945,33 +75077,45 @@
       "home": [
         {
           "n": "코어",
-          "m": 15
+          "m": 15,
+          "a": "Kaishu Sano",
+          "nat": "Germany",
+          "aNat": "Japan"
         },
         {
           "n": "네벨",
-          "m": 29
+          "m": 29,
+          "nat": "Germany"
         },
         {
           "n": "베커",
-          "m": 45
+          "m": 45,
+          "nat": "Suriname"
         }
       ],
       "away": [
         {
           "n": "잭슨",
-          "m": 53
+          "m": 53,
+          "a": "Konrad Laimer",
+          "aNat": "Austria"
         },
         {
           "n": "올리세",
-          "m": 73
+          "m": 73,
+          "a": "Konrad Laimer",
+          "nat": "France",
+          "aNat": "Austria"
         },
         {
           "n": "무시알라",
-          "m": 80
+          "m": 80,
+          "nat": "Germany"
         },
         {
           "n": "케인",
-          "m": 83
+          "m": 83,
+          "nat": "England"
         }
       ]
     }
@@ -75025,11 +75169,17 @@
       "home": [
         {
           "n": "지브지바제",
-          "m": 3
+          "m": 3,
+          "a": "Jan Schöppner",
+          "nat": "Georgia",
+          "aNat": "Germany"
         },
         {
           "n": "딩크치",
-          "m": 82
+          "m": 82,
+          "a": "Diant Ramaj",
+          "nat": "Türkiye",
+          "aNat": "Germany"
         }
       ],
       "away": []
@@ -75066,13 +75216,17 @@
       "home": [
         {
           "n": "카데",
-          "m": 44
+          "m": 44,
+          "nat": "Germany"
         }
       ],
       "away": [
         {
           "n": "도안",
-          "m": 66
+          "m": 66,
+          "a": "Can Uzun",
+          "nat": "Japan",
+          "aNat": "Türkiye"
         }
       ]
     }
@@ -77813,13 +77967,18 @@
       "home": [
         {
           "n": "데미로비치",
-          "m": 61
+          "m": 61,
+          "a": "Bilal El Khannouss",
+          "nat": "Bosnia and Herzegovina",
+          "aNat": "Morocco"
         }
       ],
       "away": [
         {
           "n": "스타게",
-          "m": 18
+          "m": 18,
+          "a": "Yukinari Sugawara",
+          "nat": "Denmark"
         }
       ]
     }
@@ -78084,19 +78243,28 @@
       "home": [
         {
           "n": "바이어",
-          "m": 8
+          "m": 8,
+          "a": "Ramy Bensebaini",
+          "nat": "Germany",
+          "aNat": "Algeria"
         },
         {
           "n": "기라시",
-          "m": 14
+          "m": 14,
+          "a": "Julian Brandt",
+          "nat": "Guinea"
         },
         {
           "n": "벤세바이니",
-          "m": 31
+          "m": 31,
+          "a": "Julian Ryerson",
+          "nat": "Algeria",
+          "aNat": "Norway"
         },
         {
           "n": "파비우 실바",
-          "m": 87
+          "m": 87,
+          "nat": "Portugal"
         }
       ],
       "away": []
@@ -82996,46 +83164,6 @@
     "time": "16:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
-    "home": "대한민국",
-    "away": "필리핀",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
-    "timeTbd": false,
-    "gameId": "INfbBvjkK2ARSQU",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 5,
-    "scorers": {
-      "home": [
-        {
-          "n": "백서영",
-          "m": 6
-        },
-        {
-          "n": "백서영",
-          "m": 14
-        },
-        {
-          "n": "백서영",
-          "m": 34
-        },
-        {
-          "n": "백서영",
-          "m": 55
-        },
-        {
-          "n": "김희나",
-          "m": 67
-        }
-      ],
-      "away": []
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-02",
-    "time": "16:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
     "home": "일본",
     "away": "레바논",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
@@ -83098,6 +83226,46 @@
         {
           "n": "나나미",
           "m": 80
+        }
+      ],
+      "away": []
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-02",
+    "time": "16:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
+    "home": "대한민국",
+    "away": "필리핀",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
+    "timeTbd": false,
+    "gameId": "INfbBvjkK2ARSQU",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 5,
+    "scorers": {
+      "home": [
+        {
+          "n": "백서영",
+          "m": 6
+        },
+        {
+          "n": "백서영",
+          "m": 14
+        },
+        {
+          "n": "백서영",
+          "m": 34
+        },
+        {
+          "n": "백서영",
+          "m": 55
+        },
+        {
+          "n": "김희나",
+          "m": 67
         }
       ],
       "away": []
@@ -83712,6 +83880,35 @@
     "time": "20:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
+    "home": "호주",
+    "away": "인도",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
+    "timeTbd": false,
+    "gameId": "fS1J3kxSwziVvHl",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "무이티스",
+          "m": 25
+        },
+        {
+          "n": "바스넷",
+          "m": 59,
+          "og": true
+        }
+      ],
+      "away": []
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-02",
+    "time": "20:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
     "home": "북한",
     "away": "차이니스 타이베이",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
@@ -83761,35 +83958,6 @@
         {
           "n": "유종향",
           "m": 90
-        }
-      ],
-      "away": []
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-02",
-    "time": "20:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
-    "home": "호주",
-    "away": "인도",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
-    "timeTbd": false,
-    "gameId": "fS1J3kxSwziVvHl",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "무이티스",
-          "m": 25
-        },
-        {
-          "n": "바스넷",
-          "m": 59,
-          "og": true
         }
       ],
       "away": []
@@ -83933,25 +84101,39 @@
         },
         {
           "n": "고레츠카",
-          "m": 57
+          "m": 57,
+          "a": "Michael Olise",
+          "aNat": "France"
         },
         {
           "n": "올리세",
-          "m": 90
+          "m": 90,
+          "a": "Alphonso Davies",
+          "nat": "France",
+          "aNat": "Canada"
         }
       ],
       "away": [
         {
           "n": "지브지바제",
-          "m": 22
+          "m": 22,
+          "a": "Marnon Busch",
+          "nat": "Georgia",
+          "aNat": "Germany"
         },
         {
           "n": "딩크치",
-          "m": 31
+          "m": 31,
+          "a": "Marnon Busch",
+          "nat": "Türkiye",
+          "aNat": "Germany"
         },
         {
           "n": "지브지바제",
-          "m": 76
+          "m": 76,
+          "a": "Arijon Ibrahimovic",
+          "nat": "Georgia",
+          "aNat": "Germany"
         }
       ]
     }
@@ -83973,21 +84155,30 @@
       "home": [
         {
           "n": "로테",
-          "m": 73
+          "m": 73,
+          "a": "Christopher Trimmel",
+          "nat": "Germany",
+          "aNat": "Austria"
         },
         {
           "n": "부르추",
-          "m": 89
+          "m": 89,
+          "nat": "Türkiye"
         }
       ],
       "away": [
         {
           "n": "뷜터",
-          "m": 33
+          "m": 33,
+          "a": "Luca Waldschmidt",
+          "nat": "Germany",
+          "aNat": "Germany"
         },
         {
           "n": "엘 말라",
-          "m": 61
+          "m": 61,
+          "a": "Kristoffer Lund",
+          "nat": "Germany"
         }
       ]
     }
@@ -84009,17 +84200,26 @@
       "home": [
         {
           "n": "우준",
-          "m": 48
+          "m": 48,
+          "a": "Jonathan Burkardt",
+          "nat": "Türkiye",
+          "aNat": "Germany"
         }
       ],
       "away": [
         {
           "n": "그뢴베크",
-          "m": 51
+          "m": 51,
+          "a": "Warmed Omari",
+          "nat": "Denmark",
+          "aNat": "France"
         },
         {
           "n": "파비우 비에이라",
-          "m": 59
+          "m": 59,
+          "a": "Albert Grønbæk",
+          "nat": "Portugal",
+          "aNat": "Denmark"
         }
       ]
     }
@@ -84045,25 +84245,39 @@
         },
         {
           "n": "투레",
-          "m": 23
+          "m": 23,
+          "a": "Michael Olise",
+          "aNat": "France"
         },
         {
           "n": "크라마리치",
-          "m": 49
+          "m": 49,
+          "a": "Alphonso Davies",
+          "nat": "France",
+          "aNat": "Canada"
         }
       ],
       "away": [
         {
           "n": "퓌리히",
-          "m": 20
+          "m": 20,
+          "a": "Marnon Busch",
+          "nat": "Georgia",
+          "aNat": "Germany"
         },
         {
           "n": "데미로비치",
-          "m": 64
+          "m": 64,
+          "a": "Marnon Busch",
+          "nat": "Türkiye",
+          "aNat": "Germany"
         },
         {
           "n": "티아구 토마스",
-          "m": 90
+          "m": 90,
+          "a": "Arijon Ibrahimovic",
+          "nat": "Georgia",
+          "aNat": "Germany"
         }
       ]
     }
@@ -84085,21 +84299,30 @@
       "home": [
         {
           "n": "슈미트",
-          "m": 64
+          "m": 64,
+          "a": "Olivier Deman",
+          "aNat": "Belgium"
         }
       ],
       "away": [
         {
           "n": "카데",
-          "m": 24
+          "m": 24,
+          "a": "Michael Gregoritsch",
+          "nat": "Germany",
+          "aNat": "Austria"
         },
         {
           "n": "카데",
-          "m": 45
+          "m": 45,
+          "a": "Dimitrios Giannoulis",
+          "nat": "Germany"
         },
         {
           "n": "야키치",
-          "m": 69
+          "m": 69,
+          "a": "Marius Wolf",
+          "aNat": "Germany"
         }
       ]
     }
@@ -84481,25 +84704,39 @@
       "home": [
         {
           "n": "시크",
-          "m": 25
+          "m": 25,
+          "a": "Nathan Tella",
+          "nat": "Czechia",
+          "aNat": "Nigeria"
         },
         {
           "n": "텔라",
-          "m": 45
+          "m": 45,
+          "a": "Aleix García",
+          "nat": "Nigeria",
+          "aNat": "Spain"
         },
         {
           "n": "시크",
-          "m": 76
+          "m": 76,
+          "a": "Ibrahim Maza",
+          "nat": "Czechia",
+          "aNat": "Algeria"
         },
         {
           "n": "시크",
-          "m": 89
+          "m": 89,
+          "a": "Alejandro Grimaldo",
+          "nat": "Czechia"
         }
       ],
       "away": [
         {
           "n": "바움가르트너",
-          "m": 80
+          "m": 80,
+          "a": "Brajan Gruda",
+          "nat": "Austria",
+          "aNat": "Germany"
         }
       ]
     }
@@ -86566,17 +86803,26 @@
       "home": [
         {
           "n": "체세이",
-          "m": 87
+          "m": 87,
+          "a": "Martijn Kaars",
+          "nat": "Gambia",
+          "aNat": "Netherlands"
         }
       ],
       "away": [
         {
           "n": "티에츠",
-          "m": 6
+          "m": 6,
+          "a": "Sheraldo Becker",
+          "nat": "Germany",
+          "aNat": "Suriname"
         },
         {
           "n": "음웨네",
-          "m": 40
+          "m": 40,
+          "a": "Silvan Widmer",
+          "nat": "Austria",
+          "aNat": "Switzerland"
         }
       ]
     }
@@ -87155,13 +87401,18 @@
       "home": [
         {
           "n": "린하르트",
-          "m": 75
+          "m": 75,
+          "a": "Johan Manzambi",
+          "nat": "Austria"
         }
       ],
       "away": [
         {
           "n": "쿨리에라키스",
-          "m": 55
+          "m": 55,
+          "a": "Christian Eriksen",
+          "nat": "Greece",
+          "aNat": "Denmark"
         }
       ]
     }
@@ -89011,38 +89262,6 @@
     "time": "20:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
-    "home": "인도",
-    "away": "일본",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
-    "timeTbd": false,
-    "gameId": "SyGtvWeiJaOs0ZA",
-    "status": "completed",
-    "awayScore": 3,
-    "homeScore": 0,
-    "scorers": {
-      "home": [],
-      "away": [
-        {
-          "n": "하야시",
-          "m": 59
-        },
-        {
-          "n": "이케다",
-          "m": 76
-        },
-        {
-          "n": "이케다",
-          "m": 81
-        }
-      ]
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-05",
-    "time": "20:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
     "home": "필리핀",
     "away": "북한",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
@@ -89085,6 +89304,38 @@
         {
           "n": "송원용",
           "m": 85
+        }
+      ]
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-05",
+    "time": "20:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
+    "home": "인도",
+    "away": "일본",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
+    "timeTbd": false,
+    "gameId": "SyGtvWeiJaOs0ZA",
+    "status": "completed",
+    "awayScore": 3,
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "하야시",
+          "m": 59
+        },
+        {
+          "n": "이케다",
+          "m": 76
+        },
+        {
+          "n": "이케다",
+          "m": 81
         }
       ]
     },
@@ -91681,6 +91932,21 @@
     "time": "20:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
+    "home": "필리핀",
+    "away": "차이니스 타이베이",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
+    "timeTbd": false,
+    "gameId": "iI57xIcnv4pTYV5",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 0,
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-08",
+    "time": "20:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
     "home": "북한",
     "away": "대한민국",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
@@ -91706,21 +91972,6 @@
       ],
       "away": []
     },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-08",
-    "time": "20:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
-    "home": "필리핀",
-    "away": "차이니스 타이베이",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
-    "timeTbd": false,
-    "gameId": "iI57xIcnv4pTYV5",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 0,
     "phaseCode": "GROUP"
   },
   {
@@ -91764,25 +92015,37 @@
       "home": [
         {
           "n": "기라시",
-          "m": 42
+          "m": 42,
+          "a": "Julian Ryerson",
+          "nat": "Guinea",
+          "aNat": "Norway"
         },
         {
           "n": "슐로터벡",
-          "m": 45
+          "m": 45,
+          "a": "Maximilian Beier",
+          "nat": "Germany",
+          "aNat": "Germany"
         },
         {
           "n": "이나시우",
-          "m": 72
+          "m": 72,
+          "a": "Maximilian Beier",
+          "nat": "Italy",
+          "aNat": "Germany"
         }
       ],
       "away": [
         {
           "n": "우준",
-          "m": 2
+          "m": 2,
+          "a": "Mahmoud Dahoud",
+          "nat": "Türkiye"
         },
         {
           "n": "버카르트",
-          "m": 87
+          "m": 87,
+          "nat": "Germany"
         }
       ]
     }
@@ -92978,21 +93241,27 @@
       "home": [
         {
           "n": "데미로비치",
-          "m": 5
+          "m": 5,
+          "nat": "Austria"
         },
         {
           "n": "미텔슈테트",
-          "m": 45
+          "m": 45,
+          "a": "Mert Kömür",
+          "nat": "Germany",
+          "aNat": "Germany"
         },
         {
           "n": "운다브",
-          "m": 58
+          "m": 58,
+          "nat": "Austria"
         }
       ],
       "away": [
         {
           "n": "알레이스 가르시아",
-          "m": 1
+          "m": 1,
+          "a": "Rocco Reitz"
         }
       ]
     }
@@ -93014,17 +93283,25 @@
       "home": [
         {
           "n": "크사버 슐라거",
-          "m": 45
+          "m": 45,
+          "a": "Christoph Baumgartner",
+          "aNat": "Austria"
         },
         {
           "n": "빌리 오르반",
-          "m": 54
+          "m": 54,
+          "a": "David Raum",
+          "nat": "Hungary",
+          "aNat": "Germany"
         }
       ],
       "away": [
         {
           "n": "체세이",
-          "m": 86
+          "m": 86,
+          "a": "Jackson Irvine",
+          "nat": "Gambia",
+          "aNat": "Australia"
         }
       ]
     }
@@ -93046,7 +93323,9 @@
       "home": [
         {
           "n": "투레",
-          "m": 26
+          "m": 26,
+          "a": "Andrej Kramaric",
+          "aNat": "Croatia"
         }
       ],
       "away": []
@@ -93069,21 +93348,27 @@
       "home": [
         {
           "n": "그레고리치",
-          "m": 24
+          "m": 24,
+          "nat": "Austria"
         },
         {
           "n": "펠하우어",
-          "m": 42
+          "m": 42,
+          "a": "Mert Kömür",
+          "nat": "Germany",
+          "aNat": "Germany"
         },
         {
           "n": "그레고리치",
-          "m": 72
+          "m": 72,
+          "nat": "Austria"
         }
       ],
       "away": [
         {
           "n": "레이나",
-          "m": 90
+          "m": 90,
+          "a": "Rocco Reitz"
         }
       ]
     }
@@ -93487,7 +93772,10 @@
       "away": [
         {
           "n": "올리세",
-          "m": 56
+          "m": 56,
+          "a": "Konrad Laimer",
+          "nat": "France",
+          "aNat": "Austria"
         }
       ]
     }
@@ -95361,7 +95649,10 @@
       "home": [
         {
           "n": "자타",
-          "m": 14
+          "m": 14,
+          "a": "Albert Grønbæk",
+          "nat": "Gambia",
+          "aNat": "Denmark"
         },
         {
           "n": "부슈코비치",
@@ -95369,17 +95660,25 @@
         },
         {
           "n": "파비우발데",
-          "m": 67
+          "m": 67,
+          "a": "Nicolai Remberg",
+          "aNat": "Germany"
         }
       ],
       "away": [
         {
           "n": "마타노비치",
-          "m": 16
+          "m": 16,
+          "a": "Lukas Kübler",
+          "nat": "Croatia",
+          "aNat": "Germany"
         },
         {
           "n": "마타노비치",
-          "m": 87
+          "m": 87,
+          "a": "Vincenzo Grifo",
+          "nat": "Croatia",
+          "aNat": "Italy"
         }
       ]
     }
@@ -95730,21 +96029,29 @@
       "home": [
         {
           "n": "뷜터",
-          "m": 10
+          "m": 10,
+          "a": "Tom Krauß",
+          "nat": "Germany",
+          "aNat": "Germany"
         }
       ],
       "away": [
         {
           "n": "쇠프너",
-          "m": 8
+          "m": 8,
+          "a": "Arijon Ibrahimovic",
+          "nat": "Germany",
+          "aNat": "Germany"
         },
         {
           "n": "이브라히모비치",
-          "m": 28
+          "m": 28,
+          "nat": "Germany"
         },
         {
           "n": "쇠프너",
-          "m": 72
+          "m": 72,
+          "nat": "Germany"
         }
       ]
     }
@@ -96114,21 +96421,33 @@
       "home": [
         {
           "n": "베커",
-          "m": 48
+          "m": 48,
+          "a": "Paul Nebel",
+          "nat": "Suriname",
+          "aNat": "Germany"
         }
       ],
       "away": [
         {
           "n": "일리치",
-          "m": 38
+          "m": 38,
+          "a": "Aljoscha Kemlein",
+          "nat": "Serbia",
+          "aNat": "Germany"
         },
         {
           "n": "버크",
-          "m": 88
+          "m": 88,
+          "a": "Andrej Ilic",
+          "nat": "Scotland",
+          "aNat": "Serbia"
         },
         {
           "n": "유라노비치",
-          "m": 90
+          "m": 90,
+          "a": "Tim Skarke",
+          "nat": "Croatia",
+          "aNat": "Germany"
         }
       ]
     }
@@ -97753,6 +98072,34 @@
     "time": "01:00",
     "league": "U17ASIANCUP",
     "venueId": "king_abdullah_sports_city",
+    "home": "중국",
+    "away": "카타르",
+    "stadium": "킹 압둘라 스포츠 시티 피치 퓨처 C",
+    "timeTbd": false,
+    "gameId": "OW7BBRLBR5Yg9Mi",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "하시판",
+          "m": 14
+        },
+        {
+          "n": "장 보린",
+          "m": 71
+        }
+      ],
+      "away": []
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-13",
+    "time": "01:00",
+    "league": "U17ASIANCUP",
+    "venueId": "king_abdullah_sports_city",
     "home": "일본",
     "away": "인도네시아",
     "stadium": "킹 압둘라 스포츠 시티 피치 스타스 A",
@@ -97782,34 +98129,6 @@
           "m": 70
         }
       ]
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-13",
-    "time": "01:00",
-    "league": "U17ASIANCUP",
-    "venueId": "king_abdullah_sports_city",
-    "home": "중국",
-    "away": "카타르",
-    "stadium": "킹 압둘라 스포츠 시티 피치 퓨처 C",
-    "timeTbd": false,
-    "gameId": "OW7BBRLBR5Yg9Mi",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "하시판",
-          "m": 14
-        },
-        {
-          "n": "장 보린",
-          "m": 71
-        }
-      ],
-      "away": []
     },
     "phaseCode": "GROUP"
   },
@@ -102720,29 +103039,42 @@
       "home": [
         {
           "n": "케인",
-          "m": 10
+          "m": 10,
+          "a": "Joshua Kimmich",
+          "nat": "England",
+          "aNat": "Germany"
         },
         {
           "n": "케인",
-          "m": 13
+          "m": 13,
+          "nat": "England",
+          "aNat": "Germany"
         },
         {
           "n": "비쇼프",
-          "m": 22
+          "m": 22,
+          "a": "Lennart Karl",
+          "nat": "Germany",
+          "aNat": "Germany"
         },
         {
           "n": "케인",
-          "m": 69
+          "m": 69,
+          "a": "Leon Goretzka",
+          "nat": "England"
         },
         {
           "n": "잭슨",
-          "m": 83
+          "m": 83,
+          "a": "Luis Díaz",
+          "aNat": "Colombia"
         }
       ],
       "away": [
         {
           "n": "엘 말라",
-          "m": 18
+          "m": 18,
+          "nat": "Germany"
         }
       ]
     }
@@ -102764,19 +103096,29 @@
       "home": [
         {
           "n": "일리치",
-          "m": 10
+          "m": 10,
+          "a": "András Schäfer",
+          "nat": "Serbia",
+          "aNat": "Hungary"
         },
         {
           "n": "일리치",
-          "m": 42
+          "m": 42,
+          "a": "Oliver Burke",
+          "nat": "Serbia",
+          "aNat": "Scotland"
         },
         {
           "n": "셰퍼",
-          "m": 54
+          "m": 54,
+          "a": "Livan Burcu",
+          "nat": "Hungary",
+          "aNat": "Türkiye"
         },
         {
           "n": "정우영",
-          "m": 89
+          "m": 89,
+          "nat": "South Korea"
         }
       ],
       "away": []
@@ -102799,13 +103141,19 @@
       "home": [
         {
           "n": "콴사",
-          "m": 78
+          "m": 78,
+          "a": "Aleix García",
+          "nat": "England",
+          "aNat": "Spain"
         }
       ],
       "away": [
         {
           "n": "파비우 비에이라",
-          "m": 61
+          "m": 61,
+          "a": "Nicolás Capaldo",
+          "nat": "Portugal",
+          "aNat": "Argentina"
         }
       ]
     }
@@ -102827,19 +103175,29 @@
       "home": [
         {
           "n": "볼린",
-          "m": 14
+          "m": 14,
+          "a": "András Schäfer",
+          "nat": "Serbia",
+          "aNat": "Hungary"
         },
         {
           "n": "타바코비치",
-          "m": 23
+          "m": 23,
+          "a": "Oliver Burke",
+          "nat": "Serbia",
+          "aNat": "Scotland"
         },
         {
           "n": "딕스",
-          "m": 81
+          "m": 81,
+          "a": "Livan Burcu",
+          "nat": "Hungary",
+          "aNat": "Türkiye"
         },
         {
           "n": "하크",
-          "m": 90
+          "m": 90,
+          "nat": "South Korea"
         }
       ],
       "away": []
@@ -102898,25 +103256,36 @@
       "home": [
         {
           "n": "베스테",
-          "m": 24
+          "m": 24,
+          "nat": "Germany"
         },
         {
           "n": "마타노비치",
-          "m": 26
+          "m": 26,
+          "a": "Johan Manzambi",
+          "nat": "Croatia"
         },
         {
           "n": "긴터",
-          "m": 47
+          "m": 47,
+          "a": "Jordy Makengo",
+          "nat": "Germany",
+          "aNat": "France"
         },
         {
           "n": "셰어한트",
-          "m": 75
+          "m": 75,
+          "a": "Igor Matanovic",
+          "nat": "Germany",
+          "aNat": "Croatia"
         }
       ],
       "away": [
         {
           "n": "웨드라오고",
-          "m": 33
+          "m": 33,
+          "a": "Yan Diomande",
+          "nat": "Germany"
         }
       ]
     }
@@ -102938,13 +103307,19 @@
       "home": [
         {
           "n": "체세이",
-          "m": 57
+          "m": 57,
+          "a": "Connor Metcalfe",
+          "nat": "Gambia",
+          "aNat": "Australia"
         }
       ],
       "away": [
         {
           "n": "쿨리에라키스",
-          "m": 37
+          "m": 37,
+          "a": "Christian Eriksen",
+          "nat": "Greece",
+          "aNat": "Denmark"
         },
         {
           "n": "바실리",
@@ -102953,7 +103328,8 @@
         },
         {
           "n": "페이치노비치",
-          "m": 80
+          "m": 80,
+          "nat": "Germany"
         }
       ]
     }
@@ -102976,11 +103352,15 @@
       "away": [
         {
           "n": "티에츠",
-          "m": 7
+          "m": 7,
+          "nat": "Germany"
         },
         {
           "n": "아미리",
-          "m": 43
+          "m": 43,
+          "a": "Phillip Tietz",
+          "nat": "Germany",
+          "aNat": "Germany"
         }
       ]
     }
@@ -103003,11 +103383,15 @@
       "away": [
         {
           "n": "기라시",
-          "m": 59
+          "m": 59,
+          "nat": "Germany"
         },
         {
           "n": "얀 쿠토",
-          "m": 90
+          "m": 90,
+          "a": "Phillip Tietz",
+          "nat": "Germany",
+          "aNat": "Germany"
         }
       ]
     }
@@ -194586,11 +194970,17 @@
       "home": [
         {
           "n": "다요 우파메카노",
-          "m": 21
+          "m": 21,
+          "a": "Joshua Kimmich",
+          "nat": "France",
+          "aNat": "Germany"
         },
         {
           "n": "올리세",
-          "m": 55
+          "m": 55,
+          "a": "Joshua Kimmich",
+          "nat": "France",
+          "aNat": "Germany"
         },
         {
           "n": "바그노만",
@@ -194599,17 +194989,24 @@
         },
         {
           "n": "파블로비치",
-          "m": 82
+          "m": 82,
+          "a": "Ismael Saibari",
+          "nat": "Germany",
+          "aNat": "Morocco"
         },
         {
           "n": "디아스",
-          "m": 90
+          "m": 90,
+          "a": "Ismael Saibari",
+          "nat": "Colombia",
+          "aNat": "Morocco"
         }
       ],
       "away": [
         {
           "n": "바그노만",
-          "m": 52
+          "m": 52,
+          "nat": "Germany"
         }
       ]
     }
@@ -196160,29 +196557,42 @@
       "home": [
         {
           "n": "라테 라스",
-          "m": 3
+          "m": 3,
+          "a": "Josip Juranovic",
+          "aNat": "Croatia"
         },
         {
           "n": "퀴르펠트",
-          "m": 79
+          "m": 79,
+          "a": "Josip Juranovic",
+          "nat": "Austria",
+          "aNat": "Croatia"
         },
         {
           "n": "스카크",
-          "m": 90
+          "m": 90,
+          "a": "Leopold Querfeld",
+          "nat": "Germany",
+          "aNat": "Austria"
         }
       ],
       "away": [
         {
           "n": "에브누탈리브",
-          "m": 10
+          "m": 10,
+          "nat": "Germany"
         },
         {
           "n": "에브누탈리브",
-          "m": 11
+          "m": 11,
+          "nat": "Germany"
         },
         {
           "n": "에브누탈리브",
-          "m": 67
+          "m": 67,
+          "a": "Elias Baum",
+          "nat": "Germany",
+          "aNat": "Germany"
         }
       ]
     }
@@ -196204,25 +196614,36 @@
       "home": [
         {
           "n": "페트코프",
-          "m": 8
+          "m": 8,
+          "nat": "Germany"
         },
         {
           "n": "캠벨",
-          "m": 9
+          "m": 9,
+          "a": "Linton Maina",
+          "nat": "Netherlands",
+          "aNat": "Germany"
         },
         {
           "n": "목와",
-          "m": 46
+          "m": 46,
+          "nat": "Netherlands"
         }
       ],
       "away": [
         {
           "n": "시크",
-          "m": 77
+          "m": 77,
+          "a": "Bambasé Conté",
+          "nat": "Denmark",
+          "aNat": "Germany"
         },
         {
           "n": "코파네",
-          "m": 90
+          "m": 90,
+          "a": "Vladimír Coufal",
+          "nat": "Türkiye",
+          "aNat": "Czechia"
         }
       ]
     }
@@ -196258,15 +196679,24 @@
       "home": [
         {
           "n": "바쿠",
-          "m": 25
+          "m": 25,
+          "a": "Tidiam Gomis",
+          "nat": "Germany",
+          "aNat": "France"
         },
         {
           "n": "누사",
-          "m": 49
+          "m": 49,
+          "a": "Tidiam Gomis",
+          "nat": "Norway",
+          "aNat": "France"
         },
         {
           "n": "라이츠",
-          "m": 66
+          "m": 66,
+          "a": "Christopher Nkunku",
+          "nat": "Germany",
+          "aNat": "France"
         }
       ],
       "away": []
@@ -196289,25 +196719,36 @@
       "home": [
         {
           "n": "엘 말라",
-          "m": 51
+          "m": 51,
+          "nat": "Germany"
         },
         {
           "n": "달링가",
-          "m": 72
+          "m": 72,
+          "a": "Linton Maina",
+          "nat": "Netherlands",
+          "aNat": "Germany"
         },
         {
           "n": "달링가",
-          "m": 82
+          "m": 82,
+          "nat": "Netherlands"
         }
       ],
       "away": [
         {
           "n": "다힘",
-          "m": 27
+          "m": 27,
+          "a": "Bambasé Conté",
+          "nat": "Denmark",
+          "aNat": "Germany"
         },
         {
           "n": "카박",
-          "m": 67
+          "m": 67,
+          "a": "Vladimír Coufal",
+          "nat": "Türkiye",
+          "aNat": "Czechia"
         }
       ]
     }
@@ -196937,7 +197378,10 @@
       "home": [
         {
           "n": "기라시",
-          "m": 9
+          "m": 9,
+          "a": "Konstantinos Karetsas",
+          "nat": "Guinea",
+          "aNat": "Greece"
         },
         {
           "n": "콘스탄텔리아스",
@@ -199258,25 +199702,38 @@
       "home": [
         {
           "n": "스즈키 유이토",
-          "m": 29
+          "m": 29,
+          "a": "Niklas Beste",
+          "nat": "Japan",
+          "aNat": "Germany"
         },
         {
           "n": "마타노비치",
-          "m": 45
+          "m": 45,
+          "a": "Matthias Ginter",
+          "nat": "Croatia",
+          "aNat": "Germany"
         },
         {
           "n": "스즈키 유이토",
-          "m": 48
+          "m": 48,
+          "nat": "Japan"
         },
         {
           "n": "스즈키 유이토",
-          "m": 55
+          "m": 55,
+          "a": "Igor Matanovic",
+          "nat": "Japan",
+          "aNat": "Croatia"
         }
       ],
       "away": [
         {
           "n": "슈탈마흐",
-          "m": 76
+          "m": 76,
+          "a": "Marco Grüll",
+          "nat": "Poland",
+          "aNat": "Austria"
         }
       ]
     }
@@ -199524,15 +199981,24 @@
       "home": [
         {
           "n": "그레고리치",
-          "m": 18
+          "m": 18,
+          "a": "Anton Kade",
+          "nat": "Austria",
+          "aNat": "Germany"
         },
         {
           "n": "카데",
-          "m": 79
+          "m": 79,
+          "a": "Fabian Rieder",
+          "nat": "Germany",
+          "aNat": "Switzerland"
         },
         {
           "n": "로드리고 리베이로",
-          "m": 90
+          "m": 90,
+          "a": "Seol Young-Woo",
+          "nat": "Portugal",
+          "aNat": "South Korea"
         }
       ],
       "away": []
@@ -204335,26 +204801,37 @@
       "home": [
         {
           "n": "엘 칸누스",
-          "m": 39
+          "m": 39,
+          "a": "Josha Vagnoman",
+          "nat": "Morocco",
+          "aNat": "Germany"
         },
         {
           "n": "프뢰멜",
-          "m": 60
+          "m": 60,
+          "a": "Maximilian Mittelstädt",
+          "nat": "Germany",
+          "aNat": "Germany"
         },
         {
           "n": "데미로비치",
-          "m": 75
+          "m": 75,
+          "a": "Finn Jeltsch",
+          "nat": "Bosnia and Herzegovina",
+          "aNat": "Germany"
         },
         {
           "n": "바그노만",
-          "m": 90
+          "m": 90,
+          "nat": "Germany"
         }
       ],
       "away": [
         {
           "n": "헨드릭스",
           "m": 81,
-          "og": true
+          "og": true,
+          "nat": "Germany"
         }
       ]
     }
@@ -206021,19 +206498,31 @@
       "home": [
         {
           "n": "에세키엘 페르난데스",
-          "m": 1
+          "m": 1,
+          "a": "Miguel Gutiérrez",
+          "nat": "Argentina",
+          "aNat": "Spain"
         },
         {
           "n": "메디나",
-          "m": 28
+          "m": 28,
+          "a": "Miguel Gutiérrez",
+          "nat": "Argentina",
+          "aNat": "Spain"
         },
         {
           "n": "시크",
-          "m": 48
+          "m": 48,
+          "a": "Jarell Quansah",
+          "nat": "Czechia",
+          "aNat": "England"
         },
         {
           "n": "마자",
-          "m": 66
+          "m": 66,
+          "a": "Patrik Schick",
+          "nat": "Algeria",
+          "aNat": "Czechia"
         }
       ],
       "away": []
@@ -206056,33 +206545,48 @@
       "home": [
         {
           "n": "볼린",
-          "m": 11
+          "m": 11,
+          "nat": "Sweden"
         },
         {
           "n": "볼린",
-          "m": 44
+          "m": 44,
+          "a": "Franck Honorat",
+          "nat": "Sweden",
+          "aNat": "France"
         },
         {
           "n": "스캘리",
-          "m": 56
+          "m": 56,
+          "a": "Franck Honorat",
+          "nat": "USA",
+          "aNat": "France"
         }
       ],
       "away": [
         {
           "n": "목와",
-          "m": 29
+          "m": 29,
+          "a": "Lukas Pinckert",
+          "nat": "France",
+          "aNat": "Germany"
         },
         {
           "n": "크라텐마허",
-          "m": 66
+          "m": 66,
+          "nat": "Germany"
         },
         {
           "n": "카이델",
-          "m": 80
+          "m": 80,
+          "nat": "Germany"
         },
         {
           "n": "크라텐마허",
-          "m": 90
+          "m": 90,
+          "a": "Noel Futkeu",
+          "nat": "Germany",
+          "aNat": "Germany"
         }
       ]
     }
@@ -206105,7 +206609,8 @@
       "away": [
         {
           "n": "에게슈타인",
-          "m": 26
+          "m": 26,
+          "nat": "Germany"
         }
       ]
     }
@@ -206127,21 +206632,33 @@
       "home": [
         {
           "n": "아브둘라후",
-          "m": 45
+          "m": 45,
+          "a": "Vladimír Coufal",
+          "nat": "Kosovo",
+          "aNat": "Czechia"
         },
         {
           "n": "렘펄",
-          "m": 54
+          "m": 54,
+          "a": "Adam Daghim",
+          "nat": "Germany",
+          "aNat": "Denmark"
         }
       ],
       "away": [
         {
           "n": "기라시",
-          "m": 61
+          "m": 61,
+          "a": "Waldemar Anton",
+          "nat": "Guinea",
+          "aNat": "Germany"
         },
         {
           "n": "파비우 실바",
-          "m": 66
+          "m": 66,
+          "a": "Serhou Guirassy",
+          "nat": "Portugal",
+          "aNat": "Guinea"
         },
         {
           "n": "하이다리",
@@ -206168,21 +206685,31 @@
       "home": [
         {
           "n": "딩크치",
-          "m": 4
+          "m": 4,
+          "a": "Chuki",
+          "nat": "Türkiye",
+          "aNat": "Spain"
         },
         {
           "n": "퓔크루크",
-          "m": 68
+          "m": 68,
+          "a": "Marco Grüll",
+          "nat": "Germany",
+          "aNat": "Austria"
         },
         {
           "n": "그륄",
-          "m": 80
+          "m": 80,
+          "nat": "Austria"
         }
       ],
       "away": [
         {
           "n": "바쿠",
-          "m": 90
+          "m": 90,
+          "a": "Andrija Maksimovic",
+          "nat": "Germany",
+          "aNat": "Serbia"
         }
       ]
     }
@@ -211259,23 +211786,38 @@
       "away": [
         {
           "n": "베커",
-          "m": 19
+          "m": 19,
+          "a": "Kaishu Sano",
+          "nat": "Suriname",
+          "aNat": "Japan"
         },
         {
           "n": "음웨네",
-          "m": 41
+          "m": 41,
+          "a": "Sheraldo Becker",
+          "nat": "Austria",
+          "aNat": "Suriname"
         },
         {
           "n": "티에츠",
-          "m": 48
+          "m": 48,
+          "a": "Sheraldo Becker",
+          "nat": "Germany",
+          "aNat": "Suriname"
         },
         {
           "n": "티에츠",
-          "m": 83
+          "m": 83,
+          "a": "Lee Jae-Sung",
+          "nat": "Germany",
+          "aNat": "South Korea"
         },
         {
           "n": "쾨니히스되르퍼",
-          "m": 90
+          "m": 90,
+          "a": "Phillipp Mwene",
+          "nat": "Ghana",
+          "aNat": "Austria"
         }
       ]
     }
@@ -211784,7 +212326,10 @@
       "home": [
         {
           "n": "버카르트",
-          "m": 6
+          "m": 6,
+          "a": "Younes Ebnoutalib",
+          "nat": "Germany",
+          "aNat": "Germany"
         }
       ],
       "away": [
@@ -211795,15 +212340,20 @@
         },
         {
           "n": "펠하우어",
-          "m": 47
+          "m": 47,
+          "nat": "Germany"
         },
         {
           "n": "클로드 모리스",
-          "m": 65
+          "m": 65,
+          "a": "Han-Noah Massengo",
+          "nat": "France",
+          "aNat": "France"
         },
         {
           "n": "리더",
-          "m": 89
+          "m": 89,
+          "nat": "Switzerland"
         }
       ]
     }
@@ -216298,6 +216848,113 @@
   {
     "date": "2026-09-09",
     "time": "03:45",
+    "league": "EFL",
+    "venueId": "southampton_st_marys",
+    "home": "사우샘프턴",
+    "away": "스완지",
+    "stadium": "세인트 메리스 스타디움",
+    "timeTbd": false,
+    "gameId": "YEzthB2I7ULBOnY",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "아자즈",
+          "m": 9
+        },
+        {
+          "n": "래린",
+          "m": 33
+        },
+        {
+          "n": "레오 시엔자",
+          "m": 78
+        }
+      ],
+      "away": [
+        {
+          "n": "비포트니크",
+          "m": 52
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-09",
+    "time": "03:45",
+    "league": "EFL",
+    "venueId": "watford_vicarage_road",
+    "home": "왓퍼드",
+    "away": "프레스턴",
+    "stadium": "비커리지 로드",
+    "timeTbd": false,
+    "gameId": "2n8KOshcekINj3A",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "에도 카옘베",
+          "m": 69,
+          "nat": "Congo DR"
+        },
+        {
+          "n": "둠비아",
+          "m": 76,
+          "a": "Iker Bravo",
+          "nat": "Mali",
+          "aNat": "Spain"
+        }
+      ],
+      "away": [
+        {
+          "n": "랭",
+          "m": 5,
+          "nat": "England"
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-09",
+    "time": "03:45",
+    "league": "EFL",
+    "venueId": "wrexham_racecourse_ground",
+    "home": "렉섬",
+    "away": "번리",
+    "stadium": "레이스코스 그라운드",
+    "timeTbd": false,
+    "gameId": "8059agG5ekMqb6q",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "에코미에",
+          "m": 55,
+          "a": "Chris Willock",
+          "nat": "Wales",
+          "aNat": "England"
+        }
+      ],
+      "away": [
+        {
+          "n": "암두니",
+          "m": 26,
+          "a": "Róbert Bozeník",
+          "nat": "England",
+          "aNat": "Slovakia"
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-09",
+    "time": "03:45",
     "league": "EFLCUP",
     "venueId": "bournemouth_dean_court",
     "home": "본머스",
@@ -216424,113 +217081,6 @@
       "away": []
     },
     "phaseCode": "T32"
-  },
-  {
-    "date": "2026-09-09",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "southampton_st_marys",
-    "home": "사우샘프턴",
-    "away": "스완지",
-    "stadium": "세인트 메리스 스타디움",
-    "timeTbd": false,
-    "gameId": "YEzthB2I7ULBOnY",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 3,
-    "scorers": {
-      "home": [
-        {
-          "n": "아자즈",
-          "m": 9
-        },
-        {
-          "n": "래린",
-          "m": 33
-        },
-        {
-          "n": "레오 시엔자",
-          "m": 78
-        }
-      ],
-      "away": [
-        {
-          "n": "비포트니크",
-          "m": 52
-        }
-      ]
-    }
-  },
-  {
-    "date": "2026-09-09",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "watford_vicarage_road",
-    "home": "왓퍼드",
-    "away": "프레스턴",
-    "stadium": "비커리지 로드",
-    "timeTbd": false,
-    "gameId": "2n8KOshcekINj3A",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "에도 카옘베",
-          "m": 69,
-          "nat": "Congo DR"
-        },
-        {
-          "n": "둠비아",
-          "m": 76,
-          "a": "Iker Bravo",
-          "nat": "Mali",
-          "aNat": "Spain"
-        }
-      ],
-      "away": [
-        {
-          "n": "랭",
-          "m": 5,
-          "nat": "England"
-        }
-      ]
-    }
-  },
-  {
-    "date": "2026-09-09",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "wrexham_racecourse_ground",
-    "home": "렉섬",
-    "away": "번리",
-    "stadium": "레이스코스 그라운드",
-    "timeTbd": false,
-    "gameId": "8059agG5ekMqb6q",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 1,
-    "scorers": {
-      "home": [
-        {
-          "n": "에코미에",
-          "m": 55,
-          "a": "Chris Willock",
-          "nat": "Wales",
-          "aNat": "England"
-        }
-      ],
-      "away": [
-        {
-          "n": "암두니",
-          "m": 26,
-          "a": "Róbert Bozeník",
-          "nat": "England",
-          "aNat": "Slovakia"
-        }
-      ]
-    }
   },
   {
     "date": "2026-09-09",
@@ -221101,21 +221651,31 @@
       "home": [
         {
           "n": "스카크",
-          "m": 90
+          "m": 90,
+          "a": "Tom Rothe",
+          "nat": "Germany",
+          "aNat": "Germany"
         }
       ],
       "away": [
         {
           "n": "고젠스",
-          "m": 25
+          "m": 25,
+          "nat": "Germany"
         },
         {
           "n": "아우치체",
-          "m": 46
+          "m": 46,
+          "a": "Junior Adamu",
+          "nat": "Algeria",
+          "aNat": "Austria"
         },
         {
           "n": "외버",
-          "m": 90
+          "m": 90,
+          "a": "Hwang Hee-Chan",
+          "nat": "Austria",
+          "aNat": "South Korea"
         }
       ]
     }
@@ -223331,23 +223891,36 @@
       "home": [
         {
           "n": "엥겔하르트",
-          "m": 23
+          "m": 23,
+          "a": "Derry Scherhant",
+          "nat": "Germany",
+          "aNat": "Germany"
         },
         {
           "n": "마타노비치",
-          "m": 29
+          "m": 29,
+          "a": "Matthias Ginter",
+          "nat": "Croatia",
+          "aNat": "Germany"
         },
         {
           "n": "마타노비치",
-          "m": 77
+          "m": 77,
+          "a": "Jordy Makengo",
+          "nat": "Croatia",
+          "aNat": "France"
         },
         {
           "n": "엥겔하르트",
-          "m": 79
+          "m": 79,
+          "a": "Matthias Ginter",
+          "nat": "Germany",
+          "aNat": "Germany"
         },
         {
           "n": "에게슈타인",
-          "m": 86
+          "m": 86,
+          "nat": "Germany"
         }
       ],
       "away": []
@@ -223370,21 +223943,33 @@
       "home": [
         {
           "n": "티에츠",
-          "m": 89
+          "m": 89,
+          "a": "Otto Ruoppi",
+          "nat": "Germany",
+          "aNat": "Finland"
         }
       ],
       "away": [
         {
           "n": "우준",
-          "m": 9
+          "m": 9,
+          "a": "Jonathan Burkardt",
+          "nat": "Türkiye",
+          "aNat": "Germany"
         },
         {
           "n": "버카르트",
-          "m": 45
+          "m": 45,
+          "a": "Jeremiaha Maluze",
+          "nat": "Germany",
+          "aNat": "Germany"
         },
         {
           "n": "우준",
-          "m": 60
+          "m": 60,
+          "a": "Mario Götze",
+          "nat": "Türkiye",
+          "aNat": "Germany"
         }
       ]
     }
@@ -223406,17 +223991,24 @@
       "home": [
         {
           "n": "흘로제크",
-          "m": 13
+          "m": 13,
+          "a": "Bambasé Conté",
+          "nat": "Czechia",
+          "aNat": "Germany"
         },
         {
           "n": "흘로제크",
-          "m": 67
+          "m": 67,
+          "a": "Adam Daghim",
+          "nat": "Czechia",
+          "aNat": "Denmark"
         }
       ],
       "away": [
         {
           "n": "미텔슈테트",
-          "m": 48
+          "m": 48,
+          "nat": "Germany"
         }
       ]
     }
@@ -223438,15 +224030,24 @@
       "home": [
         {
           "n": "파비우 실바",
-          "m": 5
+          "m": 5,
+          "a": "Serhou Guirassy",
+          "nat": "Portugal",
+          "aNat": "Guinea"
         },
         {
           "n": "은메차",
-          "m": 80
+          "m": 80,
+          "a": "Maximilian Beier",
+          "nat": "Germany",
+          "aNat": "Germany"
         },
         {
           "n": "은메차",
-          "m": 89
+          "m": 89,
+          "a": "Marcel Sabitzer",
+          "nat": "Germany",
+          "aNat": "Austria"
         }
       ],
       "away": []
@@ -223469,21 +224070,33 @@
       "home": [
         {
           "n": "그레고리치",
-          "m": 50
+          "m": 50,
+          "a": "Hennes Behrens",
+          "nat": "Austria",
+          "aNat": "Germany"
         },
         {
           "n": "그레고리치",
-          "m": 55
+          "m": 55,
+          "a": "Fabian Rieder",
+          "nat": "Austria",
+          "aNat": "Switzerland"
         }
       ],
       "away": [
         {
           "n": "코파네",
-          "m": 18
+          "m": 18,
+          "a": "Edmond Tapsoba",
+          "nat": "Cameroon",
+          "aNat": "Burkina Faso"
         },
         {
           "n": "시크",
-          "m": 89
+          "m": 89,
+          "a": "Malik Tillman",
+          "nat": "Czechia",
+          "aNat": "USA"
         }
       ]
     }
@@ -224393,13 +225006,17 @@
       "home": [
         {
           "n": "마이나",
-          "m": 11
+          "m": 11,
+          "a": "Ellyes Skhiri",
+          "nat": "Germany",
+          "aNat": "Tunisia"
         }
       ],
       "away": [
         {
           "n": "퓔크루크",
-          "m": 69
+          "m": 69,
+          "nat": "Germany"
         }
       ]
     }
@@ -226285,7 +226902,7 @@
     "timeTbd": false,
     "gameId": "202609133521173",
     "status": "live",
-    "awayScore": 1,
+    "awayScore": 2,
     "homeScore": 2,
     "scorers": {
       "home": [
@@ -226302,6 +226919,11 @@
         {
           "n": "박상혁",
           "m": 73
+        },
+        {
+          "n": "김대원",
+          "m": 93,
+          "pk": true
         }
       ]
     },
@@ -226411,9 +227033,9 @@
     "status": "live",
     "awayPitcher": "임찬규",
     "homePitcher": "최원태",
-    "awayScore": 3,
+    "awayScore": 7,
     "homeScore": 2,
-    "inningInfo": "4회초"
+    "inningInfo": "4회말"
   },
   {
     "date": "2026-09-13",
@@ -226429,8 +227051,8 @@
     "awayPitcher": "화이트",
     "homePitcher": "시라카와",
     "awayScore": 2,
-    "homeScore": 2,
-    "inningInfo": "4회말"
+    "homeScore": 3,
+    "inningInfo": "5회초"
   },
   {
     "date": "2026-09-13",
@@ -226445,9 +227067,9 @@
     "status": "live",
     "awayPitcher": "토다",
     "homePitcher": "최민석",
-    "awayScore": 0,
+    "awayScore": 2,
     "homeScore": 7,
-    "inningInfo": "3회말"
+    "inningInfo": "4회초"
   },
   {
     "date": "2026-09-13",
@@ -226464,7 +227086,7 @@
     "homePitcher": "소형준",
     "awayScore": 0,
     "homeScore": 3,
-    "inningInfo": "4회말"
+    "inningInfo": "5회초"
   },
   {
     "date": "2026-09-13",
@@ -226481,7 +227103,7 @@
     "homePitcher": "다케우치",
     "awayScore": 4,
     "homeScore": 1,
-    "inningInfo": "4회말"
+    "inningInfo": "5회말"
   },
   {
     "date": "2026-09-13",
@@ -226512,7 +227134,7 @@
     "homePitcher": "다카하시",
     "awayScore": 0,
     "homeScore": 0,
-    "inningInfo": "1회말"
+    "inningInfo": "2회말"
   },
   {
     "date": "2026-09-13",
@@ -226529,7 +227151,7 @@
     "homePitcher": "사이키",
     "awayScore": 0,
     "homeScore": 0,
-    "inningInfo": "1회말"
+    "inningInfo": "2회말"
   },
   {
     "date": "2026-09-13",
@@ -226545,8 +227167,8 @@
     "awayPitcher": "오가사와라",
     "homePitcher": "다케다",
     "awayScore": 0,
-    "homeScore": 0,
-    "inningInfo": "1회말"
+    "homeScore": 4,
+    "inningInfo": "2회초"
   },
   {
     "date": "2026-09-13",
@@ -229240,6 +229862,18 @@
   {
     "date": "2026-09-16",
     "time": "03:45",
+    "league": "EFL",
+    "venueId": "middlesbrough_riverside",
+    "home": "미들즈브러",
+    "away": "밀월",
+    "stadium": "리버사이드 스타디움",
+    "timeTbd": false,
+    "gameId": "YK3SlqCpysSMqvp",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-09-16",
+    "time": "03:45",
     "league": "EFLCUP",
     "venueId": "westham_london_stadium",
     "home": "웨스트햄",
@@ -229249,18 +229883,6 @@
     "gameId": "BEYKs4U9wOfqzBu",
     "status": "scheduled",
     "phaseCode": "T32"
-  },
-  {
-    "date": "2026-09-16",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "middlesbrough_riverside",
-    "home": "미들즈브러",
-    "away": "밀월",
-    "stadium": "리버사이드 스타디움",
-    "timeTbd": false,
-    "gameId": "YK3SlqCpysSMqvp",
-    "status": "scheduled"
   },
   {
     "date": "2026-09-16",
@@ -229883,19 +230505,6 @@
   {
     "date": "2026-09-16",
     "time": "19:00",
-    "league": "ACL2",
-    "venueId": "seoulwc",
-    "home": "서울",
-    "away": "반둥",
-    "stadium": "서울월드컵경기장",
-    "timeTbd": false,
-    "gameId": "2idpicTW6SmPYVP",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-09-16",
-    "time": "19:00",
     "league": "ACL",
     "venueId": "jeonju",
     "home": "전북",
@@ -229903,6 +230512,19 @@
     "stadium": "전주월드컵경기장",
     "timeTbd": false,
     "gameId": "0WBFlYqROuXJyd0",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-09-16",
+    "time": "19:00",
+    "league": "ACL2",
+    "venueId": "seoulwc",
+    "home": "서울",
+    "away": "반둥",
+    "stadium": "서울월드컵경기장",
+    "timeTbd": false,
+    "gameId": "2idpicTW6SmPYVP",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -229933,19 +230555,6 @@
   {
     "date": "2026-09-16",
     "time": "21:15",
-    "league": "ACL2",
-    "venueId": "cahn_hang_day",
-    "home": "비에트텔",
-    "away": "멜버른 FC",
-    "stadium": "선번동 항더이 (항더이 스타디움)",
-    "timeTbd": false,
-    "gameId": "gqA22tVR2bUJFof",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-09-16",
-    "time": "21:15",
     "league": "ACL",
     "venueId": "port_fc_thammasat",
     "home": "포트",
@@ -229953,6 +230562,19 @@
     "stadium": "탐마삿 스타디움",
     "timeTbd": false,
     "gameId": "zFLANpfUBEd95sS",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-09-16",
+    "time": "21:15",
+    "league": "ACL2",
+    "venueId": "cahn_hang_day",
+    "home": "비에트텔",
+    "away": "멜버른 FC",
+    "stadium": "선번동 항더이 (항더이 스타디움)",
+    "timeTbd": false,
+    "gameId": "gqA22tVR2bUJFof",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -246644,19 +247266,6 @@
   {
     "date": "2026-10-14",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "al_seeb_stadium",
-    "home": "알 시브",
-    "away": "알 후세인",
-    "stadium": "알-시브 스타디움",
-    "timeTbd": false,
-    "gameId": "OQsSGAzKGbKHXDT",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-14",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "al_sadd_jassim_bin_hamad",
     "home": "알 사드",
@@ -246664,6 +247273,19 @@
     "stadium": "자심 빈 하마드 스타디움",
     "timeTbd": false,
     "gameId": "zcfrVKksVO8hhNi",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-14",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "al_seeb_stadium",
+    "home": "알 시브",
+    "away": "알 후세인",
+    "stadium": "알-시브 스타디움",
+    "timeTbd": false,
+    "gameId": "OQsSGAzKGbKHXDT",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -252179,19 +252801,6 @@
   {
     "date": "2026-10-28",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "al_seeb_stadium",
-    "home": "알 시브",
-    "away": "이스트 벵갈",
-    "stadium": "알-시브 스타디움",
-    "timeTbd": false,
-    "gameId": "AW3p0efTl1zL9Jt",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-28",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "shabab_alahli_al_rashid",
     "home": "샤바브 알 아흘리",
@@ -252199,6 +252808,19 @@
     "stadium": "알라시드 스타디움",
     "timeTbd": false,
     "gameId": "uVJg9XVeZVSJFpb",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-28",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "al_seeb_stadium",
+    "home": "알 시브",
+    "away": "이스트 벵갈",
+    "stadium": "알-시브 스타디움",
+    "timeTbd": false,
+    "gameId": "AW3p0efTl1zL9Jt",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -252269,19 +252891,6 @@
   {
     "date": "2026-10-28",
     "time": "03:15",
-    "league": "ACL2",
-    "venueId": "al_zawraa_stadium",
-    "home": "알 쇼르타",
-    "away": "알 후세인",
-    "stadium": "알-자우라 스타디움",
-    "timeTbd": false,
-    "gameId": "HCihM9DqxKOXBbt",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-28",
-    "time": "03:15",
     "league": "ACL",
     "venueId": "al_shamal_al_bayt",
     "home": "알샤말",
@@ -252289,6 +252898,19 @@
     "stadium": "알베이트 스타디움",
     "timeTbd": false,
     "gameId": "3aZWRb5fy3Nyk9x",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-28",
+    "time": "03:15",
+    "league": "ACL2",
+    "venueId": "al_zawraa_stadium",
+    "home": "알 쇼르타",
+    "away": "알 후세인",
+    "stadium": "알-자우라 스타디움",
+    "timeTbd": false,
+    "gameId": "HCihM9DqxKOXBbt",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -254681,19 +255303,6 @@
   {
     "date": "2026-11-04",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "amman_international_stadium",
-    "home": "알 후세인",
-    "away": "알 쇼르타",
-    "stadium": "암만 인터내셔널 스태디엄",
-    "timeTbd": false,
-    "gameId": "87Yzcj2B505kzbh",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-11-04",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "basra_international",
     "home": "에스테그랄",
@@ -254701,6 +255310,19 @@
     "stadium": "바스라 인터내셔널 스타디움",
     "timeTbd": false,
     "gameId": "CbaeNHtf2qOthye",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-11-04",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "amman_international_stadium",
+    "home": "알 후세인",
+    "away": "알 쇼르타",
+    "stadium": "암만 인터내셔널 스태디엄",
+    "timeTbd": false,
+    "gameId": "87Yzcj2B505kzbh",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -254958,19 +255580,6 @@
   {
     "date": "2026-11-04",
     "time": "19:00",
-    "league": "ACL2",
-    "venueId": "seoulwc",
-    "home": "서울",
-    "away": "비에트텔",
-    "stadium": "서울월드컵경기장",
-    "timeTbd": false,
-    "gameId": "lZapB69mvTiiYds",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-11-04",
-    "time": "19:00",
     "league": "ACL",
     "venueId": "pohang",
     "home": "포항",
@@ -254978,6 +255587,19 @@
     "stadium": "포항스틸야드",
     "timeTbd": false,
     "gameId": "pmIB9z9UAQ4XPV2",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-11-04",
+    "time": "19:00",
+    "league": "ACL2",
+    "venueId": "seoulwc",
+    "home": "서울",
+    "away": "비에트텔",
+    "stadium": "서울월드컵경기장",
+    "timeTbd": false,
+    "gameId": "lZapB69mvTiiYds",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -260307,19 +260929,6 @@
   {
     "date": "2026-11-25",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "al_seeb_stadium",
-    "home": "알 시브",
-    "away": "알 쇼르타",
-    "stadium": "알-시브 스타디움",
-    "timeTbd": false,
-    "gameId": "zVJrrC6Kzu5rPRu",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-11-25",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "shabab_alahli_al_rashid",
     "home": "샤바브 알 아흘리",
@@ -260327,6 +260936,19 @@
     "stadium": "알라시드 스타디움",
     "timeTbd": false,
     "gameId": "Rsba5lmQWhdIFqs",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-11-25",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "al_seeb_stadium",
+    "home": "알 시브",
+    "away": "알 쇼르타",
+    "stadium": "알-시브 스타디움",
+    "timeTbd": false,
+    "gameId": "zVJrrC6Kzu5rPRu",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
