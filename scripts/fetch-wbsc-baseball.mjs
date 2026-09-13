@@ -138,10 +138,27 @@ async function notifyUnknowns(unknownTeams, unknownVenues) {
   }
 }
 
+// 대회 하나만 조회 실패해도 try/catch로 조용히 넘어가던 게 2026-09-12~13 wbscasia.org
+// 장애를 하루 넘게 못 알아챈 원인(다른 3개 wbsc.org 대회는 정상이라 워크플로 자체는 계속
+// success로 표시됨) — 이제 실패한 대회 목록을 모아 개별 Discord 알림으로 즉시 노출.
+async function notifyFetchFailures(failed) {
+  if (failed.length === 0) return;
+  const webhook = process.env.DISCORD_WEBHOOK_URL;
+  if (!webhook) return;
+  const lines = failed.map(({ league, tournamentkey, error }) => `• ${league} (${tournamentkey}): ${error}`);
+  const content = `🔴 그늘각 — WBSC 야구 일부 대회 조회 실패(워크플로는 success로 표시되지만 데이터 갱신 안 됨)\n${lines.join('\n')}`;
+  try {
+    await fetch(webhook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ content }) });
+  } catch (e) {
+    console.warn('[discord] wbsc-baseball fetch-failure notify failed:', e.message);
+  }
+}
+
 async function main() {
   const unknownTeams = new Set();
   const unknownVenues = new Set();
   const allNew = [];
+  const failedTournaments = [];
   for (const { tournamentkey, league, domain } of TOURNAMENTS) {
     console.log(`Fetching ${league} (${tournamentkey}) ...`);
     await sleep(REQUEST_DELAY_MS);
@@ -150,12 +167,14 @@ async function main() {
       gs = await fetchWbscBaseballTournament(tournamentkey, league, unknownTeams, unknownVenues, domain);
     } catch (e) {
       console.warn(`  failed: ${e.message}`);
+      failedTournaments.push({ league, tournamentkey, error: e.message });
       continue;
     }
     console.log(`  -> ${gs.length} games`);
     allNew.push(...gs);
   }
   await notifyUnknowns(unknownTeams, unknownVenues);
+  await notifyFetchFailures(failedTournaments);
 
   const gamesPath = path.join(REPO_ROOT, 'games.json');
   const games = JSON.parse(await fs.readFile(gamesPath, 'utf-8'));
