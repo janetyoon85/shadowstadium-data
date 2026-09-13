@@ -524,7 +524,13 @@ function extractEspnGoalsBySide(summaryJson, homeTeamName, awayTeamName) {
     // 득점자 국적용 — participants[0]이 득점 선수(자책골이면 자책한 선수, team은 이미 위 주석대로
     // "수혜팀" 기준이라 국적 조회 대상 선수 소속팀 id로 team.id를 그대로 씀).
     const scorerAthleteId = e.participants?.[0]?.athlete?.id;
-    const entry = { a: assist, m: Number.isFinite(clockNum) ? clockNum : null, teamId: e.team?.id, athleteId: scorerAthleteId };
+    // 어시스트 국적용 — participants[1]이 어시스트 선수(같은 팀 소속이라 team.id 재사용). 자책골/
+    // 무도움골은 participants가 1명뿐이라 자연히 undefined.
+    const assistAthleteId = isOwnGoal ? undefined : e.participants?.[1]?.athlete?.id;
+    const entry = {
+      a: assist, m: Number.isFinite(clockNum) ? clockNum : null,
+      teamId: e.team?.id, athleteId: scorerAthleteId, assistAthleteId,
+    };
     (side === 'home' ? home : away).push(entry);
   }
   return { home, away };
@@ -711,7 +717,8 @@ async function enrichEuroAssists(allGames) {
 
   for (const g of targets) {
     const cached = cache[g.gameId];
-    const isBackfillOnly = cached && cached.final !== false && g.status !== 'live' && (!('homeNats' in cached) || !('awayNats' in cached));
+    const isBackfillOnly = cached && cached.final !== false && g.status !== 'live' &&
+      (!('homeNats' in cached) || !('awayNats' in cached) || !('homeANats' in cached) || !('awayANats' in cached));
     if (isBackfillOnly && backfillUsed >= BACKFILL_BUDGET) continue; // 이번 실행 예산 소진 — 다음 실행에서 재시도.
     const needsFetch = !cached || g.status === 'live' || (g.status === 'completed' && cached.final === false) || isBackfillOnly;
     if (isBackfillOnly) backfillUsed++;
@@ -745,7 +752,7 @@ async function enrichEuroAssists(allGames) {
           // completed 인데 이벤트 자체를 못 찾으면(ESPN 미중계 등) 영구 불가로 보고 확정 캐시 —
           // live 는 다음 run 에 스코어보드가 갱신될 수 있어 재시도 유지(캐시 안 함).
           if (g.status === 'completed') {
-            cache[g.gameId] = { homeAssists: [], awayAssists: [], homeNats: [], awayNats: [], final: true };
+            cache[g.gameId] = { homeAssists: [], awayAssists: [], homeNats: [], awayNats: [], homeANats: [], awayANats: [], final: true };
           }
           if (!cached) continue;
         } else {
@@ -762,7 +769,7 @@ async function enrichEuroAssists(allGames) {
             // completed 인데 골 개수가 계속 안 맞으면(팀명 매칭 실패 등 구조적 문제) 매 10분 재시도해도
             // 안 맞을 확률이 높음 — 확정 캐시로 고정해 무한 재시도 방지(live 는 계속 재시도).
             if (g.status === 'completed') {
-              cache[g.gameId] = { homeAssists: [], awayAssists: [], homeNats: [], awayNats: [], final: true };
+              cache[g.gameId] = { homeAssists: [], awayAssists: [], homeNats: [], awayNats: [], homeANats: [], awayANats: [], final: true };
             }
             if (!cached) continue;
           } else {
@@ -781,6 +788,11 @@ async function enrichEuroAssists(allGames) {
                   const nat = await getAthleteNationality('soccer', slug, espnEntry.teamId, espnEntry.athleteId);
                   if (nat) s.nat = nat;
                 }
+                // 어시스트 국적 — 어시스트 선수는 득점자와 같은 팀이라 teamId 재사용.
+                if (espnEntry?.teamId && espnEntry?.assistAthleteId) {
+                  const aNat = await getAthleteNationality('soccer', slug, espnEntry.teamId, espnEntry.assistAthleteId);
+                  if (aNat) s.aNat = aNat;
+                }
               }
             };
             await zip(g.scorers.home || [], espnGoals.home);
@@ -790,6 +802,8 @@ async function enrichEuroAssists(allGames) {
               awayAssists: (g.scorers.away || []).map((s) => s.a || null),
               homeNats: (g.scorers.home || []).map((s) => s.nat || null),
               awayNats: (g.scorers.away || []).map((s) => s.nat || null),
+              homeANats: (g.scorers.home || []).map((s) => s.aNat || null),
+              awayANats: (g.scorers.away || []).map((s) => s.aNat || null),
               final: g.status === 'completed',
             };
             fetched++;
@@ -809,10 +823,12 @@ async function enrichEuroAssists(allGames) {
       (g.scorers.home || []).forEach((s, i) => {
         if (c.homeAssists?.[i]) s.a = c.homeAssists[i];
         if (c.homeNats?.[i]) s.nat = c.homeNats[i];
+        if (c.homeANats?.[i]) s.aNat = c.homeANats[i];
       });
       (g.scorers.away || []).forEach((s, i) => {
         if (c.awayAssists?.[i]) s.a = c.awayAssists[i];
         if (c.awayNats?.[i]) s.nat = c.awayNats[i];
+        if (c.awayANats?.[i]) s.aNat = c.awayANats[i];
       });
     }
   }
