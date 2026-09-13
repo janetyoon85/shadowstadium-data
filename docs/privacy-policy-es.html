@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Política de privacidad de Ángulo de Sombra</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; line-height: 1.7; color: #222; background: #fafafa; }
+  h1 { color: #14102a; border-bottom: 3px solid #ffd180; padding-bottom: 12px; }
+  h2 { color: #14102a; margin-top: 32px; padding-left: 8px; border-left: 4px solid #ffd180; }
+  .meta { color: #666; font-size: 0.9em; margin-bottom: 24px; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+  th, td { border: 1px solid #ddd; padding: 10px 12px; text-align: left; }
+  th { background: #f0f0f0; font-weight: 600; }
+  ul, ol { padding-left: 24px; }
+  li { margin-bottom: 4px; }
+  .contact { background: #fff8e6; padding: 16px; border-radius: 8px; margin-top: 24px; }
+  a { color: #c25500; }
+</style>
+</head>
+<body>
+
+<h1>Política de privacidad de Ángulo de Sombra (ShadowStadium)</h1>
+
+<div class="meta">
+  <strong>Fecha de vigencia:</strong> 1 de junio de 2026<br>
+  <strong>Última modificación:</strong> 1 de junio de 2026<br>
+  <strong>Versión:</strong> 1.0
+</div>
+
+<p>
+  Esta Política de privacidad explica cómo la aplicación móvil "Ángulo de Sombra (ShadowStadium)" (la "App") recopila, utiliza y protege la información relacionada con su uso de la App. El desarrollador de esta App valora su privacidad y cumple con las leyes aplicables.
+</p>
+
+<h2>1. Información personal que recopilamos directamente</h2>
+<p>Esta App <strong>no recopila directamente ninguna información personal de los usuarios.</strong></p>
+<ul>
+  <li>No existe función de registro ni creación de cuenta</li>
+  <li>No se solicita información identificativa como nombre, teléfono o correo electrónico</li>
+  <li>No se solicita acceso a la ubicación (GPS) del dispositivo</li>
+  <li>No se solicitan permisos sensibles como cámara, micrófono, contactos o almacenamiento</li>
+</ul>
+
+<h2>2. Información almacenada en su dispositivo</h2>
+<p>Para su comodidad, esta App almacena la siguiente información <strong>solo en su dispositivo</strong>. Esta información nunca se envía a un servidor externo y se elimina al desinstalar la App.</p>
+<table>
+  <tr><th>Elemento almacenado</th><th>Finalidad</th></tr>
+  <tr><td>Lista de estadios favoritos</td><td>Visualización prioritaria en la pantalla principal</td></tr>
+  <tr><td>Lista de equipos favoritos</td><td>Alertas automáticas de los partidos de tu equipo</td></tr>
+  <tr><td>Configuración de tiempo de alerta (1/3/6/12/24 horas)</td><td>Preferencias de notificación del usuario</td></tr>
+  <tr><td>Estado de activación/desactivación de alertas</td><td>Gestión de alertas por partido</td></tr>
+  <tr><td>Caché del calendario de partidos</td><td>Soporte de uso sin conexión</td></tr>
+</table>
+
+<h2>3. Uso de servicios de terceros</h2>
+<p>Esta App utiliza los siguientes servicios de terceros, que pueden recopilar cierta información por su cuenta.</p>
+
+<h3>3.1 Google AdMob (Publicidad)</h3>
+<p>Esta App utiliza Google AdMob para mostrar anuncios de banner. AdMob puede recopilar automáticamente la siguiente información:</p>
+<ul>
+  <li>Identificador de publicidad (Android Advertising ID / iOS IDFA)</li>
+  <li>Información del dispositivo (modelo, versión del sistema operativo, tamaño de pantalla, configuración de idioma)</li>
+  <li>Dirección IP y ubicación aproximada (a nivel de país/región)</li>
+  <li>Registros de impresiones e interacciones con anuncios</li>
+</ul>
+<p>Puede restablecer su identificador de publicidad o desactivar los anuncios personalizados en la configuración de su dispositivo.</p>
+<p>Más información: <a href="https://policies.google.com/privacy" target="_blank">Política de privacidad de Google</a></p>
+
+<h3>3.2 Llamadas a API externas (solo se envía la ubicación del estadio)</h3>
+<p>Esta App llama a las siguientes API para obtener calendarios de partidos e información meteorológica. No se envía información personal del usuario.</p>
+<table>
+  <tr><th>Servicio</th><th>Datos enviados</th><th>Finalidad</th></tr>
+  <tr><td>Naver Sports API</td><td>Ninguno (solo se consulta el calendario público)</td><td>Calendarios de KBO/K League</td></tr>
+  <tr><td>Open-Meteo</td><td>Coordenadas del estadio (no la ubicación del usuario)</td><td>Pronóstico del tiempo por estadio</td></tr>
+</table>
+<p>Al llamar a estas API, la dirección IP del dispositivo puede transmitirse a los servidores correspondientes, pero no se envía información personal identificable.</p>
+
+<h2>4. Notificaciones</h2>
+<p>Esta App envía alertas para los horarios de partidos que usted configura. Todas las notificaciones se <strong>procesan localmente en su dispositivo</strong>, y esta App no recibe notificaciones push de un servidor externo. Puede cambiar o desactivar la configuración de alertas en cualquier momento.</p>
+
+<h2>5. Uso de permisos</h2>
+<table>
+  <tr><th>Permiso</th><th>Finalidad</th></tr>
+  <tr><td>Enviar notificaciones (POST_NOTIFICATIONS)</td><td>Alertas antes del inicio de los partidos</td></tr>
+  <tr><td>Alarmas exactas (USE_EXACT_ALARM)</td><td>Garantizar la precisión del horario de las alertas</td></tr>
+  <tr><td>Internet (INTERNET, ACCESS_NETWORK_STATE)</td><td>Obtener calendarios/clima, mostrar anuncios</td></tr>
+  <tr><td>ID de publicidad (AD_ID)</td><td>Anuncios personalizados (el usuario puede desactivarlos)</td></tr>
+</table>
+
+<h2>6. Privacidad de los menores</h2>
+<p>Esta App no está dirigida a menores de 13 años, y no recopilamos conscientemente información personal de usuarios menores de 13 años.</p>
+
+<h2>7. Sus derechos</h2>
+<p>Usted puede ejercer los siguientes derechos:</p>
+<ul>
+  <li>Eliminar de inmediato toda la información almacenada en su dispositivo desinstalando la App</li>
+  <li>Cambiar los permisos de notificación en la configuración de su dispositivo</li>
+  <li>Restablecer su identificador de publicidad o rechazar los anuncios personalizados en la configuración de su dispositivo</li>
+</ul>
+
+<h2>8. Cambios en esta Política</h2>
+<p>Esta Política de privacidad puede revisarse debido a cambios legales o del servicio, y cualquier cambio se publicará en esta página. Si hay cambios significativos, se lo notificaremos mediante un aviso dentro de la App o una nota de actualización.</p>
+
+<h2>9. Contacto</h2>
+<div class="contact">
+  Si tiene preguntas sobre privacidad, contáctenos a continuación.<br><br>
+  <strong>Operador:</strong> Bobae Yoon<br>
+  <strong>Correo electrónico:</strong> ybbbenny@gmail.com<br>
+  <strong>Tiempo de respuesta:</strong> Dentro de 7 días hábiles
+</div>
+
+</body>
+</html>

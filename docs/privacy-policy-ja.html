@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>그늘각 プライバシーポリシー</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; line-height: 1.7; color: #222; background: #fafafa; }
+  h1 { color: #14102a; border-bottom: 3px solid #ffd180; padding-bottom: 12px; }
+  h2 { color: #14102a; margin-top: 32px; padding-left: 8px; border-left: 4px solid #ffd180; }
+  .meta { color: #666; font-size: 0.9em; margin-bottom: 24px; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+  th, td { border: 1px solid #ddd; padding: 10px 12px; text-align: left; }
+  th { background: #f0f0f0; font-weight: 600; }
+  ul, ol { padding-left: 24px; }
+  li { margin-bottom: 4px; }
+  .contact { background: #fff8e6; padding: 16px; border-radius: 8px; margin-top: 24px; }
+  a { color: #c25500; }
+</style>
+</head>
+<body>
+
+<h1>그늘각 (ShadowStadium) プライバシーポリシー</h1>
+
+<div class="meta">
+  <strong>施行日:</strong> 2026年6月1日<br>
+  <strong>最終改訂日:</strong> 2026年6月1日<br>
+  <strong>バージョン:</strong> 1.0
+</div>
+
+<p>
+  本プライバシーポリシーは、モバイルアプリケーション「그늘각（ShadowStadium）」（以下「本アプリ」）の利用に関連する情報の収集・利用・保護について説明するものです。本アプリの開発者はユーザーのプライバシーを尊重し、関連法令を遵守します。
+</p>
+
+<h2>1. 直接収集する個人情報</h2>
+<p>
+  本アプリは<strong>ユーザーの個人情報を直接収集しません。</strong>
+</p>
+<ul>
+  <li>会員登録機能なし</li>
+  <li>氏名、電話番号、メールアドレスなどの識別情報の入力を求めません</li>
+  <li>端末の位置情報（GPS）へのアクセス権限を要求しません</li>
+  <li>カメラ、マイク、連絡先、ストレージなどの機微な権限を要求しません</li>
+</ul>
+
+<h2>2. 端末内に保存される情報</h2>
+<p>
+  本アプリは利便性のため、次の情報を<strong>ユーザーの端末内にのみ</strong>保存します。この情報は外部サーバーに送信されず、アプリ削除時に一緒に削除されます。
+</p>
+<table>
+  <tr><th>保存項目</th><th>用途</th></tr>
+  <tr><td>お気に入り球場リスト</td><td>ホーム画面での優先表示</td></tr>
+  <tr><td>お気に入りチームリスト</td><td>自チームの試合の自動通知</td></tr>
+  <tr><td>通知タイミング設定（1/3/6/12/24時間）</td><td>ユーザー通知環境設定</td></tr>
+  <tr><td>通知ON/OFF状態</td><td>試合ごとの通知管理</td></tr>
+  <tr><td>試合日程キャッシュ</td><td>オフライン利用のサポート</td></tr>
+</table>
+
+<h2>3. 第三者サービスの利用</h2>
+<p>本アプリは以下の第三者サービスを利用しており、当該サービスが自ら一部の情報を収集する場合があります。</p>
+
+<h3>3.1 Google AdMob（広告）</h3>
+<p>本アプリはバナー広告表示のためにGoogle AdMobを使用します。AdMobは次の情報を自動的に収集することがあります：</p>
+<ul>
+  <li>広告識別子（Android Advertising ID / iOS IDFA）</li>
+  <li>端末情報（機種名、OSバージョン、画面サイズ、言語設定）</li>
+  <li>IPアドレスおよびおおよその位置（国・地域レベル）</li>
+  <li>広告表示およびインタラクションの記録</li>
+</ul>
+<p>ユーザーは端末設定から広告識別子をリセットしたり、パーソナライズ広告をオプトアウトしたりできます。</p>
+<p>詳細：<a href="https://policies.google.com/privacy" target="_blank">Googleプライバシーポリシー</a></p>
+
+<h3>3.2 外部API呼び出し（球場位置情報のみ送信）</h3>
+<p>本アプリは試合日程および天気情報を取得するために以下のAPIを呼び出しますが、ユーザーの個人情報は送信しません。</p>
+<table>
+  <tr><th>サービス</th><th>送信情報</th><th>用途</th></tr>
+  <tr><td>Naver Sports API</td><td>なし（公開日程のみ照会）</td><td>KBO・Kリーグの試合日程</td></tr>
+  <tr><td>Open-Meteo</td><td>球場の緯度経度座標（ユーザーの位置情報ではありません）</td><td>球場別の天気予報</td></tr>
+</table>
+<p>上記API呼び出し時、端末のIPアドレスが該当サーバーに送信される場合がありますが、識別可能な個人情報は送信されません。</p>
+
+<h2>4. 通知（Notifications）</h2>
+<p>
+  本アプリはユーザーが設定した試合時刻の通知を送信します。すべての通知は<strong>端末内でローカルに処理</strong>され、外部サーバーからのプッシュ通知は受信しません。通知設定はユーザーがいつでも変更・解除できます。
+</p>
+
+<h2>5. 権限使用について</h2>
+<table>
+  <tr><th>権限</th><th>用途</th></tr>
+  <tr><td>通知の送信（POST_NOTIFICATIONS）</td><td>試合開始前の通知</td></tr>
+  <tr><td>正確なアラーム（USE_EXACT_ALARM）</td><td>通知時刻の正確性を保証</td></tr>
+  <tr><td>インターネット（INTERNET, ACCESS_NETWORK_STATE）</td><td>試合日程・天気の取得、広告表示</td></tr>
+  <tr><td>広告ID（AD_ID）</td><td>パーソナライズ広告（ユーザーはオプトアウト可能）</td></tr>
+</table>
+
+<h2>6. 児童のプライバシー保護</h2>
+<p>本アプリは13歳未満の児童を対象としておらず、13歳未満のユーザーから意図的に個人情報を収集することはありません。</p>
+
+<h2>7. ユーザーの権利</h2>
+<p>ユーザーは以下の権利を行使できます：</p>
+<ul>
+  <li>アプリの削除により端末内に保存されたすべての情報を即座に削除</li>
+  <li>端末設定から通知権限を変更</li>
+  <li>端末設定から広告識別子をリセットまたはパーソナライズ広告を拒否</li>
+</ul>
+
+<h2>8. ポリシーの変更</h2>
+<p>本プライバシーポリシーは法令またはサービスの変更に応じて改訂される場合があり、変更時は本ページに掲載します。重大な変更がある場合は、アプリ内通知またはアップデートノートを通じてお知らせします。</p>
+
+<h2>9. お問い合わせ</h2>
+<div class="contact">
+  プライバシーに関するお問い合わせは以下までご連絡ください。<br><br>
+  <strong>運営者:</strong> Bobae Yoon<br>
+  <strong>メールアドレス:</strong> ybbbenny@gmail.com<br>
+  <strong>回答期限:</strong> 営業日基準7日以内
+</div>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>陰涼角隱私政策</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; line-height: 1.8; color: #222; background: #fafafa; }
+  h1 { color: #14102a; border-bottom: 3px solid #ffd180; padding-bottom: 12px; }
+  h2 { color: #14102a; margin-top: 32px; padding-left: 8px; border-left: 4px solid #ffd180; }
+  .meta { color: #666; font-size: 0.9em; margin-bottom: 24px; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+  th, td { border: 1px solid #ddd; padding: 10px 12px; text-align: left; }
+  th { background: #f0f0f0; font-weight: 600; }
+  ul, ol { padding-left: 24px; }
+  li { margin-bottom: 4px; }
+  .contact { background: #fff8e6; padding: 16px; border-radius: 8px; margin-top: 24px; }
+  a { color: #c25500; }
+</style>
+</head>
+<body>
+
+<h1>陰涼角（ShadowStadium）隱私政策</h1>
+
+<div class="meta">
+  <strong>生效日期：</strong>2026年6月1日<br>
+  <strong>最後修訂日期：</strong>2026年6月1日<br>
+  <strong>版本：</strong>1.0
+</div>
+
+<p>
+  本隱私政策說明了行動應用程式「陰涼角（ShadowStadium）」（以下簡稱「本應用」）在您使用本應用過程中如何收集、使用及保護相關資訊。本應用的開發者重視您的隱私，並遵守相關法律法規。
+</p>
+
+<h2>1. 我們直接收集的個人資訊</h2>
+<p>本應用<strong>不直接收集使用者的任何個人資訊。</strong></p>
+<ul>
+  <li>無註冊或建立帳戶功能</li>
+  <li>不要求輸入姓名、電話、電子郵件等身分識別資訊</li>
+  <li>不請求存取裝置的位置資訊（GPS）</li>
+  <li>不請求相機、麥克風、通訊錄、儲存空間等敏感權限</li>
+</ul>
+
+<h2>2. 儲存在您裝置中的資訊</h2>
+<p>為方便您使用，本應用會將以下資訊<strong>僅儲存在您的裝置中</strong>。這些資訊不會傳送到外部伺服器，並會在解除安裝應用時一併刪除。</p>
+<table>
+  <tr><th>儲存項目</th><th>用途</th></tr>
+  <tr><td>收藏球場清單</td><td>在首頁優先顯示</td></tr>
+  <tr><td>收藏球隊清單</td><td>自動提醒您球隊的比賽</td></tr>
+  <tr><td>提醒時間設定（1/3/6/12/24小時）</td><td>使用者通知偏好設定</td></tr>
+  <tr><td>提醒開關狀態</td><td>依比賽管理提醒</td></tr>
+  <tr><td>比賽賽程快取</td><td>支援離線使用</td></tr>
+</table>
+
+<h2>3. 第三方服務的使用</h2>
+<p>本應用使用以下第三方服務，這些服務可能會自行收集某些資訊。</p>
+
+<h3>3.1 Google AdMob（廣告）</h3>
+<p>本應用使用Google AdMob顯示橫幅廣告。AdMob可能會自動收集以下資訊：</p>
+<ul>
+  <li>廣告識別碼（Android Advertising ID / iOS IDFA）</li>
+  <li>裝置資訊（型號、作業系統版本、螢幕尺寸、語言設定）</li>
+  <li>IP位址及大致位置（國家/地區層級）</li>
+  <li>廣告顯示及互動記錄</li>
+</ul>
+<p>您可以在裝置設定中重設廣告識別碼或選擇退出個人化廣告。</p>
+<p>詳情請參閱：<a href="https://policies.google.com/privacy" target="_blank">Google隱私政策</a></p>
+
+<h3>3.2 外部API呼叫（僅傳送球場位置資訊）</h3>
+<p>本應用呼叫以下API取得比賽賽程與天氣資訊，不會傳送使用者的個人資訊。</p>
+<table>
+  <tr><th>服務</th><th>傳送的資料</th><th>用途</th></tr>
+  <tr><td>Naver Sports API</td><td>無（僅查詢公開賽程）</td><td>KBO/K聯賽賽程</td></tr>
+  <tr><td>Open-Meteo</td><td>球場經緯度座標（非使用者位置）</td><td>各球場天氣預報</td></tr>
+</table>
+<p>呼叫上述API時，裝置的IP位址可能會被傳輸至相應伺服器，但不會傳送可識別的個人資訊。</p>
+
+<h2>4. 通知</h2>
+<p>本應用會依您設定的比賽時間發送提醒。所有通知均在<strong>您的裝置本機處理</strong>，本應用不會從外部伺服器接收推播通知。您可以隨時變更或關閉提醒設定。</p>
+
+<h2>5. 權限使用說明</h2>
+<table>
+  <tr><th>權限</th><th>用途</th></tr>
+  <tr><td>傳送通知（POST_NOTIFICATIONS）</td><td>比賽開始前提醒</td></tr>
+  <tr><td>精確鬧鐘（USE_EXACT_ALARM）</td><td>確保提醒時間的準確性</td></tr>
+  <tr><td>網路（INTERNET, ACCESS_NETWORK_STATE）</td><td>取得比賽賽程/天氣，顯示廣告</td></tr>
+  <tr><td>廣告ID（AD_ID）</td><td>個人化廣告（使用者可選擇退出）</td></tr>
+</table>
+
+<h2>6. 兒童隱私保護</h2>
+<p>本應用不針對13歲以下兒童，我們不會故意收集13歲以下使用者的個人資訊。</p>
+
+<h2>7. 您的權利</h2>
+<p>您可以行使以下權利：</p>
+<ul>
+  <li>透過解除安裝應用立即刪除裝置中儲存的所有資訊</li>
+  <li>在裝置設定中變更通知權限</li>
+  <li>在裝置設定中重設廣告識別碼或拒絕個人化廣告</li>
+</ul>
+
+<h2>8. 本政策的變更</h2>
+<p>本隱私政策可能因法律或服務變更而修訂，任何變更將公佈在本頁面。如有重大變更，我們將透過應用內通知或更新說明告知您。</p>
+
+<h2>9. 聯絡我們</h2>
+<div class="contact">
+  如對隱私有任何疑問，請透過以下方式聯絡我們。<br><br>
+  <strong>營運者：</strong>Bobae Yoon<br>
+  <strong>電子郵件：</strong>ybbbenny@gmail.com<br>
+  <strong>回覆時間：</strong>7個工作天內
+</div>
+
+</body>
+</html>
