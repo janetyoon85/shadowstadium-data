@@ -17,6 +17,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { normalizeTeamName } from './espn-soccer-teams.mjs';
 import { BATCH2_TEAMS } from './espn-world-soccer-teams.mjs';
+import { getAthleteNationality } from './espn-nationality.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -69,7 +70,7 @@ function toKstDateTime(utcIso) {
 
 // ESPN scoreboard 응답에 이미 comp.details(득점/카드 등 이벤트 배열)가 포함돼 있어서 별도 요청
 // 불필요. scoringPlay:true 인 항목만 골(자책골 포함) — 카드/교체 등은 false.
-function extractScorers(comp, homeTeamId, awayTeamId) {
+async function extractScorers(comp, homeTeamId, awayTeamId, slug) {
   const home = [];
   const away = [];
   for (const d of comp.details || []) {
@@ -82,6 +83,8 @@ function extractScorers(comp, homeTeamId, awayTeamId) {
     if (d.penaltyKick) entry.pk = true;
     if (d.ownGoal) entry.og = true;
     const teamId = String(d.team?.id ?? '');
+    const nat = await getAthleteNationality('soccer', slug, teamId, scorer.id);
+    if (nat) entry.nat = nat;
     if (teamId === String(homeTeamId)) home.push(entry);
     else if (teamId === String(awayTeamId)) away.push(entry);
   }
@@ -133,7 +136,7 @@ async function fetchEspnLeagueRange(code, slug, fromYmd, toYmd, unknownTeams, un
       const as = away.score != null ? parseInt(away.score, 10) : NaN;
       if (!Number.isNaN(hs)) out.homeScore = hs;
       if (!Number.isNaN(as)) out.awayScore = as;
-      const scorers = extractScorers(comp, home.team?.id, away.team?.id);
+      const scorers = await extractScorers(comp, home.team?.id, away.team?.id, slug);
       if (scorers) out.scorers = scorers;
     }
     games.push(out);
