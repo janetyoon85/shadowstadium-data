@@ -745,7 +745,7 @@ async function enrichEuroAssists(allGames) {
           // completed 인데 이벤트 자체를 못 찾으면(ESPN 미중계 등) 영구 불가로 보고 확정 캐시 —
           // live 는 다음 run 에 스코어보드가 갱신될 수 있어 재시도 유지(캐시 안 함).
           if (g.status === 'completed') {
-            cache[g.gameId] = { homeAssists: [], awayAssists: [], final: true };
+            cache[g.gameId] = { homeAssists: [], awayAssists: [], homeNats: [], awayNats: [], final: true };
           }
           if (!cached) continue;
         } else {
@@ -762,7 +762,7 @@ async function enrichEuroAssists(allGames) {
             // completed 인데 골 개수가 계속 안 맞으면(팀명 매칭 실패 등 구조적 문제) 매 10분 재시도해도
             // 안 맞을 확률이 높음 — 확정 캐시로 고정해 무한 재시도 방지(live 는 계속 재시도).
             if (g.status === 'completed') {
-              cache[g.gameId] = { homeAssists: [], awayAssists: [], final: true };
+              cache[g.gameId] = { homeAssists: [], awayAssists: [], homeNats: [], awayNats: [], final: true };
             }
             if (!cached) continue;
           } else {
