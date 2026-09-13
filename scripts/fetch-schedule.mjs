@@ -706,7 +706,11 @@ async function enrichEuroAssists(allGames) {
 
   for (const g of targets) {
     const cached = cache[g.gameId];
-    const needsFetch = !cached || g.status === 'live' || (g.status === 'completed' && cached.final === false);
+    // homeNats/awayNats 없는 옛 캐시(국적 필드 도입 전, 2026-09-13)는 한 번만 강제 재조회 —
+    // 어시스트는 이미 맞으니 재조회 후 다음 실행부턴 이 조건에 다시 안 걸림(자연 소멸).
+    const needsFetch =
+      !cached || g.status === 'live' || (g.status === 'completed' && cached.final === false) ||
+      !('homeNats' in cached) || !('awayNats' in cached);
     if (needsFetch) {
       try {
         const slug = ESPN_LEAGUE_SLUG[g.league];
