@@ -22,7 +22,35 @@ import { fileURLToPath } from 'node:url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
 const USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36';
+// 실제 브라우저 요청과 더 비슷하게 — GitHub Actions 공유 러너 IP 대역이 wbsc.org의 봇 차단
+// (Cloudflare 등)에 걸려 2026-09-13부터 4개 대회 전부 HTTP 403이 뜨기 시작함(User-Agent만
+// 보내던 기존 요청은 자동화 트래픽으로 더 쉽게 식별됨). 완전한 브라우저 헤더 세트로 보완.
+const BROWSER_HEADERS = {
+  'User-Agent': USER_AGENT,
+  'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'Accept-Language': 'en-US,en;q=0.9',
+  'Accept-Encoding': 'gzip, deflate, br',
+  'Sec-Fetch-Dest': 'document',
+  'Sec-Fetch-Mode': 'navigate',
+  'Sec-Fetch-Site': 'none',
+  'Sec-Fetch-User': '?1',
+  'Upgrade-Insecure-Requests': '1',
+};
 const REQUEST_DELAY_MS = 800;
+const sleepMs = (ms) => new Promise((r) => setTimeout(r, ms));
+// 403/429는 일시적인 봇 차단/레이트리밋일 수 있어 한 번 더 재시도(간격을 두고) — 완전한 IP
+// 차단이면 재시도해도 소용없지만, 일시적 챌린지라면 통과할 수 있음.
+async function fetchWithRetry(url, attempts = 2) {
+  let lastErr;
+  for (let i = 0; i < attempts; i++) {
+    if (i > 0) await sleepMs(3000 + Math.random() * 2000);
+    const res = await fetch(url, { headers: BROWSER_HEADERS });
+    if (res.ok) return res;
+    lastErr = new Error(`HTTP ${res.status}`);
+    if (res.status !== 403 && res.status !== 429) break;
+  }
+  throw lastErr;
+}
 
 const TEAM_KO = {
   Korea: '대한민국', 'Chinese Taipei': '차이니스 타이베이', 'United States of America': '미국',
@@ -65,8 +93,7 @@ function unescapeHtml(s) {
 
 async function fetchTournamentGames(tournamentkey, domain = 'www.wbsc.org') {
   const url = `https://${domain}/en/events/${tournamentkey}/schedule-and-results`;
-  const res = await fetch(url, { headers: { 'User-Agent': USER_AGENT } });
-  if (!res.ok) throw new Error(`HTTP ${res.status} ${tournamentkey}`);
+  const res = await fetchWithRetry(url);
   const html = await res.text();
   const m = html.match(/data-page="({.*?})"\s*>\s*<\/div>/s);
   if (!m) throw new Error(`data-page attribute not found for ${tournamentkey} (page structure may have changed)`);
