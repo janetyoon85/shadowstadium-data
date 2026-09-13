@@ -2,6 +2,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { validateDataset } from './validators.mjs';
+import { getAthleteNationality } from './espn-nationality.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -520,7 +521,10 @@ function extractEspnGoalsBySide(summaryJson, homeTeamName, awayTeamName) {
     const assist = isOwnGoal ? null : parseAssistFromText(e.text);
     const clockDigits = (e.clock && e.clock.displayValue) || '';
     const clockNum = parseInt(clockDigits, 10);
-    const entry = { a: assist, m: Number.isFinite(clockNum) ? clockNum : null };
+    // 득점자 국적용 — participants[0]이 득점 선수(자책골이면 자책한 선수, team은 이미 위 주석대로
+    // "수혜팀" 기준이라 국적 조회 대상 선수 소속팀 id로 team.id를 그대로 씀).
+    const scorerAthleteId = e.participants?.[0]?.athlete?.id;
+    const entry = { a: assist, m: Number.isFinite(clockNum) ? clockNum : null, teamId: e.team?.id, athleteId: scorerAthleteId };
     (side === 'home' ? home : away).push(entry);
   }
   return { home, away };
@@ -754,19 +758,30 @@ async function enrichEuroAssists(allGames) {
             }
             if (!cached) continue;
           } else {
-            // 시간순 정렬 후 짝짓기 — 원본 배열 순서(App 표시 순서)는 건드리지 않고 객체 참조로만 a 부착.
-            const zip = (naverArr, espnArr) => {
+            // 시간순 정렬 후 짝짓기 — 원본 배열 순서(App 표시 순서)는 건드리지 않고 객체 참조로만
+            // a(어시스트)·nat(득점자 국적) 부착. nat은 이름 매칭이 아니라 이미 시각+스코어로 확정된
+            // 이 골 이벤트의 athleteId를 그 팀 로스터에서 정확히 조회한 값이라 오매칭 없음(자책골은
+            // e.team이 수혜팀이라 실제 득점자 소속과 달라 로스터에 없어 자연히 nat 미부착 — 안전).
+            const zip = async (naverArr, espnArr) => {
               const naverSorted = [...naverArr].sort((a, b) => (a.m ?? 999) - (b.m ?? 999));
               const espnSorted = [...espnArr].sort((a, b) => (a.m ?? 999) - (b.m ?? 999));
-              naverSorted.forEach((s, i) => {
-                if (espnSorted[i]?.a) s.a = espnSorted[i].a;
-              });
+              for (let i = 0; i < naverSorted.length; i++) {
+                const s = naverSorted[i];
+                const espnEntry = espnSorted[i];
+                if (espnEntry?.a) s.a = espnEntry.a;
+                if (espnEntry?.teamId && espnEntry?.athleteId) {
+                  const nat = await getAthleteNationality('soccer', slug, espnEntry.teamId, espnEntry.athleteId);
+                  if (nat) s.nat = nat;
+                }
+              }
             };
-            zip(g.scorers.home || [], espnGoals.home);
-            zip(g.scorers.away || [], espnGoals.away);
+            await zip(g.scorers.home || [], espnGoals.home);
+            await zip(g.scorers.away || [], espnGoals.away);
             cache[g.gameId] = {
               homeAssists: (g.scorers.home || []).map((s) => s.a || null),
               awayAssists: (g.scorers.away || []).map((s) => s.a || null),
+              homeNats: (g.scorers.home || []).map((s) => s.nat || null),
+              awayNats: (g.scorers.away || []).map((s) => s.nat || null),
               final: g.status === 'completed',
             };
             fetched++;
@@ -780,14 +795,16 @@ async function enrichEuroAssists(allGames) {
     } else {
       fromCache++;
     }
-    // 캐시 적중(또는 방금 실패해 이전 캐시로 폴백)이면 캐시된 이름을 원본 순서 그대로 재적용.
+    // 캐시 적중(또는 방금 실패해 이전 캐시로 폴백)이면 캐시된 이름/국적을 원본 순서 그대로 재적용.
     const c = cache[g.gameId];
     if (c && !needsFetch) {
       (g.scorers.home || []).forEach((s, i) => {
         if (c.homeAssists?.[i]) s.a = c.homeAssists[i];
+        if (c.homeNats?.[i]) s.nat = c.homeNats[i];
       });
       (g.scorers.away || []).forEach((s, i) => {
         if (c.awayAssists?.[i]) s.a = c.awayAssists[i];
+        if (c.awayNats?.[i]) s.nat = c.awayNats[i];
       });
     }
   }
