@@ -16,7 +16,10 @@ import { getAthleteNationality } from './espn-nationality.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
-const USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36';
+// 2026-09-17: 이 브라우저 위장 UA를 ESPN(Akamai WAF)이 구식 Chrome/120 시그니처로 차단해
+// 전 리그 403 — GitHub Actions 러너 IP 문제가 아니라 UA 자체 문제였음(로컬에서도 재현).
+// 커스텀 UA(다른 ESPN 크롤러들과 동일)로 바꾸니 즉시 200 — 브라우저 위장이 오히려 역효과였음.
+const USER_AGENT = 'shadowstadium-crawler/1.0 (+https://github.com/janetyoon85/shadowstadium-data)';
 const REQUEST_DELAY_MS = 900;
 
 const LEAGUES = [
@@ -77,9 +80,9 @@ function espnStatusToOurs(statusType) {
   return 'scheduled';
 }
 
-async function fetchEspnLeagueRange(code, slug, fromYmd, toYmd, unknownTeams, unknownVenues) {
+async function fetchEspnLeagueRange(code, slug, dayYmd, unknownTeams, unknownVenues) {
   const teamMap = ASIA_TEAMS[code] || {};
-  const url = `https://site.api.espn.com/apis/site/v2/sports/soccer/${slug}/scoreboard?dates=${fromYmd}-${toYmd}`;
+  const url = `https://site.api.espn.com/apis/site/v2/sports/soccer/${slug}/scoreboard?dates=${dayYmd}`;
   const res = await fetch(url, { headers: { 'User-Agent': USER_AGENT } });
   if (!res.ok) throw new Error(`HTTP ${res.status} ${code}`);
   const j = await res.json();
@@ -121,13 +124,15 @@ async function fetchEspnLeagueRange(code, slug, fromYmd, toYmd, unknownTeams, un
   return games;
 }
 
+// 2026-09-17: ESPN 사커 scoreboard 엔드포인트는 "dates=YYYYMMDD-YYYYMMDD" 범위 쿼리를 지원하지
+// 않음(같은 날짜 1일짜리 "범위"도 400) — 로컬 curl로 직접 재현·확인. "dates=YYYYMMDD" 단일 날짜만
+// 유효해서 14일 단위 청크가 아니라 하루 단위로 순회하도록 변경(요청 수는 늘지만 유일한 유효 방법).
 async function fetchEspnLeague(code, slug, startDate, endDate, unknownTeams, unknownVenues) {
   const start = new Date(`${startDate}T00:00:00Z`);
   const end = new Date(`${endDate}T00:00:00Z`);
   const all = [];
-  for (let cursor = new Date(start); cursor <= end; cursor.setUTCDate(cursor.getUTCDate() + 14)) {
-    const chunkEnd = new Date(Math.min(cursor.getTime() + 13 * 86400000, end.getTime()));
-    const games = await fetchEspnLeagueRange(code, slug, fmtDate(cursor), fmtDate(chunkEnd), unknownTeams, unknownVenues);
+  for (let cursor = new Date(start); cursor <= end; cursor.setUTCDate(cursor.getUTCDate() + 1)) {
+    const games = await fetchEspnLeagueRange(code, slug, fmtDate(cursor), unknownTeams, unknownVenues);
     all.push(...games);
     await sleep(REQUEST_DELAY_MS);
   }
