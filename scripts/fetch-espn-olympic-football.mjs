@@ -143,15 +143,25 @@ async function fetchRange(slug, gender, stripSuffix, fromYmd, toYmd, unknownTeam
   return games;
 }
 
-export async function fetchOlympicFootball(startDate, endDate, unknownTeams, unknownVenues) {
+// 407일치를 14일 단위로 쪼개면 성별×약 30청크 = 60번의 순차 요청이 나오는데, 예전엔 한 청크만
+// 실패해도(레이트리밋 등) 전체 run이 process.exit(1)로 죽어 매번 100% 실패했음(2026-09-17 발견).
+// 청크 단위 try/catch로 격리 — 한두 청크 실패해도 나머지는 계속 수집, 실패 목록은 알림으로 보고.
+export async function fetchOlympicFootball(startDate, endDate, unknownTeams, unknownVenues, failedChunks = []) {
   const start = new Date(`${startDate}T00:00:00Z`);
   const end = new Date(`${endDate}T00:00:00Z`);
   const all = [];
   for (const { slug, gender, stripSuffix } of LEAGUES) {
     for (let cursor = new Date(start); cursor <= end; cursor.setUTCDate(cursor.getUTCDate() + 14)) {
       const chunkEnd = new Date(Math.min(cursor.getTime() + 13 * 86400000, end.getTime()));
-      const games = await fetchRange(slug, gender, stripSuffix, fmtDate(cursor), fmtDate(chunkEnd), unknownTeams, unknownVenues);
-      all.push(...games);
+      const fromYmd = fmtDate(cursor);
+      const toYmd = fmtDate(chunkEnd);
+      try {
+        const games = await fetchRange(slug, gender, stripSuffix, fromYmd, toYmd, unknownTeams, unknownVenues);
+        all.push(...games);
+      } catch (e) {
+        console.warn(`  failed chunk ${gender} ${fromYmd}-${toYmd}: ${e.message}`);
+        failedChunks.push({ gender, range: `${fromYmd}-${toYmd}`, error: e.message });
+      }
       await new Promise((r) => setTimeout(r, 700));
     }
   }
@@ -172,6 +182,19 @@ async function notifyUnknowns(unknownTeams, unknownVenues) {
   }
 }
 
+async function notifyFetchFailures(failed) {
+  if (failed.length === 0) return;
+  const webhook = process.env.DISCORD_WEBHOOK_URL;
+  if (!webhook) return;
+  const lines = failed.map(({ gender, range, error }) => `• ${gender} ${range}: ${error}`);
+  const content = `🔴 그늘각 — 올림픽 축구(ESPN) 일부 구간 조회 실패(워크플로는 success로 표시되지만 데이터 갱신 안 됨)\n${lines.join('\n')}`;
+  try {
+    await fetch(webhook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ content }) });
+  } catch (e) {
+    console.warn('[discord] olympic-football fetch-failure notify failed:', e.message);
+  }
+}
+
 function ymd(d) {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 }
@@ -185,16 +208,12 @@ async function main() {
 
   const unknownTeams = new Set();
   const unknownVenues = new Set();
+  const failedChunks = [];
   console.log(`Fetching Olympic football ${startDate}~${endDate} ...`);
-  let allNew;
-  try {
-    allNew = await fetchOlympicFootball(startDate, endDate, unknownTeams, unknownVenues);
-  } catch (e) {
-    console.error('[olympic-football] fetch failed:', e.message);
-    process.exit(1);
-  }
+  const allNew = await fetchOlympicFootball(startDate, endDate, unknownTeams, unknownVenues, failedChunks);
   console.log(`  -> ${allNew.length} games`);
   await notifyUnknowns(unknownTeams, unknownVenues);
+  await notifyFetchFailures(failedChunks);
 
   const gamesPath = path.join(REPO_ROOT, 'games.json');
   const games = JSON.parse(await fs.readFile(gamesPath, 'utf-8'));
