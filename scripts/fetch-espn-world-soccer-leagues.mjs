@@ -25,9 +25,10 @@ const REPO_ROOT = path.resolve(__dirname, '..');
 // 21개 리그 전부 403 — GitHub Actions 러너 IP 문제가 아니라 UA 자체 문제였음(로컬에서도 재현).
 // 커스텀 UA(다른 ESPN 크롤러들과 동일)로 바꾸니 즉시 200 — 브라우저 위장이 오히려 역효과였음.
 const USER_AGENT = 'shadowstadium-crawler/1.0 (+https://github.com/janetyoon85/shadowstadium-data)';
-// 2026-09-17: 하루 단위 순회로 바뀌며 리그당 요청 수가 14일 청크(약 3회) → 38회로 늘어나서
-// 900ms 그대로면 21개 리그 기준 한 run에 12분 이상 걸려 5분 주기 트리거와 겹칠 위험 — 400ms로 단축.
-const REQUEST_DELAY_MS = 400;
+// 2026-09-17: 하루 단위 순회로 바뀌며 리그당 요청 수가 14일 청크(약 3회) → 38회로 늘어남.
+// 400ms로는 5분 주기 트리거와 실제로 겹쳐 games.json 커밋 경합이 재시도 10회로도 실패하는
+// 사고가 15개리그 크롤러에서 발생(23:45 run) — 21개리그라 더 위험해서 150ms로 추가 단축.
+const REQUEST_DELAY_MS = 150;
 
 const LEAGUES = [
   { code: 'VENEZUELA', slug: 'ven.1' },
