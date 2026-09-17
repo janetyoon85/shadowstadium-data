@@ -240367,12 +240367,14 @@
     "stadium": "PNC 파크",
     "timeTbd": false,
     "gameId": "20260918MIPI0",
-    "status": "live",
+    "status": "completed",
     "awayPitcher": "카일 해리슨",
     "homePitcher": "윌버 도텔",
     "awayScore": 4,
     "homeScore": 7,
-    "inningInfo": "9회초"
+    "winPitcher": "커티스",
+    "losePitcher": "해리슨",
+    "savePitcher": "몽고메리"
   },
   {
     "date": "2026-09-18",
@@ -240483,7 +240485,7 @@
     "status": "live",
     "homeScore": 3,
     "awayScore": 10,
-    "inningInfo": "7회초"
+    "inningInfo": "7회말"
   },
   {
     "date": "2026-09-18",
@@ -240680,13 +240682,22 @@
     "gameId": "fJYnibq0ACWjFQh",
     "status": "live",
     "awayScore": 1,
-    "homeScore": 0,
+    "homeScore": 1,
     "scorers": {
-      "home": [],
+      "home": [
+        {
+          "n": "바우어",
+          "m": 44
+        }
+      ],
       "away": [
         {
           "n": "유수프",
           "m": 20
+        },
+        {
+          "n": "자카리아센",
+          "m": 45
         }
       ]
     },
@@ -240787,7 +240798,7 @@
     "timeTbd": false,
     "gameId": "IC6GwgWfDCqPu7w",
     "status": "live",
-    "awayScore": 1,
+    "awayScore": 2,
     "homeScore": 0,
     "scorers": {
       "home": [],
@@ -240795,6 +240806,10 @@
         {
           "n": "모포켕",
           "m": 17
+        },
+        {
+          "n": "비온딕",
+          "m": 43
         }
       ]
     },
@@ -240813,7 +240828,7 @@
     "status": "live",
     "awayPitcher": "마이클 킹",
     "homePitcher": "태너 고든",
-    "awayScore": 1,
+    "awayScore": 3,
     "homeScore": 1,
     "inningInfo": "2회초"
   },
@@ -240829,12 +240844,15 @@
     "gameId": "53fbYNs6zJMAbaQ",
     "status": "live",
     "awayScore": 0,
-    "homeScore": 0,
+    "homeScore": 1,
     "scorers": {
       "home": [
         {
           "n": "카를로스 도토르",
-          "m": 12
+          "m": 12,
+          "a": "Juan Cruz",
+          "nat": "Spain",
+          "aNat": "Spain"
         }
       ],
       "away": []
