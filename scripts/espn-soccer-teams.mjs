@@ -313,11 +313,16 @@ export const TEAMS = {
     "centralcoastmariners": { ko: "센트럴코스트 마리너스", venueId: "central_coast_stadium", en: "Central Coast Mariners" },
     "macarthurfc": { ko: "매카서 FC", venueId: "campbelltown_sports_stadium", en: "Macarthur FC" },
     "melbournecity": { ko: "멜버른 시티", venueId: "melbourne_rectangular", en: "Melbourne City" },
+    // ESPN이 팀 표시명을 "Melbourne City FC"/"Wellington Phoenix FC"로 바꿔서 normalizeTeamName
+    // 결과가 기존 키("melbournecity"/"wellingtonphoenix")와 안 맞아 미확인 팀명으로 걸림
+    // (2026-09-18 Discord 알림 발견) — 같은 팀이라 별칭 키로 추가.
+    "melbournecityfc": { ko: "멜버른 시티", venueId: "melbourne_rectangular", en: "Melbourne City" },
     "melbournevictory": { ko: "멜버른 빅토리", venueId: "melbourne_rectangular", en: "Melbourne Victory" },
     "newcastlejets": { ko: "뉴캐슬 제츠", venueId: "newcastle_jets_mcdonald_jones", en: "Newcastle Jets" },
     "perthglory": { ko: "퍼스 글로리", venueId: "perth_rectangular_stadium", en: "Perth Glory" },
     "sydneyfc": { ko: "시드니 FC", venueId: "sydney_football_stadium", en: "Sydney FC" },
     "wellingtonphoenix": { ko: "웰링턴 피닉스", venueId: "sky_stadium_wellington", en: "Wellington Phoenix" },
+    "wellingtonphoenixfc": { ko: "웰링턴 피닉스", venueId: "sky_stadium_wellington", en: "Wellington Phoenix" },
     "westernsydneywanderers": { ko: "웨스턴시드니 원더러스", venueId: "commbank_stadium", en: "Western Sydney Wanderers" },
   },
 };
