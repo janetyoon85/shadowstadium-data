@@ -888,6 +888,9 @@ function serializeGame(g) {
   if (g.leg) out.leg = g.leg;
   if (typeof g.homeAggregateScore === 'number') out.homeAggregateScore = g.homeAggregateScore;
   if (typeof g.awayAggregateScore === 'number') out.awayAggregateScore = g.awayAggregateScore;
+  // 승부차기(PK) 스코어 — convertGame()이 채워도 이 화이트리스트에 없으면 저장 직전에 누락됨.
+  if (typeof g.homePkScore === 'number') out.homePkScore = g.homePkScore;
+  if (typeof g.awayPkScore === 'number') out.awayPkScore = g.awayPkScore;
   return out;
 }
 
