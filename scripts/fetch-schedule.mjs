@@ -252,6 +252,13 @@ function convertGame(n, cat, stadiumMap, mapFailures) {
     if (typeof n.awayTeamScore === 'number') game.awayScore = n.awayTeamScore;
     if (typeof n.homeTeamScore === 'number') game.homeScore = n.homeTeamScore;
   }
+  // 승부차기(PK) 스코어 — 토너먼트 단판 경기가 무승부로 끝나면 별도 필드(homePtScore/awayPtScore)로
+  // 승부차기 결과가 옴(정규시간 스코어는 그대로 무승부로 남아 승자를 알 수 없음, 사용자 리포트:
+  // "16강전인데 1:1로 끝난 것처럼 보임" — 이미 API가 주는데 안 읽고 있었음, 2026-09-18 발견).
+  if (status === 'completed' && n.hasPtScore) {
+    if (typeof n.homePtScore === 'number') game.homePkScore = n.homePtScore;
+    if (typeof n.awayPtScore === 'number') game.awayPkScore = n.awayPtScore;
+  }
   // 인닝 정보 — 야구 진행중 경기만. schedule API 의 statusInfo 에 이미 "N회초"/"N회말" 형태로
   // 포함(추가 요청 0). "N회초"=원정 공격/홈 수비, "N회말"=홈 공격/원정 수비(야구 규칙, 고정) —
   // 클라이언트에서 team 이름과 조합해 "공격중" 표시. "경기중 0:0"만 뜨는 밋밋함 보완용.
