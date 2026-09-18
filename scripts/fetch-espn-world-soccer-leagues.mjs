@@ -171,7 +171,7 @@ async function notifyUnknowns(unknownTeams, unknownVenues) {
   const lines = [];
   if (unknownTeams.size) lines.push(`**미확인 팀명(espn-world-soccer-teams.mjs에 추가 필요)**\n${[...unknownTeams].map((x) => `• ${x}`).join('\n')}`);
   if (unknownVenues.size) lines.push(`**미확인 구장(venueId 미매핑)**\n${[...unknownVenues].map((x) => `• ${x}`).join('\n')}`);
-  const content = `🟡 그늘각 — 전세계 21개리그(ESPN) 미확인 항목\nscripts/espn-world-soccer-teams.mjs 에서 매핑 추가해주세요. 승격/강등 등으로 새 팀이 생겼을 수 있습니다.\n${lines.join('\n\n')}`;
+  const content = `🟡 ShadeSide — 전세계 21개리그(ESPN) 미확인 항목\nscripts/espn-world-soccer-teams.mjs 에서 매핑 추가해주세요. 승격/강등 등으로 새 팀이 생겼을 수 있습니다.\n${lines.join('\n\n')}`;
   try {
     await fetch(webhook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ content }) });
   } catch (e) {
@@ -187,7 +187,7 @@ async function notifyFetchFailures(failed) {
   const webhook = process.env.DISCORD_WEBHOOK_URL;
   if (!webhook) return;
   const lines = failed.map(({ code, slug, error }) => `• ${code} (${slug}): ${error}`);
-  const content = `🔴 그늘각 — 전세계 21개리그(ESPN) 일부 리그 조회 실패(워크플로는 success로 표시되지만 데이터 갱신 안 됨)\n${lines.join('\n')}`;
+  const content = `🔴 ShadeSide — 전세계 21개리그(ESPN) 일부 리그 조회 실패(워크플로는 success로 표시되지만 데이터 갱신 안 됨)\n${lines.join('\n')}`;
   try {
     await fetch(webhook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ content }) });
   } catch (e) {

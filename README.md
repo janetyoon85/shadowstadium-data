@@ -1,6 +1,6 @@
 # shadowstadium-data
 
-ShadowStadium 앱의 공개 일정 데이터.
+ShadeSide 앱의 공개 일정 데이터.
 
 ## URL
 https://raw.githubusercontent.com/janetyoon85/shadowstadium-data/main/games_2026.json

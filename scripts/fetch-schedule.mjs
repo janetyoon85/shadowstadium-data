@@ -158,7 +158,7 @@ async function notifyMappingFailures(uniqueFails) {
   const webhook = process.env.DISCORD_WEBHOOK_URL;
   if (!webhook) return;
   const lines = uniqueFails.map((f) => `• ${f.categoryId} → "${f.stadium}"`).join('\n');
-  const content = `🟡 그늘각 — 미매핑 구장 발견 (${uniqueFails.length}건)\n승격/강등·개축으로 새 구장이 생겼을 수 있어요. naverStadiumMap.json에 추가하고 App.tsx VENUES도 확인해주세요.\n${lines}`;
+  const content = `🟡 ShadeSide — 미매핑 구장 발견 (${uniqueFails.length}건)\n승격/강등·개축으로 새 구장이 생겼을 수 있어요. naverStadiumMap.json에 추가하고 App.tsx VENUES도 확인해주세요.\n${lines}`;
   try {
     await fetch(webhook, {
       method: 'POST',

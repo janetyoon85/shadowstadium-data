@@ -71,5 +71,5 @@ jobs:
         if: failure()
         run: |
           curl -H "Content-Type: application/json" \
-            -d "{\"content\":\"🔴 그늘각 MLB 윈터리그 크롤러 실패\n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}\"}" \
+            -d "{\"content\":\"🔴 ShadeSide MLB 윈터리그 크롤러 실패\n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}\"}" \
             "${{ secrets.DISCORD_WEBHOOK_URL }}"

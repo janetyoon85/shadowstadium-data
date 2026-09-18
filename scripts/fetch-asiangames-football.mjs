@@ -113,7 +113,7 @@ async function notifyUnknowns(unknownTeams, unknownVenues) {
   const lines = [];
   if (unknownTeams.size) lines.push(`**미확인 팀 코드(TEAM_KO에 추가 필요)**\n${[...unknownTeams].map((x) => `• ${x}`).join('\n')}`);
   if (unknownVenues.size) lines.push(`**미확인 구장(VENUE_MAP에 추가 필요)**\n${[...unknownVenues].map((x) => `• ${x}`).join('\n')}`);
-  const content = `🟡 그늘각 — 아시안게임 축구 미확인 항목\nscripts/fetch-asiangames-football.mjs 에서 매핑 추가해주세요.\n${lines.join('\n\n')}`;
+  const content = `🟡 ShadeSide — 아시안게임 축구 미확인 항목\nscripts/fetch-asiangames-football.mjs 에서 매핑 추가해주세요.\n${lines.join('\n\n')}`;
   try {
     await fetch(webhook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ content }) });
   } catch (e) {

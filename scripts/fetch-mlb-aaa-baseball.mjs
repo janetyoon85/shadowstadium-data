@@ -154,7 +154,7 @@ async function notifyUnknowns(unknownTeams, unknownVenues) {
   const lines = [];
   if (unknownTeams.size) lines.push(`**미확인 팀명(TEAM_KO에 추가 필요)**\n${[...unknownTeams].map((x) => `• ${x}`).join('\n')}`);
   if (unknownVenues.size) lines.push(`**미확인 구장(VENUE_MAP에 추가 필요)**\n${[...unknownVenues].map((x) => `• ${x}`).join('\n')}`);
-  const content = `🟡 그늘각 — MLB AAA(트리플A) 미확인 항목\nscripts/fetch-mlb-aaa-baseball.mjs 에서 매핑 추가해주세요. MLB팀 상대 전시전 등 일회성 예외는 무시해도 됩니다.\n${lines.join('\n\n')}`;
+  const content = `🟡 ShadeSide — MLB AAA(트리플A) 미확인 항목\nscripts/fetch-mlb-aaa-baseball.mjs 에서 매핑 추가해주세요. MLB팀 상대 전시전 등 일회성 예외는 무시해도 됩니다.\n${lines.join('\n\n')}`;
   try {
     await fetch(webhook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ content }) });
   } catch (e) {

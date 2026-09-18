@@ -71,5 +71,5 @@ jobs:
         if: failure()
         run: |
           curl -H "Content-Type: application/json" \
-            -d "{\"content\":\"🔴 그늘각 전세계 21개리그(ESPN) 크롤러 실패\n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}\"}" \
+            -d "{\"content\":\"🔴 ShadeSide 전세계 21개리그(ESPN) 크롤러 실패\n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}\"}" \
             "${{ secrets.DISCORD_WEBHOOK_URL }}"
