@@ -61,7 +61,8 @@ function toKstDateTime(isoWithOffset) {
 
 function agStatusToOurs(status) {
   if (status === 'OFFICIAL' || status === 'FINISHED' || status === 'UNOFFICIAL') return 'completed';
-  if (status === 'LIVE') return 'live';
+  // Bornan API는 경기 진행 중 상태를 'LIVE'가 아니라 'RUNNING'으로 내려줌(실측 확인, 2026-09-18).
+  if (status === 'LIVE' || status === 'RUNNING') return 'live';
   if (status === 'POSTPONED') return 'postponed';
   return 'scheduled';
 }
