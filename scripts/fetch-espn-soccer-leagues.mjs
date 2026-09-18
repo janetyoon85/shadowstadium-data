@@ -38,7 +38,7 @@ const LEAGUES = [
   { code: 'COLOMBIA', slug: 'col.1' },
   { code: 'URUGUAY', slug: 'uru.1' },
   { code: 'CHILE', slug: 'chi.1' },
-  { code: 'CHINA', slug: 'chn.1' },
+  // CHINA(중국 슈퍼리그)는 2026-09 위치정보 수집 제한(중국 측량법)으로 제거.
   { code: 'AUSTRALIA', slug: 'aus.1' },
 ];
 
