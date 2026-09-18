@@ -1,4 +1,5 @@
-// Phase 4B cron — 매 */15 min UTC 실행, 발송 윈도우 도달한 (game, lead) 쌍을 FCM 토픽으로 push.
+// Phase 4B cron — 매 */5 min UTC 실행(2026-09-19부터, 기존 15분 → 지연 완화), 발송 윈도우
+// 도달한 (game, lead) 쌍을 FCM 토픽으로 push.
 //
 // 로직:
 //   for each scheduled, non-TBD game g:

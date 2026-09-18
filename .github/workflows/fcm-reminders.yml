@@ -1,13 +1,17 @@
 name: FCM Reminders
 
-# Phase 4B per-user lead 푸시. 매 15분(UTC)마다 [1,3,6,12,24]h 윈도우 도달한 (game,lead)
+# Phase 4B per-user lead 푸시. 매 5분(UTC)마다 [1,3,6,12,24]h 윈도우 도달한 (game,lead)
 # 쌍을 game_<id>_h<L> 토픽으로 발송. sent-reminders.json 에 dedup 상태 커밋.
 #
-# 15분 주기는 짧은 1h lead 의 안정성(최대 14분 지연) 위함. 공개 repo 라 분 무제한.
+# 원래 15분 주기였는데, cron-reminders.mjs 의 발송 로직이 "정확히 그 시각"이 아니라
+# "윈도우 도달 후 다음 틱에 발송"이라 최악의 경우 최대 14분 지연 가능 — 경기 시작 시각이
+# 전부 :00/:30 이던 초기엔 무해했지만, 리그가 늘면서 :38 같은 임의 분 시작 경기가 생겨
+# 지연이 체감될 수 있음(2026-09-19 사용자 리포트). 5분 주기로 줄여 최악 지연을 4분으로 단축.
+# 공개 repo 라 GitHub Actions 분 무제한이라 주기를 줄이는 데 비용 제약 없음.
 
 on:
   schedule:
-    - cron: '*/15 * * * *'  # UTC, 모든 15분 (00, 15, 30, 45)
+    - cron: '*/5 * * * *'  # UTC, 모든 5분
   workflow_dispatch:  # 수동 실행 (테스트용)
 
 permissions:
