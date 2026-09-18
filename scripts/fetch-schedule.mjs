@@ -266,6 +266,13 @@ function convertGame(n, cat, stadiumMap, mapFailures) {
     const info = (n.statusInfo || '').trim();
     if (/^\d+회(초|말)$/.test(info)) game.inningInfo = info;
   }
+  // 축구 진행 단계(전반/후반/연장전반/연장후반/승부차기 등) — 인닝 정보와 같은 statusInfo
+  // 필드를 재사용(야구와 달리 정확한 문구 목록을 실시간 경기로 검증은 못 했음, 2026-09-18
+  // 사용자 요청으로 추가 — "경기중"류 의미 없는 값이 아닐 때만 저장해서 최소한 있는 그대로 노출).
+  if (status === 'live' && !BASEBALL_LEAGUES.has(cat.league)) {
+    const info = (n.statusInfo || '').trim();
+    if (info && info !== '경기중') game.matchPeriod = info;
+  }
   if (status === 'completed') {
     // 승/패 투수 — 야구 리그(KBO/MLB/NPB) 종료 경기만. schedule API 의 win/losePitcherName 에
     // 이미 포함(추가 요청 0). 무승부(DRAW)면 둘 다 빈 문자열 → 누락(앱이 둘 다 있을 때만 렌더).
@@ -874,6 +881,7 @@ function serializeGame(g) {
   if (typeof g.homeScore === 'number') out.homeScore = g.homeScore;
   // 야구 진행중 인닝 정보 ("5회말" 등) — 앱에서 team 이름과 조합해 공격/수비 표시.
   if (g.inningInfo) out.inningInfo = g.inningInfo;
+  if (g.matchPeriod) out.matchPeriod = g.matchPeriod;
   // 종료 경기 승/패/세 투수 (KBO). 있는 것만 — 무승부·세이브 없는 경기는 일부/전부 누락.
   if (g.winPitcher) out.winPitcher = g.winPitcher;
   if (g.losePitcher) out.losePitcher = g.losePitcher;
