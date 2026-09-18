@@ -22,12 +22,15 @@ const USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
 const REQUEST_DELAY_MS = 500;
 
 const LEAGUES = [
-  { leagueId: 119, code: 'AFL' },
-  { leagueId: 132, code: 'LMP' },
-  { leagueId: 131, code: 'LIDOM' },
-  { leagueId: 595, code: 'ABL' },
-  { leagueId: 133, code: 'PWL' },
-  { leagueId: 135, code: 'LVBP' },
+  { leagueId: 119, code: 'AFL', sportId: 17 },
+  { leagueId: 132, code: 'LMP', sportId: 17 },
+  { leagueId: 131, code: 'LIDOM', sportId: 17 },
+  { leagueId: 595, code: 'ABL', sportId: 17 },
+  { leagueId: 133, code: 'PWL', sportId: 17 },
+  { leagueId: 135, code: 'LVBP', sportId: 17 },
+  // LMB(멕시칸리그, 여름리그, 4~9월) — 다른 리그와 달리 sportId=23("Independent Leagues"로
+  // 분류돼있으나 실제로는 멕시칸리그). 시즌: 대략 4월 중순~9월 중순.
+  { leagueId: 125, code: 'LMB', sportId: 23 },
 ];
 
 const TEAM_KO = {
@@ -52,6 +55,17 @@ const TEAM_KO = {
   'Caribes de Anzoategui': '카리베스 데 안소아테기', 'Leones del Caracas': '레오네스 델 카라카스',
   'Navegantes del Magallanes': '나베간테스 델 마가야네스', 'Bravos de Margarita': '브라보스 데 마르가리타',
   'Tiburones de La Guaira': '티부로네스 데 라과이라', 'Tigres de Aragua': '티그레스 데 아라과',
+  // LMB(멕시칸리그)
+  'Charros de Jalisco': '차로스 데 할리스코', 'Guerreros de Oaxaca': '게레로스 데 오아하카',
+  'Pericos de Puebla': '페리코스 데 푸에블라', 'Piratas de Campeche': '피라타스 데 캄페체',
+  'Acereros del Norte': '아세레로스 델 노르테', 'Rieleros de Aguascalientes': '리엘레로스 데 아구아스칼리엔테스',
+  'Leones de Yucatan': '레오네스 데 유카탄', 'Toros de Tijuana': '토로스 데 티후아나',
+  'Sultanes de Monterrey': '술타네스 데 몬테레이', 'Bravos de Leon': '브라보스 데 레온',
+  'Diablos Rojos del Mexico': '디아블로스 로호스 델 메히코', 'Saraperos de Saltillo': '사라페로스 데 살티요',
+  'Tecos de los Dos Laredos': '테코스 데 로스 도스 라레도스', 'Tigres de Quintana Roo': '티그레스 데 킨타나로오',
+  'Olmecas de Tabasco': '올메카스 데 타바스코', 'Caliente de Durango': '칼리엔테 데 두랑고',
+  'Conspiradores de Queretaro': '콘스피라도레스 데 케레타로', 'El Aguila de Veracruz': '엘 아길라 데 베라크루스',
+  'Dorados de Chihuahua': '도라도스 데 치와와', 'Algodoneros Union Laguna': '알고도네로스 우니온 라구나',
 };
 
 const VENUE_MAP = {
@@ -100,6 +114,27 @@ const VENUE_MAP = {
   'Estadio Jose Perez Colmenares': 'estadio_jose_perez_colmenares',
   'Estadio Jorge Luis Garcia Carneiro': 'estadio_jorge_luis_garcia_carneiro',
   'Estadio Metropolitano de San Cristobal': 'estadio_metropolitano_san_cristobal',
+  // LMB(멕시칸리그) — 괄호 안은 App.tsx 재사용 구장(다른 대회에서 이미 등록됨).
+  'Estadio Panamericano de los Charros': 'estadio_panamericano_zapopan',
+  "Estadio Yu'Va": 'estadio_yuva_oaxaca',
+  'Estadio Hermanos Serdan': 'estadio_hermanos_serdan',
+  'Estadio Cruz Azul Nelson Barrera Romellón': 'estadio_nelson_barrera_romellon',
+  'Estadio Kickapoo Lucky Eagle': 'estadio_acereros_piedrasnegras',
+  'Estadio Alberto Romo Chavez': 'parque_alberto_romo_chavez',
+  'Estadio de Beisbol Víctor Cervera Pacheco': 'parque_kukulcan_alamo_merida',
+  'Toros Mobil Park': 'toros_mobil_park_tijuana',
+  'Walmart Park': 'estadio_beisbol_monterrey',
+  'Estadio Domingo Santana TV4': 'estadio_domingo_santana_leon',
+  'Estadio Alfredo Harp Helu': 'mexico_city_alfredo_harp',
+  'Parque Francisco I. Madero': 'parque_francisco_madero_saltillo',
+  'Parque la Junta': 'parque_la_junta_nuevolaredo',
+  'Beto Ávila Sherwin-Williams': 'estadio_beto_avila_cancun',
+  'Parque Centenario 27 de Febrero': 'parque_centenario_27febrero',
+  'Estadio Francisco Villa': 'estadio_francisco_villa_durango',
+  'Estadio Conspiradores': 'estadio_finsus_queretaro',
+  'Estadio Beto Avila': 'estadio_beto_avila_veracruz',
+  'Estadio Chihuahua': 'estadio_chihuahua_dorados',
+  'Estadio de la Revolucion': 'estadio_revolucion_torreon',
 };
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -129,8 +164,8 @@ function ymd(d) {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 }
 
-async function fetchMlbWinterLeague(leagueId, code, startDate, endDate, unknownTeams, unknownVenues) {
-  const url = `https://statsapi.mlb.com/api/v1/schedule?sportId=17&leagueId=${leagueId}&startDate=${startDate}&endDate=${endDate}`;
+async function fetchMlbWinterLeague(leagueId, code, sportId, startDate, endDate, unknownTeams, unknownVenues) {
+  const url = `https://statsapi.mlb.com/api/v1/schedule?sportId=${sportId}&leagueId=${leagueId}&startDate=${startDate}&endDate=${endDate}`;
   const res = await fetch(url, { headers: { 'User-Agent': USER_AGENT } });
   if (!res.ok) throw new Error(`HTTP ${res.status} ${code}`);
   const j = await res.json();
@@ -174,7 +209,7 @@ async function notifyUnknowns(unknownTeams, unknownVenues) {
   const lines = [];
   if (unknownTeams.size) lines.push(`**미확인 팀명(TEAM_KO에 추가 필요)**\n${[...unknownTeams].map((x) => `• ${x}`).join('\n')}`);
   if (unknownVenues.size) lines.push(`**미확인 구장(VENUE_MAP에 추가 필요)**\n${[...unknownVenues].map((x) => `• ${x}`).join('\n')}`);
-  const content = `🟡 ShadeSide — MLB 윈터리그(LVBP/LIDOM/LMP/PWL/ABL/AFL) 미확인 항목\nscripts/fetch-mlb-winter-baseball.mjs 에서 매핑 추가해주세요. 올스타전 등 일회성 예외 경기는 무시해도 됩니다.\n${lines.join('\n\n')}`;
+  const content = `🟡 ShadeSide — MLB 윈터리그(LVBP/LIDOM/LMP/PWL/ABL/AFL)/LMB 미확인 항목\nscripts/fetch-mlb-winter-baseball.mjs 에서 매핑 추가해주세요. 올스타전 등 일회성 예외 경기는 무시해도 됩니다.\n${lines.join('\n\n')}`;
   try {
     await fetch(webhook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ content }) });
   } catch (e) {
@@ -192,12 +227,12 @@ async function main() {
   const unknownTeams = new Set();
   const unknownVenues = new Set();
   const allNew = [];
-  for (const { leagueId, code } of LEAGUES) {
+  for (const { leagueId, code, sportId } of LEAGUES) {
     console.log(`Fetching ${code} (league ${leagueId}) ${startDate}~${endDate} ...`);
     await sleep(REQUEST_DELAY_MS);
     let gs;
     try {
-      gs = await fetchMlbWinterLeague(leagueId, code, startDate, endDate, unknownTeams, unknownVenues);
+      gs = await fetchMlbWinterLeague(leagueId, code, sportId, startDate, endDate, unknownTeams, unknownVenues);
     } catch (e) {
       console.warn(`  failed: ${e.message}`);
       continue;
