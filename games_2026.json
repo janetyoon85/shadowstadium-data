@@ -260226,12 +260226,13 @@
     "stadium": "창원",
     "timeTbd": false,
     "gameId": "20260919HTNC02026",
-    "status": "live",
+    "status": "completed",
     "awayPitcher": "네일",
     "homePitcher": "구창모",
     "awayScore": 5,
     "homeScore": 1,
-    "inningInfo": "9회말"
+    "winPitcher": "네일",
+    "losePitcher": "구창모"
   },
   {
     "date": "2026-09-19",
@@ -260262,12 +260263,14 @@
     "stadium": "사직",
     "timeTbd": false,
     "gameId": "20260919SSLT02026",
-    "status": "live",
+    "status": "completed",
     "awayPitcher": "최원태",
     "homePitcher": "나균안",
     "awayScore": 3,
     "homeScore": 5,
-    "inningInfo": "9회초"
+    "winPitcher": "박정민",
+    "losePitcher": "사토시",
+    "savePitcher": "이이무라"
   },
   {
     "date": "2026-09-19",
@@ -260283,7 +260286,7 @@
     "awayPitcher": "최승용",
     "homePitcher": "대니엘",
     "awayScore": 3,
-    "homeScore": 13,
+    "homeScore": 14,
     "inningInfo": "8회말"
   },
   {
@@ -260385,7 +260388,7 @@
     "homePitcher": "오가타",
     "awayScore": 3,
     "homeScore": 1,
-    "inningInfo": "6회말"
+    "inningInfo": "7회초"
   },
   {
     "date": "2026-09-19",
@@ -260402,7 +260405,7 @@
     "homePitcher": "슈타",
     "awayScore": 4,
     "homeScore": 2,
-    "inningInfo": "8회초"
+    "inningInfo": "8회말"
   },
   {
     "date": "2026-09-19",
@@ -260417,7 +260420,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 2,
-    "matchPeriod": "후반 37'",
+    "matchPeriod": "후반 41'",
     "scorers": {
       "home": [
         {
@@ -260450,7 +260453,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 1,
-    "matchPeriod": "후반 34'",
+    "matchPeriod": "후반 39'",
     "scorers": {
       "home": [
         {
@@ -260479,7 +260482,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 3,
-    "matchPeriod": "후반 36'",
+    "matchPeriod": "후반 40'",
     "scorers": {
       "home": [
         {
@@ -260516,7 +260519,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "후반 5'"
+    "matchPeriod": "후반 9'"
   },
   {
     "date": "2026-09-19",
@@ -260531,7 +260534,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 1,
-    "matchPeriod": "후반 6'",
+    "matchPeriod": "후반 10'",
     "scorers": {
       "home": [
         {
@@ -260558,9 +260561,9 @@
     "timeTbd": false,
     "gameId": "202609192701176",
     "status": "live",
-    "awayScore": 0,
+    "awayScore": 1,
     "homeScore": 1,
-    "matchPeriod": "후반 9'",
+    "matchPeriod": "후반 14'",
     "scorers": {
       "home": [
         {
@@ -260603,7 +260606,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 1,
-    "matchPeriod": "후반 8'",
+    "matchPeriod": "후반 13'",
     "scorers": {
       "home": [
         {
@@ -260635,13 +260638,17 @@
     "gameId": "202609193117211",
     "status": "live",
     "awayScore": 1,
-    "homeScore": 1,
-    "matchPeriod": "후반 4'",
+    "homeScore": 2,
+    "matchPeriod": "후반 9'",
     "scorers": {
       "home": [
         {
           "n": "조준현",
           "m": 28
+        },
+        {
+          "n": "박재용",
+          "m": 50
         }
       ],
       "away": [
@@ -260652,7 +260659,12 @@
       ]
     },
     "assists": {
-      "home": [],
+      "home": [
+        {
+          "n": "백지웅",
+          "count": 1
+        }
+      ],
       "away": [
         {
           "n": "세징야",
@@ -260674,7 +260686,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 1,
-    "matchPeriod": "전반 38'",
+    "matchPeriod": "전반 42'",
     "scorers": {
       "home": [
         {
@@ -262542,7 +262554,9 @@
     "stadium": "창원",
     "timeTbd": false,
     "gameId": "20260920HTNC02026",
-    "status": "scheduled"
+    "status": "scheduled",
+    "awayPitcher": "시라카와",
+    "homePitcher": "토다"
   },
   {
     "date": "2026-09-20",
