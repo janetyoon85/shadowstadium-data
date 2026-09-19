@@ -241924,7 +241924,7 @@
     "timeTbd": false,
     "gameId": "AAA_MLBSTATS_815479",
     "status": "live",
-    "homeScore": 13,
+    "homeScore": 16,
     "awayScore": 1,
     "inningInfo": "7회말"
   },
@@ -241939,7 +241939,7 @@
     "timeTbd": false,
     "gameId": "AAA_MLBSTATS_816901",
     "status": "live",
-    "homeScore": 5,
+    "homeScore": 6,
     "awayScore": 1,
     "inningInfo": "8회말"
   },
@@ -241983,7 +241983,7 @@
     "status": "live",
     "homeScore": 3,
     "awayScore": 1,
-    "inningInfo": "6회초"
+    "inningInfo": "6회말"
   },
   {
     "date": "2026-09-19",
@@ -242015,7 +242015,7 @@
     "homePitcher": "체이스 번스",
     "awayScore": 4,
     "homeScore": 3,
-    "inningInfo": "5회말"
+    "inningInfo": "6회초"
   },
   {
     "date": "2026-09-19",
@@ -242046,13 +242046,18 @@
     "gameId": "BOLIVIA_ESPN_401906473",
     "status": "live",
     "homeScore": 0,
-    "awayScore": 1,
+    "awayScore": 2,
     "scorers": {
       "home": [],
       "away": [
         {
           "n": "Ronald Bustos",
           "m": 27,
+          "nat": "Bolivia"
+        },
+        {
+          "n": "Adalid Terrazas",
+          "m": 44,
           "nat": "Bolivia"
         }
       ]
@@ -242071,7 +242076,7 @@
     "status": "live",
     "homeScore": 2,
     "awayScore": 4,
-    "inningInfo": "4회초"
+    "inningInfo": "4회말"
   },
   {
     "date": "2026-09-19",
@@ -242101,7 +242106,7 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 1,
-    "inningInfo": "4회초"
+    "inningInfo": "4회말"
   },
   {
     "date": "2026-09-19",
@@ -242116,7 +242121,7 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 5,
-    "inningInfo": "3회말"
+    "inningInfo": "4회초"
   },
   {
     "date": "2026-09-19",
@@ -242150,7 +242155,7 @@
     "homePitcher": "다니엘 에스피노",
     "awayScore": 3,
     "homeScore": 0,
-    "inningInfo": "4회초"
+    "inningInfo": "4회말"
   },
   {
     "date": "2026-09-19",
@@ -242167,7 +242172,7 @@
     "homePitcher": "이안 시모어",
     "awayScore": 4,
     "homeScore": 1,
-    "inningInfo": "3회말"
+    "inningInfo": "4회초"
   },
   {
     "date": "2026-09-19",
@@ -242184,7 +242189,7 @@
     "homePitcher": "잭 손튼",
     "awayScore": 1,
     "homeScore": 3,
-    "inningInfo": "3회초"
+    "inningInfo": "3회말"
   },
   {
     "date": "2026-09-19",
@@ -242199,7 +242204,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 30'",
+    "matchPeriod": "전반 34'",
     "phaseCode": "LEAGUE"
   },
   {
@@ -242232,7 +242237,7 @@
     "homePitcher": "데이빗 샌들린",
     "awayScore": 1,
     "homeScore": 6,
-    "inningInfo": "2회초"
+    "inningInfo": "2회말"
   },
   {
     "date": "2026-09-19",
@@ -242241,10 +242246,12 @@
     "venueId": "estadio_anna_mercedes",
     "home": "잉카 아루바",
     "away": "푸에르테 산프란시스코",
-    "stadium": "",
+    "stadium": "Estadio Anna Mercedes Campos",
     "timeTbd": false,
     "gameId": "ELSALVADOR_ESPN_401899788",
-    "status": "scheduled"
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-09-19",
@@ -242291,7 +242298,7 @@
     "homePitcher": "쿠마 로커",
     "awayScore": 0,
     "homeScore": 0,
-    "inningInfo": "1회초"
+    "inningInfo": "1회말"
   },
   {
     "date": "2026-09-19",
@@ -242303,9 +242310,12 @@
     "stadium": "쿠어스 필드",
     "timeTbd": false,
     "gameId": "20260919SECO0",
-    "status": "scheduled",
+    "status": "live",
     "awayPitcher": "브라이언 우",
-    "homePitcher": "가브리엘 휴스"
+    "homePitcher": "가브리엘 휴스",
+    "awayScore": 1,
+    "homeScore": 0,
+    "inningInfo": "1회초"
   },
   {
     "date": "2026-09-19",
@@ -242317,9 +242327,12 @@
     "stadium": "다이킨 파크",
     "timeTbd": false,
     "gameId": "20260919ATHO0",
-    "status": "scheduled",
+    "status": "live",
     "awayPitcher": "타일러 말리",
-    "homePitcher": "피터 램버트"
+    "homePitcher": "피터 램버트",
+    "awayScore": 0,
+    "homeScore": 0,
+    "inningInfo": "1회초"
   },
   {
     "date": "2026-09-19",
@@ -262434,6 +262447,18 @@
   {
     "date": "2026-10-20",
     "time": "01:30",
+    "league": "RUSSIA",
+    "venueId": "arena_khimki",
+    "home": "로디나 모스크바",
+    "away": "오렌부르크",
+    "stadium": "Arena Khimki",
+    "timeTbd": false,
+    "gameId": "RUSSIA_ESPN_401879833",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-20",
+    "time": "01:30",
     "league": "SERIEA",
     "venueId": "brianteo",
     "home": "몬차",
@@ -262565,6 +262590,18 @@
   },
   {
     "date": "2026-10-20",
+    "time": "09:00",
+    "league": "COSTARICA",
+    "venueId": "estadio_rohrmoser",
+    "home": "스포르팅 산호세",
+    "away": "AD 산카를로스",
+    "stadium": "Estadio Puente Piedra",
+    "timeTbd": false,
+    "gameId": "COSTARICA_ESPN_401876836",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-20",
     "time": "10:05",
     "league": "COLOMBIA",
     "venueId": "estadio_libertad_pasto",
@@ -262585,6 +262622,18 @@
     "stadium": "Scottsdale Stadium",
     "timeTbd": false,
     "gameId": "AFL_MLBSTATS_867699",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-20",
+    "time": "11:00",
+    "league": "COSTARICA",
+    "venueId": "estadio_saprissa_ayma",
+    "home": "에스코르피오네스 벨렌",
+    "away": "푼타레나스 FC",
+    "stadium": "Estadio Ricardo Saprissa",
+    "timeTbd": false,
+    "gameId": "COSTARICA_ESPN_401876838",
     "status": "scheduled"
   },
   {
