@@ -93,6 +93,10 @@ const TEAM_KO = {
   // 스웨덴 엘리트세리엔(SEBASEBALL, 2026-09-19 추가).
   'Karlskoga Bats': '칼스코가 배츠', 'Leksand Lumberjacks': '렉산드 럼버잭스', 'Rättvik Butchers': '레트비크 부처스',
   'Stockholm Monarchs': '스톡홀름 모나크스', 'Sundbyberg Heat': '순드비베리 히트',
+  // 오스트리아 베이스볼 분데스리가(ATBASEBALL, 2026-09-19 추가).
+  'Dornbirn Indians': '도른비른 인디언스', 'Hard Bulls': '하르트 불스', 'Schwechat Blue Bats': '슈베하트 블루뱃츠',
+  'Traiskirchen Grasshoppers': '트라이스키르헨 그래스호퍼스', 'Vienna Metrostars': '빈 메트로스타스', 'Vienna Wanderers': '빈 완더러스',
+  'Wr. Neustadt Diving Ducks': '빈 노이슈타트 다이빙덕스',
 };
 
 function isTbdPlaceholder(name) {
@@ -200,6 +204,14 @@ const VENUE_MAP = {
   'Leander Field': 'leander_field_leksand',
   'Butcher Field': 'butcher_field_rattvik',
   'Örvallen': 'orvallen_sundbyberg',
+  // 오스트리아 베이스볼 분데스리가(2026-09-19 추가, 실주소 기반 GPS로 앱 저장소에 신규 등록).
+  Ducksfield: 'ducksfield_wiener_neustadt',
+  'Ballpark am See': 'ballpark_am_see_hard',
+  Hoppersfield: 'hoppersfield_traiskirchen',
+  Batsfield: 'batsfield_schwechat',
+  'Ballpark Freudenau': 'ballpark_freudenau',
+  'Ballpark Spenadlwiese': 'ballpark_spenadlwiese',
+  'Sportanlage Rohrbach': 'sportanlage_rohrbach',
 };
 
 const TOURNAMENTS = [
@@ -222,6 +234,7 @@ const TOURNAMENTS = [
   { tournamentkey: '2026-championnat-de-france-division-1-baseball', league: 'FRBASEBALL', domain: 'ffbs.wbsc.org' },
   { tournamentkey: '2026-baseball-d1-2026', league: 'BEBASEBALL', domain: 'www.baseballsoftball.be' },
   { tournamentkey: '2025-elitserien-baseboll', league: 'SEBASEBALL', domain: 'stats.baseboll-softboll.se' },
+  { tournamentkey: 'baseball-bundesliga-2026', league: 'ATBASEBALL', domain: 'www.baseballsoftball.at' },
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
