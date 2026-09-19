@@ -64,6 +64,13 @@ const TEAM_KO = {
   'Amsterdam Pirates': '암스테르담 파이러츠', 'Curaçao Neptunus': '퀴라소 넵튠', HCAW: 'HCAW',
   Kinheim: '킨하임', 'Oosterhout Twins': '오스터하우트 트윈스', UVV: 'UVV',
   'Worldwide Pharma Logistics Hoofddorp Pioniers': '호프도르프 파이오니어스',
+  // 이탈리아 세리에 A Gold(ITBASEBALL, 2026-09-19 추가) — 그로세토 구단은 시즌중 스폰서명이
+  // 바뀌면서 원문 라벨이 두 개(BBC GROSSETO / BIG MAT BSCGROSSETO)로 나오지만 같은 구단·구장이라
+  // 같은 한글명으로 병합.
+  'NETTUNO 1945': '네투노 1945', 'SAN MARINO BASEBALL': '산마리노 베이스볼', 'UNIPOL FORTITUDO BOLOGNA': '포르티투도 볼로냐',
+  '1949 PARMA BASEBALL CLUB': '파르마 베이스볼 클럽 1949', 'FARMA CROCETTA': '크로체타', 'CAMEC COLLECCHIO': '콜레키오',
+  'PALFINGER REGGIO EMILIA': '레지오 에밀리아', 'HOTSAND MACERATA': '마체라타',
+  'BBC GROSSETO': 'BSC 그로세토', 'BIG MAT BSCGROSSETO': 'BSC 그로세토',
 };
 
 function isTbdPlaceholder(name) {
@@ -89,6 +96,16 @@ const VENUE_MAP = {
   'Sportpark De Slotbosse Toren': 'sportpark_slotbosse_toren',
   'Sportpark de Paperclip': 'sportpark_de_paperclip',
   'Sportpark Pioniers': 'sportpark_pioniers_hoofddorp',
+  // 이탈리아 세리에 A Gold(2026-09-19 추가, 실주소 기반 GPS로 앱 저장소에 신규 등록).
+  'STADIO STENO BORGHESE NETTUNO': 'stadio_steno_borghese',
+  'Campo Baseball Comunale La Ciarulla Serravalle': 'stadio_serravalle_la_ciarulla',
+  'STADIO BASEBALL GIANNI FALCHI': 'stadio_gianni_falchi',
+  'STADIO "N. CAVALLI"  c/o CENTRO SPORTIVO "A. NOTARI"': 'stadio_nino_cavalli_parma',
+  "CAMPO BASEBALL STUARD 1 POL. BELLE'": 'campo_stuard_parma',
+  'STADIO COMUNALE BASEBALL ROBERTO JANNELLA': 'stadio_roberto_jannella',
+  'CAMPO BASEBALL COMUNALE COLLECCHIO': 'campo_baseball_collecchio',
+  'STADIO BASEBALL CASELLI': 'stadio_giorgio_caselli',
+  'CAMPO COMUNALE BASEBALL MACERATA': 'campo_comunale_macerata',
 };
 
 const TOURNAMENTS = [
@@ -99,6 +116,7 @@ const TOURNAMENTS = [
   // 국가별 프로/세미프로 클럽리그(2026-09-19부터 순차 추가, "야구 강국순") — U18/U23
   // 월드컵과 같은 MyWBSC 플랫폼 위에 있어 이 크롤러를 그대로 재사용.
   { tournamentkey: '2026-lucky-day-hoofdklasse', league: 'NLBASEBALL', domain: 'stats.knbsbstats.nl' },
+  { tournamentkey: '2026-serie-a-gold-baseball', league: 'ITBASEBALL', domain: 'www.fibs.it' },
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
