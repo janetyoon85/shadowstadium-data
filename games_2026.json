@@ -262844,10 +262844,9 @@
     "stadium": "요한 크루이프 아레나",
     "timeTbd": false,
     "gameId": "5qZ88PDhDZt6kcT",
-    "status": "live",
+    "status": "completed",
     "awayScore": 2,
     "homeScore": 2,
-    "matchPeriod": "후반 47'",
     "scorers": {
       "home": [
         {
@@ -262959,7 +262958,7 @@
     "status": "live",
     "awayPitcher": "잭슨 조브",
     "homePitcher": "션 버크",
-    "awayScore": 1,
+    "awayScore": 2,
     "homeScore": 2,
     "inningInfo": "6회초"
   },
@@ -263078,7 +263077,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 1,
-    "matchPeriod": "후반 2'",
+    "matchPeriod": "후반 6'",
     "scorers": {
       "home": [
         {
@@ -263105,7 +263104,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 1,
-    "matchPeriod": "후반 5'",
+    "matchPeriod": "후반 9'",
     "scorers": {
       "home": [
         {
@@ -263131,17 +263130,23 @@
     "gameId": "RtZqD1gwmlZ5xlF",
     "status": "live",
     "awayScore": 0,
-    "homeScore": 1,
-    "matchPeriod": "후반 6'",
+    "homeScore": 2,
+    "matchPeriod": "후반 10'",
     "scorers": {
       "home": [
         {
           "n": "텡스테트",
-          "m": 49
+          "m": 49,
+          "a": "Corentin Tolisso",
+          "nat": "Ghana",
+          "aNat": "France"
         },
         {
           "n": "텡스테트",
-          "m": 51
+          "m": 51,
+          "a": "Pavel Sulc",
+          "nat": "Ghana",
+          "aNat": "Czechia"
         }
       ],
       "away": []
@@ -263158,9 +263163,18 @@
     "timeTbd": false,
     "gameId": "rSEzhAY3aY348hZ",
     "status": "live",
-    "awayScore": 0,
+    "awayScore": 1,
     "homeScore": 0,
-    "matchPeriod": "후반 4'"
+    "matchPeriod": "후반 8'",
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "자카니",
+          "m": 51
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-20",
@@ -263234,7 +263248,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 49'"
+    "matchPeriod": "전반종료"
   },
   {
     "date": "2026-09-20",
@@ -263249,7 +263263,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 1,
-    "matchPeriod": "전반 49'",
+    "matchPeriod": "전반종료",
     "scorers": {
       "home": [
         {
@@ -263296,7 +263310,7 @@
     "timeTbd": false,
     "gameId": "PORTUGAL_ESPN_401885431",
     "status": "live",
-    "homeScore": 1,
+    "homeScore": 2,
     "awayScore": 0,
     "scorers": {
       "home": [
@@ -263304,6 +263318,11 @@
           "n": "Gonçalo Inácio",
           "m": 3,
           "nat": "Portugal"
+        },
+        {
+          "n": "Luis Suárez",
+          "m": 17,
+          "nat": "Colombia"
         }
       ],
       "away": []
@@ -263321,7 +263340,17 @@
     "gameId": "VENEZUELA_ESPN_401903332",
     "status": "live",
     "homeScore": 0,
-    "awayScore": 0
+    "awayScore": 1,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "Felipe Jaramillo",
+          "m": 17,
+          "nat": "Colombia"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-20",
@@ -263333,7 +263362,9 @@
     "stadium": "15 de Abril",
     "timeTbd": false,
     "gameId": "ARGENTINA_ESPN_401841576",
-    "status": "scheduled"
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-09-20",
@@ -263357,7 +263388,10 @@
     "stadium": "Polar Park",
     "timeTbd": false,
     "gameId": "AAA_MLBSTATS_815483",
-    "status": "scheduled"
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0,
+    "inningInfo": "1회초"
   },
   {
     "date": "2026-09-20",
@@ -266431,7 +266465,7 @@
     "stadium": "Estadio Banco Pichincha",
     "timeTbd": false,
     "gameId": "ECUADOR_ESPN_401921355",
-    "status": "scheduled"
+    "status": "postponed"
   },
   {
     "date": "2026-09-22",
