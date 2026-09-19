@@ -263587,7 +263587,7 @@
     "status": "live",
     "homeScore": 3,
     "awayScore": 3,
-    "inningInfo": "8회초"
+    "inningInfo": "8회말"
   },
   {
     "date": "2026-09-20",
@@ -263638,7 +263638,7 @@
     "homePitcher": "프레디 페랄타",
     "awayScore": 1,
     "homeScore": 1,
-    "inningInfo": "8회초"
+    "inningInfo": "8회말"
   },
   {
     "date": "2026-09-20",
@@ -263774,7 +263774,17 @@
     "gameId": "ECUADOR_ESPN_401921386",
     "status": "live",
     "homeScore": 0,
-    "awayScore": 0
+    "awayScore": 1,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "Mauro Luque",
+          "m": 38,
+          "nat": "Argentina"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-20",
@@ -263849,8 +263859,18 @@
     "timeTbd": false,
     "gameId": "VENEZUELA_ESPN_401903318",
     "status": "live",
-    "homeScore": 0,
-    "awayScore": 0
+    "homeScore": 1,
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "Jhon Marchán",
+          "m": 6,
+          "nat": "Venezuela"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-09-20",
@@ -263889,9 +263909,12 @@
     "stadium": "프로그레시브 필드",
     "timeTbd": false,
     "gameId": "20260920OACL0",
-    "status": "scheduled",
+    "status": "live",
     "awayPitcher": "제이콥 로페즈",
-    "homePitcher": "태너 바이비"
+    "homePitcher": "태너 바이비",
+    "awayScore": 0,
+    "homeScore": 0,
+    "inningInfo": "1회초"
   },
   {
     "date": "2026-09-20",
