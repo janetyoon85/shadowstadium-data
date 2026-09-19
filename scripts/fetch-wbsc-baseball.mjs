@@ -97,6 +97,9 @@ const TEAM_KO = {
   'Dornbirn Indians': '도른비른 인디언스', 'Hard Bulls': '하르트 불스', 'Schwechat Blue Bats': '슈베하트 블루뱃츠',
   'Traiskirchen Grasshoppers': '트라이스키르헨 그래스호퍼스', 'Vienna Metrostars': '빈 메트로스타스', 'Vienna Wanderers': '빈 완더러스',
   'Wr. Neustadt Diving Ducks': '빈 노이슈타트 다이빙덕스',
+  // 핀란드 Superbaseball(FIBASEBALL, 2026-09-19 추가) — 11개국 유럽·중남미 야구리그 확장 마지막.
+  'Baseball-Puumat Helsinki': '헬싱키 푸마트', 'Espoo Expos': '에스포 엑스포스', 'Helsinki Mets': '헬싱키 메츠',
+  'Lintuvaara XL5': '린투바라 XL5', 'Tampere Tigers': '탐페레 타이거스',
 };
 
 function isTbdPlaceholder(name) {
@@ -212,6 +215,10 @@ const VENUE_MAP = {
   'Ballpark Freudenau': 'ballpark_freudenau',
   'Ballpark Spenadlwiese': 'ballpark_spenadlwiese',
   'Sportanlage Rohrbach': 'sportanlage_rohrbach',
+  // 핀란드 Superbaseball(2026-09-19 추가, 실주소 기반 GPS로 앱 저장소에 신규 등록).
+  Myllypuro: 'myllypuro_helsinki',
+  'Tampere Tigers Baseball Field': 'tampere_tigers_field',
+  'Lahti Pirates Stadion': 'lahti_pirates_stadion',
 };
 
 const TOURNAMENTS = [
@@ -235,6 +242,7 @@ const TOURNAMENTS = [
   { tournamentkey: '2026-baseball-d1-2026', league: 'BEBASEBALL', domain: 'www.baseballsoftball.be' },
   { tournamentkey: '2025-elitserien-baseboll', league: 'SEBASEBALL', domain: 'stats.baseboll-softboll.se' },
   { tournamentkey: 'baseball-bundesliga-2026', league: 'ATBASEBALL', domain: 'www.baseballsoftball.at' },
+  { tournamentkey: '2026-superbaseball-2026', league: 'FIBASEBALL', domain: 'finland.wbsc.org' },
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
