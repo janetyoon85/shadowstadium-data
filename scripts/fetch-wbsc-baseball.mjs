@@ -142,6 +142,8 @@ const VENUE_MAP = {
   'Sportpark De Slotbosse Toren': 'sportpark_slotbosse_toren',
   'Sportpark de Paperclip': 'sportpark_de_paperclip',
   'Sportpark Pioniers': 'sportpark_pioniers_hoofddorp',
+  // 같은 구장의 표기 변형(2026-09-19 확인, 22경기 중 1경기만 이 표기로 찍힘 — 같은 팀/도시).
+  'Sportpark 21': 'sportpark_pioniers_hoofddorp',
   // 이탈리아 세리에 A Gold(2026-09-19 추가, 실주소 기반 GPS로 앱 저장소에 신규 등록).
   'STADIO STENO BORGHESE NETTUNO': 'stadio_steno_borghese',
   'Campo Baseball Comunale La Ciarulla Serravalle': 'stadio_serravalle_la_ciarulla',
