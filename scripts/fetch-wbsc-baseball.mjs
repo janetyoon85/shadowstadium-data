@@ -74,11 +74,18 @@ const TEAM_KO = {
   // 콜롬비아 프로베이스볼리그(COBASEBALL, 2026-09-19 추가).
   'Caimanes de Barranquilla': '카이마네스 바랑키야', 'Tigres de Cartagena': '티그레스 카르타헤나',
   'Toros de Sincelejo': '토로스 신셀레호', 'Vaqueros de Monteria': '바케로스 몬테리아',
+  // 체코 베이스볼 엑스트라리가(CZBASEBALL, 2026-09-19 추가).
+  Nuclears: '트르제비치 뉴클리어스', Hroši: '브르노 흐로시', Arrows: '오스트라바 애로우스', SaBaT: '프라하 사바트',
+  Eagles: '프라하 이글스', Kotlářka: '프라하 코틀라르카', Draci: '브르노 드라치', Hluboká: '흘루보카 소콜',
 };
 
 function isTbdPlaceholder(name) {
   return typeof name === 'string' && / Place After /.test(name);
 }
+
+// 정규 클럽팀이 아닌 올스타/국가대표 이벤트성 경기 제외(체코 Extraliga 등에서 시즌 중
+// 딱 1경기씩 섞여 나옴, 2026-09-19 발견).
+const EXHIBITION_TEAM_LABELS = new Set(['Česká reprezentace', 'Hvězdy Extraligy']);
 
 const VENUE_MAP = {
   'Okinawa Cellular Stadium NAHA': 'okinawa_cellular_naha',
@@ -117,6 +124,15 @@ const VENUE_MAP = {
   'Estadio Once de Noviembre': 'estadio_once_de_noviembre_cartagena',
   '11 de Noviembre "Abel Leal"': 'estadio_once_de_noviembre_cartagena',
   'Estadio de Béisbol 18 de Junio': 'estadio_dieciocho_de_junio_monteria',
+  // 체코 베이스볼 엑스트라리가(2026-09-19 추가, 실주소 기반 GPS로 앱 저장소에 신규 등록).
+  'Arrows Park Ostrava': 'arrows_park_ostrava',
+  'Eagles - Field 1': 'eagles_park_praha',
+  'Hluboká Baseball & Softball Club': 'hluboka_baseball_softball_club',
+  'Hroši Brno': 'areal_hroch_brno',
+  'Kotlářka Na Markétě': 'kotlarka_na_markete',
+  'MBS Brno': 'mestsky_baseballovy_stadion_brno',
+  SaBaT: 'sabat_praha',
+  'Třebíč Na Hvězdě': 'trebic_na_hvezde',
 };
 
 const TOURNAMENTS = [
@@ -131,6 +147,7 @@ const TOURNAMENTS = [
   // col.wbsc.org는 /en/ 경로로 접근하면 엉뚱한(이탈리아) 데이터가 나오는 라우팅 버그가 있어
   // /es/ 경로 필수(실측 확인, 2026-09-19).
   { tournamentkey: '2025-liga-profesional-de-beisbol-de-colombiano-2025-2026', league: 'COBASEBALL', domain: 'col.wbsc.org', locale: 'es' },
+  { tournamentkey: '2025-extraliga-2025', league: 'CZBASEBALL', domain: 'stats.baseball.cz' },
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -184,6 +201,7 @@ async function fetchWbscBaseballTournament(tournamentkey, league, unknownTeams, 
     const homeEn = g.homelabel;
     const awayEn = g.awaylabel;
     if (isTbdPlaceholder(homeEn) || isTbdPlaceholder(awayEn)) continue;
+    if (EXHIBITION_TEAM_LABELS.has(homeEn) || EXHIBITION_TEAM_LABELS.has(awayEn)) continue;
     const homeKo = TEAM_KO[homeEn];
     const awayKo = TEAM_KO[awayEn];
     if (!homeKo) unknownTeams.add(`${league}:${homeEn}`);
