@@ -28,6 +28,7 @@ jobs:
       - name: Run WBSC baseball fetch
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          SCRAPERAPI_KEY: ${{ secrets.SCRAPERAPI_KEY }}
         run: node scripts/fetch-wbsc-baseball.mjs
 
       - name: Check for changes

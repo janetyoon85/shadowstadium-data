@@ -38,13 +38,26 @@ const BROWSER_HEADERS = {
 };
 const REQUEST_DELAY_MS = 800;
 const sleepMs = (ms) => new Promise((r) => setTimeout(r, ms));
+
+// 2026-09-19 확인: 위 헤더 보완으로도 안 풀림 — 실제로는 CloudFront/WAF의 IP 평판(호스팅·
+// 데이터센터 IP 대역) 차단이라 GitHub Actions뿐 아니라 Jina AI Reader 등 다른 클라우드발
+// 요청도 전부 동일하게 403. www.wbsc.org 계열뿐 아니라 완전히 별개 도메인(fibs.it,
+// stats.baseball.cz 등 각국 연맹이 자체 호스팅하는 MyWBSC 인스턴스)까지 전부 막혀서
+// User-Agent/헤더로 해결 불가능함을 디스포저블 GitHub Actions 워크플로로 실측 확인함.
+// ScraperAPI(가정용 IP 경유 프록시, 무료 플랜 월 5,000건) 설정 시에만 우회 — 로컬/샌드박스
+// 실행(SCRAPERAPI_KEY 미설정)은 기존처럼 직접 요청.
+const SCRAPERAPI_KEY = process.env.SCRAPERAPI_KEY;
+function proxiedUrl(url) {
+  if (!SCRAPERAPI_KEY) return url;
+  return `https://api.scraperapi.com/?api_key=${SCRAPERAPI_KEY}&url=${encodeURIComponent(url)}`;
+}
 // 403/429는 일시적인 봇 차단/레이트리밋일 수 있어 한 번 더 재시도(간격을 두고) — 완전한 IP
 // 차단이면 재시도해도 소용없지만, 일시적 챌린지라면 통과할 수 있음.
 async function fetchWithRetry(url, attempts = 2) {
   let lastErr;
   for (let i = 0; i < attempts; i++) {
     if (i > 0) await sleepMs(3000 + Math.random() * 2000);
-    const res = await fetch(url, { headers: BROWSER_HEADERS });
+    const res = await fetch(proxiedUrl(url), SCRAPERAPI_KEY ? {} : { headers: BROWSER_HEADERS });
     if (res.ok) return res;
     lastErr = new Error(`HTTP ${res.status}`);
     if (res.status !== 403 && res.status !== 429) break;
