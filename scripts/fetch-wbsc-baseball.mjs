@@ -59,6 +59,11 @@ const TEAM_KO = {
   Czechia: '체코', 'Great Britain': '영국', 'Dominican Republic': '도미니카공화국', Mexico: '멕시코',
   Nicaragua: '니카라과', Venezuela: '베네수엘라',
   'Hong Kong, China': '홍콩', Philippines: '필리핀', Singapore: '싱가포르', 'Sri Lanka': '스리랑카', Thailand: '태국',
+  // 네덜란드 혼크발 호프트클라서(NLBASEBALL, 2026-09-19 추가) — 클럽팀 명은 국가대표
+  // 팀명과 겹치지 않아 이 dict 하나만 씀(대륙별 클럽리그와 국가대표 dict 분리 안 함).
+  'Amsterdam Pirates': '암스테르담 파이러츠', 'Curaçao Neptunus': '퀴라소 넵튠', HCAW: 'HCAW',
+  Kinheim: '킨하임', 'Oosterhout Twins': '오스터하우트 트윈스', UVV: 'UVV',
+  'Worldwide Pharma Logistics Hoofddorp Pioniers': '호프도르프 파이오니어스',
 };
 
 function isTbdPlaceholder(name) {
@@ -76,6 +81,14 @@ const VENUE_MAP = {
   'Taipei Dome': 'taipei_dome',
   'Taipei Tianmu Baseball Stadium': 'tianmu_baseball_stadium',
   'XinZhuang Baseball Stadium': 'xinzhuang_baseball_stadium',
+  // 네덜란드 혼크발 호프트클라서(2026-09-19 추가, 실주소 기반 GPS로 앱 저장소에 신규 등록).
+  'Loek Loevendie Ballpark': 'sportpark_ookmeer',
+  'Neptunus Familiestadion': 'neptunus_familiestadion',
+  'Rob Hoffmann Vallei': 'rob_hoffmann_vallei',
+  'Pim Mulier Stadion': 'pim_mulier_stadion',
+  'Sportpark De Slotbosse Toren': 'sportpark_slotbosse_toren',
+  'Sportpark de Paperclip': 'sportpark_de_paperclip',
+  'Sportpark Pioniers': 'sportpark_pioniers_hoofddorp',
 };
 
 const TOURNAMENTS = [
@@ -83,6 +96,9 @@ const TOURNAMENTS = [
   { tournamentkey: '2026-vii-u-15-baseball-world-cup', league: 'U15BASEBALLWORLDCUP' },
   { tournamentkey: '2026-vi-wbsc-u-23-baseball-world-cup', league: 'U23BASEBALLWORLDCUP' },
   { tournamentkey: '2026-bfa-xiv-u18-championship', league: 'U18ASIANBASEBALL', domain: 'www.wbscasia.org' },
+  // 국가별 프로/세미프로 클럽리그(2026-09-19부터 순차 추가, "야구 강국순") — U18/U23
+  // 월드컵과 같은 MyWBSC 플랫폼 위에 있어 이 크롤러를 그대로 재사용.
+  { tournamentkey: '2026-lucky-day-hoofdklasse', league: 'NLBASEBALL', domain: 'stats.knbsbstats.nl' },
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -113,9 +129,20 @@ function toKstDateTime(utcIso) {
 }
 
 function wbscStatusToOurs(g) {
-  if (g.gamestatustext === 'F') return 'completed';
+  if (g.gamestatustext === 'F' || /^F\//.test(g.gamestatustext || '')) return 'completed';
   if (g.gamestatus === 0 && !g.gamestatustext) return 'scheduled';
   return 'live';
+}
+
+// 라이브 이닝 정보 — gamestatustext 가 "T2"(2회초)/"B3"(3회말) 형태로 옴(2026-09-19, 이탈리아
+// 세리에 A Gold 실측 확인, 다른 MyWBSC 대회에도 동일 필드라 여기서 한 번만 고치면 전부 적용됨.
+// 예전엔 이 필드를 F 여부만 확인하고 버려서 U18/U23 월드컵 등 기존 대회도 라이브 중 이닝
+// 표시가 아예 없었음 — 부수 효과로 같이 해결).
+function wbscInningInfo(gamestatustext) {
+  const m = /^([TB])(\d+)$/.exec(gamestatustext || '');
+  if (!m) return null;
+  const [, half, inning] = m;
+  return `${inning}회${half === 'T' ? '초' : '말'}`;
 }
 
 async function fetchWbscBaseballTournament(tournamentkey, league, unknownTeams, unknownVenues, domain) {
@@ -145,6 +172,10 @@ async function fetchWbscBaseballTournament(tournamentkey, league, unknownTeams, 
     if (status === 'completed' || status === 'live') {
       out.homeScore = Number(g.homeruns);
       out.awayScore = Number(g.awayruns);
+    }
+    if (status === 'live') {
+      const inningInfo = wbscInningInfo(g.gamestatustext);
+      if (inningInfo) out.inningInfo = inningInfo;
     }
     games.push(out);
   }

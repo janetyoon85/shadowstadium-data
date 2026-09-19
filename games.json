@@ -457,9 +457,10 @@
     "stadium": "Okinawa Cellular Stadium NAHA",
     "timeTbd": false,
     "gameId": "U18BASEBALLWORLDCUP_WBSC_173045",
-    "status": "completed",
+    "status": "live",
     "homeScore": 0,
-    "awayScore": 13
+    "awayScore": 0,
+    "inningInfo": "3회말"
   },
   {
     "date": "2025-09-08",
@@ -39599,6 +39600,70 @@
   {
     "date": "2026-03-28",
     "time": "14:00",
+    "league": "K리그2",
+    "venueId": "asan",
+    "home": "충남아산",
+    "away": "화성",
+    "stadium": "아산 이순신",
+    "timeTbd": false,
+    "gameId": "20260328343934",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "장준영",
+          "m": 41
+        }
+      ],
+      "away": []
+    },
+    "assists": {
+      "home": [
+        {
+          "n": "은고이",
+          "count": 1
+        }
+      ],
+      "away": []
+    }
+  },
+  {
+    "date": "2026-03-28",
+    "time": "14:00",
+    "league": "K리그2",
+    "venueId": "yongin",
+    "home": "용인",
+    "away": "수원",
+    "stadium": "용인 미르",
+    "timeTbd": false,
+    "gameId": "20260328420233",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "페신",
+          "m": 3
+        }
+      ]
+    },
+    "assists": {
+      "home": [],
+      "away": [
+        {
+          "n": "브루노 실바",
+          "count": 1
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-03-28",
+    "time": "14:00",
     "league": "KBO",
     "venueId": "changwon",
     "home": "NC",
@@ -39687,70 +39752,6 @@
     "homeScore": 7,
     "winPitcher": "김민",
     "losePitcher": "조상우"
-  },
-  {
-    "date": "2026-03-28",
-    "time": "14:00",
-    "league": "K리그2",
-    "venueId": "asan",
-    "home": "충남아산",
-    "away": "화성",
-    "stadium": "아산 이순신",
-    "timeTbd": false,
-    "gameId": "20260328343934",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 1,
-    "scorers": {
-      "home": [
-        {
-          "n": "장준영",
-          "m": 41
-        }
-      ],
-      "away": []
-    },
-    "assists": {
-      "home": [
-        {
-          "n": "은고이",
-          "count": 1
-        }
-      ],
-      "away": []
-    }
-  },
-  {
-    "date": "2026-03-28",
-    "time": "14:00",
-    "league": "K리그2",
-    "venueId": "yongin",
-    "home": "용인",
-    "away": "수원",
-    "stadium": "용인 미르",
-    "timeTbd": false,
-    "gameId": "20260328420233",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 0,
-    "scorers": {
-      "home": [],
-      "away": [
-        {
-          "n": "페신",
-          "m": 3
-        }
-      ]
-    },
-    "assists": {
-      "home": [],
-      "away": [
-        {
-          "n": "브루노 실바",
-          "count": 1
-        }
-      ]
-    }
   },
   {
     "date": "2026-03-28",
@@ -40786,6 +40787,87 @@
   {
     "date": "2026-03-29",
     "time": "14:00",
+    "league": "K리그2",
+    "venueId": "cheongju",
+    "home": "충북청주",
+    "away": "부산",
+    "stadium": "청주 종합",
+    "timeTbd": false,
+    "gameId": "20260329370638",
+    "status": "completed",
+    "awayScore": 2,
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "이라클리",
+          "m": 81
+        }
+      ],
+      "away": [
+        {
+          "n": "가브리엘",
+          "m": 42
+        },
+        {
+          "n": "백가온",
+          "m": 87
+        }
+      ]
+    },
+    "assists": {
+      "home": [
+        {
+          "n": "허승찬",
+          "count": 1
+        }
+      ],
+      "away": [
+        {
+          "n": "김찬",
+          "count": 1
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-03-29",
+    "time": "14:00",
+    "league": "K리그2",
+    "venueId": "suwonfc",
+    "home": "수원FC",
+    "away": "파주",
+    "stadium": "수원 종합",
+    "timeTbd": false,
+    "gameId": "20260329294039",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "윌리안",
+          "m": 5,
+          "pk": true
+        },
+        {
+          "n": "윌리안",
+          "m": 33,
+          "pk": true
+        }
+      ],
+      "away": [
+        {
+          "n": "보르하 바스톤",
+          "m": 21,
+          "pk": true
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-03-29",
+    "time": "14:00",
     "league": "KBO",
     "venueId": "changwon",
     "home": "NC",
@@ -40874,87 +40956,6 @@
     "homeScore": 11,
     "winPitcher": "김건우",
     "losePitcher": "이의리"
-  },
-  {
-    "date": "2026-03-29",
-    "time": "14:00",
-    "league": "K리그2",
-    "venueId": "cheongju",
-    "home": "충북청주",
-    "away": "부산",
-    "stadium": "청주 종합",
-    "timeTbd": false,
-    "gameId": "20260329370638",
-    "status": "completed",
-    "awayScore": 2,
-    "homeScore": 1,
-    "scorers": {
-      "home": [
-        {
-          "n": "이라클리",
-          "m": 81
-        }
-      ],
-      "away": [
-        {
-          "n": "가브리엘",
-          "m": 42
-        },
-        {
-          "n": "백가온",
-          "m": 87
-        }
-      ]
-    },
-    "assists": {
-      "home": [
-        {
-          "n": "허승찬",
-          "count": 1
-        }
-      ],
-      "away": [
-        {
-          "n": "김찬",
-          "count": 1
-        }
-      ]
-    }
-  },
-  {
-    "date": "2026-03-29",
-    "time": "14:00",
-    "league": "K리그2",
-    "venueId": "suwonfc",
-    "home": "수원FC",
-    "away": "파주",
-    "stadium": "수원 종합",
-    "timeTbd": false,
-    "gameId": "20260329294039",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "윌리안",
-          "m": 5,
-          "pk": true
-        },
-        {
-          "n": "윌리안",
-          "m": 33,
-          "pk": true
-        }
-      ],
-      "away": [
-        {
-          "n": "보르하 바스톤",
-          "m": 21,
-          "pk": true
-        }
-      ]
-    }
   },
   {
     "date": "2026-03-29",
@@ -46728,24 +46729,6 @@
   {
     "date": "2026-04-04",
     "time": "14:00",
-    "league": "KBO",
-    "venueId": "jamsil",
-    "home": "두산",
-    "away": "한화",
-    "stadium": "잠실",
-    "timeTbd": false,
-    "gameId": "20260404HHOB02026",
-    "status": "completed",
-    "awayPitcher": "왕옌청",
-    "homePitcher": "곽빈",
-    "awayScore": 9,
-    "homeScore": 3,
-    "winPitcher": "왕옌청",
-    "losePitcher": "곽빈"
-  },
-  {
-    "date": "2026-04-04",
-    "time": "14:00",
     "league": "K리그1",
     "venueId": "jeju",
     "home": "제주",
@@ -46881,6 +46864,24 @@
         }
       ]
     }
+  },
+  {
+    "date": "2026-04-04",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "jamsil",
+    "home": "두산",
+    "away": "한화",
+    "stadium": "잠실",
+    "timeTbd": false,
+    "gameId": "20260404HHOB02026",
+    "status": "completed",
+    "awayPitcher": "왕옌청",
+    "homePitcher": "곽빈",
+    "awayScore": 9,
+    "homeScore": 3,
+    "winPitcher": "왕옌청",
+    "losePitcher": "곽빈"
   },
   {
     "date": "2026-04-04",
@@ -49584,100 +49585,6 @@
   {
     "date": "2026-04-05",
     "time": "14:00",
-    "league": "KBO",
-    "venueId": "gocheok",
-    "home": "키움",
-    "away": "LG",
-    "stadium": "고척",
-    "timeTbd": false,
-    "gameId": "20260405LGWO02026",
-    "status": "completed",
-    "awayPitcher": "톨허스트",
-    "homePitcher": "와일스",
-    "awayScore": 6,
-    "homeScore": 5,
-    "winPitcher": "톨허스트",
-    "losePitcher": "와일스",
-    "savePitcher": "유영찬"
-  },
-  {
-    "date": "2026-04-05",
-    "time": "14:00",
-    "league": "KBO",
-    "venueId": "gwangju",
-    "home": "KIA",
-    "away": "NC",
-    "stadium": "광주",
-    "timeTbd": false,
-    "gameId": "20260405NCHT02026",
-    "status": "completed",
-    "awayPitcher": "토다",
-    "homePitcher": "올러",
-    "awayScore": 0,
-    "homeScore": 3,
-    "winPitcher": "올러",
-    "losePitcher": "토다",
-    "savePitcher": "정해영"
-  },
-  {
-    "date": "2026-04-05",
-    "time": "14:00",
-    "league": "KBO",
-    "venueId": "jamsil",
-    "home": "두산",
-    "away": "한화",
-    "stadium": "잠실",
-    "timeTbd": false,
-    "gameId": "20260405HHOB02026",
-    "status": "completed",
-    "awayPitcher": "황준서",
-    "homePitcher": "잭로그",
-    "awayScore": 0,
-    "homeScore": 8,
-    "winPitcher": "잭로그",
-    "losePitcher": "황준서"
-  },
-  {
-    "date": "2026-04-05",
-    "time": "14:00",
-    "league": "KBO",
-    "venueId": "sajik",
-    "home": "롯데",
-    "away": "SSG",
-    "stadium": "사직",
-    "timeTbd": false,
-    "gameId": "20260405SKLT02026",
-    "status": "completed",
-    "awayPitcher": "베니지아노",
-    "homePitcher": "박세웅",
-    "awayScore": 4,
-    "homeScore": 3,
-    "winPitcher": "김민",
-    "losePitcher": "최준용",
-    "savePitcher": "조병현"
-  },
-  {
-    "date": "2026-04-05",
-    "time": "14:00",
-    "league": "KBO",
-    "venueId": "suwonkt",
-    "home": "KT",
-    "away": "삼성",
-    "stadium": "수원",
-    "timeTbd": false,
-    "gameId": "20260405SSKT02026",
-    "status": "completed",
-    "awayPitcher": "오러클린",
-    "homePitcher": "보쉴리",
-    "awayScore": 0,
-    "homeScore": 2,
-    "winPitcher": "보쉴리",
-    "losePitcher": "오러클린",
-    "savePitcher": "박영현"
-  },
-  {
-    "date": "2026-04-05",
-    "time": "14:00",
     "league": "K리그1",
     "venueId": "anyang",
     "home": "안양",
@@ -49792,6 +49699,100 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 0
+  },
+  {
+    "date": "2026-04-05",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "gocheok",
+    "home": "키움",
+    "away": "LG",
+    "stadium": "고척",
+    "timeTbd": false,
+    "gameId": "20260405LGWO02026",
+    "status": "completed",
+    "awayPitcher": "톨허스트",
+    "homePitcher": "와일스",
+    "awayScore": 6,
+    "homeScore": 5,
+    "winPitcher": "톨허스트",
+    "losePitcher": "와일스",
+    "savePitcher": "유영찬"
+  },
+  {
+    "date": "2026-04-05",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "gwangju",
+    "home": "KIA",
+    "away": "NC",
+    "stadium": "광주",
+    "timeTbd": false,
+    "gameId": "20260405NCHT02026",
+    "status": "completed",
+    "awayPitcher": "토다",
+    "homePitcher": "올러",
+    "awayScore": 0,
+    "homeScore": 3,
+    "winPitcher": "올러",
+    "losePitcher": "토다",
+    "savePitcher": "정해영"
+  },
+  {
+    "date": "2026-04-05",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "jamsil",
+    "home": "두산",
+    "away": "한화",
+    "stadium": "잠실",
+    "timeTbd": false,
+    "gameId": "20260405HHOB02026",
+    "status": "completed",
+    "awayPitcher": "황준서",
+    "homePitcher": "잭로그",
+    "awayScore": 0,
+    "homeScore": 8,
+    "winPitcher": "잭로그",
+    "losePitcher": "황준서"
+  },
+  {
+    "date": "2026-04-05",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "sajik",
+    "home": "롯데",
+    "away": "SSG",
+    "stadium": "사직",
+    "timeTbd": false,
+    "gameId": "20260405SKLT02026",
+    "status": "completed",
+    "awayPitcher": "베니지아노",
+    "homePitcher": "박세웅",
+    "awayScore": 4,
+    "homeScore": 3,
+    "winPitcher": "김민",
+    "losePitcher": "최준용",
+    "savePitcher": "조병현"
+  },
+  {
+    "date": "2026-04-05",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "suwonkt",
+    "home": "KT",
+    "away": "삼성",
+    "stadium": "수원",
+    "timeTbd": false,
+    "gameId": "20260405SSKT02026",
+    "status": "completed",
+    "awayPitcher": "오러클린",
+    "homePitcher": "보쉴리",
+    "awayScore": 0,
+    "homeScore": 2,
+    "winPitcher": "보쉴리",
+    "losePitcher": "오러클린",
+    "savePitcher": "박영현"
   },
   {
     "date": "2026-04-05",
@@ -54679,6 +54680,48 @@
   },
   {
     "date": "2026-04-10",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "rob_hoffmann_vallei",
+    "home": "HCAW",
+    "away": "UVV",
+    "stadium": "Rob Hoffmann Vallei",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197377",
+    "status": "completed",
+    "homeScore": 13,
+    "awayScore": 3
+  },
+  {
+    "date": "2026-04-10",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_ookmeer",
+    "home": "암스테르담 파이러츠",
+    "away": "킨하임",
+    "stadium": "Loek Loevendie Ballpark",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197379",
+    "status": "completed",
+    "homeScore": 10,
+    "awayScore": 3
+  },
+  {
+    "date": "2026-04-10",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_slotbosse_toren",
+    "home": "오스터하우트 트윈스",
+    "away": "퀴라소 넵튠",
+    "stadium": "Sportpark De Slotbosse Toren",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197378",
+    "status": "completed",
+    "homeScore": 2,
+    "awayScore": 9
+  },
+  {
+    "date": "2026-04-10",
     "time": "02:35",
     "league": "MLB",
     "venueId": "yankee_stadium",
@@ -56198,25 +56241,6 @@
   {
     "date": "2026-04-11",
     "time": "14:00",
-    "league": "KBO",
-    "venueId": "daejeon",
-    "home": "한화",
-    "away": "KIA",
-    "stadium": "대전",
-    "timeTbd": false,
-    "gameId": "20260411HTHH02026",
-    "status": "completed",
-    "awayPitcher": "이의리",
-    "homePitcher": "왕옌청",
-    "awayScore": 6,
-    "homeScore": 5,
-    "winPitcher": "황동하",
-    "losePitcher": "박상원",
-    "savePitcher": "성영탁"
-  },
-  {
-    "date": "2026-04-11",
-    "time": "14:00",
     "league": "K리그1",
     "venueId": "pohang",
     "home": "포항",
@@ -56367,6 +56391,25 @@
         }
       ]
     }
+  },
+  {
+    "date": "2026-04-11",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "daejeon",
+    "home": "한화",
+    "away": "KIA",
+    "stadium": "대전",
+    "timeTbd": false,
+    "gameId": "20260411HTHH02026",
+    "status": "completed",
+    "awayPitcher": "이의리",
+    "homePitcher": "왕옌청",
+    "awayScore": 6,
+    "homeScore": 5,
+    "winPitcher": "황동하",
+    "losePitcher": "박상원",
+    "savePitcher": "성영탁"
   },
   {
     "date": "2026-04-11",
@@ -56756,6 +56799,48 @@
   },
   {
     "date": "2026-04-11",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "neptunus_familiestadion",
+    "home": "퀴라소 넵튠",
+    "away": "오스터하우트 트윈스",
+    "stadium": "Neptunus Familiestadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197381",
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 0
+  },
+  {
+    "date": "2026-04-11",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "pim_mulier_stadion",
+    "home": "킨하임",
+    "away": "암스테르담 파이러츠",
+    "stadium": "Pim Mulier Stadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197382",
+    "status": "completed",
+    "homeScore": 6,
+    "awayScore": 5
+  },
+  {
+    "date": "2026-04-11",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_de_paperclip",
+    "home": "UVV",
+    "away": "HCAW",
+    "stadium": "Sportpark de Paperclip",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197380",
+    "status": "completed",
+    "homeScore": 2,
+    "awayScore": 3
+  },
+  {
+    "date": "2026-04-11",
     "time": "20:30",
     "league": "EFL",
     "venueId": "coventry_arena",
@@ -56895,6 +56980,48 @@
         }
       ]
     }
+  },
+  {
+    "date": "2026-04-11",
+    "time": "21:30",
+    "league": "NLBASEBALL",
+    "venueId": "neptunus_familiestadion",
+    "home": "퀴라소 넵튠",
+    "away": "오스터하우트 트윈스",
+    "stadium": "Neptunus Familiestadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197384",
+    "status": "completed",
+    "homeScore": 4,
+    "awayScore": 2
+  },
+  {
+    "date": "2026-04-11",
+    "time": "21:30",
+    "league": "NLBASEBALL",
+    "venueId": "pim_mulier_stadion",
+    "home": "킨하임",
+    "away": "암스테르담 파이러츠",
+    "stadium": "Pim Mulier Stadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197385",
+    "status": "completed",
+    "homeScore": 9,
+    "awayScore": 12
+  },
+  {
+    "date": "2026-04-11",
+    "time": "21:30",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_de_paperclip",
+    "home": "UVV",
+    "away": "HCAW",
+    "stadium": "Sportpark de Paperclip",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197383",
+    "status": "completed",
+    "homeScore": 7,
+    "awayScore": 17
   },
   {
     "date": "2026-04-11",
@@ -59134,97 +59261,6 @@
   {
     "date": "2026-04-12",
     "time": "14:00",
-    "league": "KBO",
-    "venueId": "daegu",
-    "home": "삼성",
-    "away": "NC",
-    "stadium": "대구",
-    "timeTbd": false,
-    "gameId": "20260412NCSS02026",
-    "status": "completed",
-    "awayPitcher": "토다",
-    "homePitcher": "원태인",
-    "awayScore": 3,
-    "homeScore": 9,
-    "winPitcher": "장찬희",
-    "losePitcher": "토다"
-  },
-  {
-    "date": "2026-04-12",
-    "time": "14:00",
-    "league": "KBO",
-    "venueId": "daejeon",
-    "home": "한화",
-    "away": "KIA",
-    "stadium": "대전",
-    "timeTbd": false,
-    "gameId": "20260412HTHH02026",
-    "status": "completed",
-    "awayPitcher": "올러",
-    "homePitcher": "쿠싱",
-    "awayScore": 9,
-    "homeScore": 3,
-    "winPitcher": "올러",
-    "losePitcher": "쿠싱"
-  },
-  {
-    "date": "2026-04-12",
-    "time": "14:00",
-    "league": "KBO",
-    "venueId": "gocheok",
-    "home": "키움",
-    "away": "롯데",
-    "stadium": "고척",
-    "timeTbd": false,
-    "gameId": "20260412LTWO02026",
-    "status": "completed",
-    "awayPitcher": "박세웅",
-    "homePitcher": "안우진",
-    "awayScore": 0,
-    "homeScore": 2,
-    "winPitcher": "배동현",
-    "losePitcher": "박세웅",
-    "savePitcher": "김재웅"
-  },
-  {
-    "date": "2026-04-12",
-    "time": "14:00",
-    "league": "KBO",
-    "venueId": "jamsil",
-    "home": "LG",
-    "away": "SSG",
-    "stadium": "잠실",
-    "timeTbd": false,
-    "gameId": "20260412SKLG02026",
-    "status": "completed",
-    "awayPitcher": "베니지아노",
-    "homePitcher": "톨허스트",
-    "awayScore": 1,
-    "homeScore": 9,
-    "winPitcher": "톨허스트",
-    "losePitcher": "베니지아노"
-  },
-  {
-    "date": "2026-04-12",
-    "time": "14:00",
-    "league": "KBO",
-    "venueId": "suwonkt",
-    "home": "KT",
-    "away": "두산",
-    "stadium": "수원",
-    "timeTbd": false,
-    "gameId": "20260412OBKT02026",
-    "status": "completed",
-    "awayPitcher": "최승용",
-    "homePitcher": "보쉴리",
-    "awayScore": 1,
-    "homeScore": 6,
-    "winPitcher": "보쉴리",
-    "losePitcher": "최승용"
-  },
-  {
-    "date": "2026-04-12",
-    "time": "14:00",
     "league": "K리그1",
     "venueId": "daejeonwc",
     "home": "대전",
@@ -59317,6 +59353,97 @@
         }
       ]
     }
+  },
+  {
+    "date": "2026-04-12",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "daegu",
+    "home": "삼성",
+    "away": "NC",
+    "stadium": "대구",
+    "timeTbd": false,
+    "gameId": "20260412NCSS02026",
+    "status": "completed",
+    "awayPitcher": "토다",
+    "homePitcher": "원태인",
+    "awayScore": 3,
+    "homeScore": 9,
+    "winPitcher": "장찬희",
+    "losePitcher": "토다"
+  },
+  {
+    "date": "2026-04-12",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "daejeon",
+    "home": "한화",
+    "away": "KIA",
+    "stadium": "대전",
+    "timeTbd": false,
+    "gameId": "20260412HTHH02026",
+    "status": "completed",
+    "awayPitcher": "올러",
+    "homePitcher": "쿠싱",
+    "awayScore": 9,
+    "homeScore": 3,
+    "winPitcher": "올러",
+    "losePitcher": "쿠싱"
+  },
+  {
+    "date": "2026-04-12",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "gocheok",
+    "home": "키움",
+    "away": "롯데",
+    "stadium": "고척",
+    "timeTbd": false,
+    "gameId": "20260412LTWO02026",
+    "status": "completed",
+    "awayPitcher": "박세웅",
+    "homePitcher": "안우진",
+    "awayScore": 0,
+    "homeScore": 2,
+    "winPitcher": "배동현",
+    "losePitcher": "박세웅",
+    "savePitcher": "김재웅"
+  },
+  {
+    "date": "2026-04-12",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "jamsil",
+    "home": "LG",
+    "away": "SSG",
+    "stadium": "잠실",
+    "timeTbd": false,
+    "gameId": "20260412SKLG02026",
+    "status": "completed",
+    "awayPitcher": "베니지아노",
+    "homePitcher": "톨허스트",
+    "awayScore": 1,
+    "homeScore": 9,
+    "winPitcher": "톨허스트",
+    "losePitcher": "베니지아노"
+  },
+  {
+    "date": "2026-04-12",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "suwonkt",
+    "home": "KT",
+    "away": "두산",
+    "stadium": "수원",
+    "timeTbd": false,
+    "gameId": "20260412OBKT02026",
+    "status": "completed",
+    "awayPitcher": "최승용",
+    "homePitcher": "보쉴리",
+    "awayScore": 1,
+    "homeScore": 6,
+    "winPitcher": "보쉴리",
+    "losePitcher": "최승용"
   },
   {
     "date": "2026-04-12",
@@ -63778,6 +63905,48 @@
   },
   {
     "date": "2026-04-17",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "neptunus_familiestadion",
+    "home": "퀴라소 넵튠",
+    "away": "HCAW",
+    "stadium": "Neptunus Familiestadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197387",
+    "status": "completed",
+    "homeScore": 4,
+    "awayScore": 3
+  },
+  {
+    "date": "2026-04-17",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "pim_mulier_stadion",
+    "home": "킨하임",
+    "away": "오스터하우트 트윈스",
+    "stadium": "Pim Mulier Stadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197388",
+    "status": "completed",
+    "homeScore": 9,
+    "awayScore": 3
+  },
+  {
+    "date": "2026-04-17",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_de_paperclip",
+    "home": "UVV",
+    "away": "호프도르프 파이오니어스",
+    "stadium": "Sportpark de Paperclip",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197386",
+    "status": "completed",
+    "homeScore": 12,
+    "awayScore": 4
+  },
+  {
+    "date": "2026-04-17",
     "time": "02:35",
     "league": "MLB",
     "venueId": "yankee_stadium",
@@ -65314,24 +65483,6 @@
   {
     "date": "2026-04-18",
     "time": "14:00",
-    "league": "KBO",
-    "venueId": "daegu",
-    "home": "삼성",
-    "away": "LG",
-    "stadium": "대구",
-    "timeTbd": false,
-    "gameId": "20260418LGSS02026",
-    "status": "completed",
-    "awayPitcher": "임찬규",
-    "homePitcher": "오러클린",
-    "awayScore": 2,
-    "homeScore": 7,
-    "winPitcher": "이승민",
-    "losePitcher": "임찬규"
-  },
-  {
-    "date": "2026-04-18",
-    "time": "14:00",
     "league": "K리그1",
     "venueId": "gangwon",
     "home": "강원",
@@ -65462,6 +65613,24 @@
         }
       ]
     }
+  },
+  {
+    "date": "2026-04-18",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "daegu",
+    "home": "삼성",
+    "away": "LG",
+    "stadium": "대구",
+    "timeTbd": false,
+    "gameId": "20260418LGSS02026",
+    "status": "completed",
+    "awayPitcher": "임찬규",
+    "homePitcher": "오러클린",
+    "awayScore": 2,
+    "homeScore": 7,
+    "winPitcher": "이승민",
+    "losePitcher": "임찬규"
   },
   {
     "date": "2026-04-18",
@@ -65805,6 +65974,48 @@
   },
   {
     "date": "2026-04-18",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "rob_hoffmann_vallei",
+    "home": "HCAW",
+    "away": "퀴라소 넵튠",
+    "stadium": "Rob Hoffmann Vallei",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197390",
+    "status": "completed",
+    "homeScore": 0,
+    "awayScore": 7
+  },
+  {
+    "date": "2026-04-18",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_pioniers_hoofddorp",
+    "home": "호프도르프 파이오니어스",
+    "away": "UVV",
+    "stadium": "Sportpark Pioniers",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197389",
+    "status": "completed",
+    "homeScore": 7,
+    "awayScore": 0
+  },
+  {
+    "date": "2026-04-18",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_slotbosse_toren",
+    "home": "오스터하우트 트윈스",
+    "away": "킨하임",
+    "stadium": "Sportpark De Slotbosse Toren",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197391",
+    "status": "completed",
+    "homeScore": 10,
+    "awayScore": 0
+  },
+  {
+    "date": "2026-04-18",
     "time": "20:00",
     "league": "U20WOMENASIANCUP",
     "venueId": "port_fc_thammasat",
@@ -65921,6 +66132,48 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 0
+  },
+  {
+    "date": "2026-04-18",
+    "time": "21:30",
+    "league": "NLBASEBALL",
+    "venueId": "rob_hoffmann_vallei",
+    "home": "HCAW",
+    "away": "퀴라소 넵튠",
+    "stadium": "Rob Hoffmann Vallei",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197393",
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 5
+  },
+  {
+    "date": "2026-04-18",
+    "time": "21:30",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_pioniers_hoofddorp",
+    "home": "호프도르프 파이오니어스",
+    "away": "UVV",
+    "stadium": "Sportpark Pioniers",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197392",
+    "status": "completed",
+    "homeScore": 7,
+    "awayScore": 6
+  },
+  {
+    "date": "2026-04-18",
+    "time": "21:30",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_slotbosse_toren",
+    "home": "오스터하우트 트윈스",
+    "away": "킨하임",
+    "stadium": "Sportpark De Slotbosse Toren",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197394",
+    "status": "completed",
+    "homeScore": 8,
+    "awayScore": 1
   },
   {
     "date": "2026-04-18",
@@ -67825,79 +68078,6 @@
   {
     "date": "2026-04-19",
     "time": "14:00",
-    "league": "KBO",
-    "venueId": "changwon",
-    "home": "NC",
-    "away": "SSG",
-    "stadium": "창원",
-    "timeTbd": false,
-    "gameId": "20260419SKNC02026",
-    "status": "completed",
-    "awayPitcher": "이기순",
-    "homePitcher": "토다",
-    "awayScore": 2,
-    "homeScore": 9,
-    "winPitcher": "배재환",
-    "losePitcher": "이기순"
-  },
-  {
-    "date": "2026-04-19",
-    "time": "14:00",
-    "league": "KBO",
-    "venueId": "daegu",
-    "home": "삼성",
-    "away": "LG",
-    "stadium": "대구",
-    "timeTbd": false,
-    "gameId": "20260419LGSS02026",
-    "status": "completed",
-    "awayPitcher": "톨허스트",
-    "homePitcher": "원태인",
-    "awayScore": 5,
-    "homeScore": 0,
-    "winPitcher": "톨허스트",
-    "losePitcher": "원태인"
-  },
-  {
-    "date": "2026-04-19",
-    "time": "14:00",
-    "league": "KBO",
-    "venueId": "jamsil",
-    "home": "두산",
-    "away": "KIA",
-    "stadium": "잠실",
-    "timeTbd": false,
-    "gameId": "20260419HTOB02026",
-    "status": "completed",
-    "awayPitcher": "양현종",
-    "homePitcher": "최민석",
-    "awayScore": 3,
-    "homeScore": 6,
-    "winPitcher": "최민석",
-    "losePitcher": "양현종",
-    "savePitcher": "김택연"
-  },
-  {
-    "date": "2026-04-19",
-    "time": "14:00",
-    "league": "KBO",
-    "venueId": "sajik",
-    "home": "롯데",
-    "away": "한화",
-    "stadium": "사직",
-    "timeTbd": false,
-    "gameId": "20260419HHLT02026",
-    "status": "completed",
-    "awayPitcher": "에르난데스",
-    "homePitcher": "박세웅",
-    "awayScore": 9,
-    "homeScore": 1,
-    "winPitcher": "에르난데스",
-    "losePitcher": "박세웅"
-  },
-  {
-    "date": "2026-04-19",
-    "time": "14:00",
     "league": "K리그1",
     "venueId": "ulsan",
     "home": "울산",
@@ -68009,6 +68189,79 @@
         }
       ]
     }
+  },
+  {
+    "date": "2026-04-19",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "changwon",
+    "home": "NC",
+    "away": "SSG",
+    "stadium": "창원",
+    "timeTbd": false,
+    "gameId": "20260419SKNC02026",
+    "status": "completed",
+    "awayPitcher": "이기순",
+    "homePitcher": "토다",
+    "awayScore": 2,
+    "homeScore": 9,
+    "winPitcher": "배재환",
+    "losePitcher": "이기순"
+  },
+  {
+    "date": "2026-04-19",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "daegu",
+    "home": "삼성",
+    "away": "LG",
+    "stadium": "대구",
+    "timeTbd": false,
+    "gameId": "20260419LGSS02026",
+    "status": "completed",
+    "awayPitcher": "톨허스트",
+    "homePitcher": "원태인",
+    "awayScore": 5,
+    "homeScore": 0,
+    "winPitcher": "톨허스트",
+    "losePitcher": "원태인"
+  },
+  {
+    "date": "2026-04-19",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "jamsil",
+    "home": "두산",
+    "away": "KIA",
+    "stadium": "잠실",
+    "timeTbd": false,
+    "gameId": "20260419HTOB02026",
+    "status": "completed",
+    "awayPitcher": "양현종",
+    "homePitcher": "최민석",
+    "awayScore": 3,
+    "homeScore": 6,
+    "winPitcher": "최민석",
+    "losePitcher": "양현종",
+    "savePitcher": "김택연"
+  },
+  {
+    "date": "2026-04-19",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "sajik",
+    "home": "롯데",
+    "away": "한화",
+    "stadium": "사직",
+    "timeTbd": false,
+    "gameId": "20260419HHLT02026",
+    "status": "completed",
+    "awayPitcher": "에르난데스",
+    "homePitcher": "박세웅",
+    "awayScore": 9,
+    "homeScore": 1,
+    "winPitcher": "에르난데스",
+    "losePitcher": "박세웅"
   },
   {
     "date": "2026-04-19",
@@ -73436,6 +73689,48 @@
   },
   {
     "date": "2026-04-24",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "rob_hoffmann_vallei",
+    "home": "HCAW",
+    "away": "킨하임",
+    "stadium": "Rob Hoffmann Vallei",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197396",
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 3
+  },
+  {
+    "date": "2026-04-24",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_pioniers_hoofddorp",
+    "home": "호프도르프 파이오니어스",
+    "away": "퀴라소 넵튠",
+    "stadium": "Sportpark Pioniers",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197395",
+    "status": "completed",
+    "homeScore": 0,
+    "awayScore": 10
+  },
+  {
+    "date": "2026-04-24",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_slotbosse_toren",
+    "home": "오스터하우트 트윈스",
+    "away": "암스테르담 파이러츠",
+    "stadium": "Sportpark De Slotbosse Toren",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197397",
+    "status": "completed",
+    "homeScore": 7,
+    "awayScore": 5
+  },
+  {
+    "date": "2026-04-24",
     "time": "03:00",
     "league": "DENMARK",
     "venueId": "sydbank_park_haderslev",
@@ -74859,25 +75154,6 @@
   {
     "date": "2026-04-25",
     "time": "14:00",
-    "league": "KBO",
-    "venueId": "jamsil",
-    "home": "두산",
-    "away": "LG",
-    "stadium": "잠실",
-    "timeTbd": false,
-    "gameId": "20260425LGOB02026",
-    "status": "completed",
-    "awayPitcher": "톨허스트",
-    "homePitcher": "최민석",
-    "awayScore": 7,
-    "homeScore": 5,
-    "winPitcher": "김진수",
-    "losePitcher": "이병헌",
-    "savePitcher": "장현식"
-  },
-  {
-    "date": "2026-04-25",
-    "time": "14:00",
     "league": "K리그1",
     "venueId": "gangwon",
     "home": "강원",
@@ -75012,6 +75288,25 @@
         }
       ]
     }
+  },
+  {
+    "date": "2026-04-25",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "jamsil",
+    "home": "두산",
+    "away": "LG",
+    "stadium": "잠실",
+    "timeTbd": false,
+    "gameId": "20260425LGOB02026",
+    "status": "completed",
+    "awayPitcher": "톨허스트",
+    "homePitcher": "최민석",
+    "awayScore": 7,
+    "homeScore": 5,
+    "winPitcher": "김진수",
+    "losePitcher": "이병헌",
+    "savePitcher": "장현식"
   },
   {
     "date": "2026-04-25",
@@ -75337,6 +75632,48 @@
   },
   {
     "date": "2026-04-25",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "neptunus_familiestadion",
+    "home": "퀴라소 넵튠",
+    "away": "호프도르프 파이오니어스",
+    "stadium": "Neptunus Familiestadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197398",
+    "status": "completed",
+    "homeScore": 2,
+    "awayScore": 0
+  },
+  {
+    "date": "2026-04-25",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "pim_mulier_stadion",
+    "home": "킨하임",
+    "away": "HCAW",
+    "stadium": "Pim Mulier Stadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197399",
+    "status": "completed",
+    "homeScore": 14,
+    "awayScore": 1
+  },
+  {
+    "date": "2026-04-25",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_ookmeer",
+    "home": "암스테르담 파이러츠",
+    "away": "오스터하우트 트윈스",
+    "stadium": "Loek Loevendie Ballpark",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197400",
+    "status": "completed",
+    "homeScore": 11,
+    "awayScore": 1
+  },
+  {
+    "date": "2026-04-25",
     "time": "20:30",
     "league": "EFL",
     "venueId": "charlton_the_valley",
@@ -75494,6 +75831,48 @@
         }
       ]
     }
+  },
+  {
+    "date": "2026-04-25",
+    "time": "21:30",
+    "league": "NLBASEBALL",
+    "venueId": "neptunus_familiestadion",
+    "home": "퀴라소 넵튠",
+    "away": "호프도르프 파이오니어스",
+    "stadium": "Neptunus Familiestadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197401",
+    "status": "completed",
+    "homeScore": 15,
+    "awayScore": 0
+  },
+  {
+    "date": "2026-04-25",
+    "time": "21:30",
+    "league": "NLBASEBALL",
+    "venueId": "pim_mulier_stadion",
+    "home": "킨하임",
+    "away": "HCAW",
+    "stadium": "Pim Mulier Stadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197402",
+    "status": "completed",
+    "homeScore": 2,
+    "awayScore": 6
+  },
+  {
+    "date": "2026-04-25",
+    "time": "21:30",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_ookmeer",
+    "home": "암스테르담 파이러츠",
+    "away": "오스터하우트 트윈스",
+    "stadium": "Loek Loevendie Ballpark",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197403",
+    "status": "completed",
+    "homeScore": 2,
+    "awayScore": 1
   },
   {
     "date": "2026-04-25",
@@ -77687,96 +78066,6 @@
   {
     "date": "2026-04-26",
     "time": "14:00",
-    "league": "KBO",
-    "venueId": "daejeon",
-    "home": "한화",
-    "away": "NC",
-    "stadium": "대전",
-    "timeTbd": false,
-    "gameId": "20260426NCHH02026",
-    "status": "completed",
-    "awayPitcher": "버하겐",
-    "homePitcher": "문동주",
-    "awayScore": 5,
-    "homeScore": 3,
-    "winPitcher": "배재환",
-    "losePitcher": "김서현",
-    "savePitcher": "류진욱"
-  },
-  {
-    "date": "2026-04-26",
-    "time": "14:00",
-    "league": "KBO",
-    "venueId": "gocheok",
-    "home": "키움",
-    "away": "삼성",
-    "stadium": "고척",
-    "timeTbd": false,
-    "gameId": "20260426SSWO02026",
-    "status": "completed",
-    "awayPitcher": "장찬희",
-    "homePitcher": "박준현",
-    "awayScore": 0,
-    "homeScore": 2,
-    "winPitcher": "박준현",
-    "losePitcher": "장찬희",
-    "savePitcher": "유토"
-  },
-  {
-    "date": "2026-04-26",
-    "time": "14:00",
-    "league": "KBO",
-    "venueId": "gwangju",
-    "home": "KIA",
-    "away": "롯데",
-    "stadium": "광주",
-    "timeTbd": false,
-    "gameId": "20260426LTHT02026",
-    "status": "completed",
-    "awayPitcher": "나균안",
-    "homePitcher": "황동하",
-    "awayScore": 5,
-    "homeScore": 5
-  },
-  {
-    "date": "2026-04-26",
-    "time": "14:00",
-    "league": "KBO",
-    "venueId": "jamsil",
-    "home": "두산",
-    "away": "LG",
-    "stadium": "잠실",
-    "timeTbd": false,
-    "gameId": "20260426LGOB02026",
-    "status": "completed",
-    "awayPitcher": "송승기",
-    "homePitcher": "벤자민",
-    "awayScore": 3,
-    "homeScore": 4,
-    "winPitcher": "이영하",
-    "losePitcher": "박시원"
-  },
-  {
-    "date": "2026-04-26",
-    "time": "14:00",
-    "league": "KBO",
-    "venueId": "munhak",
-    "home": "SSG",
-    "away": "KT",
-    "stadium": "문학",
-    "timeTbd": false,
-    "gameId": "20260426KTSK02026",
-    "status": "completed",
-    "awayPitcher": "오원석",
-    "homePitcher": "베니지아노",
-    "awayScore": 12,
-    "homeScore": 2,
-    "winPitcher": "오원석",
-    "losePitcher": "베니지아노"
-  },
-  {
-    "date": "2026-04-26",
-    "time": "14:00",
     "league": "K리그1",
     "venueId": "jeonju",
     "home": "전북",
@@ -77908,6 +78197,96 @@
       ],
       "away": []
     }
+  },
+  {
+    "date": "2026-04-26",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "daejeon",
+    "home": "한화",
+    "away": "NC",
+    "stadium": "대전",
+    "timeTbd": false,
+    "gameId": "20260426NCHH02026",
+    "status": "completed",
+    "awayPitcher": "버하겐",
+    "homePitcher": "문동주",
+    "awayScore": 5,
+    "homeScore": 3,
+    "winPitcher": "배재환",
+    "losePitcher": "김서현",
+    "savePitcher": "류진욱"
+  },
+  {
+    "date": "2026-04-26",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "gocheok",
+    "home": "키움",
+    "away": "삼성",
+    "stadium": "고척",
+    "timeTbd": false,
+    "gameId": "20260426SSWO02026",
+    "status": "completed",
+    "awayPitcher": "장찬희",
+    "homePitcher": "박준현",
+    "awayScore": 0,
+    "homeScore": 2,
+    "winPitcher": "박준현",
+    "losePitcher": "장찬희",
+    "savePitcher": "유토"
+  },
+  {
+    "date": "2026-04-26",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "gwangju",
+    "home": "KIA",
+    "away": "롯데",
+    "stadium": "광주",
+    "timeTbd": false,
+    "gameId": "20260426LTHT02026",
+    "status": "completed",
+    "awayPitcher": "나균안",
+    "homePitcher": "황동하",
+    "awayScore": 5,
+    "homeScore": 5
+  },
+  {
+    "date": "2026-04-26",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "jamsil",
+    "home": "두산",
+    "away": "LG",
+    "stadium": "잠실",
+    "timeTbd": false,
+    "gameId": "20260426LGOB02026",
+    "status": "completed",
+    "awayPitcher": "송승기",
+    "homePitcher": "벤자민",
+    "awayScore": 3,
+    "homeScore": 4,
+    "winPitcher": "이영하",
+    "losePitcher": "박시원"
+  },
+  {
+    "date": "2026-04-26",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "munhak",
+    "home": "SSG",
+    "away": "KT",
+    "stadium": "문학",
+    "timeTbd": false,
+    "gameId": "20260426KTSK02026",
+    "status": "completed",
+    "awayPitcher": "오원석",
+    "homePitcher": "베니지아노",
+    "awayScore": 12,
+    "homeScore": 2,
+    "winPitcher": "오원석",
+    "losePitcher": "베니지아노"
   },
   {
     "date": "2026-04-26",
@@ -82021,6 +82400,48 @@
   },
   {
     "date": "2026-05-01",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "neptunus_familiestadion",
+    "home": "퀴라소 넵튠",
+    "away": "UVV",
+    "stadium": "Neptunus Familiestadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197405",
+    "status": "completed",
+    "homeScore": 7,
+    "awayScore": 0
+  },
+  {
+    "date": "2026-05-01",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "pim_mulier_stadion",
+    "home": "킨하임",
+    "away": "호프도르프 파이오니어스",
+    "stadium": "Pim Mulier Stadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197407",
+    "status": "completed",
+    "homeScore": 16,
+    "awayScore": 1
+  },
+  {
+    "date": "2026-05-01",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_ookmeer",
+    "home": "암스테르담 파이러츠",
+    "away": "HCAW",
+    "stadium": "Loek Loevendie Ballpark",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197408",
+    "status": "completed",
+    "homeScore": 3,
+    "awayScore": 4
+  },
+  {
+    "date": "2026-05-01",
     "time": "02:40",
     "league": "MLB",
     "venueId": "american_family_field",
@@ -83443,25 +83864,6 @@
   {
     "date": "2026-05-02",
     "time": "14:00",
-    "league": "KBO",
-    "venueId": "munhak",
-    "home": "SSG",
-    "away": "롯데",
-    "stadium": "문학",
-    "timeTbd": false,
-    "gameId": "20260502LTSK02026",
-    "status": "completed",
-    "awayPitcher": "나균안",
-    "homePitcher": "베니지아노",
-    "awayScore": 7,
-    "homeScore": 5,
-    "winPitcher": "나균안",
-    "losePitcher": "노경은",
-    "savePitcher": "김원중"
-  },
-  {
-    "date": "2026-05-02",
-    "time": "14:00",
     "league": "K리그1",
     "venueId": "seoulwc",
     "home": "서울",
@@ -83543,6 +83945,25 @@
         }
       ]
     }
+  },
+  {
+    "date": "2026-05-02",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "munhak",
+    "home": "SSG",
+    "away": "롯데",
+    "stadium": "문학",
+    "timeTbd": false,
+    "gameId": "20260502LTSK02026",
+    "status": "completed",
+    "awayPitcher": "나균안",
+    "homePitcher": "베니지아노",
+    "awayScore": 7,
+    "homeScore": 5,
+    "winPitcher": "나균안",
+    "losePitcher": "노경은",
+    "savePitcher": "김원중"
   },
   {
     "date": "2026-05-02",
@@ -83992,6 +84413,48 @@
         }
       ]
     }
+  },
+  {
+    "date": "2026-05-02",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "rob_hoffmann_vallei",
+    "home": "HCAW",
+    "away": "암스테르담 파이러츠",
+    "stadium": "Rob Hoffmann Vallei",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197413",
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 3
+  },
+  {
+    "date": "2026-05-02",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_de_paperclip",
+    "home": "UVV",
+    "away": "퀴라소 넵튠",
+    "stadium": "Sportpark de Paperclip",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197410",
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 5
+  },
+  {
+    "date": "2026-05-02",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_pioniers_hoofddorp",
+    "home": "호프도르프 파이오니어스",
+    "away": "킨하임",
+    "stadium": "Sportpark Pioniers",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197411",
+    "status": "completed",
+    "homeScore": 4,
+    "awayScore": 1
   },
   {
     "date": "2026-05-02",
@@ -84571,6 +85034,48 @@
         }
       ]
     }
+  },
+  {
+    "date": "2026-05-02",
+    "time": "21:30",
+    "league": "NLBASEBALL",
+    "venueId": "rob_hoffmann_vallei",
+    "home": "HCAW",
+    "away": "암스테르담 파이러츠",
+    "stadium": "Rob Hoffmann Vallei",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197417",
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 4
+  },
+  {
+    "date": "2026-05-02",
+    "time": "21:30",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_de_paperclip",
+    "home": "UVV",
+    "away": "퀴라소 넵튠",
+    "stadium": "Sportpark de Paperclip",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197414",
+    "status": "completed",
+    "homeScore": 4,
+    "awayScore": 15
+  },
+  {
+    "date": "2026-05-02",
+    "time": "21:30",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_pioniers_hoofddorp",
+    "home": "호프도르프 파이오니어스",
+    "away": "킨하임",
+    "stadium": "Sportpark Pioniers",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197416",
+    "status": "completed",
+    "homeScore": 8,
+    "awayScore": 19
   },
   {
     "date": "2026-05-02",
@@ -86613,98 +87118,6 @@
   {
     "date": "2026-05-03",
     "time": "14:00",
-    "league": "KBO",
-    "venueId": "daegu",
-    "home": "삼성",
-    "away": "한화",
-    "stadium": "대구",
-    "timeTbd": false,
-    "gameId": "20260503HHSS02026",
-    "status": "completed",
-    "awayPitcher": "왕옌청",
-    "homePitcher": "후라도",
-    "awayScore": 6,
-    "homeScore": 7,
-    "winPitcher": "김재윤",
-    "losePitcher": "쿠싱"
-  },
-  {
-    "date": "2026-05-03",
-    "time": "14:00",
-    "league": "KBO",
-    "venueId": "gocheok",
-    "home": "키움",
-    "away": "두산",
-    "stadium": "고척",
-    "timeTbd": false,
-    "gameId": "20260503OBWO02026",
-    "status": "completed",
-    "awayPitcher": "곽빈",
-    "homePitcher": "박준현",
-    "awayScore": 14,
-    "homeScore": 3,
-    "winPitcher": "곽빈",
-    "losePitcher": "박준현"
-  },
-  {
-    "date": "2026-05-03",
-    "time": "14:00",
-    "league": "KBO",
-    "venueId": "gwangju",
-    "home": "KIA",
-    "away": "KT",
-    "stadium": "광주",
-    "timeTbd": false,
-    "gameId": "20260503KTHT02026",
-    "status": "completed",
-    "awayPitcher": "사우어",
-    "homePitcher": "네일",
-    "awayScore": 6,
-    "homeScore": 4,
-    "winPitcher": "사우어",
-    "losePitcher": "네일",
-    "savePitcher": "박영현"
-  },
-  {
-    "date": "2026-05-03",
-    "time": "14:00",
-    "league": "KBO",
-    "venueId": "jamsil",
-    "home": "LG",
-    "away": "NC",
-    "stadium": "잠실",
-    "timeTbd": false,
-    "gameId": "20260503NCLG02026",
-    "status": "completed",
-    "awayPitcher": "신민혁",
-    "homePitcher": "이상영",
-    "awayScore": 10,
-    "homeScore": 3,
-    "winPitcher": "김영규",
-    "losePitcher": "이상영"
-  },
-  {
-    "date": "2026-05-03",
-    "time": "14:00",
-    "league": "KBO",
-    "venueId": "munhak",
-    "home": "SSG",
-    "away": "롯데",
-    "stadium": "문학",
-    "timeTbd": false,
-    "gameId": "20260503LTSK02026",
-    "status": "completed",
-    "awayPitcher": "김진욱",
-    "homePitcher": "백승건",
-    "awayScore": 5,
-    "homeScore": 2,
-    "winPitcher": "현도훈",
-    "losePitcher": "김민",
-    "savePitcher": "최준용"
-  },
-  {
-    "date": "2026-05-03",
-    "time": "14:00",
     "league": "K리그2",
     "venueId": "daegujeon",
     "home": "대구",
@@ -86821,6 +87234,98 @@
         }
       ]
     }
+  },
+  {
+    "date": "2026-05-03",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "daegu",
+    "home": "삼성",
+    "away": "한화",
+    "stadium": "대구",
+    "timeTbd": false,
+    "gameId": "20260503HHSS02026",
+    "status": "completed",
+    "awayPitcher": "왕옌청",
+    "homePitcher": "후라도",
+    "awayScore": 6,
+    "homeScore": 7,
+    "winPitcher": "김재윤",
+    "losePitcher": "쿠싱"
+  },
+  {
+    "date": "2026-05-03",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "gocheok",
+    "home": "키움",
+    "away": "두산",
+    "stadium": "고척",
+    "timeTbd": false,
+    "gameId": "20260503OBWO02026",
+    "status": "completed",
+    "awayPitcher": "곽빈",
+    "homePitcher": "박준현",
+    "awayScore": 14,
+    "homeScore": 3,
+    "winPitcher": "곽빈",
+    "losePitcher": "박준현"
+  },
+  {
+    "date": "2026-05-03",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "gwangju",
+    "home": "KIA",
+    "away": "KT",
+    "stadium": "광주",
+    "timeTbd": false,
+    "gameId": "20260503KTHT02026",
+    "status": "completed",
+    "awayPitcher": "사우어",
+    "homePitcher": "네일",
+    "awayScore": 6,
+    "homeScore": 4,
+    "winPitcher": "사우어",
+    "losePitcher": "네일",
+    "savePitcher": "박영현"
+  },
+  {
+    "date": "2026-05-03",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "jamsil",
+    "home": "LG",
+    "away": "NC",
+    "stadium": "잠실",
+    "timeTbd": false,
+    "gameId": "20260503NCLG02026",
+    "status": "completed",
+    "awayPitcher": "신민혁",
+    "homePitcher": "이상영",
+    "awayScore": 10,
+    "homeScore": 3,
+    "winPitcher": "김영규",
+    "losePitcher": "이상영"
+  },
+  {
+    "date": "2026-05-03",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "munhak",
+    "home": "SSG",
+    "away": "롯데",
+    "stadium": "문학",
+    "timeTbd": false,
+    "gameId": "20260503LTSK02026",
+    "status": "completed",
+    "awayPitcher": "김진욱",
+    "homePitcher": "백승건",
+    "awayScore": 5,
+    "homeScore": 2,
+    "winPitcher": "현도훈",
+    "losePitcher": "김민",
+    "savePitcher": "최준용"
   },
   {
     "date": "2026-05-03",
@@ -89437,6 +89942,83 @@
   {
     "date": "2026-05-05",
     "time": "14:00",
+    "league": "K리그1",
+    "venueId": "bucheon",
+    "home": "부천",
+    "away": "제주",
+    "stadium": "부천 종합",
+    "timeTbd": false,
+    "gameId": "20260505260468",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "남태희",
+          "m": 74
+        }
+      ]
+    },
+    "assists": {
+      "home": [],
+      "away": [
+        {
+          "n": "김륜성",
+          "count": 1
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-05-05",
+    "time": "14:00",
+    "league": "K리그1",
+    "venueId": "jeonju",
+    "home": "전북",
+    "away": "광주",
+    "stadium": "전주 월드컵",
+    "timeTbd": false,
+    "gameId": "20260505052267",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 4,
+    "scorers": {
+      "home": [
+        {
+          "n": "오베르단",
+          "m": 42
+        },
+        {
+          "n": "김승섭",
+          "m": 49
+        },
+        {
+          "n": "티아고",
+          "m": 86
+        },
+        {
+          "n": "이승우",
+          "m": 97,
+          "pk": true
+        }
+      ],
+      "away": []
+    },
+    "assists": {
+      "home": [
+        {
+          "n": "오베르단",
+          "count": 1
+        }
+      ],
+      "away": []
+    }
+  },
+  {
+    "date": "2026-05-05",
+    "time": "14:00",
     "league": "KBO",
     "venueId": "daegu",
     "home": "삼성",
@@ -89522,83 +90104,6 @@
     "homeScore": 5,
     "winPitcher": "박영현",
     "losePitcher": "정철원"
-  },
-  {
-    "date": "2026-05-05",
-    "time": "14:00",
-    "league": "K리그1",
-    "venueId": "bucheon",
-    "home": "부천",
-    "away": "제주",
-    "stadium": "부천 종합",
-    "timeTbd": false,
-    "gameId": "20260505260468",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 0,
-    "scorers": {
-      "home": [],
-      "away": [
-        {
-          "n": "남태희",
-          "m": 74
-        }
-      ]
-    },
-    "assists": {
-      "home": [],
-      "away": [
-        {
-          "n": "김륜성",
-          "count": 1
-        }
-      ]
-    }
-  },
-  {
-    "date": "2026-05-05",
-    "time": "14:00",
-    "league": "K리그1",
-    "venueId": "jeonju",
-    "home": "전북",
-    "away": "광주",
-    "stadium": "전주 월드컵",
-    "timeTbd": false,
-    "gameId": "20260505052267",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 4,
-    "scorers": {
-      "home": [
-        {
-          "n": "오베르단",
-          "m": 42
-        },
-        {
-          "n": "김승섭",
-          "m": 49
-        },
-        {
-          "n": "티아고",
-          "m": 86
-        },
-        {
-          "n": "이승우",
-          "m": 97,
-          "pk": true
-        }
-      ],
-      "away": []
-    },
-    "assists": {
-      "home": [
-        {
-          "n": "오베르단",
-          "count": 1
-        }
-      ],
-      "away": []
-    }
   },
   {
     "date": "2026-05-05",
@@ -91760,6 +92265,48 @@
   },
   {
     "date": "2026-05-08",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "rob_hoffmann_vallei",
+    "home": "HCAW",
+    "away": "오스터하우트 트윈스",
+    "stadium": "Rob Hoffmann Vallei",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197425",
+    "status": "completed",
+    "homeScore": 10,
+    "awayScore": 0
+  },
+  {
+    "date": "2026-05-08",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_de_paperclip",
+    "home": "UVV",
+    "away": "킨하임",
+    "stadium": "Sportpark de Paperclip",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197419",
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 10
+  },
+  {
+    "date": "2026-05-08",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_pioniers_hoofddorp",
+    "home": "호프도르프 파이오니어스",
+    "away": "암스테르담 파이러츠",
+    "stadium": "Sportpark Pioniers",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197421",
+    "status": "completed",
+    "homeScore": 2,
+    "awayScore": 6
+  },
+  {
+    "date": "2026-05-08",
     "time": "03:00",
     "league": "SAUDI",
     "venueId": "al_shabab_stadium",
@@ -93301,25 +93848,6 @@
   {
     "date": "2026-05-09",
     "time": "14:00",
-    "league": "KBO",
-    "venueId": "daejeon",
-    "home": "한화",
-    "away": "LG",
-    "stadium": "대전",
-    "timeTbd": false,
-    "gameId": "20260509LGHH02026",
-    "status": "completed",
-    "awayPitcher": "치리노스",
-    "homePitcher": "왕옌청",
-    "awayScore": 3,
-    "homeScore": 11,
-    "winPitcher": "왕옌청",
-    "losePitcher": "치리노스",
-    "savePitcher": "쿠싱"
-  },
-  {
-    "date": "2026-05-09",
-    "time": "14:00",
     "league": "K리그1",
     "venueId": "jeju",
     "home": "제주",
@@ -93431,6 +93959,25 @@
         }
       ]
     }
+  },
+  {
+    "date": "2026-05-09",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "daejeon",
+    "home": "한화",
+    "away": "LG",
+    "stadium": "대전",
+    "timeTbd": false,
+    "gameId": "20260509LGHH02026",
+    "status": "completed",
+    "awayPitcher": "치리노스",
+    "homePitcher": "왕옌청",
+    "awayScore": 3,
+    "homeScore": 11,
+    "winPitcher": "왕옌청",
+    "losePitcher": "치리노스",
+    "savePitcher": "쿠싱"
   },
   {
     "date": "2026-05-09",
@@ -93759,6 +94306,48 @@
   },
   {
     "date": "2026-05-09",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "pim_mulier_stadion",
+    "home": "킨하임",
+    "away": "UVV",
+    "stadium": "Pim Mulier Stadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197427",
+    "status": "completed",
+    "homeScore": 9,
+    "awayScore": 6
+  },
+  {
+    "date": "2026-05-09",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_ookmeer",
+    "home": "암스테르담 파이러츠",
+    "away": "호프도르프 파이오니어스",
+    "stadium": "Loek Loevendie Ballpark",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197428",
+    "status": "completed",
+    "homeScore": 12,
+    "awayScore": 0
+  },
+  {
+    "date": "2026-05-09",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_slotbosse_toren",
+    "home": "오스터하우트 트윈스",
+    "away": "HCAW",
+    "stadium": "Sportpark De Slotbosse Toren",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197430",
+    "status": "completed",
+    "homeScore": 0,
+    "awayScore": 5
+  },
+  {
+    "date": "2026-05-09",
     "time": "20:30",
     "league": "EFL",
     "venueId": "middlesbrough_riverside",
@@ -93832,6 +94421,48 @@
         }
       ]
     }
+  },
+  {
+    "date": "2026-05-09",
+    "time": "21:30",
+    "league": "NLBASEBALL",
+    "venueId": "pim_mulier_stadion",
+    "home": "킨하임",
+    "away": "UVV",
+    "stadium": "Pim Mulier Stadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197431",
+    "status": "completed",
+    "homeScore": 3,
+    "awayScore": 1
+  },
+  {
+    "date": "2026-05-09",
+    "time": "21:30",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_ookmeer",
+    "home": "암스테르담 파이러츠",
+    "away": "호프도르프 파이오니어스",
+    "stadium": "Loek Loevendie Ballpark",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197433",
+    "status": "completed",
+    "homeScore": 8,
+    "awayScore": 2
+  },
+  {
+    "date": "2026-05-09",
+    "time": "21:30",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_slotbosse_toren",
+    "home": "오스터하우트 트윈스",
+    "away": "HCAW",
+    "stadium": "Sportpark De Slotbosse Toren",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197434",
+    "status": "completed",
+    "homeScore": 4,
+    "awayScore": 2
   },
   {
     "date": "2026-05-09",
@@ -95659,6 +96290,52 @@
   {
     "date": "2026-05-10",
     "time": "14:00",
+    "league": "K리그1",
+    "venueId": "ulsan",
+    "home": "울산",
+    "away": "부천",
+    "stadium": "울산 문수",
+    "timeTbd": false,
+    "gameId": "20260510012677",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "이동경",
+          "m": 23
+        }
+      ],
+      "away": []
+    },
+    "assists": {
+      "home": [
+        {
+          "n": "말컹",
+          "count": 1
+        }
+      ],
+      "away": []
+    }
+  },
+  {
+    "date": "2026-05-10",
+    "time": "14:00",
+    "league": "K리그2",
+    "venueId": "seongnam",
+    "home": "성남",
+    "away": "전남",
+    "stadium": "탄천 종합",
+    "timeTbd": false,
+    "gameId": "20260510080785",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 0
+  },
+  {
+    "date": "2026-05-10",
+    "time": "14:00",
     "league": "KBO",
     "venueId": "changwon",
     "home": "NC",
@@ -95746,52 +96423,6 @@
     "homeScore": 7,
     "winPitcher": "박세웅",
     "losePitcher": "이의리"
-  },
-  {
-    "date": "2026-05-10",
-    "time": "14:00",
-    "league": "K리그1",
-    "venueId": "ulsan",
-    "home": "울산",
-    "away": "부천",
-    "stadium": "울산 문수",
-    "timeTbd": false,
-    "gameId": "20260510012677",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 1,
-    "scorers": {
-      "home": [
-        {
-          "n": "이동경",
-          "m": 23
-        }
-      ],
-      "away": []
-    },
-    "assists": {
-      "home": [
-        {
-          "n": "말컹",
-          "count": 1
-        }
-      ],
-      "away": []
-    }
-  },
-  {
-    "date": "2026-05-10",
-    "time": "14:00",
-    "league": "K리그2",
-    "venueId": "seongnam",
-    "home": "성남",
-    "away": "전남",
-    "stadium": "탄천 종합",
-    "timeTbd": false,
-    "gameId": "20260510080785",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 0
   },
   {
     "date": "2026-05-10",
@@ -101674,6 +102305,48 @@
     "phaseCode": "T4"
   },
   {
+    "date": "2026-05-14",
+    "time": "21:30",
+    "league": "NLBASEBALL",
+    "venueId": "pim_mulier_stadion",
+    "home": "킨하임",
+    "away": "퀴라소 넵튠",
+    "stadium": "Pim Mulier Stadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197436",
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 4
+  },
+  {
+    "date": "2026-05-14",
+    "time": "21:30",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_ookmeer",
+    "home": "암스테르담 파이러츠",
+    "away": "UVV",
+    "stadium": "Loek Loevendie Ballpark",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197438",
+    "status": "completed",
+    "homeScore": 4,
+    "awayScore": 2
+  },
+  {
+    "date": "2026-05-14",
+    "time": "21:30",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_slotbosse_toren",
+    "home": "오스터하우트 트윈스",
+    "away": "호프도르프 파이오니어스",
+    "stadium": "Sportpark De Slotbosse Toren",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197439",
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
     "date": "2026-05-15",
     "time": "00:55",
     "league": "SAUDI",
@@ -103609,6 +104282,48 @@
   },
   {
     "date": "2026-05-16",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "neptunus_familiestadion",
+    "home": "퀴라소 넵튠",
+    "away": "킨하임",
+    "stadium": "Neptunus Familiestadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197441",
+    "status": "completed",
+    "homeScore": 3,
+    "awayScore": 2
+  },
+  {
+    "date": "2026-05-16",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_de_paperclip",
+    "home": "UVV",
+    "away": "암스테르담 파이러츠",
+    "stadium": "Sportpark de Paperclip",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197443",
+    "status": "completed",
+    "homeScore": 0,
+    "awayScore": 12
+  },
+  {
+    "date": "2026-05-16",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_pioniers_hoofddorp",
+    "home": "호프도르프 파이오니어스",
+    "away": "오스터하우트 트윈스",
+    "stadium": "Sportpark Pioniers",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197444",
+    "status": "completed",
+    "homeScore": 0,
+    "awayScore": 1
+  },
+  {
+    "date": "2026-05-16",
     "time": "20:30",
     "league": "SCOTLAND",
     "venueId": "celtic_park",
@@ -103714,6 +104429,48 @@
         }
       ]
     }
+  },
+  {
+    "date": "2026-05-16",
+    "time": "21:30",
+    "league": "NLBASEBALL",
+    "venueId": "neptunus_familiestadion",
+    "home": "퀴라소 넵튠",
+    "away": "킨하임",
+    "stadium": "Neptunus Familiestadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197446",
+    "status": "completed",
+    "homeScore": 11,
+    "awayScore": 6
+  },
+  {
+    "date": "2026-05-16",
+    "time": "21:30",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_de_paperclip",
+    "home": "UVV",
+    "away": "암스테르담 파이러츠",
+    "stadium": "Sportpark de Paperclip",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197448",
+    "status": "completed",
+    "homeScore": 2,
+    "awayScore": 5
+  },
+  {
+    "date": "2026-05-16",
+    "time": "21:30",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_pioniers_hoofddorp",
+    "home": "호프도르프 파이오니어스",
+    "away": "오스터하우트 트윈스",
+    "stadium": "Sportpark Pioniers",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197450",
+    "status": "completed",
+    "homeScore": 8,
+    "awayScore": 14
   },
   {
     "date": "2026-05-16",
@@ -108823,6 +109580,20 @@
     "status": "completed",
     "homeScore": 3,
     "awayScore": 5
+  },
+  {
+    "date": "2026-05-20",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_slotbosse_toren",
+    "home": "오스터하우트 트윈스",
+    "away": "호프도르프 파이오니어스",
+    "stadium": "Sportpark De Slotbosse Toren",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_201320",
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-05-20",
@@ -117039,6 +117810,48 @@
   },
   {
     "date": "2026-05-29",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "neptunus_familiestadion",
+    "home": "퀴라소 넵튠",
+    "away": "암스테르담 파이러츠",
+    "stadium": "Neptunus Familiestadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197451",
+    "status": "completed",
+    "homeScore": 11,
+    "awayScore": 1
+  },
+  {
+    "date": "2026-05-29",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_de_paperclip",
+    "home": "UVV",
+    "away": "오스터하우트 트윈스",
+    "stadium": "Sportpark de Paperclip",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197452",
+    "status": "completed",
+    "homeScore": 8,
+    "awayScore": 4
+  },
+  {
+    "date": "2026-05-29",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_pioniers_hoofddorp",
+    "home": "호프도르프 파이오니어스",
+    "away": "HCAW",
+    "stadium": "Sportpark Pioniers",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197453",
+    "status": "completed",
+    "homeScore": 3,
+    "awayScore": 2
+  },
+  {
+    "date": "2026-05-29",
     "time": "03:00",
     "league": "AMATCHFRIENDLY",
     "venueId": "cairo_international_stadium",
@@ -118555,6 +119368,48 @@
   },
   {
     "date": "2026-05-30",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "rob_hoffmann_vallei",
+    "home": "HCAW",
+    "away": "호프도르프 파이오니어스",
+    "stadium": "Rob Hoffmann Vallei",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197477",
+    "status": "completed",
+    "homeScore": 2,
+    "awayScore": 4
+  },
+  {
+    "date": "2026-05-30",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_ookmeer",
+    "home": "암스테르담 파이러츠",
+    "away": "퀴라소 넵튠",
+    "stadium": "Loek Loevendie Ballpark",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197454",
+    "status": "completed",
+    "homeScore": 3,
+    "awayScore": 0
+  },
+  {
+    "date": "2026-05-30",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_slotbosse_toren",
+    "home": "오스터하우트 트윈스",
+    "away": "UVV",
+    "stadium": "Sportpark De Slotbosse Toren",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197475",
+    "status": "completed",
+    "homeScore": 12,
+    "awayScore": 0
+  },
+  {
+    "date": "2026-05-30",
     "time": "21:00",
     "league": "AMATCHFRIENDLY",
     "venueId": "barclays_hampden_glasgow",
@@ -118592,6 +119447,48 @@
         }
       ]
     }
+  },
+  {
+    "date": "2026-05-30",
+    "time": "21:45",
+    "league": "NLBASEBALL",
+    "venueId": "rob_hoffmann_vallei",
+    "home": "HCAW",
+    "away": "호프도르프 파이오니어스",
+    "stadium": "Rob Hoffmann Vallei",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197486",
+    "status": "completed",
+    "homeScore": 9,
+    "awayScore": 6
+  },
+  {
+    "date": "2026-05-30",
+    "time": "21:45",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_ookmeer",
+    "home": "암스테르담 파이러츠",
+    "away": "퀴라소 넵튠",
+    "stadium": "Loek Loevendie Ballpark",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197482",
+    "status": "completed",
+    "homeScore": 6,
+    "awayScore": 4
+  },
+  {
+    "date": "2026-05-30",
+    "time": "21:45",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_slotbosse_toren",
+    "home": "오스터하우트 트윈스",
+    "away": "UVV",
+    "stadium": "Sportpark De Slotbosse Toren",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197484",
+    "status": "completed",
+    "homeScore": 13,
+    "awayScore": 3
   },
   {
     "date": "2026-05-30",
@@ -121050,6 +121947,20 @@
   },
   {
     "date": "2026-06-03",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_slotbosse_toren",
+    "home": "오스터하우트 트윈스",
+    "away": "호프도르프 파이오니어스",
+    "stadium": "Sportpark De Slotbosse Toren",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_201487",
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "date": "2026-06-03",
     "time": "03:45",
     "league": "AMATCHFRIENDLY",
     "venueId": "cardiff_city_stadium",
@@ -122922,6 +123833,48 @@
     "homeScore": 6,
     "winPitcher": "휠러",
     "losePitcher": "지올리토"
+  },
+  {
+    "date": "2026-06-05",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "neptunus_familiestadion",
+    "home": "퀴라소 넵튠",
+    "away": "오스터하우트 트윈스",
+    "stadium": "Neptunus Familiestadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197489",
+    "status": "completed",
+    "homeScore": 12,
+    "awayScore": 2
+  },
+  {
+    "date": "2026-06-05",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "pim_mulier_stadion",
+    "home": "킨하임",
+    "away": "암스테르담 파이러츠",
+    "stadium": "Pim Mulier Stadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197490",
+    "status": "completed",
+    "homeScore": 3,
+    "awayScore": 6
+  },
+  {
+    "date": "2026-06-05",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_de_paperclip",
+    "home": "UVV",
+    "away": "HCAW",
+    "stadium": "Sportpark de Paperclip",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197487",
+    "status": "completed",
+    "homeScore": 5,
+    "awayScore": 8
   },
   {
     "date": "2026-06-05",
@@ -124932,6 +125885,48 @@
   },
   {
     "date": "2026-06-06",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "rob_hoffmann_vallei",
+    "home": "HCAW",
+    "away": "UVV",
+    "stadium": "Rob Hoffmann Vallei",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197492",
+    "status": "completed",
+    "homeScore": 8,
+    "awayScore": 7
+  },
+  {
+    "date": "2026-06-06",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_ookmeer",
+    "home": "암스테르담 파이러츠",
+    "away": "킨하임",
+    "stadium": "Loek Loevendie Ballpark",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197495",
+    "status": "completed",
+    "homeScore": 3,
+    "awayScore": 2
+  },
+  {
+    "date": "2026-06-06",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_slotbosse_toren",
+    "home": "오스터하우트 트윈스",
+    "away": "퀴라소 넵튠",
+    "stadium": "Sportpark De Slotbosse Toren",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197493",
+    "status": "completed",
+    "homeScore": 2,
+    "awayScore": 5
+  },
+  {
+    "date": "2026-06-06",
     "time": "19:30",
     "league": "K리그2",
     "venueId": "changwonfc",
@@ -125011,6 +126006,48 @@
         }
       ]
     }
+  },
+  {
+    "date": "2026-06-06",
+    "time": "21:45",
+    "league": "NLBASEBALL",
+    "venueId": "rob_hoffmann_vallei",
+    "home": "HCAW",
+    "away": "UVV",
+    "stadium": "Rob Hoffmann Vallei",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197496",
+    "status": "completed",
+    "homeScore": 9,
+    "awayScore": 5
+  },
+  {
+    "date": "2026-06-06",
+    "time": "21:45",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_ookmeer",
+    "home": "암스테르담 파이러츠",
+    "away": "킨하임",
+    "stadium": "Loek Loevendie Ballpark",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197498",
+    "status": "completed",
+    "homeScore": 3,
+    "awayScore": 0
+  },
+  {
+    "date": "2026-06-06",
+    "time": "21:45",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_slotbosse_toren",
+    "home": "오스터하우트 트윈스",
+    "away": "퀴라소 넵튠",
+    "stadium": "Sportpark De Slotbosse Toren",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197497",
+    "status": "completed",
+    "homeScore": 0,
+    "awayScore": 15
   },
   {
     "date": "2026-06-06",
@@ -127861,6 +128898,20 @@
   },
   {
     "date": "2026-06-10",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_slotbosse_toren",
+    "home": "오스터하우트 트윈스",
+    "away": "호프도르프 파이오니어스",
+    "stadium": "Sportpark De Slotbosse Toren",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_202286",
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "date": "2026-06-10",
     "time": "03:00",
     "league": "AMATCHFRIENDLY",
     "venueId": "haladas_sportkomplexum",
@@ -129551,6 +130602,48 @@
   },
   {
     "date": "2026-06-12",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "rob_hoffmann_vallei",
+    "home": "HCAW",
+    "away": "퀴라소 넵튠",
+    "stadium": "Rob Hoffmann Vallei",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197500",
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "date": "2026-06-12",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_pioniers_hoofddorp",
+    "home": "호프도르프 파이오니어스",
+    "away": "UVV",
+    "stadium": "Sportpark Pioniers",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197499",
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "date": "2026-06-12",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_slotbosse_toren",
+    "home": "오스터하우트 트윈스",
+    "away": "킨하임",
+    "stadium": "Sportpark De Slotbosse Toren",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197501",
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "date": "2026-06-12",
     "time": "03:10",
     "league": "MLB",
     "venueId": "kauffman_stadium",
@@ -130848,6 +131941,90 @@
     "winPitcher": "위트리",
     "losePitcher": "스미다",
     "savePitcher": "라이델"
+  },
+  {
+    "date": "2026-06-13",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "neptunus_familiestadion",
+    "home": "퀴라소 넵튠",
+    "away": "HCAW",
+    "stadium": "Neptunus Familiestadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197503",
+    "status": "completed",
+    "homeScore": 7,
+    "awayScore": 1
+  },
+  {
+    "date": "2026-06-13",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "pim_mulier_stadion",
+    "home": "킨하임",
+    "away": "오스터하우트 트윈스",
+    "stadium": "Pim Mulier Stadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197504",
+    "status": "completed",
+    "homeScore": 8,
+    "awayScore": 5
+  },
+  {
+    "date": "2026-06-13",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_de_paperclip",
+    "home": "UVV",
+    "away": "호프도르프 파이오니어스",
+    "stadium": "Sportpark de Paperclip",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197502",
+    "status": "completed",
+    "homeScore": 4,
+    "awayScore": 0
+  },
+  {
+    "date": "2026-06-13",
+    "time": "21:45",
+    "league": "NLBASEBALL",
+    "venueId": "neptunus_familiestadion",
+    "home": "퀴라소 넵튠",
+    "away": "HCAW",
+    "stadium": "Neptunus Familiestadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197506",
+    "status": "completed",
+    "homeScore": 4,
+    "awayScore": 1
+  },
+  {
+    "date": "2026-06-13",
+    "time": "21:45",
+    "league": "NLBASEBALL",
+    "venueId": "pim_mulier_stadion",
+    "home": "킨하임",
+    "away": "오스터하우트 트윈스",
+    "stadium": "Pim Mulier Stadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197507",
+    "status": "completed",
+    "homeScore": 3,
+    "awayScore": 0
+  },
+  {
+    "date": "2026-06-13",
+    "time": "21:45",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_de_paperclip",
+    "home": "UVV",
+    "away": "호프도르프 파이오니어스",
+    "stadium": "Sportpark de Paperclip",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197505",
+    "status": "completed",
+    "homeScore": 17,
+    "awayScore": 2
   },
   {
     "date": "2026-06-14",
@@ -132711,6 +133888,34 @@
   },
   {
     "date": "2026-06-17",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "rob_hoffmann_vallei",
+    "home": "HCAW",
+    "away": "퀴라소 넵튠",
+    "stadium": "Rob Hoffmann Vallei",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_202988",
+    "status": "completed",
+    "homeScore": 5,
+    "awayScore": 6
+  },
+  {
+    "date": "2026-06-17",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_slotbosse_toren",
+    "home": "오스터하우트 트윈스",
+    "away": "호프도르프 파이오니어스",
+    "stadium": "Sportpark De Slotbosse Toren",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_202987",
+    "status": "completed",
+    "homeScore": 9,
+    "awayScore": 4
+  },
+  {
+    "date": "2026-06-17",
     "time": "04:00",
     "league": "WORLDCUP",
     "venueId": "metlife_stadium",
@@ -134184,6 +135389,48 @@
   },
   {
     "date": "2026-06-19",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "neptunus_familiestadion",
+    "home": "퀴라소 넵튠",
+    "away": "호프도르프 파이오니어스",
+    "stadium": "Neptunus Familiestadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197508",
+    "status": "completed",
+    "homeScore": 11,
+    "awayScore": 2
+  },
+  {
+    "date": "2026-06-19",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "pim_mulier_stadion",
+    "home": "킨하임",
+    "away": "HCAW",
+    "stadium": "Pim Mulier Stadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197509",
+    "status": "completed",
+    "homeScore": 9,
+    "awayScore": 7
+  },
+  {
+    "date": "2026-06-19",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_ookmeer",
+    "home": "암스테르담 파이러츠",
+    "away": "오스터하우트 트윈스",
+    "stadium": "Loek Loevendie Ballpark",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197510",
+    "status": "completed",
+    "homeScore": 8,
+    "awayScore": 2
+  },
+  {
+    "date": "2026-06-19",
     "time": "02:35",
     "league": "MLB",
     "venueId": "fenway_park",
@@ -135629,6 +136876,90 @@
     "timeTbd": false,
     "gameId": "20260620HSYK0",
     "status": "cancelled"
+  },
+  {
+    "date": "2026-06-20",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "rob_hoffmann_vallei",
+    "home": "HCAW",
+    "away": "킨하임",
+    "stadium": "Rob Hoffmann Vallei",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197512",
+    "status": "completed",
+    "homeScore": 3,
+    "awayScore": 0
+  },
+  {
+    "date": "2026-06-20",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_pioniers_hoofddorp",
+    "home": "호프도르프 파이오니어스",
+    "away": "퀴라소 넵튠",
+    "stadium": "Sportpark Pioniers",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197511",
+    "status": "completed",
+    "homeScore": 3,
+    "awayScore": 6
+  },
+  {
+    "date": "2026-06-20",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_slotbosse_toren",
+    "home": "오스터하우트 트윈스",
+    "away": "암스테르담 파이러츠",
+    "stadium": "Sportpark De Slotbosse Toren",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197513",
+    "status": "completed",
+    "homeScore": 4,
+    "awayScore": 7
+  },
+  {
+    "date": "2026-06-20",
+    "time": "21:45",
+    "league": "NLBASEBALL",
+    "venueId": "rob_hoffmann_vallei",
+    "home": "HCAW",
+    "away": "킨하임",
+    "stadium": "Rob Hoffmann Vallei",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197515",
+    "status": "completed",
+    "homeScore": 6,
+    "awayScore": 7
+  },
+  {
+    "date": "2026-06-20",
+    "time": "21:45",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_pioniers_hoofddorp",
+    "home": "호프도르프 파이오니어스",
+    "away": "퀴라소 넵튠",
+    "stadium": "Sportpark Pioniers",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197514",
+    "status": "completed",
+    "homeScore": 3,
+    "awayScore": 18
+  },
+  {
+    "date": "2026-06-20",
+    "time": "21:45",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_slotbosse_toren",
+    "home": "오스터하우트 트윈스",
+    "away": "암스테르담 파이러츠",
+    "stadium": "Sportpark De Slotbosse Toren",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197516",
+    "status": "completed",
+    "homeScore": 0,
+    "awayScore": 10
   },
   {
     "date": "2026-06-21",
@@ -137676,6 +139007,34 @@
       "away": []
     },
     "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-06-24",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_pioniers_hoofddorp",
+    "home": "호프도르프 파이오니어스",
+    "away": "UVV",
+    "stadium": "Sportpark Pioniers",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_202989",
+    "status": "completed",
+    "homeScore": 3,
+    "awayScore": 8
+  },
+  {
+    "date": "2026-06-24",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_slotbosse_toren",
+    "home": "오스터하우트 트윈스",
+    "away": "킨하임",
+    "stadium": "Sportpark De Slotbosse Toren",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_202990",
+    "status": "completed",
+    "homeScore": 9,
+    "awayScore": 8
   },
   {
     "date": "2026-06-24",
@@ -150996,6 +152355,48 @@
   },
   {
     "date": "2026-07-11",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "neptunus_familiestadion",
+    "home": "퀴라소 넵튠",
+    "away": "UVV",
+    "stadium": "Neptunus Familiestadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197520",
+    "status": "completed",
+    "homeScore": 9,
+    "awayScore": 4
+  },
+  {
+    "date": "2026-07-11",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "pim_mulier_stadion",
+    "home": "킨하임",
+    "away": "호프도르프 파이오니어스",
+    "stadium": "Pim Mulier Stadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197521",
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "date": "2026-07-11",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_ookmeer",
+    "home": "암스테르담 파이러츠",
+    "away": "HCAW",
+    "stadium": "Loek Loevendie Ballpark",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197522",
+    "status": "completed",
+    "homeScore": 4,
+    "awayScore": 3
+  },
+  {
+    "date": "2026-07-11",
     "time": "19:30",
     "league": "K리그1",
     "venueId": "gimcheon",
@@ -151315,6 +152716,48 @@
         }
       ]
     }
+  },
+  {
+    "date": "2026-07-11",
+    "time": "21:45",
+    "league": "NLBASEBALL",
+    "venueId": "neptunus_familiestadion",
+    "home": "퀴라소 넵튠",
+    "away": "UVV",
+    "stadium": "Neptunus Familiestadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197911",
+    "status": "completed",
+    "homeScore": 10,
+    "awayScore": 0
+  },
+  {
+    "date": "2026-07-11",
+    "time": "21:45",
+    "league": "NLBASEBALL",
+    "venueId": "pim_mulier_stadion",
+    "home": "킨하임",
+    "away": "호프도르프 파이오니어스",
+    "stadium": "Pim Mulier Stadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197912",
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "date": "2026-07-11",
+    "time": "21:45",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_ookmeer",
+    "home": "암스테르담 파이러츠",
+    "away": "HCAW",
+    "stadium": "Loek Loevendie Ballpark",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197913",
+    "status": "completed",
+    "homeScore": 11,
+    "awayScore": 9
   },
   {
     "date": "2026-07-12",
@@ -152856,6 +154299,48 @@
   },
   {
     "date": "2026-07-15",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "rob_hoffmann_vallei",
+    "home": "HCAW",
+    "away": "암스테르담 파이러츠",
+    "stadium": "Rob Hoffmann Vallei",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197519",
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 2
+  },
+  {
+    "date": "2026-07-15",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_de_paperclip",
+    "home": "UVV",
+    "away": "퀴라소 넵튠",
+    "stadium": "Sportpark de Paperclip",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197517",
+    "status": "completed",
+    "homeScore": 4,
+    "awayScore": 11
+  },
+  {
+    "date": "2026-07-15",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_pioniers_hoofddorp",
+    "home": "호프도르프 파이오니어스",
+    "away": "킨하임",
+    "stadium": "Sportpark Pioniers",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197518",
+    "status": "completed",
+    "homeScore": 6,
+    "awayScore": 6
+  },
+  {
+    "date": "2026-07-15",
     "time": "04:00",
     "league": "WORLDCUP",
     "venueId": "att_stadium_arlington",
@@ -153257,6 +154742,48 @@
     "homeScore": 6,
     "winPitcher": "아빌라",
     "losePitcher": "올러"
+  },
+  {
+    "date": "2026-07-17",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "pim_mulier_stadion",
+    "home": "킨하임",
+    "away": "UVV",
+    "stadium": "Pim Mulier Stadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197914",
+    "status": "completed",
+    "homeScore": 4,
+    "awayScore": 1
+  },
+  {
+    "date": "2026-07-17",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_ookmeer",
+    "home": "암스테르담 파이러츠",
+    "away": "호프도르프 파이오니어스",
+    "stadium": "Loek Loevendie Ballpark",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197915",
+    "status": "completed",
+    "homeScore": 10,
+    "awayScore": 0
+  },
+  {
+    "date": "2026-07-17",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_slotbosse_toren",
+    "home": "오스터하우트 트윈스",
+    "away": "HCAW",
+    "stadium": "Sportpark De Slotbosse Toren",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197916",
+    "status": "completed",
+    "homeScore": 3,
+    "awayScore": 1
   },
   {
     "date": "2026-07-17",
@@ -154333,6 +155860,48 @@
   },
   {
     "date": "2026-07-18",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "rob_hoffmann_vallei",
+    "home": "HCAW",
+    "away": "오스터하우트 트윈스",
+    "stadium": "Rob Hoffmann Vallei",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197919",
+    "status": "completed",
+    "homeScore": 2,
+    "awayScore": 6
+  },
+  {
+    "date": "2026-07-18",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_de_paperclip",
+    "home": "UVV",
+    "away": "킨하임",
+    "stadium": "Sportpark de Paperclip",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197917",
+    "status": "completed",
+    "homeScore": 6,
+    "awayScore": 11
+  },
+  {
+    "date": "2026-07-18",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_pioniers_hoofddorp",
+    "home": "호프도르프 파이오니어스",
+    "away": "암스테르담 파이러츠",
+    "stadium": "Sportpark Pioniers",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197918",
+    "status": "completed",
+    "homeScore": 0,
+    "awayScore": 11
+  },
+  {
+    "date": "2026-07-18",
     "time": "19:30",
     "league": "K리그1",
     "venueId": "daejeonwc",
@@ -154632,6 +156201,48 @@
         }
       ]
     }
+  },
+  {
+    "date": "2026-07-18",
+    "time": "21:45",
+    "league": "NLBASEBALL",
+    "venueId": "rob_hoffmann_vallei",
+    "home": "HCAW",
+    "away": "오스터하우트 트윈스",
+    "stadium": "Rob Hoffmann Vallei",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197922",
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 7
+  },
+  {
+    "date": "2026-07-18",
+    "time": "21:45",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_de_paperclip",
+    "home": "UVV",
+    "away": "킨하임",
+    "stadium": "Sportpark de Paperclip",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197920",
+    "status": "completed",
+    "homeScore": 6,
+    "awayScore": 12
+  },
+  {
+    "date": "2026-07-18",
+    "time": "21:45",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_pioniers_hoofddorp",
+    "home": "호프도르프 파이오니어스",
+    "away": "암스테르담 파이러츠",
+    "stadium": "Sportpark Pioniers",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197921",
+    "status": "completed",
+    "homeScore": 7,
+    "awayScore": 11
   },
   {
     "date": "2026-07-18",
@@ -156926,6 +158537,20 @@
   },
   {
     "date": "2026-07-22",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "pim_mulier_stadion",
+    "home": "킨하임",
+    "away": "호프도르프 파이오니어스",
+    "stadium": "Pim Mulier Stadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_204551",
+    "status": "completed",
+    "homeScore": 12,
+    "awayScore": 2
+  },
+  {
+    "date": "2026-07-22",
     "time": "07:35",
     "league": "AAA",
     "venueId": "coolray_field_lawrenceville",
@@ -159008,6 +160633,48 @@
   },
   {
     "date": "2026-07-24",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "neptunus_familiestadion",
+    "home": "퀴라소 넵튠",
+    "away": "킨하임",
+    "stadium": "Neptunus Familiestadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197923",
+    "status": "completed",
+    "homeScore": 5,
+    "awayScore": 2
+  },
+  {
+    "date": "2026-07-24",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_de_paperclip",
+    "home": "UVV",
+    "away": "암스테르담 파이러츠",
+    "stadium": "Sportpark de Paperclip",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197924",
+    "status": "completed",
+    "homeScore": 0,
+    "awayScore": 7
+  },
+  {
+    "date": "2026-07-24",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_pioniers_hoofddorp",
+    "home": "호프도르프 파이오니어스",
+    "away": "오스터하우트 트윈스",
+    "stadium": "Sportpark Pioniers",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197925",
+    "status": "completed",
+    "homeScore": 0,
+    "awayScore": 9
+  },
+  {
+    "date": "2026-07-24",
     "time": "03:05",
     "league": "AAA",
     "venueId": "isotopes_park_albuquerque",
@@ -160413,6 +162080,48 @@
   },
   {
     "date": "2026-07-25",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "pim_mulier_stadion",
+    "home": "킨하임",
+    "away": "퀴라소 넵튠",
+    "stadium": "Pim Mulier Stadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197926",
+    "status": "completed",
+    "homeScore": 0,
+    "awayScore": 1
+  },
+  {
+    "date": "2026-07-25",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_ookmeer",
+    "home": "암스테르담 파이러츠",
+    "away": "UVV",
+    "stadium": "Loek Loevendie Ballpark",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197927",
+    "status": "completed",
+    "homeScore": 10,
+    "awayScore": 0
+  },
+  {
+    "date": "2026-07-25",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_slotbosse_toren",
+    "home": "오스터하우트 트윈스",
+    "away": "호프도르프 파이오니어스",
+    "stadium": "Sportpark De Slotbosse Toren",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197928",
+    "status": "completed",
+    "homeScore": 8,
+    "awayScore": 4
+  },
+  {
+    "date": "2026-07-25",
     "time": "19:30",
     "league": "K리그1",
     "venueId": "gimcheon",
@@ -160722,6 +162431,48 @@
         }
       ]
     }
+  },
+  {
+    "date": "2026-07-25",
+    "time": "21:45",
+    "league": "NLBASEBALL",
+    "venueId": "pim_mulier_stadion",
+    "home": "킨하임",
+    "away": "퀴라소 넵튠",
+    "stadium": "Pim Mulier Stadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197929",
+    "status": "completed",
+    "homeScore": 2,
+    "awayScore": 9
+  },
+  {
+    "date": "2026-07-25",
+    "time": "21:45",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_ookmeer",
+    "home": "암스테르담 파이러츠",
+    "away": "UVV",
+    "stadium": "Loek Loevendie Ballpark",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197930",
+    "status": "completed",
+    "homeScore": 8,
+    "awayScore": 1
+  },
+  {
+    "date": "2026-07-25",
+    "time": "21:45",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_slotbosse_toren",
+    "home": "오스터하우트 트윈스",
+    "away": "호프도르프 파이오니어스",
+    "stadium": "Sportpark De Slotbosse Toren",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197931",
+    "status": "completed",
+    "homeScore": 10,
+    "awayScore": 4
   },
   {
     "date": "2026-07-25",
@@ -163662,6 +165413,20 @@
   },
   {
     "date": "2026-07-29",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "pim_mulier_stadion",
+    "home": "킨하임",
+    "away": "호프도르프 파이오니어스",
+    "stadium": "Pim Mulier Stadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_204552",
+    "status": "completed",
+    "homeScore": 8,
+    "awayScore": 0
+  },
+  {
+    "date": "2026-07-29",
     "time": "02:40",
     "league": "MLB",
     "venueId": "great_american_ballpark",
@@ -165009,6 +166774,48 @@
     "winPitcher": "클레빈저",
     "losePitcher": "피플스",
     "savePitcher": "베이커"
+  },
+  {
+    "date": "2026-07-31",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "rob_hoffmann_vallei",
+    "home": "HCAW",
+    "away": "호프도르프 파이오니어스",
+    "stadium": "Rob Hoffmann Vallei",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197934",
+    "status": "completed",
+    "homeScore": 5,
+    "awayScore": 8
+  },
+  {
+    "date": "2026-07-31",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_ookmeer",
+    "home": "암스테르담 파이러츠",
+    "away": "퀴라소 넵튠",
+    "stadium": "Loek Loevendie Ballpark",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197932",
+    "status": "completed",
+    "homeScore": 2,
+    "awayScore": 6
+  },
+  {
+    "date": "2026-07-31",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_slotbosse_toren",
+    "home": "오스터하우트 트윈스",
+    "away": "UVV",
+    "stadium": "Sportpark De Slotbosse Toren",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197933",
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-07-31",
@@ -166533,6 +168340,48 @@
   },
   {
     "date": "2026-08-01",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "neptunus_familiestadion",
+    "home": "퀴라소 넵튠",
+    "away": "암스테르담 파이러츠",
+    "stadium": "Neptunus Familiestadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197935",
+    "status": "completed",
+    "homeScore": 3,
+    "awayScore": 0
+  },
+  {
+    "date": "2026-08-01",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_de_paperclip",
+    "home": "UVV",
+    "away": "오스터하우트 트윈스",
+    "stadium": "Sportpark de Paperclip",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197936",
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 4
+  },
+  {
+    "date": "2026-08-01",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_pioniers_hoofddorp",
+    "home": "호프도르프 파이오니어스",
+    "away": "HCAW",
+    "stadium": "Sportpark Pioniers",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197937",
+    "status": "completed",
+    "homeScore": 0,
+    "awayScore": 11
+  },
+  {
+    "date": "2026-08-01",
     "time": "19:30",
     "league": "K리그1",
     "venueId": "gangwon",
@@ -166827,6 +168676,48 @@
     },
     "homePkScore": 1,
     "awayPkScore": 3
+  },
+  {
+    "date": "2026-08-01",
+    "time": "21:45",
+    "league": "NLBASEBALL",
+    "venueId": "neptunus_familiestadion",
+    "home": "퀴라소 넵튠",
+    "away": "암스테르담 파이러츠",
+    "stadium": "Neptunus Familiestadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197938",
+    "status": "completed",
+    "homeScore": 7,
+    "awayScore": 8
+  },
+  {
+    "date": "2026-08-01",
+    "time": "21:45",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_de_paperclip",
+    "home": "UVV",
+    "away": "오스터하우트 트윈스",
+    "stadium": "Sportpark de Paperclip",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197939",
+    "status": "completed",
+    "homeScore": 7,
+    "awayScore": 16
+  },
+  {
+    "date": "2026-08-01",
+    "time": "21:45",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_pioniers_hoofddorp",
+    "home": "호프도르프 파이오니어스",
+    "away": "HCAW",
+    "stadium": "Sportpark Pioniers",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_197940",
+    "status": "completed",
+    "homeScore": 8,
+    "awayScore": 4
   },
   {
     "date": "2026-08-01",
@@ -184182,6 +186073,20 @@
   },
   {
     "date": "2026-08-19",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_slotbosse_toren",
+    "home": "오스터하우트 트윈스",
+    "away": "UVV",
+    "stadium": "Sportpark De Slotbosse Toren",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_206246",
+    "status": "completed",
+    "homeScore": 7,
+    "awayScore": 1
+  },
+  {
+    "date": "2026-08-19",
     "time": "07:35",
     "league": "AAA",
     "venueId": "fifth_third_field_toledo",
@@ -186429,6 +188334,48 @@
   },
   {
     "date": "2026-08-21",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "neptunus_familiestadion",
+    "home": "퀴라소 넵튠",
+    "away": "킨하임",
+    "stadium": "Neptunus Familiestadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_207178",
+    "status": "completed",
+    "homeScore": 2,
+    "awayScore": 7
+  },
+  {
+    "date": "2026-08-21",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "rob_hoffmann_vallei",
+    "home": "HCAW",
+    "away": "UVV",
+    "stadium": "Rob Hoffmann Vallei",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_207081",
+    "status": "completed",
+    "homeScore": 0,
+    "awayScore": 2
+  },
+  {
+    "date": "2026-08-21",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_ookmeer",
+    "home": "암스테르담 파이러츠",
+    "away": "오스터하우트 트윈스",
+    "stadium": "Loek Loevendie Ballpark",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_207179",
+    "status": "completed",
+    "homeScore": 8,
+    "awayScore": 1
+  },
+  {
+    "date": "2026-08-21",
     "time": "03:00",
     "league": "SAUDI",
     "venueId": "al_majmaah_sports_city",
@@ -188067,6 +190014,20 @@
   },
   {
     "date": "2026-08-22",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_de_paperclip",
+    "home": "UVV",
+    "away": "HCAW",
+    "stadium": "Sportpark de Paperclip",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_207082",
+    "status": "completed",
+    "homeScore": 11,
+    "awayScore": 7
+  },
+  {
+    "date": "2026-08-22",
     "time": "19:15",
     "league": "J1",
     "venueId": "edion_peace_wing_hiroshima",
@@ -188547,6 +190508,34 @@
       ],
       "away": []
     }
+  },
+  {
+    "date": "2026-08-22",
+    "time": "21:00",
+    "league": "NLBASEBALL",
+    "venueId": "pim_mulier_stadion",
+    "home": "킨하임",
+    "away": "퀴라소 넵튠",
+    "stadium": "Pim Mulier Stadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_207181",
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 2
+  },
+  {
+    "date": "2026-08-22",
+    "time": "21:45",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_de_paperclip",
+    "home": "UVV",
+    "away": "HCAW",
+    "stadium": "Sportpark de Paperclip",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_207083",
+    "status": "completed",
+    "homeScore": 3,
+    "awayScore": 6
   },
   {
     "date": "2026-08-22",
@@ -191202,6 +193191,34 @@
       ],
       "away": []
     }
+  },
+  {
+    "date": "2026-08-23",
+    "time": "21:00",
+    "league": "NLBASEBALL",
+    "venueId": "neptunus_familiestadion",
+    "home": "퀴라소 넵튠",
+    "away": "킨하임",
+    "stadium": "Neptunus Familiestadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_207182",
+    "status": "completed",
+    "homeScore": 5,
+    "awayScore": 0
+  },
+  {
+    "date": "2026-08-23",
+    "time": "21:00",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_ookmeer",
+    "home": "암스테르담 파이러츠",
+    "away": "오스터하우트 트윈스",
+    "stadium": "Loek Loevendie Ballpark",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_207183",
+    "status": "completed",
+    "homeScore": 9,
+    "awayScore": 4
   },
   {
     "date": "2026-08-23",
@@ -194956,6 +196973,20 @@
   },
   {
     "date": "2026-08-28",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_pioniers_hoofddorp",
+    "home": "호프도르프 파이오니어스",
+    "away": "HCAW",
+    "stadium": "Sportpark Pioniers",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_207084",
+    "status": "completed",
+    "homeScore": 10,
+    "awayScore": 11
+  },
+  {
+    "date": "2026-08-28",
     "time": "03:15",
     "league": "MLB",
     "venueId": "busch_stadium",
@@ -197072,6 +199103,34 @@
   },
   {
     "date": "2026-08-29",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "rob_hoffmann_vallei",
+    "home": "HCAW",
+    "away": "호프도르프 파이오니어스",
+    "stadium": "Rob Hoffmann Vallei",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_207085",
+    "status": "completed",
+    "homeScore": 11,
+    "awayScore": 10
+  },
+  {
+    "date": "2026-08-29",
+    "time": "19:00",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_slotbosse_toren",
+    "home": "오스터하우트 트윈스",
+    "away": "암스테르담 파이러츠",
+    "stadium": "Sportpark De Slotbosse Toren",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_207180",
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 6
+  },
+  {
+    "date": "2026-08-29",
     "time": "19:30",
     "league": "K리그1",
     "venueId": "bucheon",
@@ -197472,6 +199531,48 @@
         }
       ]
     }
+  },
+  {
+    "date": "2026-08-29",
+    "time": "21:00",
+    "league": "NLBASEBALL",
+    "venueId": "pim_mulier_stadion",
+    "home": "킨하임",
+    "away": "퀴라소 넵튠",
+    "stadium": "Pim Mulier Stadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_207185",
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 9
+  },
+  {
+    "date": "2026-08-29",
+    "time": "21:00",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_slotbosse_toren",
+    "home": "오스터하우트 트윈스",
+    "away": "암스테르담 파이러츠",
+    "stadium": "Sportpark De Slotbosse Toren",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_207184",
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "date": "2026-08-29",
+    "time": "21:45",
+    "league": "NLBASEBALL",
+    "venueId": "rob_hoffmann_vallei",
+    "home": "HCAW",
+    "away": "호프도르프 파이오니어스",
+    "stadium": "Rob Hoffmann Vallei",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_207086",
+    "status": "completed",
+    "homeScore": 14,
+    "awayScore": 11
   },
   {
     "date": "2026-08-29",
@@ -200451,6 +202552,34 @@
         }
       ]
     }
+  },
+  {
+    "date": "2026-08-30",
+    "time": "21:00",
+    "league": "NLBASEBALL",
+    "venueId": "neptunus_familiestadion",
+    "home": "퀴라소 넵튠",
+    "away": "킨하임",
+    "stadium": "Neptunus Familiestadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_207186",
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "date": "2026-08-30",
+    "time": "21:00",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_ookmeer",
+    "home": "암스테르담 파이러츠",
+    "away": "오스터하우트 트윈스",
+    "stadium": "Loek Loevendie Ballpark",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_207187",
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-08-30",
@@ -204913,6 +207042,20 @@
   },
   {
     "date": "2026-09-04",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_de_paperclip",
+    "home": "UVV",
+    "away": "호프도르프 파이오니어스",
+    "stadium": "Sportpark de Paperclip",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_207087",
+    "status": "completed",
+    "homeScore": 9,
+    "awayScore": 8
+  },
+  {
+    "date": "2026-09-04",
     "time": "03:00",
     "league": "DENMARK",
     "venueId": "parken_copenhagen",
@@ -207265,6 +209408,34 @@
         }
       ]
     }
+  },
+  {
+    "date": "2026-09-05",
+    "time": "21:00",
+    "league": "NLBASEBALL",
+    "venueId": "neptunus_familiestadion",
+    "home": "퀴라소 넵튠",
+    "away": "암스테르담 파이러츠",
+    "stadium": "Neptunus Familiestadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_207841",
+    "status": "completed",
+    "homeScore": 6,
+    "awayScore": 5
+  },
+  {
+    "date": "2026-09-05",
+    "time": "21:45",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_pioniers_hoofddorp",
+    "home": "호프도르프 파이오니어스",
+    "away": "UVV",
+    "stadium": "Sportpark Pioniers",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_207089",
+    "status": "completed",
+    "homeScore": 16,
+    "awayScore": 19
   },
   {
     "date": "2026-09-05",
@@ -212174,6 +214345,20 @@
         }
       ]
     }
+  },
+  {
+    "date": "2026-09-06",
+    "time": "21:00",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_ookmeer",
+    "home": "암스테르담 파이러츠",
+    "away": "퀴라소 넵튠",
+    "stadium": "Loek Loevendie Ballpark",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_207842",
+    "status": "completed",
+    "homeScore": 6,
+    "awayScore": 10
   },
   {
     "date": "2026-09-06",
@@ -221467,6 +223652,20 @@
   },
   {
     "date": "2026-09-11",
+    "time": "02:30",
+    "league": "NLBASEBALL",
+    "venueId": "neptunus_familiestadion",
+    "home": "퀴라소 넵튠",
+    "away": "암스테르담 파이러츠",
+    "stadium": "Neptunus Familiestadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_207843",
+    "status": "completed",
+    "homeScore": 8,
+    "awayScore": 1
+  },
+  {
+    "date": "2026-09-11",
     "time": "03:15",
     "league": "GREECE",
     "venueId": "athens_olympic_stadium",
@@ -224959,6 +227158,20 @@
         }
       ]
     }
+  },
+  {
+    "date": "2026-09-12",
+    "time": "21:00",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_ookmeer",
+    "home": "암스테르담 파이러츠",
+    "away": "퀴라소 넵튠",
+    "stadium": "Loek Loevendie Ballpark",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_207844",
+    "status": "completed",
+    "homeScore": 4,
+    "awayScore": 8
   },
   {
     "date": "2026-09-12",
@@ -230242,6 +232455,20 @@
         }
       ]
     }
+  },
+  {
+    "date": "2026-09-13",
+    "time": "20:00",
+    "league": "NLBASEBALL",
+    "venueId": "neptunus_familiestadion",
+    "home": "퀴라소 넵튠",
+    "away": "암스테르담 파이러츠",
+    "stadium": "Neptunus Familiestadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_207845",
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-09-13",
@@ -242383,6 +244610,20 @@
   },
   {
     "date": "2026-09-19",
+    "time": "21:00",
+    "league": "NLBASEBALL",
+    "venueId": "sportpark_ookmeer",
+    "home": "암스테르담 파이러츠",
+    "away": "퀴라소 넵튠",
+    "stadium": "Loek Loevendie Ballpark",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_207846",
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "date": "2026-09-19",
     "time": "22:00",
     "league": "INTERCONTINENTALCUP",
     "venueId": "loftus_versfeld_pretoria",
@@ -244470,6 +246711,20 @@
   {
     "date": "2026-09-20",
     "time": "20:00",
+    "league": "NLBASEBALL",
+    "venueId": "neptunus_familiestadion",
+    "home": "퀴라소 넵튠",
+    "away": "암스테르담 파이러츠",
+    "stadium": "Neptunus Familiestadion",
+    "timeTbd": false,
+    "gameId": "NLBASEBALL_WBSC_207847",
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "date": "2026-09-20",
+    "time": "20:00",
     "league": "SCOTLAND",
     "venueId": "celtic_park",
     "home": "셀틱",
@@ -245467,11 +247722,11 @@
     "time": "03:00",
     "league": "VENEZUELA",
     "venueId": "estadio_olimpico_ucv_caracas",
-    "home": "UCV FC",
-    "away": "카라보보",
+    "home": "데포르티보 라과이라",
+    "away": "데포르티보 타치라",
     "stadium": "Estadio Olímpico de la UCV",
     "timeTbd": true,
-    "gameId": "VENEZUELA_ESPN_401903331",
+    "gameId": "VENEZUELA_ESPN_401903320",
     "status": "scheduled"
   },
   {
@@ -245479,11 +247734,11 @@
     "time": "03:00",
     "league": "VENEZUELA",
     "venueId": "estadio_olimpico_ucv_caracas",
-    "home": "데포르티보 라과이라",
-    "away": "데포르티보 타치라",
+    "home": "UCV FC",
+    "away": "카라보보",
     "stadium": "Estadio Olímpico de la UCV",
     "timeTbd": true,
-    "gameId": "VENEZUELA_ESPN_401903320",
+    "gameId": "VENEZUELA_ESPN_401903331",
     "status": "scheduled"
   },
   {
@@ -261673,11 +263928,11 @@
     "time": "03:00",
     "league": "VENEZUELA",
     "venueId": "estadio_olimpico_ucv_caracas",
-    "home": "UCV FC",
-    "away": "포르투게사",
+    "home": "데포르티보 라과이라",
+    "away": "트루히야노스",
     "stadium": "Estadio Olímpico de la UCV",
     "timeTbd": true,
-    "gameId": "VENEZUELA_ESPN_401903430",
+    "gameId": "VENEZUELA_ESPN_401903434",
     "status": "scheduled"
   },
   {
@@ -261685,11 +263940,11 @@
     "time": "03:00",
     "league": "VENEZUELA",
     "venueId": "estadio_olimpico_ucv_caracas",
-    "home": "데포르티보 라과이라",
-    "away": "트루히야노스",
+    "home": "UCV FC",
+    "away": "포르투게사",
     "stadium": "Estadio Olímpico de la UCV",
     "timeTbd": true,
-    "gameId": "VENEZUELA_ESPN_401903434",
+    "gameId": "VENEZUELA_ESPN_401903430",
     "status": "scheduled"
   },
   {
