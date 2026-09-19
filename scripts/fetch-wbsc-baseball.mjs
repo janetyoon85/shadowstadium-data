@@ -87,6 +87,9 @@ const TEAM_KO = {
   // 프랑스 Division 1(FRBASEBALL, 2026-09-19 추가).
   'Béziers Pirates': '베지에 파이러츠', 'La Rochelle Boucaniers': '라로셸 부카니에', 'Montpellier Barracudas': '몽펠리에 바라쿠다스', 'Paris Université Club': '파리 위니베르시테 클럽',
   'Rouen Huskies': '루앙 허스키스', 'Savigny-sur-Orge Lions': '사비니 쉬르 오르주 라이온스', 'Stade Toulousain Tigers': '스타드 툴루쟁 타이거스', 'Sénart Templiers': '세나르 탕플리에',
+  // 벨기에 베이스볼 D1(BEBASEBALL, 2026-09-19 추가).
+  'Borgerhout Squirrels': '보르헤르하우트 스퀴럴스', 'Brasschaat Braves': '브라스하트 브레이브스', 'Brussels Kangaroos': '브뤼셀 캥거루스', 'Deurne Spartans': '데우르너 스파르탄스',
+  'Hoboken Pioneers': '호보켄 파이오니어스', 'Merchtem Cats': '메르흐템 캐츠', 'Mont-Saint-Guibert Phoenix': '몽생기베르 피닉스', 'Namur Angels': '나뮈르 엔젤스',
 };
 
 function isTbdPlaceholder(name) {
@@ -178,6 +181,15 @@ const VENUE_MAP = {
   "C'Chartres Baseball Softball 2": 'cchartres_baseball_softball',
   'Pirates Field': 'pirates_field_beziers',
   'Complexe Jean Moulin': 'complexe_jean_moulin',
+  // 벨기에 베이스볼 D1(2026-09-19 추가, 실주소 기반 GPS로 앱 저장소에 신규 등록).
+  'Merchtem Cats Baseball': 'merchtem_cats_baseball',
+  'Hoboken Pioneers Baseball': 'hoboken_pioneers_baseball',
+  'Mont-Saint-Guibert Phoenix': 'mont_saint_guibert_phoenix',
+  'Brasschaat Braves Baseball': 'brasschaat_braves_baseball',
+  'Namur Angels Baseball': 'namur_angels_baseball',
+  'Brussels Kangaroos': 'brussels_kangaroos_stadium',
+  'Borgerhout Squirrels': 'borgerhout_squirrels_field',
+  'Deurne Spartans': 'deurne_spartans_field',
 };
 
 const TOURNAMENTS = [
@@ -198,6 +210,7 @@ const TOURNAMENTS = [
   { tournamentkey: '2025-liga-nacional-de-beisbol-division-de-honor-oro', league: 'ESBASEBALL', domain: 'www.rfebs.es', locale: 'es' },
   { tournamentkey: '2026-nbl', league: 'GBBASEBALL', domain: 'stats.britishbaseball.org.uk' },
   { tournamentkey: '2026-championnat-de-france-division-1-baseball', league: 'FRBASEBALL', domain: 'ffbs.wbsc.org' },
+  { tournamentkey: '2026-baseball-d1-2026', league: 'BEBASEBALL', domain: 'www.baseballsoftball.be' },
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
