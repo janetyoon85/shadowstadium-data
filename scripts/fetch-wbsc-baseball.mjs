@@ -84,6 +84,9 @@ const TEAM_KO = {
   // 영국 내셔널 베이스볼 리그(GBBASEBALL, 2026-09-19 추가).
   'Croydon Pirates': '크로이던 파이러츠', 'Essex Arrows': '에식스 애로우스', 'Herts Toucans': '허츠 투칸스', 'Leicester Blue Sox': '레스터 블루삭스',
   'Liverpool Trojans': '리버풀 트로전스', 'London Mets': '런던 메츠', 'Long Eaton Storm': '롱이튼 스톰', "Manchester A's": '맨체스터 에이스', 'Sheffield Bruins': '셰필드 브루인스',
+  // 프랑스 Division 1(FRBASEBALL, 2026-09-19 추가).
+  'Béziers Pirates': '베지에 파이러츠', 'La Rochelle Boucaniers': '라로셸 부카니에', 'Montpellier Barracudas': '몽펠리에 바라쿠다스', 'Paris Université Club': '파리 위니베르시테 클럽',
+  'Rouen Huskies': '루앙 허스키스', 'Savigny-sur-Orge Lions': '사비니 쉬르 오르주 라이온스', 'Stade Toulousain Tigers': '스타드 툴루쟁 타이거스', 'Sénart Templiers': '세나르 탕플리에',
 };
 
 function isTbdPlaceholder(name) {
@@ -163,6 +166,18 @@ const VENUE_MAP = {
   'Western Park': 'western_park_leicester',
   'Basing Hill Ballpark': 'basing_hill_ballpark',
   'Somerdale Pavilion - D1': 'somerdale_pavilion',
+  // 프랑스 Division 1(2026-09-19 추가, 실주소 기반 GPS로 앱 저장소에 신규 등록). 샤르트르
+  // 구장은 다이아몬드별 접미사(" 2")가 붙어서 나오지만 같은 구장이라 병합.
+  'Stade Saint Exupéry': 'stade_saint_exupery_rouen',
+  'Greg Hamilton BallPark': 'greg_hamilton_ballpark',
+  'Boucaniers Baseball Field': 'boucaniers_baseball_field',
+  'Les Argoulets': 'les_argoulets',
+  'Stade Pershing': 'stade_pershing',
+  'Templiers Stadium': 'templiers_stadium',
+  "C'Chartres Baseball Softball": 'cchartres_baseball_softball',
+  "C'Chartres Baseball Softball 2": 'cchartres_baseball_softball',
+  'Pirates Field': 'pirates_field_beziers',
+  'Complexe Jean Moulin': 'complexe_jean_moulin',
 };
 
 const TOURNAMENTS = [
@@ -182,6 +197,7 @@ const TOURNAMENTS = [
   // (콜롬비아와 같은 종류의 버그, 실측 확인).
   { tournamentkey: '2025-liga-nacional-de-beisbol-division-de-honor-oro', league: 'ESBASEBALL', domain: 'www.rfebs.es', locale: 'es' },
   { tournamentkey: '2026-nbl', league: 'GBBASEBALL', domain: 'stats.britishbaseball.org.uk' },
+  { tournamentkey: '2026-championnat-de-france-division-1-baseball', league: 'FRBASEBALL', domain: 'ffbs.wbsc.org' },
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
