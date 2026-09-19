@@ -262153,7 +262153,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 2,
-    "matchPeriod": "후반 45'",
+    "matchPeriod": "후반 50'",
     "scorers": {
       "home": [
         {
@@ -262246,7 +262246,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 0,
-    "matchPeriod": "전반종료",
+    "matchPeriod": "후반 4'",
     "scorers": {
       "home": [],
       "away": [
@@ -262310,9 +262310,9 @@
     "timeTbd": false,
     "gameId": "RFkVLm7LnECpHti",
     "status": "live",
-    "awayScore": 0,
+    "awayScore": 1,
     "homeScore": 2,
-    "matchPeriod": "전반종료",
+    "matchPeriod": "후반 3'",
     "scorers": {
       "home": [
         {
@@ -262330,7 +262330,15 @@
           "aNat": "Italy"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "라우타로 마르티네스",
+          "m": 46,
+          "a": "Marcus Thuram",
+          "nat": "Argentina",
+          "aNat": "France"
+        }
+      ]
     }
   },
   {
@@ -262381,7 +262389,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 35'"
+    "matchPeriod": "전반 41'"
   },
   {
     "date": "2026-09-20",
@@ -262396,7 +262404,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 35'"
+    "matchPeriod": "전반 41'"
   },
   {
     "date": "2026-09-20",
@@ -262425,7 +262433,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 1,
-    "matchPeriod": "전반 34'",
+    "matchPeriod": "전반 39'",
     "scorers": {
       "home": [
         {
@@ -262449,7 +262457,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 0,
-    "matchPeriod": "전반 37'",
+    "matchPeriod": "전반 42'",
     "scorers": {
       "home": [],
       "away": [
@@ -262474,7 +262482,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 18'"
+    "matchPeriod": "전반 24'"
   },
   {
     "date": "2026-09-20",
@@ -262489,12 +262497,13 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 1,
-    "matchPeriod": "전반 20'",
+    "matchPeriod": "전반 26'",
     "scorers": {
       "home": [
         {
-          "n": "휴질",
-          "m": 16
+          "n": "맥카트",
+          "m": 16,
+          "og": true
         }
       ],
       "away": []
@@ -262510,7 +262519,9 @@
     "stadium": "Complexo Desportivo FC Alverca",
     "timeTbd": false,
     "gameId": "PORTUGAL_ESPN_401885438",
-    "status": "scheduled"
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-09-20",
@@ -262537,8 +262548,18 @@
     "timeTbd": false,
     "gameId": "TURKEY_ESPN_401888291",
     "status": "live",
-    "homeScore": 0,
-    "awayScore": 0
+    "homeScore": 1,
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "Mohamed Salah",
+          "m": 4,
+          "nat": "Egypt"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-09-20",
@@ -267915,8 +267936,7 @@
     "timeTbd": false,
     "gameId": "20260926LASF0",
     "status": "scheduled",
-    "awayPitcher": "타일러 글라스노우",
-    "homePitcher": "로건 웹"
+    "awayPitcher": "타일러 글라스노우"
   },
   {
     "date": "2026-09-26",
