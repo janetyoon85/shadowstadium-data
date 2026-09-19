@@ -90,6 +90,9 @@ const TEAM_KO = {
   // 벨기에 베이스볼 D1(BEBASEBALL, 2026-09-19 추가).
   'Borgerhout Squirrels': '보르헤르하우트 스퀴럴스', 'Brasschaat Braves': '브라스하트 브레이브스', 'Brussels Kangaroos': '브뤼셀 캥거루스', 'Deurne Spartans': '데우르너 스파르탄스',
   'Hoboken Pioneers': '호보켄 파이오니어스', 'Merchtem Cats': '메르흐템 캐츠', 'Mont-Saint-Guibert Phoenix': '몽생기베르 피닉스', 'Namur Angels': '나뮈르 엔젤스',
+  // 스웨덴 엘리트세리엔(SEBASEBALL, 2026-09-19 추가).
+  'Karlskoga Bats': '칼스코가 배츠', 'Leksand Lumberjacks': '렉산드 럼버잭스', 'Rättvik Butchers': '레트비크 부처스',
+  'Stockholm Monarchs': '스톡홀름 모나크스', 'Sundbyberg Heat': '순드비베리 히트',
 };
 
 function isTbdPlaceholder(name) {
@@ -190,6 +193,13 @@ const VENUE_MAP = {
   'Brussels Kangaroos': 'brussels_kangaroos_stadium',
   'Borgerhout Squirrels': 'borgerhout_squirrels_field',
   'Deurne Spartans': 'deurne_spartans_field',
+  // 스웨덴 엘리트세리엔(2026-09-19 추가, 실주소 기반 GPS로 앱 저장소에 신규 등록). stadium
+  // 필드가 원본에 대부분 비어있어 TEAM_HOME_VENUE_FALLBACK로 채운 값도 여기서 매핑됨.
+  'Skarpnäck Baseballpark': 'skarpnack_baseballpark',
+  'Karlskoga IP': 'karlskoga_ip',
+  'Leander Field': 'leander_field_leksand',
+  'Butcher Field': 'butcher_field_rattvik',
+  'Örvallen': 'orvallen_sundbyberg',
 };
 
 const TOURNAMENTS = [
@@ -211,6 +221,7 @@ const TOURNAMENTS = [
   { tournamentkey: '2026-nbl', league: 'GBBASEBALL', domain: 'stats.britishbaseball.org.uk' },
   { tournamentkey: '2026-championnat-de-france-division-1-baseball', league: 'FRBASEBALL', domain: 'ffbs.wbsc.org' },
   { tournamentkey: '2026-baseball-d1-2026', league: 'BEBASEBALL', domain: 'www.baseballsoftball.be' },
+  { tournamentkey: '2025-elitserien-baseboll', league: 'SEBASEBALL', domain: 'stats.baseboll-softboll.se' },
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -260,6 +271,17 @@ function wbscInningInfo(gamestatustext) {
   return `${inning}회${half === 'T' ? '초' : '말'}`;
 }
 
+// 스웨덴 엘리트세리엔은 연맹 쪽 데이터 입력 누락으로 stadium 필드가 경기 대부분 비어있음
+// (2026-09-19 실측, 55경기 중 4경기만 채워져 있음) — 홈팀 기준으로 실제 구장을 리서치해서
+// 폴백으로 채움. 다른 대회는 stadium 필드가 정상 채워져 있어 이 폴백이 필요 없음.
+const TEAM_HOME_VENUE_FALLBACK = {
+  'Stockholm Monarchs': 'Skarpnäck Baseballpark',
+  'Karlskoga Bats': 'Karlskoga IP',
+  'Leksand Lumberjacks': 'Leander Field',
+  'Rättvik Butchers': 'Butcher Field',
+  'Sundbyberg Heat': 'Örvallen',
+};
+
 async function fetchWbscBaseballTournament(tournamentkey, league, unknownTeams, unknownVenues, domain, locale) {
   const rawGames = await fetchTournamentGames(tournamentkey, domain, locale);
   const games = [];
@@ -272,7 +294,7 @@ async function fetchWbscBaseballTournament(tournamentkey, league, unknownTeams, 
     const awayKo = TEAM_KO[awayEn];
     if (!homeKo) unknownTeams.add(`${league}:${homeEn}`);
     if (!awayKo) unknownTeams.add(`${league}:${awayEn}`);
-    const stadiumName = g.stadium;
+    const stadiumName = g.stadium || TEAM_HOME_VENUE_FALLBACK[homeEn] || g.stadium;
     const venueId = stadiumName ? VENUE_MAP[stadiumName] : undefined;
     if (stadiumName && !venueId) unknownVenues.add(`${league}:${stadiumName}`);
     if (!homeKo || !awayKo || !venueId) continue;
