@@ -77,6 +77,10 @@ const TEAM_KO = {
   // 체코 베이스볼 엑스트라리가(CZBASEBALL, 2026-09-19 추가).
   Nuclears: '트르제비치 뉴클리어스', Hroši: '브르노 흐로시', Arrows: '오스트라바 애로우스', SaBaT: '프라하 사바트',
   Eagles: '프라하 이글스', Kotlářka: '프라하 코틀라르카', Draci: '브르노 드라치', Hluboká: '흘루보카 소콜',
+  // 스페인 División de Honor Oro(ESBASEBALL, 2026-09-19 추가).
+  'Antorcha Aacore Supply': '안토르차 발렌시아', 'CB Astros - Natural Greatness': 'CB 아스트로스 발렌시아', 'San Inazio': '산 이나시오',
+  'Tenerife Marlins Puerto Cruz (ESP)': '테네리페 말린스', 'Toros de Pamplona': '토로스 데 팜플로나', Irabia: '이라비아',
+  'CB Barcelona': 'CB 바르셀로나', 'Béisbol Navarra': '베이스볼 나바라', 'CBS Sant Boi': 'CBS 산트보이', 'Miralbueno Béisbol': '미랄부에노 베이스볼',
 };
 
 function isTbdPlaceholder(name) {
@@ -133,6 +137,15 @@ const VENUE_MAP = {
   'MBS Brno': 'mestsky_baseballovy_stadion_brno',
   SaBaT: 'sabat_praha',
   'Třebíč Na Hvězdě': 'trebic_na_hvezde',
+  // 스페인 División de Honor Oro(2026-09-19 추가, 실주소 기반 GPS로 앱 저장소에 신규 등록).
+  'Camp Municipal de Beisbol i Sofbol de València': 'campo_beisbol_valencia',
+  'Campo de Béisbol El Fango': 'campo_beisbol_el_fango_bilbao',
+  'Campo Municipal de Béisbol Néstor Pérez Suárez': 'estadio_nestor_perez_suarez',
+  'Campo Municipal de Béisbol y Sófbol Miralbueno': 'campo_beisbol_miralbueno',
+  'Camp Municipal de Béisbol Carlos Pérez de Rozas': 'campo_beisbol_perez_de_rozas',
+  'Campo de Béisbol Jose Aguadero': 'campo_beisbol_jose_aguadero',
+  'Campo de Béisbol Municipal El Soto': 'campo_beisbol_el_soto_burlada',
+  'Estadio Municipal de Béisbol Antonio Hervás': 'estadio_beisbol_antonio_hervas',
 };
 
 const TOURNAMENTS = [
@@ -148,6 +161,9 @@ const TOURNAMENTS = [
   // /es/ 경로 필수(실측 확인, 2026-09-19).
   { tournamentkey: '2025-liga-profesional-de-beisbol-de-colombiano-2025-2026', league: 'COBASEBALL', domain: 'col.wbsc.org', locale: 'es' },
   { tournamentkey: '2025-extraliga-2025', league: 'CZBASEBALL', domain: 'stats.baseball.cz' },
+  // rfebs.es도 /en/ 경로 접근 시 홈페이지로 리다이렉트되는 라우팅 이슈가 있어 /es/ 경로 필수
+  // (콜롬비아와 같은 종류의 버그, 실측 확인).
+  { tournamentkey: '2025-liga-nacional-de-beisbol-division-de-honor-oro', league: 'ESBASEBALL', domain: 'www.rfebs.es', locale: 'es' },
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
