@@ -71,6 +71,9 @@ const TEAM_KO = {
   '1949 PARMA BASEBALL CLUB': '파르마 베이스볼 클럽 1949', 'FARMA CROCETTA': '크로체타', 'CAMEC COLLECCHIO': '콜레키오',
   'PALFINGER REGGIO EMILIA': '레지오 에밀리아', 'HOTSAND MACERATA': '마체라타',
   'BBC GROSSETO': 'BSC 그로세토', 'BIG MAT BSCGROSSETO': 'BSC 그로세토',
+  // 콜롬비아 프로베이스볼리그(COBASEBALL, 2026-09-19 추가).
+  'Caimanes de Barranquilla': '카이마네스 바랑키야', 'Tigres de Cartagena': '티그레스 카르타헤나',
+  'Toros de Sincelejo': '토로스 신셀레호', 'Vaqueros de Monteria': '바케로스 몬테리아',
 };
 
 function isTbdPlaceholder(name) {
@@ -106,6 +109,14 @@ const VENUE_MAP = {
   'CAMPO BASEBALL COMUNALE COLLECCHIO': 'campo_baseball_collecchio',
   'STADIO BASEBALL CASELLI': 'stadio_giorgio_caselli',
   'CAMPO COMUNALE BASEBALL MACERATA': 'campo_comunale_macerata',
+  // 콜롬비아 프로베이스볼리그(2026-09-19 추가, 실주소 기반 GPS로 앱 저장소에 신규 등록).
+  // 카르타헤나 구장은 원문 라벨이 두 개("Estadio Once de Noviembre" / "11 de Noviembre \"Abel Leal\"")로
+  // 나오지만 같은 구장이라 하나로 병합.
+  'Edgar Renteria Baseball Stadium': 'estadio_edgar_renteria_barranquilla',
+  'Estadio de Beisbol 20 de Enero': 'estadio_veinte_de_enero_sincelejo',
+  'Estadio Once de Noviembre': 'estadio_once_de_noviembre_cartagena',
+  '11 de Noviembre "Abel Leal"': 'estadio_once_de_noviembre_cartagena',
+  'Estadio de Béisbol 18 de Junio': 'estadio_dieciocho_de_junio_monteria',
 };
 
 const TOURNAMENTS = [
@@ -117,6 +128,9 @@ const TOURNAMENTS = [
   // 월드컵과 같은 MyWBSC 플랫폼 위에 있어 이 크롤러를 그대로 재사용.
   { tournamentkey: '2026-lucky-day-hoofdklasse', league: 'NLBASEBALL', domain: 'stats.knbsbstats.nl' },
   { tournamentkey: '2026-serie-a-gold-baseball', league: 'ITBASEBALL', domain: 'www.fibs.it' },
+  // col.wbsc.org는 /en/ 경로로 접근하면 엉뚱한(이탈리아) 데이터가 나오는 라우팅 버그가 있어
+  // /es/ 경로 필수(실측 확인, 2026-09-19).
+  { tournamentkey: '2025-liga-profesional-de-beisbol-de-colombiano-2025-2026', league: 'COBASEBALL', domain: 'col.wbsc.org', locale: 'es' },
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -125,8 +139,8 @@ function unescapeHtml(s) {
   return s.replace(/&quot;/g, '"').replace(/&#039;/g, "'").replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
 }
 
-async function fetchTournamentGames(tournamentkey, domain = 'www.wbsc.org') {
-  const url = `https://${domain}/en/events/${tournamentkey}/schedule-and-results`;
+async function fetchTournamentGames(tournamentkey, domain = 'www.wbsc.org', locale = 'en') {
+  const url = `https://${domain}/${locale}/events/${tournamentkey}/schedule-and-results`;
   const res = await fetchWithRetry(url);
   const html = await res.text();
   const m = html.match(/data-page="({.*?})"\s*>\s*<\/div>/s);
@@ -163,8 +177,8 @@ function wbscInningInfo(gamestatustext) {
   return `${inning}회${half === 'T' ? '초' : '말'}`;
 }
 
-async function fetchWbscBaseballTournament(tournamentkey, league, unknownTeams, unknownVenues, domain) {
-  const rawGames = await fetchTournamentGames(tournamentkey, domain);
+async function fetchWbscBaseballTournament(tournamentkey, league, unknownTeams, unknownVenues, domain, locale) {
+  const rawGames = await fetchTournamentGames(tournamentkey, domain, locale);
   const games = [];
   for (const g of rawGames) {
     const homeEn = g.homelabel;
@@ -251,12 +265,12 @@ async function main() {
   const unknownVenues = new Set();
   const allNew = [];
   const failedTournaments = [];
-  for (const { tournamentkey, league, domain } of TOURNAMENTS) {
+  for (const { tournamentkey, league, domain, locale } of TOURNAMENTS) {
     console.log(`Fetching ${league} (${tournamentkey}) ...`);
     await sleep(REQUEST_DELAY_MS);
     let gs;
     try {
-      gs = await fetchWbscBaseballTournament(tournamentkey, league, unknownTeams, unknownVenues, domain);
+      gs = await fetchWbscBaseballTournament(tournamentkey, league, unknownTeams, unknownVenues, domain, locale);
     } catch (e) {
       console.warn(`  failed: ${e.message}`);
       failedTournaments.push({ league, tournamentkey, error: e.message });
