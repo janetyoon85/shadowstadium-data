@@ -81,6 +81,9 @@ const TEAM_KO = {
   'Antorcha Aacore Supply': '안토르차 발렌시아', 'CB Astros - Natural Greatness': 'CB 아스트로스 발렌시아', 'San Inazio': '산 이나시오',
   'Tenerife Marlins Puerto Cruz (ESP)': '테네리페 말린스', 'Toros de Pamplona': '토로스 데 팜플로나', Irabia: '이라비아',
   'CB Barcelona': 'CB 바르셀로나', 'Béisbol Navarra': '베이스볼 나바라', 'CBS Sant Boi': 'CBS 산트보이', 'Miralbueno Béisbol': '미랄부에노 베이스볼',
+  // 영국 내셔널 베이스볼 리그(GBBASEBALL, 2026-09-19 추가).
+  'Croydon Pirates': '크로이던 파이러츠', 'Essex Arrows': '에식스 애로우스', 'Herts Toucans': '허츠 투칸스', 'Leicester Blue Sox': '레스터 블루삭스',
+  'Liverpool Trojans': '리버풀 트로전스', 'London Mets': '런던 메츠', 'Long Eaton Storm': '롱이튼 스톰', "Manchester A's": '맨체스터 에이스', 'Sheffield Bruins': '셰필드 브루인스',
 };
 
 function isTbdPlaceholder(name) {
@@ -146,6 +149,20 @@ const VENUE_MAP = {
   'Campo de Béisbol Jose Aguadero': 'campo_beisbol_jose_aguadero',
   'Campo de Béisbol Municipal El Soto': 'campo_beisbol_el_soto_burlada',
   'Estadio Municipal de Béisbol Antonio Hervás': 'estadio_beisbol_antonio_hervas',
+  // 영국 내셔널 베이스볼 리그(2026-09-19 추가, 실주소 기반 GPS로 앱 저장소에 신규 등록).
+  // Grovehill Ballpark는 다이아몬드별로 " - D1"/" - D2" 접미사가 붙어서 나오지만 같은 구장이라 병합.
+  'Roundshaw Playing Fields - D1': 'roundshaw_playing_fields',
+  'Finsbury Park - D3': 'finsbury_park_ballpark',
+  'Thorpe Green Park': 'thorpe_green_park',
+  'Norman Wells Ballpark': 'norman_wells_ballpark',
+  'Townmead Playing Fields': 'townmead_playing_fields',
+  'Grovehill Ballpark - D1': 'grovehill_ballpark',
+  'Grovehill Ballpark - D2': 'grovehill_ballpark',
+  'West Park': 'west_park_long_eaton',
+  'Wythenshawe Park': 'wythenshawe_park',
+  'Western Park': 'western_park_leicester',
+  'Basing Hill Ballpark': 'basing_hill_ballpark',
+  'Somerdale Pavilion - D1': 'somerdale_pavilion',
 };
 
 const TOURNAMENTS = [
@@ -164,6 +181,7 @@ const TOURNAMENTS = [
   // rfebs.es도 /en/ 경로 접근 시 홈페이지로 리다이렉트되는 라우팅 이슈가 있어 /es/ 경로 필수
   // (콜롬비아와 같은 종류의 버그, 실측 확인).
   { tournamentkey: '2025-liga-nacional-de-beisbol-division-de-honor-oro', league: 'ESBASEBALL', domain: 'www.rfebs.es', locale: 'es' },
+  { tournamentkey: '2026-nbl', league: 'GBBASEBALL', domain: 'stats.britishbaseball.org.uk' },
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
