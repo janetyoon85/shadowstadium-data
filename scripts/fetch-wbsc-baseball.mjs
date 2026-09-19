@@ -213,7 +213,10 @@ function toKstDateTime(utcIso) {
 
 function wbscStatusToOurs(g) {
   if (g.gamestatustext === 'F' || /^F\//.test(g.gamestatustext || '')) return 'completed';
-  if (g.gamestatus === 0 && !g.gamestatustext) return 'scheduled';
+  // gamestatus 필드는 0(예정) 외에도 -3("If necessary" 조건부 경기 등) 같은 음수 값이 오는 걸
+  // 확인함(2026-09-19, 네덜란드 홀란드시리즈 4차전 실측) — 부호와 무관하게 gamestatustext가
+  // 비어있으면(T/B/F 표기 없음 = 아직 스코어 반영 전) 무조건 예정으로 처리해야 함.
+  if (!g.gamestatustext) return 'scheduled';
   return 'live';
 }
 
