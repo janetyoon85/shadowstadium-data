@@ -268936,7 +268936,7 @@
     "status": "live",
     "homeScore": 1,
     "awayScore": 3,
-    "inningInfo": "9회초"
+    "inningInfo": "9회말"
   },
   {
     "date": "2026-09-21",
@@ -268965,7 +268965,7 @@
     "stadium": "Estádio do Dragão",
     "timeTbd": false,
     "gameId": "PORTUGAL_ESPN_401885433",
-    "status": "live",
+    "status": "completed",
     "homeScore": 3,
     "awayScore": 1,
     "scorers": {
@@ -269054,7 +269054,7 @@
     "status": "live",
     "homeScore": 5,
     "awayScore": 10,
-    "inningInfo": "5회초"
+    "inningInfo": "5회말"
   },
   {
     "date": "2026-09-21",
@@ -269115,10 +269115,16 @@
     "timeTbd": false,
     "gameId": "VENEZUELA_ESPN_401903319",
     "status": "live",
-    "homeScore": 0,
+    "homeScore": 1,
     "awayScore": 2,
     "scorers": {
-      "home": [],
+      "home": [
+        {
+          "n": "Santiago Gómez",
+          "m": 56,
+          "nat": "Venezuela"
+        }
+      ],
       "away": [
         {
           "n": "Kavier Ortiz",
@@ -269176,7 +269182,7 @@
     "status": "live",
     "homeScore": 1,
     "awayScore": 2,
-    "inningInfo": "6회말"
+    "inningInfo": "7회초"
   },
   {
     "date": "2026-09-21",
@@ -269191,9 +269197,9 @@
     "status": "live",
     "awayPitcher": "딘 크레머",
     "homePitcher": "라이언 존슨",
-    "awayScore": 2,
+    "awayScore": 3,
     "homeScore": 0,
-    "inningInfo": "5회초"
+    "inningInfo": "5회말"
   },
   {
     "date": "2026-09-21",
@@ -269227,7 +269233,7 @@
     "homePitcher": "잭 드레이어",
     "awayScore": 1,
     "homeScore": 0,
-    "inningInfo": "5회말"
+    "inningInfo": "6회초"
   },
   {
     "date": "2026-09-21",
@@ -269257,7 +269263,7 @@
     "timeTbd": false,
     "gameId": "PERU_ESPN_401886196",
     "status": "live",
-    "homeScore": 1,
+    "homeScore": 2,
     "awayScore": 0,
     "scorers": {
       "home": [
@@ -269265,6 +269271,11 @@
           "n": "Erinson Ramirez",
           "m": 33,
           "nat": "Peru"
+        },
+        {
+          "n": "Cristian Enciso",
+          "m": 45,
+          "og": true
         }
       ],
       "away": []
@@ -269296,7 +269307,7 @@
     "gameId": "ELSALVADOR_ESPN_401899668",
     "status": "live",
     "homeScore": 1,
-    "awayScore": 0,
+    "awayScore": 1,
     "scorers": {
       "home": [
         {
@@ -269305,7 +269316,13 @@
           "nat": "El Salvador"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Wilma Torres",
+          "m": 23,
+          "nat": "El Salvador"
+        }
+      ]
     }
   },
   {
@@ -269382,7 +269399,9 @@
     "stadium": "Estadio Luis Alberto Salinas Tanasio",
     "timeTbd": false,
     "gameId": "PARAGUAY_ESPN_401888594",
-    "status": "scheduled"
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-09-21",
