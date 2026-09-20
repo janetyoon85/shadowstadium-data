@@ -268495,18 +268495,6 @@
     "date": "2026-09-21",
     "time": "03:00",
     "league": "VENEZUELA",
-    "venueId": "estadio_agustin_tovar",
-    "home": "사모라 FC",
-    "away": "메트로폴리타노스",
-    "stadium": "Estadio Agustín Tovar",
-    "timeTbd": true,
-    "gameId": "VENEZUELA_ESPN_401903319",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-09-21",
-    "time": "03:00",
-    "league": "VENEZUELA",
     "venueId": "estadio_metropolitano_merida",
     "home": "에스투디안테스 데 메리다",
     "away": "트루히야노스",
@@ -268635,7 +268623,7 @@
     "gameId": "ECUADOR_ESPN_401921388",
     "status": "live",
     "homeScore": 1,
-    "awayScore": 0,
+    "awayScore": 1,
     "scorers": {
       "home": [
         {
@@ -268644,7 +268632,14 @@
           "nat": "Ecuador"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Franco Ayunta",
+          "m": 78,
+          "pk": true,
+          "nat": "Argentina"
+        }
+      ]
     }
   },
   {
@@ -268998,6 +268993,20 @@
     "stadium": "Gigante de Arroyito",
     "timeTbd": false,
     "gameId": "ARGENTINA_ESPN_401841578",
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "date": "2026-09-21",
+    "time": "05:00",
+    "league": "VENEZUELA",
+    "venueId": "estadio_agustin_tovar",
+    "home": "사모라 FC",
+    "away": "메트로폴리타노스",
+    "stadium": "Estadio Agustín Tovar",
+    "timeTbd": false,
+    "gameId": "VENEZUELA_ESPN_401903319",
     "status": "live",
     "homeScore": 0,
     "awayScore": 0
