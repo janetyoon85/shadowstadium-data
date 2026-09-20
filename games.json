@@ -264981,18 +264981,6 @@
   },
   {
     "date": "2026-09-20",
-    "time": "10:00",
-    "league": "ELSALVADOR",
-    "venueId": "estadio_las_delicias",
-    "home": "알리안사 FC",
-    "away": "CD 무니시팔 리메뇨",
-    "stadium": "",
-    "timeTbd": false,
-    "gameId": "ELSALVADOR_ESPN_401899668",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-09-20",
     "time": "10:10",
     "league": "LIGAMX",
     "venueId": "estadio_bbva_monterrey",
@@ -268497,18 +268485,6 @@
   },
   {
     "date": "2026-09-21",
-    "time": "03:00",
-    "league": "VENEZUELA",
-    "venueId": "estadio_metropolitano_merida",
-    "home": "에스투디안테스 데 메리다",
-    "away": "트루히야노스",
-    "stadium": "Estadio Metropolitano de Mérida",
-    "timeTbd": true,
-    "gameId": "VENEZUELA_ESPN_401903321",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-09-21",
     "time": "03:05",
     "league": "AAA",
     "venueId": "dell_diamond_round_rock",
@@ -269265,7 +269241,17 @@
     "gameId": "PERU_ESPN_401886196",
     "status": "live",
     "homeScore": 0,
-    "awayScore": 0
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "Erinson Ramirez",
+          "m": 34,
+          "nat": "Peru"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-09-21",
@@ -269285,13 +269271,43 @@
     "date": "2026-09-21",
     "time": "06:00",
     "league": "ELSALVADOR",
+    "venueId": "estadio_las_delicias",
+    "home": "알리안사 FC",
+    "away": "CD 무니시팔 리메뇨",
+    "stadium": "Estadio Cuscatlán",
+    "timeTbd": false,
+    "gameId": "ELSALVADOR_ESPN_401899668",
+    "status": "live",
+    "homeScore": 1,
+    "awayScore": 0
+  },
+  {
+    "date": "2026-09-21",
+    "time": "06:00",
+    "league": "ELSALVADOR",
     "venueId": "estadio_toledo_valle",
     "home": "CD 플라텐세",
     "away": "아길라",
-    "stadium": "",
+    "stadium": "Estadio Antonio Toledo Valle",
     "timeTbd": false,
     "gameId": "ELSALVADOR_ESPN_401899713",
-    "status": "scheduled"
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "date": "2026-09-21",
+    "time": "06:00",
+    "league": "VENEZUELA",
+    "venueId": "estadio_metropolitano_merida",
+    "home": "에스투디안테스 데 메리다",
+    "away": "트루히야노스",
+    "stadium": "Estadio Metropolitano de Mérida",
+    "timeTbd": false,
+    "gameId": "VENEZUELA_ESPN_401903321",
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-09-21",
