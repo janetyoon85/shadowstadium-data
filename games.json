@@ -267355,7 +267355,7 @@
     "stadium": "Red Bull Arena Salzburg",
     "timeTbd": false,
     "gameId": "AUSTRIA_ESPN_401881785",
-    "status": "live",
+    "status": "completed",
     "homeScore": 3,
     "awayScore": 0,
     "scorers": {
@@ -267391,14 +267391,25 @@
     "gameId": "GREECE_ESPN_401896758",
     "status": "live",
     "homeScore": 1,
-    "awayScore": 1,
+    "awayScore": 2,
     "scorers": {
-      "home": [],
+      "home": [
+        {
+          "n": "Georgios Charalampoglou",
+          "m": 85,
+          "nat": "Greece"
+        }
+      ],
       "away": [
         {
           "n": "Luka Jovic",
           "m": 61,
           "pk": true,
+          "nat": "Serbia"
+        },
+        {
+          "n": "Luka Jovic",
+          "m": 88,
           "nat": "Serbia"
         }
       ]
