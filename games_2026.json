@@ -264981,18 +264981,6 @@
   },
   {
     "date": "2026-09-20",
-    "time": "10:00",
-    "league": "ELSALVADOR",
-    "venueId": "estadio_las_delicias",
-    "home": "알리안사 FC",
-    "away": "CD 무니시팔 리메뇨",
-    "stadium": "",
-    "timeTbd": false,
-    "gameId": "ELSALVADOR_ESPN_401899668",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-09-20",
     "time": "10:10",
     "league": "LIGAMX",
     "venueId": "estadio_bbva_monterrey",
@@ -268497,18 +268485,6 @@
   },
   {
     "date": "2026-09-21",
-    "time": "03:00",
-    "league": "VENEZUELA",
-    "venueId": "estadio_metropolitano_merida",
-    "home": "에스투디안테스 데 메리다",
-    "away": "트루히야노스",
-    "stadium": "Estadio Metropolitano de Mérida",
-    "timeTbd": true,
-    "gameId": "VENEZUELA_ESPN_401903321",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-09-21",
     "time": "03:05",
     "league": "AAA",
     "venueId": "dell_diamond_round_rock",
@@ -268754,9 +268730,9 @@
     "stadium": "Estadio Manoel Barradas",
     "timeTbd": false,
     "gameId": "BRASILEIRAO_ESPN_401841242",
-    "status": "live",
+    "status": "completed",
     "homeScore": 1,
-    "awayScore": 2,
+    "awayScore": 3,
     "scorers": {
       "home": [
         {
@@ -268775,6 +268751,11 @@
           "n": "Lucas Villalba",
           "m": 66,
           "nat": "Argentina"
+        },
+        {
+          "n": "Matheus Pereira",
+          "m": 90,
+          "nat": "Brazil"
         }
       ]
     }
@@ -268955,7 +268936,7 @@
     "status": "live",
     "homeScore": 1,
     "awayScore": 3,
-    "inningInfo": "8회초"
+    "inningInfo": "8회말"
   },
   {
     "date": "2026-09-21",
@@ -269034,6 +269015,11 @@
           "n": "Brian Montenegro",
           "m": 27,
           "nat": "Paraguay"
+        },
+        {
+          "n": "Nicolás Medina",
+          "m": 72,
+          "nat": "Argentina"
         }
       ]
     }
@@ -269051,7 +269037,7 @@
     "status": "live",
     "homeScore": 5,
     "awayScore": 3,
-    "inningInfo": "4회말"
+    "inningInfo": "5회초"
   },
   {
     "date": "2026-09-21",
@@ -269173,7 +269159,7 @@
     "status": "live",
     "homeScore": 1,
     "awayScore": 2,
-    "inningInfo": "4회말"
+    "inningInfo": "5회초"
   },
   {
     "date": "2026-09-21",
@@ -269190,7 +269176,7 @@
     "homePitcher": "라이언 존슨",
     "awayScore": 2,
     "homeScore": 0,
-    "inningInfo": "3회말"
+    "inningInfo": "4회초"
   },
   {
     "date": "2026-09-21",
@@ -269224,7 +269210,7 @@
     "homePitcher": "잭 드레이어",
     "awayScore": 1,
     "homeScore": 0,
-    "inningInfo": "4회초"
+    "inningInfo": "4회말"
   },
   {
     "date": "2026-09-21",
@@ -269255,7 +269241,17 @@
     "gameId": "PERU_ESPN_401886196",
     "status": "live",
     "homeScore": 0,
-    "awayScore": 0
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "Erinson Ramirez",
+          "m": 34,
+          "nat": "Peru"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-09-21",
@@ -269275,13 +269271,43 @@
     "date": "2026-09-21",
     "time": "06:00",
     "league": "ELSALVADOR",
+    "venueId": "estadio_las_delicias",
+    "home": "알리안사 FC",
+    "away": "CD 무니시팔 리메뇨",
+    "stadium": "Estadio Cuscatlán",
+    "timeTbd": false,
+    "gameId": "ELSALVADOR_ESPN_401899668",
+    "status": "live",
+    "homeScore": 1,
+    "awayScore": 0
+  },
+  {
+    "date": "2026-09-21",
+    "time": "06:00",
+    "league": "ELSALVADOR",
     "venueId": "estadio_toledo_valle",
     "home": "CD 플라텐세",
     "away": "아길라",
-    "stadium": "",
+    "stadium": "Estadio Antonio Toledo Valle",
     "timeTbd": false,
     "gameId": "ELSALVADOR_ESPN_401899713",
-    "status": "scheduled"
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "date": "2026-09-21",
+    "time": "06:00",
+    "league": "VENEZUELA",
+    "venueId": "estadio_metropolitano_merida",
+    "home": "에스투디안테스 데 메리다",
+    "away": "트루히야노스",
+    "stadium": "Estadio Metropolitano de Mérida",
+    "timeTbd": false,
+    "gameId": "VENEZUELA_ESPN_401903321",
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-09-21",
@@ -269293,7 +269319,9 @@
     "stadium": "Estadio Alfonso López",
     "timeTbd": false,
     "gameId": "COLOMBIA_ESPN_401878049",
-    "status": "scheduled"
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-09-21",
