@@ -268140,7 +268140,7 @@
     "stadium": "Huntington Park",
     "timeTbd": false,
     "gameId": "AAA_MLBSTATS_816749",
-    "status": "live",
+    "status": "completed",
     "homeScore": 5,
     "awayScore": 3,
     "inningInfo": "9회초"
@@ -268187,7 +268187,7 @@
     "homePitcher": "조나 통",
     "awayScore": 7,
     "homeScore": 2,
-    "inningInfo": "9회초"
+    "inningInfo": "9회말"
   },
   {
     "date": "2026-09-21",
@@ -268333,12 +268333,13 @@
     "stadium": "그레이트 아메리칸 볼 파크",
     "timeTbd": false,
     "gameId": "20260921CCCI0",
-    "status": "live",
+    "status": "completed",
     "awayPitcher": "데이빗 피터슨",
     "homePitcher": "레트 로더",
     "awayScore": 9,
     "homeScore": 1,
-    "inningInfo": "9회말"
+    "winPitcher": "피터슨",
+    "losePitcher": "로더"
   },
   {
     "date": "2026-09-21",
@@ -268355,7 +268356,7 @@
     "homePitcher": "개빈 윌리엄스",
     "awayScore": 0,
     "homeScore": 0,
-    "inningInfo": "3회초"
+    "inningInfo": "3회말"
   },
   {
     "date": "2026-09-21",
@@ -268495,18 +268496,6 @@
     "date": "2026-09-21",
     "time": "03:00",
     "league": "VENEZUELA",
-    "venueId": "estadio_agustin_tovar",
-    "home": "사모라 FC",
-    "away": "메트로폴리타노스",
-    "stadium": "Estadio Agustín Tovar",
-    "timeTbd": true,
-    "gameId": "VENEZUELA_ESPN_401903319",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-09-21",
-    "time": "03:00",
-    "league": "VENEZUELA",
     "venueId": "estadio_metropolitano_merida",
     "home": "에스투디안테스 데 메리다",
     "away": "트루히야노스",
@@ -268527,7 +268516,7 @@
     "gameId": "AAA_MLBSTATS_815025",
     "status": "live",
     "homeScore": 2,
-    "awayScore": 2,
+    "awayScore": 3,
     "inningInfo": "9회초"
   },
   {
@@ -268573,7 +268562,7 @@
     "status": "live",
     "homeScore": 10,
     "awayScore": 2,
-    "inningInfo": "7회초"
+    "inningInfo": "7회말"
   },
   {
     "date": "2026-09-21",
@@ -268590,7 +268579,7 @@
     "homePitcher": "헌터 브라운",
     "awayScore": 4,
     "homeScore": 1,
-    "inningInfo": "7회초"
+    "inningInfo": "7회말"
   },
   {
     "date": "2026-09-21",
@@ -268621,7 +268610,7 @@
     "homePitcher": "퀸 매튜스",
     "awayScore": 3,
     "homeScore": 2,
-    "inningInfo": "7회말"
+    "inningInfo": "8회초"
   },
   {
     "date": "2026-09-21",
@@ -268635,7 +268624,7 @@
     "gameId": "ECUADOR_ESPN_401921388",
     "status": "live",
     "homeScore": 1,
-    "awayScore": 0,
+    "awayScore": 1,
     "scorers": {
       "home": [
         {
@@ -268644,7 +268633,14 @@
           "nat": "Ecuador"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Franco Ayunta",
+          "m": 78,
+          "pk": true,
+          "nat": "Argentina"
+        }
+      ]
     }
   },
   {
@@ -268662,7 +268658,7 @@
     "homePitcher": "제이콥 디그롬",
     "awayScore": 3,
     "homeScore": 2,
-    "inningInfo": "6회초"
+    "inningInfo": "6회말"
   },
   {
     "date": "2026-09-21",
@@ -268676,10 +268672,18 @@
     "gameId": "x57RUPqK2YS9ykB",
     "status": "live",
     "awayScore": 1,
-    "homeScore": 0,
-    "matchPeriod": "후반 24'",
+    "homeScore": 1,
+    "matchPeriod": "후반 30'",
     "scorers": {
-      "home": [],
+      "home": [
+        {
+          "n": "고메스",
+          "m": 72,
+          "a": "Amine Gouiri",
+          "nat": "England",
+          "aNat": "Algeria"
+        }
+      ],
       "away": [
         {
           "n": "페란 토레스",
@@ -268687,6 +268691,11 @@
           "a": "Désiré Doué",
           "nat": "Spain",
           "aNat": "France"
+        },
+        {
+          "n": "마르퀴뇨스",
+          "m": 74,
+          "nat": "Brazil"
         }
       ]
     }
@@ -268703,8 +268712,8 @@
     "gameId": "DwKVE9ayLlrT45y",
     "status": "live",
     "awayScore": 0,
-    "homeScore": 2,
-    "matchPeriod": "후반 25'",
+    "homeScore": 3,
+    "matchPeriod": "후반 30'",
     "scorers": {
       "home": [
         {
@@ -268720,6 +268729,11 @@
           "a": "Gonçalo Ramos",
           "nat": "France",
           "aNat": "Portugal"
+        },
+        {
+          "n": "디에구 모레이라",
+          "m": 73,
+          "nat": "Belgium"
         }
       ],
       "away": []
@@ -268737,7 +268751,7 @@
     "gameId": "BRASILEIRAO_ESPN_401841242",
     "status": "live",
     "homeScore": 1,
-    "awayScore": 0,
+    "awayScore": 1,
     "scorers": {
       "home": [
         {
@@ -268746,7 +268760,13 @@
           "nat": "Brazil"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Keny Arroyo",
+          "m": 46,
+          "nat": "Ecuador"
+        }
+      ]
     }
   },
   {
@@ -268785,7 +268805,7 @@
     "gameId": "COLOMBIA_ESPN_401878045",
     "status": "live",
     "homeScore": 0,
-    "awayScore": 3,
+    "awayScore": 4,
     "scorers": {
       "home": [],
       "away": [
@@ -268804,6 +268824,12 @@
           "n": "Deiber Caicedo",
           "m": 48,
           "nat": "Colombia"
+        },
+        {
+          "n": "Francisco Fydriszewski",
+          "m": 53,
+          "pk": true,
+          "nat": "Argentina"
         }
       ]
     }
@@ -268820,19 +268846,25 @@
     "gameId": "aSoidjV9oaR3PV6",
     "status": "live",
     "awayScore": 1,
-    "homeScore": 0,
-    "matchPeriod": "후반 10'",
+    "homeScore": 1,
+    "matchPeriod": "후반 17'",
     "scorers": {
       "home": [
         {
           "n": "아론 마욜",
-          "m": 57
+          "m": 57,
+          "a": "Hugo Duro",
+          "nat": "Spain",
+          "aNat": "Spain"
         }
       ],
       "away": [
         {
           "n": "루카 수치치",
-          "m": 26
+          "m": 26,
+          "a": "Job Ochieng",
+          "nat": "Croatia",
+          "aNat": "Kenya"
         }
       ]
     }
@@ -268880,7 +268912,7 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 3,
-    "inningInfo": "5회초"
+    "inningInfo": "5회말"
   },
   {
     "date": "2026-09-21",
@@ -268960,7 +268992,7 @@
     "status": "live",
     "homeScore": 2,
     "awayScore": 0,
-    "inningInfo": "2회말"
+    "inningInfo": "3회초"
   },
   {
     "date": "2026-09-21",
@@ -268994,6 +269026,20 @@
     "date": "2026-09-21",
     "time": "05:00",
     "league": "VENEZUELA",
+    "venueId": "estadio_agustin_tovar",
+    "home": "사모라 FC",
+    "away": "메트로폴리타노스",
+    "stadium": "Estadio Agustín Tovar",
+    "timeTbd": false,
+    "gameId": "VENEZUELA_ESPN_401903319",
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0
+  },
+  {
+    "date": "2026-09-21",
+    "time": "05:00",
+    "league": "VENEZUELA",
     "venueId": "estadio_jose_anzoategui",
     "home": "안소아테기 FC",
     "away": "카라카스 FC",
@@ -269017,7 +269063,7 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 0,
-    "inningInfo": "1회초"
+    "inningInfo": "1회말"
   },
   {
     "date": "2026-09-21",
@@ -269066,7 +269112,7 @@
     "status": "live",
     "awayPitcher": "맷 윌킨슨",
     "homePitcher": "잭 드레이어",
-    "awayScore": 0,
+    "awayScore": 1,
     "homeScore": 0,
     "inningInfo": "1회초"
   },
@@ -269085,7 +269131,7 @@
     "homePitcher": "워커 뷸러",
     "awayScore": 0,
     "homeScore": 0,
-    "inningInfo": "1회초"
+    "inningInfo": "1회말"
   },
   {
     "date": "2026-09-21",
