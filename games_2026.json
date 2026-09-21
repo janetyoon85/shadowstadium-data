@@ -268579,7 +268579,7 @@
     "homePitcher": "데이비스 마틴",
     "awayScore": 0,
     "homeScore": 6,
-    "inningInfo": "6회말"
+    "inningInfo": "7회초"
   },
   {
     "date": "2026-09-21",
@@ -269541,7 +269541,7 @@
     "status": "live",
     "homeScore": 5,
     "awayScore": 1,
-    "inningInfo": "7회말"
+    "inningInfo": "8회초"
   },
   {
     "date": "2026-09-21",
@@ -269554,10 +269554,16 @@
     "timeTbd": false,
     "gameId": "ARGENTINA_ESPN_401841571",
     "status": "live",
-    "homeScore": 0,
+    "homeScore": 1,
     "awayScore": 1,
     "scorers": {
-      "home": [],
+      "home": [
+        {
+          "n": "Lautaro Gutierrez",
+          "m": 82,
+          "nat": "Argentina"
+        }
+      ],
       "away": [
         {
           "n": "Martín Garnerone",
@@ -269714,7 +269720,7 @@
     "status": "live",
     "awayPitcher": "제이콥 미저라우스키",
     "homePitcher": "브랜든 영",
-    "awayScore": 1,
+    "awayScore": 2,
     "homeScore": 0,
     "inningInfo": "4회초"
   },
@@ -269753,8 +269759,18 @@
     "timeTbd": false,
     "gameId": "ELSALVADOR_ESPN_401899787",
     "status": "live",
-    "homeScore": 0,
-    "awayScore": 0
+    "homeScore": 1,
+    "awayScore": 1,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "Lizandro Claros",
+          "m": 22,
+          "og": true
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-21",
@@ -269766,7 +269782,9 @@
     "stadium": "Estadio Hidalgo",
     "timeTbd": false,
     "gameId": "LIGAMX_ESPN_401876967",
-    "status": "scheduled"
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-09-21",
@@ -269778,7 +269796,9 @@
     "stadium": "Estadio Nemesio Díez Riega",
     "timeTbd": false,
     "gameId": "LIGAMX_ESPN_401876966",
-    "status": "scheduled"
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-09-21",
@@ -286704,6 +286724,18 @@
   {
     "date": "2026-10-22",
     "time": "08:15",
+    "league": "COLOMBIA",
+    "venueId": "estadio_bello_horizonte_villavicencio",
+    "home": "야네로스 FC",
+    "away": "데포르티보 칼리",
+    "stadium": "Estadio Bello Horizonte - Rey Pele",
+    "timeTbd": false,
+    "gameId": "COLOMBIA_ESPN_401878012",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-22",
+    "time": "08:15",
     "league": "LIDOM",
     "venueId": "estadio_cibao",
     "home": "아길라스 시바에냐스",
@@ -286739,6 +286771,54 @@
   },
   {
     "date": "2026-10-22",
+    "time": "10:00",
+    "league": "LIGAMX",
+    "venueId": "estadio_cuauhtemoc_puebla",
+    "home": "푸에블라",
+    "away": "몬테레이",
+    "stadium": "Estadio Cuauhtémoc",
+    "timeTbd": false,
+    "gameId": "LIGAMX_ESPN_401876933",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-22",
+    "time": "10:00",
+    "league": "LIGAMX",
+    "venueId": "estadio_jalisco",
+    "home": "아틀라스",
+    "away": "아메리카",
+    "stadium": "Estadio Jalisco",
+    "timeTbd": false,
+    "gameId": "LIGAMX_ESPN_401876932",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-22",
+    "time": "10:00",
+    "league": "LIGAMX",
+    "venueId": "estadio_nemesio_diez_toluca",
+    "home": "톨루카",
+    "away": "티후아나",
+    "stadium": "Estadio Nemesio Díez Riega",
+    "timeTbd": false,
+    "gameId": "LIGAMX_ESPN_401876931",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-22",
+    "time": "10:20",
+    "league": "COLOMBIA",
+    "venueId": "estadio_metropolitano_techo_bogota",
+    "home": "인테르나시오날 데 보고타",
+    "away": "포르탈레사 CEIF",
+    "stadium": "Metropolitano de Techo",
+    "timeTbd": false,
+    "gameId": "COLOMBIA_ESPN_401878033",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-22",
     "time": "10:30",
     "league": "AFL",
     "venueId": "sloan_park",
@@ -286747,6 +286827,30 @@
     "stadium": "Sloan Park",
     "timeTbd": false,
     "gameId": "AFL_MLBSTATS_867691",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-22",
+    "time": "12:00",
+    "league": "LIGAMX",
+    "venueId": "estadio_corona_torreon",
+    "home": "산토스 라구나",
+    "away": "푸마스 UNAM",
+    "stadium": "Estadio Corona",
+    "timeTbd": false,
+    "gameId": "LIGAMX_ESPN_401876929",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-22",
+    "time": "12:00",
+    "league": "LIGAMX",
+    "venueId": "estadio_hidalgo_pachuca",
+    "home": "파추카",
+    "away": "크루스 아술",
+    "stadium": "Estadio Hidalgo",
+    "timeTbd": false,
+    "gameId": "LIGAMX_ESPN_401876930",
     "status": "scheduled"
   },
   {
