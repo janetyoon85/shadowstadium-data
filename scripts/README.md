@@ -6,7 +6,7 @@ Naver Sports API → `games.json` 자동 갱신 스크립트.
 
 - `fetch-schedule.mjs` — 메인 크롤러. KBO + K리그1 + K리그2 시즌 일정 fetch → 변환 → validate → prod 갱신
 - `infer-rescheduled.mjs` — B-5d. cancelled 게임 → 미래 doubleheader 2차전 자동 매칭하여 `rescheduledTo` 채움
-- `naverStadiumMap.json` — Naver `stadium` 텍스트 → 우리 `venueId` lookup table (categoryId별)
+- `naverStadiumMap.json` — Naver `stadium` 텍스트 → 우리 `venueId` lookup table (categoryId별). **2026-09-21부터 비공개 저장소(`shadowstadium-secrets`)로 이전**, 이 저장소엔 없음(로컬 사본도 없음). 크롤러가 `PRIVATE_DATA_TOKEN`으로 런타임에 fetch.
 - `validators.mjs` — staging dataset 유효성 검사 (필드·게임수·중복·doubleheader·rescheduledTo orphan)
 - `staging.json` — (gitignored) 매 실행마다 덮어쓰는 raw 변환 결과 + 메타데이터
 
@@ -43,7 +43,7 @@ node scripts/fetch-schedule.mjs
 새 stadium 텍스트가 Naver에 나타나면 (시즌 중 임시 홈구장 등):
 
 1. 크롤러 실행 → `[mapping failures]` 로그 확인
-2. `naverStadiumMap.json`의 해당 `categoryId` 섹션에 `"<텍스트>": "<venueId>"` 추가
+2. `shadowstadium-secrets` 저장소의 `naverStadiumMap.json.b64`를 디코딩 → 해당 `categoryId` 섹션에 `"<텍스트>": "<venueId>"` 추가 → 재인코딩 후 커밋 (`shadowstadium-secrets/README.md` 참고)
 3. 재실행
 
 `venueId`는 [shadowstadium/App.tsx](https://github.com/janetyoon85/shadowstadium/blob/main/App.tsx)의 `VENUES` 배열 참고. 없는 venue면 앱 쪽에 venue 정의를 먼저 추가.

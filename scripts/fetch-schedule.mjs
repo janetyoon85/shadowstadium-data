@@ -902,6 +902,26 @@ function serializeGame(g) {
   return out;
 }
 
+// naverStadiumMap.json은 직접 조사한 원문라벨→venueId 매핑표라 2026-09-21부터 비공개
+// 저장소(shadowstadium-secrets)에서 base64로 보관 — PRIVATE_DATA_TOKEN(이 저장소 Contents:
+// Read-only 권한의 fine-grained PAT)으로만 읽힘. 로컬 개발 시에도 같은 토큰을 환경변수로
+// 설정해야 함 (로컬 평문 사본은 더 이상 이 저장소에 두지 않음).
+async function loadStadiumMap() {
+  const token = process.env.PRIVATE_DATA_TOKEN;
+  if (!token) {
+    throw new Error('PRIVATE_DATA_TOKEN 환경변수가 없습니다 — naverStadiumMap.json은 비공개 저장소에서만 읽을 수 있습니다.');
+  }
+  const res = await fetch(
+    'https://api.github.com/repos/janetyoon85/shadowstadium-secrets/contents/naverStadiumMap.json.b64',
+    { headers: { Authorization: `token ${token}`, Accept: 'application/vnd.github.raw' } },
+  );
+  if (!res.ok) {
+    throw new Error(`naverStadiumMap.json 비공개 저장소 fetch 실패: HTTP ${res.status}`);
+  }
+  const b64 = await res.text();
+  return JSON.parse(Buffer.from(b64, 'base64').toString('utf-8'));
+}
+
 async function main() {
   const startMs = Date.now();
   console.log(`[start] ${new Date().toISOString()}`);
@@ -916,7 +936,7 @@ async function main() {
     return;
   }
 
-  const stadiumMap = JSON.parse(await fs.readFile(path.join(__dirname, 'naverStadiumMap.json'), 'utf-8'));
+  const stadiumMap = await loadStadiumMap();
 
   const allGames = [];
   const mapFailures = [];
