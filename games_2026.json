@@ -268574,12 +268574,13 @@
     "stadium": "레이트 필드",
     "timeTbd": false,
     "gameId": "20260921DECW0",
-    "status": "live",
+    "status": "completed",
     "awayPitcher": "트로이 멜턴",
     "homePitcher": "데이비스 마틴",
-    "awayScore": 0,
-    "homeScore": 4,
-    "inningInfo": "4회말"
+    "awayScore": 1,
+    "homeScore": 8,
+    "winPitcher": "브라조반",
+    "losePitcher": "멜턴"
   },
   {
     "date": "2026-09-21",
@@ -269435,7 +269436,7 @@
         {
           "n": "Kevin González",
           "m": 76,
-          "nat": "Venezuela"
+          "nat": "Argentina"
         }
       ]
     }
@@ -269479,7 +269480,7 @@
     "stadium": "Estadio do Maracana",
     "timeTbd": false,
     "gameId": "BRASILEIRAO_ESPN_401841241",
-    "status": "live",
+    "status": "completed",
     "homeScore": 2,
     "awayScore": 1,
     "scorers": {
@@ -269514,7 +269515,7 @@
     "stadium": "Estadio Luis Alberto Salinas Tanasio",
     "timeTbd": false,
     "gameId": "PARAGUAY_ESPN_401888594",
-    "status": "live",
+    "status": "completed",
     "homeScore": 1,
     "awayScore": 0,
     "scorers": {
@@ -269538,10 +269539,10 @@
     "stadium": "First Horizon Park",
     "timeTbd": false,
     "gameId": "AAA_MLBSTATS_816082",
-    "status": "live",
-    "homeScore": 0,
-    "awayScore": 1,
-    "inningInfo": "5회말"
+    "status": "completed",
+    "homeScore": 5,
+    "awayScore": 3,
+    "inningInfo": "9회초"
   },
   {
     "date": "2026-09-21",
@@ -269553,9 +269554,30 @@
     "stadium": "El Gigante de Alberdi",
     "timeTbd": false,
     "gameId": "ARGENTINA_ESPN_401841571",
-    "status": "live",
-    "homeScore": 0,
-    "awayScore": 0
+    "status": "completed",
+    "homeScore": 2,
+    "awayScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "Lautaro Gutierrez",
+          "m": 82,
+          "nat": "Argentina"
+        },
+        {
+          "n": "Lucas Passerini",
+          "m": 90,
+          "nat": "Argentina"
+        }
+      ],
+      "away": [
+        {
+          "n": "Martín Garnerone",
+          "m": 74,
+          "nat": "Argentina"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-21",
@@ -269567,8 +269589,8 @@
     "stadium": "Arena da Baixada",
     "timeTbd": false,
     "gameId": "BRASILEIRAO_ESPN_401841238",
-    "status": "live",
-    "homeScore": 1,
+    "status": "completed",
+    "homeScore": 2,
     "awayScore": 1,
     "scorers": {
       "home": [
@@ -269576,6 +269598,11 @@
           "n": "Lucas Esquivel",
           "m": 16,
           "nat": "Argentina"
+        },
+        {
+          "n": "Jorge Rivaldo",
+          "m": 69,
+          "nat": "Colombia"
         }
       ],
       "away": [
@@ -269597,9 +269624,40 @@
     "stadium": "Alejandro Morera Soto",
     "timeTbd": false,
     "gameId": "COSTARICA_ESPN_401876895",
-    "status": "live",
-    "homeScore": 1,
-    "awayScore": 0
+    "status": "completed",
+    "homeScore": 5,
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "Ronaldo Cisneros",
+          "m": 14,
+          "nat": "Mexico"
+        },
+        {
+          "n": "Kenyel Michel",
+          "m": 20,
+          "nat": "Costa Rica"
+        },
+        {
+          "n": "Kenyel Michel",
+          "m": 64,
+          "nat": "Costa Rica"
+        },
+        {
+          "n": "Ronaldo Cisneros",
+          "m": 80,
+          "pk": true,
+          "nat": "Mexico"
+        },
+        {
+          "n": "John Ruiz",
+          "m": 84,
+          "nat": "Costa Rica"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-09-21",
@@ -269611,16 +269669,28 @@
     "stadium": "누 스타디움",
     "timeTbd": false,
     "gameId": "VlrKMSi5guqzG8y",
-    "status": "live",
-    "awayScore": 0,
-    "homeScore": 0,
-    "matchPeriod": "전반 13'",
+    "status": "completed",
+    "awayScore": 2,
+    "homeScore": 2,
     "scorers": {
-      "home": [],
+      "home": [
+        {
+          "n": "메시",
+          "m": 24
+        },
+        {
+          "n": "수아레스",
+          "m": 74
+        }
+      ],
       "away": [
         {
           "n": "드레이어",
           "m": 12
+        },
+        {
+          "n": "드레이어",
+          "m": 82
         }
       ]
     },
@@ -269636,7 +269706,7 @@
     "stadium": "Parque Alfredo Víctor Viera",
     "timeTbd": false,
     "gameId": "URUGUAY_ESPN_401921340",
-    "status": "live",
+    "status": "completed",
     "homeScore": 0,
     "awayScore": 0
   },
@@ -269650,9 +269720,26 @@
     "stadium": "Estadio Manuel Murillo Toro",
     "timeTbd": false,
     "gameId": "COLOMBIA_ESPN_401878037",
-    "status": "live",
-    "homeScore": 0,
-    "awayScore": 0
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "Sergio Aguayo",
+          "m": 22,
+          "pk": true,
+          "nat": "Mexico"
+        }
+      ],
+      "away": [
+        {
+          "n": "Yeison Guzmán",
+          "m": 26,
+          "nat": "Colombia"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-21",
@@ -269664,12 +269751,14 @@
     "stadium": "오리올 파크 앳 캠든 야즈",
     "timeTbd": false,
     "gameId": "20260921MIBA0",
-    "status": "live",
+    "status": "completed",
     "awayPitcher": "제이콥 미저라우스키",
     "homePitcher": "브랜든 영",
-    "awayScore": 0,
+    "awayScore": 3,
     "homeScore": 0,
-    "inningInfo": "1회초"
+    "winPitcher": "홀",
+    "losePitcher": "영",
+    "savePitcher": "메길"
   },
   {
     "date": "2026-09-21",
@@ -269681,7 +269770,30 @@
     "stadium": "Rodrigo Paz Delgado",
     "timeTbd": false,
     "gameId": "ECUADOR_ESPN_401921354",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 2,
+    "awayScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "Deyverson",
+          "m": 71,
+          "nat": "Brazil"
+        },
+        {
+          "n": "Yerlin Quiñonez",
+          "m": 74,
+          "nat": "Ecuador"
+        }
+      ],
+      "away": [
+        {
+          "n": "José Fajardo",
+          "m": 10,
+          "nat": "Panama"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-21",
@@ -269690,10 +269802,37 @@
     "venueId": "estadio_sergio_torres",
     "home": "루이스 앙헬 피르포",
     "away": "아틀레티코 발보아",
-    "stadium": "",
+    "stadium": "Estadio Sergio Torres Rivera",
     "timeTbd": false,
     "gameId": "ELSALVADOR_ESPN_401899787",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 3,
+    "awayScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "Elmer Josué Rodríguez Mejía",
+          "m": 45
+        },
+        {
+          "n": "José Valencia",
+          "m": 55,
+          "nat": "Colombia"
+        },
+        {
+          "n": "Mauro Gonzalez",
+          "m": 73,
+          "nat": "Argentina"
+        }
+      ],
+      "away": [
+        {
+          "n": "Lizandro Claros",
+          "m": 22,
+          "og": true
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-21",
@@ -269705,7 +269844,36 @@
     "stadium": "Estadio Hidalgo",
     "timeTbd": false,
     "gameId": "LIGAMX_ESPN_401876967",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 2,
+    "awayScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "Salomón Rondón",
+          "m": 55,
+          "nat": "Venezuela"
+        },
+        {
+          "n": "Salomón Rondón",
+          "m": 90,
+          "nat": "Venezuela"
+        }
+      ],
+      "away": [
+        {
+          "n": "Gilberto Mora",
+          "m": 17,
+          "pk": true,
+          "nat": "Mexico"
+        },
+        {
+          "n": "Jesús Gómez",
+          "m": 42,
+          "nat": "Mexico"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-21",
@@ -269717,7 +269885,40 @@
     "stadium": "Estadio Nemesio Díez Riega",
     "timeTbd": false,
     "gameId": "LIGAMX_ESPN_401876966",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 2,
+    "awayScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "Federico Viñas",
+          "m": 25,
+          "nat": "Uruguay"
+        },
+        {
+          "n": "Paulinho",
+          "m": 43,
+          "nat": "Portugal"
+        }
+      ],
+      "away": [
+        {
+          "n": "Ezequiel Bullaude",
+          "m": 45,
+          "nat": "Argentina"
+        },
+        {
+          "n": "Kevin Palacios",
+          "m": 86,
+          "nat": "Colombia"
+        },
+        {
+          "n": "Francisco Villalba",
+          "m": 90,
+          "nat": "Spain"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-21",
@@ -269729,7 +269930,40 @@
     "stadium": "José Amalfitani",
     "timeTbd": false,
     "gameId": "ARGENTINA_ESPN_401841570",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 3,
+    "awayScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "Ronaldo Martínez",
+          "m": 14,
+          "nat": "Paraguay"
+        },
+        {
+          "n": "Juan Policella",
+          "m": 67,
+          "nat": "Argentina"
+        },
+        {
+          "n": "Ronaldo Martínez",
+          "m": 89,
+          "nat": "Paraguay"
+        }
+      ],
+      "away": [
+        {
+          "n": "Ignacio Russo",
+          "m": 57,
+          "nat": "Argentina"
+        },
+        {
+          "n": "Jerónimo Domina",
+          "m": 87,
+          "nat": "Argentina"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-21",
@@ -269741,7 +269975,18 @@
     "stadium": "Estadio Carlos Ugalde Álvarez",
     "timeTbd": false,
     "gameId": "COSTARICA_ESPN_401876851",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "Jefferson Rivera",
+          "m": 28
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-09-21",
@@ -269753,11 +269998,28 @@
     "stadium": "Estadio Bello Horizonte - Rey Pele",
     "timeTbd": false,
     "gameId": "COLOMBIA_ESPN_401877864",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 2,
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "Yorleys Mena",
+          "m": 15,
+          "nat": "Colombia"
+        },
+        {
+          "n": "Frank Castañeda",
+          "m": 34,
+          "nat": "Colombia"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-09-21",
-    "time": "11:00",
+    "time": "11:10",
     "league": "LIGAMX",
     "venueId": "estadio_corregidora",
     "home": "케레타로",
@@ -269765,7 +270027,26 @@
     "stadium": "Estadio Corregidora",
     "timeTbd": false,
     "gameId": "LIGAMX_ESPN_401876965",
-    "status": "scheduled"
+    "status": "live",
+    "homeScore": 1,
+    "awayScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "Iker Benito",
+          "m": 60,
+          "nat": "Spain"
+        }
+      ],
+      "away": [
+        {
+          "n": "Daniel Arcila",
+          "m": 54,
+          "pk": true,
+          "nat": "Colombia"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-21",
@@ -269777,7 +270058,9 @@
     "stadium": "Okazaki Chuo Sogo Park Baseball Stadium",
     "timeTbd": false,
     "gameId": "ASIANGAMESBASEBALL_AG2026_M.TEAM9-------------.GPB-.000100--",
-    "status": "scheduled"
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-09-21",
@@ -269789,7 +270072,9 @@
     "stadium": "Toyohashi Municipal Baseball Stadium",
     "timeTbd": false,
     "gameId": "ASIANGAMESBASEBALL_AG2026_M.TEAM9-------------.GPA-.000100--",
-    "status": "scheduled"
+    "status": "live",
+    "homeScore": 4,
+    "awayScore": 0
   },
   {
     "date": "2026-09-21",
@@ -269801,7 +270086,9 @@
     "stadium": "라쿠텐모바일 최강파크 미야기",
     "timeTbd": false,
     "gameId": "20260921SFRT0",
-    "status": "scheduled"
+    "status": "cancelled",
+    "awayPitcher": "카미차타니",
+    "homePitcher": "마에다"
   },
   {
     "date": "2026-09-21",
@@ -270203,7 +270490,9 @@
     "stadium": "대구",
     "timeTbd": false,
     "gameId": "20260922NCSS02026",
-    "status": "scheduled"
+    "status": "scheduled",
+    "awayPitcher": "클레빈저",
+    "homePitcher": "페덱"
   },
   {
     "date": "2026-09-22",
@@ -270215,7 +270504,9 @@
     "stadium": "대전",
     "timeTbd": false,
     "gameId": "20260922LTHH02026",
-    "status": "scheduled"
+    "status": "scheduled",
+    "awayPitcher": "비슬리",
+    "homePitcher": "류현진"
   },
   {
     "date": "2026-09-22",
@@ -270227,7 +270518,9 @@
     "stadium": "고척",
     "timeTbd": false,
     "gameId": "20260922OBWO02026",
-    "status": "scheduled"
+    "status": "scheduled",
+    "awayPitcher": "벤자민",
+    "homePitcher": "전준표"
   },
   {
     "date": "2026-09-22",
@@ -270239,7 +270532,9 @@
     "stadium": "문학",
     "timeTbd": false,
     "gameId": "20260922KTSK02026",
-    "status": "scheduled"
+    "status": "scheduled",
+    "awayPitcher": "배제성",
+    "homePitcher": "아빌라"
   },
   {
     "date": "2026-09-22",
@@ -275151,6 +275446,18 @@
     "stadium": "예카테린부르크 아레나",
     "timeTbd": false,
     "gameId": "UvGzKsTGwJyu3sQ",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-04",
+    "time": "00:00",
+    "league": "AMATCHFRIENDLY",
+    "venueId": "velodrome",
+    "home": "코모로",
+    "away": "세네갈",
+    "stadium": "CEPAC 벨로드롬",
+    "timeTbd": false,
+    "gameId": "LtScTvIj7el5lWK",
     "status": "scheduled"
   },
   {
@@ -286284,6 +286591,18 @@
   },
   {
     "date": "2026-10-21",
+    "time": "18:33",
+    "league": "LMP",
+    "venueId": "estadio_panamericano_zapopan",
+    "home": "차로스 데 할리스코",
+    "away": "아길라스 데 멕시칼리",
+    "stadium": "Estadio Panamericano de los Charros",
+    "timeTbd": true,
+    "gameId": "LMP_MLBSTATS_850539",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-21",
     "time": "19:00",
     "league": "J1",
     "venueId": "ajinomoto_stadium",
@@ -286400,6 +286719,54 @@
     "stadium": "사이타마 스타디움 2002",
     "timeTbd": false,
     "gameId": "vjEq5huC1zM88bY",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-21",
+    "time": "19:33",
+    "league": "LMP",
+    "venueId": "estadio_fernando_valenzuela",
+    "home": "나랑헤로스 데 에르모시요",
+    "away": "하과레스 데 나야리트",
+    "stadium": "Estadio Fernando Valenzuela",
+    "timeTbd": true,
+    "gameId": "LMP_MLBSTATS_850536",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-21",
+    "time": "19:33",
+    "league": "LMP",
+    "venueId": "estadio_francisco_carranza_limon",
+    "home": "알고도네로스 데 과사베",
+    "away": "카녜로스 데 로스모치스",
+    "stadium": "Estadio Francisco Carranza Limon",
+    "timeTbd": true,
+    "gameId": "LMP_MLBSTATS_850537",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-21",
+    "time": "19:33",
+    "league": "LMP",
+    "venueId": "estadio_tomateros_culiacan",
+    "home": "토마테로스 데 쿨리아칸",
+    "away": "마요스 데 나보호아",
+    "stadium": "Estadio de los Tomateros",
+    "timeTbd": true,
+    "gameId": "LMP_MLBSTATS_850535",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-21",
+    "time": "19:33",
+    "league": "LMP",
+    "venueId": "estadio_yaquis_obregon",
+    "home": "야키스 데 오브레곤",
+    "away": "베나도스 데 마사틀란",
+    "stadium": "Estadio de los Yaquis",
+    "timeTbd": true,
+    "gameId": "LMP_MLBSTATS_850534",
     "status": "scheduled"
   },
   {
@@ -286533,6 +286900,30 @@
   },
   {
     "date": "2026-10-22",
+    "time": "05:30",
+    "league": "AFL",
+    "venueId": "peoria_stadium_az",
+    "home": "피오리아 하벨리나스",
+    "away": "글렌데일 데저트독스",
+    "stadium": "Peoria Stadium",
+    "timeTbd": false,
+    "gameId": "AFL_MLBSTATS_867688",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-22",
+    "time": "05:30",
+    "league": "AFL",
+    "venueId": "scottsdale_stadium",
+    "home": "스코츠데일 스콜피온스",
+    "away": "솔트리버 래프터스",
+    "stadium": "Scottsdale Stadium",
+    "timeTbd": false,
+    "gameId": "AFL_MLBSTATS_867692",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-22",
     "time": "08:00",
     "league": "MLS",
     "venueId": "tql_stadium",
@@ -286543,6 +286934,138 @@
     "gameId": "WH2t7qKYwGa9wr8",
     "status": "scheduled",
     "phaseCode": "LEAGUE"
+  },
+  {
+    "date": "2026-10-22",
+    "time": "08:15",
+    "league": "COLOMBIA",
+    "venueId": "estadio_bello_horizonte_villavicencio",
+    "home": "야네로스 FC",
+    "away": "데포르티보 칼리",
+    "stadium": "Estadio Bello Horizonte - Rey Pele",
+    "timeTbd": false,
+    "gameId": "COLOMBIA_ESPN_401878012",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-22",
+    "time": "08:15",
+    "league": "LIDOM",
+    "venueId": "estadio_cibao",
+    "home": "아길라스 시바에냐스",
+    "away": "에스트레야스 오리엔탈레스",
+    "stadium": "Estadio Cibao",
+    "timeTbd": false,
+    "gameId": "LIDOM_MLBSTATS_851559",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-22",
+    "time": "08:15",
+    "league": "LIDOM",
+    "venueId": "estadio_quisqueya_juan_marichal",
+    "home": "레오네스 델 에스코히도",
+    "away": "히간테스 델 시바오",
+    "stadium": "Estadio Quisqueya Juan Marichal",
+    "timeTbd": false,
+    "gameId": "LIDOM_MLBSTATS_851489",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-22",
+    "time": "08:30",
+    "league": "LIDOM",
+    "venueId": "estadio_francisco_micheli",
+    "home": "토로스 델 에스테",
+    "away": "티그레스 델 리세이",
+    "stadium": "Estadio Francisco Micheli",
+    "timeTbd": false,
+    "gameId": "LIDOM_MLBSTATS_851440",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-22",
+    "time": "10:00",
+    "league": "LIGAMX",
+    "venueId": "estadio_cuauhtemoc_puebla",
+    "home": "푸에블라",
+    "away": "몬테레이",
+    "stadium": "Estadio Cuauhtémoc",
+    "timeTbd": false,
+    "gameId": "LIGAMX_ESPN_401876933",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-22",
+    "time": "10:00",
+    "league": "LIGAMX",
+    "venueId": "estadio_jalisco",
+    "home": "아틀라스",
+    "away": "아메리카",
+    "stadium": "Estadio Jalisco",
+    "timeTbd": false,
+    "gameId": "LIGAMX_ESPN_401876932",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-22",
+    "time": "10:00",
+    "league": "LIGAMX",
+    "venueId": "estadio_nemesio_diez_toluca",
+    "home": "톨루카",
+    "away": "티후아나",
+    "stadium": "Estadio Nemesio Díez Riega",
+    "timeTbd": false,
+    "gameId": "LIGAMX_ESPN_401876931",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-22",
+    "time": "10:20",
+    "league": "COLOMBIA",
+    "venueId": "estadio_metropolitano_techo_bogota",
+    "home": "인테르나시오날 데 보고타",
+    "away": "포르탈레사 CEIF",
+    "stadium": "Metropolitano de Techo",
+    "timeTbd": false,
+    "gameId": "COLOMBIA_ESPN_401878033",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-22",
+    "time": "10:30",
+    "league": "AFL",
+    "venueId": "sloan_park",
+    "home": "메사 솔라삭스",
+    "away": "서프라이즈 사구아로스",
+    "stadium": "Sloan Park",
+    "timeTbd": false,
+    "gameId": "AFL_MLBSTATS_867691",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-22",
+    "time": "12:00",
+    "league": "LIGAMX",
+    "venueId": "estadio_corona_torreon",
+    "home": "산토스 라구나",
+    "away": "푸마스 UNAM",
+    "stadium": "Estadio Corona",
+    "timeTbd": false,
+    "gameId": "LIGAMX_ESPN_401876929",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-22",
+    "time": "12:00",
+    "league": "LIGAMX",
+    "venueId": "estadio_hidalgo_pachuca",
+    "home": "파추카",
+    "away": "크루스 아술",
+    "stadium": "Estadio Hidalgo",
+    "timeTbd": false,
+    "gameId": "LIGAMX_ESPN_401876930",
+    "status": "scheduled"
   },
   {
     "date": "2026-10-22",
