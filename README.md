@@ -2,6 +2,17 @@
 
 ShadeSide 앱의 공개 일정 데이터.
 
+> **⚠️ NOTICE / 저작권 고지**
+> 이 저장소의 데이터(구장 GPS 좌표·방위각, 팀/구장 매핑표, 경기 일정 가공 로직 등)는
+> 저자가 직접 조사·측정·정리한 저작물입니다. 별도 라이선스가 명시되어 있지 않은 저장소는
+> 기본적으로 **All Rights Reserved**이며, 이 저장소를 조회 목적 외로 스크래핑·대량 복제·
+> 재배포·상업적 이용하는 것을 금지합니다. 문의: 저장소 소유자에게 연락 바랍니다.
+>
+> This repository's data (venue GPS coordinates/bearings, team–venue mapping tables, schedule
+> processing logic, etc.) was independently researched, measured, and curated by the author.
+> Absent an explicit license, all rights are reserved by default. Scraping, bulk copying,
+> redistribution, or commercial reuse of this data beyond casual viewing is prohibited.
+
 ## URL
 https://raw.githubusercontent.com/janetyoon85/shadowstadium-data/main/games_2026.json
 
