@@ -1,0 +1,7 @@
+{
+  "_comment": "앱 강제 업데이트 게이트 설정. android.minVersion 을 app.json 의 실제 배포 버전보다 낮거나 같게 유지하면 아무도 안 걸림. 새 네이티브 빌드를 스토어에 올린 뒤에만 minVersion 을 그 버전으로 올려서 구버전 유저를 강제 유도.",
+  "android": {
+    "minVersion": "1.0.0",
+    "storeUrl": "https://play.google.com/store/apps/details?id=com.shadowstadium.app"
+  }
+}
