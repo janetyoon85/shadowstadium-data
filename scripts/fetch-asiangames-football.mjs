@@ -38,6 +38,22 @@ const VENUE_MAP = {
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
+// ResCode/Key 3번째 dot-구분 세그먼트가 라운드 코드(예: "GPD-"=조별리그 D조, "QFNL"=8강,
+// "SFNL"=4강, "3RDP"=3·4위전, "FNL-"=결승) — 앱의 PHASE_LABELS(App.tsx) 키로 매핑.
+// 조별리그는 기존 다른 리그와 동일하게 라운드 표기 생략(phaseCode 없음).
+function phaseCodeFromResCode(resCode) {
+  if (!resCode) return undefined;
+  const seg = resCode.split('.')[2] ?? '';
+  if (seg.startsWith('GP')) return undefined;
+  if (seg.startsWith('QF')) return 'T8';
+  if (seg.startsWith('SF')) return 'T4';
+  if (seg.startsWith('3R') || seg.startsWith('BR')) return 'T3';
+  if (seg.startsWith('FN') || seg.startsWith('FI')) return 'T2';
+  if (seg.startsWith('R16') || seg.startsWith('T16')) return 'T16';
+  if (seg.startsWith('R32') || seg.startsWith('T32')) return 'T32';
+  return undefined;
+}
+
 async function fetchDecoded(pathSuffix) {
   const url = `https://${API_HOST}/s/${CHAMP}/en/${pathSuffix}`;
   const res = await fetch(url, { headers: { 'User-Agent': USER_AGENT } });
@@ -96,6 +112,8 @@ async function fetchAsianGamesFootballDay(dateStr, unknownTeams, unknownVenues) 
       gameId: `ASIANGAMESFOOTBALL_AG2026_${g.ResCode || g.Key}`,
       status,
     };
+    const phaseCode = phaseCodeFromResCode(g.ResCode || g.Key);
+    if (phaseCode) out.phaseCode = phaseCode;
     if (status === 'completed' || status === 'live') {
       const hs = Number(g.Home.Result);
       const as = Number(g.Away.Result);

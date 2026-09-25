@@ -44,6 +44,21 @@ const VENUE_MAP = {
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
+// fetch-asiangames-football.mjs와 동일 로직(같은 Bornan API) — ResCode 3번째 세그먼트가
+// 라운드 코드. 조별리그는 라운드 표기 생략.
+function phaseCodeFromResCode(resCode) {
+  if (!resCode) return undefined;
+  const seg = resCode.split('.')[2] ?? '';
+  if (seg.startsWith('GP')) return undefined;
+  if (seg.startsWith('QF')) return 'T8';
+  if (seg.startsWith('SF')) return 'T4';
+  if (seg.startsWith('3R') || seg.startsWith('BR')) return 'T3';
+  if (seg.startsWith('FN') || seg.startsWith('FI')) return 'T2';
+  if (seg.startsWith('R16') || seg.startsWith('T16')) return 'T16';
+  if (seg.startsWith('R32') || seg.startsWith('T32')) return 'T32';
+  return undefined;
+}
+
 async function fetchDecoded(pathSuffix) {
   const url = `https://${API_HOST}/s/${CHAMP}/en/${pathSuffix}`;
   const res = await fetch(url, { headers: { 'User-Agent': USER_AGENT } });
@@ -101,6 +116,8 @@ async function fetchAsianGamesBaseballDay(dateStr, unknownTeams, unknownVenues) 
       gameId: `ASIANGAMESBASEBALL_AG2026_${g.ResCode || g.Key}`,
       status,
     };
+    const phaseCode = phaseCodeFromResCode(g.ResCode || g.Key);
+    if (phaseCode) out.phaseCode = phaseCode;
     if (status === 'completed' || status === 'live') {
       const hs = Number(g.Home.Result);
       const as = Number(g.Away.Result);
