@@ -806,13 +806,13 @@ async function enrichEuroAssists(allGames) {
     console.log('[euroCards] no euro_cards.json yet — backfilling from scratch');
   }
 
+  // 0-0 무득점 경기도 카드는 붙어야 해서(사용자 요청, 2026-09-26) g.scorers 존재 요건을 뺌 —
+  // 어시스트/국적 로직은 원래대로 scorers가 없으면 그냥 빈 배열([].length===0)로 자연히 스킵됨.
   const targets = allGames.filter(
     (g) =>
       ESPN_LEAGUE_SLUG[g.league] &&
       (g.status === 'completed' || g.status === 'live') &&
-      g.gameId &&
-      g.scorers &&
-      ((g.scorers.home && g.scorers.home.length) || (g.scorers.away && g.scorers.away.length)),
+      g.gameId,
   );
 
   let fromCache = 0;
@@ -878,8 +878,8 @@ async function enrichEuroAssists(allGames) {
           const espnCards = extractEspnCardsBySide(summary, homeC?.team?.displayName, awayC?.team?.displayName);
           cardCache[g.gameId] = { home: espnCards.home, away: espnCards.away, final: g.status === 'completed' };
           const espnGoals = extractEspnGoalsBySide(summary, homeC?.team?.displayName, awayC?.team?.displayName);
-          const naverHomeLen = (g.scorers.home || []).length;
-          const naverAwayLen = (g.scorers.away || []).length;
+          const naverHomeLen = (g.scorers?.home || []).length;
+          const naverAwayLen = (g.scorers?.away || []).length;
           if (espnGoals.home.length !== naverHomeLen || espnGoals.away.length !== naverAwayLen) {
             countMismatch++;
             // completed 인데 골 개수가 계속 안 맞으면(팀명 매칭 실패 등 구조적 문제) 매 10분 재시도해도
@@ -911,15 +911,15 @@ async function enrichEuroAssists(allGames) {
                 }
               }
             };
-            await zip(g.scorers.home || [], espnGoals.home);
-            await zip(g.scorers.away || [], espnGoals.away);
+            await zip(g.scorers?.home || [], espnGoals.home);
+            await zip(g.scorers?.away || [], espnGoals.away);
             cache[g.gameId] = {
-              homeAssists: (g.scorers.home || []).map((s) => s.a || null),
-              awayAssists: (g.scorers.away || []).map((s) => s.a || null),
-              homeNats: (g.scorers.home || []).map((s) => s.nat || null),
-              awayNats: (g.scorers.away || []).map((s) => s.nat || null),
-              homeANats: (g.scorers.home || []).map((s) => s.aNat || null),
-              awayANats: (g.scorers.away || []).map((s) => s.aNat || null),
+              homeAssists: (g.scorers?.home || []).map((s) => s.a || null),
+              awayAssists: (g.scorers?.away || []).map((s) => s.a || null),
+              homeNats: (g.scorers?.home || []).map((s) => s.nat || null),
+              awayNats: (g.scorers?.away || []).map((s) => s.nat || null),
+              homeANats: (g.scorers?.home || []).map((s) => s.aNat || null),
+              awayANats: (g.scorers?.away || []).map((s) => s.aNat || null),
               final: g.status === 'completed',
             };
             fetched++;
@@ -936,12 +936,12 @@ async function enrichEuroAssists(allGames) {
     // 캐시 적중(또는 방금 실패해 이전 캐시로 폴백)이면 캐시된 이름/국적을 원본 순서 그대로 재적용.
     const c = cache[g.gameId];
     if (c && !needsFetch) {
-      (g.scorers.home || []).forEach((s, i) => {
+      (g.scorers?.home || []).forEach((s, i) => {
         if (c.homeAssists?.[i]) s.a = c.homeAssists[i];
         if (c.homeNats?.[i]) s.nat = c.homeNats[i];
         if (c.homeANats?.[i]) s.aNat = c.homeANats[i];
       });
-      (g.scorers.away || []).forEach((s, i) => {
+      (g.scorers?.away || []).forEach((s, i) => {
         if (c.awayAssists?.[i]) s.a = c.awayAssists[i];
         if (c.awayNats?.[i]) s.nat = c.awayNats[i];
         if (c.awayANats?.[i]) s.aNat = c.awayANats[i];
