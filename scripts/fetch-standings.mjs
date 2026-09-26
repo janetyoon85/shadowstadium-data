@@ -161,6 +161,16 @@ function pickPlayerRow(p) {
   };
 }
 
+// 야구는 "선수기록" 하나가 아니라 타자기록/투수기록 별개(사용자 지적, 2026-09-26 — Naver 원본도
+// tab=hitter/tab=pitcher 별개 페이지). 같은 /players 엔드포인트인데 playerType=HITTER/PITCHER
+// (대문자 — 소문자 hitter/pitcher는 400, 실측으로 찾음) 파라미터로 구분.
+function pickHitterRow(p) {
+  return { name: p.playerName, team: p.teamShortName || p.teamName, avg: p.hitterHra, hr: p.hitterHr, rbi: p.hitterRbi, sb: p.hitterSb, ops: p.hitterOps, played: p.hitterGameCount };
+}
+function pickPitcherRow(p) {
+  return { name: p.playerName, team: p.teamShortName || p.teamName, era: p.pitcherEra, win: p.pitcherWin, loss: p.pitcherLose, save: p.pitcherSave, hold: p.pitcherHold, whip: p.pitcherWhip, kk: p.pitcherKk };
+}
+
 async function main() {
   const out = {};
   let ok = 0;
@@ -203,9 +213,34 @@ async function main() {
         } catch (e) {
           console.warn(`[standings] ${cat.league} players fetch failed: ${e.message}`);
         }
+      } else {
+        try {
+          await sleep(REQUEST_DELAY_MS);
+          const hittersJson = await fetchJson(`${BASE}/${cat.categoryId}/seasons/${season.seasonCode}/players?page=1&pageSize=500&playerType=HITTER`);
+          // hitterWar가 KBO엔 있고 MLB/NPB엔 null이라(실측 확인) 리그마다 다른 필드에 기대는 대신
+          // Naver가 이미 매겨준 ranking(그 리그 페이지 기본 정렬)을 그대로 신뢰.
+          const hitters = (hittersJson?.result?.seasonPlayerStats || [])
+            .filter((p) => typeof p.ranking === 'number')
+            .sort((a, b) => a.ranking - b.ranking)
+            .slice(0, 30);
+          entry.hitters = hitters.map(pickHitterRow);
+        } catch (e) {
+          console.warn(`[standings] ${cat.league} hitters fetch failed: ${e.message}`);
+        }
+        try {
+          await sleep(REQUEST_DELAY_MS);
+          const pitchersJson = await fetchJson(`${BASE}/${cat.categoryId}/seasons/${season.seasonCode}/players?page=1&pageSize=500&playerType=PITCHER`);
+          const pitchers = (pitchersJson?.result?.seasonPlayerStats || [])
+            .filter((p) => typeof p.ranking === 'number')
+            .sort((a, b) => a.ranking - b.ranking)
+            .slice(0, 30);
+          entry.pitchers = pitchers.map(pickPitcherRow);
+        } catch (e) {
+          console.warn(`[standings] ${cat.league} pitchers fetch failed: ${e.message}`);
+        }
       }
       out[cat.league] = entry;
-      console.log(`[standings] ${cat.league}: ${rows.length} rows (season=${season.seasonCode})${entry.players ? `, ${entry.players.length} players` : ''}`);
+      console.log(`[standings] ${cat.league}: ${rows.length} rows (season=${season.seasonCode})${entry.players ? `, ${entry.players.length} players` : ''}${entry.hitters ? `, ${entry.hitters.length} hitters` : ''}${entry.pitchers ? `, ${entry.pitchers.length} pitchers` : ''}`);
       ok++;
     } catch (e) {
       console.warn(`[standings] ${cat.league} failed: ${e.message}`);
