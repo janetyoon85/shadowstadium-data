@@ -130,6 +130,37 @@ function pickRow(t) {
 const LEAGUE_LABEL_KO = { AL: '아메리칸리그', NL: '내셔널리그', CL: '센트럴리그', PL: '퍼시픽리그' };
 const DIVISION_LABEL_KO = { EAST: '동부', CENT: '중부', CENTRAL: '중부', WEST: '서부' };
 
+// 팀기록(2026-09-26 추가, 사용자 요청) — 순위표(rows)와 같은 /teams 응답이지만 승/패보다 슈팅·점유율
+// 등 "경기력" 지표 위주로 다른 컬럼 세트를 뽑음. 야구는 타/투 지표(타율·홈런·방어율 등).
+const BASEBALL_LEAGUES = new Set(['KBO', 'MLB', 'NPB', 'PREMIER12']);
+function pickTeamRecord(t, isBaseball) {
+  if (isBaseball) {
+    return {
+      team: t.teamName,
+      avg: t.offenseHra, hr: t.offenseHr, rbi: t.offenseRbi, sb: t.offenseSb,
+      era: t.defenseEra, whip: t.defenseWhip, save: t.defenseSave, hold: t.defenseHold,
+    };
+  }
+  return {
+    team: t.teamName,
+    goals: t.goals, goalsConceded: t.goalsConceded,
+    shots: t.shots, shotsOnTarget: t.shotsOnTarget,
+    possession: t.possession, passesAccuracy: t.passesAccuracy,
+    fouls: t.fouls, yellowCards: t.yellowCards, redCards: t.redCards,
+  };
+}
+
+// 선수기록(축구만, 2026-09-26 추가) — /players?pageSize=500 로 리그 전체 선수 한 번에 확보(리그당
+// 요청 1건 추가). 야구는 같은 엔드포인트가 playerType 파라미터를 요구하는데 유효값을 못 찾아서
+// (hitter/pitcher 둘 다 400) 이번 라운드는 축구만, 야구는 후속 조사 필요.
+function pickPlayerRow(p) {
+  return {
+    name: p.playerName, team: p.teamShortName || p.teamName, pos: p.position,
+    played: p.matchesPlayed, goals: p.goals, assists: p.assists,
+    yellowCards: p.yellowCards, redCards: p.redCards,
+  };
+}
+
 async function main() {
   const out = {};
   let ok = 0;
@@ -153,12 +184,28 @@ async function main() {
         empty++;
         continue;
       }
-      out[cat.league] = {
+      const isBaseball = BASEBALL_LEAGUES.has(cat.league);
+      const entry = {
         updatedAt: new Date().toISOString(),
         seasonCode: season.seasonCode,
         rows: rows.map(pickRow),
+        teamRecords: rows.map((t) => pickTeamRecord(t, isBaseball)),
       };
-      console.log(`[standings] ${cat.league}: ${rows.length} rows (season=${season.seasonCode})`);
+      if (!isBaseball) {
+        try {
+          await sleep(REQUEST_DELAY_MS);
+          const playersJson = await fetchJson(`${BASE}/${cat.categoryId}/seasons/${season.seasonCode}/players?page=1&pageSize=500`);
+          const players = (playersJson?.result?.seasonPlayerStats || [])
+            .filter((p) => typeof p.goals === 'number')
+            .sort((a, b) => (b.goals - a.goals) || ((b.assists ?? 0) - (a.assists ?? 0)))
+            .slice(0, 30);
+          entry.players = players.map(pickPlayerRow);
+        } catch (e) {
+          console.warn(`[standings] ${cat.league} players fetch failed: ${e.message}`);
+        }
+      }
+      out[cat.league] = entry;
+      console.log(`[standings] ${cat.league}: ${rows.length} rows (season=${season.seasonCode})${entry.players ? `, ${entry.players.length} players` : ''}`);
       ok++;
     } catch (e) {
       console.warn(`[standings] ${cat.league} failed: ${e.message}`);
