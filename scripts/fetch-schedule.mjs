@@ -79,6 +79,7 @@ const ESPN_LEAGUE_SLUG = {
   UEFAEURO: 'uefa.euro',
   EFLCUP: 'eng.league_cup',
   U20WORLDCUP: 'fifa.world.u20',
+  ASIANCUP: 'afc.asian.cup',
   // 나머지 도메스틱 리그 38개국 — 전부 {국가코드}.1 규칙으로 실측 확인(2026-09-26,
   // 사용자 요청: "모든축구경기에다추가해"). CHINA는 GPS 측량법 리스크로 이 크롤러가 애초에
   // 안 다뤄서(CATEGORIES에 없음) 제외.
@@ -120,10 +121,11 @@ const ESPN_LEAGUE_SLUG = {
   KENYA: 'ken.1',
   UGANDA: 'uga.1',
   ZIMBABWE: 'zim.1',
-  // 슬러그 못 찾은 것들(400 응답) — ACL2, COMMUNITYSHIELD, INTERCONTINENTALCUP, ASIANCUP,
-  // U20WOMENWORLDCUP은 이번엔 제외(추후 재조사 필요). 나머지(U17/U20/U23 아시안컵, AFF컵,
-  // E1, K리그슈퍼컵, 코리아컵, U17여자아시안컵 등 소규모/지역 대회)는 ESPN 커버리지 자체가
-  // 없을 가능성이 높아 시도 안 함.
+  // 슬러그 못 찾은 것들(400 응답, 재시도해도 실패) — ACL2, COMMUNITYSHIELD, U20WOMENWORLDCUP,
+  // 코리아컵, AFF컵, EAFF E-1은 제외. INTERCONTINENTALCUP 후보로 찾은 'fifa.intercontinental.cup'은
+  // 실제론 전혀 다른 대회("Intercontinental Cup (India)", 인도 국내 초청대회)라 오귀속 위험 —
+  // 절대 쓰지 말 것. 나머지(U17/U20/U23 아시안컵 등 소규모 대회)는 ESPN 커버리지 자체가 없을
+  // 가능성이 높아 시도 안 함.
 };
 const EURO_ASSISTS_PATH = path.join(REPO_ROOT, 'euro_assists.json');
 // ESPN 소스 해외축구(EURO_ASSISTS와 동일 매칭 대상) 카드(경고/퇴장) — enrichEuroAssists가 이미
