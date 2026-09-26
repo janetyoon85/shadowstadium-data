@@ -454,9 +454,30 @@ function classifyHighlightSide(name, homeNames, awayNames) {
   if (awayNames.has(name)) return 'away';
   return null;
 }
+// MLB/NPB는 /record 응답 스키마 자체가 KBO와 달라 etcRecords(인닝별 하이라이트 로그)가 없고
+// homeBatter/awayBatter(선수별 박스스코어 집계, hr/sb 숫자만)만 내려옴 — 실측 확인(2026-09-27,
+// 백필 컷오프 확장 후 MLB/NPB만 하이라이트가 0%로 계속 안 늘어서 조사). 인닝·상황 디테일은
+// 낼 수 없어 KBO와 같은 문구는 불가능하지만, 홈런/도루 집계라도 보여주기 위해 이미 팀별로
+// 분리된 이 필드로 대체 생성(사용자 승인, 2026-09-27 — "집계형 문구로 별도 구현").
+function parseBaseballHighlightsFromBoxscore(rd) {
+  const build = (arr) => {
+    const out = [];
+    for (const p of arr || []) {
+      const name = (p?.name || '').trim();
+      if (!name) continue;
+      if (p.hr > 0) out.push({ how: '홈런', text: `${name} ${p.hr}호` });
+      if (p.sb > 0) out.push({ how: '도루', text: `${name} ${p.sb}개` });
+    }
+    return out;
+  };
+  const home = build(rd?.homeBatter);
+  const away = build(rd?.awayBatter);
+  if (!home.length && !away.length) return undefined;
+  return { home, away };
+}
 function parseBaseballHighlights(rd) {
   const etcRecords = rd?.etcRecords;
-  if (!Array.isArray(etcRecords)) return undefined;
+  if (!Array.isArray(etcRecords)) return parseBaseballHighlightsFromBoxscore(rd);
   const homeNames = new Set([
     ...(rd?.battersBoxscore?.home || []).map((p) => p?.name).filter(Boolean),
     ...(rd?.pitchersBoxscore?.home || []).map((p) => p?.name).filter(Boolean),
