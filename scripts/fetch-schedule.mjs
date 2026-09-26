@@ -441,13 +441,50 @@ function sortGames(games) {
 // - KBO: pitchingResult 단일 배열, wls 영문코드('S').
 // - MLB/NPB: homePitcher/awayPitcher 배열 분리, wls 한글('세'). (실측 확인됨, 2026-09)
 // 세이브 없는 경기(대부분)·DRAW → null. name 은 성만 — schedule 투수명과 동일 표기.
-// etcRecords: [{result, how}] — 홈런/2루타/도루/실책/병살타/결승타 등 이미 정리된 하이라이트.
-// "심판"(그 경기 심판진 명단)만 실제 경기 하이라이트가 아니라서 제외.
-function parseBaseballHighlights(etcRecords) {
-  if (!Array.isArray(etcRecords)) return [];
-  return etcRecords
-    .filter((e) => e && e.how && e.how !== '심판' && (e.result || '').trim())
-    .map((e) => ({ how: e.how, text: e.result.trim() }));
+// etcRecords: [{result, how}] — 홈런/2루타/도루/실책/병살타/결승타 등 이미 정리된 하이라이트인데,
+// team 필드가 없어 양팀 선수가 한 문자열에 섞여 나옴(예: "박민우(1회) 한재환(3회)"가 실제론
+// 서로 다른 팀 선수). "심판"(그 경기 심판진 명단)만 실제 경기 하이라이트가 아니라서 제외.
+// 2026-09-26: 사용자 요청("축구처럼 팀 나누어서 표기해줘야해")으로 팀별 분리 추가 —
+// 같은 /record 응답의 battersBoxscore/pitchersBoxscore(홈/원정 로스터, 추가 요청 없음)에서
+// 이름 집합을 만들어 각 "이름(디테일)" 토큰을 로스터 매칭으로 홈/원정 귀속.
+function classifyHighlightSide(name, homeNames, awayNames) {
+  if (homeNames.has(name)) return 'home';
+  if (awayNames.has(name)) return 'away';
+  return null;
+}
+function parseBaseballHighlights(rd) {
+  const etcRecords = rd?.etcRecords;
+  if (!Array.isArray(etcRecords)) return undefined;
+  const homeNames = new Set([
+    ...(rd?.battersBoxscore?.home || []).map((p) => p?.name).filter(Boolean),
+    ...(rd?.pitchersBoxscore?.home || []).map((p) => p?.name).filter(Boolean),
+  ]);
+  const awayNames = new Set([
+    ...(rd?.battersBoxscore?.away || []).map((p) => p?.name).filter(Boolean),
+    ...(rd?.pitchersBoxscore?.away || []).map((p) => p?.name).filter(Boolean),
+  ]);
+  const home = [];
+  const away = [];
+  // "강백호33호(4회2점 구창모)"처럼 시즌 홈런 개수(숫자+호)가 이름에 바로 붙는 표기도 있어
+  // 이름 자체는 한글/영문만(숫자 제외)으로 잡고 그 뒤 숫자+호는 통째로 매치에 포함만 시킴.
+  const playerTokenRe = /([가-힣A-Za-z]+)(?:\d+호)?\(([^)]*)\)/g;
+  for (const e of etcRecords) {
+    if (!e || !e.how || e.how === '심판') continue;
+    const result = (e.result || '').trim();
+    if (!result) continue;
+    playerTokenRe.lastIndex = 0;
+    let m;
+    let matched = false;
+    while ((m = playerTokenRe.exec(result))) {
+      matched = true;
+      const side = classifyHighlightSide(m[1], homeNames, awayNames);
+      const entry = { how: e.how, text: m[0] };
+      if (side === 'home') home.push(entry);
+      else away.push(entry); // 로스터 매칭 실패(외국인 표기차 등)도 정보 유실 방지로 away 폴백.
+    }
+    if (!matched) away.push({ how: e.how, text: result }); // 파싱 실패 — 원문 그대로 폴백.
+  }
+  return { home, away };
 }
 
 async function fetchGameRecord(gameId) {
@@ -455,7 +492,7 @@ async function fetchGameRecord(gameId) {
   if (!res.ok) throw new Error(`HTTP ${res.status} record ${gameId}`);
   const json = await res.json();
   const rd = json?.result?.recordData;
-  if (!rd) return { save: null, highlights: [] };
+  if (!rd) return { save: null, highlights: undefined };
   let save = null;
   if (Array.isArray(rd.pitchingResult)) {
     const sv = rd.pitchingResult.find((p) => p && p.wls === 'S');
@@ -471,7 +508,7 @@ async function fetchGameRecord(gameId) {
       }
     }
   }
-  return { save, highlights: parseBaseballHighlights(rd.etcRecords) };
+  return { save, highlights: parseBaseballHighlights(rd) };
 }
 // 하이라이트(홈런 등)는 새 필드라 옛 캐시(saves.json, 지금까지는 savePitcher 문자열만 저장)엔
 // 당연히 없음 — 사용자 지시대로 전체 백필은 안 하고 최근 3일 경기만 다시 조회해서 채움
@@ -507,7 +544,11 @@ async function enrichSaves(allGames) {
     const cached = cache[g.gameId];
     // 옛 캐시는 savePitcher 문자열(또는 null) 그대로 — {save, highlights} 새 포맷과 구분.
     const isNewFormat = cached && typeof cached === 'object';
-    const needsHighlightRefetch = g.date >= highlightCutoff && !(isNewFormat && Array.isArray(cached.highlights));
+    // highlights 옛 포맷은 평면 배열(팀 구분 없음), 새 포맷은 {home,away} 객체(2026-09-26,
+    // "축구처럼 팀 나누어" 요청으로 분리) — 배열이면 아직 안 갈라진 옛 캐시로 간주해 재조회.
+    const isSplitHighlightFormat =
+      isNewFormat && cached.highlights && typeof cached.highlights === 'object' && !Array.isArray(cached.highlights);
+    const needsHighlightRefetch = g.date >= highlightCutoff && !isSplitHighlightFormat;
     if (cached === undefined || needsHighlightRefetch) {
       try {
         await sleep(REQUEST_DELAY_MS);
@@ -528,7 +569,9 @@ async function enrichSaves(allGames) {
         g.savePitcher = rec; // 옛 포맷
       } else {
         if (rec.save) g.savePitcher = rec.save;
-        if (Array.isArray(rec.highlights) && rec.highlights.length) g.highlights = rec.highlights;
+        if (rec.highlights && ((rec.highlights.home && rec.highlights.home.length) || (rec.highlights.away && rec.highlights.away.length))) {
+          g.highlights = rec.highlights;
+        }
       }
     }
   }
