@@ -25557,6 +25557,33 @@
   {
     "date": "2026-03-04",
     "time": "19:00",
+    "league": "ACL",
+    "venueId": "seoulwc",
+    "home": "서울",
+    "away": "비셀 고베",
+    "stadium": "서울월드컵경기장",
+    "timeTbd": false,
+    "gameId": "U8avFl0tEXRq1RV",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "마테우스 툴레르",
+          "m": 23
+        }
+      ]
+    },
+    "phaseCode": "T16",
+    "leg": 1,
+    "homeAggregateScore": 1,
+    "awayAggregateScore": 3
+  },
+  {
+    "date": "2026-03-04",
+    "time": "19:00",
     "league": "ACL2",
     "venueId": "panasonic_stadium_suita",
     "home": "감바 오사카",
@@ -25585,33 +25612,6 @@
     "leg": 1,
     "homeAggregateScore": 3,
     "awayAggregateScore": 2
-  },
-  {
-    "date": "2026-03-04",
-    "time": "19:00",
-    "league": "ACL",
-    "venueId": "seoulwc",
-    "home": "서울",
-    "away": "비셀 고베",
-    "stadium": "서울월드컵경기장",
-    "timeTbd": false,
-    "gameId": "U8avFl0tEXRq1RV",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 0,
-    "scorers": {
-      "home": [],
-      "away": [
-        {
-          "n": "마테우스 툴레르",
-          "m": 23
-        }
-      ]
-    },
-    "phaseCode": "T16",
-    "leg": 1,
-    "homeAggregateScore": 1,
-    "awayAggregateScore": 3
   },
   {
     "date": "2026-03-04",
@@ -91281,46 +91281,6 @@
     "time": "16:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
-    "home": "대한민국",
-    "away": "필리핀",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
-    "timeTbd": false,
-    "gameId": "INfbBvjkK2ARSQU",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 5,
-    "scorers": {
-      "home": [
-        {
-          "n": "백서영",
-          "m": 6
-        },
-        {
-          "n": "백서영",
-          "m": 14
-        },
-        {
-          "n": "백서영",
-          "m": 34
-        },
-        {
-          "n": "백서영",
-          "m": 55
-        },
-        {
-          "n": "김희나",
-          "m": 67
-        }
-      ],
-      "away": []
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-02",
-    "time": "16:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
     "home": "일본",
     "away": "레바논",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
@@ -91383,6 +91343,46 @@
         {
           "n": "나나미",
           "m": 80
+        }
+      ],
+      "away": []
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-02",
+    "time": "16:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
+    "home": "대한민국",
+    "away": "필리핀",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
+    "timeTbd": false,
+    "gameId": "INfbBvjkK2ARSQU",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 5,
+    "scorers": {
+      "home": [
+        {
+          "n": "백서영",
+          "m": 6
+        },
+        {
+          "n": "백서영",
+          "m": 14
+        },
+        {
+          "n": "백서영",
+          "m": 34
+        },
+        {
+          "n": "백서영",
+          "m": 55
+        },
+        {
+          "n": "김희나",
+          "m": 67
         }
       ],
       "away": []
@@ -92109,6 +92109,35 @@
     "time": "20:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
+    "home": "호주",
+    "away": "인도",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
+    "timeTbd": false,
+    "gameId": "fS1J3kxSwziVvHl",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "무이티스",
+          "m": 25
+        },
+        {
+          "n": "바스넷",
+          "m": 59,
+          "og": true
+        }
+      ],
+      "away": []
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-02",
+    "time": "20:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
     "home": "북한",
     "away": "차이니스 타이베이",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
@@ -92158,35 +92187,6 @@
         {
           "n": "유종향",
           "m": 90
-        }
-      ],
-      "away": []
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-02",
-    "time": "20:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
-    "home": "호주",
-    "away": "인도",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
-    "timeTbd": false,
-    "gameId": "fS1J3kxSwziVvHl",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "무이티스",
-          "m": 25
-        },
-        {
-          "n": "바스넷",
-          "m": 59,
-          "og": true
         }
       ],
       "away": []
@@ -97849,38 +97849,6 @@
     "time": "20:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
-    "home": "인도",
-    "away": "일본",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
-    "timeTbd": false,
-    "gameId": "SyGtvWeiJaOs0ZA",
-    "status": "completed",
-    "awayScore": 3,
-    "homeScore": 0,
-    "scorers": {
-      "home": [],
-      "away": [
-        {
-          "n": "하야시",
-          "m": 59
-        },
-        {
-          "n": "이케다",
-          "m": 76
-        },
-        {
-          "n": "이케다",
-          "m": 81
-        }
-      ]
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-05",
-    "time": "20:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
     "home": "필리핀",
     "away": "북한",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
@@ -97923,6 +97891,38 @@
         {
           "n": "송원용",
           "m": 85
+        }
+      ]
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-05",
+    "time": "20:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
+    "home": "인도",
+    "away": "일본",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
+    "timeTbd": false,
+    "gameId": "SyGtvWeiJaOs0ZA",
+    "status": "completed",
+    "awayScore": 3,
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "하야시",
+          "m": 59
+        },
+        {
+          "n": "이케다",
+          "m": 76
+        },
+        {
+          "n": "이케다",
+          "m": 81
         }
       ]
     },
@@ -100561,6 +100561,21 @@
     "time": "20:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
+    "home": "필리핀",
+    "away": "차이니스 타이베이",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
+    "timeTbd": false,
+    "gameId": "iI57xIcnv4pTYV5",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 0,
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-08",
+    "time": "20:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
     "home": "북한",
     "away": "대한민국",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
@@ -100586,21 +100601,6 @@
       ],
       "away": []
     },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-08",
-    "time": "20:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
-    "home": "필리핀",
-    "away": "차이니스 타이베이",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
-    "timeTbd": false,
-    "gameId": "iI57xIcnv4pTYV5",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 0,
     "phaseCode": "GROUP"
   },
   {
@@ -107398,6 +107398,34 @@
     "time": "01:00",
     "league": "U17ASIANCUP",
     "venueId": "king_abdullah_sports_city",
+    "home": "중국",
+    "away": "카타르",
+    "stadium": "킹 압둘라 스포츠 시티 피치 퓨처 C",
+    "timeTbd": false,
+    "gameId": "OW7BBRLBR5Yg9Mi",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "하시판",
+          "m": 14
+        },
+        {
+          "n": "장 보린",
+          "m": 71
+        }
+      ],
+      "away": []
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-13",
+    "time": "01:00",
+    "league": "U17ASIANCUP",
+    "venueId": "king_abdullah_sports_city",
     "home": "일본",
     "away": "인도네시아",
     "stadium": "킹 압둘라 스포츠 시티 피치 스타스 A",
@@ -107427,34 +107455,6 @@
           "m": 70
         }
       ]
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-13",
-    "time": "01:00",
-    "league": "U17ASIANCUP",
-    "venueId": "king_abdullah_sports_city",
-    "home": "중국",
-    "away": "카타르",
-    "stadium": "킹 압둘라 스포츠 시티 피치 퓨처 C",
-    "timeTbd": false,
-    "gameId": "OW7BBRLBR5Yg9Mi",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "하시판",
-          "m": 14
-        },
-        {
-          "n": "장 보린",
-          "m": 71
-        }
-      ],
-      "away": []
     },
     "phaseCode": "GROUP"
   },
@@ -234993,6 +234993,113 @@
   {
     "date": "2026-09-09",
     "time": "03:45",
+    "league": "EFL",
+    "venueId": "southampton_st_marys",
+    "home": "사우샘프턴",
+    "away": "스완지",
+    "stadium": "세인트 메리스 스타디움",
+    "timeTbd": false,
+    "gameId": "YEzthB2I7ULBOnY",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "아자즈",
+          "m": 9
+        },
+        {
+          "n": "래린",
+          "m": 33
+        },
+        {
+          "n": "레오 시엔자",
+          "m": 78
+        }
+      ],
+      "away": [
+        {
+          "n": "비포트니크",
+          "m": 52
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-09",
+    "time": "03:45",
+    "league": "EFL",
+    "venueId": "watford_vicarage_road",
+    "home": "왓퍼드",
+    "away": "프레스턴",
+    "stadium": "비커리지 로드",
+    "timeTbd": false,
+    "gameId": "2n8KOshcekINj3A",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "에도 카옘베",
+          "m": 69,
+          "nat": "Congo DR"
+        },
+        {
+          "n": "둠비아",
+          "m": 76,
+          "a": "Iker Bravo",
+          "nat": "Mali",
+          "aNat": "Spain"
+        }
+      ],
+      "away": [
+        {
+          "n": "랭",
+          "m": 5,
+          "nat": "England"
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-09",
+    "time": "03:45",
+    "league": "EFL",
+    "venueId": "wrexham_racecourse_ground",
+    "home": "렉섬",
+    "away": "번리",
+    "stadium": "레이스코스 그라운드",
+    "timeTbd": false,
+    "gameId": "8059agG5ekMqb6q",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "에코미에",
+          "m": 55,
+          "a": "Chris Willock",
+          "nat": "Wales",
+          "aNat": "England"
+        }
+      ],
+      "away": [
+        {
+          "n": "암두니",
+          "m": 26,
+          "a": "Róbert Bozeník",
+          "nat": "England",
+          "aNat": "Slovakia"
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-09",
+    "time": "03:45",
     "league": "EFLCUP",
     "venueId": "bournemouth_dean_court",
     "home": "본머스",
@@ -235119,113 +235226,6 @@
       "away": []
     },
     "phaseCode": "T32"
-  },
-  {
-    "date": "2026-09-09",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "southampton_st_marys",
-    "home": "사우샘프턴",
-    "away": "스완지",
-    "stadium": "세인트 메리스 스타디움",
-    "timeTbd": false,
-    "gameId": "YEzthB2I7ULBOnY",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 3,
-    "scorers": {
-      "home": [
-        {
-          "n": "아자즈",
-          "m": 9
-        },
-        {
-          "n": "래린",
-          "m": 33
-        },
-        {
-          "n": "레오 시엔자",
-          "m": 78
-        }
-      ],
-      "away": [
-        {
-          "n": "비포트니크",
-          "m": 52
-        }
-      ]
-    }
-  },
-  {
-    "date": "2026-09-09",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "watford_vicarage_road",
-    "home": "왓퍼드",
-    "away": "프레스턴",
-    "stadium": "비커리지 로드",
-    "timeTbd": false,
-    "gameId": "2n8KOshcekINj3A",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "에도 카옘베",
-          "m": 69,
-          "nat": "Congo DR"
-        },
-        {
-          "n": "둠비아",
-          "m": 76,
-          "a": "Iker Bravo",
-          "nat": "Mali",
-          "aNat": "Spain"
-        }
-      ],
-      "away": [
-        {
-          "n": "랭",
-          "m": 5,
-          "nat": "England"
-        }
-      ]
-    }
-  },
-  {
-    "date": "2026-09-09",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "wrexham_racecourse_ground",
-    "home": "렉섬",
-    "away": "번리",
-    "stadium": "레이스코스 그라운드",
-    "timeTbd": false,
-    "gameId": "8059agG5ekMqb6q",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 1,
-    "scorers": {
-      "home": [
-        {
-          "n": "에코미에",
-          "m": 55,
-          "a": "Chris Willock",
-          "nat": "Wales",
-          "aNat": "England"
-        }
-      ],
-      "away": [
-        {
-          "n": "암두니",
-          "m": 26,
-          "a": "Róbert Bozeník",
-          "nat": "England",
-          "aNat": "Slovakia"
-        }
-      ]
-    }
   },
   {
     "date": "2026-09-09",
@@ -253654,47 +253654,6 @@
   {
     "date": "2026-09-16",
     "time": "03:45",
-    "league": "EFLCUP",
-    "venueId": "westham_london_stadium",
-    "home": "웨스트햄",
-    "away": "풀럼",
-    "stadium": "런던 스타디움",
-    "timeTbd": false,
-    "gameId": "BEYKs4U9wOfqzBu",
-    "status": "completed",
-    "awayScore": 3,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "모라토",
-          "m": 16
-        },
-        {
-          "n": "파블로",
-          "m": 45
-        }
-      ],
-      "away": [
-        {
-          "n": "호드리구 무니스",
-          "m": 13
-        },
-        {
-          "n": "팔라시오스 페레스",
-          "m": 37
-        },
-        {
-          "n": "보브",
-          "m": 78
-        }
-      ]
-    },
-    "phaseCode": "T32"
-  },
-  {
-    "date": "2026-09-16",
-    "time": "03:45",
     "league": "EFL",
     "venueId": "middlesbrough_riverside",
     "home": "미들즈브러",
@@ -253737,6 +253696,47 @@
         }
       ]
     }
+  },
+  {
+    "date": "2026-09-16",
+    "time": "03:45",
+    "league": "EFLCUP",
+    "venueId": "westham_london_stadium",
+    "home": "웨스트햄",
+    "away": "풀럼",
+    "stadium": "런던 스타디움",
+    "timeTbd": false,
+    "gameId": "BEYKs4U9wOfqzBu",
+    "status": "completed",
+    "awayScore": 3,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "모라토",
+          "m": 16
+        },
+        {
+          "n": "파블로",
+          "m": 45
+        }
+      ],
+      "away": [
+        {
+          "n": "호드리구 무니스",
+          "m": 13
+        },
+        {
+          "n": "팔라시오스 페레스",
+          "m": 37
+        },
+        {
+          "n": "보브",
+          "m": 78
+        }
+      ]
+    },
+    "phaseCode": "T32"
   },
   {
     "date": "2026-09-16",
@@ -254836,30 +254836,6 @@
   {
     "date": "2026-09-16",
     "time": "19:00",
-    "league": "ACL2",
-    "venueId": "seoulwc",
-    "home": "서울",
-    "away": "반둥",
-    "stadium": "서울월드컵경기장",
-    "timeTbd": false,
-    "gameId": "2idpicTW6SmPYVP",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 0,
-    "scorers": {
-      "home": [],
-      "away": [
-        {
-          "n": "훌리오 세자르",
-          "m": 5
-        }
-      ]
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-09-16",
-    "time": "19:00",
     "league": "ACL",
     "venueId": "jeonju",
     "home": "전북",
@@ -254885,6 +254861,30 @@
         {
           "n": "유바",
           "m": 30
+        }
+      ]
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-09-16",
+    "time": "19:00",
+    "league": "ACL2",
+    "venueId": "seoulwc",
+    "home": "서울",
+    "away": "반둥",
+    "stadium": "서울월드컵경기장",
+    "timeTbd": false,
+    "gameId": "2idpicTW6SmPYVP",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "훌리오 세자르",
+          "m": 5
         }
       ]
     },
@@ -254921,35 +254921,6 @@
   {
     "date": "2026-09-16",
     "time": "21:15",
-    "league": "ACL2",
-    "venueId": "cahn_hang_day",
-    "home": "비에트텔",
-    "away": "멜버른 FC",
-    "stadium": "선번동 항더이 (항더이 스타디움)",
-    "timeTbd": false,
-    "gameId": "gqA22tVR2bUJFof",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 1,
-    "scorers": {
-      "home": [
-        {
-          "n": "리바마르",
-          "m": 62
-        }
-      ],
-      "away": [
-        {
-          "n": "클라리스마리우 호드리게스",
-          "m": 58
-        }
-      ]
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-09-16",
-    "time": "21:15",
     "league": "ACL",
     "venueId": "port_fc_thammasat",
     "home": "포트",
@@ -254976,6 +254947,35 @@
         {
           "n": "무토",
           "m": 61
+        }
+      ]
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-09-16",
+    "time": "21:15",
+    "league": "ACL2",
+    "venueId": "cahn_hang_day",
+    "home": "비에트텔",
+    "away": "멜버른 FC",
+    "stadium": "선번동 항더이 (항더이 스타디움)",
+    "timeTbd": false,
+    "gameId": "gqA22tVR2bUJFof",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "리바마르",
+          "m": 62
+        }
+      ],
+      "away": [
+        {
+          "n": "클라리스마리우 호드리게스",
+          "m": 58
         }
       ]
     },
@@ -272815,7 +272815,8 @@
     "gameId": "ASIANGAMESBASEBALL_AG2026_M.TEAM9-------------.SF5-.000100--",
     "status": "completed",
     "homeScore": 18,
-    "awayScore": 7
+    "awayScore": 7,
+    "phaseCode": "T4"
   },
   {
     "date": "2026-09-25",
@@ -272829,7 +272830,8 @@
     "gameId": "ASIANGAMESBASEBALL_AG2026_M.TEAM9-------------.SF5-.000200--",
     "status": "completed",
     "homeScore": 7,
-    "awayScore": 2
+    "awayScore": 2,
+    "phaseCode": "T4"
   },
   {
     "date": "2026-09-25",
@@ -272843,7 +272845,8 @@
     "gameId": "ASIANGAMESFOOTBALL_AG2026_M.TEAM11------------.QFNL.000300--",
     "status": "completed",
     "homeScore": 3,
-    "awayScore": 0
+    "awayScore": 0,
+    "phaseCode": "T8"
   },
   {
     "date": "2026-09-25",
@@ -272857,7 +272860,8 @@
     "gameId": "ASIANGAMESFOOTBALL_AG2026_W.TEAM11------------.QFNL.000200--",
     "status": "completed",
     "homeScore": 1,
-    "awayScore": 0
+    "awayScore": 0,
+    "phaseCode": "T8"
   },
   {
     "date": "2026-09-25",
@@ -272871,7 +272875,8 @@
     "gameId": "ASIANGAMESFOOTBALL_AG2026_W.TEAM11------------.QFNL.000100--",
     "status": "completed",
     "homeScore": 5,
-    "awayScore": 1
+    "awayScore": 1,
+    "phaseCode": "T8"
   },
   {
     "date": "2026-09-25",
@@ -272883,12 +272888,14 @@
     "stadium": "창원",
     "timeTbd": false,
     "gameId": "20260925HHNC02026",
-    "status": "live",
+    "status": "completed",
     "awayPitcher": "화이트",
     "homePitcher": "구창모",
-    "awayScore": 2,
+    "awayScore": 7,
     "homeScore": 8,
-    "inningInfo": "4회초"
+    "winPitcher": "구창모",
+    "losePitcher": "화이트",
+    "savePitcher": "신영우"
   },
   {
     "date": "2026-09-25",
@@ -272928,12 +272935,13 @@
     "stadium": "베루나 돔",
     "timeTbd": false,
     "gameId": "20260925JLSE0",
-    "status": "live",
+    "status": "completed",
     "awayPitcher": "다나카",
     "homePitcher": "다카하시",
-    "awayScore": 0,
-    "homeScore": 0,
-    "inningInfo": "2회초"
+    "awayScore": 6,
+    "homeScore": 2,
+    "winPitcher": "나카모리",
+    "losePitcher": "모리와키"
   },
   {
     "date": "2026-09-25",
@@ -272945,12 +272953,14 @@
     "stadium": "메이지 진구 구장",
     "timeTbd": false,
     "gameId": "20260925JNYA0",
-    "status": "live",
+    "status": "completed",
     "awayPitcher": "카네마루",
     "homePitcher": "야마노",
-    "awayScore": 2,
-    "homeScore": 0,
-    "inningInfo": "1회말"
+    "awayScore": 4,
+    "homeScore": 5,
+    "winPitcher": "야마노",
+    "losePitcher": "카네마루",
+    "savePitcher": "월터스"
   },
   {
     "date": "2026-09-25",
@@ -272962,12 +272972,13 @@
     "stadium": "교세라 돔 오사카",
     "timeTbd": false,
     "gameId": "20260925SFOX0",
-    "status": "live",
+    "status": "completed",
     "awayPitcher": "마츠모토",
     "homePitcher": "천무헝",
-    "awayScore": 2,
+    "awayScore": 9,
     "homeScore": 0,
-    "inningInfo": "1회초"
+    "winPitcher": "마츠모토",
+    "losePitcher": "천무헝"
   },
   {
     "date": "2026-09-25",
@@ -272979,12 +272990,14 @@
     "stadium": "마쓰다 줌줌 스타디움 히로시마",
     "timeTbd": false,
     "gameId": "20260925YOHI0",
-    "status": "live",
+    "status": "completed",
     "awayPitcher": "이노우에",
     "homePitcher": "아카기",
-    "awayScore": 0,
-    "homeScore": 0,
-    "inningInfo": "1회말"
+    "awayScore": 2,
+    "homeScore": 3,
+    "winPitcher": "쇼헤이",
+    "losePitcher": "이노우에",
+    "savePitcher": "모리우라"
   },
   {
     "date": "2026-09-25",
@@ -272996,12 +273009,14 @@
     "stadium": "요코하마 스타디움",
     "timeTbd": false,
     "gameId": "20260925HSYK0",
-    "status": "live",
+    "status": "completed",
     "awayPitcher": "무라카미",
     "homePitcher": "이시다",
-    "awayScore": 0,
-    "homeScore": 0,
-    "inningInfo": "1회말"
+    "awayScore": 1,
+    "homeScore": 2,
+    "winPitcher": "하마치",
+    "losePitcher": "이시이",
+    "savePitcher": "레이놀즈"
   },
   {
     "date": "2026-09-25",
@@ -273013,7 +273028,10 @@
     "stadium": "Okazaki Chuo Sogo Park Baseball Stadium",
     "timeTbd": false,
     "gameId": "ASIANGAMESBASEBALL_AG2026_M.TEAM9-------------.SFNL.000100--",
-    "status": "scheduled"
+    "status": "completed",
+    "phaseCode": "T4",
+    "homeScore": 9,
+    "awayScore": 1
   },
   {
     "date": "2026-09-25",
@@ -273025,7 +273043,10 @@
     "stadium": "Toyohashi Municipal Baseball Stadium",
     "timeTbd": false,
     "gameId": "ASIANGAMESBASEBALL_AG2026_M.TEAM9-------------.SFNL.000200--",
-    "status": "scheduled"
+    "status": "completed",
+    "phaseCode": "T4",
+    "homeScore": 0,
+    "awayScore": 5
   },
   {
     "date": "2026-09-25",
@@ -273037,7 +273058,23 @@
     "stadium": "퀸즐랜드 컨트리 뱅크 스타디움",
     "timeTbd": false,
     "gameId": "cvSc6mRGYUR64xi",
-    "status": "scheduled"
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "이란쿤다",
+          "m": 68
+        }
+      ],
+      "away": [
+        {
+          "n": "하양",
+          "m": 90
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-25",
@@ -273049,7 +273086,10 @@
     "stadium": "Nagai Stadium",
     "timeTbd": false,
     "gameId": "ASIANGAMESFOOTBALL_AG2026_W.TEAM11------------.QFNL.000400--",
-    "status": "scheduled"
+    "status": "completed",
+    "phaseCode": "T8",
+    "homeScore": 6,
+    "awayScore": 3
   },
   {
     "date": "2026-09-25",
@@ -273061,7 +273101,10 @@
     "stadium": "Nagoya City Mizuho Park Rugby Field",
     "timeTbd": false,
     "gameId": "ASIANGAMESFOOTBALL_AG2026_M.TEAM11------------.QFNL.000100--",
-    "status": "scheduled"
+    "status": "completed",
+    "phaseCode": "T8",
+    "homeScore": 4,
+    "awayScore": 0
   },
   {
     "date": "2026-09-25",
@@ -273073,7 +273116,10 @@
     "stadium": "Shizuoka Stadium Ecopa",
     "timeTbd": false,
     "gameId": "ASIANGAMESFOOTBALL_AG2026_W.TEAM11------------.QFNL.000300--",
-    "status": "scheduled"
+    "status": "completed",
+    "phaseCode": "T8",
+    "homeScore": 4,
+    "awayScore": 0
   },
   {
     "date": "2026-09-25",
@@ -273085,7 +273131,23 @@
     "stadium": "스리 칸티라바 스타디움",
     "timeTbd": false,
     "gameId": "eOc76zkuNvhWu2Y",
-    "status": "scheduled"
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "윌리엄스",
+          "m": 41
+        }
+      ],
+      "away": [
+        {
+          "n": "발렌시아",
+          "m": 68
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-26",
@@ -273097,7 +273159,10 @@
     "stadium": "Estadio Beto Ávila",
     "timeTbd": false,
     "gameId": "U15BASEBALLWORLDCUP_WBSC_203819",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 9,
+    "awayScore": 0,
+    "inningInfo": "7회초"
   },
   {
     "date": "2026-09-26",
@@ -273109,7 +273174,18 @@
     "stadium": "보리스 파이차제 디나모 아레나",
     "timeTbd": false,
     "gameId": "j4dd5rtt2ijPu6X",
-    "status": "scheduled",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "찰스",
+          "m": 90
+        }
+      ]
+    },
     "phaseCode": "NLB"
   },
   {
@@ -273122,7 +273198,22 @@
     "stadium": "바즈젠 사르키샨 마르자다쉬트",
     "timeTbd": false,
     "gameId": "hjmwyM2G0TWSuyc",
-    "status": "scheduled",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "하루티운얀",
+          "m": 31
+        },
+        {
+          "n": "가리비얀",
+          "m": 75
+        }
+      ],
+      "away": []
+    },
     "phaseCode": "NLC"
   },
   {
@@ -273135,7 +273226,10 @@
     "stadium": "Parque Kukulcán Alamo",
     "timeTbd": false,
     "gameId": "U15BASEBALLWORLDCUP_WBSC_203818",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 0,
+    "awayScore": 16,
+    "inningInfo": "4회초"
   },
   {
     "date": "2026-09-26",
@@ -273147,10 +273241,15 @@
     "stadium": "펜웨이 파크",
     "timeTbd": false,
     "gameId": "20260926CCBO1",
-    "status": "scheduled",
+    "status": "completed",
     "doubleheaderNum": 1,
     "awayPitcher": "클레이 홈스",
-    "homePitcher": "알렉 감보아"
+    "homePitcher": "알렉 감보아",
+    "awayScore": 3,
+    "homeScore": 4,
+    "winPitcher": "위저트",
+    "losePitcher": "시베일",
+    "savePitcher": "부르고스"
   },
   {
     "date": "2026-09-26",
@@ -273162,7 +273261,27 @@
     "stadium": "프렌즈 아레나",
     "timeTbd": false,
     "gameId": "ZjVkdkx5m1so5Dd",
-    "status": "scheduled",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "이삭",
+          "m": 20
+        },
+        {
+          "n": "요케레스",
+          "m": 43
+        }
+      ],
+      "away": [
+        {
+          "n": "맨",
+          "m": 29
+        }
+      ]
+    },
     "phaseCode": "NLB"
   },
   {
@@ -273175,7 +273294,18 @@
     "stadium": "투르카 아락 무아이네 코자엘리 스타디움",
     "timeTbd": false,
     "gameId": "wFkw3svA3WsxQ13",
-    "status": "scheduled",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "음바페",
+          "m": 54
+        }
+      ]
+    },
     "phaseCode": "NLA"
   },
   {
@@ -273188,7 +273318,9 @@
     "stadium": "바르샤바 국립경기장",
     "timeTbd": false,
     "gameId": "mEUYRGm8W3arfw6",
-    "status": "scheduled",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 0,
     "phaseCode": "NLB"
   },
   {
@@ -273201,7 +273333,18 @@
     "stadium": "푸슈카시 아레나",
     "timeTbd": false,
     "gameId": "RoFi6LKDvWaxA9D",
-    "status": "scheduled",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "시칸",
+          "m": 42
+        }
+      ]
+    },
     "phaseCode": "NLB"
   },
   {
@@ -273214,7 +273357,22 @@
     "stadium": "스타디오 올림피코",
     "timeTbd": false,
     "gameId": "OchtE6YpN0wuLZz",
-    "status": "scheduled",
+    "status": "completed",
+    "awayScore": 2,
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "고츠",
+          "m": 20
+        },
+        {
+          "n": "루케바키오",
+          "m": 69
+        }
+      ]
+    },
     "phaseCode": "NLA"
   },
   {
@@ -273227,8 +273385,52 @@
     "stadium": "스타디온 포드 고리콤",
     "timeTbd": false,
     "gameId": "QDX00bF24uUzzwK",
-    "status": "scheduled",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "크르스토비치",
+          "m": 66
+        },
+        {
+          "n": "오스마이치",
+          "m": 86
+        }
+      ],
+      "away": [
+        {
+          "n": "에드워즈",
+          "m": 55
+        }
+      ]
+    },
     "phaseCode": "NLC"
+  },
+  {
+    "date": "2026-09-26",
+    "time": "04:30",
+    "league": "PARAGUAY",
+    "venueId": "estadio_salinas_tanasio",
+    "home": "스포르티보 루케뇨",
+    "away": "과라니",
+    "stadium": "Estadio Luis Alberto Salinas Tanasio",
+    "timeTbd": false,
+    "gameId": "PARAGUAY_ESPN_401888591",
+    "status": "completed",
+    "homeScore": 0,
+    "awayScore": 1,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "Fernando Fernández",
+          "m": 87,
+          "nat": "Paraguay"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-26",
@@ -273240,7 +273442,10 @@
     "stadium": "Estadio Beto Ávila",
     "timeTbd": false,
     "gameId": "U15BASEBALLWORLDCUP_WBSC_203822",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 9,
+    "awayScore": 2,
+    "inningInfo": "4회말"
   },
   {
     "date": "2026-09-26",
@@ -273252,10 +273457,14 @@
     "stadium": "양키 스타디움",
     "timeTbd": false,
     "gameId": "20260926BANY1",
-    "status": "scheduled",
+    "status": "completed",
     "doubleheaderNum": 1,
     "awayPitcher": "트레버 로저스",
-    "homePitcher": "브렌던 벡"
+    "homePitcher": "브렌던 벡",
+    "awayScore": 10,
+    "homeScore": 2,
+    "winPitcher": "수아레즈",
+    "losePitcher": "벡"
   },
   {
     "date": "2026-09-26",
@@ -273267,11 +273476,14 @@
     "stadium": "Parque Kukulcán Alamo",
     "timeTbd": false,
     "gameId": "U15BASEBALLWORLDCUP_WBSC_203821",
-    "status": "scheduled"
+    "status": "live",
+    "homeScore": 8,
+    "awayScore": 4,
+    "inningInfo": "4회말"
   },
   {
     "date": "2026-09-26",
-    "time": "07:05",
+    "time": "06:35",
     "league": "MLB",
     "venueId": "fenway_park",
     "home": "보스턴",
@@ -273279,10 +273491,44 @@
     "stadium": "펜웨이 파크",
     "timeTbd": false,
     "gameId": "20260926CCBO2",
-    "status": "scheduled",
+    "status": "completed",
     "doubleheaderNum": 2,
     "awayPitcher": "데이빗 피터슨",
-    "homePitcher": "브라이언 벨로"
+    "homePitcher": "브라이언 벨로",
+    "awayScore": 0,
+    "homeScore": 2,
+    "winPitcher": "파에즈",
+    "losePitcher": "아사드"
+  },
+  {
+    "date": "2026-09-26",
+    "time": "07:00",
+    "league": "PARAGUAY",
+    "venueId": "estadio_arsenio_erico",
+    "home": "나시오날 아순시온",
+    "away": "스포르티보 아멜리아노",
+    "stadium": "Estadio Arsenio Erico",
+    "timeTbd": false,
+    "gameId": "PARAGUAY_ESPN_401888588",
+    "status": "completed",
+    "homeScore": 1,
+    "awayScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "Rodrigo Melgarejo",
+          "m": 12,
+          "nat": "Paraguay"
+        }
+      ],
+      "away": [
+        {
+          "n": "Ronald Peralta",
+          "m": 58,
+          "nat": "Paraguay"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-26",
@@ -273294,9 +273540,12 @@
     "stadium": "시티즌스 뱅크 파크",
     "timeTbd": false,
     "gameId": "20260926TBPH0",
-    "status": "scheduled",
+    "status": "live",
     "awayPitcher": "프레디 페랄타",
-    "homePitcher": "크리스토퍼 산체스"
+    "homePitcher": "크리스토퍼 산체스",
+    "awayScore": 2,
+    "homeScore": 0,
+    "inningInfo": "9회초"
   },
   {
     "date": "2026-09-26",
@@ -273308,9 +273557,12 @@
     "stadium": "코메리카 파크",
     "timeTbd": false,
     "gameId": "20260926PIDE0",
-    "status": "scheduled",
+    "status": "live",
     "awayPitcher": "버바 챈들러",
-    "homePitcher": "잭슨 조브"
+    "homePitcher": "잭슨 조브",
+    "awayScore": 2,
+    "homeScore": 6,
+    "inningInfo": "6회말"
   },
   {
     "date": "2026-09-26",
@@ -273322,8 +273574,12 @@
     "stadium": "내셔널스 파크",
     "timeTbd": false,
     "gameId": "20260926NMMO0",
-    "status": "scheduled",
-    "homePitcher": "앤드류 알바레즈"
+    "status": "live",
+    "awayPitcher": "제프리 얀",
+    "homePitcher": "앤드류 알바레즈",
+    "awayScore": 5,
+    "homeScore": 6,
+    "inningInfo": "7회초"
   },
   {
     "date": "2026-09-26",
@@ -273335,9 +273591,12 @@
     "stadium": "로저스 센터",
     "timeTbd": false,
     "gameId": "20260926CITO0",
-    "status": "scheduled",
+    "status": "live",
     "awayPitcher": "닉 로돌로",
-    "homePitcher": "호세 소리아노"
+    "homePitcher": "호세 소리아노",
+    "awayScore": 5,
+    "homeScore": 2,
+    "inningInfo": "7회초"
   },
   {
     "date": "2026-09-26",
@@ -273349,7 +273608,28 @@
     "stadium": "La Independencia",
     "timeTbd": false,
     "gameId": "COLOMBIA_ESPN_401878068",
-    "status": "scheduled"
+    "status": "completed",
+    "homeScore": 3,
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "Yesus Cabrera",
+          "m": 68,
+          "nat": "Colombia"
+        },
+        {
+          "n": "Estiven Sarria",
+          "m": 70,
+          "nat": "Colombia"
+        },
+        {
+          "n": "Alejandro Maya Giraldo",
+          "m": 86
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-09-26",
@@ -273361,8 +273641,12 @@
     "stadium": "론디포 파크",
     "timeTbd": false,
     "gameId": "20260926ATFL0",
-    "status": "scheduled",
-    "homePitcher": "유리 페레즈"
+    "status": "live",
+    "awayPitcher": "레이 커",
+    "homePitcher": "유리 페레즈",
+    "awayScore": 0,
+    "homeScore": 2,
+    "inningInfo": "8회말"
   },
   {
     "date": "2026-09-26",
@@ -273374,7 +273658,10 @@
     "stadium": "Estadio Beto Ávila",
     "timeTbd": false,
     "gameId": "U15BASEBALLWORLDCUP_WBSC_203825",
-    "status": "scheduled"
+    "status": "live",
+    "homeScore": 1,
+    "awayScore": 0,
+    "inningInfo": "1회말"
   },
   {
     "date": "2026-09-26",
@@ -273386,9 +273673,13 @@
     "stadium": "양키 스타디움",
     "timeTbd": false,
     "gameId": "20260926BANY2",
-    "status": "scheduled",
+    "status": "live",
     "doubleheaderNum": 2,
-    "awayPitcher": "브랜든 영"
+    "awayPitcher": "브랜든 영",
+    "homePitcher": "라이언 야브로",
+    "awayScore": 0,
+    "homeScore": 1,
+    "inningInfo": "6회초"
   },
   {
     "date": "2026-09-26",
@@ -273400,9 +273691,12 @@
     "stadium": "아메리칸 패밀리 필드",
     "timeTbd": false,
     "gameId": "20260926SLMI0",
-    "status": "scheduled",
+    "status": "live",
     "awayPitcher": "마이클 맥그리비",
-    "homePitcher": "로버트 개서"
+    "homePitcher": "로버트 개서",
+    "awayScore": 1,
+    "homeScore": 2,
+    "inningInfo": "5회말"
   },
   {
     "date": "2026-09-26",
@@ -273414,9 +273708,12 @@
     "stadium": "카우프만 스타디움",
     "timeTbd": false,
     "gameId": "20260926CLKC0",
-    "status": "scheduled",
+    "status": "live",
     "awayPitcher": "개빈 윌리엄스",
-    "homePitcher": "노아 카메론"
+    "homePitcher": "노아 카메론",
+    "awayScore": 3,
+    "homeScore": 1,
+    "inningInfo": "2회말"
   },
   {
     "date": "2026-09-26",
@@ -273428,9 +273725,12 @@
     "stadium": "레이트 필드",
     "timeTbd": false,
     "gameId": "20260926COCW0",
-    "status": "scheduled",
+    "status": "live",
     "awayPitcher": "스가노 도모유키",
-    "homePitcher": "션 버크"
+    "homePitcher": "션 버크",
+    "awayScore": 1,
+    "homeScore": 3,
+    "inningInfo": "5회초"
   },
   {
     "date": "2026-09-26",
@@ -273442,9 +273742,12 @@
     "stadium": "타깃 필드",
     "timeTbd": false,
     "gameId": "20260926TEMN0",
-    "status": "scheduled",
+    "status": "live",
     "awayPitcher": "제이콥 디그롬",
-    "homePitcher": "조 라이언"
+    "homePitcher": "조 라이언",
+    "awayScore": 2,
+    "homeScore": 6,
+    "inningInfo": "3회초"
   },
   {
     "date": "2026-09-26",
@@ -273468,7 +273771,9 @@
     "stadium": "Estadio Banorte",
     "timeTbd": false,
     "gameId": "LIGAMX_ESPN_401876964",
-    "status": "scheduled"
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-09-26",
@@ -273519,7 +273824,7 @@
     "timeTbd": false,
     "gameId": "20260926HOOA0",
     "status": "scheduled",
-    "awayPitcher": "헤이든 웨스네스키",
+    "awayPitcher": "헌터 브라운",
     "homePitcher": "제이콥 로페즈"
   },
   {
@@ -273560,7 +273865,8 @@
     "stadium": "Okazaki Chuo Sogo Park Baseball Stadium",
     "timeTbd": false,
     "gameId": "ASIANGAMESBASEBALL_AG2026_M.TEAM9-------------.SF5-.000300--",
-    "status": "scheduled"
+    "status": "scheduled",
+    "phaseCode": "T4"
   },
   {
     "date": "2026-09-26",
@@ -273572,7 +273878,8 @@
     "stadium": "Toyohashi Municipal Baseball Stadium",
     "timeTbd": false,
     "gameId": "ASIANGAMESBASEBALL_AG2026_M.TEAM9-------------.SF5-.000400--",
-    "status": "scheduled"
+    "status": "scheduled",
+    "phaseCode": "T4"
   },
   {
     "date": "2026-09-26",
@@ -273632,7 +273939,8 @@
     "stadium": "TOYOTA STADIUM",
     "timeTbd": false,
     "gameId": "ASIANGAMESFOOTBALL_AG2026_M.TEAM11------------.QFNL.000200--",
-    "status": "scheduled"
+    "status": "scheduled",
+    "phaseCode": "T8"
   },
   {
     "date": "2026-09-26",
@@ -273644,7 +273952,9 @@
     "stadium": "창원",
     "timeTbd": false,
     "gameId": "20260926HHNC02026",
-    "status": "scheduled"
+    "status": "scheduled",
+    "awayPitcher": "황준서",
+    "homePitcher": "토다"
   },
   {
     "date": "2026-09-26",
@@ -273656,7 +273966,9 @@
     "stadium": "광주",
     "timeTbd": false,
     "gameId": "20260926LGHT02026",
-    "status": "scheduled"
+    "status": "scheduled",
+    "awayPitcher": "임찬규",
+    "homePitcher": "네일"
   },
   {
     "date": "2026-09-26",
@@ -273668,7 +273980,9 @@
     "stadium": "수원",
     "timeTbd": false,
     "gameId": "20260926WOKT02026",
-    "status": "scheduled"
+    "status": "scheduled",
+    "awayPitcher": "안우진",
+    "homePitcher": "고영표"
   },
   {
     "date": "2026-09-26",
@@ -273704,7 +274018,8 @@
     "stadium": "Okazaki Chuo Sogo Park Baseball Stadium",
     "timeTbd": false,
     "gameId": "ASIANGAMESBASEBALL_AG2026_M.TEAM9-------------.SFNL.000300--",
-    "status": "scheduled"
+    "status": "scheduled",
+    "phaseCode": "T4"
   },
   {
     "date": "2026-09-26",
@@ -273716,7 +274031,8 @@
     "stadium": "Toyohashi Municipal Baseball Stadium",
     "timeTbd": false,
     "gameId": "ASIANGAMESBASEBALL_AG2026_M.TEAM9-------------.SFNL.000400--",
-    "status": "scheduled"
+    "status": "scheduled",
+    "phaseCode": "T4"
   },
   {
     "date": "2026-09-26",
@@ -273728,7 +274044,8 @@
     "stadium": "TOYOTA STADIUM",
     "timeTbd": false,
     "gameId": "ASIANGAMESFOOTBALL_AG2026_M.TEAM11------------.QFNL.000400--",
-    "status": "scheduled"
+    "status": "scheduled",
+    "phaseCode": "T8"
   },
   {
     "date": "2026-09-26",
@@ -274020,7 +274337,7 @@
     "gameId": "20260927NMMO0",
     "status": "scheduled",
     "awayPitcher": "조나 통",
-    "homePitcher": "제이크 어빈"
+    "homePitcher": "코넬리 얼리"
   },
   {
     "date": "2026-09-27",
@@ -274226,19 +274543,6 @@
   },
   {
     "date": "2026-09-27",
-    "time": "08:15",
-    "league": "MLB",
-    "venueId": "fenway_park",
-    "home": "보스턴",
-    "away": "시카고컵스",
-    "stadium": "펜웨이 파크",
-    "timeTbd": false,
-    "gameId": "20260927CCBO0",
-    "status": "scheduled",
-    "homePitcher": "제이크 베넷"
-  },
-  {
-    "date": "2026-09-27",
     "time": "08:30",
     "league": "MLS",
     "venueId": "bank_of_america_stadium",
@@ -274390,7 +274694,6 @@
     "timeTbd": false,
     "gameId": "20260927AZSD0",
     "status": "scheduled",
-    "awayPitcher": "코빈 번스",
     "homePitcher": "워커 뷸러"
   },
   {
@@ -274489,7 +274792,7 @@
     "timeTbd": false,
     "gameId": "20260927HOOA0",
     "status": "scheduled",
-    "awayPitcher": "헌터 브라운",
+    "awayPitcher": "헤이든 웨스네스키",
     "homePitcher": "잭 퍼킨스"
   },
   {
@@ -274965,8 +275268,19 @@
     "timeTbd": false,
     "gameId": "20260928HOOA0",
     "status": "scheduled",
-    "awayPitcher": "크리스티안 하비에르",
     "homePitcher": "브래디 바소"
+  },
+  {
+    "date": "2026-09-28",
+    "time": "04:05",
+    "league": "MLB",
+    "venueId": "tropicana_field",
+    "home": "보스턴",
+    "away": "시카고컵스",
+    "stadium": "트로피카나 필드",
+    "timeTbd": false,
+    "gameId": "20260928CCBO0",
+    "status": "scheduled"
   },
   {
     "date": "2026-09-28",
@@ -275033,6 +275347,7 @@
     "timeTbd": false,
     "gameId": "20260928ATFL0",
     "status": "scheduled",
+    "awayPitcher": "J R 리치",
     "homePitcher": "잰슨 정크"
   },
   {
@@ -275102,7 +275417,8 @@
     "timeTbd": false,
     "gameId": "20260928BANY0",
     "status": "scheduled",
-    "awayPitcher": "셰인 바즈"
+    "awayPitcher": "셰인 바즈",
+    "homePitcher": "엘머 로드리게스"
   },
   {
     "date": "2026-09-28",
@@ -275523,6 +275839,19 @@
   },
   {
     "date": "2026-09-29",
+    "time": "15:00",
+    "league": "ASIANGAMESFOOTBALL",
+    "venueId": "shizuoka_stadium_ecopa",
+    "home": "북한 (여자)",
+    "away": "중국 (여자)",
+    "stadium": "Shizuoka Stadium Ecopa",
+    "timeTbd": false,
+    "gameId": "ASIANGAMESFOOTBALL_AG2026_W.TEAM11------------.SFNL.000100--",
+    "status": "scheduled",
+    "phaseCode": "T4"
+  },
+  {
+    "date": "2026-09-29",
     "time": "18:00",
     "league": "NPB",
     "venueId": "belluna_dome",
@@ -275642,6 +275971,19 @@
     "status": "scheduled"
   },
   {
+    "date": "2026-09-29",
+    "time": "19:30",
+    "league": "ASIANGAMESFOOTBALL",
+    "venueId": "shizuoka_stadium_ecopa",
+    "home": "일본 (여자)",
+    "away": "대한민국 (여자)",
+    "stadium": "Shizuoka Stadium Ecopa",
+    "timeTbd": false,
+    "gameId": "ASIANGAMESFOOTBALL_AG2026_W.TEAM11------------.SFNL.000200--",
+    "status": "scheduled",
+    "phaseCode": "T4"
+  },
+  {
     "date": "2026-09-30",
     "time": "00:00",
     "league": "AMATCHFRIENDLY",
@@ -275663,6 +276005,18 @@
     "stadium": "Estadio Beto Ávila",
     "timeTbd": false,
     "gameId": "U15BASEBALLWORLDCUP_WBSC_203851",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-09-30",
+    "time": "01:00",
+    "league": "MLB",
+    "venueId": "yankee_stadium",
+    "home": "뉴욕양키스",
+    "away": "보스턴",
+    "stadium": "양키 스타디움",
+    "timeTbd": false,
+    "gameId": "20260930BONY0",
     "status": "scheduled"
   },
   {
@@ -276037,6 +276391,18 @@
   },
   {
     "date": "2026-10-01",
+    "time": "01:00",
+    "league": "MLB",
+    "venueId": "yankee_stadium",
+    "home": "뉴욕양키스",
+    "away": "보스턴",
+    "stadium": "양키 스타디움",
+    "timeTbd": false,
+    "gameId": "20261001BONY0",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-01",
     "time": "05:00",
     "league": "PERU",
     "venueId": "estadio_inca_garcilaso",
@@ -276194,6 +276560,18 @@
   {
     "date": "2026-10-02",
     "time": "01:00",
+    "league": "MLB",
+    "venueId": "yankee_stadium",
+    "home": "뉴욕양키스",
+    "away": "보스턴",
+    "stadium": "양키 스타디움",
+    "timeTbd": false,
+    "gameId": "20261002BONY0",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-02",
+    "time": "01:00",
     "league": "UNL",
     "venueId": "tofiq_bahramov_stadium_baku",
     "home": "아제르바이잔",
@@ -276203,18 +276581,6 @@
     "gameId": "MTfKYIZvWLv8OCo",
     "status": "scheduled",
     "phaseCode": "NLD"
-  },
-  {
-    "date": "2026-10-02",
-    "time": "03:00",
-    "league": "PARAGUAY",
-    "venueId": "estadio_arsenio_erico",
-    "home": "나시오날 아순시온",
-    "away": "스포르티보 아멜리아노",
-    "stadium": "",
-    "timeTbd": true,
-    "gameId": "PARAGUAY_ESPN_401888588",
-    "status": "scheduled"
   },
   {
     "date": "2026-10-02",
@@ -276238,18 +276604,6 @@
     "stadium": "",
     "timeTbd": true,
     "gameId": "PARAGUAY_ESPN_401888589",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-10-02",
-    "time": "03:00",
-    "league": "PARAGUAY",
-    "venueId": "estadio_salinas_tanasio",
-    "home": "스포르티보 루케뇨",
-    "away": "과라니",
-    "stadium": "",
-    "timeTbd": true,
-    "gameId": "PARAGUAY_ESPN_401888591",
     "status": "scheduled"
   },
   {
@@ -276821,6 +277175,18 @@
     "stadium": "예카테린부르크 아레나",
     "timeTbd": false,
     "gameId": "UvGzKsTGwJyu3sQ",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-04",
+    "time": "01:00",
+    "league": "CLUBFRIENDLY",
+    "venueId": "tofiq_bahramov_stadium_baku",
+    "home": "투란",
+    "away": "페네르바체",
+    "stadium": "토픽 베라모프 아디나 레스푸블리카 스타디오누",
+    "timeTbd": false,
+    "gameId": "JwWyDSr2pYmPGnQ",
     "status": "scheduled"
   },
   {
@@ -282372,19 +282738,6 @@
   {
     "date": "2026-10-14",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "al_seeb_stadium",
-    "home": "알 시브",
-    "away": "알 후세인",
-    "stadium": "알-시브 스타디움",
-    "timeTbd": false,
-    "gameId": "OQsSGAzKGbKHXDT",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-14",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "al_sadd_jassim_bin_hamad",
     "home": "알 사드",
@@ -282392,6 +282745,19 @@
     "stadium": "자심 빈 하마드 스타디움",
     "timeTbd": false,
     "gameId": "zcfrVKksVO8hhNi",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-14",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "al_seeb_stadium",
+    "home": "알 시브",
+    "away": "알 후세인",
+    "stadium": "알-시브 스타디움",
+    "timeTbd": false,
+    "gameId": "OQsSGAzKGbKHXDT",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -292468,6 +292834,18 @@
   {
     "date": "2026-10-26",
     "time": "01:00",
+    "league": "PERU",
+    "venueId": "estadio_juan_maldonado_gamarra",
+    "home": "코메르시안테스 우니도스",
+    "away": "시엔시아노 델 쿠스코",
+    "stadium": "Juan Maldonado Gamarra",
+    "timeTbd": false,
+    "gameId": "PERU_ESPN_401886158",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-26",
+    "time": "01:00",
     "league": "TURKEY",
     "venueId": "isonem_park_gursel_aksel",
     "home": "괴즈테페",
@@ -293407,6 +293785,30 @@
   },
   {
     "date": "2026-10-27",
+    "time": "01:00",
+    "league": "TURKEY",
+    "venueId": "besiktas_tupras",
+    "home": "베식타슈",
+    "away": "이스탄불 바샥셰히르",
+    "stadium": "Vodafone Park",
+    "timeTbd": false,
+    "gameId": "TURKEY_ESPN_401888264",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-27",
+    "time": "01:00",
+    "league": "TURKEY",
+    "venueId": "caykur_didi_stadyumu_rize",
+    "home": "차이쿠르 리제스포르",
+    "away": "트라브존스포르",
+    "stadium": "Estadio Caykur Didi",
+    "timeTbd": false,
+    "gameId": "TURKEY_ESPN_401888267",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-27",
     "time": "03:00",
     "league": "DENMARK",
     "venueId": "parken_copenhagen",
@@ -293458,6 +293860,30 @@
   },
   {
     "date": "2026-10-27",
+    "time": "03:30",
+    "league": "TURKEY",
+    "venueId": "galatasaray_rams_park",
+    "home": "갈라타사라이",
+    "away": "페네르바흐체",
+    "stadium": "RAMS Park",
+    "timeTbd": false,
+    "gameId": "TURKEY_ESPN_401888265",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-27",
+    "time": "03:45",
+    "league": "PORTUGAL",
+    "venueId": "estadio_sao_miguel_pontadelgada",
+    "home": "산타 클라라",
+    "away": "벤피카",
+    "stadium": "Estádio de São Miguel",
+    "timeTbd": false,
+    "gameId": "PORTUGAL_ESPN_401885414",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-27",
     "time": "05:00",
     "league": "LALIGA",
     "venueId": "pizjuan",
@@ -293466,6 +293892,78 @@
     "stadium": "에스타디오 라몬 산체스 피스후안",
     "timeTbd": false,
     "gameId": "uCKzUjJfXJrFnCY",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-27",
+    "time": "05:30",
+    "league": "AFL",
+    "venueId": "camelback_ranch",
+    "home": "글렌데일 데저트독스",
+    "away": "메사 솔라삭스",
+    "stadium": "Camelback Ranch",
+    "timeTbd": false,
+    "gameId": "AFL_MLBSTATS_867687",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-27",
+    "time": "05:30",
+    "league": "AFL",
+    "venueId": "peoria_stadium_az",
+    "home": "피오리아 하벨리나스",
+    "away": "스코츠데일 스콜피온스",
+    "stadium": "Peoria Stadium",
+    "timeTbd": false,
+    "gameId": "AFL_MLBSTATS_867677",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-27",
+    "time": "05:30",
+    "league": "AFL",
+    "venueId": "salt_river_fields",
+    "home": "솔트리버 래프터스",
+    "away": "서프라이즈 사구아로스",
+    "stadium": "Salt River Fields at Talking Stick",
+    "timeTbd": false,
+    "gameId": "AFL_MLBSTATS_867676",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-27",
+    "time": "08:00",
+    "league": "COLOMBIA",
+    "venueId": "estadio_jaraguay_monteria",
+    "home": "하과레스 데 코르도바",
+    "away": "야네로스 FC",
+    "stadium": "Estadio Jaraguay (Municipal de Montería)",
+    "timeTbd": false,
+    "gameId": "COLOMBIA_ESPN_401878065",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-27",
+    "time": "08:00",
+    "league": "LVBP",
+    "venueId": "monumental_simon_bolivar",
+    "home": "레오네스 델 카라카스",
+    "away": "티그레스 데 아라과",
+    "stadium": "Monumental Simon Bolivar",
+    "timeTbd": false,
+    "gameId": "LVBP_MLBSTATS_870051",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-27",
+    "time": "10:05",
+    "league": "COLOMBIA",
+    "venueId": "estadio_el_campin",
+    "home": "인데펜디엔테 산타페",
+    "away": "아틀레티코 부카라망가",
+    "stadium": "Estadio Nemesio Camacho El Campín",
+    "timeTbd": false,
+    "gameId": "COLOMBIA_ESPN_401877841",
     "status": "scheduled"
   },
   {
@@ -293549,19 +294047,6 @@
   {
     "date": "2026-10-28",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "al_seeb_stadium",
-    "home": "알 시브",
-    "away": "이스트 벵갈",
-    "stadium": "알-시브 스타디움",
-    "timeTbd": false,
-    "gameId": "AW3p0efTl1zL9Jt",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-28",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "shabab_alahli_al_rashid",
     "home": "샤바브 알 아흘리",
@@ -293569,6 +294054,19 @@
     "stadium": "알라시드 스타디움",
     "timeTbd": false,
     "gameId": "uVJg9XVeZVSJFpb",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-28",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "al_seeb_stadium",
+    "home": "알 시브",
+    "away": "이스트 벵갈",
+    "stadium": "알-시브 스타디움",
+    "timeTbd": false,
+    "gameId": "AW3p0efTl1zL9Jt",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -293639,19 +294137,6 @@
   {
     "date": "2026-10-28",
     "time": "03:15",
-    "league": "ACL2",
-    "venueId": "al_zawraa_stadium",
-    "home": "알 쇼르타",
-    "away": "알 후세인",
-    "stadium": "알-자우라 스타디움",
-    "timeTbd": false,
-    "gameId": "HCihM9DqxKOXBbt",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-28",
-    "time": "03:15",
     "league": "ACL",
     "venueId": "al_shamal_al_bayt",
     "home": "알샤말",
@@ -293659,6 +294144,19 @@
     "stadium": "알베이트 스타디움",
     "timeTbd": false,
     "gameId": "3aZWRb5fy3Nyk9x",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-28",
+    "time": "03:15",
+    "league": "ACL2",
+    "venueId": "al_zawraa_stadium",
+    "home": "알 쇼르타",
+    "away": "알 후세인",
+    "stadium": "알-자우라 스타디움",
+    "timeTbd": false,
+    "gameId": "HCihM9DqxKOXBbt",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -296131,19 +296629,6 @@
   {
     "date": "2026-11-04",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "amman_international_stadium",
-    "home": "알 후세인",
-    "away": "알 쇼르타",
-    "stadium": "암만 인터내셔널 스태디엄",
-    "timeTbd": false,
-    "gameId": "87Yzcj2B505kzbh",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-11-04",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "basra_international",
     "home": "에스테그랄",
@@ -296151,6 +296636,19 @@
     "stadium": "바스라 인터내셔널 스타디움",
     "timeTbd": false,
     "gameId": "CbaeNHtf2qOthye",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-11-04",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "amman_international_stadium",
+    "home": "알 후세인",
+    "away": "알 쇼르타",
+    "stadium": "암만 인터내셔널 스태디엄",
+    "timeTbd": false,
+    "gameId": "87Yzcj2B505kzbh",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -296408,19 +296906,6 @@
   {
     "date": "2026-11-04",
     "time": "19:00",
-    "league": "ACL2",
-    "venueId": "seoulwc",
-    "home": "서울",
-    "away": "비에트텔",
-    "stadium": "서울월드컵경기장",
-    "timeTbd": false,
-    "gameId": "lZapB69mvTiiYds",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-11-04",
-    "time": "19:00",
     "league": "ACL",
     "venueId": "pohang",
     "home": "포항",
@@ -296428,6 +296913,19 @@
     "stadium": "포항스틸야드",
     "timeTbd": false,
     "gameId": "pmIB9z9UAQ4XPV2",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-11-04",
+    "time": "19:00",
+    "league": "ACL2",
+    "venueId": "seoulwc",
+    "home": "서울",
+    "away": "비에트텔",
+    "stadium": "서울월드컵경기장",
+    "timeTbd": false,
+    "gameId": "lZapB69mvTiiYds",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -301072,12 +301570,12 @@
     "date": "2026-11-22",
     "time": "20:30",
     "league": "SERIEA",
-    "venueId": "mapei_stadium",
-    "home": "사수올로",
-    "away": "제노아",
-    "stadium": "MAPEI 치타 델 트리콜로레 스타디움",
+    "venueId": "allianz_stadium_turin",
+    "home": "유벤투스",
+    "away": "베네치아",
+    "stadium": "알리안츠 스타디움",
     "timeTbd": false,
-    "gameId": "tNkB0sNbFUZB8LN",
+    "gameId": "rhCKtl6RUaGSBXL",
     "status": "scheduled"
   },
   {
@@ -301196,12 +301694,24 @@
     "date": "2026-11-22",
     "time": "23:00",
     "league": "SERIEA",
-    "venueId": "san_siro",
-    "home": "밀란",
-    "away": "프로시노네",
-    "stadium": "스타디오 주세페 메아차",
+    "venueId": "dallara",
+    "home": "볼로냐",
+    "away": "우디네세",
+    "stadium": "스타디오 레나토 달아라",
     "timeTbd": false,
-    "gameId": "oql9qakxwh6CGrV",
+    "gameId": "yuRqR7pkXkFy58Q",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-22",
+    "time": "23:00",
+    "league": "SERIEA",
+    "venueId": "mapei_stadium",
+    "home": "사수올로",
+    "away": "제노아",
+    "stadium": "MAPEI 치타 델 트리콜로레 스타디움",
+    "timeTbd": false,
+    "gameId": "tNkB0sNbFUZB8LN",
     "status": "scheduled"
   },
   {
@@ -301320,12 +301830,12 @@
     "date": "2026-11-23",
     "time": "02:00",
     "league": "SERIEA",
-    "venueId": "dallara",
-    "home": "볼로냐",
-    "away": "우디네세",
-    "stadium": "스타디오 레나토 달아라",
+    "venueId": "san_siro",
+    "home": "밀란",
+    "away": "프로시노네",
+    "stadium": "스타디오 주세페 메아차",
     "timeTbd": false,
-    "gameId": "yuRqR7pkXkFy58Q",
+    "gameId": "oql9qakxwh6CGrV",
     "status": "scheduled"
   },
   {
@@ -301510,18 +302020,6 @@
   },
   {
     "date": "2026-11-24",
-    "time": "02:30",
-    "league": "SERIEA",
-    "venueId": "brianteo",
-    "home": "몬차",
-    "away": "피오렌티나",
-    "stadium": "U파워 스타디움",
-    "timeTbd": false,
-    "gameId": "xY2w2T2Cy47d1G5",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-11-24",
     "time": "03:15",
     "league": "ACL",
     "venueId": "basra_international",
@@ -301550,12 +302048,12 @@
     "date": "2026-11-24",
     "time": "04:45",
     "league": "SERIEA",
-    "venueId": "allianz_stadium_turin",
-    "home": "유벤투스",
-    "away": "베네치아",
-    "stadium": "알리안츠 스타디움",
+    "venueId": "brianteo",
+    "home": "몬차",
+    "away": "피오렌티나",
+    "stadium": "U파워 스타디움",
     "timeTbd": false,
-    "gameId": "rhCKtl6RUaGSBXL",
+    "gameId": "xY2w2T2Cy47d1G5",
     "status": "scheduled"
   },
   {
@@ -301768,19 +302266,6 @@
   {
     "date": "2026-11-25",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "al_seeb_stadium",
-    "home": "알 시브",
-    "away": "알 쇼르타",
-    "stadium": "알-시브 스타디움",
-    "timeTbd": false,
-    "gameId": "zVJrrC6Kzu5rPRu",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-11-25",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "shabab_alahli_al_rashid",
     "home": "샤바브 알 아흘리",
@@ -301788,6 +302273,19 @@
     "stadium": "알라시드 스타디움",
     "timeTbd": false,
     "gameId": "Rsba5lmQWhdIFqs",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-11-25",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "al_seeb_stadium",
+    "home": "알 시브",
+    "away": "알 쇼르타",
+    "stadium": "알-시브 스타디움",
+    "timeTbd": false,
+    "gameId": "zVJrrC6Kzu5rPRu",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -303316,6 +303814,18 @@
   },
   {
     "date": "2026-11-28",
+    "time": "04:45",
+    "league": "SERIEA",
+    "venueId": "penzo",
+    "home": "베네치아",
+    "away": "볼로냐",
+    "stadium": "스타디오 피에르 루이지 펜초",
+    "timeTbd": false,
+    "gameId": "8YKbmLuznBgRTz9",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-28",
     "time": "05:00",
     "league": "EFL",
     "venueId": "southampton_st_marys",
@@ -303432,6 +303942,18 @@
     "stadium": "딥데일",
     "timeTbd": false,
     "gameId": "dVdSZwCAyPLhwSZ",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-28",
+    "time": "23:00",
+    "league": "SERIEA",
+    "venueId": "stirpe",
+    "home": "프로시노네",
+    "away": "파르마",
+    "stadium": "스타디오 베니토 스티르페",
+    "timeTbd": false,
+    "gameId": "n4x0lUzg6z20Il4",
     "status": "scheduled"
   },
   {
@@ -303928,126 +304450,6 @@
   },
   {
     "date": "2026-11-29",
-    "time": "00:00",
-    "league": "SERIEA",
-    "venueId": "friuli",
-    "home": "우디네세",
-    "away": "피오렌티나",
-    "stadium": "스타디오 프리울리",
-    "timeTbd": false,
-    "gameId": "YgV4AuBNsjC2I2T",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-11-29",
-    "time": "00:00",
-    "league": "SERIEA",
-    "venueId": "mapei_stadium",
-    "home": "사수올로",
-    "away": "나폴리",
-    "stadium": "MAPEI 치타 델 트리콜로레 스타디움",
-    "timeTbd": false,
-    "gameId": "tPsThb8kfT7UNXV",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-11-29",
-    "time": "00:00",
-    "league": "SERIEA",
-    "venueId": "olimpico_torino",
-    "home": "토리노",
-    "away": "라치오",
-    "stadium": "스타디오 올림피코 디 토리노",
-    "timeTbd": false,
-    "gameId": "Fro9bByJU1SMnzx",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-11-29",
-    "time": "00:00",
-    "league": "SERIEA",
-    "venueId": "penzo",
-    "home": "베네치아",
-    "away": "볼로냐",
-    "stadium": "스타디오 피에르 루이지 펜초",
-    "timeTbd": false,
-    "gameId": "8YKbmLuznBgRTz9",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-11-29",
-    "time": "00:00",
-    "league": "SERIEA",
-    "venueId": "san_siro",
-    "home": "인테르",
-    "away": "제노아",
-    "stadium": "스타디오 주세페 메아차",
-    "timeTbd": false,
-    "gameId": "79Spn7a5oQkAywu",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-11-29",
-    "time": "00:00",
-    "league": "SERIEA",
-    "venueId": "sinigaglia",
-    "home": "코모",
-    "away": "유벤투스",
-    "stadium": "스타디오 주세페 시니갈리아",
-    "timeTbd": false,
-    "gameId": "QcL5Ajzdf9ytjTf",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-11-29",
-    "time": "00:00",
-    "league": "SERIEA",
-    "venueId": "stadio_olimpico",
-    "home": "로마",
-    "away": "몬차",
-    "stadium": "스타디오 올림피코",
-    "timeTbd": false,
-    "gameId": "bao4FiUbMYlBDkK",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-11-29",
-    "time": "00:00",
-    "league": "SERIEA",
-    "venueId": "stirpe",
-    "home": "프로시노네",
-    "away": "파르마",
-    "stadium": "스타디오 베니토 스티르페",
-    "timeTbd": false,
-    "gameId": "n4x0lUzg6z20Il4",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-11-29",
-    "time": "00:00",
-    "league": "SERIEA",
-    "venueId": "unipol_domus",
-    "home": "칼리아리",
-    "away": "밀란",
-    "stadium": "우니폴 도무스",
-    "timeTbd": false,
-    "gameId": "u6DB2goQhKQNoAN",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-11-29",
-    "time": "00:00",
-    "league": "SERIEA",
-    "venueId": "via_del_mare",
-    "home": "레체",
-    "away": "아탈란타",
-    "stadium": "스타디오 비아 델 마레",
-    "timeTbd": false,
-    "gameId": "ycyZMWnUtcio3oH",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-11-29",
     "time": "00:30",
     "league": "EREDIVISIE",
     "venueId": "van_donge_de_roo",
@@ -304068,6 +304470,18 @@
     "stadium": "스타드 레이몽 코파",
     "timeTbd": false,
     "gameId": "tUDOwXihcvSDfQQ",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-29",
+    "time": "02:00",
+    "league": "SERIEA",
+    "venueId": "olimpico_torino",
+    "home": "토리노",
+    "away": "라치오",
+    "stadium": "스타디오 올림피코 디 토리노",
+    "timeTbd": false,
+    "gameId": "Fro9bByJU1SMnzx",
     "status": "scheduled"
   },
   {
@@ -304168,6 +304582,18 @@
   },
   {
     "date": "2026-11-29",
+    "time": "04:45",
+    "league": "SERIEA",
+    "venueId": "san_siro",
+    "home": "인테르",
+    "away": "제노아",
+    "stadium": "스타디오 주세페 메아차",
+    "timeTbd": false,
+    "gameId": "79Spn7a5oQkAywu",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-29",
     "time": "05:00",
     "league": "EREDIVISIE",
     "venueId": "cambuur_stadion",
@@ -304252,6 +304678,18 @@
   },
   {
     "date": "2026-11-29",
+    "time": "20:30",
+    "league": "SERIEA",
+    "venueId": "friuli",
+    "home": "우디네세",
+    "away": "피오렌티나",
+    "stadium": "스타디오 프리울리",
+    "timeTbd": false,
+    "gameId": "YgV4AuBNsjC2I2T",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-29",
     "time": "21:00",
     "league": "EFL",
     "venueId": "swansea_stadium",
@@ -304308,6 +304746,18 @@
     "stadium": "스타드 드 라베 데샹프",
     "timeTbd": false,
     "gameId": "mbcxPl07fUBMxfn",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-29",
+    "time": "23:00",
+    "league": "SERIEA",
+    "venueId": "mapei_stadium",
+    "home": "사수올로",
+    "away": "나폴리",
+    "stadium": "MAPEI 치타 델 트리콜로레 스타디움",
+    "timeTbd": false,
+    "gameId": "tPsThb8kfT7UNXV",
     "status": "scheduled"
   },
   {
@@ -304432,6 +304882,18 @@
   },
   {
     "date": "2026-11-30",
+    "time": "02:00",
+    "league": "SERIEA",
+    "venueId": "stadio_olimpico",
+    "home": "로마",
+    "away": "몬차",
+    "stadium": "스타디오 올림피코",
+    "timeTbd": false,
+    "gameId": "bao4FiUbMYlBDkK",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-30",
     "time": "03:30",
     "league": "BUNDESLIGA",
     "venueId": "signal_iduna_park",
@@ -304464,6 +304926,18 @@
     "stadium": "파르크 올랭피크 리요네",
     "timeTbd": false,
     "gameId": "cs7t5fjrY0QRMgG",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-30",
+    "time": "04:45",
+    "league": "SERIEA",
+    "venueId": "sinigaglia",
+    "home": "코모",
+    "away": "유벤투스",
+    "stadium": "스타디오 주세페 시니갈리아",
+    "timeTbd": false,
+    "gameId": "QcL5Ajzdf9ytjTf",
     "status": "scheduled"
   },
   {
