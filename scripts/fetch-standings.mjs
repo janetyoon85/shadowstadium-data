@@ -115,8 +115,20 @@ function pickRow(t) {
   if (typeof t.wra === 'number') row.winPct = t.wra;
   if (typeof t.gameBehind === 'number') row.gb = t.gameBehind;
   if (t.group) row.group = t.group;
+  // MLB(아메리칸/내셔널리그 × 동/중/서부)·NPB(센트럴/퍼시픽리그)는 리그 전체가 아니라
+  // 리그+지구 단위로 순위가 매겨져서(rank:1이 여러 팀 나오는 게 정상) 조별리그(group)와
+  // 같은 방식으로 묶어야 함 — 사용자 리포트: "1등이 여러팀이네"(2026-09-26).
+  else {
+    const leagueLabel = LEAGUE_LABEL_KO[t.league] || t.league || '';
+    const divisionLabel = DIVISION_LABEL_KO[t.division] || t.division || '';
+    const combined = [leagueLabel, divisionLabel].filter(Boolean).join(' ');
+    if (combined) row.group = combined;
+  }
   return row;
 }
+
+const LEAGUE_LABEL_KO = { AL: '아메리칸리그', NL: '내셔널리그', CL: '센트럴리그', PL: '퍼시픽리그' };
+const DIVISION_LABEL_KO = { EAST: '동부', CENT: '중부', CENTRAL: '중부', WEST: '서부' };
 
 async function main() {
   const out = {};
