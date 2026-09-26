@@ -135,12 +135,31 @@ const EURO_CARDS_PATH = path.join(REPO_ROOT, 'euro_cards.json');
 // 앱은 과거 ~며칠 전 ~ 미래 2주 정도만 화면에서 볼 수 있어(홈 화면 날짜 네비게이션 범위) 시즌
 // 초(3월)까지 거슬러 올라가는 카드/어시스트 백필은 사용자 눈엔 절대 안 보이는 낭비 작업 —
 // 예산을 화면에 실제로 보이는 최근 경기에만 쓰도록 날짜 컷오프 추가(사용자 지적, 2026-09-26).
-// 2026-09-27: 팀 상세 페이지(최근 5경기, 주 1회 일정인 축구는 몇 주 전 경기까지 나옴) 신설로
-// 3일 컷오프가 너무 좁아져 그 화면에서 득점자/카드가 안 보이는 문제 발생 — 35일로 재확장.
-const CARD_ENRICH_CUTOFF_DAYS = 35;
-function cardEnrichCutoffDateStr() {
-  const d = new Date(Date.now() - CARD_ENRICH_CUTOFF_DAYS * 86400000);
-  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+// 2026-09-27: 팀 상세 페이지(최근 5경기)가 날짜 컷오프로는 정확히 못 맞음을 발견 — 주 1회
+// 일정인 축구는 5경기가 몇 주 전까지 걸치는데 반해, 매일 하는 야구는 5경기가 며칠 안에 다
+// 끝남. "N일 이내" 같은 고정폭 대신 "이 리그에서 각 팀의 최근 완료 5경기인가"로 정확히
+// 타겟팅하도록 교체(사용자 요청: "화면에 보여주는거만 채워줘").
+const RECENT_GAMES_PER_TEAM = 5;
+// 같은 리그 안에서 팀(홈/원정 어느 쪽이든)별로 최근 완료 N경기의 gameId만 모음 — TeamDetailScreen
+// 의 recentGames 쿼리(league===team.league && (home===team.name||away===team.name), 최근 5개)와
+// 정확히 동일한 선정 기준이라야 "화면에 보이는 것만" 채운다는 요구를 충족함.
+function buildRecentCompletedGameIds(allGames, leagueSet, n = RECENT_GAMES_PER_TEAM) {
+  const byTeam = new Map();
+  for (const g of allGames) {
+    if (!leagueSet.has(g.league) || g.status !== 'completed' || !g.gameId) continue;
+    for (const team of [g.home, g.away]) {
+      const key = `${g.league}${team}`;
+      let arr = byTeam.get(key);
+      if (!arr) byTeam.set(key, (arr = []));
+      arr.push(g);
+    }
+  }
+  const ids = new Set();
+  for (const arr of byTeam.values()) {
+    arr.sort((a, b) => (b.date + b.time).localeCompare(a.date + a.time));
+    for (const g of arr.slice(0, n)) ids.add(g.gameId);
+  }
+  return ids;
 }
 // 승/패 투수 필드(schedule API 기본 포함)를 표시하는 리그 — 야구 공통(K리그는 해당 없음).
 // PREMIER12도 Naver 같은 API(kbaseball 상위분류, /record 스키마 동일)로 오는 대회라 추가
@@ -536,12 +555,8 @@ async function fetchGameRecord(gameId) {
 // 하이라이트(홈런 등)는 새 필드라 옛 캐시(saves.json, 지금까지는 savePitcher 문자열만 저장)엔
 // 당연히 없음 — 처음엔 사용자 지시대로 최근 3일치만 재조회했으나("백필할필요없고 백필은
 // 3일전데이터만있으면돼", 2026-09-26), 팀 상세 페이지(최근 5경기) 신설로 그보다 오래된 경기도
-// 화면에 나오게 돼 35일로 재확장(2026-09-27, CARD_ENRICH_CUTOFF_DAYS와 동일 사유).
-const HIGHLIGHT_CUTOFF_DAYS = 35;
-function highlightCutoffDateStr() {
-  const d = new Date(Date.now() - HIGHLIGHT_CUTOFF_DAYS * 86400000);
-  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-}
+// 화면에 나오게 돼 날짜 컷오프를 버리고 buildRecentCompletedGameIds(리그당 팀별 최근 5경기)로
+// 교체(2026-09-27, "화면에 보여주는거만 채워줘" — CARD_ENRICH_CUTOFF_DAYS와 동일 사유).
 
 // 종료 야구(KBO/MLB/NPB) 경기에 세이브 투수(savePitcher) 부착. saves.json 캐시로 신규 종료분만
 // /record fetch. graceful: /record 실패한 게임은 캐시 안 함(다음 run 재시도) + savePitcher 미부착
@@ -561,7 +576,7 @@ async function enrichSaves(allGames) {
   let fromCache = 0;
   let fetched = 0;
   let failed = 0;
-  const highlightCutoff = highlightCutoffDateStr();
+  const recentHighlightIds = buildRecentCompletedGameIds(allGames, BASEBALL_LEAGUES);
 
   for (const g of targets) {
     const cached = cache[g.gameId];
@@ -571,7 +586,7 @@ async function enrichSaves(allGames) {
     // "축구처럼 팀 나누어" 요청으로 분리) — 배열이면 아직 안 갈라진 옛 캐시로 간주해 재조회.
     const isSplitHighlightFormat =
       isNewFormat && cached.highlights && typeof cached.highlights === 'object' && !Array.isArray(cached.highlights);
-    const needsHighlightRefetch = g.date >= highlightCutoff && !isSplitHighlightFormat;
+    const needsHighlightRefetch = recentHighlightIds.has(g.gameId) && !isSplitHighlightFormat;
     if (cached === undefined || needsHighlightRefetch) {
       try {
         await sleep(REQUEST_DELAY_MS);
@@ -850,15 +865,16 @@ async function enrichScorers(allGames) {
     console.log('[cards] no cards.json yet — backfilling from scratch');
   }
 
-  const cardEnrichCutoff = cardEnrichCutoffDateStr();
+  // "화면에 보여지는거만" — 팀 상세 최근경기(리그당 팀별 최근 완료 5경기)와 정확히 같은 기준으로
+  // 타겟팅(2026-09-27, 날짜 컷오프 방식은 주 1회 축구/매일 야구처럼 경기 빈도가 다른 종목에
+  // 고정폭이 안 맞아 폐기).
+  const recentSoccerIds = buildRecentCompletedGameIds(allGames, new Set([...SOCCER_LEAGUES, ...STRUCTURED_SCORER_LEAGUES]));
   const targets = allGames.filter(
     (g) =>
       (SOCCER_LEAGUES.has(g.league) || STRUCTURED_SCORER_LEAGUES.has(g.league)) &&
       (g.status === 'completed' || g.status === 'live') &&
       g.gameId &&
-      // 앱에서 절대 안 보이는 오래된 경기(30일 이전)는 예산 낭비라 아예 대상에서 제외(사용자
-      // 지적, 2026-09-26) — live 는 날짜 무관하게 항상 포함.
-      (g.status === 'live' || g.date >= cardEnrichCutoff),
+      (g.status === 'live' || recentSoccerIds.has(g.gameId)),
   );
   // games.json이 날짜 오름차순이라 예산제 백필이 시즌 초(3월)부터 순서대로 처리돼 정작 사용자가
   // 보는 최근 경기엔 몇 주가 지나도 카드가 안 붙는 문제 발견(실측: withCards 59건이 전부 옛날 경기,
@@ -1017,15 +1033,15 @@ async function enrichEuroAssists(allGames) {
 
   // 0-0 무득점 경기도 카드는 붙어야 해서(사용자 요청, 2026-09-26) g.scorers 존재 요건을 뺌 —
   // 어시스트/국적 로직은 원래대로 scorers가 없으면 그냥 빈 배열([].length===0)로 자연히 스킵됨.
-  const euroCutoff = cardEnrichCutoffDateStr();
+  // 타겟팅도 enrichScorers와 동일하게 날짜 컷오프 대신 팀별 최근 완료 5경기 기준으로 교체
+  // (2026-09-27, "화면에 보여주는거만 채워줘").
+  const recentEuroIds = buildRecentCompletedGameIds(allGames, new Set(Object.keys(ESPN_LEAGUE_SLUG)));
   const targets = allGames.filter(
     (g) =>
       ESPN_LEAGUE_SLUG[g.league] &&
       (g.status === 'completed' || g.status === 'live') &&
       g.gameId &&
-      // 앱 화면에서 절대 안 보이는 오래된 경기(30일 이전)는 예산 낭비라 대상에서 제외
-      // (사용자 지적: "백필은어짜피화면에안보이니깐필요없는거아니야?", 2026-09-26).
-      (g.status === 'live' || g.date >= euroCutoff),
+      (g.status === 'live' || recentEuroIds.has(g.gameId)),
   );
   // enrichScorers와 동일 이유(날짜 오름차순 배열이라 예산제 백필이 시즌 초부터 처리돼 최근
   // 경기가 몇 주째 안 채워짐, 실측 확인) — 최신순으로 정렬해 우선순위 뒤집음.
