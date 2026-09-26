@@ -93,6 +93,21 @@ function pickRow(entry, fallbackRank, teamMap, groupName) {
   return row;
 }
 
+// 팀기록(2026-09-26) — ESPN standings 응답엔 Naver처럼 슈팅·점유율 같은 세부 스탯이 없고
+// 득점/실점(pointsFor/pointsAgainst)만 있음(실측 확인, 시즌 통산 슈팅/점유율은 별도 대량 집계가
+// 필요해서 이번엔 스코프 아웃) — 그래서 이 리그들 팀기록은 득점/실점만, 이미 받은 stats
+// 재사용이라 추가 요청 없음. 선수기록(득점왕 등)은 이 API에서 시즌 집계를 못 찾아서 미지원.
+function pickTeamRecord(entry, teamMap) {
+  const stats = entry.stats || [];
+  const enName = entry.team?.displayName || entry.team?.name || '';
+  const info = teamMap[normalizeTeamName(enName)];
+  return {
+    team: info?.ko || enName,
+    goals: statValue(stats, 'pointsFor'),
+    goalsConceded: statValue(stats, 'pointsAgainst'),
+  };
+}
+
 async function main() {
   let out = {};
   try {
@@ -113,11 +128,13 @@ async function main() {
         : [{ name: null, standings: json.standings }];
       const teamMap = lg.dict[lg.code] || {};
       const rows = [];
+      const teamRecords = [];
       for (const child of children) {
         const entries = child.standings?.entries || [];
         const multiGroup = children.length > 1;
         entries.forEach((entry, i) => {
           rows.push(pickRow(entry, i + 1, teamMap, multiGroup ? child.name : undefined));
+          teamRecords.push(pickTeamRecord(entry, teamMap));
         });
       }
       if (rows.length === 0) {
@@ -125,7 +142,7 @@ async function main() {
         empty++;
         continue;
       }
-      out[lg.code] = { updatedAt: new Date().toISOString(), seasonCode: 'espn', rows };
+      out[lg.code] = { updatedAt: new Date().toISOString(), seasonCode: 'espn', rows, teamRecords };
       console.log(`[espn-standings] ${lg.code}: ${rows.length} rows`);
       ok++;
     } catch (e) {
