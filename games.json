@@ -26207,6 +26207,33 @@
   {
     "date": "2026-03-04",
     "time": "19:00",
+    "league": "ACL",
+    "venueId": "seoulwc",
+    "home": "서울",
+    "away": "비셀 고베",
+    "stadium": "서울월드컵경기장",
+    "timeTbd": false,
+    "gameId": "U8avFl0tEXRq1RV",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "마테우스 툴레르",
+          "m": 23
+        }
+      ]
+    },
+    "phaseCode": "T16",
+    "leg": 1,
+    "homeAggregateScore": 1,
+    "awayAggregateScore": 3
+  },
+  {
+    "date": "2026-03-04",
+    "time": "19:00",
     "league": "ACL2",
     "venueId": "panasonic_stadium_suita",
     "home": "감바 오사카",
@@ -26235,33 +26262,6 @@
     "leg": 1,
     "homeAggregateScore": 3,
     "awayAggregateScore": 2
-  },
-  {
-    "date": "2026-03-04",
-    "time": "19:00",
-    "league": "ACL",
-    "venueId": "seoulwc",
-    "home": "서울",
-    "away": "비셀 고베",
-    "stadium": "서울월드컵경기장",
-    "timeTbd": false,
-    "gameId": "U8avFl0tEXRq1RV",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 0,
-    "scorers": {
-      "home": [],
-      "away": [
-        {
-          "n": "마테우스 툴레르",
-          "m": 23
-        }
-      ]
-    },
-    "phaseCode": "T16",
-    "leg": 1,
-    "homeAggregateScore": 1,
-    "awayAggregateScore": 3
   },
   {
     "date": "2026-03-04",
@@ -99265,46 +99265,6 @@
     "time": "16:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
-    "home": "대한민국",
-    "away": "필리핀",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
-    "timeTbd": false,
-    "gameId": "INfbBvjkK2ARSQU",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 5,
-    "scorers": {
-      "home": [
-        {
-          "n": "백서영",
-          "m": 6
-        },
-        {
-          "n": "백서영",
-          "m": 14
-        },
-        {
-          "n": "백서영",
-          "m": 34
-        },
-        {
-          "n": "백서영",
-          "m": 55
-        },
-        {
-          "n": "김희나",
-          "m": 67
-        }
-      ],
-      "away": []
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-02",
-    "time": "16:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
     "home": "일본",
     "away": "레바논",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
@@ -99367,6 +99327,46 @@
         {
           "n": "나나미",
           "m": 80
+        }
+      ],
+      "away": []
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-02",
+    "time": "16:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
+    "home": "대한민국",
+    "away": "필리핀",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
+    "timeTbd": false,
+    "gameId": "INfbBvjkK2ARSQU",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 5,
+    "scorers": {
+      "home": [
+        {
+          "n": "백서영",
+          "m": 6
+        },
+        {
+          "n": "백서영",
+          "m": 14
+        },
+        {
+          "n": "백서영",
+          "m": 34
+        },
+        {
+          "n": "백서영",
+          "m": 55
+        },
+        {
+          "n": "김희나",
+          "m": 67
         }
       ],
       "away": []
@@ -100405,6 +100405,35 @@
     "time": "20:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
+    "home": "호주",
+    "away": "인도",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
+    "timeTbd": false,
+    "gameId": "fS1J3kxSwziVvHl",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "무이티스",
+          "m": 25
+        },
+        {
+          "n": "바스넷",
+          "m": 59,
+          "og": true
+        }
+      ],
+      "away": []
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-02",
+    "time": "20:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
     "home": "북한",
     "away": "차이니스 타이베이",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
@@ -100454,35 +100483,6 @@
         {
           "n": "유종향",
           "m": 90
-        }
-      ],
-      "away": []
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-02",
-    "time": "20:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
-    "home": "호주",
-    "away": "인도",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
-    "timeTbd": false,
-    "gameId": "fS1J3kxSwziVvHl",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "무이티스",
-          "m": 25
-        },
-        {
-          "n": "바스넷",
-          "m": 59,
-          "og": true
         }
       ],
       "away": []
@@ -106594,38 +106594,6 @@
     "time": "20:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
-    "home": "인도",
-    "away": "일본",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
-    "timeTbd": false,
-    "gameId": "SyGtvWeiJaOs0ZA",
-    "status": "completed",
-    "awayScore": 3,
-    "homeScore": 0,
-    "scorers": {
-      "home": [],
-      "away": [
-        {
-          "n": "하야시",
-          "m": 59
-        },
-        {
-          "n": "이케다",
-          "m": 76
-        },
-        {
-          "n": "이케다",
-          "m": 81
-        }
-      ]
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-05",
-    "time": "20:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
     "home": "필리핀",
     "away": "북한",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
@@ -106668,6 +106636,38 @@
         {
           "n": "송원용",
           "m": 85
+        }
+      ]
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-05",
+    "time": "20:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
+    "home": "인도",
+    "away": "일본",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
+    "timeTbd": false,
+    "gameId": "SyGtvWeiJaOs0ZA",
+    "status": "completed",
+    "awayScore": 3,
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "하야시",
+          "m": 59
+        },
+        {
+          "n": "이케다",
+          "m": 76
+        },
+        {
+          "n": "이케다",
+          "m": 81
         }
       ]
     },
@@ -109306,6 +109306,21 @@
     "time": "20:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
+    "home": "필리핀",
+    "away": "차이니스 타이베이",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
+    "timeTbd": false,
+    "gameId": "iI57xIcnv4pTYV5",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 0,
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-08",
+    "time": "20:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
     "home": "북한",
     "away": "대한민국",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
@@ -109331,21 +109346,6 @@
       ],
       "away": []
     },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-08",
-    "time": "20:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
-    "home": "필리핀",
-    "away": "차이니스 타이베이",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
-    "timeTbd": false,
-    "gameId": "iI57xIcnv4pTYV5",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 0,
     "phaseCode": "GROUP"
   },
   {
@@ -116745,6 +116745,34 @@
     "time": "01:00",
     "league": "U17ASIANCUP",
     "venueId": "king_abdullah_sports_city",
+    "home": "중국",
+    "away": "카타르",
+    "stadium": "킹 압둘라 스포츠 시티 피치 퓨처 C",
+    "timeTbd": false,
+    "gameId": "OW7BBRLBR5Yg9Mi",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "하시판",
+          "m": 14
+        },
+        {
+          "n": "장 보린",
+          "m": 71
+        }
+      ],
+      "away": []
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-13",
+    "time": "01:00",
+    "league": "U17ASIANCUP",
+    "venueId": "king_abdullah_sports_city",
     "home": "일본",
     "away": "인도네시아",
     "stadium": "킹 압둘라 스포츠 시티 피치 스타스 A",
@@ -116774,34 +116802,6 @@
           "m": 70
         }
       ]
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-13",
-    "time": "01:00",
-    "league": "U17ASIANCUP",
-    "venueId": "king_abdullah_sports_city",
-    "home": "중국",
-    "away": "카타르",
-    "stadium": "킹 압둘라 스포츠 시티 피치 퓨처 C",
-    "timeTbd": false,
-    "gameId": "OW7BBRLBR5Yg9Mi",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "하시판",
-          "m": 14
-        },
-        {
-          "n": "장 보린",
-          "m": 71
-        }
-      ],
-      "away": []
     },
     "phaseCode": "GROUP"
   },
@@ -254291,136 +254291,6 @@
   {
     "date": "2026-09-09",
     "time": "03:45",
-    "league": "EFLCUP",
-    "venueId": "bournemouth_dean_court",
-    "home": "본머스",
-    "away": "링컨",
-    "stadium": "바이탈리티 스타디움",
-    "timeTbd": false,
-    "gameId": "hF9dzPWFHJDhCZV",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 4,
-    "scorers": {
-      "home": [
-        {
-          "n": "크리스티",
-          "m": 7
-        },
-        {
-          "n": "크리스티",
-          "m": 69
-        },
-        {
-          "n": "크리스티",
-          "m": 88
-        },
-        {
-          "n": "하양",
-          "m": 90
-        }
-      ],
-      "away": []
-    },
-    "phaseCode": "T32"
-  },
-  {
-    "date": "2026-09-09",
-    "time": "03:45",
-    "league": "EFLCUP",
-    "venueId": "gaughan_group_stadium_leyton",
-    "home": "레이턴",
-    "away": "브래드퍼드",
-    "stadium": "고한 그룹 스타디움",
-    "timeTbd": false,
-    "gameId": "TgPHS3XR7a6EmkY",
-    "status": "completed",
-    "awayScore": 3,
-    "homeScore": 1,
-    "scorers": {
-      "home": [
-        {
-          "n": "길레스피",
-          "m": 38,
-          "og": true
-        }
-      ],
-      "away": [
-        {
-          "n": "스완",
-          "m": 45
-        },
-        {
-          "n": "험프리스",
-          "m": 58
-        },
-        {
-          "n": "포웰",
-          "m": 88
-        }
-      ]
-    },
-    "phaseCode": "T32"
-  },
-  {
-    "date": "2026-09-09",
-    "time": "03:45",
-    "league": "EFLCUP",
-    "venueId": "selhurst_park",
-    "home": "크리스털",
-    "away": "미들즈브러",
-    "stadium": "셀허스트 파크",
-    "timeTbd": false,
-    "gameId": "gC5RcdmolOEpcQc",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 3,
-    "scorers": {
-      "home": [
-        {
-          "n": "스트란드 라르센",
-          "m": 37
-        },
-        {
-          "n": "스트란드 라르센",
-          "m": 53
-        },
-        {
-          "n": "카마다",
-          "m": 72
-        }
-      ],
-      "away": []
-    },
-    "phaseCode": "T32"
-  },
-  {
-    "date": "2026-09-09",
-    "time": "03:45",
-    "league": "EFLCUP",
-    "venueId": "sunderland_stadium_of_light",
-    "home": "선덜랜드",
-    "away": "헐 시티",
-    "stadium": "스타디움 오브 라이트",
-    "timeTbd": false,
-    "gameId": "c33c8n2EUzqjpcY",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 1,
-    "scorers": {
-      "home": [
-        {
-          "n": "탈비",
-          "m": 71
-        }
-      ],
-      "away": []
-    },
-    "phaseCode": "T32"
-  },
-  {
-    "date": "2026-09-09",
-    "time": "03:45",
     "league": "EFL",
     "venueId": "southampton_st_marys",
     "home": "사우샘프턴",
@@ -254570,6 +254440,136 @@
         }
       ]
     }
+  },
+  {
+    "date": "2026-09-09",
+    "time": "03:45",
+    "league": "EFLCUP",
+    "venueId": "bournemouth_dean_court",
+    "home": "본머스",
+    "away": "링컨",
+    "stadium": "바이탈리티 스타디움",
+    "timeTbd": false,
+    "gameId": "hF9dzPWFHJDhCZV",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 4,
+    "scorers": {
+      "home": [
+        {
+          "n": "크리스티",
+          "m": 7
+        },
+        {
+          "n": "크리스티",
+          "m": 69
+        },
+        {
+          "n": "크리스티",
+          "m": 88
+        },
+        {
+          "n": "하양",
+          "m": 90
+        }
+      ],
+      "away": []
+    },
+    "phaseCode": "T32"
+  },
+  {
+    "date": "2026-09-09",
+    "time": "03:45",
+    "league": "EFLCUP",
+    "venueId": "gaughan_group_stadium_leyton",
+    "home": "레이턴",
+    "away": "브래드퍼드",
+    "stadium": "고한 그룹 스타디움",
+    "timeTbd": false,
+    "gameId": "TgPHS3XR7a6EmkY",
+    "status": "completed",
+    "awayScore": 3,
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "길레스피",
+          "m": 38,
+          "og": true
+        }
+      ],
+      "away": [
+        {
+          "n": "스완",
+          "m": 45
+        },
+        {
+          "n": "험프리스",
+          "m": 58
+        },
+        {
+          "n": "포웰",
+          "m": 88
+        }
+      ]
+    },
+    "phaseCode": "T32"
+  },
+  {
+    "date": "2026-09-09",
+    "time": "03:45",
+    "league": "EFLCUP",
+    "venueId": "selhurst_park",
+    "home": "크리스털",
+    "away": "미들즈브러",
+    "stadium": "셀허스트 파크",
+    "timeTbd": false,
+    "gameId": "gC5RcdmolOEpcQc",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "스트란드 라르센",
+          "m": 37
+        },
+        {
+          "n": "스트란드 라르센",
+          "m": 53
+        },
+        {
+          "n": "카마다",
+          "m": 72
+        }
+      ],
+      "away": []
+    },
+    "phaseCode": "T32"
+  },
+  {
+    "date": "2026-09-09",
+    "time": "03:45",
+    "league": "EFLCUP",
+    "venueId": "sunderland_stadium_of_light",
+    "home": "선덜랜드",
+    "away": "헐 시티",
+    "stadium": "스타디움 오브 라이트",
+    "timeTbd": false,
+    "gameId": "c33c8n2EUzqjpcY",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "탈비",
+          "m": 71
+        }
+      ],
+      "away": []
+    },
+    "phaseCode": "T32"
   },
   {
     "date": "2026-09-09",
@@ -274897,47 +274897,6 @@
   {
     "date": "2026-09-16",
     "time": "03:45",
-    "league": "EFLCUP",
-    "venueId": "westham_london_stadium",
-    "home": "웨스트햄",
-    "away": "풀럼",
-    "stadium": "런던 스타디움",
-    "timeTbd": false,
-    "gameId": "BEYKs4U9wOfqzBu",
-    "status": "completed",
-    "awayScore": 3,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "모라토",
-          "m": 16
-        },
-        {
-          "n": "파블로",
-          "m": 45
-        }
-      ],
-      "away": [
-        {
-          "n": "호드리구 무니스",
-          "m": 13
-        },
-        {
-          "n": "팔라시오스 페레스",
-          "m": 37
-        },
-        {
-          "n": "보브",
-          "m": 78
-        }
-      ]
-    },
-    "phaseCode": "T32"
-  },
-  {
-    "date": "2026-09-16",
-    "time": "03:45",
     "league": "EFL",
     "venueId": "middlesbrough_riverside",
     "home": "미들즈브러",
@@ -274996,6 +274955,47 @@
         }
       ]
     }
+  },
+  {
+    "date": "2026-09-16",
+    "time": "03:45",
+    "league": "EFLCUP",
+    "venueId": "westham_london_stadium",
+    "home": "웨스트햄",
+    "away": "풀럼",
+    "stadium": "런던 스타디움",
+    "timeTbd": false,
+    "gameId": "BEYKs4U9wOfqzBu",
+    "status": "completed",
+    "awayScore": 3,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "모라토",
+          "m": 16
+        },
+        {
+          "n": "파블로",
+          "m": 45
+        }
+      ],
+      "away": [
+        {
+          "n": "호드리구 무니스",
+          "m": 13
+        },
+        {
+          "n": "팔라시오스 페레스",
+          "m": 37
+        },
+        {
+          "n": "보브",
+          "m": 78
+        }
+      ]
+    },
+    "phaseCode": "T32"
   },
   {
     "date": "2026-09-16",
@@ -276131,30 +276131,6 @@
   {
     "date": "2026-09-16",
     "time": "19:00",
-    "league": "ACL2",
-    "venueId": "seoulwc",
-    "home": "서울",
-    "away": "반둥",
-    "stadium": "서울월드컵경기장",
-    "timeTbd": false,
-    "gameId": "2idpicTW6SmPYVP",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 0,
-    "scorers": {
-      "home": [],
-      "away": [
-        {
-          "n": "훌리오 세자르",
-          "m": 5
-        }
-      ]
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-09-16",
-    "time": "19:00",
     "league": "ACL",
     "venueId": "jeonju",
     "home": "전북",
@@ -276180,6 +276156,30 @@
         {
           "n": "유바",
           "m": 30
+        }
+      ]
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-09-16",
+    "time": "19:00",
+    "league": "ACL2",
+    "venueId": "seoulwc",
+    "home": "서울",
+    "away": "반둥",
+    "stadium": "서울월드컵경기장",
+    "timeTbd": false,
+    "gameId": "2idpicTW6SmPYVP",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "훌리오 세자르",
+          "m": 5
         }
       ]
     },
@@ -276216,35 +276216,6 @@
   {
     "date": "2026-09-16",
     "time": "21:15",
-    "league": "ACL2",
-    "venueId": "cahn_hang_day",
-    "home": "비에트텔",
-    "away": "멜버른 FC",
-    "stadium": "선번동 항더이 (항더이 스타디움)",
-    "timeTbd": false,
-    "gameId": "gqA22tVR2bUJFof",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 1,
-    "scorers": {
-      "home": [
-        {
-          "n": "리바마르",
-          "m": 62
-        }
-      ],
-      "away": [
-        {
-          "n": "클라리스마리우 호드리게스",
-          "m": 58
-        }
-      ]
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-09-16",
-    "time": "21:15",
     "league": "ACL",
     "venueId": "port_fc_thammasat",
     "home": "포트",
@@ -276271,6 +276242,35 @@
         {
           "n": "무토",
           "m": 61
+        }
+      ]
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-09-16",
+    "time": "21:15",
+    "league": "ACL2",
+    "venueId": "cahn_hang_day",
+    "home": "비에트텔",
+    "away": "멜버른 FC",
+    "stadium": "선번동 항더이 (항더이 스타디움)",
+    "timeTbd": false,
+    "gameId": "gqA22tVR2bUJFof",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "리바마르",
+          "m": 62
+        }
+      ],
+      "away": [
+        {
+          "n": "클라리스마리우 호드리게스",
+          "m": 58
         }
       ]
     },
@@ -278938,14 +278938,51 @@
       "home": [
         {
           "n": "아이토르 칸탈라피에드라",
-          "m": 30
+          "m": 30,
+          "a": "Kenan Kodro",
+          "nat": "Spain",
+          "aNat": "Bosnia and Herzegovina"
         },
         {
           "n": "카넬로풀로스",
-          "m": 84
+          "m": 84,
+          "a": "Borja González",
+          "nat": "Greece",
+          "aNat": "Spain"
         }
       ],
       "away": []
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Thanasis Androutsos",
+          "type": "Y",
+          "m": 56
+        },
+        {
+          "n": "Aitor Cantalapiedra",
+          "type": "Y",
+          "m": 64
+        }
+      ],
+      "away": [
+        {
+          "n": "Vladimír Coufal",
+          "type": "Y",
+          "m": 23
+        },
+        {
+          "n": "Nathan De Cat",
+          "type": "Y",
+          "m": 53
+        },
+        {
+          "n": "Koki Machida",
+          "type": "Y",
+          "m": 63
+        }
+      ]
     },
     "phaseCode": "LEAGUE"
   },
@@ -279234,25 +279271,61 @@
       "home": [
         {
           "n": "파킬리",
-          "m": 15
+          "m": 15,
+          "a": "Junior Olaïtan",
+          "nat": "France",
+          "aNat": "Benin"
         },
         {
           "n": "체르니",
-          "m": 56
+          "m": 56,
+          "a": "Orkun Kökçü",
+          "nat": "Czechia",
+          "aNat": "Türkiye"
         },
         {
           "n": "무리요",
-          "m": 59
+          "m": 59,
+          "a": "Orkun Kökçü",
+          "nat": "Panama",
+          "aNat": "Türkiye"
         },
         {
           "n": "포쿠",
-          "m": 81
+          "m": 81,
+          "a": "Junior Olaïtan",
+          "nat": "Netherlands",
+          "aNat": "Benin"
         }
       ],
       "away": [
         {
           "n": "압달라",
-          "m": 29
+          "m": 29,
+          "a": "Himad Abdelli",
+          "nat": "France",
+          "aNat": "Algeria"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Emmanuel Agbadou",
+          "type": "Y",
+          "m": 10
+        },
+        {
+          "n": "Fabio Miretti",
+          "type": "Y",
+          "m": 90
+        }
+      ],
+      "away": [
+        {
+          "n": "Amine Harit",
+          "type": "Y",
+          "m": 72
         }
       ]
     },
@@ -279275,21 +279348,48 @@
       "home": [
         {
           "n": "바우어",
-          "m": 44
+          "m": 44,
+          "a": "Kieran Tierney",
+          "nat": "Germany",
+          "aNat": "Scotland"
         }
       ],
       "away": [
         {
           "n": "유수프",
-          "m": 20
+          "m": 20,
+          "a": "Kristoffer Zachariassen",
+          "nat": "Nigeria",
+          "aNat": "Norway"
         },
         {
           "n": "자카리아센",
-          "m": 45
+          "m": 45,
+          "a": "Bamidele Yusuf",
+          "nat": "Norway",
+          "aNat": "Nigeria"
         },
         {
           "n": "다니엘",
-          "m": 47
+          "m": 47,
+          "a": "Bamidele Yusuf",
+          "nat": "Australia",
+          "aNat": "Nigeria"
+        }
+      ]
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Jonathan Levi",
+          "type": "Y",
+          "m": 86
+        },
+        {
+          "n": "Attila Osvath",
+          "type": "Y",
+          "m": 87
         }
       ]
     },
@@ -279312,17 +279412,62 @@
       "home": [
         {
           "n": "레네 올센",
-          "m": 79
+          "m": 79,
+          "a": "Vá",
+          "nat": "Norway",
+          "aNat": "Angola"
         }
       ],
       "away": [
         {
           "n": "알렉스 알파로",
-          "m": 23
+          "m": 23,
+          "a": "David Bruno",
+          "nat": "Spain",
+          "aNat": "Portugal"
         },
         {
           "n": "마누 포소",
-          "m": 49
+          "m": 49,
+          "a": "Javi Vázquez",
+          "nat": "Spain",
+          "aNat": "Spain"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Fredrik Gulbrandsen",
+          "type": "Y",
+          "m": 58
+        }
+      ],
+      "away": [
+        {
+          "n": "Manuel Pozo",
+          "type": "Y",
+          "m": 51
+        },
+        {
+          "n": "David Bruno",
+          "type": "Y",
+          "m": 57
+        },
+        {
+          "n": "Nuha Jatta",
+          "type": "Y",
+          "m": 69
+        },
+        {
+          "n": "Dany Jean",
+          "type": "Y",
+          "m": 71
+        },
+        {
+          "n": "Nuha Jatta",
+          "type": "R",
+          "m": 85
         }
       ]
     },
@@ -279345,17 +279490,62 @@
       "home": [
         {
           "n": "세르지오 고메즈",
-          "m": 57
+          "m": 57,
+          "a": "Vá",
+          "nat": "Norway",
+          "aNat": "Angola"
         }
       ],
       "away": [
         {
           "n": "클라위버르트",
-          "m": 11
+          "m": 11,
+          "a": "David Bruno",
+          "nat": "Spain",
+          "aNat": "Portugal"
         },
         {
           "n": "하양",
-          "m": 20
+          "m": 20,
+          "a": "Javi Vázquez",
+          "nat": "Spain",
+          "aNat": "Spain"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Fredrik Gulbrandsen",
+          "type": "Y",
+          "m": 58
+        }
+      ],
+      "away": [
+        {
+          "n": "Manuel Pozo",
+          "type": "Y",
+          "m": 51
+        },
+        {
+          "n": "David Bruno",
+          "type": "Y",
+          "m": 57
+        },
+        {
+          "n": "Nuha Jatta",
+          "type": "Y",
+          "m": 69
+        },
+        {
+          "n": "Dany Jean",
+          "type": "Y",
+          "m": 71
+        },
+        {
+          "n": "Nuha Jatta",
+          "type": "R",
+          "m": 85
         }
       ]
     },
@@ -279415,15 +279605,50 @@
       "away": [
         {
           "n": "모포켕",
-          "m": 17
+          "m": 17,
+          "a": "Massiré Sylla",
+          "nat": "South Africa",
+          "aNat": "Senegal"
         },
         {
           "n": "비온딕",
-          "m": 43
+          "m": 43,
+          "a": "Louis Patris",
+          "nat": "Germany",
+          "aNat": "Belgium"
         },
         {
           "n": "크리크팔루시",
-          "m": 59
+          "m": 59,
+          "a": "Besfort Zeneli",
+          "nat": "Czechia",
+          "aNat": "Sweden"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Patrik Hrosovský",
+          "type": "Y",
+          "m": 45
+        },
+        {
+          "n": "Stefan Pirgic",
+          "type": "Y",
+          "m": 60
+        }
+      ],
+      "away": [
+        {
+          "n": "Ondrej Kricfalusi",
+          "type": "Y",
+          "m": 16
+        },
+        {
+          "n": "Mateo Biondic",
+          "type": "Y",
+          "m": 42
         }
       ]
     },
@@ -280083,19 +280308,59 @@
       "away": [
         {
           "n": "프리스보르",
-          "m": 39
+          "m": 39,
+          "nat": "Denmark"
         },
         {
           "n": "로스",
-          "m": 52
+          "m": 52,
+          "nat": "Denmark"
         },
         {
           "n": "웨스턴",
-          "m": 72
+          "m": 72,
+          "nat": "Denmark"
         },
         {
           "n": "한센",
-          "m": 85
+          "m": 85,
+          "nat": "Denmark"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Jens Jakob Thomasen",
+          "type": "Y",
+          "m": 7
+        },
+        {
+          "n": "Simon Colyn",
+          "type": "Y",
+          "m": 36
+        },
+        {
+          "n": "Simon Colyn",
+          "type": "R",
+          "m": 69
+        },
+        {
+          "n": "Mathias Rasmussen",
+          "type": "Y",
+          "m": 90
+        }
+      ],
+      "away": [
+        {
+          "n": "Jens Martin Gammelby",
+          "type": "Y",
+          "m": 89
+        },
+        {
+          "n": "Mads Freundlich",
+          "type": "Y",
+          "m": 90
         }
       ]
     }
@@ -280206,18 +280471,40 @@
       "home": [
         {
           "n": "반 베르헨",
-          "m": 20
+          "m": 20,
+          "a": "David van der Werff",
+          "nat": "Netherlands",
+          "aNat": "Netherlands"
         },
         {
           "n": "슈로이더스",
-          "m": 43
+          "m": 43,
+          "nat": "Netherlands"
         },
         {
           "n": "랜드",
-          "m": 68
+          "m": 68,
+          "a": "David van der Werff",
+          "nat": "Netherlands",
+          "aNat": "Netherlands"
         }
       ],
       "away": []
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Sherel Floranus",
+          "type": "Y",
+          "m": 79
+        },
+        {
+          "n": "Koen Kostons",
+          "type": "Y",
+          "m": 79
+        }
+      ]
     }
   },
   {
@@ -281152,7 +281439,39 @@
       "away": [
         {
           "n": "홀",
-          "m": 57
+          "m": 57,
+          "nat": "USA"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Nico Cavallo",
+          "type": "Y",
+          "m": 30
+        },
+        {
+          "n": "Aiden O'Neill",
+          "type": "Y",
+          "m": 55
+        }
+      ],
+      "away": [
+        {
+          "n": "Adri Mehmeti",
+          "type": "Y",
+          "m": 6
+        },
+        {
+          "n": "Cade Cowell",
+          "type": "Y",
+          "m": 22
+        },
+        {
+          "n": "Mohammed Sofo",
+          "type": "Y",
+          "m": 40
         }
       ]
     },
@@ -281980,7 +282299,44 @@
       "away": [
         {
           "n": "히가시",
-          "m": 68
+          "m": 68,
+          "nat": "Japan"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Kaoru Yamawaki",
+          "type": "Y",
+          "m": 11
+        },
+        {
+          "n": "Takumi Kamijma",
+          "type": "R",
+          "m": 24
+        },
+        {
+          "n": "Tomoya Miki",
+          "type": "Y",
+          "m": 32
+        },
+        {
+          "n": "Tomoya Miki",
+          "type": "R",
+          "m": 45
+        }
+      ],
+      "away": [
+        {
+          "n": "Akito Suzuki",
+          "type": "Y",
+          "m": 19
+        },
+        {
+          "n": "Daiki Suga",
+          "type": "Y",
+          "m": 36
         }
       ]
     }
@@ -282002,29 +282358,66 @@
       "home": [
         {
           "n": "마르시뉴",
-          "m": 45
+          "m": 45,
+          "nat": "Brazil"
         },
         {
           "n": "이토",
-          "m": 54
+          "m": 54,
+          "nat": "Japan"
         },
         {
           "n": "페드로 로마노",
-          "m": 90
+          "m": 90,
+          "nat": "Brazil"
         }
       ],
       "away": [
         {
           "n": "레오 세아라",
-          "m": 44
+          "m": 44,
+          "nat": "Brazil"
         },
         {
           "n": "레오 세아라",
-          "m": 67
+          "m": 67,
+          "nat": "Brazil"
         },
         {
           "n": "마츠무라",
-          "m": 83
+          "m": 83,
+          "nat": "Japan"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Yuki Yamamoto",
+          "type": "Y",
+          "m": 37
+        },
+        {
+          "n": "Derik Lacerda",
+          "type": "Y",
+          "m": 43
+        },
+        {
+          "n": "Pedro Romano",
+          "type": "Y",
+          "m": 90
+        },
+        {
+          "n": "Tatsuya Ito",
+          "type": "Y",
+          "m": 90
+        }
+      ],
+      "away": [
+        {
+          "n": "Kento Misao",
+          "type": "Y",
+          "m": 60
         }
       ]
     }
@@ -282102,7 +282495,8 @@
       "home": [
         {
           "n": "마쓰자키",
-          "m": 47
+          "m": 47,
+          "nat": "Japan"
         },
         {
           "n": "오세훈",
@@ -282112,9 +282506,25 @@
       "away": [
         {
           "n": "마테우스 인지우",
-          "m": 30
+          "m": 30,
+          "nat": "Brazil"
         }
       ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Hidehiro Sugai",
+          "type": "Y",
+          "m": 79
+        },
+        {
+          "n": "Tomoya Fujii",
+          "type": "Y",
+          "m": 81
+        }
+      ],
+      "away": []
     }
   },
   {
@@ -282162,21 +282572,40 @@
       "home": [
         {
           "n": "마테우스 사비우",
-          "m": 24
+          "m": 24,
+          "nat": "Brazil"
         },
         {
           "n": "마테우스 사비우",
-          "m": 32
+          "m": 32,
+          "nat": "Brazil"
         },
         {
           "n": "미나미노",
-          "m": 44
+          "m": 44,
+          "nat": "Japan"
         }
       ],
       "away": [
         {
           "n": "아라이",
-          "m": 62
+          "m": 62,
+          "nat": "Japan"
+        }
+      ]
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Shuhei Mizoguchi",
+          "type": "Y",
+          "m": 12
+        },
+        {
+          "n": "Kazunari Ichimi",
+          "type": "Y",
+          "m": 56
         }
       ]
     }
@@ -282198,10 +282627,42 @@
       "home": [
         {
           "n": "타와라츠미다",
-          "m": 56
+          "m": 56,
+          "nat": "Japan"
         }
       ],
       "away": []
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Takahiro Koh",
+          "type": "Y",
+          "m": 7
+        },
+        {
+          "n": "Kein Sato",
+          "type": "Y",
+          "m": 61
+        },
+        {
+          "n": "Takahiro Koh",
+          "type": "R",
+          "m": 68
+        },
+        {
+          "n": "Kento Hashimoto",
+          "type": "Y",
+          "m": 90
+        }
+      ],
+      "away": [
+        {
+          "n": "Katsuhiro Nakayama",
+          "type": "Y",
+          "m": 90
+        }
+      ]
     }
   },
   {
@@ -282221,16 +282682,50 @@
       "home": [
         {
           "n": "나상호",
-          "m": 45
+          "m": 45,
+          "nat": "South Korea"
         }
       ],
       "away": [
         {
           "n": "주앙 페드루",
-          "m": 10
+          "m": 10,
+          "nat": "Brazil"
         },
         {
           "n": "알렉스 네게바",
+          "m": 90,
+          "nat": "Brazil"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Yugo Tatsuta",
+          "type": "Y",
+          "m": 18
+        },
+        {
+          "n": "Lucas Marcos Meireles",
+          "type": "R",
+          "m": 57
+        },
+        {
+          "n": "Yoshitake Suzuki",
+          "type": "Y",
+          "m": 76
+        }
+      ],
+      "away": [
+        {
+          "n": "Papagaio",
+          "type": "Y",
+          "m": 50
+        },
+        {
+          "n": "Kyo Sato",
+          "type": "Y",
           "m": 90
         }
       ]
@@ -282456,14 +282951,47 @@
       "home": [
         {
           "n": "키뇨네스",
-          "m": 8
+          "m": 8,
+          "nat": "Colombia"
         },
         {
           "n": "야마네",
-          "m": 83
+          "m": 83,
+          "nat": "Japan"
         }
       ],
       "away": []
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Kei Chinen",
+          "type": "Y",
+          "m": 25
+        },
+        {
+          "n": "Takuya Kida",
+          "type": "Y",
+          "m": 77
+        }
+      ],
+      "away": [
+        {
+          "n": "Yasuki Kimoto",
+          "type": "Y",
+          "m": 25
+        },
+        {
+          "n": "Jin Okumura",
+          "type": "Y",
+          "m": 46
+        },
+        {
+          "n": "Takumi Mase",
+          "type": "Y",
+          "m": 82
+        }
+      ]
     }
   },
   {
@@ -284219,15 +284747,44 @@
       "away": [
         {
           "n": "랜달",
-          "m": 6
+          "m": 6,
+          "nat": "New Zealand"
         },
         {
           "n": "캐머런",
-          "m": 12
+          "m": 12,
+          "nat": "Scotland"
         },
         {
           "n": "치우보타루",
-          "m": 45
+          "m": 45,
+          "nat": "Romania"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Jake Young",
+          "type": "Y",
+          "m": 70
+        },
+        {
+          "n": "Ryan Carr",
+          "type": "Y",
+          "m": 90
+        }
+      ],
+      "away": [
+        {
+          "n": "Daniel Bennie",
+          "type": "Y",
+          "m": 43
+        },
+        {
+          "n": "Will Ferry",
+          "type": "Y",
+          "m": 80
         }
       ]
     }
@@ -284341,13 +284898,50 @@
       "home": [
         {
           "n": "바라니",
-          "m": 74
+          "m": 74,
+          "a": "Yannick Eduardo",
+          "nat": "Hungary",
+          "aNat": "Czechia"
         }
       ],
       "away": [
         {
           "n": "크밤",
-          "m": 44
+          "m": 44,
+          "a": "Sami Bouhoudane",
+          "nat": "Norway",
+          "aNat": "Netherlands"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Nigel Thomas",
+          "type": "Y",
+          "m": 21
+        },
+        {
+          "n": "Matteo Waem",
+          "type": "Y",
+          "m": 83
+        },
+        {
+          "n": "Sekou Sylla",
+          "type": "Y",
+          "m": 90
+        }
+      ],
+      "away": [
+        {
+          "n": "Mathieu Maertens",
+          "type": "Y",
+          "m": 71
+        },
+        {
+          "n": "Wiebe Kooistra",
+          "type": "Y",
+          "m": 90
         }
       ]
     }
@@ -284631,13 +285225,46 @@
       "home": [
         {
           "n": "가나우스",
-          "m": 75
+          "m": 75,
+          "nat": "Germany"
         }
       ],
       "away": [
         {
           "n": "에팀",
-          "m": 10
+          "m": 10,
+          "nat": "Nigeria"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Marcus Mccoy",
+          "type": "Y",
+          "m": 21
+        },
+        {
+          "n": "Julius Berthel Askou",
+          "type": "Y",
+          "m": 88
+        }
+      ],
+      "away": [
+        {
+          "n": "Rasmus Kristensen",
+          "type": "Y",
+          "m": 13
+        },
+        {
+          "n": "Abdou Ndiaye",
+          "type": "Y",
+          "m": 33
+        },
+        {
+          "n": "Abdou Ndiaye",
+          "type": "R",
+          "m": 44
         }
       ]
     }
@@ -285085,21 +285712,48 @@
       "away": [
         {
           "n": "쿠르텐",
-          "m": 28
+          "m": 28,
+          "a": "Levi Smans",
+          "nat": "Belgium",
+          "aNat": "Netherlands"
         },
         {
           "n": "트렌스코",
-          "m": 43
+          "m": 43,
+          "a": "Maxence Rivera",
+          "nat": "Denmark",
+          "aNat": "France"
         },
         {
           "n": "리베라",
-          "m": 56
+          "m": 56,
+          "a": "Levi Smans",
+          "nat": "France",
+          "aNat": "Netherlands"
         },
         {
           "n": "마르코 파르지",
-          "m": 75
+          "m": 75,
+          "a": "Luca Oyen",
+          "nat": "Iraq",
+          "aNat": "Belgium"
         }
       ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Julian Baas",
+          "type": "Y",
+          "m": 24
+        },
+        {
+          "n": "Marvin Young",
+          "type": "Y",
+          "m": 61
+        }
+      ],
+      "away": []
     }
   },
   {
@@ -285126,7 +285780,34 @@
       "away": [
         {
           "n": "킹슬리",
-          "m": 86
+          "m": 86,
+          "nat": "Scotland"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Cathal McCarthy",
+          "type": "Y",
+          "m": 10
+        },
+        {
+          "n": "Michael Schjonning-Larsen",
+          "type": "Y",
+          "m": 83
+        }
+      ],
+      "away": [
+        {
+          "n": "Stephen Kingsley",
+          "type": "Y",
+          "m": 63
+        },
+        {
+          "n": "Christian Borchgrevink",
+          "type": "Y",
+          "m": 90
         }
       ]
     }
@@ -285360,21 +286041,52 @@
       "home": [
         {
           "n": "브란트",
-          "m": 32
+          "m": 32,
+          "a": "Kasper Dolberg",
+          "nat": "Germany",
+          "aNat": "Denmark"
         },
         {
           "n": "아로코다레",
-          "m": 64
+          "m": 64,
+          "a": "Oscar Gloukh",
+          "nat": "Nigeria",
+          "aNat": "Israel"
         }
       ],
       "away": [
         {
           "n": "하르트예스",
-          "m": 45
+          "m": 45,
+          "nat": "Netherlands"
         },
         {
           "n": "슬리티",
-          "m": 62
+          "m": 62,
+          "a": "Irakli Yegoian",
+          "nat": "Netherlands",
+          "aNat": "Georgia"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Oscar Gloukh",
+          "type": "Y",
+          "m": 85
+        }
+      ],
+      "away": [
+        {
+          "n": "Jan Plug",
+          "type": "Y",
+          "m": 35
+        },
+        {
+          "n": "Irakli Yegoian",
+          "type": "Y",
+          "m": 85
         }
       ]
     }
@@ -285987,7 +286699,34 @@
       "away": [
         {
           "n": "브리타인",
-          "m": 79
+          "m": 79,
+          "nat": "Netherlands"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Nathan Tjoe-A-On",
+          "type": "Y",
+          "m": 19
+        },
+        {
+          "n": "Uriel Van Aalst",
+          "type": "Y",
+          "m": 64
+        },
+        {
+          "n": "Vito van Crooij",
+          "type": "Y",
+          "m": 72
+        }
+      ],
+      "away": [
+        {
+          "n": "Ivo Pinto",
+          "type": "Y",
+          "m": 90
         }
       ]
     }
@@ -287064,17 +287803,50 @@
       "home": [
         {
           "n": "바틀렛",
-          "m": 47
+          "m": 47,
+          "a": "Keisuke Kurokawa",
+          "nat": "USA",
+          "aNat": "Japan"
         }
       ],
       "away": [
         {
           "n": "웨스트우드",
-          "m": 22
+          "m": 22,
+          "nat": "England"
         },
         {
           "n": "생-막시맹",
-          "m": 71
+          "m": 71,
+          "a": "Ashley Westwood",
+          "nat": "France",
+          "aNat": "England"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "João Peglow",
+          "type": "Y",
+          "m": 3
+        },
+        {
+          "n": "Andre Dozzell",
+          "type": "Y",
+          "m": 57
+        }
+      ],
+      "away": [
+        {
+          "n": "David Schnegg",
+          "type": "Y",
+          "m": 46
+        },
+        {
+          "n": "Ashley Westwood",
+          "type": "Y",
+          "m": 82
         }
       ]
     },
@@ -287142,21 +287914,64 @@
       "home": [
         {
           "n": "주드",
-          "m": 70
+          "m": 70,
+          "a": "Timo Werner",
+          "nat": "USA",
+          "aNat": "Germany"
         },
         {
           "n": "로버츠",
-          "m": 90
+          "m": 90,
+          "a": "Beau Leroux",
+          "nat": "USA",
+          "aNat": "USA"
         }
       ],
       "away": [
         {
           "n": "손흥민",
-          "m": 34
+          "m": 34,
+          "a": "Mark Delgado",
+          "nat": "South Korea",
+          "aNat": "USA"
         },
         {
           "n": "부앙가",
-          "m": 53
+          "m": 53,
+          "a": "Son Heung-Min",
+          "nat": "Gabon",
+          "aNat": "South Korea"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Preston Judd",
+          "type": "Y",
+          "m": 66
+        },
+        {
+          "n": "Niko Tsakiris",
+          "type": "Y",
+          "m": 90
+        }
+      ],
+      "away": [
+        {
+          "n": "Aaron Long",
+          "type": "R",
+          "m": 36
+        },
+        {
+          "n": "Mark Delgado",
+          "type": "Y",
+          "m": 73
+        },
+        {
+          "n": "Sergi Palencia",
+          "type": "Y",
+          "m": 75
         }
       ]
     },
@@ -287180,11 +287995,36 @@
       "away": [
         {
           "n": "파르시",
-          "m": 57
+          "m": 57,
+          "a": "Sean Zawadzki",
+          "nat": "Algeria",
+          "aNat": "USA"
         },
         {
           "n": "브라이스 멘데스",
-          "m": 68
+          "m": 68,
+          "nat": "Spain"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Brayan Ceballos",
+          "type": "Y",
+          "m": 2
+        },
+        {
+          "n": "Samuel Piette",
+          "type": "Y",
+          "m": 84
+        }
+      ],
+      "away": [
+        {
+          "n": "Steven Moreira",
+          "type": "Y",
+          "m": 32
         }
       ]
     },
@@ -288433,29 +289273,61 @@
       "home": [
         {
           "n": "소마",
-          "m": 38
+          "m": 38,
+          "nat": "Japan"
         },
         {
           "n": "오가와",
-          "m": 90
+          "m": 90,
+          "nat": "Japan"
         }
       ],
       "away": [
         {
           "n": "세가와",
-          "m": 53
+          "m": 53,
+          "nat": "Japan"
         },
         {
           "n": "엔도",
-          "m": 58
+          "m": 58,
+          "nat": "Japan"
         },
         {
           "n": "고이즈미",
-          "m": 65
+          "m": 65,
+          "nat": "Japan"
         },
         {
           "n": "세가와",
-          "m": 88
+          "m": 88,
+          "nat": "Japan"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Hokuto Shimoda",
+          "type": "R",
+          "m": 62
+        }
+      ],
+      "away": [
+        {
+          "n": "Koki Kumasaka",
+          "type": "Y",
+          "m": 76
+        },
+        {
+          "n": "Seiya Baba",
+          "type": "Y",
+          "m": 85
+        },
+        {
+          "n": "Riki Harakawa",
+          "type": "Y",
+          "m": 90
         }
       ]
     }
@@ -288478,9 +289350,30 @@
       "away": [
         {
           "n": "에리크",
-          "m": 90
+          "m": 90,
+          "nat": "Brazil"
         }
       ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Shuto Abe",
+          "type": "Y",
+          "m": 40
+        },
+        {
+          "n": "Shinnosuke Nakatani",
+          "type": "Y",
+          "m": 45
+        },
+        {
+          "n": "Ryoya Yamashita",
+          "type": "Y",
+          "m": 70
+        }
+      ],
+      "away": []
     }
   },
   {
@@ -288993,7 +289886,39 @@
       "away": [
         {
           "n": "나데리",
-          "m": 33
+          "m": 33,
+          "nat": "Germany"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Callum McGregor",
+          "type": "Y",
+          "m": 73
+        },
+        {
+          "n": "Sebastian Tounekti",
+          "type": "Y",
+          "m": 74
+        }
+      ],
+      "away": [
+        {
+          "n": "Emmanuel Fernandez",
+          "type": "Y",
+          "m": 4
+        },
+        {
+          "n": "Kim Min-Su",
+          "type": "Y",
+          "m": 57
+        },
+        {
+          "n": "Badredine Bouanani",
+          "type": "Y",
+          "m": 88
         }
       ]
     }
@@ -289045,7 +289970,24 @@
       "away": [
         {
           "n": "코르넬리우스",
-          "m": 79
+          "m": 79,
+          "nat": "Denmark"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Marcus Younis",
+          "type": "Y",
+          "m": 51
+        }
+      ],
+      "away": [
+        {
+          "n": "Robert",
+          "type": "Y",
+          "m": 59
         }
       ]
     }
@@ -289067,31 +290009,57 @@
       "home": [
         {
           "n": "드 로사리오",
-          "m": 25
+          "m": 25,
+          "nat": "Guyana"
         },
         {
           "n": "비야르나손",
-          "m": 45
+          "m": 45,
+          "nat": "Iceland"
         },
         {
           "n": "하이다라",
-          "m": 49
+          "m": 49,
+          "nat": "Guinea"
         },
         {
           "n": "세이디",
-          "m": 78
+          "m": 78,
+          "nat": "France"
         }
       ],
       "away": [
         {
           "n": "마흠두",
-          "m": 36
+          "m": 36,
+          "nat": "France"
         },
         {
           "n": "산코",
-          "m": 66
+          "m": 66,
+          "nat": "Netherlands"
         }
       ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Anders Hoeg",
+          "type": "Y",
+          "m": 15
+        },
+        {
+          "n": "Dalton Wilkins",
+          "type": "Y",
+          "m": 45
+        },
+        {
+          "n": "Sefer Emini",
+          "type": "Y",
+          "m": 85
+        }
+      ],
+      "away": []
     }
   },
   {
@@ -289452,10 +290420,29 @@
       "home": [
         {
           "n": "미어딩크",
-          "m": 19
+          "m": 19,
+          "a": "Valdemar Byskov",
+          "nat": "Netherlands",
+          "aNat": "Denmark"
         }
       ],
       "away": []
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Wouter Goes",
+          "type": "Y",
+          "m": 88
+        }
+      ],
+      "away": [
+        {
+          "n": "Gerald Alders",
+          "type": "Y",
+          "m": 41
+        }
+      ]
     }
   },
   {
@@ -289475,25 +290462,59 @@
       "home": [
         {
           "n": "타하",
-          "m": 14
+          "m": 14,
+          "nat": "Morocco"
         },
         {
           "n": "베호르스트",
-          "m": 79
+          "m": 79,
+          "a": "Daan Rots",
+          "nat": "Netherlands",
+          "aNat": "Netherlands"
         },
         {
           "n": "바이드만",
-          "m": 83
+          "m": 83,
+          "a": "Max Bruns",
+          "nat": "France",
+          "aNat": "Netherlands"
         }
       ],
       "away": [
         {
           "n": "틸",
-          "m": 26
+          "m": 26,
+          "a": "Mauro Júnior",
+          "nat": "Netherlands",
+          "aNat": "Brazil"
         },
         {
           "n": "틸",
-          "m": 29
+          "m": 29,
+          "a": "Paul Wanner",
+          "nat": "Netherlands",
+          "aNat": "Austria"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Wout Weghorst",
+          "type": "Y",
+          "m": 43
+        }
+      ],
+      "away": [
+        {
+          "n": "Ruben Van Bommel",
+          "type": "Y",
+          "m": 60
+        },
+        {
+          "n": "Ivan Perisic",
+          "type": "Y",
+          "m": 66
         }
       ]
     }
@@ -290154,7 +291175,8 @@
       "home": [
         {
           "n": "본드",
-          "m": 89
+          "m": 89,
+          "nat": "Denmark"
         },
         {
           "n": "밀리체비치",
@@ -290164,11 +291186,39 @@
       "away": [
         {
           "n": "크누드센",
-          "m": 58
+          "m": 58,
+          "nat": "Norway"
         },
         {
           "n": "맥코왓",
-          "m": 68
+          "m": 68,
+          "nat": "New Zealand"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Adam Herdonsson",
+          "type": "Y",
+          "m": 35
+        },
+        {
+          "n": "Alagie Saine",
+          "type": "Y",
+          "m": 60
+        }
+      ],
+      "away": [
+        {
+          "n": "Kristian Malt Arnstad",
+          "type": "Y",
+          "m": 89
+        },
+        {
+          "n": "Mikkel Anderson",
+          "type": "Y",
+          "m": 90
         }
       ]
     }
@@ -290478,13 +291528,32 @@
       "home": [
         {
           "n": "스휘르스",
-          "m": 2
+          "m": 2,
+          "a": "Tjaronn Chery",
+          "nat": "Netherlands",
+          "aNat": "Suriname"
         }
       ],
       "away": [
         {
           "n": "시구르다르손",
-          "m": 10
+          "m": 10,
+          "nat": "Iceland"
+        }
+      ]
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Sören Tengstedt",
+          "type": "Y",
+          "m": 31
+        },
+        {
+          "n": "Thibo Baeten",
+          "type": "Y",
+          "m": 77
         }
       ]
     }
@@ -290866,25 +291935,45 @@
       "home": [
         {
           "n": "쇤더가르드",
-          "m": 16
+          "m": 16,
+          "nat": "Denmark"
         },
         {
           "n": "도리안 주니어",
-          "m": 33
+          "m": 33,
+          "nat": "Equatorial Guinea"
         },
         {
           "n": "누크",
-          "m": 41
+          "m": 41,
+          "nat": "Denmark"
         },
         {
           "n": "클레이스-크리스토퍼센",
-          "m": 81
+          "m": 81,
+          "nat": "Denmark"
         }
       ],
       "away": [
         {
           "n": "알렉산더 린드",
-          "m": 26
+          "m": 26,
+          "nat": "Denmark"
+        }
+      ]
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Victor Nelsson",
+          "type": "Y",
+          "m": 8
+        },
+        {
+          "n": "Alexander Lind",
+          "type": "Y",
+          "m": 27
         }
       ]
     }
@@ -293034,21 +294123,52 @@
       "home": [
         {
           "n": "메시",
-          "m": 24
+          "m": 24,
+          "nat": "Argentina"
         },
         {
           "n": "수아레스",
-          "m": 74
+          "m": 74,
+          "a": "Rodrigo De Paul",
+          "nat": "Uruguay",
+          "aNat": "Argentina"
         }
       ],
       "away": [
         {
           "n": "드레이어",
-          "m": 12
+          "m": 12,
+          "a": "Jeppe Tverskov",
+          "nat": "Denmark",
+          "aNat": "Denmark"
         },
         {
           "n": "드레이어",
-          "m": 82
+          "m": 82,
+          "a": "Jeppe Tverskov",
+          "nat": "Denmark",
+          "aNat": "Denmark"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Yannick Bright",
+          "type": "Y",
+          "m": 64
+        },
+        {
+          "n": "Alexander Shaw",
+          "type": "Y",
+          "m": 81
+        }
+      ],
+      "away": [
+        {
+          "n": "Ian Murphy",
+          "type": "Y",
+          "m": 33
         }
       ]
     },
@@ -295485,21 +296605,25 @@
       "home": [
         {
           "n": "알 함라위",
-          "m": 27
+          "m": 27,
+          "nat": "Palestine"
         },
         {
           "n": "다바그",
-          "m": 39
+          "m": 39,
+          "nat": "Palestine"
         }
       ],
       "away": [
         {
           "n": "벤 웨인",
-          "m": 5
+          "m": 5,
+          "nat": "New Zealand"
         },
         {
           "n": "랜달",
-          "m": 35
+          "m": 35,
+          "nat": "New Zealand"
         }
       ]
     }
@@ -295557,18 +296681,75 @@
       "home": [
         {
           "n": "오현규",
-          "m": 54
+          "m": 54,
+          "a": "Kim Min-Jae",
+          "nat": "South Korea",
+          "aNat": "South Korea"
         },
         {
           "n": "손흥민",
-          "m": 58
+          "m": 58,
+          "nat": "South Korea"
         },
         {
           "n": "이동경",
-          "m": 86
+          "m": 86,
+          "a": "Kim Bong-Soo",
+          "nat": "South Korea"
         }
       ],
       "away": []
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Park Jin-Seop",
+          "type": "Y",
+          "m": 14
+        },
+        {
+          "n": "Lee Han-Beom",
+          "type": "Y",
+          "m": 45
+        },
+        {
+          "n": "Jeong Seung-Won",
+          "type": "Y",
+          "m": 47
+        },
+        {
+          "n": "Lee Jae-Sung",
+          "type": "Y",
+          "m": 62
+        }
+      ],
+      "away": [
+        {
+          "n": "Jackson Porozo",
+          "type": "Y",
+          "m": 10
+        },
+        {
+          "n": "Keny Arroyo",
+          "type": "Y",
+          "m": 21
+        },
+        {
+          "n": "Jordy Caicedo",
+          "type": "Y",
+          "m": 31
+        },
+        {
+          "n": "Pervis Estupiñán",
+          "type": "Y",
+          "m": 45
+        },
+        {
+          "n": "Ángelo Preciado",
+          "type": "Y",
+          "m": 52
+        }
+      ]
     }
   },
   {
@@ -295588,15 +296769,33 @@
       "home": [
         {
           "n": "왕 지밍",
-          "m": 50
+          "m": 50,
+          "a": "Wang Shangyuan",
+          "nat": "China PR",
+          "aNat": "China PR"
         },
         {
           "n": "왕 지밍",
-          "m": 56
+          "m": 56,
+          "a": "Chen Pu",
+          "nat": "China PR",
+          "aNat": "China PR"
         },
         {
           "n": "왕 지밍",
-          "m": 63
+          "m": 63,
+          "a": "Wang Gengrui",
+          "nat": "China PR"
+        }
+      ],
+      "away": []
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Yihao Zhong",
+          "type": "Y",
+          "m": 8
         }
       ],
       "away": []
@@ -295656,17 +296855,65 @@
       "home": [
         {
           "n": "로페즈",
-          "m": 17
+          "m": 17,
+          "nat": "Andorra"
         }
       ],
       "away": [
         {
           "n": "카르도나`",
-          "m": 36
+          "m": 36,
+          "a": "Teddy Teuma",
+          "nat": "Malta",
+          "aNat": "Malta"
         },
         {
           "n": "퇴마",
-          "m": 81
+          "m": 81,
+          "a": "Irvin Cardona",
+          "nat": "Malta",
+          "aNat": "Malta"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Ian de Olivera",
+          "type": "Y",
+          "m": 4
+        },
+        {
+          "n": "Moisés San Nicolás",
+          "type": "Y",
+          "m": 14
+        },
+        {
+          "n": "Gerard Garcia",
+          "type": "Y",
+          "m": 54
+        },
+        {
+          "n": "Éric De Las Heras",
+          "type": "Y",
+          "m": 62
+        },
+        {
+          "n": "Albert Rosas",
+          "type": "Y",
+          "m": 90
+        }
+      ],
+      "away": [
+        {
+          "n": "Alexander Satariano",
+          "type": "Y",
+          "m": 34
+        },
+        {
+          "n": "Kurt Shaw",
+          "type": "Y",
+          "m": 90
         }
       ]
     },
@@ -295764,10 +297011,26 @@
       "home": [
         {
           "n": "무리키",
-          "m": 83
+          "m": 83,
+          "nat": "Kosovo"
         }
       ],
       "away": []
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Jayson Molumby",
+          "type": "Y",
+          "m": 66
+        },
+        {
+          "n": "James Abankwah",
+          "type": "Y",
+          "m": 68
+        }
+      ]
     },
     "phaseCode": "NLB"
   },
@@ -295788,13 +297051,45 @@
       "home": [
         {
           "n": "학포",
-          "m": 90
+          "m": 90,
+          "a": "Ruben van Bommel",
+          "nat": "Netherlands",
+          "aNat": "Netherlands"
         }
       ],
       "away": [
         {
           "n": "은메차",
-          "m": 32
+          "m": 32,
+          "a": "Karim Adeyemi",
+          "nat": "Germany",
+          "aNat": "Germany"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Quinten Timber",
+          "type": "Y",
+          "m": 22
+        },
+        {
+          "n": "Jan Paul van Hecke",
+          "type": "Y",
+          "m": 24
+        },
+        {
+          "n": "Virgil van Dijk",
+          "type": "Y",
+          "m": 69
+        }
+      ],
+      "away": [
+        {
+          "n": "Nadiem Amiri",
+          "type": "Y",
+          "m": 68
         }
       ]
     },
@@ -295854,17 +297149,47 @@
       "home": [
         {
           "n": "지브코비치",
-          "m": 4
+          "m": 4,
+          "a": "Dusan Tadic",
+          "nat": "Serbia",
+          "aNat": "Serbia"
         }
       ],
       "away": [
         {
           "n": "촐리스",
-          "m": 74
+          "m": 74,
+          "a": "Vangelis Pavlidis",
+          "nat": "Greece",
+          "aNat": "Greece"
         },
         {
           "n": "두비카스",
-          "m": 90
+          "m": 90,
+          "a": "Kostas Tsimikas",
+          "nat": "Greece",
+          "aNat": "Greece"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Dusan Tadic",
+          "type": "Y",
+          "m": 63
+        },
+        {
+          "n": "Aleksa Terzic",
+          "type": "Y",
+          "m": 72
+        }
+      ],
+      "away": [
+        {
+          "n": "Christos Zafeiris",
+          "type": "Y",
+          "m": 83
         }
       ]
     },
@@ -295888,11 +297213,33 @@
       "away": [
         {
           "n": "미헬브링크",
-          "m": 53
+          "m": 53,
+          "a": "Armandas Kucys",
+          "nat": "Lithuania",
+          "aNat": "Lithuania"
         },
         {
           "n": "돌즈니코프",
-          "m": 66
+          "m": 66,
+          "a": "Gvidas Gineitis",
+          "nat": "Lithuania",
+          "aNat": "Lithuania"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Ferhat Saglam",
+          "type": "Y",
+          "m": 40
+        }
+      ],
+      "away": [
+        {
+          "n": "Justas Lasickas",
+          "type": "Y",
+          "m": 16
         }
       ]
     },
@@ -295915,10 +297262,26 @@
       "home": [
         {
           "n": "주앙 펠릭스",
-          "m": 22
+          "m": 22,
+          "nat": "Kosovo"
         }
       ],
       "away": []
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Jayson Molumby",
+          "type": "Y",
+          "m": 66
+        },
+        {
+          "n": "James Abankwah",
+          "type": "Y",
+          "m": 68
+        }
+      ]
     },
     "phaseCode": "NLA"
   },
@@ -295939,25 +297302,67 @@
       "home": [
         {
           "n": "보브",
-          "m": 14
+          "m": 14,
+          "a": "Martin Ødegaard",
+          "nat": "Norway",
+          "aNat": "Norway"
         },
         {
           "n": "홀란",
-          "m": 18
+          "m": 18,
+          "a": "Antonio Nusa",
+          "nat": "Norway",
+          "aNat": "Norway"
         },
         {
           "n": "홀란",
-          "m": 74
+          "m": 74,
+          "a": "Martin Ødegaard",
+          "nat": "Norway",
+          "aNat": "Norway"
         }
       ],
       "away": [
         {
           "n": "담스고르",
-          "m": 25
+          "m": 25,
+          "nat": "Denmark"
         },
         {
           "n": "호일룬",
-          "m": 60
+          "m": 60,
+          "nat": "Denmark"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "David Møller Wolfe",
+          "type": "Y",
+          "m": 68
+        },
+        {
+          "n": "David Møller Wolfe",
+          "type": "R",
+          "m": 90
+        }
+      ],
+      "away": [
+        {
+          "n": "Rasmus Kristensen",
+          "type": "Y",
+          "m": 38
+        },
+        {
+          "n": "Patrick Dorgu",
+          "type": "Y",
+          "m": 70
+        },
+        {
+          "n": "Gustav Isaksen",
+          "type": "Y",
+          "m": 90
         }
       ]
     },
@@ -296435,15 +297840,29 @@
       "home": [
         {
           "n": "이란쿤다",
-          "m": 68
+          "m": 68,
+          "nat": "Australia"
         }
       ],
       "away": [
         {
           "n": "하양",
-          "m": 90
+          "m": 90,
+          "a": "Raphinha",
+          "nat": "Brazil",
+          "aNat": "Brazil"
         }
       ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Jackson Irvine",
+          "type": "Y",
+          "m": 20
+        }
+      ],
+      "away": []
     }
   },
   {
@@ -296508,13 +297927,17 @@
       "home": [
         {
           "n": "윌리엄스",
-          "m": 41
+          "m": 41,
+          "a": "Akash Mishra",
+          "nat": "India"
         }
       ],
       "away": [
         {
           "n": "발렌시아",
-          "m": 68
+          "m": 68,
+          "a": "Eduardo Anderson",
+          "nat": "Panama"
         }
       ]
     }
@@ -296552,6 +297975,35 @@
       "away": [
         {
           "n": "찰스",
+          "m": 90,
+          "a": "Trai Hume",
+          "nat": "Northern Ireland",
+          "aNat": "Northern Ireland"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Khvicha Kvaratskhelia",
+          "type": "Y",
+          "m": 90
+        }
+      ],
+      "away": [
+        {
+          "n": "Danny Ballard",
+          "type": "Y",
+          "m": 64
+        },
+        {
+          "n": "Ciaron Brown",
+          "type": "Y",
+          "m": 67
+        },
+        {
+          "n": "Justin Devenny",
+          "type": "Y",
           "m": 90
         }
       ]
@@ -296575,11 +298027,27 @@
       "home": [
         {
           "n": "하루티운얀",
-          "m": 31
+          "m": 31,
+          "a": "Eduard Spertsyan",
+          "nat": "Armenia",
+          "aNat": "Armenia"
         },
         {
           "n": "가리비얀",
-          "m": 75
+          "m": 75,
+          "a": "Zhirayr Shaghoyan",
+          "nat": "Armenia",
+          "aNat": "Armenia"
+        }
+      ],
+      "away": []
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Artur Serobyan",
+          "type": "Y",
+          "m": 62
         }
       ],
       "away": []
@@ -296672,7 +298140,66 @@
       "away": [
         {
           "n": "음바페",
-          "m": 54
+          "m": 54,
+          "a": "Heorhiy Sudakov",
+          "nat": "Ukraine",
+          "aNat": "Ukraine"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "András Schäfer",
+          "type": "Y",
+          "m": 5
+        },
+        {
+          "n": "Barany Donat",
+          "type": "Y",
+          "m": 82
+        },
+        {
+          "n": "Dominik Szoboszlai",
+          "type": "Y",
+          "m": 90
+        },
+        {
+          "n": "Milos Kerkez",
+          "type": "Y",
+          "m": 90
+        }
+      ],
+      "away": [
+        {
+          "n": "Volodymyr Brazhko",
+          "type": "Y",
+          "m": 21
+        },
+        {
+          "n": "Illia Krupskyi",
+          "type": "Y",
+          "m": 49
+        },
+        {
+          "n": "Oleksandr Nazarenko",
+          "type": "Y",
+          "m": 71
+        },
+        {
+          "n": "Oleksandr Nazarenko",
+          "type": "R",
+          "m": 90
+        },
+        {
+          "n": "Viktor Tsygankov",
+          "type": "Y",
+          "m": 90
+        },
+        {
+          "n": "Mykola Matviyenko",
+          "type": "Y",
+          "m": 90
         }
       ]
     },
@@ -296691,6 +298218,52 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 0,
+    "cards": {
+      "home": [
+        {
+          "n": "Jakub Kiwior",
+          "type": "Y",
+          "m": 19
+        },
+        {
+          "n": "Jan Bednarek",
+          "type": "Y",
+          "m": 82
+        },
+        {
+          "n": "Matty Cash",
+          "type": "Y",
+          "m": 86
+        }
+      ],
+      "away": [
+        {
+          "n": "Kerim Alajbegovic",
+          "type": "Y",
+          "m": 32
+        },
+        {
+          "n": "Zinedin Smajlovic",
+          "type": "Y",
+          "m": 38
+        },
+        {
+          "n": "Ivan Sunjic",
+          "type": "Y",
+          "m": 47
+        },
+        {
+          "n": "Sead Kolasinac",
+          "type": "Y",
+          "m": 81
+        },
+        {
+          "n": "Amar Memic",
+          "type": "Y",
+          "m": 89
+        }
+      ]
+    },
     "phaseCode": "NLB"
   },
   {
@@ -296711,7 +298284,66 @@
       "away": [
         {
           "n": "시칸",
-          "m": 42
+          "m": 42,
+          "a": "Heorhiy Sudakov",
+          "nat": "Ukraine",
+          "aNat": "Ukraine"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "András Schäfer",
+          "type": "Y",
+          "m": 5
+        },
+        {
+          "n": "Barany Donat",
+          "type": "Y",
+          "m": 82
+        },
+        {
+          "n": "Dominik Szoboszlai",
+          "type": "Y",
+          "m": 90
+        },
+        {
+          "n": "Milos Kerkez",
+          "type": "Y",
+          "m": 90
+        }
+      ],
+      "away": [
+        {
+          "n": "Volodymyr Brazhko",
+          "type": "Y",
+          "m": 21
+        },
+        {
+          "n": "Illia Krupskyi",
+          "type": "Y",
+          "m": 49
+        },
+        {
+          "n": "Oleksandr Nazarenko",
+          "type": "Y",
+          "m": 71
+        },
+        {
+          "n": "Oleksandr Nazarenko",
+          "type": "R",
+          "m": 90
+        },
+        {
+          "n": "Viktor Tsygankov",
+          "type": "Y",
+          "m": 90
+        },
+        {
+          "n": "Mykola Matviyenko",
+          "type": "Y",
+          "m": 90
         }
       ]
     },
@@ -296735,11 +298367,63 @@
       "away": [
         {
           "n": "고츠",
-          "m": 20
+          "m": 20,
+          "a": "Kevin De Bruyne",
+          "nat": "Belgium",
+          "aNat": "Belgium"
         },
         {
           "n": "루케바키오",
-          "m": 69
+          "m": 69,
+          "a": "Charles De Ketelaere",
+          "nat": "Belgium",
+          "aNat": "Belgium"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Gianluca Mancini",
+          "type": "Y",
+          "m": 63
+        },
+        {
+          "n": "Daniel Maldini",
+          "type": "Y",
+          "m": 90
+        },
+        {
+          "n": "Gianluigi Donnarumma",
+          "type": "Y",
+          "m": 90
+        }
+      ],
+      "away": [
+        {
+          "n": "Nicolas Raskin",
+          "type": "Y",
+          "m": 25
+        },
+        {
+          "n": "Diego Moreira",
+          "type": "Y",
+          "m": 29
+        },
+        {
+          "n": "Romeo Lavia",
+          "type": "Y",
+          "m": 80
+        },
+        {
+          "n": "Matias Fernandez-Pardo",
+          "type": "Y",
+          "m": 89
+        },
+        {
+          "n": "Romelu Lukaku",
+          "type": "Y",
+          "m": 90
         }
       ]
     },
@@ -297093,8 +298777,8 @@
     "awayPitcher": "개빈 윌리엄스",
     "homePitcher": "노아 카메론",
     "awayScore": 7,
-    "homeScore": 5,
-    "inningInfo": "8회초"
+    "homeScore": 7,
+    "inningInfo": "8회말"
   },
   {
     "date": "2026-09-26",
@@ -297124,12 +298808,13 @@
     "stadium": "타깃 필드",
     "timeTbd": false,
     "gameId": "20260926TEMN0",
-    "status": "live",
+    "status": "completed",
     "awayPitcher": "제이콥 디그롬",
     "homePitcher": "조 라이언",
     "awayScore": 2,
     "homeScore": 10,
-    "inningInfo": "9회초"
+    "winPitcher": "라이언",
+    "losePitcher": "디그롬"
   },
   {
     "date": "2026-09-26",
@@ -297263,7 +298948,7 @@
     "homePitcher": "케이시 마이즈",
     "awayScore": 7,
     "homeScore": 2,
-    "inningInfo": "4회말"
+    "inningInfo": "5회초"
   },
   {
     "date": "2026-09-26",
@@ -297280,7 +298965,7 @@
     "homePitcher": "제이콥 로페즈",
     "awayScore": 1,
     "homeScore": 0,
-    "inningInfo": "4회말"
+    "inningInfo": "5회초"
   },
   {
     "date": "2026-09-26",
@@ -297295,9 +298980,9 @@
     "status": "live",
     "awayPitcher": "리드 디트머스",
     "homePitcher": "브라이스 밀러",
-    "awayScore": 1,
+    "awayScore": 2,
     "homeScore": 0,
-    "inningInfo": "3회말"
+    "inningInfo": "4회초"
   },
   {
     "date": "2026-09-26",
@@ -297314,7 +298999,7 @@
     "homePitcher": "유니어 마르테",
     "awayScore": 2,
     "homeScore": 0,
-    "inningInfo": "3회말"
+    "inningInfo": "4회말"
   },
   {
     "date": "2026-09-26",
@@ -306203,19 +307888,6 @@
   {
     "date": "2026-10-14",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "al_seeb_stadium",
-    "home": "알 시브",
-    "away": "알 후세인",
-    "stadium": "알-시브 스타디움",
-    "timeTbd": false,
-    "gameId": "OQsSGAzKGbKHXDT",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-14",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "al_sadd_jassim_bin_hamad",
     "home": "알 사드",
@@ -306223,6 +307895,19 @@
     "stadium": "자심 빈 하마드 스타디움",
     "timeTbd": false,
     "gameId": "zcfrVKksVO8hhNi",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-14",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "al_seeb_stadium",
+    "home": "알 시브",
+    "away": "알 후세인",
+    "stadium": "알-시브 스타디움",
+    "timeTbd": false,
+    "gameId": "OQsSGAzKGbKHXDT",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -317512,19 +319197,6 @@
   {
     "date": "2026-10-28",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "al_seeb_stadium",
-    "home": "알 시브",
-    "away": "이스트 벵갈",
-    "stadium": "알-시브 스타디움",
-    "timeTbd": false,
-    "gameId": "AW3p0efTl1zL9Jt",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-28",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "shabab_alahli_al_rashid",
     "home": "샤바브 알 아흘리",
@@ -317532,6 +319204,19 @@
     "stadium": "알라시드 스타디움",
     "timeTbd": false,
     "gameId": "uVJg9XVeZVSJFpb",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-28",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "al_seeb_stadium",
+    "home": "알 시브",
+    "away": "이스트 벵갈",
+    "stadium": "알-시브 스타디움",
+    "timeTbd": false,
+    "gameId": "AW3p0efTl1zL9Jt",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -317602,19 +319287,6 @@
   {
     "date": "2026-10-28",
     "time": "03:15",
-    "league": "ACL2",
-    "venueId": "al_zawraa_stadium",
-    "home": "알 쇼르타",
-    "away": "알 후세인",
-    "stadium": "알-자우라 스타디움",
-    "timeTbd": false,
-    "gameId": "HCihM9DqxKOXBbt",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-28",
-    "time": "03:15",
     "league": "ACL",
     "venueId": "al_shamal_al_bayt",
     "home": "알샤말",
@@ -317622,6 +319294,19 @@
     "stadium": "알베이트 스타디움",
     "timeTbd": false,
     "gameId": "3aZWRb5fy3Nyk9x",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-28",
+    "time": "03:15",
+    "league": "ACL2",
+    "venueId": "al_zawraa_stadium",
+    "home": "알 쇼르타",
+    "away": "알 후세인",
+    "stadium": "알-자우라 스타디움",
+    "timeTbd": false,
+    "gameId": "HCihM9DqxKOXBbt",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -320094,19 +321779,6 @@
   {
     "date": "2026-11-04",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "amman_international_stadium",
-    "home": "알 후세인",
-    "away": "알 쇼르타",
-    "stadium": "암만 인터내셔널 스태디엄",
-    "timeTbd": false,
-    "gameId": "87Yzcj2B505kzbh",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-11-04",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "basra_international",
     "home": "에스테그랄",
@@ -320114,6 +321786,19 @@
     "stadium": "바스라 인터내셔널 스타디움",
     "timeTbd": false,
     "gameId": "CbaeNHtf2qOthye",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-11-04",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "amman_international_stadium",
+    "home": "알 후세인",
+    "away": "알 쇼르타",
+    "stadium": "암만 인터내셔널 스태디엄",
+    "timeTbd": false,
+    "gameId": "87Yzcj2B505kzbh",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -320371,19 +322056,6 @@
   {
     "date": "2026-11-04",
     "time": "19:00",
-    "league": "ACL2",
-    "venueId": "seoulwc",
-    "home": "서울",
-    "away": "비에트텔",
-    "stadium": "서울월드컵경기장",
-    "timeTbd": false,
-    "gameId": "lZapB69mvTiiYds",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-11-04",
-    "time": "19:00",
     "league": "ACL",
     "venueId": "pohang",
     "home": "포항",
@@ -320391,6 +322063,19 @@
     "stadium": "포항스틸야드",
     "timeTbd": false,
     "gameId": "pmIB9z9UAQ4XPV2",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-11-04",
+    "time": "19:00",
+    "league": "ACL2",
+    "venueId": "seoulwc",
+    "home": "서울",
+    "away": "비에트텔",
+    "stadium": "서울월드컵경기장",
+    "timeTbd": false,
+    "gameId": "lZapB69mvTiiYds",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -325731,19 +327416,6 @@
   {
     "date": "2026-11-25",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "al_seeb_stadium",
-    "home": "알 시브",
-    "away": "알 쇼르타",
-    "stadium": "알-시브 스타디움",
-    "timeTbd": false,
-    "gameId": "zVJrrC6Kzu5rPRu",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-11-25",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "shabab_alahli_al_rashid",
     "home": "샤바브 알 아흘리",
@@ -325751,6 +327423,19 @@
     "stadium": "알라시드 스타디움",
     "timeTbd": false,
     "gameId": "Rsba5lmQWhdIFqs",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-11-25",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "al_seeb_stadium",
+    "home": "알 시브",
+    "away": "알 쇼르타",
+    "stadium": "알-시브 스타디움",
+    "timeTbd": false,
+    "gameId": "zVJrrC6Kzu5rPRu",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
