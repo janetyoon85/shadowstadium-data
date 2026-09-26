@@ -41,6 +41,13 @@ const ESPN_LEAGUE_SLUG = {
   BUNDESLIGA: 'ger.1',
   SERIEA: 'ita.1',
   LIGUE1: 'fra.1',
+  // 2026-09-26 확장(사용자 요청) — ESPN 슬러그+keyEvents 카드 존재 실측 확인 완료.
+  EREDIVISIE: 'ned.1',
+  MLS: 'usa.1',
+  SAUDI: 'ksa.1',
+  J1: 'jpn.1',
+  SCOTLAND: 'sco.1',
+  DENMARK: 'den.1',
 };
 const EURO_ASSISTS_PATH = path.join(REPO_ROOT, 'euro_assists.json');
 // ESPN 소스 해외축구(EURO_ASSISTS와 동일 매칭 대상) 카드(경고/퇴장) — enrichEuroAssists가 이미
