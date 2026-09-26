@@ -132,6 +132,14 @@ const EURO_ASSISTS_PATH = path.join(REPO_ROOT, 'euro_assists.json');
 // 같은 경기에 fetchEspnSummary를 호출하니 그 summary를 그대로 재사용해 카드도 같이 추출.
 // 골 득점자가 있는 경기만 대상(현재 매칭 로직 제약) — 0-0 무득점 경기는 카드 미지원(추후 보완).
 const EURO_CARDS_PATH = path.join(REPO_ROOT, 'euro_cards.json');
+// 앱은 과거 ~며칠 전 ~ 미래 2주 정도만 화면에서 볼 수 있어(홈 화면 날짜 네비게이션 범위) 시즌
+// 초(3월)까지 거슬러 올라가는 카드/어시스트 백필은 사용자 눈엔 절대 안 보이는 낭비 작업 —
+// 예산을 화면에 실제로 보이는 최근 경기에만 쓰도록 날짜 컷오프 추가(사용자 지적, 2026-09-26).
+const CARD_ENRICH_CUTOFF_DAYS = 30;
+function cardEnrichCutoffDateStr() {
+  const d = new Date(Date.now() - CARD_ENRICH_CUTOFF_DAYS * 86400000);
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
 // 승/패 투수 필드(schedule API 기본 포함)를 표시하는 리그 — 야구 공통(K리그는 해당 없음).
 const BASEBALL_LEAGUES = new Set(['KBO', 'MLB', 'NPB']);
 // 득점자를 다른 엔드포인트(/schedule/games/{id}?fields=all의 game.scorers, 이미 구조화된 JSON)로
@@ -734,11 +742,15 @@ async function enrichScorers(allGames) {
     console.log('[cards] no cards.json yet — backfilling from scratch');
   }
 
+  const cardEnrichCutoff = cardEnrichCutoffDateStr();
   const targets = allGames.filter(
     (g) =>
       (SOCCER_LEAGUES.has(g.league) || STRUCTURED_SCORER_LEAGUES.has(g.league)) &&
       (g.status === 'completed' || g.status === 'live') &&
-      g.gameId,
+      g.gameId &&
+      // 앱에서 절대 안 보이는 오래된 경기(30일 이전)는 예산 낭비라 아예 대상에서 제외(사용자
+      // 지적, 2026-09-26) — live 는 날짜 무관하게 항상 포함.
+      (g.status === 'live' || g.date >= cardEnrichCutoff),
   );
   // games.json이 날짜 오름차순이라 예산제 백필이 시즌 초(3월)부터 순서대로 처리돼 정작 사용자가
   // 보는 최근 경기엔 몇 주가 지나도 카드가 안 붙는 문제 발견(실측: withCards 59건이 전부 옛날 경기,
@@ -897,11 +909,15 @@ async function enrichEuroAssists(allGames) {
 
   // 0-0 무득점 경기도 카드는 붙어야 해서(사용자 요청, 2026-09-26) g.scorers 존재 요건을 뺌 —
   // 어시스트/국적 로직은 원래대로 scorers가 없으면 그냥 빈 배열([].length===0)로 자연히 스킵됨.
+  const euroCutoff = cardEnrichCutoffDateStr();
   const targets = allGames.filter(
     (g) =>
       ESPN_LEAGUE_SLUG[g.league] &&
       (g.status === 'completed' || g.status === 'live') &&
-      g.gameId,
+      g.gameId &&
+      // 앱 화면에서 절대 안 보이는 오래된 경기(30일 이전)는 예산 낭비라 대상에서 제외
+      // (사용자 지적: "백필은어짜피화면에안보이니깐필요없는거아니야?", 2026-09-26).
+      (g.status === 'live' || g.date >= euroCutoff),
   );
   // enrichScorers와 동일 이유(날짜 오름차순 배열이라 예산제 백필이 시즌 초부터 처리돼 최근
   // 경기가 몇 주째 안 채워짐, 실측 확인) — 최신순으로 정렬해 우선순위 뒤집음.
