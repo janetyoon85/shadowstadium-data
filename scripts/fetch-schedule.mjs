@@ -41,13 +41,44 @@ const ESPN_LEAGUE_SLUG = {
   BUNDESLIGA: 'ger.1',
   SERIEA: 'ita.1',
   LIGUE1: 'fra.1',
-  // 2026-09-26 확장(사용자 요청) — ESPN 슬러그+keyEvents 카드 존재 실측 확인 완료.
+  // 2026-09-26 확장(사용자 요청: "다른리그도가능?") — ESPN 슬러그+keyEvents 카드 존재
+  // 실측 확인 완료(리그별 curl 테스트, 존재 안 하는 슬러그는 400으로 즉시 구분됨).
   EREDIVISIE: 'ned.1',
   MLS: 'usa.1',
   SAUDI: 'ksa.1',
   J1: 'jpn.1',
   SCOTLAND: 'sco.1',
   DENMARK: 'den.1',
+  // 컵대회/국가대항전 — CATEGORIES에 이미 이 리그코드로 fetch-schedule.mjs가 직접 수집 중이라
+  // ESPN_LEAGUE_SLUG에만 추가하면 enrichEuroAssists 파이프라인에 그대로 편입됨.
+  UCL: 'uefa.champions',
+  UEL: 'uefa.europa',
+  UECL: 'uefa.europa.conf',
+  FACUP: 'eng.fa',
+  DFBPOKAL: 'ger.dfb_pokal',
+  COUPEDEFRANCE: 'fra.coupe_de_france',
+  COPADELREY: 'esp.copa_del_rey',
+  COPPAITALIA: 'ita.coppa_italia',
+  UNL: 'uefa.nations',
+  WORLDCUP: 'fifa.world',
+  AFRICACUP: 'caf.nations',
+  CONCACAFCUP: 'concacaf.champions',
+  ACL: 'afc.champions',
+  UEFASUPERCUP: 'uefa.super_cup',
+  GERMANSUPERCUP: 'ger.super_cup',
+  SPANISHSUPERCUP: 'esp.super_cup',
+  ITALIANSUPERCUP: 'ita.super_cup',
+  FRENCHSUPERCUP: 'fra.super_cup',
+  U17WORLDCUP: 'fifa.world.u17',
+  CLUBWORLDCUP: 'fifa.cwc',
+  WCQUEFA: 'fifa.worldq.uefa',
+  WCQAFC: 'fifa.worldq.afc',
+  AMATCHFRIENDLY: 'fifa.friendly',
+  CLUBFRIENDLY: 'club.friendly',
+  COPAAMERICA: 'conmebol.america',
+  UEFAEURO: 'uefa.euro',
+  // 슬러그 못 찾은 것들(400 응답) — ACL2, COMMUNITYSHIELD, INTERCONTINENTALCUP, ASIANCUP는
+  // 이번엔 제외(추후 재조사 필요).
 };
 const EURO_ASSISTS_PATH = path.join(REPO_ROOT, 'euro_assists.json');
 // ESPN 소스 해외축구(EURO_ASSISTS와 동일 매칭 대상) 카드(경고/퇴장) — enrichEuroAssists가 이미
