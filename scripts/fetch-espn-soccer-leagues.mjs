@@ -86,6 +86,28 @@ async function extractScorers(comp, homeTeamId, awayTeamId, slug) {
   return home.length || away.length ? { home, away } : undefined;
 }
 
+// 카드(경고/퇴장) — 득점자와 동일한 comp.details 재사용, scoringPlay:false 인 "Yellow/Red Card"
+// 텍스트만 추림(2026-09-26, 이 리그들은 fetch-schedule.mjs의 enrichEuroAssists 대상이 아니라서 —
+// _ESPN_ gameId로 이 크롤러가 직접 생성하는 게임이라 enrichEuroAssists의 allGames에 안 잡힘 —
+// 여기서 직접 부착 안 하면 영원히 카드가 안 붙는 구조적 갭이었음, 실측으로 발견).
+function extractCards(comp, homeTeamId, awayTeamId) {
+  const home = [];
+  const away = [];
+  for (const d of comp.details || []) {
+    const text = d.type?.text || '';
+    if (!/card/i.test(text)) continue;
+    const player = d.athletesInvolved?.[0];
+    if (!player?.displayName) continue;
+    const entry = { n: player.displayName, type: /red|second yellow/i.test(text) ? 'R' : 'Y' };
+    const m = /^(\d+)/.exec(d.clock?.displayValue || '');
+    if (m) entry.m = parseInt(m[1], 10);
+    const teamId = String(d.team?.id ?? '');
+    if (teamId === String(homeTeamId)) home.push(entry);
+    else if (teamId === String(awayTeamId)) away.push(entry);
+  }
+  return home.length || away.length ? { home, away } : undefined;
+}
+
 function espnStatusToOurs(statusType) {
   const name = statusType?.name || '';
   if (/POSTPONED/i.test(name)) return 'postponed';
@@ -133,6 +155,8 @@ async function fetchEspnLeagueRange(code, slug, dayYmd, unknownTeams, unknownVen
       if (!Number.isNaN(as)) out.awayScore = as;
       const scorers = await extractScorers(comp, home.team?.id, away.team?.id, slug);
       if (scorers) out.scorers = scorers;
+      const cards = extractCards(comp, home.team?.id, away.team?.id);
+      if (cards) out.cards = cards;
     }
     games.push(out);
   }
@@ -222,7 +246,7 @@ async function main() {
       const idx = games.findIndex((x) => x.gameId === key);
       if (idx >= 0) {
         const prev = games[idx];
-        if (prev.status !== g.status || prev.homeScore !== g.homeScore || prev.awayScore !== g.awayScore || JSON.stringify(prev.scorers) !== JSON.stringify(g.scorers)) {
+        if (prev.status !== g.status || prev.homeScore !== g.homeScore || prev.awayScore !== g.awayScore || JSON.stringify(prev.scorers) !== JSON.stringify(g.scorers) || JSON.stringify(prev.cards) !== JSON.stringify(g.cards)) {
           games[idx] = { ...prev, ...g };
           updated++;
         }
