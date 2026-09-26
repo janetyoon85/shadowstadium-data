@@ -655,6 +655,10 @@ async function enrichScorers(allGames) {
       (g.status === 'completed' || g.status === 'live') &&
       g.gameId,
   );
+  // games.json이 날짜 오름차순이라 예산제 백필이 시즌 초(3월)부터 순서대로 처리돼 정작 사용자가
+  // 보는 최근 경기엔 몇 주가 지나도 카드가 안 붙는 문제 발견(실측: withCards 59건이 전부 옛날 경기,
+  // 최근 K리그 경기는 0건, 2026-09-26) — 최신순으로 정렬해 백필 우선순위를 뒤집음.
+  targets.sort((a, b) => (b.date + b.time).localeCompare(a.date + a.time));
   let fromCache = 0;
   let fetched = 0;
   let failed = 0;
@@ -814,6 +818,9 @@ async function enrichEuroAssists(allGames) {
       (g.status === 'completed' || g.status === 'live') &&
       g.gameId,
   );
+  // enrichScorers와 동일 이유(날짜 오름차순 배열이라 예산제 백필이 시즌 초부터 처리돼 최근
+  // 경기가 몇 주째 안 채워짐, 실측 확인) — 최신순으로 정렬해 우선순위 뒤집음.
+  targets.sort((a, b) => (b.date + b.time).localeCompare(a.date + a.time));
 
   let fromCache = 0;
   let fetched = 0;
