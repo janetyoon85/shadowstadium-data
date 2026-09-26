@@ -135,7 +135,9 @@ const EURO_CARDS_PATH = path.join(REPO_ROOT, 'euro_cards.json');
 // 앱은 과거 ~며칠 전 ~ 미래 2주 정도만 화면에서 볼 수 있어(홈 화면 날짜 네비게이션 범위) 시즌
 // 초(3월)까지 거슬러 올라가는 카드/어시스트 백필은 사용자 눈엔 절대 안 보이는 낭비 작업 —
 // 예산을 화면에 실제로 보이는 최근 경기에만 쓰도록 날짜 컷오프 추가(사용자 지적, 2026-09-26).
-const CARD_ENRICH_CUTOFF_DAYS = 3; // 사용자 지시로 30→3일 축소, 백필 대상 대폭 감소(2026-09-26).
+// 2026-09-27: 팀 상세 페이지(최근 5경기, 주 1회 일정인 축구는 몇 주 전 경기까지 나옴) 신설로
+// 3일 컷오프가 너무 좁아져 그 화면에서 득점자/카드가 안 보이는 문제 발생 — 35일로 재확장.
+const CARD_ENRICH_CUTOFF_DAYS = 35;
 function cardEnrichCutoffDateStr() {
   const d = new Date(Date.now() - CARD_ENRICH_CUTOFF_DAYS * 86400000);
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
@@ -511,10 +513,10 @@ async function fetchGameRecord(gameId) {
   return { save, highlights: parseBaseballHighlights(rd) };
 }
 // 하이라이트(홈런 등)는 새 필드라 옛 캐시(saves.json, 지금까지는 savePitcher 문자열만 저장)엔
-// 당연히 없음 — 사용자 지시대로 전체 백필은 안 하고 최근 3일 경기만 다시 조회해서 채움
-// ("백필할필요없고 백필은 3일전데이터만있으면돼", 2026-09-26). 3일보다 오래된 경기는
-// 화면에 안 보이니 옛 문자열 캐시 그대로 둠(불필요한 재조회 없음).
-const HIGHLIGHT_CUTOFF_DAYS = 3;
+// 당연히 없음 — 처음엔 사용자 지시대로 최근 3일치만 재조회했으나("백필할필요없고 백필은
+// 3일전데이터만있으면돼", 2026-09-26), 팀 상세 페이지(최근 5경기) 신설로 그보다 오래된 경기도
+// 화면에 나오게 돼 35일로 재확장(2026-09-27, CARD_ENRICH_CUTOFF_DAYS와 동일 사유).
+const HIGHLIGHT_CUTOFF_DAYS = 35;
 function highlightCutoffDateStr() {
   const d = new Date(Date.now() - HIGHLIGHT_CUTOFF_DAYS * 86400000);
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
