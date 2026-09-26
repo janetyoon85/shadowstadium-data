@@ -135,7 +135,7 @@ const EURO_CARDS_PATH = path.join(REPO_ROOT, 'euro_cards.json');
 // 앱은 과거 ~며칠 전 ~ 미래 2주 정도만 화면에서 볼 수 있어(홈 화면 날짜 네비게이션 범위) 시즌
 // 초(3월)까지 거슬러 올라가는 카드/어시스트 백필은 사용자 눈엔 절대 안 보이는 낭비 작업 —
 // 예산을 화면에 실제로 보이는 최근 경기에만 쓰도록 날짜 컷오프 추가(사용자 지적, 2026-09-26).
-const CARD_ENRICH_CUTOFF_DAYS = 30;
+const CARD_ENRICH_CUTOFF_DAYS = 3; // 사용자 지시로 30→3일 축소, 백필 대상 대폭 감소(2026-09-26).
 function cardEnrichCutoffDateStr() {
   const d = new Date(Date.now() - CARD_ENRICH_CUTOFF_DAYS * 86400000);
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
