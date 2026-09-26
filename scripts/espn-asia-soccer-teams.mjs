@@ -58,5 +58,6 @@ export const ASIA_TEAMS = {
     "interkashi": { ko: "인터 카시", venueId: "kishore_bharati_krirangan", en: "Inter Kashi" },
     "sportingclubdelhi": { ko: "스포르팅 클럽 델리", venueId: "jawaharlal_nehru_stadium_delhi", en: "Sporting Club Delhi" },
     "chennaiyinfc": { ko: "첸나이인 FC", venueId: "jawaharlal_nehru_stadium_chennai", en: "Chennaiyin FC" },
+    "churchillbrothers": { ko: "처칠 브라더스", venueId: "jawaharlal_nehru_goa", en: "Churchill Brothers" },
   },
 };
