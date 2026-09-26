@@ -630,10 +630,19 @@ async function enrichScorers(allGames) {
   let fromCache = 0;
   let fetched = 0;
   let failed = 0;
+  // cards.json은 신설 캐시라 이미 scorers.json에 final:true로 캐시된 옛 완료 경기는 needsFetch가
+  // false가 돼서 카드가 영영 안 붙는 문제 발생(실측 확인, 2026-09-26) — homeNats 백필과 동일한
+  // 패턴으로 카드만 별도 예산 내에서 재조회해 채움(K리그만 대상).
+  const CARD_BACKFILL_BUDGET = 60;
+  let cardBackfillUsed = 0;
 
   for (const g of targets) {
     const cached = cache[g.gameId];
-    const needsFetch = !cached || g.status === 'live' || (g.status === 'completed' && cached.final === false);
+    const isCardBackfillOnly = SOCCER_LEAGUES.has(g.league) && cached && cached.final !== false &&
+      g.status !== 'live' && !(g.gameId in cardCache);
+    if (isCardBackfillOnly && cardBackfillUsed >= CARD_BACKFILL_BUDGET) continue;
+    const needsFetch = !cached || g.status === 'live' || (g.status === 'completed' && cached.final === false) || isCardBackfillOnly;
+    if (isCardBackfillOnly) cardBackfillUsed++;
     if (needsFetch) {
       try {
         await sleep(REQUEST_DELAY_MS);
