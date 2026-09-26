@@ -436,23 +436,46 @@ function sortGames(games) {
 // - KBO: pitchingResult 단일 배열, wls 영문코드('S').
 // - MLB/NPB: homePitcher/awayPitcher 배열 분리, wls 한글('세'). (실측 확인됨, 2026-09)
 // 세이브 없는 경기(대부분)·DRAW → null. name 은 성만 — schedule 투수명과 동일 표기.
-async function fetchSavePitcher(gameId) {
+// etcRecords: [{result, how}] — 홈런/2루타/도루/실책/병살타/결승타 등 이미 정리된 하이라이트.
+// "심판"(그 경기 심판진 명단)만 실제 경기 하이라이트가 아니라서 제외.
+function parseBaseballHighlights(etcRecords) {
+  if (!Array.isArray(etcRecords)) return [];
+  return etcRecords
+    .filter((e) => e && e.how && e.how !== '심판' && (e.result || '').trim())
+    .map((e) => ({ how: e.how, text: e.result.trim() }));
+}
+
+async function fetchGameRecord(gameId) {
   const res = await fetch(RECORD_API(gameId), { headers: { 'User-Agent': USER_AGENT } });
   if (!res.ok) throw new Error(`HTTP ${res.status} record ${gameId}`);
   const json = await res.json();
   const rd = json?.result?.recordData;
-  if (!rd) return null;
+  if (!rd) return { save: null, highlights: [] };
+  let save = null;
   if (Array.isArray(rd.pitchingResult)) {
     const sv = rd.pitchingResult.find((p) => p && p.wls === 'S');
-    return sv ? (sv.name || '').trim() || null : null;
+    save = sv ? (sv.name || '').trim() || null : null;
+  } else {
+    for (const key of ['homePitcher', 'awayPitcher']) {
+      const arr = rd[key];
+      if (!Array.isArray(arr)) continue;
+      const sv = arr.find((p) => p && p.wls === '세');
+      if (sv) {
+        save = (sv.name || '').trim() || null;
+        break;
+      }
+    }
   }
-  for (const key of ['homePitcher', 'awayPitcher']) {
-    const arr = rd[key];
-    if (!Array.isArray(arr)) continue;
-    const sv = arr.find((p) => p && p.wls === '세');
-    if (sv) return (sv.name || '').trim() || null;
-  }
-  return null;
+  return { save, highlights: parseBaseballHighlights(rd.etcRecords) };
+}
+// 하이라이트(홈런 등)는 새 필드라 옛 캐시(saves.json, 지금까지는 savePitcher 문자열만 저장)엔
+// 당연히 없음 — 사용자 지시대로 전체 백필은 안 하고 최근 3일 경기만 다시 조회해서 채움
+// ("백필할필요없고 백필은 3일전데이터만있으면돼", 2026-09-26). 3일보다 오래된 경기는
+// 화면에 안 보이니 옛 문자열 캐시 그대로 둠(불필요한 재조회 없음).
+const HIGHLIGHT_CUTOFF_DAYS = 3;
+function highlightCutoffDateStr() {
+  const d = new Date(Date.now() - HIGHLIGHT_CUTOFF_DAYS * 86400000);
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 }
 
 // 종료 야구(KBO/MLB/NPB) 경기에 세이브 투수(savePitcher) 부착. saves.json 캐시로 신규 종료분만
@@ -473,23 +496,36 @@ async function enrichSaves(allGames) {
   let fromCache = 0;
   let fetched = 0;
   let failed = 0;
+  const highlightCutoff = highlightCutoffDateStr();
 
   for (const g of targets) {
-    if (!Object.prototype.hasOwnProperty.call(cache, g.gameId)) {
+    const cached = cache[g.gameId];
+    // 옛 캐시는 savePitcher 문자열(또는 null) 그대로 — {save, highlights} 새 포맷과 구분.
+    const isNewFormat = cached && typeof cached === 'object';
+    const needsHighlightRefetch = g.date >= highlightCutoff && !(isNewFormat && Array.isArray(cached.highlights));
+    if (cached === undefined || needsHighlightRefetch) {
       try {
         await sleep(REQUEST_DELAY_MS);
-        cache[g.gameId] = await fetchSavePitcher(g.gameId);
+        cache[g.gameId] = await fetchGameRecord(g.gameId);
         fetched++;
       } catch (e) {
         failed++;
         console.warn(`[saves] fetch failed ${g.gameId}: ${e.message}`);
-        continue; // 캐시 안 함 → 다음 run 재시도. savePitcher 미부착.
+        if (cached === undefined) continue; // 캐시 자체가 없으면 다음 run 재시도, 미부착.
+        // 옛 캐시가 있으면(리페치 실패해도) 그걸로라도 부착 — 아래에서 사용.
       }
     } else {
       fromCache++;
     }
-    const sv = cache[g.gameId];
-    if (sv) g.savePitcher = sv;
+    const rec = cache[g.gameId];
+    if (rec) {
+      if (typeof rec === 'string') {
+        g.savePitcher = rec; // 옛 포맷
+      } else {
+        if (rec.save) g.savePitcher = rec.save;
+        if (Array.isArray(rec.highlights) && rec.highlights.length) g.highlights = rec.highlights;
+      }
+    }
   }
 
   // prune: 현 데이터셋의 종료 야구(KBO/MLB/NPB) gameId 만 남김 (캐시한 값이 있는 것만).
@@ -501,8 +537,9 @@ async function enrichSaves(allGames) {
   await fs.writeFile(SAVES_PATH, JSON.stringify(pruned, null, 2) + '\n', 'utf-8');
 
   const withSave = targets.filter((g) => g.savePitcher).length;
+  const withHighlights = targets.filter((g) => g.highlights).length;
   console.log(
-    `[saves] completedBaseball=${targets.length} cached=${fromCache} fetched=${fetched} failed=${failed} withSave=${withSave}`,
+    `[saves] completedBaseball=${targets.length} cached=${fromCache} fetched=${fetched} failed=${failed} withSave=${withSave} withHighlights=${withHighlights}`,
   );
 }
 
@@ -1114,6 +1151,8 @@ function serializeGame(g) {
   if (g.winPitcher) out.winPitcher = g.winPitcher;
   if (g.losePitcher) out.losePitcher = g.losePitcher;
   if (g.savePitcher) out.savePitcher = g.savePitcher;
+  // 야구 하이라이트(홈런/2루타/도루/실책/병살타/결승타 등) — KBO/MLB/NPB 최근 3일 경기만.
+  if (g.highlights) out.highlights = g.highlights;
   // 축구 득점자 — 종료+진행중 경기, 골 있을 때만. {home,away} 각 [{m,n,pk?,og?}].
   if (g.scorers) out.scorers = g.scorers;
   // 축구 카드(경고/퇴장) — K리그만, 있을 때만. {home,away} 각 [{n,type:'Y'|'R',m?}].
