@@ -830,8 +830,15 @@ async function enrichEuroAssists(allGames) {
   for (const g of targets) {
     const cached = cache[g.gameId];
     const needsCardBackfill = g.status !== 'live' && !(g.gameId in cardCache);
-    const isBackfillOnly = cached && cached.final !== false && g.status !== 'live' &&
-      ((!('homeNats' in cached) || !('awayNats' in cached) || !('homeANats' in cached) || !('awayANats' in cached)) || needsCardBackfill);
+    // 0-0 무득점 경기를 대상에 새로 포함시키면서(2026-09-26) 이 경기들은 cache[g.gameId] 자체가
+    // 아예 없어(!cached) 예산 체크를 건너뛰고 무제한으로 fetch되는 버그 발생 — 실행이 몇 분 만에
+    // 끝나던 게 계속 진행중으로 관측됨(실측). live가 아닌 한(실시간 급하지 않음) "완전 신규"도
+    // 같은 예산 풀에 넣어서 과거 미완료분처럼 여러 실행에 걸쳐 나눠 처리되게 함.
+    const isBackfillOnly = g.status !== 'live' && (
+      !cached ||
+      (cached.final !== false &&
+        ((!('homeNats' in cached) || !('awayNats' in cached) || !('homeANats' in cached) || !('awayANats' in cached)) || needsCardBackfill))
+    );
     if (isBackfillOnly && backfillUsed >= BACKFILL_BUDGET) continue; // 이번 실행 예산 소진 — 다음 실행에서 재시도.
     const needsFetch = !cached || g.status === 'live' || (g.status === 'completed' && cached.final === false) || isBackfillOnly;
     if (isBackfillOnly) backfillUsed++;
