@@ -1023,6 +1023,11 @@ async function enrichEuroAssists(allGames) {
           // live 는 다음 run 에 스코어보드가 갱신될 수 있어 재시도 유지(캐시 안 함).
           if (g.status === 'completed') {
             cache[g.gameId] = { homeAssists: [], awayAssists: [], homeNats: [], awayNats: [], homeANats: [], awayANats: [], final: true };
+            // 카드 캐시도 같이 확정 스텁 처리 — 안 그러면 needsCardBackfill이 영원히 true로 남아
+            // ESPN 미중계 경기(군소리그에 흔함)가 매 실행마다 예산을 계속 잡아먹어 다른(특히
+            // 신규 38개국) 리그의 백필이 굶는 문제 발생(2026-09-26 실측 발견 — 신규 확장 리그들
+            // 상당수가 몇 시간째 카드 0건).
+            if (!cardCache[g.gameId]) cardCache[g.gameId] = { home: [], away: [], final: true };
           }
           if (!cached) continue;
         } else {
