@@ -141,7 +141,12 @@ function cardEnrichCutoffDateStr() {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 }
 // 승/패 투수 필드(schedule API 기본 포함)를 표시하는 리그 — 야구 공통(K리그는 해당 없음).
-const BASEBALL_LEAGUES = new Set(['KBO', 'MLB', 'NPB']);
+// PREMIER12도 Naver 같은 API(kbaseball 상위분류, /record 스키마 동일)로 오는 대회라 추가
+// (사용자 요청: "모든야구경기다 추가되도록", 2026-09-26). 나머지 국제대회(WBC/올림픽/
+// 아시안게임/유럽·중남미 11개국 등)는 이 크롤러가 아니라 WBSC/Bornan 등 완전히 다른
+// 소스+스크립트에서 오는데, 그쪽 원본 데이터엔 이런 하이라이트 상세 필드가 없는 것으로
+// 확인됨(별도 조사 필요, scripts/fetch-wbsc-baseball.mjs 등).
+const BASEBALL_LEAGUES = new Set(['KBO', 'MLB', 'NPB', 'PREMIER12']);
 // 득점자를 다른 엔드포인트(/schedule/games/{id}?fields=all의 game.scorers, 이미 구조화된 JSON)로
 // 가져오는 리그. K리그(SOCCER_LEAGUES)는 /relay HTML 파싱 방식이라 별도 — 서로 다른 스키마.
 const STRUCTURED_SCORER_LEAGUES = new Set([
