@@ -252822,18 +252822,6 @@
     "date": "2026-09-27",
     "time": "03:00",
     "league": "URUGUAY",
-    "venueId": "estadio_campeon_del_siglo",
-    "home": "페냐롤",
-    "away": "보스턴 리버",
-    "stadium": "",
-    "timeTbd": true,
-    "gameId": "URUGUAY_ESPN_401923662",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-09-27",
-    "time": "03:00",
-    "league": "URUGUAY",
     "venueId": "estadio_charrua_montevideo",
     "home": "몬테비데오 시티 토르케",
     "away": "데포르티보 말도나도",
@@ -253382,7 +253370,13 @@
     "homeScore": 0,
     "awayScore": 0,
     "cards": {
-      "home": [],
+      "home": [
+        {
+          "n": "Jhon Montoya",
+          "type": "Y",
+          "m": 31
+        }
+      ],
       "away": [
         {
           "n": "Diego Duarte",
@@ -253391,6 +253385,20 @@
         }
       ]
     }
+  },
+  {
+    "date": "2026-09-27",
+    "time": "06:30",
+    "league": "URUGUAY",
+    "venueId": "estadio_campeon_del_siglo",
+    "home": "페냐롤",
+    "away": "보스턴 리버",
+    "stadium": "Estadio Centenario",
+    "timeTbd": false,
+    "gameId": "URUGUAY_ESPN_401923662",
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-09-27",
