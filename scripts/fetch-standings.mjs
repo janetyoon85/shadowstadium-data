@@ -172,7 +172,15 @@ function pickPitcherRow(p) {
 }
 
 async function main() {
-  const out = {};
+  // fetch-espn-standings.mjs(별도 크론)가 이 파일에 자기가 담당하는 리그(Naver가 아예 취급 안
+  // 하는 ~38개 이색 리그)를 같이 써넣는데, 여기서 파일을 통째로 새로 만들면 그 키들이 매번
+  // 지워짐 — 기존 파일을 읽어서 내가 아는 리그(CATEGORIES)만 갱신하고 나머지는 보존.
+  let out = {};
+  try {
+    out = JSON.parse(await fs.readFile(STANDINGS_PATH, 'utf-8'));
+  } catch (e) {
+    if (e.code !== 'ENOENT') throw e;
+  }
   let ok = 0;
   let empty = 0;
   let failed = 0;
