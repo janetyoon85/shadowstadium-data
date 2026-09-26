@@ -154,11 +154,15 @@ function pickTeamRecord(t, isBaseball) {
 // 요청 1건 추가). 야구는 같은 엔드포인트가 playerType 파라미터를 요구하는데 유효값을 못 찾아서
 // (hitter/pitcher 둘 다 400) 이번 라운드는 축구만, 야구는 후속 조사 필요.
 function pickPlayerRow(p) {
-  return {
+  const row = {
     name: p.playerName, team: p.teamShortName || p.teamName, pos: p.position,
     played: p.matchesPlayed, goals: p.goals, assists: p.assists,
     yellowCards: p.yellowCards, redCards: p.redCards,
   };
+  // 국적(2026-09-26 추가, 사용자 요청 "선수명에 국기표기") — 이미 한글로 옴("브라질" 등),
+  // 앱에서 COUNTRY_TO_ISO2로 국기 변환. 야구 타자/투수기록은 이 필드 자체가 API에 없어서 미지원.
+  if (p.countryName) row.country = p.countryName;
+  return row;
 }
 
 // 야구는 "선수기록" 하나가 아니라 타자기록/투수기록 별개(사용자 지적, 2026-09-26 — Naver 원본도
