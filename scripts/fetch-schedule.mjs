@@ -43,6 +43,10 @@ const ESPN_LEAGUE_SLUG = {
   LIGUE1: 'fra.1',
 };
 const EURO_ASSISTS_PATH = path.join(REPO_ROOT, 'euro_assists.json');
+// ESPN 소스 해외축구(EURO_ASSISTS와 동일 매칭 대상) 카드(경고/퇴장) — enrichEuroAssists가 이미
+// 같은 경기에 fetchEspnSummary를 호출하니 그 summary를 그대로 재사용해 카드도 같이 추출.
+// 골 득점자가 있는 경기만 대상(현재 매칭 로직 제약) — 0-0 무득점 경기는 카드 미지원(추후 보완).
+const EURO_CARDS_PATH = path.join(REPO_ROOT, 'euro_cards.json');
 // 승/패 투수 필드(schedule API 기본 포함)를 표시하는 리그 — 야구 공통(K리그는 해당 없음).
 const BASEBALL_LEAGUES = new Set(['KBO', 'MLB', 'NPB']);
 // 득점자를 다른 엔드포인트(/schedule/games/{id}?fields=all의 game.scorers, 이미 구조화된 JSON)로
@@ -577,6 +581,30 @@ function extractEspnGoalsBySide(summaryJson, homeTeamName, awayTeamName) {
   return { home, away };
 }
 
+// ESPN keyEvents → 카드(경고/퇴장). type.text가 "Yellow Card"/"Red Card"/"Second Yellow Card"
+// 셋 다 있음(실측 확인) — Second Yellow도 퇴장이라 R로 취급.
+function extractEspnCardsBySide(summaryJson, homeTeamName, awayTeamName) {
+  const events = summaryJson.keyEvents || [];
+  const home = [];
+  const away = [];
+  for (const e of events) {
+    const typeText = (e.type && e.type.text) || '';
+    if (!/card/i.test(typeText)) continue;
+    const type = /red card|second yellow/i.test(typeText) ? 'R' : 'Y';
+    const team = e.team && e.team.displayName;
+    const side = team === homeTeamName ? 'home' : team === awayTeamName ? 'away' : null;
+    if (side == null) continue;
+    const name = e.participants?.[0]?.athlete?.displayName;
+    if (!name) continue;
+    const clockDigits = (e.clock && e.clock.displayValue) || '';
+    const clockNum = parseInt(clockDigits, 10);
+    const entry = { n: name, type };
+    if (Number.isFinite(clockNum)) entry.m = clockNum;
+    (side === 'home' ? home : away).push(entry);
+  }
+  return { home, away };
+}
+
 // EPL/EFL 득점자 — K리그(/relay HTML 파싱)와 완전히 다른 스키마. 이미 구조화된 JSON으로
 // /schedule/games/{gameId}?fields=all 의 game.scorers.{home,away}[].{time,addedTime,playerName,ownGoal}
 // 에 그대로 들어있음(실측 확인, 2026-09). PK 여부 필드는 이 스키마에 없어 pk는 항상 미표기.
@@ -767,6 +795,16 @@ async function enrichEuroAssists(allGames) {
     if (e.code !== 'ENOENT') throw e;
     console.log('[euroAssists] no euro_assists.json yet — backfilling from scratch');
   }
+  // 카드(경고/퇴장) — 같은 대상 경기에서 이미 fetchEspnSummary로 받아온 summary를 그대로
+  // 재사용해서 추출(추가 fetch 없음). 어시스트/국적 매칭 성공 여부(countMismatch)와 무관하게
+  // 독립적으로 부착 — 카드는 골 개수와 zip할 필요가 없어서 더 안전하게 항상 시도.
+  let cardCache = {};
+  try {
+    cardCache = JSON.parse(await fs.readFile(EURO_CARDS_PATH, 'utf-8'));
+  } catch (e) {
+    if (e.code !== 'ENOENT') throw e;
+    console.log('[euroCards] no euro_cards.json yet — backfilling from scratch');
+  }
 
   const targets = allGames.filter(
     (g) =>
@@ -791,8 +829,9 @@ async function enrichEuroAssists(allGames) {
 
   for (const g of targets) {
     const cached = cache[g.gameId];
+    const needsCardBackfill = g.status !== 'live' && !(g.gameId in cardCache);
     const isBackfillOnly = cached && cached.final !== false && g.status !== 'live' &&
-      (!('homeNats' in cached) || !('awayNats' in cached) || !('homeANats' in cached) || !('awayANats' in cached));
+      ((!('homeNats' in cached) || !('awayNats' in cached) || !('homeANats' in cached) || !('awayANats' in cached)) || needsCardBackfill);
     if (isBackfillOnly && backfillUsed >= BACKFILL_BUDGET) continue; // 이번 실행 예산 소진 — 다음 실행에서 재시도.
     const needsFetch = !cached || g.status === 'live' || (g.status === 'completed' && cached.final === false) || isBackfillOnly;
     if (isBackfillOnly) backfillUsed++;
@@ -835,6 +874,9 @@ async function enrichEuroAssists(allGames) {
           const awayC = comp?.competitors?.find((c) => c.homeAway === 'away');
           await sleep(REQUEST_DELAY_MS);
           const summary = await fetchEspnSummary(slug, match.id);
+          // 카드는 골 개수 일치 여부와 무관하게 독립적으로 추출(zip 불필요라 더 안전).
+          const espnCards = extractEspnCardsBySide(summary, homeC?.team?.displayName, awayC?.team?.displayName);
+          cardCache[g.gameId] = { home: espnCards.home, away: espnCards.away, final: g.status === 'completed' };
           const espnGoals = extractEspnGoalsBySide(summary, homeC?.team?.displayName, awayC?.team?.displayName);
           const naverHomeLen = (g.scorers.home || []).length;
           const naverAwayLen = (g.scorers.away || []).length;
@@ -905,6 +947,10 @@ async function enrichEuroAssists(allGames) {
         if (c.awayANats?.[i]) s.aNat = c.awayANats[i];
       });
     }
+    const cd = cardCache[g.gameId];
+    if (cd && ((cd.home && cd.home.length) || (cd.away && cd.away.length))) {
+      g.cards = { home: cd.home, away: cd.away };
+    }
   }
 
   const validIds = new Set(targets.map((g) => g.gameId));
@@ -914,8 +960,15 @@ async function enrichEuroAssists(allGames) {
   }
   await fs.writeFile(EURO_ASSISTS_PATH, JSON.stringify(pruned, null, 2) + '\n', 'utf-8');
 
+  const prunedCards = {};
+  for (const id of validIds) {
+    if (Object.prototype.hasOwnProperty.call(cardCache, id)) prunedCards[id] = cardCache[id];
+  }
+  await fs.writeFile(EURO_CARDS_PATH, JSON.stringify(prunedCards, null, 2) + '\n', 'utf-8');
+
+  const withCards = targets.filter((g) => g.cards).length;
   console.log(
-    `[euroAssists] targets=${targets.length} cached=${fromCache} fetched=${fetched} failed=${failed} noMatch=${noMatch} countMismatch=${countMismatch} backfillUsed=${backfillUsed}/${BACKFILL_BUDGET}`,
+    `[euroAssists] targets=${targets.length} cached=${fromCache} fetched=${fetched} failed=${failed} noMatch=${noMatch} countMismatch=${countMismatch} backfillUsed=${backfillUsed}/${BACKFILL_BUDGET} withCards=${withCards}`,
   );
 }
 
