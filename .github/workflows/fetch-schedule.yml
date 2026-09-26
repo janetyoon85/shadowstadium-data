@@ -21,6 +21,15 @@ permissions:
   contents: write   # commit + push
   issues: write     # 실패 시 issue 생성
 
+# 동시성 제어(2026-09-27 추가) — 백필 컷오프 확장(3일→35일) 직후 처리량이 늘면서 한 실행이
+# 평소 5분보다 훨씬 오래 걸리자, cron-job.org 5분 트리거가 매번 새 병렬 실행을 만들어 같은
+# 미백필 대상을 여러 실행이 동시에 중복 fetch하는 걸 실측 확인(한 시점에 6개 실행이 동시에
+# in_progress). cancel-in-progress:false 로 큐잉만 시켜서(취소는 진행 중이던 캐치업 작업 유실
+# 위험이 있어 안 씀) 다음 트리거는 이전 실행이 끝날 때까지 대기하도록 함.
+concurrency:
+  group: fetch-schedule
+  cancel-in-progress: false
+
 jobs:
   fetch:
     runs-on: ubuntu-latest
