@@ -25,6 +25,10 @@ const SCORERS_PATH = path.join(REPO_ROOT, 'scorers.json');
 // K리그 어시스트 — /lineup 엔드포인트에 선수별 누적 assists 카운트가 있음(해외 리그는 이 필드 자체가
 // 없어 K리그1/2 전용). 득점자처럼 특정 골에 귀속은 안 되고 "이 경기 어시스트 총 N개" 수준.
 const ASSISTS_PATH = path.join(REPO_ROOT, 'assists.json');
+// K리그 카드(경고/퇴장) — 득점자와 동일 /relay 이벤트 스트림에 이미 들어있음(eventType
+// YC=경고, RC=퇴장, SY=두 번째 경고 표시용 중복 이벤트 — YC와 동일 (선수,분)이라 dedupe로 제거).
+// 해외 리그(ESPN 소스)는 스키마 미확인이라 일단 K리그만(2026-09-26 사용자 요청, 순차 확장 예정).
+const CARDS_PATH = path.join(REPO_ROOT, 'cards.json');
 const SOCCER_LEAGUES = new Set(['K리그1', 'K리그2']);
 // 유럽 5대리그 어시스트 — Naver 에는 없어 ESPN 비공개 API(site.api.espn.com, 인증 불필요, Naver와
 // 같은 방식으로 이용)의 goal 이벤트 텍스트("Assisted by X")에서 파싱. 선수명이 영어라 한글 득점자와
@@ -452,14 +456,37 @@ async function fetchRelayHalf(gameId, half) {
 // - 득점/분/팀/자책골: home/awayScorePlayer.
 // - PK: 전·후반 textRelays eventType==='PK' → 절대분. 득점자와 이름+분(±1) 둘 다 일치 시에만 (PK).
 //   (자책골은 PK 아님 / 모르는 eventType 은 무시 → 일반 골 오표기 0.)
-async function fetchScorers(gameId) {
+// 카드(경고/퇴장) — textRelays eventType YC(경고)/RC(퇴장)에서 선수명+분+홈원정 추출.
+// SY(두 번째 경고 표시용)는 같은 선수의 직전 YC와 (name,min) 동일한 중복 이벤트라 dedupe로 제거.
+function extractCardsFromRelays(relays) {
+  const home = [];
+  const away = [];
+  const seen = new Set();
+  for (const e of relays) {
+    if (!e || !e.playerName) continue;
+    if (e.eventType !== 'YC' && e.eventType !== 'RC' && e.eventType !== 'SY') continue;
+    const min = absMinFromEvent(e);
+    const type = e.eventType === 'RC' ? 'R' : 'Y';
+    const key = `${e.homeOrAway}|${e.playerName.trim()}|${min}|${type}`;
+    if (seen.has(key)) continue; // SY와 YC가 같은 (선수,분)으로 중복 발생 방지.
+    seen.add(key);
+    const card = { n: e.playerName.trim(), type };
+    if (min != null) card.m = min;
+    (e.homeOrAway === 'home' ? home : away).push(card);
+  }
+  return { home, away };
+}
+
+async function fetchScorersAndCards(gameId) {
   const d1 = await fetchRelayHalf(gameId, 1);
   const d2 = await fetchRelayHalf(gameId, 2);
   const d = d2 || d1;
-  if (!d) return { home: [], away: [] };
+  const allRelays = [...(d1?.textRelays || []), ...(d2?.textRelays || [])];
+  const cards = extractCardsFromRelays(allRelays);
+  if (!d) return { scorers: { home: [], away: [] }, cards };
   const home = parseScorerHtml(d.homeScorePlayer);
   const away = parseScorerHtml(d.awayScorePlayer);
-  const pkEvents = [...(d1?.textRelays || []), ...(d2?.textRelays || [])]
+  const pkEvents = allRelays
     .filter((e) => e && e.eventType === 'PK' && e.playerName)
     .map((e) => ({ name: e.playerName.trim(), min: absMinFromEvent(e) }));
   const markPk = (arr) =>
@@ -468,7 +495,7 @@ async function fetchScorers(gameId) {
       const hit = pkEvents.some((p) => p.name === s.n && p.min != null && Math.abs(p.min - s.m) <= 1);
       return hit ? { ...s, pk: true } : s;
     });
-  return { home: markPk(home), away: markPk(away) };
+  return { scorers: { home: markPk(home), away: markPk(away) }, cards };
 }
 
 // K리그 어시스트 — /lineup 의 home/away.players(선발 포지션별 배열의 배열)를 평탄화해
@@ -584,6 +611,15 @@ async function enrichScorers(allGames) {
     if (e.code !== 'ENOENT') throw e;
     console.log('[scorers] no scorers.json yet — backfilling from scratch');
   }
+  // 카드(경고/퇴장) — K리그(SOCCER_LEAGUES)만 지원, /relay를 득점자와 공유해서 fetch 1번으로 같이 뽑음
+  // (해외 리그는 스키마 미확인이라 제외, 2026-09-26 사용자 요청으로 K리그부터).
+  let cardCache = {};
+  try {
+    cardCache = JSON.parse(await fs.readFile(CARDS_PATH, 'utf-8'));
+  } catch (e) {
+    if (e.code !== 'ENOENT') throw e;
+    console.log('[cards] no cards.json yet — backfilling from scratch');
+  }
 
   const targets = allGames.filter(
     (g) =>
@@ -601,10 +637,14 @@ async function enrichScorers(allGames) {
     if (needsFetch) {
       try {
         await sleep(REQUEST_DELAY_MS);
-        const sc = STRUCTURED_SCORER_LEAGUES.has(g.league)
-          ? await fetchStructuredScorers(g.gameId)
-          : await fetchScorers(g.gameId);
-        cache[g.gameId] = { home: sc.home, away: sc.away, final: g.status === 'completed' };
+        if (STRUCTURED_SCORER_LEAGUES.has(g.league)) {
+          const sc = await fetchStructuredScorers(g.gameId);
+          cache[g.gameId] = { home: sc.home, away: sc.away, final: g.status === 'completed' };
+        } else {
+          const { scorers: sc, cards: cd } = await fetchScorersAndCards(g.gameId);
+          cache[g.gameId] = { home: sc.home, away: sc.away, final: g.status === 'completed' };
+          cardCache[g.gameId] = { home: cd.home, away: cd.away, final: g.status === 'completed' };
+        }
         fetched++;
       } catch (e) {
         failed++;
@@ -619,6 +659,10 @@ async function enrichScorers(allGames) {
     if (sc && ((sc.home && sc.home.length) || (sc.away && sc.away.length))) {
       g.scorers = { home: sc.home, away: sc.away };
     }
+    const cd = cardCache[g.gameId];
+    if (SOCCER_LEAGUES.has(g.league) && cd && ((cd.home && cd.home.length) || (cd.away && cd.away.length))) {
+      g.cards = { home: cd.home, away: cd.away };
+    }
   }
 
   // prune: 현 데이터셋의 종료+진행중 축구 gameId 만 남김.
@@ -629,9 +673,16 @@ async function enrichScorers(allGames) {
   }
   await fs.writeFile(SCORERS_PATH, JSON.stringify(pruned, null, 2) + '\n', 'utf-8');
 
+  const prunedCards = {};
+  for (const id of validIds) {
+    if (Object.prototype.hasOwnProperty.call(cardCache, id)) prunedCards[id] = cardCache[id];
+  }
+  await fs.writeFile(CARDS_PATH, JSON.stringify(prunedCards, null, 2) + '\n', 'utf-8');
+
   const withScorers = targets.filter((g) => g.scorers).length;
+  const withCards = targets.filter((g) => g.cards).length;
   console.log(
-    `[scorers] completedOrLiveSoccer=${targets.length} cached=${fromCache} fetched=${fetched} failed=${failed} withScorers=${withScorers}`,
+    `[scorers] completedOrLiveSoccer=${targets.length} cached=${fromCache} fetched=${fetched} failed=${failed} withScorers=${withScorers} withCards=${withCards}`,
   );
 }
 
@@ -888,6 +939,8 @@ function serializeGame(g) {
   if (g.savePitcher) out.savePitcher = g.savePitcher;
   // 축구 득점자 — 종료+진행중 경기, 골 있을 때만. {home,away} 각 [{m,n,pk?,og?}].
   if (g.scorers) out.scorers = g.scorers;
+  // 축구 카드(경고/퇴장) — K리그만, 있을 때만. {home,away} 각 [{n,type:'Y'|'R',m?}].
+  if (g.cards) out.cards = g.cards;
   // K리그 어시스트 — 종료+진행중, 이 경기 누적 어시스트 있을 때만. {home,away} 각 [{n,count}].
   // 득점자와 달리 특정 골에 귀속되지 않음(스키마 한계, K리그1/2 전용 — 해외 리그는 미제공).
   if (g.assists) out.assists = g.assists;
