@@ -45,16 +45,47 @@ const sleepMs = (ms) => new Promise((r) => setTimeout(r, ms));
 // 요청도 전부 동일하게 403. www.wbsc.org 계열뿐 아니라 완전히 별개 도메인(fibs.it,
 // stats.baseball.cz 등 각국 연맹이 자체 호스팅하는 MyWBSC 인스턴스)까지 전부 막혀서
 // User-Agent/헤더로 해결 불가능함을 디스포저블 GitHub Actions 워크플로로 실측 확인함.
-// ScraperAPI(가정용 IP 경유 프록시, 무료 플랜 월 5,000건) 설정 시에만 우회 — 로컬/샌드박스
-// 실행(SCRAPERAPI_KEY 미설정)은 기존처럼 직접 요청.
+// ScraperAPI(가정용 IP 경유 프록시) 설정 시에만 우회 — 로컬/샌드박스 실행(SCRAPERAPI_KEY
+// 미설정)은 기존처럼 직접 요청. 2026-09-28 실제 대시보드 확인: 무료 플랜은 월 5,000건이 아니라
+// **월 1,000건**이었음(이전 기록이 틀렸음) — 대회 15개 × 실행마다 1건씩만 써도 하루 몇 번만
+// 돌려도 한 달 안에 소진됨, 실제로 크레딧 다 써서 이번 사고 발생(사용자 리포트, "경기 안
+// 넘어가네" → 로그 확인해보니 15개 전부 HTTP 403, ScraperAPI 대시보드에서 "1,663 of 1,000
+// exhausted" 확인). 아래 예산·쓰로틀 로직으로 재발 방지.
 const SCRAPERAPI_KEY = process.env.SCRAPERAPI_KEY;
 function proxiedUrl(url) {
   if (!SCRAPERAPI_KEY) return url;
   return `https://api.scraperapi.com/?api_key=${SCRAPERAPI_KEY}&url=${encodeURIComponent(url)}`;
 }
+// 월별 하드 예산(1,000건 한도에 여유 100건 남김) + 대회별 최소 재조회 간격(2시간) + "오늘 경기가
+// 있거나 진행중인 대회만" 필터 — 세 가지를 합쳐서 무료 한도 안에서 지속 가능하게 함
+// (2026-09-28, 크레딧 소진 사고 이후). 상태는 REPO_ROOT/.wbsc-scraperapi-budget.json에 저장.
+const SCRAPERAPI_MONTHLY_BUDGET = 900;
+const MIN_REFETCH_INTERVAL_MS = 2 * 3600 * 1000;
+const BUDGET_STATE_PATH = path.join(REPO_ROOT, '.wbsc-scraperapi-budget.json');
+async function loadBudgetState() {
+  const nowMonth = new Date().toISOString().slice(0, 7); // "YYYY-MM"
+  try {
+    const raw = JSON.parse(await fs.readFile(BUDGET_STATE_PATH, 'utf-8'));
+    if (raw.month === nowMonth) return raw;
+  } catch (e) {
+    if (e.code !== 'ENOENT') throw e;
+  }
+  // 새 달이거나 상태 파일이 없으면 리셋 — lastFetch(대회별 쓰로틀)는 예산 소진과 무관하게 계속
+  // 의미 있으니(대회 활성 여부 판단용) 있으면 이어받고, 카운터만 리셋.
+  let lastFetch = {};
+  try {
+    const raw = JSON.parse(await fs.readFile(BUDGET_STATE_PATH, 'utf-8'));
+    lastFetch = raw.lastFetch || {};
+  } catch {}
+  return { month: nowMonth, requestsUsed: 0, lastFetch };
+}
+async function saveBudgetState(state) {
+  await fs.writeFile(BUDGET_STATE_PATH, JSON.stringify(state, null, 2) + '\n', 'utf-8');
+}
 // 403/429는 일시적인 봇 차단/레이트리밋일 수 있어 한 번 더 재시도(간격을 두고) — 완전한 IP
-// 차단이면 재시도해도 소용없지만, 일시적 챌린지라면 통과할 수 있음.
-async function fetchWithRetry(url, attempts = 2) {
+// 차단이면 재시도해도 소용없지만, 일시적 챌린지라면 통과할 수 있음. ScraperAPI 프록시 경유일
+// 땐 재시도 자체가 크레딧을 한 번 더 쓰는 거라(예산이 빠듯할 땐 특히 손해) 1회만 시도.
+async function fetchWithRetry(url, attempts = SCRAPERAPI_KEY ? 1 : 2) {
   let lastErr;
   for (let i = 0; i < attempts; i++) {
     if (i > 0) await sleepMs(3000 + Math.random() * 2000);
@@ -403,14 +434,56 @@ async function notifyFetchFailures(failed) {
   }
 }
 
+function kstTodayStr() {
+  const d = new Date(Date.now() + 9 * 3600 * 1000);
+  return d.toISOString().slice(0, 10);
+}
+
 async function main() {
+  const gamesPath = path.join(REPO_ROOT, 'games.json');
+  // 여러 크롤러가 동시에 games.json을 읽고-고치고-쓰는 구조라, 이 스크립트가 체크아웃한 뒤 다른
+  // 크롤러가 먼저 커밋한 최신 갱신분을 놓치면 병합 시 되돌리는 경합이 있었음(2026-09-27) —
+  // "오늘 경기 있는 대회만 fetch" 판단에도 최신 games.json이 필요해서 여기서 먼저 pull+read.
+  try {
+    execSync('git pull origin main', { cwd: REPO_ROOT, stdio: 'inherit' });
+  } catch (e) {
+    console.warn('[merge] git pull 실패(로컬 상태로 계속 진행):', e.message);
+  }
+  const existingGamesForFilter = JSON.parse(await fs.readFile(gamesPath, 'utf-8'));
+  const todayStr = kstTodayStr();
+  const activeLeagues = new Set(
+    existingGamesForFilter
+      .filter((g) => g.date === todayStr || g.status === 'live')
+      .map((g) => g.league),
+  );
+
+  const budget = await loadBudgetState();
+  const nowMs = Date.now();
+  if (budget.requestsUsed >= SCRAPERAPI_MONTHLY_BUDGET) {
+    console.log(`[wbsc-baseball] 이번 달 ScraperAPI 예산(${SCRAPERAPI_MONTHLY_BUDGET}건) 소진 — 전부 스킵, 다음 달 자동 재개.`);
+    return;
+  }
+
   const unknownTeams = new Set();
   const unknownVenues = new Set();
   const allNew = [];
   const failedTournaments = [];
   for (const { tournamentkey, league, domain, locale } of TOURNAMENTS) {
+    const lastFetchAt = budget.lastFetch[tournamentkey] ? new Date(budget.lastFetch[tournamentkey]).getTime() : 0;
+    const neverFetched = !budget.lastFetch[tournamentkey];
+    const isActive = activeLeagues.has(league);
+    const throttleOk = nowMs - lastFetchAt >= MIN_REFETCH_INTERVAL_MS;
+    // 대회 기간이 아니면(오늘 경기도 진행중 경기도 없음) 요청 자체를 건너뜀 — 신규 대회(한 번도
+    // 안 가져와본 것)는 최소 한 번은 잡아서 일정을 파악해야 하니 예외로 허용.
+    if (!neverFetched && !(isActive && throttleOk)) continue;
+    if (budget.requestsUsed >= SCRAPERAPI_MONTHLY_BUDGET) {
+      console.log(`[wbsc-baseball] 예산 소진으로 ${league} 이후 대회 스킵`);
+      break;
+    }
     console.log(`Fetching ${league} (${tournamentkey}) ...`);
     await sleep(REQUEST_DELAY_MS);
+    budget.requestsUsed++;
+    budget.lastFetch[tournamentkey] = new Date(nowMs).toISOString();
     let gs;
     try {
       gs = await fetchWbscBaseballTournament(tournamentkey, league, unknownTeams, unknownVenues, domain, locale);
@@ -422,19 +495,11 @@ async function main() {
     console.log(`  -> ${gs.length} games`);
     allNew.push(...gs);
   }
+  await saveBudgetState(budget);
+  console.log(`[wbsc-baseball] ScraperAPI 이번 달 사용량: ${budget.requestsUsed}/${SCRAPERAPI_MONTHLY_BUDGET}`);
   await notifyUnknowns(unknownTeams, unknownVenues);
   await notifyFetchFailures(failedTournaments);
 
-  const gamesPath = path.join(REPO_ROOT, 'games.json');
-  // 여러 크롤러가 동시에 games.json을 읽고-고치고-쓰는 구조라, 이 스크립트가 체크아웃한 뒤 다른
-  // 크롤러가 먼저 커밋한 최신 갱신분(예: 다른 리그의 실시간 스코어)을 이 병합 시점에 놓치면
-  // 그대로 덮어써서 되돌리는 경합 버그가 있었음(실사용자 리포트: MLB 이닝 정보가 계속 옛날
-  // 값으로 되돌아감, 2026-09-27). 병합 직전에 원격 최신 상태로 동기화해서 race window를 좁힘.
-  try {
-    execSync('git pull origin main', { cwd: REPO_ROOT, stdio: 'inherit' });
-  } catch (e) {
-    console.warn('[merge] git pull 실패(로컬 상태로 계속 진행):', e.message);
-  }
   const games = JSON.parse(await fs.readFile(gamesPath, 'utf-8'));
   const existingIds = new Set(games.map((g) => g.gameId || `${g.date}|${g.time}|${g.league}|${g.venueId}|${g.home}|${g.away}`));
   let added = 0;

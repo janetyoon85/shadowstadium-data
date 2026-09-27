@@ -13,6 +13,12 @@ permissions:
   contents: write   # commit + push
   issues: write     # 실패 시 issue 생성
 
+# 5분마다 겹쳐 돌면 .wbsc-scraperapi-budget.json 카운터가 레이스로 이중 집계될 수 있어(2026-09-28,
+# ScraperAPI 예산제 도입과 함께 추가) — fetch-schedule.yml과 동일 패턴으로 큐잉.
+concurrency:
+  group: fetch-wbsc-baseball
+  cancel-in-progress: false
+
 jobs:
   fetch:
     runs-on: ubuntu-latest
@@ -34,7 +40,7 @@ jobs:
       - name: Check for changes
         id: changes
         run: |
-          if [[ -n "$(git status --porcelain games.json .wbsc-alert-state.json)" ]]; then
+          if [[ -n "$(git status --porcelain games.json .wbsc-alert-state.json .wbsc-scraperapi-budget.json)" ]]; then
             echo "changed=true" >> $GITHUB_OUTPUT
           else
             echo "changed=false" >> $GITHUB_OUTPUT
@@ -45,7 +51,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add games.json .wbsc-alert-state.json
+          git add games.json .wbsc-alert-state.json .wbsc-scraperapi-budget.json
           git commit -m "chore(data): WBSC 야구(U-18/U-15/U-23 월드컵) 동기화 ($(date +'%Y-%m-%d'))"
           # 다른 야간 크롤러들과 같은 브랜치에 동시에 push할 수 있어 non-fast-forward 거부 시
           # rebase 후 재시도.
