@@ -484,7 +484,11 @@ function parseBaseballHighlightsFromBoxscore(rd) {
   };
   const home = build(rd?.homeBatter);
   const away = build(rd?.awayBatter);
-  if (!home.length && !away.length) return undefined;
+  // 무득점/무도루(홈런·도루 둘 다 0)라도 반드시 { home:[], away:[] } 객체로 돌려줘야 함 — undefined를
+  // 돌려주면 isSplitHighlightFormat 판정에서 "아직 새 포맷으로 재조회 안 된 옛 캐시"와 구분이 안 돼
+  // 매 실행마다 이 경기를 영원히 재조회하는 버그가 있었음(실측 확인, 2026-09-27 — 96.5%에서
+  // 141건이 계속 안 늘어남. 확인해보니 전부 실제로 홈런·도루 0개인 정상 경기였는데 매번
+  // 헛되이 재조회 예산만 쓰고 있었음).
   return { home, away };
 }
 function parseBaseballHighlights(rd) {
