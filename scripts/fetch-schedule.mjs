@@ -140,17 +140,20 @@ const EURO_CARDS_PATH = path.join(REPO_ROOT, 'euro_cards.json');
 // 끝남. "N일 이내" 같은 고정폭 대신 "이 리그에서 각 팀의 최근 완료 5경기인가"로 정확히
 // 타겟팅하도록 교체(사용자 요청: "화면에 보여주는거만 채워줘").
 const RECENT_GAMES_PER_TEAM = 5;
-// 같은 리그 안에서 팀(홈/원정 어느 쪽이든)별로 최근 완료 N경기의 gameId만 모음 — TeamDetailScreen
-// 의 recentGames 쿼리(league===team.league && (home===team.name||away===team.name), 최근 5개)와
-// 정확히 동일한 선정 기준이라야 "화면에 보이는 것만" 채운다는 요구를 충족함.
+// 팀(홈/원정 어느 쪽이든)별로 최근 완료 N경기의 gameId만 모음. 처음엔 리그+팀으로 묶었는데,
+// 국가대표팀(예: "대한민국")은 앱이 리그로 안 좁히고 "그 종목 전체"로 최근 경기를 모아 보여주는
+// 화면(팀 상세, league 미지정 진입)이 생기면서 리그별로 쪼개 5개씩 쌓아둔 캐시가 실제 화면에
+// 나오는 조합(여러 대회 합쳐서 최근 5경기)과 안 맞는 문제 발견(사용자 리포트, 2026-09-27: "최근
+// 경기에 보이는거 백필이 안되네"). 이 함수는 이미 한 종목의 리그 집합만 받아 호출되므로(축구
+// 호출 따로, 야구 호출 따로) 리그를 키에서 빼고 팀명만으로 묶어 종목 전체 기준 최근 5경기를
+// 잡도록 변경 — 클럽팀은 원래 한 리그 소속이라 결과 동일, 국가대표는 여러 대회 합쳐 정확히 매칭.
 function buildRecentCompletedGameIds(allGames, leagueSet, n = RECENT_GAMES_PER_TEAM) {
   const byTeam = new Map();
   for (const g of allGames) {
     if (!leagueSet.has(g.league) || g.status !== 'completed' || !g.gameId) continue;
     for (const team of [g.home, g.away]) {
-      const key = `${g.league}${team}`;
-      let arr = byTeam.get(key);
-      if (!arr) byTeam.set(key, (arr = []));
+      let arr = byTeam.get(team);
+      if (!arr) byTeam.set(team, (arr = []));
       arr.push(g);
     }
   }
