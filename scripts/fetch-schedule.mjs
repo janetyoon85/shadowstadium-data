@@ -570,6 +570,12 @@ async function enrichSaves(allGames) {
   let fetched = 0;
   let failed = 0;
   const recentHighlightIds = buildRecentCompletedGameIds(allGames, BASEBALL_LEAGUES);
+  // 팀당 5경기 캡을 없애면서(2026-09-27) 대상이 143→3966으로 커져 한 실행이 1시간+ 로 늘어나
+  // 5분 주기 외부 트리거와 계속 겹치는 문제 실측(동시성 큐잉만으론 실행 자체가 안 끝나 무의미) —
+  // enrichEuroAssists의 BACKFILL_BUDGET과 동일 패턴으로 실행당 예산을 두고 나머지는 다음
+  // 실행들로 자연 분산.
+  const SAVES_FETCH_BUDGET = 200;
+  let savesFetchUsed = 0;
 
   for (const g of targets) {
     const cached = cache[g.gameId];
@@ -580,7 +586,10 @@ async function enrichSaves(allGames) {
     const isSplitHighlightFormat =
       isNewFormat && cached.highlights && typeof cached.highlights === 'object' && !Array.isArray(cached.highlights);
     const needsHighlightRefetch = recentHighlightIds.has(g.gameId) && !isSplitHighlightFormat;
-    if (cached === undefined || needsHighlightRefetch) {
+    const needsSavesFetch = cached === undefined || needsHighlightRefetch;
+    if (needsSavesFetch && savesFetchUsed >= SAVES_FETCH_BUDGET) continue; // 이번 실행 예산 소진 — 다음 실행 재시도.
+    if (needsSavesFetch) {
+      savesFetchUsed++;
       try {
         await sleep(REQUEST_DELAY_MS);
         cache[g.gameId] = await fetchGameRecord(g.gameId);
@@ -881,6 +890,11 @@ async function enrichScorers(allGames) {
   // 패턴으로 카드만 별도 예산 내에서 재조회해 채움(K리그만 대상).
   const CARD_BACKFILL_BUDGET = 60;
   let cardBackfillUsed = 0;
+  // 팀당 5경기 캡 제거(2026-09-27)로 대상이 1742→3358로 커져 이 루프도 한 실행에서 끝없이
+  // 길어지는 문제 발견 — 완전 신규(캐시 자체가 없는) fetch도 별도 예산으로 나눠 다음 실행들로
+  // 분산(enrichSaves/enrichEuroAssists와 동일 패턴).
+  const SCORERS_FETCH_BUDGET = 200;
+  let scorersFetchUsed = 0;
 
   for (const g of targets) {
     const cached = cache[g.gameId];
@@ -888,7 +902,9 @@ async function enrichScorers(allGames) {
       g.status !== 'live' && !(g.gameId in cardCache);
     if (isCardBackfillOnly && cardBackfillUsed >= CARD_BACKFILL_BUDGET) continue;
     const needsFetch = !cached || g.status === 'live' || (g.status === 'completed' && cached.final === false) || isCardBackfillOnly;
+    if (needsFetch && !cached && g.status !== 'live' && scorersFetchUsed >= SCORERS_FETCH_BUDGET) continue; // 완전 신규 fetch 예산 소진 — 다음 실행 재시도.
     if (isCardBackfillOnly) cardBackfillUsed++;
+    if (needsFetch && !cached && g.status !== 'live') scorersFetchUsed++;
     if (needsFetch) {
       try {
         await sleep(REQUEST_DELAY_MS);
