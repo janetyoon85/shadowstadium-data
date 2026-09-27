@@ -13,6 +13,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { execSync } from 'node:child_process';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -172,6 +173,15 @@ async function main() {
   await notifyUnknowns(unknownTeams, unknownVenues);
 
   const gamesPath = path.join(REPO_ROOT, 'games.json');
+  // 여러 크롤러가 동시에 games.json을 읽고-고치고-쓰는 구조라, 이 스크립트가 체크아웃한 뒤 다른
+  // 크롤러가 먼저 커밋한 최신 갱신분(예: 다른 리그의 실시간 스코어)을 이 병합 시점에 놓치면
+  // 그대로 덮어써서 되돌리는 경합 버그가 있었음(실사용자 리포트: MLB 이닝 정보가 계속 옛날
+  // 값으로 되돌아감, 2026-09-27). 병합 직전에 원격 최신 상태로 동기화해서 race window를 좁힘.
+  try {
+    execSync('git pull origin main', { cwd: REPO_ROOT, stdio: 'inherit' });
+  } catch (e) {
+    console.warn('[merge] git pull 실패(로컬 상태로 계속 진행):', e.message);
+  }
   const games = JSON.parse(await fs.readFile(gamesPath, 'utf-8'));
   const existingIds = new Set(games.map((g) => g.gameId || `${g.date}|${g.time}|${g.league}|${g.venueId}|${g.home}|${g.away}`));
   let added = 0;

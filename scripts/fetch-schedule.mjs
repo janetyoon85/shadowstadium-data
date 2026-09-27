@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { execSync } from 'node:child_process';
 import { validateDataset } from './validators.mjs';
 import { getAthleteNationality } from './espn-nationality.mjs';
 
@@ -1427,6 +1428,15 @@ async function main() {
   // 수동으로 병합해둔 해외 리그 데이터가 지워지는 사고가 있었음(2026-09-09).
   const knownLeagues = new Set(CATEGORIES.map((c) => c.league));
   let preserved = [];
+  // 이 스크립트도 실행 시작(체크아웃) 시점 이후 다른 크롤러(AAA·ESPN 등)가 먼저 커밋한 최신
+  // 갱신분을 놓치고 있을 수 있음 — preserved 목록을 읽기 직전에 원격 최신으로 동기화해서
+  // 이 스크립트가 그 최신 갱신을 되돌리는 경합을 방지(실사용자 리포트: MLB 이닝 정보가
+  // 계속 옛날 값으로 되돌아감, 2026-09-27 — 반대 방향 race도 같은 클래스라 여기도 적용).
+  try {
+    execSync('git pull origin main', { cwd: REPO_ROOT, stdio: 'inherit' });
+  } catch (e) {
+    console.warn('[preserve] git pull 실패(로컬 상태로 계속 진행):', e.message);
+  }
   try {
     const existing = JSON.parse(await fs.readFile(prodPath, 'utf-8'));
     preserved = existing.filter((g) => !knownLeagues.has(g.league));
