@@ -25567,6 +25567,33 @@
   {
     "date": "2026-03-04",
     "time": "19:00",
+    "league": "ACL",
+    "venueId": "seoulwc",
+    "home": "서울",
+    "away": "비셀 고베",
+    "stadium": "서울월드컵경기장",
+    "timeTbd": false,
+    "gameId": "U8avFl0tEXRq1RV",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "마테우스 툴레르",
+          "m": 23
+        }
+      ]
+    },
+    "phaseCode": "T16",
+    "leg": 1,
+    "homeAggregateScore": 1,
+    "awayAggregateScore": 3
+  },
+  {
+    "date": "2026-03-04",
+    "time": "19:00",
     "league": "ACL2",
     "venueId": "panasonic_stadium_suita",
     "home": "감바 오사카",
@@ -25595,33 +25622,6 @@
     "leg": 1,
     "homeAggregateScore": 3,
     "awayAggregateScore": 2
-  },
-  {
-    "date": "2026-03-04",
-    "time": "19:00",
-    "league": "ACL",
-    "venueId": "seoulwc",
-    "home": "서울",
-    "away": "비셀 고베",
-    "stadium": "서울월드컵경기장",
-    "timeTbd": false,
-    "gameId": "U8avFl0tEXRq1RV",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 0,
-    "scorers": {
-      "home": [],
-      "away": [
-        {
-          "n": "마테우스 툴레르",
-          "m": 23
-        }
-      ]
-    },
-    "phaseCode": "T16",
-    "leg": 1,
-    "homeAggregateScore": 1,
-    "awayAggregateScore": 3
   },
   {
     "date": "2026-03-04",
@@ -62543,18 +62543,47 @@
       "home": [
         {
           "n": "엘딩",
-          "m": 1
+          "m": 1,
+          "nat": "England"
         },
         {
           "n": "파슬락",
-          "m": 12
+          "m": 12,
+          "nat": "Germany"
         },
         {
           "n": "슈토",
-          "m": 90
+          "m": 90,
+          "nat": "Australia"
         }
       ],
       "away": []
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Daniel Barlaser",
+          "type": "Y",
+          "m": 54
+        }
+      ],
+      "away": [
+        {
+          "n": "George Stanger",
+          "type": "Y",
+          "m": 18
+        },
+        {
+          "n": "Findlay Curtis",
+          "type": "Y",
+          "m": 39
+        },
+        {
+          "n": "Aaron Tshibola",
+          "type": "Y",
+          "m": 65
+        }
+      ]
     }
   },
   {
@@ -62614,11 +62643,13 @@
       "home": [
         {
           "n": "나데리",
-          "m": 30
+          "m": 30,
+          "nat": "Germany"
         },
         {
           "n": "스털링",
-          "m": 40
+          "m": 40,
+          "nat": "England"
         },
         {
           "n": "오스고르",
@@ -62626,7 +62657,8 @@
         },
         {
           "n": "미오브스키",
-          "m": 85
+          "m": 85,
+          "nat": "North Macedonia"
         }
       ],
       "away": [
@@ -62636,7 +62668,29 @@
         },
         {
           "n": "샙스포드",
-          "m": 72
+          "m": 72,
+          "nat": "Australia"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Thelo Aasgaard",
+          "type": "Y",
+          "m": 16
+        }
+      ],
+      "away": [
+        {
+          "n": "Emmanuel Agyei",
+          "type": "Y",
+          "m": 59
+        },
+        {
+          "n": "Krisztián Keresztes",
+          "type": "Y",
+          "m": 68
         }
       ]
     }
@@ -62685,17 +62739,62 @@
       "home": [
         {
           "n": "마누 모를라네스",
-          "m": 41
+          "m": 41,
+          "a": "Pablo Maffeo",
+          "nat": "Spain",
+          "aNat": "Argentina"
         },
         {
           "n": "무리키",
-          "m": 90
+          "m": 90,
+          "a": "Mateo Joseph",
+          "nat": "Kosovo",
+          "aNat": "Spain"
         }
       ],
       "away": [
         {
           "n": "에데르 밀리탕",
-          "m": 88
+          "m": 88,
+          "a": "Trent Alexander-Arnold",
+          "nat": "Brazil",
+          "aNat": "England"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Leo Román",
+          "type": "Y",
+          "m": 66
+        },
+        {
+          "n": "Martin Valjent",
+          "type": "Y",
+          "m": 84
+        },
+        {
+          "n": "Zito Luvumbo",
+          "type": "Y",
+          "m": 90
+        },
+        {
+          "n": "Pablo Maffeo",
+          "type": "Y",
+          "m": 90
+        }
+      ],
+      "away": [
+        {
+          "n": "Dean Huijsen",
+          "type": "Y",
+          "m": 47
+        },
+        {
+          "n": "Franco Mastantuono",
+          "type": "Y",
+          "m": 90
         }
       ]
     }
@@ -62717,33 +62816,56 @@
       "home": [
         {
           "n": "사이바리",
-          "m": 21
+          "m": 21,
+          "a": "Ivan Perisic",
+          "aNat": "Croatia"
         },
         {
           "n": "사이바리",
-          "m": 48
+          "m": 48,
+          "a": "Mauro Júnior",
+          "aNat": "Brazil"
         },
         {
           "n": "틸",
-          "m": 52
+          "m": 52,
+          "a": "Ismael Saibari",
+          "nat": "Netherlands"
         },
         {
           "n": "드리우에크",
-          "m": 90
+          "m": 90,
+          "a": "Joey Veerman"
         }
       ],
       "away": [
         {
           "n": "스테파노프",
-          "m": 3
+          "m": 3,
+          "a": "Niklas Vesterlund",
+          "nat": "Ukraine",
+          "aNat": "Denmark"
         },
         {
           "n": "제키엘",
-          "m": 13
+          "m": 13,
+          "a": "Ángel Alarcón",
+          "aNat": "Spain"
         },
         {
           "n": "칼손",
-          "m": 82
+          "m": 82,
+          "a": "Sébastien Haller"
+        }
+      ]
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Niklas Vesterlund",
+          "type": "Y",
+          "m": 71
         }
       ]
     }
@@ -62765,21 +62887,43 @@
       "home": [
         {
           "n": "고도",
-          "m": 28
+          "m": 28,
+          "a": "Guéla Doué",
+          "nat": "England"
         },
         {
           "n": "엔시소",
-          "m": 36
+          "m": 36,
+          "a": "Samir El Mourabet",
+          "aNat": "Morocco"
         },
         {
           "n": "엘 무라베",
-          "m": 42
+          "m": 42,
+          "nat": "Morocco"
         }
       ],
       "away": [
         {
           "n": "앙투안 멘디",
-          "m": 82
+          "m": 82,
+          "a": "Dante",
+          "nat": "Senegal"
+        }
+      ]
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Hicham Boudaoui",
+          "type": "Y",
+          "m": 41
+        },
+        {
+          "n": "Morgan Sanson",
+          "type": "Y",
+          "m": 43
         }
       ]
     }
@@ -62811,11 +62955,43 @@
       "away": [
         {
           "n": "하이다라",
-          "m": 83
+          "m": 83,
+          "nat": "Guinea"
         },
         {
           "n": "히세니",
           "m": 89
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Cho Gue-Sung",
+          "type": "Y",
+          "m": 44
+        },
+        {
+          "n": "Ousmane Diao",
+          "type": "Y",
+          "m": 69
+        }
+      ],
+      "away": [
+        {
+          "n": "Alexander Lyng",
+          "type": "Y",
+          "m": 25
+        },
+        {
+          "n": "Pachanga Kristensen",
+          "type": "Y",
+          "m": 48
+        },
+        {
+          "n": "Dalton Wilkins",
+          "type": "Y",
+          "m": 90
         }
       ]
     },
@@ -62839,7 +63015,45 @@
       "away": [
         {
           "n": "파지올리",
-          "m": 82
+          "m": 82,
+          "a": "Jack Harrison",
+          "nat": "Italy"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Roberto Gagliardini",
+          "type": "Y",
+          "m": 17
+        },
+        {
+          "n": "Victor Nelsson",
+          "type": "Y",
+          "m": 79
+        },
+        {
+          "n": "Tomás Suslov",
+          "type": "R",
+          "m": 85
+        },
+        {
+          "n": "Rafik Belghali",
+          "type": "Y",
+          "m": 88
+        }
+      ],
+      "away": [
+        {
+          "n": "Nicolò Fagioli",
+          "type": "Y",
+          "m": 84
+        },
+        {
+          "n": "Albert Gudmundsson",
+          "type": "R",
+          "m": 85
         }
       ]
     }
@@ -62925,14 +63139,37 @@
         },
         {
           "n": "토니",
-          "m": 6
+          "m": 6,
+          "nat": "England"
         },
         {
           "n": "마테우스 곤살베스",
-          "m": 56
+          "m": 56,
+          "nat": "Brazil"
         }
       ],
       "away": []
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Mohammed Yousef",
+          "type": "Y",
+          "m": 61
+        },
+        {
+          "n": "Feras Al-Brikan",
+          "type": "Y",
+          "m": 82
+        }
+      ],
+      "away": [
+        {
+          "n": "Sanousi Al Hawsawi",
+          "type": "Y",
+          "m": 54
+        }
+      ]
     }
   },
   {
@@ -62957,6 +63194,44 @@
         },
         {
           "n": "브란트",
+          "m": 90,
+          "a": "Fábio Silva",
+          "aNat": "Portugal"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Ramon Hendriks",
+          "type": "Y",
+          "m": 65
+        },
+        {
+          "n": "Atakan Karazor",
+          "type": "Y",
+          "m": 90
+        }
+      ],
+      "away": [
+        {
+          "n": "Carney Chukwuemeka",
+          "type": "Y",
+          "m": 29
+        },
+        {
+          "n": "Marcel Sabitzer",
+          "type": "Y",
+          "m": 71
+        },
+        {
+          "n": "Karim Adeyemi",
+          "type": "Y",
+          "m": 80
+        },
+        {
+          "n": "Julian Ryerson",
+          "type": "Y",
           "m": 90
         }
       ]
@@ -62974,7 +63249,33 @@
     "gameId": "rPTH3xE96TKZn7f",
     "status": "completed",
     "awayScore": 0,
-    "homeScore": 0
+    "homeScore": 0,
+    "cards": {
+      "home": [
+        {
+          "n": "Aitor Ruibal",
+          "type": "Y",
+          "m": 76
+        }
+      ],
+      "away": [
+        {
+          "n": "Carlos Romero",
+          "type": "Y",
+          "m": 62
+        },
+        {
+          "n": "Omar El Hilali",
+          "type": "Y",
+          "m": 67
+        },
+        {
+          "n": "Clemens Riedel",
+          "type": "Y",
+          "m": 70
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-05",
@@ -62997,6 +63298,32 @@
         }
       ],
       "away": []
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Nathan Zeze",
+          "type": "Y",
+          "m": 40
+        },
+        {
+          "n": "Abdulmalik Al Oyayari",
+          "type": "Y",
+          "m": 90
+        }
+      ],
+      "away": [
+        {
+          "n": "Khalid Al Rammah",
+          "type": "Y",
+          "m": 84
+        },
+        {
+          "n": "Mansor Faiez Al-Beshe",
+          "type": "Y",
+          "m": 87
+        }
+      ]
     }
   },
   {
@@ -63017,11 +63344,37 @@
       "away": [
         {
           "n": "얀세",
-          "m": 32
+          "m": 32,
+          "a": "Tygo Land",
+          "aNat": "Netherlands"
         },
         {
           "n": "슈로이더스",
-          "m": 90
+          "m": 90,
+          "a": "Thom van Bergen",
+          "nat": "Netherlands",
+          "aNat": "Netherlands"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Tyrone Owusu",
+          "type": "Y",
+          "m": 66
+        }
+      ],
+      "away": [
+        {
+          "n": "Etienne Vaessen",
+          "type": "Y",
+          "m": 12
+        },
+        {
+          "n": "Thom Van Bergen",
+          "type": "Y",
+          "m": 52
         }
       ]
     }
@@ -63043,14 +63396,38 @@
       "home": [
         {
           "n": "미어딩크",
-          "m": 11
+          "m": 11,
+          "a": "Isak Jensen",
+          "nat": "Netherlands"
         },
         {
           "n": "미난스",
-          "m": 15
+          "m": 15,
+          "a": "Denso Kasius",
+          "aNat": "Netherlands"
         }
       ],
       "away": []
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Iván Márquez",
+          "type": "Y",
+          "m": 45
+        },
+        {
+          "n": "Yassin Oukili",
+          "type": "Y",
+          "m": 54
+        },
+        {
+          "n": "Lance Duijvestijn",
+          "type": "Y",
+          "m": 69
+        }
+      ]
     }
   },
   {
@@ -63132,7 +63509,10 @@
       "home": [
         {
           "n": "라레이아",
-          "m": 65
+          "m": 65,
+          "a": "Josh Sargent",
+          "nat": "Canada",
+          "aNat": "USA"
         },
         {
           "n": "스테픈",
@@ -63141,17 +63521,78 @@
         },
         {
           "n": "사전트",
-          "m": 85
+          "m": 85,
+          "a": "Alonso Coello",
+          "nat": "USA",
+          "aNat": "Spain"
         }
       ],
       "away": [
         {
           "n": "아론슨",
-          "m": 51
+          "m": 51,
+          "nat": "USA"
         },
         {
           "n": "로젠베리",
-          "m": 54
+          "m": 54,
+          "nat": "USA"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Walker Zimmerman",
+          "type": "Y",
+          "m": 41
+        },
+        {
+          "n": "Raheem Edwards",
+          "type": "R",
+          "m": 49
+        },
+        {
+          "n": "Zane Monlouis",
+          "type": "Y",
+          "m": 69
+        },
+        {
+          "n": "Richie Laryea",
+          "type": "Y",
+          "m": 86
+        }
+      ],
+      "away": [
+        {
+          "n": "Jackson Travis",
+          "type": "R",
+          "m": 35
+        },
+        {
+          "n": "Miguel Navarro",
+          "type": "Y",
+          "m": 64
+        },
+        {
+          "n": "Joshua Atencio",
+          "type": "Y",
+          "m": 73
+        },
+        {
+          "n": "Miguel Navarro",
+          "type": "R",
+          "m": 74
+        },
+        {
+          "n": "Noah Cobb",
+          "type": "Y",
+          "m": 89
+        },
+        {
+          "n": "Hamzat Ojediran",
+          "type": "Y",
+          "m": 90
         }
       ]
     },
@@ -63268,7 +63709,8 @@
       "home": [
         {
           "n": "메이테",
-          "m": 43
+          "m": 43,
+          "nat": "Ivory Coast"
         },
         {
           "n": "마르쿠스 레오나르두",
@@ -63283,6 +63725,21 @@
         {
           "n": "안드레이 지로토",
           "m": 67
+        }
+      ]
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Andrei Girotto",
+          "type": "Y",
+          "m": 32
+        },
+        {
+          "n": "Meshal Alaeli",
+          "type": "Y",
+          "m": 69
         }
       ]
     }
@@ -63383,13 +63840,38 @@
       "home": [
         {
           "n": "노슬린",
-          "m": 77
+          "m": 77,
+          "a": "Kenneth Taylor",
+          "nat": "Netherlands",
+          "aNat": "Netherlands"
         }
       ],
       "away": [
         {
           "n": "델 프라토",
-          "m": 15
+          "m": 15,
+          "nat": "Italy"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Tijjani Noslin",
+          "type": "Y",
+          "m": 87
+        }
+      ],
+      "away": [
+        {
+          "n": "Gabriel Strefezza",
+          "type": "Y",
+          "m": 27
+        },
+        {
+          "n": "Mateo Pellegrino",
+          "type": "Y",
+          "m": 32
         }
       ]
     }
@@ -63411,17 +63893,59 @@
       "home": [
         {
           "n": "베호르스트",
-          "m": 32
+          "m": 32,
+          "a": "Mika Godts"
         }
       ],
       "away": [
         {
           "n": "제루키",
-          "m": 18
+          "m": 18,
+          "a": "Sondre Ørjasæter",
+          "nat": "Algeria",
+          "aNat": "Norway"
         },
         {
           "n": "반 로이",
-          "m": 79
+          "m": 79,
+          "a": "Sam Lammers",
+          "nat": "Netherlands"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Oliver Edvardsen",
+          "type": "Y",
+          "m": 41
+        },
+        {
+          "n": "Anton Gaaei",
+          "type": "Y",
+          "m": 55
+        },
+        {
+          "n": "Oscar Gloukh",
+          "type": "Y",
+          "m": 63
+        },
+        {
+          "n": "Steven Berghuis",
+          "type": "Y",
+          "m": 69
+        }
+      ],
+      "away": [
+        {
+          "n": "Daan Rots",
+          "type": "Y",
+          "m": 61
+        },
+        {
+          "n": "Stav Lemkin",
+          "type": "Y",
+          "m": 64
         }
       ]
     }
@@ -63444,11 +63968,15 @@
       "away": [
         {
           "n": "린선",
-          "m": 30
+          "m": 30,
+          "a": "Darko Nejasmic",
+          "nat": "Netherlands",
+          "aNat": "Croatia"
         },
         {
           "n": "외날",
-          "m": 71
+          "m": 71,
+          "a": "Sami Ouaissa"
         }
       ]
     }
@@ -63470,17 +63998,47 @@
       "home": [
         {
           "n": "스튜어트",
-          "m": 35
+          "m": 35,
+          "a": "James Bree",
+          "nat": "Scotland",
+          "aNat": "England"
         },
         {
           "n": "찰스",
-          "m": 85
+          "m": 85,
+          "a": "Tom Fellows",
+          "nat": "Northern Ireland",
+          "aNat": "England"
         }
       ],
       "away": [
         {
           "n": "요케레스",
-          "m": 68
+          "m": 68,
+          "a": "Kai Havertz",
+          "nat": "Sweden",
+          "aNat": "Germany"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Ryan Manning",
+          "type": "Y",
+          "m": 27
+        },
+        {
+          "n": "Caspar Jander",
+          "type": "Y",
+          "m": 89
+        }
+      ],
+      "away": [
+        {
+          "n": "Gabriel Martinelli",
+          "type": "Y",
+          "m": 90
         }
       ]
     },
@@ -63503,17 +64061,72 @@
       "home": [
         {
           "n": "시메오네",
-          "m": 39
+          "m": 39,
+          "a": "Clément Lenglet",
+          "nat": "Argentina"
         }
       ],
       "away": [
         {
           "n": "래시포드",
-          "m": 42
+          "m": 42,
+          "a": "Dani Olmo",
+          "aNat": "Spain"
         },
         {
           "n": "레반도프스키",
           "m": 87
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Nico González",
+          "type": "Y",
+          "m": 22
+        },
+        {
+          "n": "Nahuel Molina",
+          "type": "Y",
+          "m": 45
+        },
+        {
+          "n": "Koke",
+          "type": "Y",
+          "m": 45
+        },
+        {
+          "n": "Nico González",
+          "type": "R",
+          "m": 45
+        },
+        {
+          "n": "Juan Musso",
+          "type": "Y",
+          "m": 50
+        },
+        {
+          "n": "Clément Lenglet",
+          "type": "Y",
+          "m": 53
+        },
+        {
+          "n": "Taufik Seidu",
+          "type": "Y",
+          "m": 90
+        }
+      ],
+      "away": [
+        {
+          "n": "Fermín López",
+          "type": "Y",
+          "m": 45
+        },
+        {
+          "n": "Gerard Martín",
+          "type": "Y",
+          "m": 50
         }
       ]
     }
@@ -63739,23 +64352,42 @@
       "home": [
         {
           "n": "루나",
-          "m": 4
+          "m": 4,
+          "a": "Noel Caliskan",
+          "nat": "USA",
+          "aNat": "Germany"
         },
         {
           "n": "세르지 솔란스",
-          "m": 55
+          "m": 55,
+          "a": "Zavier Gozo",
+          "nat": "Spain"
         },
         {
           "n": "고조",
-          "m": 82
+          "m": 82,
+          "a": "Noel Caliskan",
+          "aNat": "Germany"
         }
       ],
       "away": [
         {
           "n": "조벨리치",
-          "m": 59
+          "m": 59,
+          "a": "Justin Reynolds",
+          "aNat": "USA"
         }
       ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Morgan Guilavogui",
+          "type": "Y",
+          "m": 88
+        }
+      ],
+      "away": []
     },
     "phaseCode": "LEAGUE"
   },
@@ -63776,18 +64408,54 @@
       "home": [
         {
           "n": "랑고니",
-          "m": 6
+          "m": 6,
+          "nat": "Argentina"
         },
         {
           "n": "포파나",
-          "m": 77
+          "m": 77,
+          "a": "Luca Langoni",
+          "nat": "Mali",
+          "aNat": "Argentina"
         },
         {
           "n": "밀러",
-          "m": 90
+          "m": 90,
+          "nat": "USA"
         }
       ],
       "away": []
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Brooklyn Raines",
+          "type": "Y",
+          "m": 27
+        },
+        {
+          "n": "William Sands",
+          "type": "Y",
+          "m": 33
+        }
+      ],
+      "away": [
+        {
+          "n": "Hennadii Synchuk",
+          "type": "Y",
+          "m": 53
+        },
+        {
+          "n": "Wikelman Carmona",
+          "type": "Y",
+          "m": 64
+        },
+        {
+          "n": "Brandan Craig",
+          "type": "Y",
+          "m": 69
+        }
+      ]
     },
     "phaseCode": "LEAGUE"
   },
@@ -64022,19 +64690,48 @@
       "away": [
         {
           "n": "패링턴",
-          "m": 16
+          "m": 16,
+          "a": "Ramiro",
+          "nat": "USA",
+          "aNat": "Brazil"
         },
         {
           "n": "델가도",
-          "m": 45
+          "m": 45,
+          "nat": "Ecuador"
         },
         {
           "n": "우르호그하이드",
-          "m": 78
+          "m": 78,
+          "a": "Joaquín Valiente",
+          "nat": "England",
+          "aNat": "Uruguay"
         },
         {
           "n": "무사",
-          "m": 90
+          "m": 90,
+          "nat": "Croatia"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Lucas Bartlett",
+          "type": "Y",
+          "m": 45
+        },
+        {
+          "n": "Aaron Herrera",
+          "type": "Y",
+          "m": 83
+        }
+      ],
+      "away": [
+        {
+          "n": "Nolan Norris",
+          "type": "Y",
+          "m": 67
         }
       ]
     },
@@ -64057,17 +64754,71 @@
       "home": [
         {
           "n": "웨스트우드",
-          "m": 30
+          "m": 30,
+          "a": "Idan Toklomati",
+          "nat": "England",
+          "aNat": "Israel"
         },
         {
           "n": "자하",
-          "m": 80
+          "m": 80,
+          "a": "Pep Biel",
+          "aNat": "Spain"
         }
       ],
       "away": [
         {
           "n": "장 자크",
-          "m": 78
+          "m": 78,
+          "a": "Cavan Sullivan",
+          "nat": "Haiti",
+          "aNat": "USA"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Djibril Diani",
+          "type": "Y",
+          "m": 19
+        },
+        {
+          "n": "Wilfried Zaha",
+          "type": "Y",
+          "m": 42
+        },
+        {
+          "n": "Morrison Agyemang",
+          "type": "Y",
+          "m": 83
+        },
+        {
+          "n": "Kristijan Kahlina",
+          "type": "Y",
+          "m": 87
+        }
+      ],
+      "away": [
+        {
+          "n": "Frankie Westfield",
+          "type": "Y",
+          "m": 12
+        },
+        {
+          "n": "Bruno Damiani",
+          "type": "Y",
+          "m": 45
+        },
+        {
+          "n": "Nathan Harriel",
+          "type": "Y",
+          "m": 76
+        },
+        {
+          "n": "Cavan Sullivan",
+          "type": "Y",
+          "m": 90
         }
       ]
     },
@@ -64090,23 +64841,45 @@
       "home": [
         {
           "n": "메시",
-          "m": 10
+          "m": 10,
+          "nat": "Argentina"
         },
         {
           "n": "수아레스",
-          "m": 81
+          "m": 81,
+          "a": "Germán Berterame",
+          "nat": "Uruguay",
+          "aNat": "Mexico"
         }
       ],
       "away": [
         {
           "n": "길례르미 비로",
-          "m": 6
+          "m": 6,
+          "a": "Facundo Torres",
+          "nat": "Brazil",
+          "aNat": "Uruguay"
         },
         {
           "n": "넬슨",
           "m": 53
         }
       ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Maximiliano Falcón",
+          "type": "Y",
+          "m": 43
+        },
+        {
+          "n": "Yannick Bright",
+          "type": "Y",
+          "m": 60
+        }
+      ],
+      "away": []
     },
     "phaseCode": "LEAGUE"
   },
@@ -64127,13 +64900,45 @@
       "home": [
         {
           "n": "볼프",
-          "m": 50
+          "m": 50,
+          "a": "Maxi Moralez",
+          "nat": "Austria",
+          "aNat": "Argentina"
         }
       ],
       "away": [
         {
           "n": "맥솔리",
-          "m": 90
+          "m": 90,
+          "a": "Lukas MacNaughton",
+          "nat": "USA",
+          "aNat": "Canada"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Hannes Wolf",
+          "type": "Y",
+          "m": 58
+        }
+      ],
+      "away": [
+        {
+          "n": "Daniel Edelman",
+          "type": "Y",
+          "m": 43
+        },
+        {
+          "n": "Jaziel Orozco",
+          "type": "Y",
+          "m": 56
+        },
+        {
+          "n": "Dante Polvara",
+          "type": "Y",
+          "m": 61
         }
       ]
     },
@@ -64156,21 +64961,50 @@
       "home": [
         {
           "n": "알렉세이 미란추크",
-          "m": 60
+          "m": 60,
+          "nat": "Russia"
         }
       ],
       "away": [
         {
           "n": "웨삼 아부 알리",
-          "m": 48
+          "m": 48,
+          "a": "Max Arfsten",
+          "nat": "Palestine"
         },
         {
           "n": "웨삼 아부 알리",
-          "m": 53
+          "m": 53,
+          "a": "Dylan Chambost",
+          "nat": "Palestine",
+          "aNat": "France"
         },
         {
           "n": "아프스텐",
-          "m": 61
+          "m": 61,
+          "a": "Andrés Herrera",
+          "aNat": "USA"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Enea Mihaj",
+          "type": "Y",
+          "m": 90
+        },
+        {
+          "n": "Elías Baez",
+          "type": "Y",
+          "m": 90
+        }
+      ],
+      "away": [
+        {
+          "n": "Dylan Chambost",
+          "type": "Y",
+          "m": 90
         }
       ]
     },
@@ -64193,11 +65027,15 @@
       "home": [
         {
           "n": "홀",
-          "m": 12
+          "m": 12,
+          "a": "Cade Cowell",
+          "nat": "USA",
+          "aNat": "USA"
         },
         {
           "n": "포르스베리",
-          "m": 48
+          "m": 48,
+          "nat": "Sweden"
         },
         {
           "n": "스미스",
@@ -64206,17 +65044,55 @@
         },
         {
           "n": "소포",
-          "m": 90
+          "m": 90,
+          "a": "Ronald Donkor",
+          "nat": "Ghana",
+          "aNat": "Ghana"
         }
       ],
       "away": [
         {
           "n": "부하",
-          "m": 17
+          "m": 17,
+          "a": "Kévin Denkey",
+          "nat": "Czechia",
+          "aNat": "Togo"
         },
         {
           "n": "스미스",
-          "m": 72
+          "m": 72,
+          "nat": "England"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Ronald Donkor",
+          "type": "Y",
+          "m": 57
+        },
+        {
+          "n": "Omar Valencia",
+          "type": "Y",
+          "m": 83
+        }
+      ],
+      "away": [
+        {
+          "n": "Bryan Ramirez",
+          "type": "Y",
+          "m": 37
+        },
+        {
+          "n": "Matt Miazga",
+          "type": "Y",
+          "m": 80
+        },
+        {
+          "n": "Alvas Powell",
+          "type": "R",
+          "m": 90
         }
       ]
     },
@@ -65576,26 +66452,48 @@
       "home": [
         {
           "n": "시구르다르손",
-          "m": 4
+          "m": 4,
+          "a": "Aske Adelgaard",
+          "nat": "Iceland"
         },
         {
           "n": "텡스테트",
-          "m": 7
+          "m": 7,
+          "a": "Alfons Sampsted",
+          "nat": "Denmark",
+          "aNat": "Iceland"
         },
         {
           "n": "에드바르드센",
-          "m": 15
+          "m": 15,
+          "a": "Alfons Sampsted",
+          "nat": "Sweden",
+          "aNat": "Iceland"
         },
         {
           "n": "아델가르드",
-          "m": 56
+          "m": 56,
+          "a": "Jakob Breum"
         },
         {
           "n": "수레이",
-          "m": 63
+          "m": 63,
+          "a": "Evert Linthorst",
+          "nat": "Belgium",
+          "aNat": "Netherlands"
         }
       ],
       "away": []
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Koen Kostons",
+          "type": "Y",
+          "m": 36
+        }
+      ]
     }
   },
   {
@@ -65615,14 +66513,45 @@
       "home": [
         {
           "n": "바스케스",
-          "m": 14
+          "m": 14,
+          "a": "Martín Satriano",
+          "aNat": "Uruguay"
         },
         {
           "n": "사트리아노",
-          "m": 90
+          "m": 90,
+          "a": "Mario Martín",
+          "nat": "Uruguay",
+          "aNat": "Spain"
         }
       ],
       "away": []
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Djené",
+          "type": "Y",
+          "m": 29
+        },
+        {
+          "n": "Mauro Arambarri",
+          "type": "Y",
+          "m": 45
+        },
+        {
+          "n": "Sebastián Boselli",
+          "type": "Y",
+          "m": 85
+        }
+      ],
+      "away": [
+        {
+          "n": "Yuri Berchiche",
+          "type": "Y",
+          "m": 31
+        }
+      ]
     }
   },
   {
@@ -65678,7 +66607,27 @@
     "gameId": "g0GNsVExUpFDwFs",
     "status": "completed",
     "awayScore": 0,
-    "homeScore": 0
+    "homeScore": 0,
+    "cards": {
+      "home": [
+        {
+          "n": "Gibson Yah",
+          "type": "Y",
+          "m": 58
+        },
+        {
+          "n": "Nick Verschuren",
+          "type": "Y",
+          "m": 70
+        },
+        {
+          "n": "Mawouna Amevor",
+          "type": "Y",
+          "m": 79
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-04-05",
@@ -65692,7 +66641,27 @@
     "gameId": "Y6fqganiOHnInIh",
     "status": "completed",
     "awayScore": 0,
-    "homeScore": 0
+    "homeScore": 0,
+    "cards": {
+      "home": [
+        {
+          "n": "Yassin Belkhdim",
+          "type": "Y",
+          "m": 46
+        },
+        {
+          "n": "Branco van den Boomen",
+          "type": "Y",
+          "m": 66
+        },
+        {
+          "n": "Lilian Raolisoa",
+          "type": "Y",
+          "m": 84
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-04-05",
@@ -65711,11 +66680,13 @@
       "home": [
         {
           "n": "메이",
-          "m": 5
+          "m": 5,
+          "nat": "Scotland"
         },
         {
           "n": "스미스",
-          "m": 58
+          "m": 58,
+          "nat": "Scotland"
         }
       ],
       "away": [
@@ -65725,7 +66696,34 @@
         },
         {
           "n": "클라우디오 브라가",
-          "m": 51
+          "m": 51,
+          "nat": "Portugal"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Lewis Smith",
+          "type": "Y",
+          "m": 22
+        },
+        {
+          "n": "Scott Arfield",
+          "type": "Y",
+          "m": 34
+        }
+      ],
+      "away": [
+        {
+          "n": "Oisin McEntee",
+          "type": "Y",
+          "m": 45
+        },
+        {
+          "n": "Marc Leonard",
+          "type": "R",
+          "m": 90
         }
       ]
     }
@@ -65851,13 +66849,32 @@
       "home": [
         {
           "n": "일리치",
-          "m": 52
+          "m": 52,
+          "a": "Derrick Köhn",
+          "nat": "Serbia",
+          "aNat": "Ghana"
         }
       ],
       "away": [
         {
           "n": "마티아스 페레이라 라게",
-          "m": 25
+          "m": 25,
+          "nat": "Portugal"
+        }
+      ]
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Jackson Irvine",
+          "type": "Y",
+          "m": 85
+        },
+        {
+          "n": "Jackson Irvine",
+          "type": "R",
+          "m": 90
         }
       ]
     }
@@ -65879,25 +66896,61 @@
       "home": [
         {
           "n": "로드리게스",
-          "m": 12
+          "m": 12,
+          "nat": "Argentina"
         },
         {
           "n": "로드리게스",
-          "m": 90
+          "m": 90,
+          "a": "Umar Sadiq",
+          "nat": "Argentina",
+          "aNat": "Nigeria"
         }
       ],
       "away": [
         {
           "n": "일라익스 모리바",
-          "m": 56
+          "m": 56,
+          "nat": "Guinea"
         },
         {
           "n": "페르 로페스",
-          "m": 60
+          "m": 60,
+          "a": "Williot Swedberg",
+          "aNat": "Sweden"
         },
         {
           "n": "스베드베리",
-          "m": 81
+          "m": 81,
+          "a": "Ilaix Moriba",
+          "nat": "Sweden",
+          "aNat": "Guinea"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Guido Rodríguez",
+          "type": "Y",
+          "m": 84
+        }
+      ],
+      "away": [
+        {
+          "n": "Javi Rodríguez",
+          "type": "Y",
+          "m": 43
+        },
+        {
+          "n": "Marcos Alonso",
+          "type": "Y",
+          "m": 44
+        },
+        {
+          "n": "Hugo Sotelo",
+          "type": "Y",
+          "m": 71
         }
       ]
     }
@@ -65914,7 +66967,33 @@
     "gameId": "ZuEOiqcUHAMOpG6",
     "status": "completed",
     "awayScore": 0,
-    "homeScore": 0
+    "homeScore": 0,
+    "cards": {
+      "home": [
+        {
+          "n": "Raul Paula",
+          "type": "Y",
+          "m": 62
+        }
+      ],
+      "away": [
+        {
+          "n": "Lushendry Martes",
+          "type": "Y",
+          "m": 11
+        },
+        {
+          "n": "Julian Baas",
+          "type": "Y",
+          "m": 45
+        },
+        {
+          "n": "Vito van Crooij",
+          "type": "Y",
+          "m": 55
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-06",
@@ -65933,13 +67012,43 @@
       "home": [
         {
           "n": "디엥",
-          "m": 54
+          "m": 54,
+          "a": "Issa Soumaré",
+          "nat": "France"
         }
       ],
       "away": [
         {
           "n": "무네트시",
-          "m": 74
+          "m": 74,
+          "a": "Danny Namaso",
+          "aNat": "Cameroon"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Arouna Sangante",
+          "type": "Y",
+          "m": 17
+        },
+        {
+          "n": "Yanis Zouaoui",
+          "type": "Y",
+          "m": 86
+        }
+      ],
+      "away": [
+        {
+          "n": "Danny Namaso",
+          "type": "Y",
+          "m": 79
+        },
+        {
+          "n": "Elisha Owusu",
+          "type": "Y",
+          "m": 86
         }
       ]
     }
@@ -65961,13 +67070,43 @@
       "home": [
         {
           "n": "에보노그",
-          "m": 23
+          "m": 23,
+          "a": "Issa Soumaré",
+          "nat": "France"
         }
       ],
       "away": [
         {
           "n": "시나요코",
-          "m": 15
+          "m": 15,
+          "a": "Danny Namaso",
+          "aNat": "Cameroon"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Arouna Sangante",
+          "type": "Y",
+          "m": 17
+        },
+        {
+          "n": "Yanis Zouaoui",
+          "type": "Y",
+          "m": 86
+        }
+      ],
+      "away": [
+        {
+          "n": "Danny Namaso",
+          "type": "Y",
+          "m": 79
+        },
+        {
+          "n": "Elisha Owusu",
+          "type": "Y",
+          "m": 86
         }
       ]
     }
@@ -65984,7 +67123,33 @@
     "gameId": "HNJdkGnaR55Av4o",
     "status": "completed",
     "awayScore": 0,
-    "homeScore": 0
+    "homeScore": 0,
+    "cards": {
+      "home": [
+        {
+          "n": "Bouna Sarr",
+          "type": "Y",
+          "m": 38
+        },
+        {
+          "n": "Believe Munongo",
+          "type": "Y",
+          "m": 72
+        }
+      ],
+      "away": [
+        {
+          "n": "Tylel Tati",
+          "type": "R",
+          "m": 39
+        },
+        {
+          "n": "Francis Coquelin",
+          "type": "Y",
+          "m": 63
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-06",
@@ -66003,7 +67168,10 @@
       "home": [
         {
           "n": "버카르트",
-          "m": 66
+          "m": 66,
+          "a": "Farès Chaïbi",
+          "nat": "Germany",
+          "aNat": "Algeria"
         },
         {
           "n": "칼리뮈앙도",
@@ -66013,11 +67181,37 @@
       "away": [
         {
           "n": "카민스키",
-          "m": 70
+          "m": 70,
+          "a": "Ragnar Ache",
+          "aNat": "Germany"
         },
         {
           "n": "카스트로-몬테스",
-          "m": 83
+          "m": 83,
+          "a": "Marius Bülter",
+          "nat": "Belgium",
+          "aNat": "Germany"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Ansgar Knauff",
+          "type": "Y",
+          "m": 22
+        }
+      ],
+      "away": [
+        {
+          "n": "Luca Waldschmidt",
+          "type": "Y",
+          "m": 90
+        },
+        {
+          "n": "Jakub Kaminski",
+          "type": "Y",
+          "m": 90
         }
       ]
     }
@@ -66110,10 +67304,37 @@
       "home": [
         {
           "n": "압둘아지즈알 하틸라",
-          "m": 42
+          "m": 42,
+          "nat": "Saudi Arabia"
         }
       ],
       "away": []
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Abdulaziz Al Hatila",
+          "type": "Y",
+          "m": 6
+        },
+        {
+          "n": "Muath",
+          "type": "Y",
+          "m": 45
+        },
+        {
+          "n": "Juan Pedroza",
+          "type": "Y",
+          "m": 58
+        }
+      ],
+      "away": [
+        {
+          "n": "Abdulaziz Anwar Abdulrahman Al Suwailem",
+          "type": "Y",
+          "m": 25
+        }
+      ]
     }
   },
   {
@@ -66137,11 +67358,13 @@
         },
         {
           "n": "호베르트",
-          "m": 12
+          "m": 12,
+          "nat": "Brazil"
         },
         {
           "n": "클렘",
-          "m": 17
+          "m": 17,
+          "nat": "Denmark"
         },
         {
           "n": "무코코",
@@ -66153,7 +67376,8 @@
         },
         {
           "n": "호베르트",
-          "m": 62
+          "m": 62,
+          "nat": "Brazil"
         },
         {
           "n": "라르손",
@@ -66161,6 +67385,22 @@
         }
       ],
       "away": []
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Mathias Jørgensen",
+          "type": "Y",
+          "m": 57
+        }
+      ],
+      "away": [
+        {
+          "n": "Callum McCowatt",
+          "type": "Y",
+          "m": 57
+        }
+      ]
     },
     "phaseCode": "RELEG"
   },
@@ -66182,9 +67422,21 @@
       "away": [
         {
           "n": "애덤스",
-          "m": 80
+          "m": 80,
+          "a": "Marcus Pedersen",
+          "nat": "Scotland"
         }
       ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Michel Aebischer",
+          "type": "Y",
+          "m": 14
+        }
+      ],
+      "away": []
     }
   },
   {
@@ -66204,10 +67456,64 @@
       "home": [
         {
           "n": "비냐스",
-          "m": 32
+          "m": 32,
+          "a": "Alberto Reina",
+          "nat": "Uruguay",
+          "aNat": "Spain"
         }
       ],
       "away": []
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Federico Viñas",
+          "type": "Y",
+          "m": 13
+        },
+        {
+          "n": "Javi López",
+          "type": "Y",
+          "m": 53
+        },
+        {
+          "n": "Nicolás Fonseca",
+          "type": "Y",
+          "m": 89
+        },
+        {
+          "n": "Eric Bailly",
+          "type": "Y",
+          "m": 90
+        },
+        {
+          "n": "Ilyas Chaira",
+          "type": "Y",
+          "m": 90
+        }
+      ],
+      "away": [
+        {
+          "n": "Tanguy Nianzou",
+          "type": "R",
+          "m": 38
+        },
+        {
+          "n": "José Ángel Carmona",
+          "type": "Y",
+          "m": 43
+        },
+        {
+          "n": "Enrique Salas",
+          "type": "Y",
+          "m": 54
+        },
+        {
+          "n": "Manu Bueno",
+          "type": "Y",
+          "m": 69
+        }
+      ]
     }
   },
   {
@@ -66802,17 +68108,49 @@
       "home": [
         {
           "n": "골로빈",
-          "m": 59
+          "m": 59,
+          "a": "Jordan Teze",
+          "nat": "Russia",
+          "aNat": "Netherlands"
         },
         {
           "n": "발로건",
-          "m": 74
+          "m": 74,
+          "nat": "USA"
         }
       ],
       "away": [
         {
           "n": "구이리",
-          "m": 85
+          "m": 85,
+          "a": "Facundo Medina",
+          "nat": "Algeria"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Lamine Camara",
+          "type": "Y",
+          "m": 8
+        },
+        {
+          "n": "Thilo Kehrer",
+          "type": "Y",
+          "m": 70
+        }
+      ],
+      "away": [
+        {
+          "n": "Facundo Medina",
+          "type": "Y",
+          "m": 34
+        },
+        {
+          "n": "Leonardo Balerdi",
+          "type": "Y",
+          "m": 87
         }
       ]
     }
@@ -66834,33 +68172,60 @@
       "home": [
         {
           "n": "라우타로 마르티네스",
-          "m": 1
+          "m": 1,
+          "a": "Marcus Thuram",
+          "nat": "Argentina",
+          "aNat": "France"
         },
         {
           "n": "찰하놀루",
-          "m": 45
+          "m": 45,
+          "a": "Piotr Zielinski",
+          "nat": "Türkiye",
+          "aNat": "Poland"
         },
         {
           "n": "라우타로 마르티네스",
-          "m": 52
+          "m": 52,
+          "a": "Marcus Thuram",
+          "nat": "Argentina",
+          "aNat": "France"
         },
         {
           "n": "튀랑",
-          "m": 55
+          "m": 55,
+          "a": "Hakan Çalhanoglu",
+          "nat": "France",
+          "aNat": "Türkiye"
         },
         {
           "n": "바렐라",
-          "m": 63
+          "m": 63,
+          "nat": "Italy"
         }
       ],
       "away": [
         {
           "n": "맨시니",
-          "m": 40
+          "m": 40,
+          "a": "Devyne Rensch",
+          "nat": "Italy",
+          "aNat": "Netherlands"
         },
         {
           "n": "펠레그리니",
-          "m": 70
+          "m": 70,
+          "nat": "Italy"
+        }
+      ]
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Niccolò Pisilli",
+          "type": "Y",
+          "m": 60
         }
       ]
     }
@@ -67273,7 +68638,38 @@
     "gameId": "LT4LfK7Jrg2Z9gj",
     "status": "completed",
     "awayScore": 0,
-    "homeScore": 0
+    "homeScore": 0,
+    "cards": {
+      "home": [
+        {
+          "n": "Kingsley Ehizibue",
+          "type": "Y",
+          "m": 85
+        },
+        {
+          "n": "Thomas Kristensen",
+          "type": "Y",
+          "m": 88
+        }
+      ],
+      "away": [
+        {
+          "n": "Máximo Perrone",
+          "type": "Y",
+          "m": 50
+        },
+        {
+          "n": "Diego Carlos",
+          "type": "Y",
+          "m": 72
+        },
+        {
+          "n": "Ivan Smolcic",
+          "type": "Y",
+          "m": 78
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-06",
@@ -67292,21 +68688,65 @@
       "home": [
         {
           "n": "앤더슨",
-          "m": 9
+          "m": 9,
+          "a": "Colby Bishop",
+          "nat": "England",
+          "aNat": "England"
         },
         {
           "n": "도젤",
-          "m": 87
+          "m": 87,
+          "a": "Millenic Alli"
         }
       ],
       "away": [
         {
           "n": "스펜서",
-          "m": 48
+          "m": 48,
+          "nat": "Northern Ireland"
         },
         {
           "n": "랭크셔",
-          "m": 81
+          "m": 81,
+          "a": "Michal Helik",
+          "nat": "England",
+          "aNat": "Poland"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Connor Ogilvie",
+          "type": "R",
+          "m": 17
+        },
+        {
+          "n": "Andre Dozzell",
+          "type": "Y",
+          "m": 62
+        },
+        {
+          "n": "Marlon Pack",
+          "type": "Y",
+          "m": 65
+        }
+      ],
+      "away": [
+        {
+          "n": "Brodie Spencer",
+          "type": "Y",
+          "m": 59
+        },
+        {
+          "n": "Will Vaulks",
+          "type": "Y",
+          "m": 61
+        },
+        {
+          "n": "Michal Helik",
+          "type": "Y",
+          "m": 78
         }
       ]
     }
@@ -67357,17 +68797,47 @@
       "home": [
         {
           "n": "이바노비치",
-          "m": 56
+          "m": 56,
+          "a": "Casper De Norre",
+          "nat": "Serbia",
+          "aNat": "Belgium"
         }
       ],
       "away": [
         {
           "n": "매트슨",
-          "m": 62
+          "m": 62,
+          "a": "Mohamed Touré",
+          "nat": "Denmark",
+          "aNat": "Australia"
         },
         {
           "n": "슈워타우",
-          "m": 76
+          "m": 76,
+          "a": "Mohamed Touré",
+          "nat": "Denmark",
+          "aNat": "Australia"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Joe Bryan",
+          "type": "Y",
+          "m": 88
+        }
+      ],
+      "away": [
+        {
+          "n": "José Córdoba",
+          "type": "Y",
+          "m": 24
+        },
+        {
+          "n": "Oscar Schwartau",
+          "type": "Y",
+          "m": 88
         }
       ]
     }
@@ -67390,15 +68860,39 @@
       "away": [
         {
           "n": "스칼비니",
-          "m": 29
+          "m": 29,
+          "a": "Charles De Ketelaere",
+          "nat": "Italy",
+          "aNat": "Belgium"
         },
         {
           "n": "크르스토비치",
-          "m": 59
+          "m": 59,
+          "a": "Charles De Ketelaere",
+          "nat": "Montenegro",
+          "aNat": "Belgium"
         },
         {
           "n": "라스파도리",
-          "m": 73
+          "m": 73,
+          "a": "Mario Pasalic",
+          "nat": "Italy",
+          "aNat": "Croatia"
+        }
+      ]
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Berat Djimsiti",
+          "type": "Y",
+          "m": 47
+        },
+        {
+          "n": "Davide Zappacosta",
+          "type": "Y",
+          "m": 70
         }
       ]
     }
@@ -67420,10 +68914,32 @@
       "home": [
         {
           "n": "니미에츠",
-          "m": 90
+          "m": 90,
+          "nat": "Germany"
         }
       ],
       "away": []
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Nicolas Bürgy",
+          "type": "Y",
+          "m": 18
+        }
+      ],
+      "away": [
+        {
+          "n": "Daníel Kristjánsson",
+          "type": "Y",
+          "m": 51
+        },
+        {
+          "n": "Adam Andersen",
+          "type": "Y",
+          "m": 86
+        }
+      ]
     },
     "phaseCode": "RELEG"
   },
@@ -67439,7 +68955,38 @@
     "gameId": "xent8HWVYExZo7q",
     "status": "completed",
     "awayScore": 0,
-    "homeScore": 0
+    "homeScore": 0,
+    "cards": {
+      "home": [
+        {
+          "n": "Sean McLoughlin",
+          "type": "Y",
+          "m": 23
+        },
+        {
+          "n": "Harry Pickering",
+          "type": "Y",
+          "m": 26
+        },
+        {
+          "n": "Scott Wharton",
+          "type": "Y",
+          "m": 45
+        }
+      ],
+      "away": [
+        {
+          "n": "Ousmane Diakite",
+          "type": "Y",
+          "m": 47
+        },
+        {
+          "n": "Daryl Dike",
+          "type": "Y",
+          "m": 90
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-06",
@@ -67462,6 +69009,32 @@
         }
       ],
       "away": []
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Cameron Pring",
+          "type": "Y",
+          "m": 4
+        }
+      ],
+      "away": [
+        {
+          "n": "Thomas Cannon",
+          "type": "Y",
+          "m": 20
+        },
+        {
+          "n": "Andre Brooks",
+          "type": "Y",
+          "m": 66
+        },
+        {
+          "n": "Patrick Bamford",
+          "type": "Y",
+          "m": 69
+        }
+      ]
     }
   },
   {
@@ -67481,14 +69054,40 @@
       "home": [
         {
           "n": "바넬",
-          "m": 54
+          "m": 54,
+          "a": "Carlton Morris",
+          "aNat": "England"
         },
         {
           "n": "모리스",
-          "m": 89
+          "m": 89,
+          "a": "Bobby Clark",
+          "nat": "England",
+          "aNat": "England"
         }
       ],
       "away": []
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Lewis Travis",
+          "type": "Y",
+          "m": 69
+        },
+        {
+          "n": "Jaydon Banel",
+          "type": "Y",
+          "m": 85
+        }
+      ],
+      "away": [
+        {
+          "n": "Sydney Agina",
+          "type": "Y",
+          "m": 3
+        }
+      ]
     }
   },
   {
@@ -67508,13 +69107,42 @@
       "home": [
         {
           "n": "예이츠",
-          "m": 2
+          "m": 2,
+          "a": "Alfie Devine",
+          "nat": "England",
+          "aNat": "England"
         }
       ],
       "away": [
         {
           "n": "아예우",
           "m": 84
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Lewis Gibson",
+          "type": "Y",
+          "m": 76
+        }
+      ],
+      "away": [
+        {
+          "n": "Jonathan Varane",
+          "type": "Y",
+          "m": 13
+        },
+        {
+          "n": "Kieran Morgan",
+          "type": "Y",
+          "m": 65
+        },
+        {
+          "n": "Jake Clark-Salter",
+          "type": "Y",
+          "m": 90
         }
       ]
     }
@@ -67536,17 +69164,40 @@
       "home": [
         {
           "n": "존슨",
-          "m": 41
+          "m": 41,
+          "a": "Darnell Furlong",
+          "nat": "England",
+          "aNat": "England"
         },
         {
           "n": "매카티어",
-          "m": 45
+          "m": 45,
+          "a": "George Hirst",
+          "nat": "England",
+          "aNat": "Scotland"
         }
       ],
       "away": [
         {
           "n": "카를로스 비센테",
-          "m": 32
+          "m": 32,
+          "nat": "Spain"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Jack Taylor",
+          "type": "Y",
+          "m": 76
+        }
+      ],
+      "away": [
+        {
+          "n": "Demarai Gray",
+          "type": "Y",
+          "m": 38
         }
       ]
     }
@@ -67568,7 +69219,10 @@
       "home": [
         {
           "n": "포츠",
-          "m": 46
+          "m": 46,
+          "a": "Alfie Devine",
+          "nat": "England",
+          "aNat": "England"
         }
       ],
       "away": [
@@ -67576,6 +69230,32 @@
           "n": "스몰",
           "m": 82,
           "og": true
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Lewis Gibson",
+          "type": "Y",
+          "m": 76
+        }
+      ],
+      "away": [
+        {
+          "n": "Jonathan Varane",
+          "type": "Y",
+          "m": 13
+        },
+        {
+          "n": "Kieran Morgan",
+          "type": "Y",
+          "m": 65
+        },
+        {
+          "n": "Jake Clark-Salter",
+          "type": "Y",
+          "m": 90
         }
       ]
     }
@@ -67597,13 +69277,42 @@
       "home": [
         {
           "n": "이란쿤다",
-          "m": 74
+          "m": 74,
+          "a": "Alfie Devine",
+          "nat": "England",
+          "aNat": "England"
         }
       ],
       "away": [
         {
           "n": "고덴",
           "m": 62
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Lewis Gibson",
+          "type": "Y",
+          "m": 76
+        }
+      ],
+      "away": [
+        {
+          "n": "Jonathan Varane",
+          "type": "Y",
+          "m": 13
+        },
+        {
+          "n": "Kieran Morgan",
+          "type": "Y",
+          "m": 65
+        },
+        {
+          "n": "Jake Clark-Salter",
+          "type": "Y",
+          "m": 90
         }
       ]
     }
@@ -67625,17 +69334,41 @@
       "home": [
         {
           "n": "잘랄",
-          "m": 7
+          "m": 7,
+          "nat": "Denmark"
         }
       ],
       "away": [
         {
           "n": "세라",
-          "m": 14
+          "m": 14,
+          "nat": "Germany"
         },
         {
           "n": "세라",
-          "m": 41
+          "m": 41,
+          "nat": "Germany"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Thomas Jørgensen",
+          "type": "Y",
+          "m": 58
+        },
+        {
+          "n": "Sami Jalal",
+          "type": "Y",
+          "m": 65
+        }
+      ],
+      "away": [
+        {
+          "n": "Kristian Malt Arnstad",
+          "type": "Y",
+          "m": 36
         }
       ]
     },
@@ -67658,14 +69391,51 @@
       "home": [
         {
           "n": "브레메르",
-          "m": 4
+          "m": 4,
+          "a": "Lloyd Kelly",
+          "nat": "Brazil",
+          "aNat": "England"
         },
         {
           "n": "맥케니",
-          "m": 17
+          "m": 17,
+          "a": "Francisco Conceição",
+          "nat": "USA",
+          "aNat": "Portugal"
         }
       ],
       "away": []
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Manuel Locatelli",
+          "type": "Y",
+          "m": 15
+        },
+        {
+          "n": "Weston McKennie",
+          "type": "Y",
+          "m": 26
+        },
+        {
+          "n": "Bremer",
+          "type": "Y",
+          "m": 72
+        },
+        {
+          "n": "Khéphren Thuram",
+          "type": "Y",
+          "m": 78
+        }
+      ],
+      "away": [
+        {
+          "n": "Morten Frendrup",
+          "type": "Y",
+          "m": 51
+        }
+      ]
     }
   },
   {
@@ -67721,7 +69491,23 @@
       "home": [
         {
           "n": "폴리타노",
-          "m": 79
+          "m": 79,
+          "nat": "Italy"
+        }
+      ],
+      "away": []
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Alessandro Buongiorno",
+          "type": "Y",
+          "m": 12
+        },
+        {
+          "n": "Matteo Politano",
+          "type": "Y",
+          "m": 81
         }
       ],
       "away": []
@@ -67739,7 +69525,23 @@
     "gameId": "wiZBOXcUMC4BPzf",
     "status": "completed",
     "awayScore": 0,
-    "homeScore": 0
+    "homeScore": 0,
+    "cards": {
+      "home": [
+        {
+          "n": "Lewie Coyle",
+          "type": "Y",
+          "m": 53
+        }
+      ],
+      "away": [
+        {
+          "n": "Matt Grimes",
+          "type": "Y",
+          "m": 61
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-07",
@@ -67763,6 +69565,32 @@
         }
       ],
       "away": []
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Vitor Reis",
+          "type": "Y",
+          "m": 53
+        },
+        {
+          "n": "Fran Beltrán",
+          "type": "Y",
+          "m": 80
+        }
+      ],
+      "away": [
+        {
+          "n": "Santiago Mouriño",
+          "type": "Y",
+          "m": 21
+        },
+        {
+          "n": "Alfonso Pedraza",
+          "type": "Y",
+          "m": 77
+        }
+      ]
     }
   },
   {
@@ -72234,6 +74062,27 @@
       ],
       "away": []
     },
+    "cards": {
+      "home": [
+        {
+          "n": "Chris Richards",
+          "type": "Y",
+          "m": 76
+        }
+      ],
+      "away": [
+        {
+          "n": "Dodô",
+          "type": "Y",
+          "m": 21
+        },
+        {
+          "n": "Roberto Piccoli",
+          "type": "Y",
+          "m": 69
+        }
+      ]
+    },
     "phaseCode": "T8",
     "leg": 1,
     "homeAggregateScore": 4,
@@ -75737,6 +77586,62 @@
           "m": 45
         }
       ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Mathias Kvistgaarden",
+          "type": "Y",
+          "m": 21
+        },
+        {
+          "n": "Jack Stacey",
+          "type": "Y",
+          "m": 32
+        },
+        {
+          "n": "Kenny McLean",
+          "type": "Y",
+          "m": 60
+        },
+        {
+          "n": "Harry Darling",
+          "type": "Y",
+          "m": 69
+        }
+      ],
+      "away": [
+        {
+          "n": "Anis Mehmeti",
+          "type": "Y",
+          "m": 13
+        },
+        {
+          "n": "Jacob Greaves",
+          "type": "Y",
+          "m": 19
+        },
+        {
+          "n": "George Hirst",
+          "type": "Y",
+          "m": 26
+        },
+        {
+          "n": "Marcelino Núñez",
+          "type": "Y",
+          "m": 69
+        },
+        {
+          "n": "Leif Davis",
+          "type": "Y",
+          "m": 74
+        },
+        {
+          "n": "Ivan Azón",
+          "type": "Y",
+          "m": 76
+        }
+      ]
     }
   },
   {
@@ -75801,6 +77706,32 @@
         {
           "n": "스콧",
           "m": 74
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Viktor Gyökeres",
+          "type": "Y",
+          "m": 80
+        }
+      ],
+      "away": [
+        {
+          "n": "Adrien Truffert",
+          "type": "Y",
+          "m": 77
+        },
+        {
+          "n": "Junior Kroupi",
+          "type": "Y",
+          "m": 79
+        },
+        {
+          "n": "James Hill",
+          "type": "Y",
+          "m": 90
         }
       ]
     }
@@ -76623,6 +78554,62 @@
           "m": 5
         }
       ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Mark McGuinness",
+          "type": "Y",
+          "m": 66
+        },
+        {
+          "n": "Japhet Tanganga",
+          "type": "Y",
+          "m": 84
+        },
+        {
+          "n": "Ki-Jana Hoever",
+          "type": "Y",
+          "m": 90
+        }
+      ],
+      "away": [
+        {
+          "n": "John Lundstram",
+          "type": "Y",
+          "m": 66
+        },
+        {
+          "n": "Semi Ajayi",
+          "type": "Y",
+          "m": 72
+        },
+        {
+          "n": "John Lundstram",
+          "type": "R",
+          "m": 75
+        },
+        {
+          "n": "Oliver McBurnie",
+          "type": "Y",
+          "m": 75
+        },
+        {
+          "n": "John Egan",
+          "type": "Y",
+          "m": 84
+        },
+        {
+          "n": "Ivor Pandur",
+          "type": "Y",
+          "m": 84
+        },
+        {
+          "n": "Lewie Coyle",
+          "type": "Y",
+          "m": 90
+        }
+      ]
     }
   },
   {
@@ -76653,6 +78640,62 @@
         {
           "n": "모리스",
           "m": 38
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Mark McGuinness",
+          "type": "Y",
+          "m": 66
+        },
+        {
+          "n": "Japhet Tanganga",
+          "type": "Y",
+          "m": 84
+        },
+        {
+          "n": "Ki-Jana Hoever",
+          "type": "Y",
+          "m": 90
+        }
+      ],
+      "away": [
+        {
+          "n": "John Lundstram",
+          "type": "Y",
+          "m": 66
+        },
+        {
+          "n": "Semi Ajayi",
+          "type": "Y",
+          "m": 72
+        },
+        {
+          "n": "John Lundstram",
+          "type": "R",
+          "m": 75
+        },
+        {
+          "n": "Oliver McBurnie",
+          "type": "Y",
+          "m": 75
+        },
+        {
+          "n": "John Egan",
+          "type": "Y",
+          "m": 84
+        },
+        {
+          "n": "Ivor Pandur",
+          "type": "Y",
+          "m": 84
+        },
+        {
+          "n": "Lewie Coyle",
+          "type": "Y",
+          "m": 90
         }
       ]
     }
@@ -76767,6 +78810,21 @@
         {
           "n": "듀스버리-홀",
           "m": 90
+        }
+      ]
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Jordan Pickford",
+          "type": "Y",
+          "m": 2
+        },
+        {
+          "n": "James Garner",
+          "type": "Y",
+          "m": 47
         }
       ]
     }
@@ -76917,6 +78975,37 @@
         }
       ],
       "away": []
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Emmanuel Gyamfi",
+          "type": "Y",
+          "m": 45
+        },
+        {
+          "n": "Aremu Afeez",
+          "type": "Y",
+          "m": 78
+        }
+      ],
+      "away": [
+        {
+          "n": "Grant Hanley",
+          "type": "R",
+          "m": 16
+        },
+        {
+          "n": "Daniel Barlaser",
+          "type": "Y",
+          "m": 52
+        },
+        {
+          "n": "Owen Elding",
+          "type": "Y",
+          "m": 66
+        }
+      ]
     }
   },
   {
@@ -77068,6 +79157,27 @@
           "m": 50
         }
       ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Pierre Landry Kabore",
+          "type": "Y",
+          "m": 90
+        }
+      ],
+      "away": [
+        {
+          "n": "Paul McGinn",
+          "type": "Y",
+          "m": 19
+        },
+        {
+          "n": "Ibrahim Sa'Id",
+          "type": "Y",
+          "m": 82
+        }
+      ]
     }
   },
   {
@@ -77207,6 +79317,67 @@
         {
           "n": "구가",
           "m": 23
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Mailson",
+          "type": "Y",
+          "m": 2
+        },
+        {
+          "n": "Mohammed Al Dossari",
+          "type": "Y",
+          "m": 45
+        },
+        {
+          "n": "Angelo Fulgini",
+          "type": "Y",
+          "m": 72
+        },
+        {
+          "n": "Marin Petkov",
+          "type": "Y",
+          "m": 87
+        },
+        {
+          "n": "Aschraf El Mahdioui",
+          "type": "Y",
+          "m": 90
+        }
+      ],
+      "away": [
+        {
+          "n": "John Buckley",
+          "type": "Y",
+          "m": 46
+        },
+        {
+          "n": "Kevin N'Doram",
+          "type": "Y",
+          "m": 63
+        },
+        {
+          "n": "Edgaras Utkus",
+          "type": "Y",
+          "m": 72
+        },
+        {
+          "n": "Abdulrahman Al Safari",
+          "type": "Y",
+          "m": 76
+        },
+        {
+          "n": "Abdulaziz Al-Aliwa",
+          "type": "Y",
+          "m": 77
+        },
+        {
+          "n": "Iker Kortajarena",
+          "type": "Y",
+          "m": 90
         }
       ]
     }
@@ -78329,6 +80500,52 @@
           "m": 35
         }
       ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Manu Bueno",
+          "type": "Y",
+          "m": 36
+        },
+        {
+          "n": "Juanlu Sanchez",
+          "type": "Y",
+          "m": 67
+        },
+        {
+          "n": "Nemanja Gudelj",
+          "type": "Y",
+          "m": 88
+        },
+        {
+          "n": "Peque",
+          "type": "Y",
+          "m": 90
+        }
+      ],
+      "away": [
+        {
+          "n": "Julio Díaz",
+          "type": "Y",
+          "m": 44
+        },
+        {
+          "n": "Álex Baena",
+          "type": "Y",
+          "m": 75
+        },
+        {
+          "n": "Antoine Griezmann",
+          "type": "Y",
+          "m": 75
+        },
+        {
+          "n": "Javier Morcillo",
+          "type": "Y",
+          "m": 90
+        }
+      ]
     }
   },
   {
@@ -78993,6 +81210,26 @@
         {
           "n": "야스베크",
           "m": 62
+        }
+      ]
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Alex Muyl",
+          "type": "Y",
+          "m": 35
+        },
+        {
+          "n": "Daniel Lovitz",
+          "type": "Y",
+          "m": 64
+        },
+        {
+          "n": "Hany Mukhtar",
+          "type": "Y",
+          "m": 90
         }
       ]
     },
@@ -80650,6 +82887,47 @@
           "m": 88
         }
       ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Liam Henderson",
+          "type": "Y",
+          "m": 41
+        },
+        {
+          "n": "Dylan Tait",
+          "type": "Y",
+          "m": 80
+        },
+        {
+          "n": "Coll Donaldson",
+          "type": "Y",
+          "m": 80
+        }
+      ],
+      "away": [
+        {
+          "n": "Jayden Meghoma",
+          "type": "Y",
+          "m": 32
+        },
+        {
+          "n": "James Tavernier",
+          "type": "Y",
+          "m": 68
+        },
+        {
+          "n": "Max Aarons",
+          "type": "Y",
+          "m": 72
+        },
+        {
+          "n": "Nicolas Raskin",
+          "type": "Y",
+          "m": 80
+        }
+      ]
     }
   },
   {
@@ -80797,6 +83075,47 @@
         {
           "n": "에잘줄리",
           "m": 7
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Alejandro Catena",
+          "type": "Y",
+          "m": 34
+        },
+        {
+          "n": "Jorge Herrando",
+          "type": "Y",
+          "m": 44
+        },
+        {
+          "n": "Juan Cruz",
+          "type": "Y",
+          "m": 67
+        }
+      ],
+      "away": [
+        {
+          "n": "Sergi Altimira",
+          "type": "Y",
+          "m": 24
+        },
+        {
+          "n": "Héctor Bellerín",
+          "type": "Y",
+          "m": 29
+        },
+        {
+          "n": "Antony",
+          "type": "Y",
+          "m": 39
+        },
+        {
+          "n": "Cucho Hernández",
+          "type": "Y",
+          "m": 67
         }
       ]
     }
@@ -123931,46 +126250,6 @@
     "time": "16:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
-    "home": "대한민국",
-    "away": "필리핀",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
-    "timeTbd": false,
-    "gameId": "INfbBvjkK2ARSQU",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 5,
-    "scorers": {
-      "home": [
-        {
-          "n": "백서영",
-          "m": 6
-        },
-        {
-          "n": "백서영",
-          "m": 14
-        },
-        {
-          "n": "백서영",
-          "m": 34
-        },
-        {
-          "n": "백서영",
-          "m": 55
-        },
-        {
-          "n": "김희나",
-          "m": 67
-        }
-      ],
-      "away": []
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-02",
-    "time": "16:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
     "home": "일본",
     "away": "레바논",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
@@ -124033,6 +126312,46 @@
         {
           "n": "나나미",
           "m": 80
+        }
+      ],
+      "away": []
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-02",
+    "time": "16:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
+    "home": "대한민국",
+    "away": "필리핀",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
+    "timeTbd": false,
+    "gameId": "INfbBvjkK2ARSQU",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 5,
+    "scorers": {
+      "home": [
+        {
+          "n": "백서영",
+          "m": 6
+        },
+        {
+          "n": "백서영",
+          "m": 14
+        },
+        {
+          "n": "백서영",
+          "m": 34
+        },
+        {
+          "n": "백서영",
+          "m": 55
+        },
+        {
+          "n": "김희나",
+          "m": 67
         }
       ],
       "away": []
@@ -125263,6 +127582,35 @@
     "time": "20:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
+    "home": "호주",
+    "away": "인도",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
+    "timeTbd": false,
+    "gameId": "fS1J3kxSwziVvHl",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "무이티스",
+          "m": 25
+        },
+        {
+          "n": "바스넷",
+          "m": 59,
+          "og": true
+        }
+      ],
+      "away": []
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-02",
+    "time": "20:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
     "home": "북한",
     "away": "차이니스 타이베이",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
@@ -125312,35 +127660,6 @@
         {
           "n": "유종향",
           "m": 90
-        }
-      ],
-      "away": []
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-02",
-    "time": "20:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
-    "home": "호주",
-    "away": "인도",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
-    "timeTbd": false,
-    "gameId": "fS1J3kxSwziVvHl",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "무이티스",
-          "m": 25
-        },
-        {
-          "n": "바스넷",
-          "m": 59,
-          "og": true
         }
       ],
       "away": []
@@ -134666,38 +136985,6 @@
     "time": "20:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
-    "home": "인도",
-    "away": "일본",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
-    "timeTbd": false,
-    "gameId": "SyGtvWeiJaOs0ZA",
-    "status": "completed",
-    "awayScore": 3,
-    "homeScore": 0,
-    "scorers": {
-      "home": [],
-      "away": [
-        {
-          "n": "하야시",
-          "m": 59
-        },
-        {
-          "n": "이케다",
-          "m": 76
-        },
-        {
-          "n": "이케다",
-          "m": 81
-        }
-      ]
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-05",
-    "time": "20:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
     "home": "필리핀",
     "away": "북한",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
@@ -134740,6 +137027,38 @@
         {
           "n": "송원용",
           "m": 85
+        }
+      ]
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-05",
+    "time": "20:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
+    "home": "인도",
+    "away": "일본",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
+    "timeTbd": false,
+    "gameId": "SyGtvWeiJaOs0ZA",
+    "status": "completed",
+    "awayScore": 3,
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "하야시",
+          "m": 59
+        },
+        {
+          "n": "이케다",
+          "m": 76
+        },
+        {
+          "n": "이케다",
+          "m": 81
         }
       ]
     },
@@ -139085,6 +141404,21 @@
     "time": "20:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
+    "home": "필리핀",
+    "away": "차이니스 타이베이",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
+    "timeTbd": false,
+    "gameId": "iI57xIcnv4pTYV5",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 0,
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-08",
+    "time": "20:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
     "home": "북한",
     "away": "대한민국",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
@@ -139110,21 +141444,6 @@
       ],
       "away": []
     },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-08",
-    "time": "20:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
-    "home": "필리핀",
-    "away": "차이니스 타이베이",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
-    "timeTbd": false,
-    "gameId": "iI57xIcnv4pTYV5",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 0,
     "phaseCode": "GROUP"
   },
   {
@@ -150071,6 +152390,34 @@
     "time": "01:00",
     "league": "U17ASIANCUP",
     "venueId": "king_abdullah_sports_city",
+    "home": "중국",
+    "away": "카타르",
+    "stadium": "킹 압둘라 스포츠 시티 피치 퓨처 C",
+    "timeTbd": false,
+    "gameId": "OW7BBRLBR5Yg9Mi",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "하시판",
+          "m": 14
+        },
+        {
+          "n": "장 보린",
+          "m": 71
+        }
+      ],
+      "away": []
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-13",
+    "time": "01:00",
+    "league": "U17ASIANCUP",
+    "venueId": "king_abdullah_sports_city",
     "home": "일본",
     "away": "인도네시아",
     "stadium": "킹 압둘라 스포츠 시티 피치 스타스 A",
@@ -150100,34 +152447,6 @@
           "m": 70
         }
       ]
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-13",
-    "time": "01:00",
-    "league": "U17ASIANCUP",
-    "venueId": "king_abdullah_sports_city",
-    "home": "중국",
-    "away": "카타르",
-    "stadium": "킹 압둘라 스포츠 시티 피치 퓨처 C",
-    "timeTbd": false,
-    "gameId": "OW7BBRLBR5Yg9Mi",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "하시판",
-          "m": 14
-        },
-        {
-          "n": "장 보린",
-          "m": 71
-        }
-      ],
-      "away": []
     },
     "phaseCode": "GROUP"
   },
@@ -259759,7 +262078,25 @@
     "awayScore": 9,
     "homeScore": 5,
     "winPitcher": "덩카이웨이",
-    "losePitcher": "허드슨"
+    "losePitcher": "허드슨",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "안토나치 1개"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "트람멜 2개"
+        },
+        {
+          "how": "홈런",
+          "text": "스미스 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-25",
@@ -259805,7 +262142,21 @@
     "awayScore": 4,
     "homeScore": 5,
     "winPitcher": "그레이",
-    "losePitcher": "밀러"
+    "losePitcher": "밀러",
+    "savePitcher": "라츠",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "랭포드 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "버거 1호"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-07-25",
@@ -259837,7 +262188,21 @@
     "awayScore": 2,
     "homeScore": 0,
     "winPitcher": "로페즈",
-    "losePitcher": "매튜스"
+    "losePitcher": "매튜스",
+    "savePitcher": "해리스",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "루이스 2개"
+        },
+        {
+          "how": "도루",
+          "text": "키샬 1개"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-07-25",
@@ -259855,7 +262220,26 @@
     "awayScore": 4,
     "homeScore": 2,
     "winPitcher": "가르시아",
-    "losePitcher": "소리아노"
+    "losePitcher": "소리아노",
+    "savePitcher": "파간",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "에레라 1개"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "데 라 크루즈 2개"
+        },
+        {
+          "how": "홈런",
+          "text": "수아레즈 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-25",
@@ -259929,7 +262313,33 @@
     "awayScore": 6,
     "homeScore": 7,
     "winPitcher": "킬리언",
-    "losePitcher": "실세스"
+    "losePitcher": "실세스",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "데버스 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "슈미트 1호"
+        },
+        {
+          "how": "도루",
+          "text": "맥크레이 1개"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "샤뉴엘 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "그리섬 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-25",
@@ -261431,7 +263841,26 @@
     "awayScore": 3,
     "homeScore": 2,
     "winPitcher": "린치",
-    "losePitcher": "웨그스펙"
+    "losePitcher": "웨그스펙",
+    "savePitcher": "랭",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "하오유 리 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "페레즈 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "로프틴 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-26",
@@ -261582,7 +264011,25 @@
     "awayScore": 3,
     "homeScore": 5,
     "winPitcher": "그리핀",
-    "losePitcher": "브랫"
+    "losePitcher": "브랫",
+    "savePitcher": "비터",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "에이브람스 1호"
+        },
+        {
+          "how": "도루",
+          "text": "에이브람스 1개"
+        },
+        {
+          "how": "도루",
+          "text": "영 2개"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-07-26",
@@ -261600,7 +264047,20 @@
     "awayScore": 2,
     "homeScore": 9,
     "winPitcher": "레이",
-    "losePitcher": "존슨"
+    "losePitcher": "존슨",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "데버스 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "이정후 1호"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-07-26",
@@ -261618,7 +264078,20 @@
     "awayScore": 6,
     "homeScore": 0,
     "winPitcher": "시즈",
-    "losePitcher": "그레이"
+    "losePitcher": "그레이",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "스프링어 1호"
+        },
+        {
+          "how": "도루",
+          "text": "클레멘트 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-26",
@@ -261636,7 +264109,29 @@
     "awayScore": 7,
     "homeScore": 2,
     "winPitcher": "시어스",
-    "losePitcher": "페레즈"
+    "losePitcher": "페레즈",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "로페즈 1개"
+        },
+        {
+          "how": "도루",
+          "text": "루이스 2개"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "크로넨워스 1개"
+        },
+        {
+          "how": "도루",
+          "text": "렌히포 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-26",
@@ -261748,7 +264243,21 @@
     "awayScore": 3,
     "homeScore": 1,
     "winPitcher": "웨더스",
-    "losePitcher": "백허스"
+    "losePitcher": "백허스",
+    "savePitcher": "베드너",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "도밍게스 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "웰스 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-26",
@@ -261780,7 +264289,8 @@
     "awayScore": 0,
     "homeScore": 3,
     "winPitcher": "마르티네즈",
-    "losePitcher": "바이비"
+    "losePitcher": "바이비",
+    "savePitcher": "베이커"
   },
   {
     "date": "2026-07-26",
@@ -261923,7 +264433,25 @@
     "awayScore": 11,
     "homeScore": 0,
     "winPitcher": "이마나가",
-    "losePitcher": "스킨스"
+    "losePitcher": "스킨스",
+    "savePitcher": "아사드",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "크로우-암스트롱 1호"
+        },
+        {
+          "how": "도루",
+          "text": "크로우-암스트롱 1개"
+        },
+        {
+          "how": "도루",
+          "text": "라미레즈 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-26",
@@ -261969,7 +264497,25 @@
     "awayScore": 2,
     "homeScore": 3,
     "winPitcher": "카노",
-    "losePitcher": "푸엔테스"
+    "losePitcher": "푸엔테스",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "알론소 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "헨더슨 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "알비스 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-26",
@@ -261987,7 +264533,29 @@
     "awayScore": 5,
     "homeScore": 8,
     "winPitcher": "개서",
-    "losePitcher": "펠트너"
+    "losePitcher": "펠트너",
+    "savePitcher": "메길",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "바우어스 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "프랫 1호"
+        },
+        {
+          "how": "도루",
+          "text": "프랫 1개"
+        },
+        {
+          "how": "도루",
+          "text": "해밀튼 1개"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-07-26",
@@ -262005,7 +264573,8 @@
     "awayScore": 4,
     "homeScore": 1,
     "winPitcher": "브라운",
-    "losePitcher": "버크"
+    "losePitcher": "버크",
+    "savePitcher": "헤이더"
   },
   {
     "date": "2026-07-26",
@@ -262023,7 +264592,17 @@
     "awayScore": 0,
     "homeScore": 2,
     "winPitcher": "로저스",
-    "losePitcher": "바넷"
+    "losePitcher": "바넷",
+    "savePitcher": "고메즈",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "크라이들러 1개"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-07-26",
@@ -262041,7 +264620,16 @@
     "awayScore": 0,
     "homeScore": 7,
     "winPitcher": "팔란테",
-    "losePitcher": "그린"
+    "losePitcher": "그린",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "도루",
+          "text": "블레데이 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-26",
@@ -262059,7 +264647,21 @@
     "awayScore": 4,
     "homeScore": 3,
     "winPitcher": "야마모토",
-    "losePitcher": "맥클린"
+    "losePitcher": "맥클린",
+    "savePitcher": "스튜어트",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "도루",
+          "text": "에드먼 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "터커 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-26",
@@ -262077,7 +264679,16 @@
     "awayScore": 1,
     "homeScore": 7,
     "winPitcher": "이발디",
-    "losePitcher": "우"
+    "losePitcher": "우",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "피더슨 1개"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-07-26",
@@ -264184,7 +266795,17 @@
     "awayScore": 0,
     "homeScore": 1,
     "winPitcher": "라스무센",
-    "losePitcher": "메식"
+    "losePitcher": "메식",
+    "savePitcher": "베이커",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "도루",
+          "text": "할핀 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-27",
@@ -264286,7 +266907,16 @@
     "awayScore": 3,
     "homeScore": 2,
     "winPitcher": "킨리",
-    "losePitcher": "키트리지"
+    "losePitcher": "키트리지",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "알론소 1호"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-07-27",
@@ -264304,7 +266934,25 @@
     "awayScore": 1,
     "homeScore": 6,
     "winPitcher": "위저트",
-    "losePitcher": "가우스먼"
+    "losePitcher": "가우스먼",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "존스 1개"
+        },
+        {
+          "how": "도루",
+          "text": "듀란 1개"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "히메네즈 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-27",
@@ -264322,7 +266970,30 @@
     "awayScore": 7,
     "homeScore": 10,
     "winPitcher": "코넬리오",
-    "losePitcher": "로아이시가"
+    "losePitcher": "로아이시가",
+    "savePitcher": "비터",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "우드 2호"
+        },
+        {
+          "how": "홈런",
+          "text": "에이브람스 2호"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "페도모 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "마르테 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-27",
@@ -264340,7 +267011,30 @@
     "awayScore": 7,
     "homeScore": 8,
     "winPitcher": "애쉬크레프트",
-    "losePitcher": "타이욘"
+    "losePitcher": "타이욘",
+    "savePitcher": "몽고메리",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "발데스 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "오헌 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "로스 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "스즈키 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-27",
@@ -264358,7 +267052,20 @@
     "awayScore": 3,
     "homeScore": 8,
     "winPitcher": "페레즈",
-    "losePitcher": "필립스"
+    "losePitcher": "필립스",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "세미엔 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "테일러 1호"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-07-27",
@@ -264376,7 +267083,21 @@
     "awayScore": 5,
     "homeScore": 4,
     "winPitcher": "피어슨",
-    "losePitcher": "소머스"
+    "losePitcher": "소머스",
+    "savePitcher": "크루즈",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "토마스 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "매시 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-27",
@@ -264394,7 +267115,34 @@
     "awayScore": 5,
     "homeScore": 3,
     "winPitcher": "페랄타",
-    "losePitcher": "바처"
+    "losePitcher": "바처",
+    "savePitcher": "밀러",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "스타워스 1호"
+        },
+        {
+          "how": "도루",
+          "text": "에드워즈 1개"
+        },
+        {
+          "how": "도루",
+          "text": "힉스 1개"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "마차도 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "메릴 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-27",
@@ -264426,7 +267174,29 @@
     "awayScore": 2,
     "homeScore": 11,
     "winPitcher": "미저라우스키",
-    "losePitcher": "프리랜드"
+    "losePitcher": "프리랜드",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "본 1호"
+        },
+        {
+          "how": "도루",
+          "text": "바우어스 1개"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "캐리그 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "카스트로 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-27",
@@ -264444,7 +267214,37 @@
     "awayScore": 3,
     "homeScore": 12,
     "winPitcher": "뉴컴",
-    "losePitcher": "블랑코"
+    "losePitcher": "블랑코",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "페레스 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "무라카미 2호"
+        },
+        {
+          "how": "홈런",
+          "text": "바가스 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "메이드로스 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "페냐 2호"
+        },
+        {
+          "how": "홈런",
+          "text": "트람멜 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-27",
@@ -264462,7 +267262,25 @@
     "awayScore": 8,
     "homeScore": 11,
     "winPitcher": "프리엘립",
-    "losePitcher": "스프링스"
+    "losePitcher": "스프링스",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "루이스 1개"
+        },
+        {
+          "how": "도루",
+          "text": "크라이들러 2개"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "커츠 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-27",
@@ -264480,7 +267298,26 @@
     "awayScore": 5,
     "homeScore": 3,
     "winPitcher": "버크",
-    "losePitcher": "스밴슨"
+    "losePitcher": "스밴슨",
+    "savePitcher": "가르시아",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "에레라 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "데 라 크루즈 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "헤이즈 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-27",
@@ -264498,7 +267335,30 @@
     "awayScore": 6,
     "homeScore": 4,
     "winPitcher": "스피어",
-    "losePitcher": "윈"
+    "losePitcher": "윈",
+    "savePitcher": "무뇨스",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "듀란 1호"
+        },
+        {
+          "how": "도루",
+          "text": "카터 1개"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "칸조네 도미닉 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "아로자레나 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-27",
@@ -264572,7 +267432,25 @@
     "awayScore": 4,
     "homeScore": 3,
     "winPitcher": "소리아노",
-    "losePitcher": "위즌헌트"
+    "losePitcher": "위즌헌트",
+    "savePitcher": "패리스",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "솔레어 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "아델 1호"
+        },
+        {
+          "how": "도루",
+          "text": "구스만 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-27",
@@ -264590,7 +267468,29 @@
     "awayScore": 4,
     "homeScore": 11,
     "winPitcher": "산체스",
-    "losePitcher": "워렌"
+    "losePitcher": "워렌",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "하퍼 1개"
+        },
+        {
+          "how": "도루",
+          "text": "마쉬 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "스탓 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "라이스 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-27",
@@ -264818,7 +267718,41 @@
     "awayScore": 3,
     "homeScore": 7,
     "winPitcher": "로커",
-    "losePitcher": "커비"
+    "losePitcher": "커비",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "피더슨 2호"
+        },
+        {
+          "how": "홈런",
+          "text": "듀란 1호"
+        },
+        {
+          "how": "도루",
+          "text": "카터 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "버거 1호"
+        },
+        {
+          "how": "도루",
+          "text": "스미스 1개"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "아로자레나 1호"
+        },
+        {
+          "how": "도루",
+          "text": "가버 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-28",
@@ -264836,7 +267770,29 @@
     "awayScore": 8,
     "homeScore": 5,
     "winPitcher": "볼프람",
-    "losePitcher": "몬테로"
+    "losePitcher": "몬테로",
+    "savePitcher": "가르시아",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "오닐 1호"
+        },
+        {
+          "how": "도루",
+          "text": "카우저 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "타베라스 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "메이요 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-28",
@@ -264854,7 +267810,33 @@
     "awayScore": 7,
     "homeScore": 8,
     "winPitcher": "포셰",
-    "losePitcher": "듀란"
+    "losePitcher": "듀란",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "로페즈 2개"
+        },
+        {
+          "how": "홈런",
+          "text": "에르난데스 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "코나인 1호"
+        },
+        {
+          "how": "도루",
+          "text": "사노하 1개"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "하퍼 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-28",
@@ -264872,7 +267854,16 @@
     "awayScore": 2,
     "homeScore": 3,
     "winPitcher": "몽고메리",
-    "losePitcher": "클라크"
+    "losePitcher": "클라크",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "곤잘레스 1개"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-07-28",
@@ -264890,7 +267881,42 @@
     "awayScore": 3,
     "homeScore": 2,
     "winPitcher": "플루허티",
-    "losePitcher": "인"
+    "losePitcher": "인",
+    "savePitcher": "발랜드",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "우드 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "차파로 1호"
+        },
+        {
+          "how": "도루",
+          "text": "에이브람스 2개"
+        },
+        {
+          "how": "도루",
+          "text": "누네스 1개"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "오카모토 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "우리아스 1호"
+        },
+        {
+          "how": "도루",
+          "text": "스트로 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-28",
@@ -264908,7 +267934,33 @@
     "awayScore": 3,
     "homeScore": 14,
     "winPitcher": "손튼",
-    "losePitcher": "토마스"
+    "losePitcher": "토마스",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "유잉 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "린도어 2호"
+        },
+        {
+          "how": "홈런",
+          "text": "테일러 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "세미엔 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "알비스 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-28",
@@ -264940,7 +267992,21 @@
     "awayScore": 9,
     "homeScore": 5,
     "winPitcher": "헤드릭",
-    "losePitcher": "허드슨"
+    "losePitcher": "허드슨",
+    "savePitcher": "베드너",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "도루",
+          "text": "치좀 2개"
+        },
+        {
+          "how": "홈런",
+          "text": "산체스 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-28",
@@ -264958,7 +268024,29 @@
     "awayScore": 7,
     "homeScore": 3,
     "winPitcher": "피터슨",
-    "losePitcher": "리베라토레"
+    "losePitcher": "리베라토레",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "웨더홀트 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "페르민 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "브레그먼 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "호너 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-28",
@@ -264976,7 +268064,26 @@
     "awayScore": 6,
     "homeScore": 4,
     "winPitcher": "하비에르",
-    "losePitcher": "페르민"
+    "losePitcher": "페르민",
+    "savePitcher": "헤이더",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "그리섬 1호"
+        },
+        {
+          "how": "도루",
+          "text": "로우 1개"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "트람멜 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-28",
@@ -264994,7 +268101,26 @@
     "awayScore": 4,
     "homeScore": 2,
     "winPitcher": "톨리",
-    "losePitcher": "퍼킨스"
+    "losePitcher": "퍼킨스",
+    "savePitcher": "채프먼",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "소더스트롬 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "하임 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "라파엘라 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-28",
@@ -265012,7 +268138,29 @@
     "awayScore": 0,
     "homeScore": 3,
     "winPitcher": "말리",
-    "losePitcher": "스프롯"
+    "losePitcher": "스프롯",
+    "savePitcher": "밀러",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "아라에즈 1개"
+        },
+        {
+          "how": "도루",
+          "text": "라모스 1개"
+        },
+        {
+          "how": "도루",
+          "text": "코스 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "맥크레이 1호"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-07-28",
@@ -265509,7 +268657,34 @@
     "awayScore": 6,
     "homeScore": 5,
     "winPitcher": "홀더만",
-    "losePitcher": "몰"
+    "losePitcher": "몰",
+    "savePitcher": "스미스",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "스튜어트 1호"
+        },
+        {
+          "how": "도루",
+          "text": "스튜어트 1개"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "콴 1개"
+        },
+        {
+          "how": "도루",
+          "text": "라미레즈 2개"
+        },
+        {
+          "how": "홈런",
+          "text": "만자르도 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-29",
@@ -265626,7 +268801,20 @@
     "awayScore": 0,
     "homeScore": 14,
     "winPitcher": "멜턴",
-    "losePitcher": "크레머"
+    "losePitcher": "크레머",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "토레스 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "발렌시아 2호"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-07-29",
@@ -265644,7 +268832,21 @@
     "awayScore": 0,
     "homeScore": 1,
     "winPitcher": "알칸타라",
-    "losePitcher": "놀라"
+    "losePitcher": "놀라",
+    "savePitcher": "페어뱅크스",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "스타워스 1호"
+        },
+        {
+          "how": "도루",
+          "text": "에드워즈 1개"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-07-29",
@@ -265662,7 +268864,29 @@
     "awayScore": 8,
     "homeScore": 7,
     "winPitcher": "카리요",
-    "losePitcher": "도텔"
+    "losePitcher": "도텔",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "로우 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "레이놀즈 1호"
+        },
+        {
+          "how": "도루",
+          "text": "로드리게스 1개"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "캐롤 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-29",
@@ -265680,7 +268904,25 @@
     "awayScore": 4,
     "homeScore": 1,
     "winPitcher": "콴트릴",
-    "losePitcher": "잭스"
+    "losePitcher": "잭스",
+    "savePitcher": "라츠",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "도루",
+          "text": "듀란 1개"
+        },
+        {
+          "how": "도루",
+          "text": "카터 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "윈스 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-29",
@@ -265698,7 +268940,30 @@
     "awayScore": 6,
     "homeScore": 8,
     "winPitcher": "카발리",
-    "losePitcher": "비버"
+    "losePitcher": "비버",
+    "savePitcher": "비터",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "가르시아 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "크루스 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "오카모토 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "스프링어 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-29",
@@ -265759,7 +269024,25 @@
     "awayScore": 0,
     "homeScore": 2,
     "winPitcher": "프랑코",
-    "losePitcher": "윌리엄스"
+    "losePitcher": "윌리엄스",
+    "savePitcher": "파간",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "블레데이 1호"
+        },
+        {
+          "how": "도루",
+          "text": "마이어스 1개"
+        },
+        {
+          "how": "도루",
+          "text": "존슨 2개"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-07-29",
@@ -265805,7 +269088,22 @@
     "awayScore": 3,
     "homeScore": 2,
     "winPitcher": "콜",
-    "losePitcher": "케이"
+    "losePitcher": "케이",
+    "savePitcher": "베드너",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "메이드로스 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "도밍게스 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-29",
@@ -265823,7 +269121,20 @@
     "awayScore": 2,
     "homeScore": 3,
     "winPitcher": "앤더슨",
-    "losePitcher": "랭"
+    "losePitcher": "랭",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "도루",
+          "text": "토마스 1개"
+        },
+        {
+          "how": "도루",
+          "text": "로하스 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-29",
@@ -265855,7 +269166,20 @@
     "awayScore": 10,
     "homeScore": 2,
     "winPitcher": "레아",
-    "losePitcher": "맥그리비"
+    "losePitcher": "맥그리비",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "도루",
+          "text": "호너 1개"
+        },
+        {
+          "how": "도루",
+          "text": "라미레즈 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-29",
@@ -265929,7 +269253,26 @@
     "awayScore": 3,
     "homeScore": 2,
     "winPitcher": "오컬트",
-    "losePitcher": "패리스"
+    "losePitcher": "패리스",
+    "savePitcher": "헤이더",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "네토 1개"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "알바레스 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "워커 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-29",
@@ -265947,7 +269290,25 @@
     "awayScore": 7,
     "homeScore": 8,
     "winPitcher": "밀러",
-    "losePitcher": "허겟"
+    "losePitcher": "허겟",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "메릴 1개"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "모니악 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "카스트로 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-29",
@@ -265965,7 +269326,34 @@
     "awayScore": 3,
     "homeScore": 4,
     "winPitcher": "점프",
-    "losePitcher": "베넷"
+    "losePitcher": "베넷",
+    "savePitcher": "해리스",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "윌슨 1개"
+        },
+        {
+          "how": "도루",
+          "text": "볼테 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "서번 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "더빈 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "웡 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-29",
@@ -265983,7 +269371,25 @@
     "awayScore": 8,
     "homeScore": 2,
     "winPitcher": "핸더슨",
-    "losePitcher": "룹"
+    "losePitcher": "룹",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "엘드리지 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "라라 1개"
+        },
+        {
+          "how": "도루",
+          "text": "프랫 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-29",
@@ -266001,7 +269407,46 @@
     "awayScore": 7,
     "homeScore": 6,
     "winPitcher": "페레",
-    "losePitcher": "스튜어트"
+    "losePitcher": "스튜어트",
+    "savePitcher": "무뇨스",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "오타니 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "먼시 1호"
+        },
+        {
+          "how": "도루",
+          "text": "먼시 1개"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "로드리게스 1호"
+        },
+        {
+          "how": "도루",
+          "text": "로드리게스 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "칸조네 도미닉 2호"
+        },
+        {
+          "how": "홈런",
+          "text": "랄리 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "레프스나이더 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-29",
@@ -266553,7 +269998,34 @@
     "awayScore": 6,
     "homeScore": 8,
     "winPitcher": "주버",
-    "losePitcher": "볼란"
+    "losePitcher": "볼란",
+    "savePitcher": "페어뱅크스",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "에르난데스 1호"
+        },
+        {
+          "how": "도루",
+          "text": "에드워즈 1개"
+        },
+        {
+          "how": "도루",
+          "text": "루이스 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "코나인 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "터너 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-30",
@@ -266571,7 +270043,26 @@
     "awayScore": 3,
     "homeScore": 0,
     "winPitcher": "로드리게스",
-    "losePitcher": "존스"
+    "losePitcher": "존스",
+    "savePitcher": "가르시아",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "트리올로 1개"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "캐롤 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "모레노 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-30",
@@ -266603,7 +270094,17 @@
     "awayScore": 5,
     "homeScore": 2,
     "winPitcher": "예세비지",
-    "losePitcher": "리발타"
+    "losePitcher": "리발타",
+    "savePitcher": "발랜드",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "도루",
+          "text": "스트로 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-30",
@@ -266636,7 +270137,26 @@
     "awayScore": 2,
     "homeScore": 3,
     "winPitcher": "브라조반",
-    "losePitcher": "도드"
+    "losePitcher": "도드",
+    "savePitcher": "윌리엄스",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "유잉 2개"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "올슨 1호"
+        },
+        {
+          "how": "도루",
+          "text": "마테오 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-30",
@@ -266654,7 +270174,22 @@
     "awayScore": 10,
     "homeScore": 9,
     "winPitcher": "볼프람",
-    "losePitcher": "소머스"
+    "losePitcher": "소머스",
+    "savePitcher": "키트리지",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "토켈슨 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "홀리데이 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-30",
@@ -266720,7 +270255,33 @@
     "awayScore": 3,
     "homeScore": 16,
     "winPitcher": "웹",
-    "losePitcher": "패넌"
+    "losePitcher": "패넌",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "아라에즈 1개"
+        },
+        {
+          "how": "도루",
+          "text": "라모스 1개"
+        },
+        {
+          "how": "도루",
+          "text": "아다메스 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "수삭 2호"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "해밀튼 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-30",
@@ -266738,7 +270299,8 @@
     "awayScore": 1,
     "homeScore": 3,
     "winPitcher": "캐닝",
-    "losePitcher": "휴스"
+    "losePitcher": "휴스",
+    "savePitcher": "밀러"
   },
   {
     "date": "2026-07-30",
@@ -266812,7 +270374,21 @@
     "awayScore": 0,
     "homeScore": 3,
     "winPitcher": "시모어",
-    "losePitcher": "고어"
+    "losePitcher": "고어",
+    "savePitcher": "베이커",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "디아즈 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "빌라드 1호"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-07-30",
@@ -266859,7 +270435,17 @@
     "awayScore": 1,
     "homeScore": 0,
     "winPitcher": "세일",
-    "losePitcher": "스콧"
+    "losePitcher": "스콧",
+    "savePitcher": "이글레시아스",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "도루",
+          "text": "라일리 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-30",
@@ -266877,7 +270463,29 @@
     "awayScore": 6,
     "homeScore": 1,
     "winPitcher": "사브로스키",
-    "losePitcher": "싱어"
+    "losePitcher": "싱어",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "아로요 1개"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "드라우터 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "만자르도 1호"
+        },
+        {
+          "how": "도루",
+          "text": "할핀 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-30",
@@ -266935,7 +270543,37 @@
     "awayScore": 5,
     "homeScore": 6,
     "winPitcher": "힉스",
-    "losePitcher": "야브로"
+    "losePitcher": "야브로",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "안토나치 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "무라카미 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "존스 1호"
+        },
+        {
+          "how": "도루",
+          "text": "존스 1개"
+        },
+        {
+          "how": "도루",
+          "text": "치좀 1개"
+        },
+        {
+          "how": "도루",
+          "text": "카바예로 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-30",
@@ -266953,7 +270591,20 @@
     "awayScore": 4,
     "homeScore": 0,
     "winPitcher": "도브낙",
-    "losePitcher": "라이언"
+    "losePitcher": "라이언",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "톨버트 1호"
+        },
+        {
+          "how": "도루",
+          "text": "톨버트 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-30",
@@ -266985,7 +270636,16 @@
     "awayScore": 2,
     "homeScore": 3,
     "winPitcher": "가스텔룸",
-    "losePitcher": "손튼"
+    "losePitcher": "손튼",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "크로우-암스트롱 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-30",
@@ -267045,7 +270705,21 @@
     "awayScore": 7,
     "homeScore": 4,
     "winPitcher": "웨스네스키",
-    "losePitcher": "패리스"
+    "losePitcher": "패리스",
+    "savePitcher": "어브레유",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "페냐 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "디아즈 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-30",
@@ -267063,7 +270737,34 @@
     "awayScore": 4,
     "homeScore": 2,
     "winPitcher": "채프먼",
-    "losePitcher": "수아레즈"
+    "losePitcher": "수아레즈",
+    "savePitcher": "위저트",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "맥닐 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "하임 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "버틀러 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "존스 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "모나스테리오 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-30",
@@ -267095,7 +270796,22 @@
     "awayScore": 2,
     "homeScore": 4,
     "winPitcher": "라우어",
-    "losePitcher": "핸콕"
+    "losePitcher": "핸콕",
+    "savePitcher": "디아즈",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "파헤스 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "아로자레나 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-30",
@@ -267533,7 +271249,34 @@
     "awayScore": 2,
     "homeScore": 3,
     "winPitcher": "클레빈저",
-    "losePitcher": "피플스"
+    "losePitcher": "피플스",
+    "savePitcher": "베이커",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "멀린스 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "데루카 1호"
+        },
+        {
+          "how": "도루",
+          "text": "데루카 1개"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "니모 1개"
+        },
+        {
+          "how": "도루",
+          "text": "오수나 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-31",
@@ -267607,7 +271350,29 @@
     "awayScore": 3,
     "homeScore": 4,
     "winPitcher": "고메즈",
-    "losePitcher": "스트라움"
+    "losePitcher": "스트라움",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "클레멘스 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "레이브 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "캐글리아논 1호"
+        },
+        {
+          "how": "도루",
+          "text": "톨버트 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-31",
@@ -267625,7 +271390,20 @@
     "awayScore": 1,
     "homeScore": 2,
     "winPitcher": "도밍게스",
-    "losePitcher": "크루즈"
+    "losePitcher": "크루즈",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "도루",
+          "text": "존스 1개"
+        },
+        {
+          "how": "도루",
+          "text": "카바예로 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-31",
@@ -267643,7 +271421,30 @@
     "awayScore": 4,
     "homeScore": 2,
     "winPitcher": "웹",
-    "losePitcher": "가스텔룸"
+    "losePitcher": "가스텔룸",
+    "savePitcher": "시베일",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "웨더홀트 1호"
+        },
+        {
+          "how": "도루",
+          "text": "웨더홀트 1개"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "호너 1개"
+        },
+        {
+          "how": "도루",
+          "text": "스완슨 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-31",
@@ -267787,7 +271588,30 @@
     "awayScore": 2,
     "homeScore": 4,
     "winPitcher": "레일리",
-    "losePitcher": "피터슨"
+    "losePitcher": "피터슨",
+    "savePitcher": "윌리엄스",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "벤지 1개"
+        },
+        {
+          "how": "도루",
+          "text": "세미엔 1개"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "스타워스 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "마르시 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-31",
@@ -267805,7 +271629,29 @@
     "awayScore": 2,
     "homeScore": 3,
     "winPitcher": "파간",
-    "losePitcher": "소토"
+    "losePitcher": "소토",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "데 라 크루즈 2개"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "로우 1호"
+        },
+        {
+          "how": "도루",
+          "text": "로드리게스 2개"
+        },
+        {
+          "how": "도루",
+          "text": "트리올로 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-31",
@@ -267823,7 +271669,38 @@
     "awayScore": 4,
     "homeScore": 5,
     "winPitcher": "메데로스",
-    "losePitcher": "어빈"
+    "losePitcher": "어빈",
+    "savePitcher": "이글레시아스",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "아쿠나 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "야스트렘스키 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "우드 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "가르시아 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "라일 2호"
+        },
+        {
+          "how": "도루",
+          "text": "누네스 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-31",
@@ -267939,7 +271816,25 @@
     "awayScore": 4,
     "homeScore": 1,
     "winPitcher": "레이",
-    "losePitcher": "시어스"
+    "losePitcher": "시어스",
+    "savePitcher": "밀러",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "도루",
+          "text": "라모스 1개"
+        },
+        {
+          "how": "도루",
+          "text": "아다메스 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "수삭 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-31",
@@ -267957,7 +271852,25 @@
     "awayScore": 5,
     "homeScore": 4,
     "winPitcher": "그레이",
-    "losePitcher": "메디나"
+    "losePitcher": "메디나",
+    "savePitcher": "채프먼",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "도루",
+          "text": "라파엘라 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "어브레유 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "콘트레라스 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-31",
@@ -267989,7 +271902,24 @@
     "awayScore": 2,
     "homeScore": 6,
     "winPitcher": "사사키",
-    "losePitcher": "우"
+    "losePitcher": "우",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "터커 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "T.에르난데스 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "러싱 1호"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-07-31",
@@ -268580,7 +272510,21 @@
     "awayScore": 2,
     "homeScore": 0,
     "winPitcher": "워렌",
-    "losePitcher": "이마나가"
+    "losePitcher": "이마나가",
+    "savePitcher": "베드너",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "로사리오 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "존스 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-01",
@@ -268740,7 +272684,33 @@
     "awayScore": 7,
     "homeScore": 8,
     "winPitcher": "파간",
-    "losePitcher": "도텔"
+    "losePitcher": "도텔",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "스튜어트 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "블레데이 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "맨검 1호"
+        },
+        {
+          "how": "도루",
+          "text": "맨검 1개"
+        },
+        {
+          "how": "도루",
+          "text": "로우 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-01",
@@ -268842,7 +272812,34 @@
     "awayScore": 4,
     "homeScore": 6,
     "winPitcher": "누네즈",
-    "losePitcher": "커커링"
+    "losePitcher": "커커링",
+    "savePitcher": "웰스",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "알론소 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "터너 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "리얼무토 1호"
+        },
+        {
+          "how": "도루",
+          "text": "스탓 1개"
+        },
+        {
+          "how": "도루",
+          "text": "크로포드 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-01",
@@ -268860,7 +272857,17 @@
     "awayScore": 1,
     "homeScore": 3,
     "winPitcher": "호프먼",
-    "losePitcher": "스트젤레키"
+    "losePitcher": "스트젤레키",
+    "savePitcher": "발랜드",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "도루",
+          "text": "처치 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-01",
@@ -268878,7 +272885,22 @@
     "awayScore": 5,
     "homeScore": 2,
     "winPitcher": "정크",
-    "losePitcher": "센가"
+    "losePitcher": "센가",
+    "savePitcher": "페어뱅크스",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "린도어 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "스타워스 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-01",
@@ -268896,7 +272918,17 @@
     "awayScore": 4,
     "homeScore": 1,
     "winPitcher": "로아이시가",
-    "losePitcher": "바이비"
+    "losePitcher": "바이비",
+    "savePitcher": "가르시아",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "라미레즈 1개"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-08-01",
@@ -268914,7 +272946,37 @@
     "awayScore": 6,
     "homeScore": 1,
     "winPitcher": "페디",
-    "losePitcher": "마르티네즈"
+    "losePitcher": "마르티네즈",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "카미네로 1호"
+        },
+        {
+          "how": "도루",
+          "text": "심슨 1개"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "무라카미 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "바가스 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "몽고메리 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "베닌텐디 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-01",
@@ -268946,7 +273008,34 @@
     "awayScore": 2,
     "homeScore": 6,
     "winPitcher": "엘더",
-    "losePitcher": "그리핀"
+    "losePitcher": "그리핀",
+    "savePitcher": "에르난데스",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "올슨 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "해리스 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "차파로 1호"
+        },
+        {
+          "how": "도루",
+          "text": "크루스 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "에이브람스 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-01",
@@ -269113,7 +273202,29 @@
     "awayScore": 2,
     "homeScore": 11,
     "winPitcher": "브라운",
-    "losePitcher": "이발디"
+    "losePitcher": "이발디",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "파레데스 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "워커 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "디아즈 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "피더슨 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-01",
@@ -269145,7 +273256,17 @@
     "awayScore": 1,
     "homeScore": 3,
     "winPitcher": "스가노",
-    "losePitcher": "와카"
+    "losePitcher": "와카",
+    "savePitcher": "로마노",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "젠슨 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-01",
@@ -269163,7 +273284,37 @@
     "awayScore": 6,
     "homeScore": 2,
     "winPitcher": "드로한",
-    "losePitcher": "존슨"
+    "losePitcher": "존슨",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "구스만 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "투랑 1호"
+        },
+        {
+          "how": "도루",
+          "text": "옐리치 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "바우어스 1호"
+        },
+        {
+          "how": "도루",
+          "text": "미첼 1개"
+        },
+        {
+          "how": "도루",
+          "text": "프랫 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-01",
@@ -269181,7 +273332,28 @@
     "awayScore": 13,
     "homeScore": 1,
     "winPitcher": "매든",
-    "losePitcher": "스프링스"
+    "losePitcher": "스프링스",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "맥고니글 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "딩글러 1호"
+        },
+        {
+          "how": "도루",
+          "text": "그린 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "말게리 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-01",
@@ -269199,7 +273371,25 @@
     "awayScore": 0,
     "homeScore": 7,
     "winPitcher": "마츠이",
-    "losePitcher": "위즌헌트"
+    "losePitcher": "위즌헌트",
+    "savePitcher": "마르케스",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "타티스 주니어 1개"
+        },
+        {
+          "how": "도루",
+          "text": "렌히포 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "보웬 1호"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-08-01",
@@ -269231,7 +273421,25 @@
     "awayScore": 9,
     "homeScore": 4,
     "winPitcher": "벨로",
-    "losePitcher": "어빈"
+    "losePitcher": "어빈",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "오타니 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "라파엘라 1호"
+        },
+        {
+          "how": "도루",
+          "text": "라파엘라 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-01",
@@ -269249,7 +273457,34 @@
     "awayScore": 5,
     "homeScore": 3,
     "winPitcher": "펀더벅",
-    "losePitcher": "페레"
+    "losePitcher": "페레",
+    "savePitcher": "고메즈",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "영 1호"
+        },
+        {
+          "how": "도루",
+          "text": "로드리게스 1개"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "제퍼스 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "루이스 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "리 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-01",
@@ -270997,7 +275232,34 @@
     "awayScore": 6,
     "homeScore": 2,
     "winPitcher": "필립스",
-    "losePitcher": "손튼"
+    "losePitcher": "손튼",
+    "savePitcher": "바처",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "테일러 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "에르난데스 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "사노하 1호"
+        },
+        {
+          "how": "도루",
+          "text": "루이스 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "코나인 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-02",
@@ -271015,7 +275277,29 @@
     "awayScore": 3,
     "homeScore": 4,
     "winPitcher": "무뇨스",
-    "losePitcher": "모리스"
+    "losePitcher": "모리스",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "아로자레나 1호"
+        },
+        {
+          "how": "도루",
+          "text": "네일러 1개"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "라나크 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "키샬 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-02",
@@ -271033,7 +275317,17 @@
     "awayScore": 0,
     "homeScore": 1,
     "winPitcher": "라스무센",
-    "losePitcher": "슐츠"
+    "losePitcher": "슐츠",
+    "savePitcher": "베이커",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "데루카 1개"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-08-02",
@@ -271093,7 +275387,26 @@
     "awayScore": 4,
     "homeScore": 1,
     "winPitcher": "애쉬크레프트",
-    "losePitcher": "애보트"
+    "losePitcher": "애보트",
+    "savePitcher": "소토",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "트레비노 1호"
+        },
+        {
+          "how": "도루",
+          "text": "맥클레인 1개"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "곤잘레스 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-02",
@@ -271167,7 +275480,29 @@
     "awayScore": 5,
     "homeScore": 0,
     "winPitcher": "산체스",
-    "losePitcher": "바즈"
+    "losePitcher": "바즈",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "비버스 1개"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "봄 1개"
+        },
+        {
+          "how": "도루",
+          "text": "마쉬 1개"
+        },
+        {
+          "how": "도루",
+          "text": "스탓 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-02",
@@ -271199,7 +275534,25 @@
     "awayScore": 4,
     "homeScore": 5,
     "winPitcher": "오컬트",
-    "losePitcher": "디그롬"
+    "losePitcher": "디그롬",
+    "savePitcher": "헤이더",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "랭포드 1호"
+        },
+        {
+          "how": "도루",
+          "text": "니모 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "디아즈 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-02",
@@ -271231,7 +275584,33 @@
     "awayScore": 12,
     "homeScore": 8,
     "winPitcher": "카리요",
-    "losePitcher": "개디스"
+    "losePitcher": "개디스",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "드라우터 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "호스킨스 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "캐롤 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "페도모 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "아레나도 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-02",
@@ -271249,7 +275628,28 @@
     "awayScore": 3,
     "homeScore": 8,
     "winPitcher": "페레즈",
-    "losePitcher": "마이콜라스"
+    "losePitcher": "마이콜라스",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "아쿠나 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "올슨 1호"
+        },
+        {
+          "how": "도루",
+          "text": "알비스 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "스미스 1호"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-08-02",
@@ -271267,7 +275667,26 @@
     "awayScore": 2,
     "homeScore": 5,
     "winPitcher": "손튼",
-    "losePitcher": "크루즈"
+    "losePitcher": "크루즈",
+    "savePitcher": "틸바",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "호너 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "존스 1호"
+        },
+        {
+          "how": "도루",
+          "text": "카바예로 2개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-02",
@@ -271656,7 +276075,37 @@
     "awayScore": 6,
     "homeScore": 12,
     "winPitcher": "펠트너",
-    "losePitcher": "아빌라"
+    "losePitcher": "아빌라",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "굿맨 2호"
+        },
+        {
+          "how": "홈런",
+          "text": "카스트로 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "캐글리아논 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "페레즈 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "레이브 1호"
+        },
+        {
+          "how": "도루",
+          "text": "톨버트 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-02",
@@ -271845,7 +276294,21 @@
     "awayScore": 5,
     "homeScore": 6,
     "winPitcher": "밀러",
-    "losePitcher": "스미스"
+    "losePitcher": "스미스",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "페르민 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "바사베 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-02",
@@ -271877,7 +276340,22 @@
     "awayScore": 3,
     "homeScore": 2,
     "winPitcher": "슬레이튼",
-    "losePitcher": "야마모토"
+    "losePitcher": "야마모토",
+    "savePitcher": "채프먼",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "T.에르난데스 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "라파엘라 2호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-02",
@@ -271919,7 +276397,21 @@
     "awayScore": 3,
     "homeScore": 1,
     "winPitcher": "패트릭",
-    "losePitcher": "나테라 주니어"
+    "losePitcher": "나테라 주니어",
+    "savePitcher": "메길",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "바우어스 1호"
+        },
+        {
+          "how": "도루",
+          "text": "미첼 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-02",
@@ -271937,7 +276429,30 @@
     "awayScore": 8,
     "homeScore": 6,
     "winPitcher": "발데스",
-    "losePitcher": "퍼킨스"
+    "losePitcher": "퍼킨스",
+    "savePitcher": "잰슨",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "볼테 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "맥고니글 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "토레스 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "클라크 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-02",
@@ -273683,7 +278198,20 @@
     "awayScore": 8,
     "homeScore": 0,
     "winPitcher": "마이자",
-    "losePitcher": "브래디쉬"
+    "losePitcher": "브래디쉬",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "하퍼 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "데 라 크루즈 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-03",
@@ -273701,7 +278229,34 @@
     "awayScore": 2,
     "homeScore": 4,
     "winPitcher": "도드",
-    "losePitcher": "카발리"
+    "losePitcher": "카발리",
+    "savePitcher": "이글레시아스",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "올슨 1호"
+        },
+        {
+          "how": "도루",
+          "text": "두본 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "야스트렘스키 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "라일 1개"
+        },
+        {
+          "how": "도루",
+          "text": "누네스 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-03",
@@ -273719,7 +278274,16 @@
     "awayScore": 5,
     "homeScore": 1,
     "winPitcher": "소리아노",
-    "losePitcher": "발랜드"
+    "losePitcher": "발랜드",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "히메네즈 1개"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-08-03",
@@ -273737,7 +278301,25 @@
     "awayScore": 2,
     "homeScore": 0,
     "winPitcher": "알칸타라",
-    "losePitcher": "스토크"
+    "losePitcher": "스토크",
+    "savePitcher": "페어뱅크스",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "도루",
+          "text": "로페즈 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "맥 1호"
+        },
+        {
+          "how": "도루",
+          "text": "루이스 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-03",
@@ -273755,7 +278337,24 @@
     "awayScore": 2,
     "homeScore": 10,
     "winPitcher": "번스",
-    "losePitcher": "켈러"
+    "losePitcher": "켈러",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "스튜어트 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "스티븐슨 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "헤이즈 1호"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-08-03",
@@ -273773,7 +278372,28 @@
     "awayScore": 0,
     "homeScore": 5,
     "winPitcher": "윌리엄스",
-    "losePitcher": "켈리"
+    "losePitcher": "켈리",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "드라우터 1개"
+        },
+        {
+          "how": "도루",
+          "text": "바자나 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "베일리 1호"
+        },
+        {
+          "how": "도루",
+          "text": "할핀 1개"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-08-03",
@@ -273791,7 +278411,33 @@
     "awayScore": 9,
     "homeScore": 1,
     "winPitcher": "케이",
-    "losePitcher": "잭스"
+    "losePitcher": "잭스",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "윌리엄슨 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "바가스 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "베닌텐디 1호"
+        },
+        {
+          "how": "도루",
+          "text": "피터스 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "페레이라 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-03",
@@ -273891,7 +278537,22 @@
     "awayScore": 3,
     "homeScore": 7,
     "winPitcher": "어브레유",
-    "losePitcher": "알렉산더"
+    "losePitcher": "알렉산더",
+    "savePitcher": "블루바흐",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "페냐 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "니모 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-03",
@@ -273909,7 +278570,30 @@
     "awayScore": 2,
     "homeScore": 1,
     "winPitcher": "콜",
-    "losePitcher": "레아"
+    "losePitcher": "레아",
+    "savePitcher": "베드너",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "딘 1개"
+        },
+        {
+          "how": "도루",
+          "text": "호너 1개"
+        },
+        {
+          "how": "도루",
+          "text": "라미레즈 1개"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "카바예로 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-03",
@@ -273927,7 +278611,24 @@
     "awayScore": 1,
     "homeScore": 8,
     "winPitcher": "프리랜드",
-    "losePitcher": "루고"
+    "losePitcher": "루고",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "맥카시 1호"
+        },
+        {
+          "how": "도루",
+          "text": "캐리그 2개"
+        },
+        {
+          "how": "도루",
+          "text": "설리반 1개"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-08-03",
@@ -273945,7 +278646,17 @@
     "awayScore": 0,
     "homeScore": 3,
     "winPitcher": "우레나",
-    "losePitcher": "미저라우스키"
+    "losePitcher": "미저라우스키",
+    "savePitcher": "제퍼잔",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "멕클러 1호"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-08-03",
@@ -274039,7 +278750,16 @@
     "awayScore": 11,
     "homeScore": 0,
     "winPitcher": "몬테로",
-    "losePitcher": "점프"
+    "losePitcher": "점프",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "아웃맨 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-03",
@@ -274057,7 +278777,38 @@
     "awayScore": 4,
     "homeScore": 5,
     "winPitcher": "캐닝",
-    "losePitcher": "룹"
+    "losePitcher": "룹",
+    "savePitcher": "모레혼",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "메릴 1호"
+        },
+        {
+          "how": "도루",
+          "text": "메릴 1개"
+        },
+        {
+          "how": "도루",
+          "text": "보가츠 1개"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "데버스 1호"
+        },
+        {
+          "how": "도루",
+          "text": "이정후 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "바사베 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-03",
@@ -274075,7 +278826,29 @@
     "awayScore": 6,
     "homeScore": 7,
     "winPitcher": "무뇨스",
-    "losePitcher": "고메즈"
+    "losePitcher": "고메즈",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "랄리 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "라나크 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "루이스 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "키샬 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-03",
@@ -274191,7 +278964,28 @@
     "awayScore": 8,
     "homeScore": 4,
     "winPitcher": "베넷",
-    "losePitcher": "시한"
+    "losePitcher": "시한",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "라파엘라 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "어브레유 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "요시다 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "듀란 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-03",
@@ -274385,7 +279179,34 @@
     "awayScore": 3,
     "homeScore": 6,
     "winPitcher": "백허스",
-    "losePitcher": "코스그로브"
+    "losePitcher": "코스그로브",
+    "savePitcher": "듀란",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "하퍼 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "힐 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "오티즈 1호"
+        },
+        {
+          "how": "도루",
+          "text": "에이브람스 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "라일 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-04",
@@ -274403,7 +279224,49 @@
     "awayScore": 13,
     "homeScore": 7,
     "winPitcher": "그레이스포",
-    "losePitcher": "치빌리"
+    "losePitcher": "치빌리",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "그리샴 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "가르시아 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "맥먼 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "카바예로 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "웰스 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "벌레슨 3호"
+        },
+        {
+          "how": "도루",
+          "text": "에레라 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "처치 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "크룩스 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-04",
@@ -274421,7 +279284,17 @@
     "awayScore": 4,
     "homeScore": 3,
     "winPitcher": "챈들러",
-    "losePitcher": "스프롯"
+    "losePitcher": "스프롯",
+    "savePitcher": "몽고메리",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "도루",
+          "text": "로드리게스 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-04",
@@ -274439,7 +279312,33 @@
     "awayScore": 5,
     "homeScore": 1,
     "winPitcher": "웹",
-    "losePitcher": "콴트릴"
+    "losePitcher": "콴트릴",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "랭포드 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "듀란 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "이정후 2호"
+        },
+        {
+          "how": "도루",
+          "text": "이정후 1개"
+        },
+        {
+          "how": "도루",
+          "text": "맥크레이 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-04",
@@ -274457,7 +279356,41 @@
     "awayScore": 5,
     "homeScore": 10,
     "winPitcher": "보이드",
-    "losePitcher": "로블레스키"
+    "losePitcher": "로블레스키",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "스즈키 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "켈리 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "부시 1호"
+        },
+        {
+          "how": "도루",
+          "text": "스완슨 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "알칸타라 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "에드먼 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "T.에르난데스 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-04",
@@ -274475,7 +279408,21 @@
     "awayScore": 3,
     "homeScore": 1,
     "winPitcher": "비버",
-    "losePitcher": "하비에르"
+    "losePitcher": "하비에르",
+    "savePitcher": "로저스",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "커크 1호"
+        },
+        {
+          "how": "도루",
+          "text": "스트로 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-04",
@@ -274493,7 +279440,41 @@
     "awayScore": 13,
     "homeScore": 9,
     "winPitcher": "시모어",
-    "losePitcher": "로렌젠"
+    "losePitcher": "로렌젠",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "모니악 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "토바 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "카미네로 2호"
+        },
+        {
+          "how": "도루",
+          "text": "멀린스 1개"
+        },
+        {
+          "how": "도루",
+          "text": "심슨 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "팔라시오스 1호"
+        },
+        {
+          "how": "도루",
+          "text": "월스 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-04",
@@ -274511,7 +279492,16 @@
     "awayScore": 1,
     "homeScore": 5,
     "winPitcher": "팟",
-    "losePitcher": "킹"
+    "losePitcher": "킹",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "타와 1호"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-08-04",
@@ -275150,7 +280140,21 @@
     "awayScore": 1,
     "homeScore": 3,
     "winPitcher": "포비치",
-    "losePitcher": "로드리게스"
+    "losePitcher": "로드리게스",
+    "savePitcher": "카노",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "오닐 1호"
+        },
+        {
+          "how": "도루",
+          "text": "프랭클린 1개"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-08-05",
@@ -275168,7 +280172,16 @@
     "awayScore": 0,
     "homeScore": 5,
     "winPitcher": "루자르도",
-    "losePitcher": "팜퀴스트"
+    "losePitcher": "팜퀴스트",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "크로포드 1개"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-08-05",
@@ -275186,7 +280199,21 @@
     "awayScore": 4,
     "homeScore": 5,
     "winPitcher": "가르시아",
-    "losePitcher": "해리스"
+    "losePitcher": "해리스",
+    "savePitcher": "파간",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "도루",
+          "text": "버틀러 1개"
+        },
+        {
+          "how": "도루",
+          "text": "볼테 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-05",
@@ -275204,7 +280231,28 @@
     "awayScore": 6,
     "homeScore": 2,
     "winPitcher": "머나야",
-    "losePitcher": "칸틸로"
+    "losePitcher": "칸틸로",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "비셋 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "벤지 1호"
+        },
+        {
+          "how": "도루",
+          "text": "세미엔 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "토렌스 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-05",
@@ -275264,7 +280312,21 @@
     "awayScore": 0,
     "homeScore": 2,
     "winPitcher": "웨더스",
-    "losePitcher": "도빈스"
+    "losePitcher": "도빈스",
+    "savePitcher": "베드너",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "치좀 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "롬바드 주니어 1호"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-08-05",
@@ -275282,7 +280344,33 @@
     "awayScore": 2,
     "homeScore": 14,
     "winPitcher": "산도발",
-    "losePitcher": "마틴"
+    "losePitcher": "마틴",
+    "savePitcher": "벨로",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "어브레유 2호"
+        },
+        {
+          "how": "홈런",
+          "text": "더빈 1호"
+        },
+        {
+          "how": "도루",
+          "text": "더빈 1개"
+        },
+        {
+          "how": "홈런",
+          "text": "듀란 1호"
+        },
+        {
+          "how": "도루",
+          "text": "듀란 1개"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-08-05",
@@ -275300,7 +280388,20 @@
     "awayScore": 2,
     "homeScore": 4,
     "winPitcher": "홈스",
-    "losePitcher": "거스토"
+    "losePitcher": "거스토",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "알비스 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "라일리 1호"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-08-05",
@@ -275318,7 +280419,30 @@
     "awayScore": 2,
     "homeScore": 4,
     "winPitcher": "핸더슨",
-    "losePitcher": "존스"
+    "losePitcher": "존스",
+    "savePitcher": "메길",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "추리오 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "본 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "로드리게스 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "곤잘레스 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-05",
@@ -275336,7 +280460,29 @@
     "awayScore": 2,
     "homeScore": 8,
     "winPitcher": "도브낙",
-    "losePitcher": "라이언"
+    "losePitcher": "라이언",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "캐글리아논 1개"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "벨 1호"
+        },
+        {
+          "how": "도루",
+          "text": "클레멘스 1개"
+        },
+        {
+          "how": "도루",
+          "text": "크라이들러 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-05",
@@ -275368,7 +280514,25 @@
     "awayScore": 4,
     "homeScore": 5,
     "winPitcher": "라츠",
-    "losePitcher": "스미스"
+    "losePitcher": "스미스",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "듀란 1개"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "바사베 1호"
+        },
+        {
+          "how": "도루",
+          "text": "길버트 1개"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-05",
@@ -275386,7 +280550,29 @@
     "awayScore": 1,
     "homeScore": 5,
     "winPitcher": "로리슨",
-    "losePitcher": "스쿠발"
+    "losePitcher": "스쿠발",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "크로우-암스트롱 2개"
+        },
+        {
+          "how": "홈런",
+          "text": "호너 1호"
+        },
+        {
+          "how": "홈런",
+          "text": "스완슨 1호"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "터커 1호"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-05",
@@ -349979,6 +355165,159 @@
   {
     "date": "2026-09-09",
     "time": "03:45",
+    "league": "EFL",
+    "venueId": "southampton_st_marys",
+    "home": "사우샘프턴",
+    "away": "스완지",
+    "stadium": "세인트 메리스 스타디움",
+    "timeTbd": false,
+    "gameId": "YEzthB2I7ULBOnY",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "아자즈",
+          "m": 9
+        },
+        {
+          "n": "래린",
+          "m": 33
+        },
+        {
+          "n": "레오 시엔자",
+          "m": 78
+        }
+      ],
+      "away": [
+        {
+          "n": "비포트니크",
+          "m": 52
+        }
+      ]
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Ronald",
+          "type": "Y",
+          "m": 54
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-09",
+    "time": "03:45",
+    "league": "EFL",
+    "venueId": "watford_vicarage_road",
+    "home": "왓퍼드",
+    "away": "프레스턴",
+    "stadium": "비커리지 로드",
+    "timeTbd": false,
+    "gameId": "2n8KOshcekINj3A",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "에도 카옘베",
+          "m": 69,
+          "nat": "Congo DR"
+        },
+        {
+          "n": "둠비아",
+          "m": 76,
+          "a": "Iker Bravo",
+          "nat": "Mali",
+          "aNat": "Spain"
+        }
+      ],
+      "away": [
+        {
+          "n": "랭",
+          "m": 5,
+          "nat": "England"
+        }
+      ]
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Andrija Vukcevic",
+          "type": "Y",
+          "m": 62
+        },
+        {
+          "n": "Lewis Gibson",
+          "type": "Y",
+          "m": 67
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-09",
+    "time": "03:45",
+    "league": "EFL",
+    "venueId": "wrexham_racecourse_ground",
+    "home": "렉섬",
+    "away": "번리",
+    "stadium": "레이스코스 그라운드",
+    "timeTbd": false,
+    "gameId": "8059agG5ekMqb6q",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "에코미에",
+          "m": 55,
+          "a": "Chris Willock",
+          "nat": "Wales",
+          "aNat": "England"
+        }
+      ],
+      "away": [
+        {
+          "n": "암두니",
+          "m": 26,
+          "a": "Róbert Bozeník",
+          "nat": "England",
+          "aNat": "Slovakia"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Perry Ng",
+          "type": "Y",
+          "m": 45
+        }
+      ],
+      "away": [
+        {
+          "n": "Ben Wilmot",
+          "type": "Y",
+          "m": 27
+        },
+        {
+          "n": "Luke Graham",
+          "type": "Y",
+          "m": 81
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-09",
+    "time": "03:45",
     "league": "EFLCUP",
     "venueId": "bournemouth_dean_court",
     "home": "본머스",
@@ -350236,159 +355575,6 @@
       ]
     },
     "phaseCode": "T32"
-  },
-  {
-    "date": "2026-09-09",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "southampton_st_marys",
-    "home": "사우샘프턴",
-    "away": "스완지",
-    "stadium": "세인트 메리스 스타디움",
-    "timeTbd": false,
-    "gameId": "YEzthB2I7ULBOnY",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 3,
-    "scorers": {
-      "home": [
-        {
-          "n": "아자즈",
-          "m": 9
-        },
-        {
-          "n": "래린",
-          "m": 33
-        },
-        {
-          "n": "레오 시엔자",
-          "m": 78
-        }
-      ],
-      "away": [
-        {
-          "n": "비포트니크",
-          "m": 52
-        }
-      ]
-    },
-    "cards": {
-      "home": [],
-      "away": [
-        {
-          "n": "Ronald",
-          "type": "Y",
-          "m": 54
-        }
-      ]
-    }
-  },
-  {
-    "date": "2026-09-09",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "watford_vicarage_road",
-    "home": "왓퍼드",
-    "away": "프레스턴",
-    "stadium": "비커리지 로드",
-    "timeTbd": false,
-    "gameId": "2n8KOshcekINj3A",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "에도 카옘베",
-          "m": 69,
-          "nat": "Congo DR"
-        },
-        {
-          "n": "둠비아",
-          "m": 76,
-          "a": "Iker Bravo",
-          "nat": "Mali",
-          "aNat": "Spain"
-        }
-      ],
-      "away": [
-        {
-          "n": "랭",
-          "m": 5,
-          "nat": "England"
-        }
-      ]
-    },
-    "cards": {
-      "home": [],
-      "away": [
-        {
-          "n": "Andrija Vukcevic",
-          "type": "Y",
-          "m": 62
-        },
-        {
-          "n": "Lewis Gibson",
-          "type": "Y",
-          "m": 67
-        }
-      ]
-    }
-  },
-  {
-    "date": "2026-09-09",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "wrexham_racecourse_ground",
-    "home": "렉섬",
-    "away": "번리",
-    "stadium": "레이스코스 그라운드",
-    "timeTbd": false,
-    "gameId": "8059agG5ekMqb6q",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 1,
-    "scorers": {
-      "home": [
-        {
-          "n": "에코미에",
-          "m": 55,
-          "a": "Chris Willock",
-          "nat": "Wales",
-          "aNat": "England"
-        }
-      ],
-      "away": [
-        {
-          "n": "암두니",
-          "m": 26,
-          "a": "Róbert Bozeník",
-          "nat": "England",
-          "aNat": "Slovakia"
-        }
-      ]
-    },
-    "cards": {
-      "home": [
-        {
-          "n": "Perry Ng",
-          "type": "Y",
-          "m": 45
-        }
-      ],
-      "away": [
-        {
-          "n": "Ben Wilmot",
-          "type": "Y",
-          "m": 27
-        },
-        {
-          "n": "Luke Graham",
-          "type": "Y",
-          "m": 81
-        }
-      ]
-    }
   },
   {
     "date": "2026-09-09",
@@ -376784,6 +381970,68 @@
   {
     "date": "2026-09-16",
     "time": "03:45",
+    "league": "EFL",
+    "venueId": "middlesbrough_riverside",
+    "home": "미들즈브러",
+    "away": "밀월",
+    "stadium": "리버사이드 스타디움",
+    "timeTbd": false,
+    "gameId": "YK3SlqCpysSMqvp",
+    "status": "completed",
+    "awayScore": 2,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "코지어-뒤베리",
+          "m": 50,
+          "nat": "England"
+        },
+        {
+          "n": "랭크셔",
+          "m": 61,
+          "a": "Luke Ayling",
+          "nat": "England",
+          "aNat": "England"
+        }
+      ],
+      "away": [
+        {
+          "n": "아르콘테",
+          "m": 11,
+          "a": "Camiel Neghli",
+          "nat": "Guadeloupe",
+          "aNat": "Algeria"
+        },
+        {
+          "n": "다이크스",
+          "m": 36,
+          "a": "Caleb Taylor",
+          "nat": "Scotland",
+          "aNat": "England"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Riley McGree",
+          "type": "Y",
+          "m": 66
+        }
+      ],
+      "away": [
+        {
+          "n": "Derek Mazou-Sacko",
+          "type": "Y",
+          "m": 59
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-16",
+    "time": "03:45",
     "league": "EFLCUP",
     "venueId": "westham_london_stadium",
     "home": "웨스트햄",
@@ -376844,68 +382092,6 @@
       ]
     },
     "phaseCode": "T32"
-  },
-  {
-    "date": "2026-09-16",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "middlesbrough_riverside",
-    "home": "미들즈브러",
-    "away": "밀월",
-    "stadium": "리버사이드 스타디움",
-    "timeTbd": false,
-    "gameId": "YK3SlqCpysSMqvp",
-    "status": "completed",
-    "awayScore": 2,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "코지어-뒤베리",
-          "m": 50,
-          "nat": "England"
-        },
-        {
-          "n": "랭크셔",
-          "m": 61,
-          "a": "Luke Ayling",
-          "nat": "England",
-          "aNat": "England"
-        }
-      ],
-      "away": [
-        {
-          "n": "아르콘테",
-          "m": 11,
-          "a": "Camiel Neghli",
-          "nat": "Guadeloupe",
-          "aNat": "Algeria"
-        },
-        {
-          "n": "다이크스",
-          "m": 36,
-          "a": "Caleb Taylor",
-          "nat": "Scotland",
-          "aNat": "England"
-        }
-      ]
-    },
-    "cards": {
-      "home": [
-        {
-          "n": "Riley McGree",
-          "type": "Y",
-          "m": 66
-        }
-      ],
-      "away": [
-        {
-          "n": "Derek Mazou-Sacko",
-          "type": "Y",
-          "m": 59
-        }
-      ]
-    }
   },
   {
     "date": "2026-09-16",
@@ -378681,30 +383867,6 @@
   {
     "date": "2026-09-16",
     "time": "19:00",
-    "league": "ACL2",
-    "venueId": "seoulwc",
-    "home": "서울",
-    "away": "반둥",
-    "stadium": "서울월드컵경기장",
-    "timeTbd": false,
-    "gameId": "2idpicTW6SmPYVP",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 0,
-    "scorers": {
-      "home": [],
-      "away": [
-        {
-          "n": "훌리오 세자르",
-          "m": 5
-        }
-      ]
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-09-16",
-    "time": "19:00",
     "league": "ACL",
     "venueId": "jeonju",
     "home": "전북",
@@ -378769,6 +383931,30 @@
   {
     "date": "2026-09-16",
     "time": "19:00",
+    "league": "ACL2",
+    "venueId": "seoulwc",
+    "home": "서울",
+    "away": "반둥",
+    "stadium": "서울월드컵경기장",
+    "timeTbd": false,
+    "gameId": "2idpicTW6SmPYVP",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "훌리오 세자르",
+          "m": 5
+        }
+      ]
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-09-16",
+    "time": "19:00",
     "league": "ASIANGAMESFOOTBALL",
     "venueId": "wave_stadium_kariya",
     "home": "중국 (남자)",
@@ -378793,35 +383979,6 @@
     "status": "completed",
     "homeScore": 2,
     "awayScore": 0
-  },
-  {
-    "date": "2026-09-16",
-    "time": "21:15",
-    "league": "ACL2",
-    "venueId": "cahn_hang_day",
-    "home": "비에트텔",
-    "away": "멜버른 FC",
-    "stadium": "선번동 항더이 (항더이 스타디움)",
-    "timeTbd": false,
-    "gameId": "gqA22tVR2bUJFof",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 1,
-    "scorers": {
-      "home": [
-        {
-          "n": "리바마르",
-          "m": 62
-        }
-      ],
-      "away": [
-        {
-          "n": "클라리스마리우 호드리게스",
-          "m": 58
-        }
-      ]
-    },
-    "phaseCode": "GROUP"
   },
   {
     "date": "2026-09-16",
@@ -378884,6 +384041,35 @@
           "n": "Shuichi Gonda",
           "type": "Y",
           "m": 73
+        }
+      ]
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-09-16",
+    "time": "21:15",
+    "league": "ACL2",
+    "venueId": "cahn_hang_day",
+    "home": "비에트텔",
+    "away": "멜버른 FC",
+    "stadium": "선번동 항더이 (항더이 스타디움)",
+    "timeTbd": false,
+    "gameId": "gqA22tVR2bUJFof",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "리바마르",
+          "m": 62
+        }
+      ],
+      "away": [
+        {
+          "n": "클라리스마리우 호드리게스",
+          "m": 58
         }
       ]
     },
@@ -413995,7 +419181,7 @@
     "homePitcher": "클레빈저",
     "awayScore": 2,
     "homeScore": 0,
-    "inningInfo": "3회말"
+    "inningInfo": "4회초"
   },
   {
     "date": "2026-09-27",
@@ -414010,9 +419196,9 @@
     "status": "live",
     "awayPitcher": "카라스코",
     "homePitcher": "시라카와",
-    "awayScore": 1,
+    "awayScore": 2,
     "homeScore": 0,
-    "inningInfo": "3회말"
+    "inningInfo": "4회말"
   },
   {
     "date": "2026-09-27",
@@ -414027,9 +419213,9 @@
     "status": "live",
     "awayPitcher": "배제성",
     "homePitcher": "최승용",
-    "awayScore": 5,
+    "awayScore": 7,
     "homeScore": 0,
-    "inningInfo": "3회초"
+    "inningInfo": "4회초"
   },
   {
     "date": "2026-09-27",
@@ -414046,7 +419232,7 @@
     "homePitcher": "나균안",
     "awayScore": 3,
     "homeScore": 0,
-    "inningInfo": "2회말"
+    "inningInfo": "3회말"
   },
   {
     "date": "2026-09-27",
@@ -421998,19 +427184,6 @@
   {
     "date": "2026-10-14",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "al_seeb_stadium",
-    "home": "알 시브",
-    "away": "알 후세인",
-    "stadium": "알-시브 스타디움",
-    "timeTbd": false,
-    "gameId": "OQsSGAzKGbKHXDT",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-14",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "al_sadd_jassim_bin_hamad",
     "home": "알 사드",
@@ -422018,6 +427191,19 @@
     "stadium": "자심 빈 하마드 스타디움",
     "timeTbd": false,
     "gameId": "zcfrVKksVO8hhNi",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-14",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "al_seeb_stadium",
+    "home": "알 시브",
+    "away": "알 후세인",
+    "stadium": "알-시브 스타디움",
+    "timeTbd": false,
+    "gameId": "OQsSGAzKGbKHXDT",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -433511,19 +438697,6 @@
   {
     "date": "2026-10-28",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "al_seeb_stadium",
-    "home": "알 시브",
-    "away": "이스트 벵갈",
-    "stadium": "알-시브 스타디움",
-    "timeTbd": false,
-    "gameId": "AW3p0efTl1zL9Jt",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-28",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "shabab_alahli_al_rashid",
     "home": "샤바브 알 아흘리",
@@ -433531,6 +438704,19 @@
     "stadium": "알라시드 스타디움",
     "timeTbd": false,
     "gameId": "uVJg9XVeZVSJFpb",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-28",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "al_seeb_stadium",
+    "home": "알 시브",
+    "away": "이스트 벵갈",
+    "stadium": "알-시브 스타디움",
+    "timeTbd": false,
+    "gameId": "AW3p0efTl1zL9Jt",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -433721,19 +438907,6 @@
   {
     "date": "2026-10-28",
     "time": "03:15",
-    "league": "ACL2",
-    "venueId": "al_zawraa_stadium",
-    "home": "알 쇼르타",
-    "away": "알 후세인",
-    "stadium": "알-자우라 스타디움",
-    "timeTbd": false,
-    "gameId": "HCihM9DqxKOXBbt",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-28",
-    "time": "03:15",
     "league": "ACL",
     "venueId": "al_shamal_al_bayt",
     "home": "알샤말",
@@ -433741,6 +438914,19 @@
     "stadium": "알베이트 스타디움",
     "timeTbd": false,
     "gameId": "3aZWRb5fy3Nyk9x",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-28",
+    "time": "03:15",
+    "league": "ACL2",
+    "venueId": "al_zawraa_stadium",
+    "home": "알 쇼르타",
+    "away": "알 후세인",
+    "stadium": "알-자우라 스타디움",
+    "timeTbd": false,
+    "gameId": "HCihM9DqxKOXBbt",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -436345,19 +441531,6 @@
   {
     "date": "2026-11-04",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "amman_international_stadium",
-    "home": "알 후세인",
-    "away": "알 쇼르타",
-    "stadium": "암만 인터내셔널 스태디엄",
-    "timeTbd": false,
-    "gameId": "87Yzcj2B505kzbh",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-11-04",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "basra_international",
     "home": "에스테그랄",
@@ -436365,6 +441538,19 @@
     "stadium": "바스라 인터내셔널 스타디움",
     "timeTbd": false,
     "gameId": "CbaeNHtf2qOthye",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-11-04",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "amman_international_stadium",
+    "home": "알 후세인",
+    "away": "알 쇼르타",
+    "stadium": "암만 인터내셔널 스태디엄",
+    "timeTbd": false,
+    "gameId": "87Yzcj2B505kzbh",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -436622,19 +441808,6 @@
   {
     "date": "2026-11-04",
     "time": "19:00",
-    "league": "ACL2",
-    "venueId": "seoulwc",
-    "home": "서울",
-    "away": "비에트텔",
-    "stadium": "서울월드컵경기장",
-    "timeTbd": false,
-    "gameId": "lZapB69mvTiiYds",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-11-04",
-    "time": "19:00",
     "league": "ACL",
     "venueId": "pohang",
     "home": "포항",
@@ -436642,6 +441815,19 @@
     "stadium": "포항스틸야드",
     "timeTbd": false,
     "gameId": "pmIB9z9UAQ4XPV2",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-11-04",
+    "time": "19:00",
+    "league": "ACL2",
+    "venueId": "seoulwc",
+    "home": "서울",
+    "away": "비에트텔",
+    "stadium": "서울월드컵경기장",
+    "timeTbd": false,
+    "gameId": "lZapB69mvTiiYds",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -441982,19 +447168,6 @@
   {
     "date": "2026-11-25",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "al_seeb_stadium",
-    "home": "알 시브",
-    "away": "알 쇼르타",
-    "stadium": "알-시브 스타디움",
-    "timeTbd": false,
-    "gameId": "zVJrrC6Kzu5rPRu",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-11-25",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "shabab_alahli_al_rashid",
     "home": "샤바브 알 아흘리",
@@ -442002,6 +447175,19 @@
     "stadium": "알라시드 스타디움",
     "timeTbd": false,
     "gameId": "Rsba5lmQWhdIFqs",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-11-25",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "al_seeb_stadium",
+    "home": "알 시브",
+    "away": "알 쇼르타",
+    "stadium": "알-시브 스타디움",
+    "timeTbd": false,
+    "gameId": "zVJrrC6Kzu5rPRu",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
