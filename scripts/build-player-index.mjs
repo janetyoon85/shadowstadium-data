@@ -28,7 +28,14 @@ function pushAppearance(entry, appearance) {
   // 최근 것을 앞에 유지, 같은 {team,league} 중복이면 자리만 앞으로 옮기고 lastSeenDate 최신화.
   const idx = entry.appearances.findIndex((a) => a.team === appearance.team && a.league === appearance.league);
   if (idx >= 0) {
-    if (appearance.nat) entry.appearances[idx].nat = appearance.nat;
+    // 버그 수정(2026-09-28, 사용자 리포트로 발견: "데이비스" 검색에서 있던 국적이 사라짐) —
+    // 예전엔 기존 항목에 nat을 병합해놓고 바로 버린 뒤 "새" appearance 객체만 남겨서, 같은
+    // {team,league} 조합의 나중 골/카드(국적 조회가 아직 안 된 경기)가 처리될 때마다 이전에
+    // 이미 확인해둔 국적이 조용히 사라졌음(국적은 백필 예산제라 같은 팀+리그 안에서도 어떤
+    // 경기는 nat이 있고 어떤 경기는 아직 없을 수 있음 — 흔한 케이스). 새 appearance에 nat이
+    // 없고 기존 항목에 있으면 새 쪽으로 이어받아 보존.
+    const existing = entry.appearances[idx];
+    if (!appearance.nat && existing.nat) appearance.nat = existing.nat;
     entry.appearances.splice(idx, 1);
   }
   entry.appearances.unshift(appearance);
