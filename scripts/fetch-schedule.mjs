@@ -601,8 +601,13 @@ async function enrichSaves(allGames) {
               const team = side === 'home' ? g.home : g.away;
               for (const h of g.highlights[side] || []) {
                 if (h.nat === undefined && h.birth) {
-                  const nat = await getMlbNationality(team, h.birth);
-                  if (nat) h.nat = nat;
+                  const found = await getMlbNationality(team, h.birth);
+                  if (found) {
+                    h.nat = found.nat;
+                    // pid(MLB personId, 2026-09-29 추가) — 선수 정보 카드에서 statsapi.mlb.com
+                    // people 엔드포인트로 바로 상세 조회할 때 씀. 축구 pid(espn:...)와 동일 역할.
+                    if (found.personId != null) h.pid = `mlb:${found.personId}`;
+                  }
                 }
                 delete h.birth; // games.json엔 임시 필드 안 나가게 정리.
                 delete h.backnum;
@@ -628,6 +633,10 @@ async function enrichSaves(allGames) {
         if (dec.winNat) rec.winPitcherNat = dec.winNat;
         if (dec.loseNat) rec.losePitcherNat = dec.loseNat;
         if (dec.saveNat) rec.savePitcherNat = dec.saveNat;
+        // personId(2026-09-29, 선수 정보 카드용) — pid 필드로 App에 실어 보냄(축구 pid와 동일 role).
+        if (dec.winPersonId != null) rec.winPitcherPid = `mlb:${dec.winPersonId}`;
+        if (dec.losePersonId != null) rec.losePitcherPid = `mlb:${dec.losePersonId}`;
+        if (dec.savePersonId != null) rec.savePitcherPid = `mlb:${dec.savePersonId}`;
         // found=false(게임 자체를 못 찾음, 예: 팀명 미등록·API 장애)면 플래그를 세우지 않고 다음
         // run 재시도 — found=true인데 개별 국적이 없는 건 정상적인 결과라 플래그 확정 가능
         // (2026-09-29, 809개 경기가 KST/ET 날짜버그로 이 플래그에 영구 오염됐던 사고 재발방지).
@@ -640,6 +649,9 @@ async function enrichSaves(allGames) {
       if (rec.winPitcherNat) g.winPitcherNat = rec.winPitcherNat;
       if (rec.losePitcherNat) g.losePitcherNat = rec.losePitcherNat;
       if (rec.savePitcherNat) g.savePitcherNat = rec.savePitcherNat;
+      if (rec.winPitcherPid) g.winPitcherPid = rec.winPitcherPid;
+      if (rec.losePitcherPid) g.losePitcherPid = rec.losePitcherPid;
+      if (rec.savePitcherPid) g.savePitcherPid = rec.savePitcherPid;
     }
     // 홀드 투수 국적(MLB만, 2026-09-29) — decisions 엔드포인트와 달리 "누가 홀드인지"를 단일 역할
     // 필드로 안 줘서 boxscore의 팀별 투수 등장 순서로 골라낸 뒤 이름 배열(rec.holdHome/holdAway,
@@ -653,14 +665,22 @@ async function enrichSaves(allGames) {
         const nats = await getMlbHoldNats(g.home, g.away, g.date, g.homeScore, g.awayScore);
         if (nats.home) rec.holdHomeNats = nats.home;
         if (nats.away) rec.holdAwayNats = nats.away;
+        // personId(2026-09-29, 선수 정보 카드용) — nat 배열과 같은 순서로 병렬 저장.
+        if (nats.homeIds) rec.holdHomeIds = nats.homeIds;
+        if (nats.awayIds) rec.holdAwayIds = nats.awayIds;
         if (nats.found) rec.mlbHoldNatChecked = true; // found=false면 다음 run 재시도.
       } catch (e) {
         console.warn(`[saves] MLB hold nat failed ${g.gameId}: ${e.message}`);
       }
     }
     if (rec && typeof rec === 'object' && ((rec.holdHome && rec.holdHome.length) || (rec.holdAway && rec.holdAway.length))) {
-      const zip = (names, nats) => (names || []).map((n, i) => (nats && nats[i] ? { n, nat: nats[i] } : { n }));
-      g.holds = { home: zip(rec.holdHome, rec.holdHomeNats), away: zip(rec.holdAway, rec.holdAwayNats) };
+      const zip = (names, nats, ids) => (names || []).map((n, i) => {
+        const entry = { n };
+        if (nats && nats[i]) entry.nat = nats[i];
+        if (ids && ids[i] != null) entry.pid = `mlb:${ids[i]}`;
+        return entry;
+      });
+      g.holds = { home: zip(rec.holdHome, rec.holdHomeNats, rec.holdHomeIds), away: zip(rec.holdAway, rec.holdAwayNats, rec.holdAwayIds) };
     }
   }
 
@@ -1391,6 +1411,10 @@ function serializeGame(g) {
   if (g.winPitcherNat) out.winPitcherNat = g.winPitcherNat;
   if (g.losePitcherNat) out.losePitcherNat = g.losePitcherNat;
   if (g.savePitcherNat) out.savePitcherNat = g.savePitcherNat;
+  // 투수 pid(MLB personId, 2026-09-29) — 선수 정보 카드에서 statsapi.mlb.com 상세 조회용.
+  if (g.winPitcherPid) out.winPitcherPid = g.winPitcherPid;
+  if (g.losePitcherPid) out.losePitcherPid = g.losePitcherPid;
+  if (g.savePitcherPid) out.savePitcherPid = g.savePitcherPid;
   // 홀드 투수(2026-09-29) — 팀별 배열, 빈 팀 쪽은 생략 가능하니 둘 중 하나라도 있으면 통째로 실음.
   if (g.holds && ((g.holds.home && g.holds.home.length) || (g.holds.away && g.holds.away.length))) out.holds = g.holds;
   // 야구 하이라이트(홈런/2루타/도루/실책/병살타/결승타 등) — KBO/MLB/NPB 최근 3일 경기만.

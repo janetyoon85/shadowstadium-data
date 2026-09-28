@@ -23,7 +23,7 @@ export const MLB_TEAM_ID = {
   '텍사스': 140, '토론토': 141, '피츠버그': 134, '필라델피아': 143, '휴스턴': 117,
 };
 
-const teamBirthMapCache = new Map(); // teamId -> Promise<Map(YYYYMMDD -> birthCountry)>
+const teamBirthMapCache = new Map(); // teamId -> Promise<Map(YYYYMMDD -> {nat, personId})>
 
 async function loadTeamBirthMap(teamId) {
   if (teamBirthMapCache.has(teamId)) return teamBirthMapCache.get(teamId);
@@ -40,7 +40,7 @@ async function loadTeamBirthMap(teamId) {
       const peopleJson = await peopleRes.json();
       for (const p of peopleJson.people || []) {
         if (!p.birthDate || !p.birthCountry) continue;
-        map.set(p.birthDate.replace(/-/g, ''), p.birthCountry);
+        map.set(p.birthDate.replace(/-/g, ''), { nat: p.birthCountry, personId: p.id });
       }
     } catch {
       // 네트워크 실패 — 빈 맵으로 두고 생략(스케줄 수집 자체를 막지 않음, ESPN 패턴과 동일).
@@ -51,6 +51,10 @@ async function loadTeamBirthMap(teamId) {
   return promise;
 }
 
+// {nat, personId}|undefined — personId는 2026-09-29 추가(선수 정보 카드 기능용, "야구축구 다
+// 선수정보 보여주면 좋을듯" 요청 대응). MLB 공식 personId를 저장해두면 나중에 앱에서
+// statsapi.mlb.com/api/v1/people/{id}로 바로 상세 프로필(생년월일·통산기록 등) 조회 가능 —
+// 축구 쪽 ESPN athleteId(pid)와 동일한 역할.
 export async function getMlbNationality(koreanTeamName, birthYYYYMMDD) {
   if (!birthYYYYMMDD) return undefined;
   const teamId = MLB_TEAM_ID[koreanTeamName];
@@ -181,9 +185,9 @@ export async function getMlbPitcherDecisionNats(homeTeamKo, awayTeamKo, dateYmd,
   const out = { found: true };
   if (ids.length === 0) return out;
   const natById = await getPeopleNat(ids);
-  if (dec.winner?.id != null && natById.has(dec.winner.id)) out.winNat = natById.get(dec.winner.id);
-  if (dec.loser?.id != null && natById.has(dec.loser.id)) out.loseNat = natById.get(dec.loser.id);
-  if (dec.save?.id != null && natById.has(dec.save.id)) out.saveNat = natById.get(dec.save.id);
+  if (dec.winner?.id != null && natById.has(dec.winner.id)) { out.winNat = natById.get(dec.winner.id); out.winPersonId = dec.winner.id; }
+  if (dec.loser?.id != null && natById.has(dec.loser.id)) { out.loseNat = natById.get(dec.loser.id); out.losePersonId = dec.loser.id; }
+  if (dec.save?.id != null && natById.has(dec.save.id)) { out.saveNat = natById.get(dec.save.id); out.savePersonId = dec.save.id; }
   return out;
 }
 
@@ -224,6 +228,7 @@ export async function getMlbHoldNats(homeTeamKo, awayTeamKo, dateYmd, homeScore,
     // filter로 빈 자리를 없애면 등장 순서 인덱스가 밀려 호출부의 zip 매칭이 다음 홀드 투수에게
     // 엉뚱한 국적을 붙일 수 있음 — undefined를 그 자리에 그대로 남겨 인덱스 정합성 유지.
     out[side] = bySide[side].map((id) => natById.get(id));
+    out[`${side}Ids`] = bySide[side]; // personId도 같은 순서로(2026-09-29, 선수 정보 카드용).
   }
   return out;
 }

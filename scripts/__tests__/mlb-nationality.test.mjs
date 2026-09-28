@@ -42,6 +42,10 @@ test('getMlbPitcherDecisionNats - KST 날짜엔 없고 ET(하루 전) 날짜에�
   assert.equal(result.winNat, 'USA');
   assert.equal(result.loseNat, 'Venezuela');
   assert.equal(result.saveNat, 'Curacao');
+  // personId도 같이 반환(2026-09-29, 선수 정보 카드 기능용).
+  assert.equal(result.winPersonId, 1);
+  assert.equal(result.losePersonId, 2);
+  assert.equal(result.savePersonId, 3);
 });
 
 // 실사고 재현(2026-09-29, "오타니는국적조회되는데... 야마모토국적 미국아니고일본인데?"): 같은
@@ -108,4 +112,5 @@ test('getMlbHoldNats - 국적 조회 실패한 투수는 undefined로 자리만 
   const result = await getMlbHoldNats('LA에인절스', '뉴욕양키스', '2026-07-10', 5, 3);
   assert.equal(result.found, true);
   assert.deepEqual(result.home, ['Japan', undefined]);
+  assert.deepEqual(result.homeIds, [10, 11]);
 });
