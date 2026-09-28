@@ -34,14 +34,32 @@ test('getMlbPitcherDecisionNats - KST 날짜엔 없고 ET(하루 전) 날짜에�
   globalThis.fetch = mockFetch([
     [/schedule\?sportId=1&date=2026-06-27/, { dates: [{ games: [{ gamePk: 999001, teams: { home: { team: { id: 120 } }, away: { team: { id: 121 } } } }] }] }],
     [/schedule\?sportId=1&date=2026-06-28/, { dates: [] }], // 당일(KST) 날짜엔 없음 — 실제 사고와 동일 조건.
-    [/game\/999001\/feed\/live/, { liveData: { decisions: { winner: { id: 1 }, loser: { id: 2 }, save: { id: 3 } } } }],
+    [/game\/999001\/feed\/live/, { liveData: { linescore: { teams: { home: { runs: 6 }, away: { runs: 4 } } }, decisions: { winner: { id: 1 }, loser: { id: 2 }, save: { id: 3 } } } }],
     [/people\?personIds=1,2,3/, { people: [{ id: 1, birthCountry: 'USA' }, { id: 2, birthCountry: 'Venezuela' }, { id: 3, birthCountry: 'Curacao' }] }],
   ]);
-  const result = await getMlbPitcherDecisionNats('워싱턴', '뉴욕메츠', '2026-06-28');
+  const result = await getMlbPitcherDecisionNats('워싱턴', '뉴욕메츠', '2026-06-28', 6, 4);
   assert.equal(result.found, true);
   assert.equal(result.winNat, 'USA');
   assert.equal(result.loseNat, 'Venezuela');
   assert.equal(result.saveNat, 'Curacao');
+});
+
+// 실사고 재현(2026-09-29, "오타니는국적조회되는데... 야마모토국적 미국아니고일본인데?"): 같은
+// 두 팀이 연속 시리즈를 치르면 findGamePk가 날짜 하루 오차 안에서도 "그럴듯한 다른 진짜 경기"를
+// 찾아버릴 수 있어, 찾은 게임의 최종 스코어가 우리가 이미 아는 스코어와 다르면 완전히 다른 경기로
+// 간주해 거부해야 함 — 그래야 전혀 무관한 다른 선수의 국적이 조용히 잘못 붙는 사고를 막음.
+test('getMlbPitcherDecisionNats - 찾은 경기의 스코어가 안 맞으면 다른 경기로 간주해 found:false', async (t) => {
+  const origFetch = globalThis.fetch;
+  t.after(() => { globalThis.fetch = origFetch; });
+  globalThis.fetch = mockFetch([
+    [/schedule\?sportId=1&date=2026-08-09/, { dates: [{ games: [{ gamePk: 999003, teams: { home: { team: { id: 119 } }, away: { team: { id: 114 } } } }] }] }],
+    [/schedule\?sportId=1&date=2026-08-10/, { dates: [] }],
+    // 이 gamePk는 실제로는 다른 날의 다른 경기(스코어 7:2) — 우리가 아는 스코어(3:1)와 다름.
+    [/game\/999003\/feed\/live/, { liveData: { linescore: { teams: { home: { runs: 7 }, away: { runs: 2 } } }, decisions: { winner: { id: 9 }, loser: { id: 8 } } } }],
+    [/people\?personIds=/, { people: [{ id: 9, birthCountry: 'Japan' }, { id: 8, birthCountry: 'USA' }] }],
+  ]);
+  const result = await getMlbPitcherDecisionNats('LA다저스', '클리블랜드', '2026-08-10', 3, 1);
+  assert.deepEqual(result, { found: false });
 });
 
 test('getMlbPitcherDecisionNats - 어느 날짜에도 매치업이 없으면 found:false (재시도 가능해야 함)', async (t) => {
@@ -69,6 +87,7 @@ test('getMlbHoldNats - 국적 조회 실패한 투수는 undefined로 자리만 
     [/schedule\?sportId=1&date=2026-07-10/, { dates: [] }],
     [/game\/999002\/feed\/live/, {
       liveData: {
+        linescore: { teams: { home: { runs: 5 }, away: { runs: 3 } } },
         boxscore: {
           teams: {
             home: {
@@ -86,7 +105,7 @@ test('getMlbHoldNats - 국적 조회 실패한 투수는 undefined로 자리만 
     // people 응답에 ID11에 대한 국적이 아예 없음(누락 시뮬레이션) — ID10만 응답에 있음.
     [/people\?personIds=10,11/, { people: [{ id: 10, birthCountry: 'Japan' }] }],
   ]);
-  const result = await getMlbHoldNats('LA에인절스', '뉴욕양키스', '2026-07-10');
+  const result = await getMlbHoldNats('LA에인절스', '뉴욕양키스', '2026-07-10', 5, 3);
   assert.equal(result.found, true);
   assert.deepEqual(result.home, ['Japan', undefined]);
 });

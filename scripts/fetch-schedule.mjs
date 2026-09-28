@@ -624,7 +624,7 @@ async function enrichSaves(allGames) {
     if (needsPitcherNat && mlbPitcherNatUsed < MLB_PITCHER_NAT_BUDGET) {
       mlbPitcherNatUsed++;
       try {
-        const dec = await getMlbPitcherDecisionNats(g.home, g.away, g.date);
+        const dec = await getMlbPitcherDecisionNats(g.home, g.away, g.date, g.homeScore, g.awayScore);
         if (dec.winNat) rec.winPitcherNat = dec.winNat;
         if (dec.loseNat) rec.losePitcherNat = dec.loseNat;
         if (dec.saveNat) rec.savePitcherNat = dec.saveNat;
@@ -650,7 +650,7 @@ async function enrichSaves(allGames) {
     if (needsHoldNat && mlbPitcherNatUsed < MLB_PITCHER_NAT_BUDGET) {
       mlbPitcherNatUsed++;
       try {
-        const nats = await getMlbHoldNats(g.home, g.away, g.date);
+        const nats = await getMlbHoldNats(g.home, g.away, g.date, g.homeScore, g.awayScore);
         if (nats.home) rec.holdHomeNats = nats.home;
         if (nats.away) rec.holdAwayNats = nats.away;
         if (nats.found) rec.mlbHoldNatChecked = true; // found=false면 다음 run 재시도.

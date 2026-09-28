@@ -149,15 +149,32 @@ async function findGamePk(homeTeamKo, awayTeamKo, dateYmd) {
   return undefined;
 }
 
+// 스코어 검증(2026-09-29 긴급 추가) — findGamePk가 날짜+양팀ID만으로 매칭하다 보니, 같은 두 팀이
+// 연속 시리즈를 치르는 동안(하루 앞/뒤로도 같은 매치업이 실제로 존재하는 경우가 흔함) 엉뚱한
+// 하루가 걸려도 "찾음"으로 반환되는 사고가 실제로 있었음(실사용자 리포트, 2026-09-29: "오타니는
+// 국적조회되는데... 야마모토국적 미국아니고일본인데?" — 재조사 결과 상당수 MLB 투수 국적이
+// 완전히 다른 실제 경기의 결정으로 뒤바뀌어 있었음, 날짜 하루 이내 오차인데도 시리즈 특성상 거의
+// 항상 "그럴듯한" 다른 진짜 경기가 걸려서 조용히 틀린 데이터가 저장됨). 우리가 이미 알고 있는
+// 스코어(g.homeScore/awayScore)와 MLB 쪽이 기록한 최종 스코어가 정확히 일치할 때만 그 경기를
+// 신뢰 — 하나라도 다르면 완전히 다른 경기를 잘못 골랐다는 뜻이라 found:false로 안전하게 폐기.
+async function verifyScoreMatch(gamePk, homeScore, awayScore) {
+  if (typeof homeScore !== 'number' || typeof awayScore !== 'number') return { ok: false, feed: undefined };
+  const feed = await loadLiveFeed(gamePk);
+  const teams = feed?.liveData?.linescore?.teams;
+  const ok = !!teams && teams.home?.runs === homeScore && teams.away?.runs === awayScore;
+  return { ok, feed };
+}
+
 // {winNat?, loseNat?, saveNat?, found} — found=false는 "게임 자체를 못 찾음"(팀명 미등록, 그
-// 날짜에 매치업 없음, API 장애 등 재시도할 가치 있는 실패) — 호출부가 이걸로 "이미 시도함" 캐시
-// 플래그를 세울지 판단(found=false면 플래그 세우지 말고 다음 run 재시도). found=true인데 개별
-// win/lose/save 국적이 없는 건 그 자체로 정상적인 결과(해당 역할 자체가 없는 경기 등)라 플래그
-// 확정해도 안전 — 절대 국적을 추측하지 않음.
-export async function getMlbPitcherDecisionNats(homeTeamKo, awayTeamKo, dateYmd) {
+// 날짜에 매치업 없음, 스코어 불일치로 다른 경기로 판명, API 장애 등 재시도할 가치 있는 실패) —
+// 호출부가 이걸로 "이미 시도함" 캐시 플래그를 세울지 판단(found=false면 플래그 세우지 말고 다음
+// run 재시도). found=true인데 개별 win/lose/save 국적이 없는 건 그 자체로 정상적인 결과(해당
+// 역할 자체가 없는 경기 등)라 플래그 확정해도 안전 — 절대 국적을 추측하지 않음.
+export async function getMlbPitcherDecisionNats(homeTeamKo, awayTeamKo, dateYmd, homeScore, awayScore) {
   const gamePk = await findGamePk(homeTeamKo, awayTeamKo, dateYmd);
   if (!gamePk) return { found: false };
-  const feed = await loadLiveFeed(gamePk);
+  const { ok, feed } = await verifyScoreMatch(gamePk, homeScore, awayScore);
+  if (!ok) return { found: false };
   const dec = feed?.liveData?.decisions;
   if (!dec) return { found: false };
   const ids = [dec.winner?.id, dec.loser?.id, dec.save?.id].filter((id) => id != null);
@@ -178,10 +195,11 @@ export async function getMlbPitcherDecisionNats(homeTeamKo, awayTeamKo, dateYmd)
 // 규약). 국적 조회 실패한 자리는 undefined로 그대로 유지(배열에서 빼면 이후 인덱스가 밀려 엉뚱한
 // 투수와 매칭될 수 있어서). 길이 자체가 네이버 쪽 홀드 투수 수와 다르면(그 경기에 한해 드문
 // 불일치) 호출부가 짧은 쪽까지만 zip.
-export async function getMlbHoldNats(homeTeamKo, awayTeamKo, dateYmd) {
+export async function getMlbHoldNats(homeTeamKo, awayTeamKo, dateYmd, homeScore, awayScore) {
   const gamePk = await findGamePk(homeTeamKo, awayTeamKo, dateYmd);
   if (!gamePk) return { found: false };
-  const feed = await loadLiveFeed(gamePk);
+  const { ok, feed } = await verifyScoreMatch(gamePk, homeScore, awayScore);
+  if (!ok) return { found: false };
   const box = feed?.liveData?.boxscore;
   if (!box) return { found: false };
   const bySide = {};
