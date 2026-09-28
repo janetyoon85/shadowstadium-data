@@ -58,3 +58,88 @@ export async function getMlbNationality(koreanTeamName, birthYYYYMMDD) {
   const map = await loadTeamBirthMap(teamId);
   return map.get(birthYYYYMMDD);
 }
+
+// 선발투수 승/패/세이브 국적(2026-09-29) — 네이버 스케줄 API는 win/losePitcherName만 주고 생년월일이
+// 없어(투수 record 배열에도 birth 필드 자체가 없음, KBO/K리그 조사와 동일한 데드엔드) 위
+// "팀+생년월일" 매칭을 그대로 못 씀. 대신 MLB 공식 API의 decisions 엔드포인트
+// (/game/{gamePk}/feed/live의 liveData.decisions)가 승/패/세이브 투수를 실제 선수 ID로 직접
+// 알려줘서, 이름 매칭 없이(=오매칭 가능성 자체가 없음) ID→국적을 바로 조회할 수 있음 — 배터/
+// 하이라이트보다 오히려 더 확실한 매칭. gamePk는 날짜+양팀 ID로 스케줄 API에서 찾음.
+const scheduleCache = new Map(); // dateYmd -> Promise<Map("awayId@homeId" -> gamePk)>
+async function loadScheduleForDate(dateYmd) {
+  if (scheduleCache.has(dateYmd)) return scheduleCache.get(dateYmd);
+  const promise = (async () => {
+    const map = new Map();
+    try {
+      const res = await fetch(`https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=${dateYmd}`);
+      if (!res.ok) return map;
+      const j = await res.json();
+      for (const d of j.dates || []) {
+        for (const g of d.games || []) {
+          const homeId = g.teams?.home?.team?.id;
+          const awayId = g.teams?.away?.team?.id;
+          if (homeId && awayId) map.set(`${awayId}@${homeId}`, g.gamePk);
+        }
+      }
+    } catch {
+      // 네트워크 실패 — 빈 맵, 다음 run 재시도(ESPN 패턴과 동일).
+    }
+    return map;
+  })();
+  scheduleCache.set(dateYmd, promise);
+  return promise;
+}
+
+const decisionsCache = new Map(); // gamePk -> Promise<{winner?,loser?,save?}|null>
+async function loadDecisions(gamePk) {
+  if (decisionsCache.has(gamePk)) return decisionsCache.get(gamePk);
+  const promise = (async () => {
+    try {
+      const res = await fetch(`https://statsapi.mlb.com/api/v1.1/game/${gamePk}/feed/live`);
+      if (!res.ok) return null;
+      const j = await res.json();
+      return j.liveData?.decisions || null;
+    } catch {
+      return null;
+    }
+  })();
+  decisionsCache.set(gamePk, promise);
+  return promise;
+}
+
+async function getPeopleNat(personIds) {
+  const map = new Map();
+  if (personIds.length === 0) return map;
+  try {
+    const res = await fetch(`https://statsapi.mlb.com/api/v1/people?personIds=${personIds.join(',')}`);
+    if (!res.ok) return map;
+    const j = await res.json();
+    for (const p of j.people || []) {
+      if (p.id != null && p.birthCountry) map.set(p.id, p.birthCountry);
+    }
+  } catch {
+    // 빈 맵 — 다음 run 재시도.
+  }
+  return map;
+}
+
+// {winNat?, loseNat?, saveNat?} — 매칭 실패(로스터에 없는 팀명, 그 날짜에 해당 매치업 없음, API
+// 오류 등)는 전부 빈 객체로 graceful하게 생략, 절대 추측하지 않음.
+export async function getMlbPitcherDecisionNats(homeTeamKo, awayTeamKo, dateYmd) {
+  const homeId = MLB_TEAM_ID[homeTeamKo];
+  const awayId = MLB_TEAM_ID[awayTeamKo];
+  if (!homeId || !awayId) return {};
+  const sched = await loadScheduleForDate(dateYmd);
+  const gamePk = sched.get(`${awayId}@${homeId}`);
+  if (!gamePk) return {};
+  const dec = await loadDecisions(gamePk);
+  if (!dec) return {};
+  const ids = [dec.winner?.id, dec.loser?.id, dec.save?.id].filter((id) => id != null);
+  if (ids.length === 0) return {};
+  const natById = await getPeopleNat(ids);
+  const out = {};
+  if (dec.winner?.id != null && natById.has(dec.winner.id)) out.winNat = natById.get(dec.winner.id);
+  if (dec.loser?.id != null && natById.has(dec.loser.id)) out.loseNat = natById.get(dec.loser.id);
+  if (dec.save?.id != null && natById.has(dec.save.id)) out.saveNat = natById.get(dec.save.id);
+  return out;
+}

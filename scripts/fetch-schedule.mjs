@@ -6,7 +6,7 @@ import { validateDataset } from './validators.mjs';
 import { getAthleteNationality, getAthleteDisplayName } from './espn-nationality.mjs';
 import { parseBaseballHighlights } from './baseball-highlight-parse.mjs';
 import { selectUniqueScoreMatch } from './espn-match-select.mjs';
-import { getMlbNationality } from './mlb-nationality.mjs';
+import { getMlbNationality, getMlbPitcherDecisionNats } from './mlb-nationality.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -585,6 +585,29 @@ async function enrichSaves(allGames) {
           }
         }
       }
+    }
+    // 선발투수 승/패/세이브 국적(2026-09-29, "mlb선발투수에는국기못붙이나?") — 위 하이라이트(타자)
+    // 국적과 달리 네이버 데이터에 생년월일이 없어 같은 방식을 못 씀. 대신 MLB 공식 API의 decisions
+    // 엔드포인트가 실제 승/패/세이브 투수를 선수ID로 직접 줘서(mlb-nationality.mjs 참고) 이름 매칭
+    // 없이 확정 조회 가능. highlights 재조회 예산(SAVES_FETCH_BUDGET)과 무관한 별도 API라 그
+    // 트리거에 얹지 않고 독립적으로 처리 — mlbNatChecked(타자용)와 별도의 mlbPitcherNatChecked
+    // 플래그를 써야 함(안 그러면 이미 mlbNatChecked=true인 기존 MLB 경기들이 이 새 필드를 영원히
+    // 못 받는, [[feedback_final_cache_stale_snapshot_bug]]와 동일한 함정에 빠짐).
+    if (rec && typeof rec === 'object' && g.league === 'MLB' && !rec.mlbPitcherNatChecked && (g.winPitcher || g.losePitcher || g.savePitcher)) {
+      try {
+        const dec = await getMlbPitcherDecisionNats(g.home, g.away, g.date);
+        if (dec.winNat) rec.winPitcherNat = dec.winNat;
+        if (dec.loseNat) rec.losePitcherNat = dec.loseNat;
+        if (dec.saveNat) rec.savePitcherNat = dec.saveNat;
+      } catch (e) {
+        console.warn(`[saves] MLB pitcher nat failed ${g.gameId}: ${e.message}`);
+      }
+      rec.mlbPitcherNatChecked = true;
+    }
+    if (rec && typeof rec === 'object') {
+      if (rec.winPitcherNat) g.winPitcherNat = rec.winPitcherNat;
+      if (rec.losePitcherNat) g.losePitcherNat = rec.losePitcherNat;
+      if (rec.savePitcherNat) g.savePitcherNat = rec.savePitcherNat;
     }
   }
 
@@ -1311,6 +1334,10 @@ function serializeGame(g) {
   if (g.winPitcher) out.winPitcher = g.winPitcher;
   if (g.losePitcher) out.losePitcher = g.losePitcher;
   if (g.savePitcher) out.savePitcher = g.savePitcher;
+  // 선발투수 국적(MLB만, 2026-09-29) — mlb-nationality.mjs의 decisions API 매칭.
+  if (g.winPitcherNat) out.winPitcherNat = g.winPitcherNat;
+  if (g.losePitcherNat) out.losePitcherNat = g.losePitcherNat;
+  if (g.savePitcherNat) out.savePitcherNat = g.savePitcherNat;
   // 야구 하이라이트(홈런/2루타/도루/실책/병살타/결승타 등) — KBO/MLB/NPB 최근 3일 경기만.
   if (g.highlights) out.highlights = g.highlights;
   // 축구 득점자 — 종료+진행중 경기, 골 있을 때만. {home,away} 각 [{m,n,pk?,og?}].
