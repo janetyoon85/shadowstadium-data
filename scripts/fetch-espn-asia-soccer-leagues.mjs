@@ -251,7 +251,9 @@ async function main() {
       const idx = games.findIndex((x) => x.gameId === key);
       if (idx >= 0) {
         const prev = games[idx];
-        if (prev.status !== g.status || prev.homeScore !== g.homeScore || prev.awayScore !== g.awayScore || JSON.stringify(prev.scorers) !== JSON.stringify(g.scorers) || JSON.stringify(prev.cards) !== JSON.stringify(g.cards)) {
+        // 킥오프 시각/구장 변경 감지 추가(2026-09-29) — [[project fetch-espn-soccer-leagues.mjs와
+        // 동일 버그]] 시각만 바뀐 경기는 이 비교에 안 걸려 예전 시각이 영구 고정되던 문제 수정.
+        if (prev.status !== g.status || prev.homeScore !== g.homeScore || prev.awayScore !== g.awayScore || prev.date !== g.date || prev.time !== g.time || prev.timeTbd !== g.timeTbd || prev.venueId !== g.venueId || prev.stadium !== g.stadium || JSON.stringify(prev.scorers) !== JSON.stringify(g.scorers) || JSON.stringify(prev.cards) !== JSON.stringify(g.cards)) {
           games[idx] = { ...prev, ...g };
           updated++;
         }

@@ -268,7 +268,12 @@ async function main() {
       const idx = games.findIndex((x) => x.gameId === key);
       if (idx >= 0) {
         const prev = games[idx];
-        if (prev.status !== g.status || prev.homeScore !== g.homeScore || prev.awayScore !== g.awayScore || JSON.stringify(prev.scorers) !== JSON.stringify(g.scorers) || JSON.stringify(prev.cards) !== JSON.stringify(g.cards)) {
+        // 킥오프 시각/구장 변경(연기·중계 편성 변경 등) 감지 추가(2026-09-29) — 기존엔 status/
+        // score/scorers/cards만 비교해서, ESPN이 아직 시작 전인 경기의 시각만 바꾸면(스코어·상태
+        // 변화 없음) 이 조건에 전혀 안 걸려 매 실행 때마다 새로 계산한 정확한 date/time을 그냥
+        // 버리고 예전 값을 영구히 유지하는 버그였음(사용자 리포트: "3시경기는왜경기중이아니지?" —
+        // 실제 ESPN 킥오프는 08:00인데 games.json엔 예전 03:00이 그대로 남아있어서 발생).
+        if (prev.status !== g.status || prev.homeScore !== g.homeScore || prev.awayScore !== g.awayScore || prev.date !== g.date || prev.time !== g.time || prev.timeTbd !== g.timeTbd || prev.venueId !== g.venueId || prev.stadium !== g.stadium || JSON.stringify(prev.scorers) !== JSON.stringify(g.scorers) || JSON.stringify(prev.cards) !== JSON.stringify(g.cards)) {
           games[idx] = { ...prev, ...g };
           updated++;
         }
