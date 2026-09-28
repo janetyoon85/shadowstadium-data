@@ -124,7 +124,7 @@ async function getPeopleNat(personIds) {
   return map;
 }
 
-function addDaysYmd(dateYmd, delta) {
+export function addDaysYmd(dateYmd, delta) {
   const d = new Date(`${dateYmd}T00:00:00Z`);
   d.setUTCDate(d.getUTCDate() + delta);
   return d.toISOString().slice(0, 10);
