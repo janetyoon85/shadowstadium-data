@@ -558,11 +558,19 @@ async function enrichSaves(allGames) {
     // 국적채워지는거지??"로 실측 발견: 오늘 경기도 0%). mlbNatChecked 플래그로 "이미 시도함"을
     // 명시적으로 기록해 이게 없는 MLB 경기만 재조회 트리거.
     const needsMlbNatBackfill = g.league === 'MLB' && isSplitHighlightFormat && !cached.mlbNatChecked;
+    // pid(MLB personId, 2026-09-29 추가) 백필 — mlbNatChecked=true로 이미 확정된 기존 경기들은
+    // nat은 있어도 pid가 없는 채로 남아있고(도입 이전 데이터), h.birth도 매번 지워버려서
+    // pid만 나중에 따로 채울 방법이 없음(재조회 없인 원천 데이터 자체가 없음). 완전 재조회를
+    // 한 번 더 트리거하면 fetchGameRecord가 캐시를 통째로 새로 받아와 h.birth가 다시 생기고,
+    // 기존 per-highlight 로직(nat===undefined && birth)이 새 데이터에서 nat+pid를 같이 채움 —
+    // 그래서 이 마이그레이션은 mlbPidChecked 한 번만 더 트리거하면 됨(같은 계열의 반복 패턴,
+    // [[feedback_final_cache_stale_snapshot_bug]]).
+    const needsMlbPidBackfill = g.league === 'MLB' && isSplitHighlightFormat && cached.mlbNatChecked && !cached.mlbPidChecked;
     // 홀드 투수(2026-09-29 추가) — 이 필드 도입 이전에 캐시된 경기는 holdHome/holdAway 자체가
     // 없어서(undefined) 재조회 안 하면 영원히 안 채워짐(같은 계열의 반복 패턴). 배열 존재 여부로
     // 판단 — 홀드가 0명이었던 정상 케이스는 빈 배열([])로 저장되니 undefined와 구분됨.
     const needsHoldBackfill = isNewFormat && !Array.isArray(cached.holdHome);
-    const needsHighlightRefetch = recentHighlightIds.has(g.gameId) && (!isSplitHighlightFormat || needsMlbNatBackfill || needsHoldBackfill);
+    const needsHighlightRefetch = recentHighlightIds.has(g.gameId) && (!isSplitHighlightFormat || needsMlbNatBackfill || needsMlbPidBackfill || needsHoldBackfill);
     const needsSavesFetch = cached === undefined || needsHighlightRefetch;
     if (needsSavesFetch && savesFetchUsed < SAVES_FETCH_BUDGET) {
       savesFetchUsed++;
@@ -614,6 +622,7 @@ async function enrichSaves(allGames) {
               }
             }
             rec.mlbNatChecked = true; // "이미 시도함" 기록 — birth 삭제로 사라지는 신호를 대체.
+            rec.mlbPidChecked = true; // pid 마이그레이션도 이번에 같이 처리됨 — 재트리거 방지.
           }
         }
       }
