@@ -1103,16 +1103,25 @@ async function enrichEuroAssists(allGames) {
         // 같은 리그 안에서도 여러 경기가 동시 킥오프하는 경우가 흔함(EPL 토요일 15시 동시킥오프 등) —
         // 시각만으로는 여러 후보 중 아무거나 골라버릴 수 있어(실측 확인: 맨시티전 조회에 브라이턴전이
         // 잘못 매칭됨), 시각으로 후보를 추린 뒤 최종 스코어까지 일치하는 것만 채택.
+        //
+        // 버그(2026-09-28 발견, 사용자 리포트 "국가가 이상한데?"): 동시킥오프 경기 중 "최종 스코어가
+        // 우연히 같은 경기"가 2개 이상이면 .find()가 그중 첫 번째(events 배열 순서상 우연히 먼저 나온
+        // 것)를 아무 근거 없이 채택해버려, 완전히 다른 경기의 어시스트·국적이 잘못 붙는 사고 발생
+        // 확인(예: 뮌헨글라드바흐 4-0 호펜하임 ↔ 동시각 우니온베를린도 4-0 아우크스부르크라 후자의
+        // 실제 득점자 국적[한국 정우영 등]이 전자의 무관한 선수에게 잘못 부착됨). "스코어까지 일치하는
+        // 후보"가 유일해야만 채택하고, 2개 이상 동률이면 무엇도 확신할 수 없으므로 미매칭 처리
+        // (오귀속보다 미부착이 낫다는 이 함수 원래 설계 원칙을 실제로 지키도록 수정).
         const timeCandidates = events.filter((e) => Math.abs(Date.parse(e.date) - kickoffMs) <= 5 * 60 * 1000);
-        const match =
+        const scoreCandidates =
           timeCandidates.length <= 1
-            ? timeCandidates[0]
-            : timeCandidates.find((e) => {
+            ? timeCandidates
+            : timeCandidates.filter((e) => {
                 const comp = e.competitions?.[0];
                 const h = comp?.competitors?.find((c) => c.homeAway === 'home');
                 const a = comp?.competitors?.find((c) => c.homeAway === 'away');
                 return h && a && Number(h.score) === g.homeScore && Number(a.score) === g.awayScore;
               });
+        const match = scoreCandidates.length === 1 ? scoreCandidates[0] : undefined;
         if (!match) {
           noMatch++;
           // completed 인데 이벤트 자체를 못 찾으면(ESPN 미중계 등) 영구 불가로 보고 확정 캐시 —
