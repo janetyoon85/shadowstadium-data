@@ -130,8 +130,9 @@ async function main() {
         if (!Array.isArray(list)) continue;
         for (const h of list) {
           // h.nat: MLB만 채워짐(2026-09-28, mlb-nationality.mjs) — 있으면 같이 실어서 선수
-          // 검색/즐겨찾기 국기 표시(App.tsx playerNatDisplay)에도 재사용.
-          if (h.player) upsertPlayer(map, h.player, 'baseball', g.date, { team, league: g.league, nat: h.nat });
+          // 검색/즐겨찾기 국기 표시(App.tsx playerNatDisplay)에도 재사용. h.pid(mlb:personId,
+          // 2026-09-29)는 동명이인 구분+선수 정보 카드용, 축구 pid와 동일 역할.
+          if (h.player) upsertPlayer(map, h.player, 'baseball', g.date, { team, league: g.league, nat: h.nat }, h.pid);
         }
       }
     }
@@ -141,15 +142,15 @@ async function main() {
     // 홈/원정 구분이 없는 문자열이라(win/losePitcherName) team을 알 수 없어 ''(미상)로 인덱싱 —
     // 국기·이름 검색엔 지장 없고, 소속팀 표시만 생략됨. 홀드는 이미 팀별로 갈라져 있어(g.holds.
     // {home,away}) 정확한 team 부착 가능.
-    if (g.winPitcher) upsertPlayer(map, g.winPitcher, 'baseball', g.date, { team: '', league: g.league, nat: g.winPitcherNat });
-    if (g.losePitcher) upsertPlayer(map, g.losePitcher, 'baseball', g.date, { team: '', league: g.league, nat: g.losePitcherNat });
-    if (g.savePitcher) upsertPlayer(map, g.savePitcher, 'baseball', g.date, { team: '', league: g.league, nat: g.savePitcherNat });
+    if (g.winPitcher) upsertPlayer(map, g.winPitcher, 'baseball', g.date, { team: '', league: g.league, nat: g.winPitcherNat }, g.winPitcherPid);
+    if (g.losePitcher) upsertPlayer(map, g.losePitcher, 'baseball', g.date, { team: '', league: g.league, nat: g.losePitcherNat }, g.losePitcherPid);
+    if (g.savePitcher) upsertPlayer(map, g.savePitcher, 'baseball', g.date, { team: '', league: g.league, nat: g.savePitcherNat }, g.savePitcherPid);
     if (g.holds) {
       for (const { key, team } of sides) {
         const list = g.holds[key];
         if (!Array.isArray(list)) continue;
         for (const hp of list) {
-          if (hp.n) upsertPlayer(map, hp.n, 'baseball', g.date, { team, league: g.league, nat: hp.nat });
+          if (hp.n) upsertPlayer(map, hp.n, 'baseball', g.date, { team, league: g.league, nat: hp.nat }, hp.pid);
         }
       }
     }
