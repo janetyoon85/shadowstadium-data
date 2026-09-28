@@ -26,8 +26,15 @@ export function parseBaseballHighlightsFromBoxscore(rd) {
       // Naver 이 엔드포인트엔 타자 시즌누적 홈런수 필드 자체가 없어 진짜 "N호"는 구현 불가.
       // 1개일 땐 개수 생략, 2개+(한 경기 멀티 홈런)일 때만 표기. "홈런"/"도루" 단어는
       // HighlightColumn이 how 필드로 이미 앞에 붙여 렌더링하므로(App.tsx) text에 중복 기재 안 함.
-      if (p.hr > 0) out.push({ how: '홈런', text: p.hr === 1 ? name : `${name} ${p.hr}개`, player: name });
-      if (p.sb > 0) out.push({ how: '도루', text: p.sb === 1 ? name : `${name} ${p.sb}개`, player: name });
+      // birth/backnum/playerId는 최종 games.json엔 안 나가는 임시 필드 — MLB 국적 enrichment
+      // (mlb-nationality.mjs)가 fetch-schedule.mjs에서 이 값으로 MLB 공식 API 선수와 매칭(생년월일
+      // 대조)한 뒤 nat 필드로 바꿔치기하고 지움. KBO/NPB는 enrichment 대상이 아니라 그대로
+      // 버려짐(games.json 스키마에 영향 없음, 2026-09-28).
+      const meta = {};
+      if (p.birth) meta.birth = p.birth;
+      if (p.backnum) meta.backnum = p.backnum;
+      if (p.hr > 0) out.push({ how: '홈런', text: p.hr === 1 ? name : `${name} ${p.hr}개`, player: name, ...meta });
+      if (p.sb > 0) out.push({ how: '도루', text: p.sb === 1 ? name : `${name} ${p.sb}개`, player: name, ...meta });
     }
     return out;
   };

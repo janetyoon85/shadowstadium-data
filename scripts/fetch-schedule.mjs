@@ -6,6 +6,7 @@ import { validateDataset } from './validators.mjs';
 import { getAthleteNationality, getAthleteDisplayName } from './espn-nationality.mjs';
 import { parseBaseballHighlights } from './baseball-highlight-parse.mjs';
 import { selectUniqueScoreMatch } from './espn-match-select.mjs';
+import { getMlbNationality } from './mlb-nationality.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -557,6 +558,23 @@ async function enrichSaves(allGames) {
         if (rec.save) g.savePitcher = rec.save;
         if (rec.highlights && ((rec.highlights.home && rec.highlights.home.length) || (rec.highlights.away && rec.highlights.away.length))) {
           g.highlights = rec.highlights;
+          // MLB 국적 enrichment(2026-09-28, "야구도 국기 있으면 좋겠다" 요청 대응 조사 후 MLB만
+          // 우선 적용 — KBO/NPB는 무료 API가 없음). rec.highlights는 cache[g.gameId]와 동일
+          // 참조라 여기서 mutate하면 saves.json에도 그대로 저장되어 다음 실행부턴 재조회 없이
+          // 재사용됨(nat 필드가 이미 있으면 아래서 재조회 스킵).
+          if (g.league === 'MLB') {
+            for (const side of ['home', 'away']) {
+              const team = side === 'home' ? g.home : g.away;
+              for (const h of g.highlights[side] || []) {
+                if (h.nat === undefined && h.birth) {
+                  const nat = await getMlbNationality(team, h.birth);
+                  if (nat) h.nat = nat;
+                }
+                delete h.birth; // games.json엔 임시 필드 안 나가게 정리.
+                delete h.backnum;
+              }
+            }
+          }
         }
       }
     }

@@ -99,7 +99,9 @@ async function main() {
         const list = g.highlights[key];
         if (!Array.isArray(list)) continue;
         for (const h of list) {
-          if (h.player) upsertPlayer(map, h.player, 'baseball', g.date, { team, league: g.league });
+          // h.nat: MLB만 채워짐(2026-09-28, mlb-nationality.mjs) — 있으면 같이 실어서 선수
+          // 검색/즐겨찾기 국기 표시(App.tsx playerNatDisplay)에도 재사용.
+          if (h.player) upsertPlayer(map, h.player, 'baseball', g.date, { team, league: g.league, nat: h.nat });
         }
       }
     }
