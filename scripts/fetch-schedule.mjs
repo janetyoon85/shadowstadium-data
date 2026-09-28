@@ -535,6 +535,13 @@ async function enrichSaves(allGames) {
   // 실행들로 자연 분산.
   const SAVES_FETCH_BUDGET = 200;
   let savesFetchUsed = 0;
+  // MLB 투수(승/패/세/홀드) 국적 조회 예산(2026-09-29 추가, 이 기능이 처음부터 예산 없이 배포돼
+  // 809개 밀린 게임을 한 실행에서 전부 처리하려다 실제로 이 워크플로가 평소보다 훨씬 오래
+  // 걸리는 걸 실측(cron-job.org 5분 트리거가 계속 큐잉되는 이전 사고와 동일 증상 재현 위험) —
+  // SAVES_FETCH_BUDGET과 별도 예산으로 캡, 나머지는 자연스럽게 다음 실행들로 분산(found=false
+  // 아니면 플래그가 세팅 안 돼 재시도되므로 예산 초과로 건너뛴 건도 안전하게 다음 run에 재시도).
+  const MLB_PITCHER_NAT_BUDGET = 80;
+  let mlbPitcherNatUsed = 0;
 
   for (const g of targets) {
     const cached = cache[g.gameId];
@@ -609,7 +616,9 @@ async function enrichSaves(allGames) {
     // 트리거에 얹지 않고 독립적으로 처리 — mlbNatChecked(타자용)와 별도의 mlbPitcherNatChecked
     // 플래그를 써야 함(안 그러면 이미 mlbNatChecked=true인 기존 MLB 경기들이 이 새 필드를 영원히
     // 못 받는, [[feedback_final_cache_stale_snapshot_bug]]와 동일한 함정에 빠짐).
-    if (rec && typeof rec === 'object' && g.league === 'MLB' && !rec.mlbPitcherNatChecked && (g.winPitcher || g.losePitcher || g.savePitcher)) {
+    const needsPitcherNat = rec && typeof rec === 'object' && g.league === 'MLB' && !rec.mlbPitcherNatChecked && (g.winPitcher || g.losePitcher || g.savePitcher);
+    if (needsPitcherNat && mlbPitcherNatUsed < MLB_PITCHER_NAT_BUDGET) {
+      mlbPitcherNatUsed++;
       try {
         const dec = await getMlbPitcherDecisionNats(g.home, g.away, g.date);
         if (dec.winNat) rec.winPitcherNat = dec.winNat;
@@ -633,7 +642,9 @@ async function enrichSaves(allGames) {
     // 같은 등장 순서) 인덱스끼리 zip. mlbNatChecked/mlbPitcherNatChecked와 별도의
     // mlbHoldNatChecked 플래그 — 이미 그 둘이 true인 기존 MLB 경기도 이 새 필드는 못 받았을
     // 것이므로 독립 플래그 필수([[feedback_final_cache_stale_snapshot_bug]] 패턴).
-    if (rec && typeof rec === 'object' && g.league === 'MLB' && !rec.mlbHoldNatChecked && ((rec.holdHome && rec.holdHome.length) || (rec.holdAway && rec.holdAway.length))) {
+    const needsHoldNat = rec && typeof rec === 'object' && g.league === 'MLB' && !rec.mlbHoldNatChecked && ((rec.holdHome && rec.holdHome.length) || (rec.holdAway && rec.holdAway.length));
+    if (needsHoldNat && mlbPitcherNatUsed < MLB_PITCHER_NAT_BUDGET) {
+      mlbPitcherNatUsed++;
       try {
         const nats = await getMlbHoldNats(g.home, g.away, g.date);
         if (nats.home) rec.holdHomeNats = nats.home;
@@ -660,7 +671,7 @@ async function enrichSaves(allGames) {
   const withSave = targets.filter((g) => g.savePitcher).length;
   const withHighlights = targets.filter((g) => g.highlights).length;
   console.log(
-    `[saves] completedBaseball=${targets.length} cached=${fromCache} fetched=${fetched} failed=${failed} withSave=${withSave} withHighlights=${withHighlights}`,
+    `[saves] completedBaseball=${targets.length} cached=${fromCache} fetched=${fetched} failed=${failed} withSave=${withSave} withHighlights=${withHighlights} mlbPitcherNatUsed=${mlbPitcherNatUsed}/${MLB_PITCHER_NAT_BUDGET}`,
   );
 }
 
