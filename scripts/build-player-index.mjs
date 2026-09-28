@@ -51,7 +51,14 @@ async function main() {
   const games = JSON.parse(raw);
   const map = new Map();
 
-  for (const g of games) {
+  // pushAppearance는 unshift로 "가장 최근 처리된 것 = appearances[0]"을 가정하므로, games.json에
+  // 저장된 순서(크롤러가 리그별로 append한 순서라 날짜순이 아님)가 아니라 날짜 오름차순으로
+  // 정렬한 뒤 순회해야 appearances[0]이 실제 최신 소속으로 나옴 — 안 그러면 파일 순서상 우연히
+  // 뒤에 있는 대회(예: 국가대표 친선전)가 실제로는 더 과거인데도 앞에 뜨는 버그가 생김
+  // (2026-09-28 실사용 리포트: 손흥민 appearances[0]이 소속클럽이 아니라 국가대표로 뜸).
+  const sortedGames = [...games].sort((a, b) => (a.date ?? '').localeCompare(b.date ?? ''));
+
+  for (const g of sortedGames) {
     if (!g.scorers) continue;
     const sides = [
       { key: 'home', team: g.home },
