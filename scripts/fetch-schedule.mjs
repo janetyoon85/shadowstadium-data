@@ -484,8 +484,14 @@ function parseBaseballHighlightsFromBoxscore(rd) {
     for (const p of arr || []) {
       const name = (p?.name || '').trim();
       if (!name) continue;
-      if (p.hr > 0) out.push({ how: '홈런', text: `${name} ${p.hr}호` });
-      if (p.sb > 0) out.push({ how: '도루', text: `${name} ${p.sb}개` });
+      // "N호"는 한국 야구 관례상 시즌 누적 홈런 개수를 뜻하는데, 이 필드(p.hr)는 이 경기
+      // 한 경기의 홈런 개수라 대부분 1이 찍혀 "다 1호"로 보이는 오해를 낳음(2026-09-28 사용자
+      // 리포트) — Naver 이 엔드포인트엔 타자 시즌누적 홈런수 필드 자체가 없어(seasonHra는
+      // 있어도 seasonHr는 없음, 실측 확인) 진짜 "N호"는 구현 불가. 1개일 땐 개수 생략, 2개+
+      // (한 경기 멀티 홈런)일 때만 개수 표기. "홈런"/"도루" 단어는 HighlightColumn이 how 필드로
+      // 이미 앞에 붙여 렌더링하므로(App.tsx) text에 중복 기재하지 않음.
+      if (p.hr > 0) out.push({ how: '홈런', text: p.hr === 1 ? name : `${name} ${p.hr}개` });
+      if (p.sb > 0) out.push({ how: '도루', text: p.sb === 1 ? name : `${name} ${p.sb}개` });
     }
     return out;
   };
