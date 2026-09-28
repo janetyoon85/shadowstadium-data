@@ -615,10 +615,13 @@ async function enrichSaves(allGames) {
         if (dec.winNat) rec.winPitcherNat = dec.winNat;
         if (dec.loseNat) rec.losePitcherNat = dec.loseNat;
         if (dec.saveNat) rec.savePitcherNat = dec.saveNat;
+        // found=false(게임 자체를 못 찾음, 예: 팀명 미등록·API 장애)면 플래그를 세우지 않고 다음
+        // run 재시도 — found=true인데 개별 국적이 없는 건 정상적인 결과라 플래그 확정 가능
+        // (2026-09-29, 809개 경기가 KST/ET 날짜버그로 이 플래그에 영구 오염됐던 사고 재발방지).
+        if (dec.found) rec.mlbPitcherNatChecked = true;
       } catch (e) {
         console.warn(`[saves] MLB pitcher nat failed ${g.gameId}: ${e.message}`);
       }
-      rec.mlbPitcherNatChecked = true;
     }
     if (rec && typeof rec === 'object') {
       if (rec.winPitcherNat) g.winPitcherNat = rec.winPitcherNat;
@@ -635,10 +638,10 @@ async function enrichSaves(allGames) {
         const nats = await getMlbHoldNats(g.home, g.away, g.date);
         if (nats.home) rec.holdHomeNats = nats.home;
         if (nats.away) rec.holdAwayNats = nats.away;
+        if (nats.found) rec.mlbHoldNatChecked = true; // found=false면 다음 run 재시도.
       } catch (e) {
         console.warn(`[saves] MLB hold nat failed ${g.gameId}: ${e.message}`);
       }
-      rec.mlbHoldNatChecked = true;
     }
     if (rec && typeof rec === 'object' && ((rec.holdHome && rec.holdHome.length) || (rec.holdAway && rec.holdAway.length))) {
       const zip = (names, nats) => (names || []).map((n, i) => (nats && nats[i] ? { n, nat: nats[i] } : { n }));

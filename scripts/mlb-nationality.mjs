@@ -149,18 +149,21 @@ async function findGamePk(homeTeamKo, awayTeamKo, dateYmd) {
   return undefined;
 }
 
-// {winNat?, loseNat?, saveNat?} — 매칭 실패(로스터에 없는 팀명, 그 날짜에 해당 매치업 없음, API
-// 오류 등)는 전부 빈 객체로 graceful하게 생략, 절대 추측하지 않음.
+// {winNat?, loseNat?, saveNat?, found} — found=false는 "게임 자체를 못 찾음"(팀명 미등록, 그
+// 날짜에 매치업 없음, API 장애 등 재시도할 가치 있는 실패) — 호출부가 이걸로 "이미 시도함" 캐시
+// 플래그를 세울지 판단(found=false면 플래그 세우지 말고 다음 run 재시도). found=true인데 개별
+// win/lose/save 국적이 없는 건 그 자체로 정상적인 결과(해당 역할 자체가 없는 경기 등)라 플래그
+// 확정해도 안전 — 절대 국적을 추측하지 않음.
 export async function getMlbPitcherDecisionNats(homeTeamKo, awayTeamKo, dateYmd) {
   const gamePk = await findGamePk(homeTeamKo, awayTeamKo, dateYmd);
-  if (!gamePk) return {};
+  if (!gamePk) return { found: false };
   const feed = await loadLiveFeed(gamePk);
   const dec = feed?.liveData?.decisions;
-  if (!dec) return {};
+  if (!dec) return { found: false };
   const ids = [dec.winner?.id, dec.loser?.id, dec.save?.id].filter((id) => id != null);
-  if (ids.length === 0) return {};
+  const out = { found: true };
+  if (ids.length === 0) return out;
   const natById = await getPeopleNat(ids);
-  const out = {};
   if (dec.winner?.id != null && natById.has(dec.winner.id)) out.winNat = natById.get(dec.winner.id);
   if (dec.loser?.id != null && natById.has(dec.loser.id)) out.loseNat = natById.get(dec.loser.id);
   if (dec.save?.id != null && natById.has(dec.save.id)) out.saveNat = natById.get(dec.save.id);
@@ -170,16 +173,17 @@ export async function getMlbPitcherDecisionNats(homeTeamKo, awayTeamKo, dateYmd)
 // 홀드 투수 국적(2026-09-29) — decisions와 달리 MLB API도 "누가 홀드인지"를 boxscore 개별 투수의
 // pitching.holds>0 여부로만 알 수 있어(단일 winner/loser 같은 역할 필드 없음), 팀별 투수 등장
 // 순서(team.pitchers 배열은 실제 등판 순서)로 홀드 투수만 골라낸 뒤, 호출부(fetch-schedule.mjs)가
-// 네이버 홀드 투수 이름 배열과 같은 순서로 zip 매칭. {home: (string|undefined)[], away: (...)[]} —
-// 국적 조회 실패한 자리는 undefined로 그대로 유지(배열에서 빼면 이후 인덱스가 밀려 엉뚱한 투수와
-// 매칭될 수 있어서). 길이 자체가 네이버 쪽 홀드 투수 수와 다르면(그 경기에 한해 드문 불일치)
-// 호출부가 짧은 쪽까지만 zip.
+// 네이버 홀드 투수 이름 배열과 같은 순서로 zip 매칭. {found, home?: (string|undefined)[], away?:
+// (...)[]} — found=false는 게임 자체를 못 찾은 재시도 대상(getMlbPitcherDecisionNats와 동일
+// 규약). 국적 조회 실패한 자리는 undefined로 그대로 유지(배열에서 빼면 이후 인덱스가 밀려 엉뚱한
+// 투수와 매칭될 수 있어서). 길이 자체가 네이버 쪽 홀드 투수 수와 다르면(그 경기에 한해 드문
+// 불일치) 호출부가 짧은 쪽까지만 zip.
 export async function getMlbHoldNats(homeTeamKo, awayTeamKo, dateYmd) {
   const gamePk = await findGamePk(homeTeamKo, awayTeamKo, dateYmd);
-  if (!gamePk) return {};
+  if (!gamePk) return { found: false };
   const feed = await loadLiveFeed(gamePk);
   const box = feed?.liveData?.boxscore;
-  if (!box) return {};
+  if (!box) return { found: false };
   const bySide = {};
   const allIds = [];
   for (const side of ['home', 'away']) {
@@ -195,9 +199,9 @@ export async function getMlbHoldNats(homeTeamKo, awayTeamKo, dateYmd) {
     }
     bySide[side] = holders;
   }
-  if (allIds.length === 0) return {};
+  const out = { found: true };
+  if (allIds.length === 0) return out;
   const natById = await getPeopleNat(allIds);
-  const out = {};
   for (const side of ['home', 'away']) {
     // filter로 빈 자리를 없애면 등장 순서 인덱스가 밀려 호출부의 zip 매칭이 다음 홀드 투수에게
     // 엉뚱한 국적을 붙일 수 있음 — undefined를 그 자리에 그대로 남겨 인덱스 정합성 유지.
