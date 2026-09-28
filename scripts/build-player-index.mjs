@@ -6,8 +6,10 @@
 // 전체 선수를 못 봄 — 그래서 이 스크립트는 fetch-schedule.mjs 실행 "뒤에" 별도 스텝으로
 // 커밋된 games.json 전체를 다시 읽어서 players.json 을 만든다.
 //
-// 1차: 축구(scorers[].n=골, scorers[].a=어시, cards[].n=카드). 2차(2026-09-28): 야구
+// 1차: 축구(scorers[].n=골, scorers[].a=어시, cards[].n=카드). 2차(2026-09-28): 야구 타자
 // (highlights[].player=홈런/도루 등, parseBaseballHighlights/FromBoxscore가 파싱 중 추출).
+// 3차(2026-09-29): 야구 투수(winPitcher/losePitcher/savePitcher/holds) — 타자 이벤트가 없는
+// 투수 전업 선수(다르빗슈 유 등)는 그동안 인덱스에 전혀 안 잡히던 갭이었음.
 //
 // 매칭(notify-player-events.mjs)은 이름 문자열 단독이라 여기서 만드는 appearances는
 // 순전히 검색/동명이인 구분용 UI 메타데이터일 뿐, 매칭 범위에는 영향 없음.
@@ -81,7 +83,7 @@ async function main() {
   const sortedGames = [...games].sort((a, b) => (a.date ?? '').localeCompare(b.date ?? ''));
 
   for (const g of sortedGames) {
-    if (!g.scorers && !g.cards && !g.highlights) continue;
+    if (!g.scorers && !g.cards && !g.highlights && !g.winPitcher && !g.losePitcher && !g.savePitcher && !g.holds) continue;
     const sides = [
       { key: 'home', team: g.home },
       { key: 'away', team: g.away },
@@ -130,6 +132,24 @@ async function main() {
           // h.nat: MLB만 채워짐(2026-09-28, mlb-nationality.mjs) — 있으면 같이 실어서 선수
           // 검색/즐겨찾기 국기 표시(App.tsx playerNatDisplay)에도 재사용.
           if (h.player) upsertPlayer(map, h.player, 'baseball', g.date, { team, league: g.league, nat: h.nat });
+        }
+      }
+    }
+    // 투수(승/패/세이브/홀드) — 타자 하이라이트만 있고 투수는 인덱스에 아예 없던 갭(2026-09-29,
+    // 사용자 리포트: "다르빗슈유는 왜검색이안되는거야?" — 타자 이벤트(홈런 등)가 없는 투수 전업
+    // 선수는 그동안 즐겨찾기 검색에 절대 안 걸렸음). 승/패 투수는 네이버 스케줄 API 원본부터
+    // 홈/원정 구분이 없는 문자열이라(win/losePitcherName) team을 알 수 없어 ''(미상)로 인덱싱 —
+    // 국기·이름 검색엔 지장 없고, 소속팀 표시만 생략됨. 홀드는 이미 팀별로 갈라져 있어(g.holds.
+    // {home,away}) 정확한 team 부착 가능.
+    if (g.winPitcher) upsertPlayer(map, g.winPitcher, 'baseball', g.date, { team: '', league: g.league, nat: g.winPitcherNat });
+    if (g.losePitcher) upsertPlayer(map, g.losePitcher, 'baseball', g.date, { team: '', league: g.league, nat: g.losePitcherNat });
+    if (g.savePitcher) upsertPlayer(map, g.savePitcher, 'baseball', g.date, { team: '', league: g.league, nat: g.savePitcherNat });
+    if (g.holds) {
+      for (const { key, team } of sides) {
+        const list = g.holds[key];
+        if (!Array.isArray(list)) continue;
+        for (const hp of list) {
+          if (hp.n) upsertPlayer(map, hp.n, 'baseball', g.date, { team, league: g.league, nat: hp.nat });
         }
       }
     }
