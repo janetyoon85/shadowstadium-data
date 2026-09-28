@@ -564,8 +564,7 @@ async function enrichSaves(allGames) {
     const needsHoldBackfill = isNewFormat && !Array.isArray(cached.holdHome);
     const needsHighlightRefetch = recentHighlightIds.has(g.gameId) && (!isSplitHighlightFormat || needsMlbNatBackfill || needsHoldBackfill);
     const needsSavesFetch = cached === undefined || needsHighlightRefetch;
-    if (needsSavesFetch && savesFetchUsed >= SAVES_FETCH_BUDGET) continue; // 이번 실행 예산 소진 — 다음 실행 재시도.
-    if (needsSavesFetch) {
+    if (needsSavesFetch && savesFetchUsed < SAVES_FETCH_BUDGET) {
       savesFetchUsed++;
       try {
         await sleep(REQUEST_DELAY_MS);
@@ -574,12 +573,17 @@ async function enrichSaves(allGames) {
       } catch (e) {
         failed++;
         console.warn(`[saves] fetch failed ${g.gameId}: ${e.message}`);
-        if (cached === undefined) continue; // 캐시 자체가 없으면 다음 run 재시도, 미부착.
-        // 옛 캐시가 있으면(리페치 실패해도) 그걸로라도 부착 — 아래에서 사용.
+        // 캐시 자체가 없으면 이번엔 붙일 게 없음 — 아래 rec 체크들이 전부 안전하게 no-op.
+        // 옛 캐시가 있으면(리페치 실패해도) 그걸로라도 부착.
       }
-    } else {
+    } else if (!needsSavesFetch) {
       fromCache++;
     }
+    // needsSavesFetch인데 예산 초과로 이번엔 재조회 못 한 경우 — 예전엔 여기서 continue로 루프를
+    // 통째로 건너뛰어서 이미 캐시된 값(승/패/세 국적 등)까지 이번 실행 결과물에서 통째로 빠지는
+    // 심각한 회귀가 있었음(2026-09-29 발견: 홀드 백필 트리거가 거의 모든 게임을 needsSavesFetch로
+    // 만들어버려 예산 200을 넘는 대부분의 게임이 이미 확보한 국적 데이터까지 잃음). 재조회만
+    // 건너뛰고, 아래에서 기존 캐시가 있으면 그대로 계속 반영.
     const rec = cache[g.gameId];
     if (rec) {
       if (typeof rec === 'string') {
