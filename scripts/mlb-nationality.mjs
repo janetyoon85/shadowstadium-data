@@ -90,20 +90,21 @@ async function loadScheduleForDate(dateYmd) {
   return promise;
 }
 
-const decisionsCache = new Map(); // gamePk -> Promise<{winner?,loser?,save?}|null>
-async function loadDecisions(gamePk) {
-  if (decisionsCache.has(gamePk)) return decisionsCache.get(gamePk);
+// decisions(승/패/세이브)와 holds(홀드) 둘 다 같은 live feed 응답 하나에 들어있어(liveData.decisions,
+// liveData.boxscore) 게임당 요청을 하나로 공유 — 2026-09-29 홀드 추가하면서 재사용.
+const liveFeedCache = new Map(); // gamePk -> Promise<liveFeedJson|null>
+async function loadLiveFeed(gamePk) {
+  if (liveFeedCache.has(gamePk)) return liveFeedCache.get(gamePk);
   const promise = (async () => {
     try {
       const res = await fetch(`https://statsapi.mlb.com/api/v1.1/game/${gamePk}/feed/live`);
       if (!res.ok) return null;
-      const j = await res.json();
-      return j.liveData?.decisions || null;
+      return await res.json();
     } catch {
       return null;
     }
   })();
-  decisionsCache.set(gamePk, promise);
+  liveFeedCache.set(gamePk, promise);
   return promise;
 }
 
@@ -123,16 +124,38 @@ async function getPeopleNat(personIds) {
   return map;
 }
 
+function addDaysYmd(dateYmd, delta) {
+  const d = new Date(`${dateYmd}T00:00:00Z`);
+  d.setUTCDate(d.getUTCDate() + delta);
+  return d.toISOString().slice(0, 10);
+}
+
+// games.json의 date는 KST, MLB 공식 스케줄 API는 미국 동부시각(ET) 날짜 기준 — 저녁 경기가 많아
+// KST로는 보통 다음날로 넘어감(예: ET 9/27 저녁 경기 = KST 9/28). 처음엔 g.date를 그대로 넘겨서
+// 매칭이 거의 다 실패하는 버그가 있었음(2026-09-29, 배포 직후 자체 재검증 중 발견 — "워싱턴 vs
+// 뉴욕메츠 2026-09-28"로 조회 시 빈 결과, 실제로는 스케줄상 2026-09-27임을 재현 확인). KST
+// 날짜와 그 전날(ET 기준 가장 흔한 경우) 둘 다 시도 — 그래도 못 찾으면 드문 주간경기 등으로 보고
+// 생략(추측 안 함).
+async function findGamePk(homeTeamKo, awayTeamKo, dateYmd) {
+  const homeId = MLB_TEAM_ID[homeTeamKo];
+  const awayId = MLB_TEAM_ID[awayTeamKo];
+  if (!homeId || !awayId) return undefined;
+  const key = `${awayId}@${homeId}`;
+  for (const candidate of [addDaysYmd(dateYmd, -1), dateYmd]) {
+    const sched = await loadScheduleForDate(candidate);
+    const gamePk = sched.get(key);
+    if (gamePk) return gamePk;
+  }
+  return undefined;
+}
+
 // {winNat?, loseNat?, saveNat?} — 매칭 실패(로스터에 없는 팀명, 그 날짜에 해당 매치업 없음, API
 // 오류 등)는 전부 빈 객체로 graceful하게 생략, 절대 추측하지 않음.
 export async function getMlbPitcherDecisionNats(homeTeamKo, awayTeamKo, dateYmd) {
-  const homeId = MLB_TEAM_ID[homeTeamKo];
-  const awayId = MLB_TEAM_ID[awayTeamKo];
-  if (!homeId || !awayId) return {};
-  const sched = await loadScheduleForDate(dateYmd);
-  const gamePk = sched.get(`${awayId}@${homeId}`);
+  const gamePk = await findGamePk(homeTeamKo, awayTeamKo, dateYmd);
   if (!gamePk) return {};
-  const dec = await loadDecisions(gamePk);
+  const feed = await loadLiveFeed(gamePk);
+  const dec = feed?.liveData?.decisions;
   if (!dec) return {};
   const ids = [dec.winner?.id, dec.loser?.id, dec.save?.id].filter((id) => id != null);
   if (ids.length === 0) return {};
@@ -141,5 +164,44 @@ export async function getMlbPitcherDecisionNats(homeTeamKo, awayTeamKo, dateYmd)
   if (dec.winner?.id != null && natById.has(dec.winner.id)) out.winNat = natById.get(dec.winner.id);
   if (dec.loser?.id != null && natById.has(dec.loser.id)) out.loseNat = natById.get(dec.loser.id);
   if (dec.save?.id != null && natById.has(dec.save.id)) out.saveNat = natById.get(dec.save.id);
+  return out;
+}
+
+// 홀드 투수 국적(2026-09-29) — decisions와 달리 MLB API도 "누가 홀드인지"를 boxscore 개별 투수의
+// pitching.holds>0 여부로만 알 수 있어(단일 winner/loser 같은 역할 필드 없음), 팀별 투수 등장
+// 순서(team.pitchers 배열은 실제 등판 순서)로 홀드 투수만 골라낸 뒤, 호출부(fetch-schedule.mjs)가
+// 네이버 홀드 투수 이름 배열과 같은 순서로 zip 매칭. {home: (string|undefined)[], away: (...)[]} —
+// 국적 조회 실패한 자리는 undefined로 그대로 유지(배열에서 빼면 이후 인덱스가 밀려 엉뚱한 투수와
+// 매칭될 수 있어서). 길이 자체가 네이버 쪽 홀드 투수 수와 다르면(그 경기에 한해 드문 불일치)
+// 호출부가 짧은 쪽까지만 zip.
+export async function getMlbHoldNats(homeTeamKo, awayTeamKo, dateYmd) {
+  const gamePk = await findGamePk(homeTeamKo, awayTeamKo, dateYmd);
+  if (!gamePk) return {};
+  const feed = await loadLiveFeed(gamePk);
+  const box = feed?.liveData?.boxscore;
+  if (!box) return {};
+  const bySide = {};
+  const allIds = [];
+  for (const side of ['home', 'away']) {
+    const team = box.teams?.[side];
+    const holders = [];
+    for (const pid of team?.pitchers || []) {
+      const p = team.players?.[`ID${pid}`];
+      const holds = p?.stats?.pitching?.holds;
+      if (typeof holds === 'number' && holds > 0) {
+        holders.push(pid);
+        allIds.push(pid);
+      }
+    }
+    bySide[side] = holders;
+  }
+  if (allIds.length === 0) return {};
+  const natById = await getPeopleNat(allIds);
+  const out = {};
+  for (const side of ['home', 'away']) {
+    // filter로 빈 자리를 없애면 등장 순서 인덱스가 밀려 호출부의 zip 매칭이 다음 홀드 투수에게
+    // 엉뚱한 국적을 붙일 수 있음 — undefined를 그 자리에 그대로 남겨 인덱스 정합성 유지.
+    out[side] = bySide[side].map((id) => natById.get(id));
+  }
   return out;
 }

@@ -6,7 +6,7 @@ import { validateDataset } from './validators.mjs';
 import { getAthleteNationality, getAthleteDisplayName } from './espn-nationality.mjs';
 import { parseBaseballHighlights } from './baseball-highlight-parse.mjs';
 import { selectUniqueScoreMatch } from './espn-match-select.mjs';
-import { getMlbNationality, getMlbPitcherDecisionNats } from './mlb-nationality.mjs';
+import { getMlbNationality, getMlbPitcherDecisionNats, getMlbHoldNats } from './mlb-nationality.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -490,7 +490,19 @@ async function fetchGameRecord(gameId) {
       }
     }
   }
-  return { save, highlights: parseBaseballHighlights(rd) };
+  // 홀드 투수(2026-09-29, "투수 홀드 정보도 가져올수있음?") — 팀별 분리가 필요해서(경기당 여러 명
+  // 가능) KBO는 pitchersBoxscore.{home,away}(팀분리 있음, wls '홀')를, MLB/NPB는 homePitcher/
+  // awayPitcher(원래도 팀분리, wls '홀')를 씀. KBO의 pitchingResult는 팀분리가 없어 홀드용으론 부적합.
+  const holdHome = [];
+  const holdAway = [];
+  if (rd.pitchersBoxscore) {
+    for (const p of rd.pitchersBoxscore.home || []) if (p && p.wls === '홀') { const n = (p.name || '').trim(); if (n) holdHome.push(n); }
+    for (const p of rd.pitchersBoxscore.away || []) if (p && p.wls === '홀') { const n = (p.name || '').trim(); if (n) holdAway.push(n); }
+  } else {
+    for (const p of rd.homePitcher || []) if (p && p.wls === '홀') { const n = (p.name || '').trim(); if (n) holdHome.push(n); }
+    for (const p of rd.awayPitcher || []) if (p && p.wls === '홀') { const n = (p.name || '').trim(); if (n) holdAway.push(n); }
+  }
+  return { save, holdHome, holdAway, highlights: parseBaseballHighlights(rd) };
 }
 // 하이라이트(홈런 등)는 새 필드라 옛 캐시(saves.json, 지금까지는 savePitcher 문자열만 저장)엔
 // 당연히 없음 — 처음엔 사용자 지시대로 최근 3일치만 재조회했으나("백필할필요없고 백필은
@@ -539,7 +551,11 @@ async function enrichSaves(allGames) {
     // 국적채워지는거지??"로 실측 발견: 오늘 경기도 0%). mlbNatChecked 플래그로 "이미 시도함"을
     // 명시적으로 기록해 이게 없는 MLB 경기만 재조회 트리거.
     const needsMlbNatBackfill = g.league === 'MLB' && isSplitHighlightFormat && !cached.mlbNatChecked;
-    const needsHighlightRefetch = recentHighlightIds.has(g.gameId) && (!isSplitHighlightFormat || needsMlbNatBackfill);
+    // 홀드 투수(2026-09-29 추가) — 이 필드 도입 이전에 캐시된 경기는 holdHome/holdAway 자체가
+    // 없어서(undefined) 재조회 안 하면 영원히 안 채워짐(같은 계열의 반복 패턴). 배열 존재 여부로
+    // 판단 — 홀드가 0명이었던 정상 케이스는 빈 배열([])로 저장되니 undefined와 구분됨.
+    const needsHoldBackfill = isNewFormat && !Array.isArray(cached.holdHome);
+    const needsHighlightRefetch = recentHighlightIds.has(g.gameId) && (!isSplitHighlightFormat || needsMlbNatBackfill || needsHoldBackfill);
     const needsSavesFetch = cached === undefined || needsHighlightRefetch;
     if (needsSavesFetch && savesFetchUsed >= SAVES_FETCH_BUDGET) continue; // 이번 실행 예산 소진 — 다음 실행 재시도.
     if (needsSavesFetch) {
@@ -608,6 +624,25 @@ async function enrichSaves(allGames) {
       if (rec.winPitcherNat) g.winPitcherNat = rec.winPitcherNat;
       if (rec.losePitcherNat) g.losePitcherNat = rec.losePitcherNat;
       if (rec.savePitcherNat) g.savePitcherNat = rec.savePitcherNat;
+    }
+    // 홀드 투수 국적(MLB만, 2026-09-29) — decisions 엔드포인트와 달리 "누가 홀드인지"를 단일 역할
+    // 필드로 안 줘서 boxscore의 팀별 투수 등장 순서로 골라낸 뒤 이름 배열(rec.holdHome/holdAway,
+    // 같은 등장 순서) 인덱스끼리 zip. mlbNatChecked/mlbPitcherNatChecked와 별도의
+    // mlbHoldNatChecked 플래그 — 이미 그 둘이 true인 기존 MLB 경기도 이 새 필드는 못 받았을
+    // 것이므로 독립 플래그 필수([[feedback_final_cache_stale_snapshot_bug]] 패턴).
+    if (rec && typeof rec === 'object' && g.league === 'MLB' && !rec.mlbHoldNatChecked && ((rec.holdHome && rec.holdHome.length) || (rec.holdAway && rec.holdAway.length))) {
+      try {
+        const nats = await getMlbHoldNats(g.home, g.away, g.date);
+        if (nats.home) rec.holdHomeNats = nats.home;
+        if (nats.away) rec.holdAwayNats = nats.away;
+      } catch (e) {
+        console.warn(`[saves] MLB hold nat failed ${g.gameId}: ${e.message}`);
+      }
+      rec.mlbHoldNatChecked = true;
+    }
+    if (rec && typeof rec === 'object' && ((rec.holdHome && rec.holdHome.length) || (rec.holdAway && rec.holdAway.length))) {
+      const zip = (names, nats) => (names || []).map((n, i) => (nats && nats[i] ? { n, nat: nats[i] } : { n }));
+      g.holds = { home: zip(rec.holdHome, rec.holdHomeNats), away: zip(rec.holdAway, rec.holdAwayNats) };
     }
   }
 
@@ -1338,6 +1373,8 @@ function serializeGame(g) {
   if (g.winPitcherNat) out.winPitcherNat = g.winPitcherNat;
   if (g.losePitcherNat) out.losePitcherNat = g.losePitcherNat;
   if (g.savePitcherNat) out.savePitcherNat = g.savePitcherNat;
+  // 홀드 투수(2026-09-29) — 팀별 배열, 빈 팀 쪽은 생략 가능하니 둘 중 하나라도 있으면 통째로 실음.
+  if (g.holds && ((g.holds.home && g.holds.home.length) || (g.holds.away && g.holds.away.length))) out.holds = g.holds;
   // 야구 하이라이트(홈런/2루타/도루/실책/병살타/결승타 등) — KBO/MLB/NPB 최근 3일 경기만.
   if (g.highlights) out.highlights = g.highlights;
   // 축구 득점자 — 종료+진행중 경기, 골 있을 때만. {home,away} 각 [{m,n,pk?,og?}].
