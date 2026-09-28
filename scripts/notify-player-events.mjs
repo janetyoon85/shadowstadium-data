@@ -4,8 +4,10 @@
 // 집합에 없는 것만 보낸다" — 배열 인덱스를 dedup 키에 포함하므로 scorers 배열이 append-only로
 // 유지된다는 가정에 의존(기존 enrichEuroAssists의 index-zip 방식과 동급 리스크, 수용됨).
 //
-// 1차 스코프: 축구 골(scorers[].n)/어시(scorers[].a)/카드(cards[].n). 야구는 2차(하이라이트
-// player 필드 추가 후) 예정.
+// 1차: 축구 골(scorers[].n)/어시(scorers[].a)/카드(cards[].n). 2차(2026-09-28): 야구
+// 하이라이트(highlights[].player — 홈런/도루/2루타/3루타/실책/병살타/결승타 등, how 필드
+// 그대로 라벨로 사용 — 종류가 많아 축구처럼 kind별 하드코딩 대신 icon/label을 push 시점에
+// 직접 계산).
 //
 // 서버는 누가 그 선수를 즐겨찾기했는지 모름 — 구독자 0인 토픽에 발송해도 FCM에서 무해한
 // no-op이라, 매 경기의 모든 스코어러에 대해 그냥 다 발송한다(팀 리마인더와 동일 설계).
@@ -46,7 +48,7 @@ async function main() {
 
   const pending = [];
   for (const g of games) {
-    if (!g.gameId || (!g.scorers && !g.cards)) continue;
+    if (!g.gameId || (!g.scorers && !g.cards && !g.highlights)) continue;
     const sides = [
       { key: 'home', team: g.home },
       { key: 'away', team: g.away },
@@ -63,11 +65,11 @@ async function main() {
           // 동일 정규화 재사용, 두 스크립트가 다른 이름으로 정규화하면 다시 어긋나므로 반드시 동기화).
           if (s.n) {
             const dedupKey = `${g.gameId}:${key}:scorer:${i}`;
-            if (!sent[dedupKey]) pending.push({ dedupKey, name: canonicalPlayerName(s.n), game: g, team, kind: 'goal', minute: s.m });
+            if (!sent[dedupKey]) pending.push({ dedupKey, name: canonicalPlayerName(s.n), game: g, team, icon: '⚽', label: '골', minute: s.m });
           }
           if (s.a) {
             const dedupKey = `${g.gameId}:${key}:assist:${i}`;
-            if (!sent[dedupKey]) pending.push({ dedupKey, name: canonicalPlayerName(s.a), game: g, team, kind: 'assist', minute: s.m });
+            if (!sent[dedupKey]) pending.push({ dedupKey, name: canonicalPlayerName(s.a), game: g, team, icon: '🅰️', label: '어시스트', minute: s.m });
           }
         }
       }
@@ -82,7 +84,23 @@ async function main() {
           const c = list[i];
           if (!c.n) continue;
           const dedupKey = `${g.gameId}:${key}:card:${i}`;
-          if (!sent[dedupKey]) pending.push({ dedupKey, name: canonicalPlayerName(c.n), game: g, team, kind: c.type === 'R' ? 'red' : 'yellow', minute: c.m });
+          const isRed = c.type === 'R';
+          if (!sent[dedupKey]) pending.push({ dedupKey, name: canonicalPlayerName(c.n), game: g, team, icon: isRed ? '🟥' : '🟨', label: isRed ? '퇴장' : '경고', minute: c.m });
+        }
+      }
+    }
+    // 야구 하이라이트(홈런/도루/2루타/3루타/실책/병살타/결승타 등, 2026-09-28 2차) — 전부
+    // 네이버 원문(한글)이라 canonicalPlayerName(ESPN 영문 매칭용) 불필요. how 필드를 라벨로
+    // 그대로 사용(종류가 많아 하드코딩 매핑 대신 원문 재사용).
+    if (g.highlights) {
+      for (const { key, team } of sides) {
+        const list = g.highlights[key];
+        if (!Array.isArray(list)) continue;
+        for (let i = 0; i < list.length; i++) {
+          const h = list[i];
+          if (!h.player) continue;
+          const dedupKey = `${g.gameId}:${key}:highlight:${i}`;
+          if (!sent[dedupKey]) pending.push({ dedupKey, name: h.player, game: g, team, icon: '⚾', label: h.how });
         }
       }
     }
@@ -90,9 +108,7 @@ async function main() {
 
   let sentCount = 0;
   for (const item of pending) {
-    const { dedupKey, name, game: g, team, kind, minute } = item;
-    const icon = kind === 'goal' ? '⚽' : kind === 'assist' ? '🅰️' : kind === 'red' ? '🟥' : '🟨';
-    const label = kind === 'goal' ? '골' : kind === 'assist' ? '어시스트' : kind === 'red' ? '퇴장' : '경고';
+    const { dedupKey, name, game: g, team, icon, label, minute } = item;
     const minuteLabel = typeof minute === 'number' ? ` (${minute}분)` : '';
     const title = `${icon} ${name} ${label}!`;
     const body = `${team}${scoreLine(g)}${minuteLabel}`;

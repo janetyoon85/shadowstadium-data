@@ -6,8 +6,8 @@
 // 전체 선수를 못 봄 — 그래서 이 스크립트는 fetch-schedule.mjs 실행 "뒤에" 별도 스텝으로
 // 커밋된 games.json 전체를 다시 읽어서 players.json 을 만든다.
 //
-// 1차 스코프: 축구만(scorers[].n=골, scorers[].a=어시, cards[].n=카드). 야구는 하이라이트가
-// 아직 구조화된 player 필드가 없어서(2차 예정) 스킵.
+// 1차: 축구(scorers[].n=골, scorers[].a=어시, cards[].n=카드). 2차(2026-09-28): 야구
+// (highlights[].player=홈런/도루 등, parseBaseballHighlights/FromBoxscore가 파싱 중 추출).
 //
 // 매칭(notify-player-events.mjs)은 이름 문자열 단독이라 여기서 만드는 appearances는
 // 순전히 검색/동명이인 구분용 UI 메타데이터일 뿐, 매칭 범위에는 영향 없음.
@@ -60,7 +60,7 @@ async function main() {
   const sortedGames = [...games].sort((a, b) => (a.date ?? '').localeCompare(b.date ?? ''));
 
   for (const g of sortedGames) {
-    if (!g.scorers && !g.cards) continue;
+    if (!g.scorers && !g.cards && !g.highlights) continue;
     const sides = [
       { key: 'home', team: g.home },
       { key: 'away', team: g.away },
@@ -89,6 +89,17 @@ async function main() {
         if (!Array.isArray(list)) continue;
         for (const c of list) {
           if (c.n) upsertPlayer(map, canonicalPlayerName(c.n), 'soccer', g.date, { team, league: g.league });
+        }
+      }
+    }
+    // 야구 하이라이트(홈런/도루 등) — 2차(2026-09-28). 전부 네이버 원문(한글)이라 축구와 달리
+    // canonicalPlayerName(ESPN 영문 매칭용) 적용 불필요·의미 없음.
+    if (g.highlights) {
+      for (const { key, team } of sides) {
+        const list = g.highlights[key];
+        if (!Array.isArray(list)) continue;
+        for (const h of list) {
+          if (h.player) upsertPlayer(map, h.player, 'baseball', g.date, { team, league: g.league });
         }
       }
     }

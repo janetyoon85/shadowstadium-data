@@ -490,8 +490,9 @@ function parseBaseballHighlightsFromBoxscore(rd) {
       // 있어도 seasonHr는 없음, 실측 확인) 진짜 "N호"는 구현 불가. 1개일 땐 개수 생략, 2개+
       // (한 경기 멀티 홈런)일 때만 개수 표기. "홈런"/"도루" 단어는 HighlightColumn이 how 필드로
       // 이미 앞에 붙여 렌더링하므로(App.tsx) text에 중복 기재하지 않음.
-      if (p.hr > 0) out.push({ how: '홈런', text: p.hr === 1 ? name : `${name} ${p.hr}개` });
-      if (p.sb > 0) out.push({ how: '도루', text: p.sb === 1 ? name : `${name} ${p.sb}개` });
+      // 즐겨찾기 선수 알림 2차(야구, 2026-09-28) — name이 이미 지역변수로 있으니 player 필드로도 부착.
+      if (p.hr > 0) out.push({ how: '홈런', text: p.hr === 1 ? name : `${name} ${p.hr}개`, player: name });
+      if (p.sb > 0) out.push({ how: '도루', text: p.sb === 1 ? name : `${name} ${p.sb}개`, player: name });
     }
     return out;
   };
@@ -530,7 +531,9 @@ function parseBaseballHighlights(rd) {
     while ((m = playerTokenRe.exec(result))) {
       matched = true;
       const side = classifyHighlightSide(m[1], homeNames, awayNames);
-      const entry = { how: e.how, text: m[0] };
+      // 즐겨찾기 선수 알림 2차(야구, 2026-09-28) — 이름은 이미 파싱 중 추출되니 구조화된 필드로도
+      // 남김(기존 text 자유문자열은 그대로 유지, 표시 코드 변경 없음).
+      const entry = { how: e.how, text: m[0], player: m[1] };
       if (side === 'home') home.push(entry);
       else away.push(entry); // 로스터 매칭 실패(외국인 표기차 등)도 정보 유실 방지로 away 폴백.
     }
