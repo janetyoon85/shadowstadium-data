@@ -6,8 +6,8 @@
 // 전체 선수를 못 봄 — 그래서 이 스크립트는 fetch-schedule.mjs 실행 "뒤에" 별도 스텝으로
 // 커밋된 games.json 전체를 다시 읽어서 players.json 을 만든다.
 //
-// 1차 스코프: 축구만(scorers[].n=골, scorers[].a=어시). 야구는 하이라이트가 아직
-// 구조화된 player 필드가 없어서(2차 예정) 스킵.
+// 1차 스코프: 축구만(scorers[].n=골, scorers[].a=어시, cards[].n=카드). 야구는 하이라이트가
+// 아직 구조화된 player 필드가 없어서(2차 예정) 스킵.
 //
 // 매칭(notify-player-events.mjs)은 이름 문자열 단독이라 여기서 만드는 appearances는
 // 순전히 검색/동명이인 구분용 UI 메타데이터일 뿐, 매칭 범위에는 영향 없음.
@@ -60,22 +60,36 @@ async function main() {
   const sortedGames = [...games].sort((a, b) => (a.date ?? '').localeCompare(b.date ?? ''));
 
   for (const g of sortedGames) {
-    if (!g.scorers) continue;
+    if (!g.scorers && !g.cards) continue;
     const sides = [
       { key: 'home', team: g.home },
       { key: 'away', team: g.away },
     ];
-    for (const { key, team } of sides) {
-      const list = g.scorers[key];
-      if (!Array.isArray(list)) continue;
-      for (const s of list) {
-        // 득점자(s.n)는 네이버 원문(한글), 어시스트(s.a)는 ESPN 원문(영문)이라 같은 선수인데
-        // 문자열이 갈라지는 문제 발견(2026-09-28, "손흥민"으로 즐겨찾기해도 어시스트인 "Son
-        // Heung-Min"은 안 잡히던 버그) — canonicalPlayerName으로 알려진 한국 선수는 한글 키로
-        // 합쳐서 인덱싱(모르는 이름은 그대로 통과, 지어내지 않음).
-        if (s.n) upsertPlayer(map, canonicalPlayerName(s.n), 'soccer', g.date, { team, league: g.league, nat: s.nat });
-        // 어시스트 선수는 실제로는 상대 팀이 아니라 같은 팀 소속 — team은 골 넣은 쪽과 동일.
-        if (s.a) upsertPlayer(map, canonicalPlayerName(s.a), 'soccer', g.date, { team, league: g.league, nat: s.aNat });
+    if (g.scorers) {
+      for (const { key, team } of sides) {
+        const list = g.scorers[key];
+        if (!Array.isArray(list)) continue;
+        for (const s of list) {
+          // 득점자(s.n)는 네이버 원문(한글), 어시스트(s.a)는 ESPN 원문(영문)이라 같은 선수인데
+          // 문자열이 갈라지는 문제 발견(2026-09-28, "손흥민"으로 즐겨찾기해도 어시스트인 "Son
+          // Heung-Min"은 안 잡히던 버그) — canonicalPlayerName으로 알려진 한국 선수는 한글 키로
+          // 합쳐서 인덱싱(모르는 이름은 그대로 통과, 지어내지 않음).
+          if (s.n) upsertPlayer(map, canonicalPlayerName(s.n), 'soccer', g.date, { team, league: g.league, nat: s.nat });
+          // 어시스트 선수는 실제로는 상대 팀이 아니라 같은 팀 소속 — team은 골 넣은 쪽과 동일.
+          if (s.a) upsertPlayer(map, canonicalPlayerName(s.a), 'soccer', g.date, { team, league: g.league, nat: s.aNat });
+        }
+      }
+    }
+    // 카드(경고/퇴장) 받은 선수 — 골/어시 없이 카드만 받은 선수도 즐겨찾기·검색 가능하게
+    // 인덱스에 포함(2026-09-28, "카드 정보 추가됐을 때도 알람" 요청 대응). nat 정보 없음(카드
+    // 데이터엔 국적 조회 로직이 안 붙어있음).
+    if (g.cards) {
+      for (const { key, team } of sides) {
+        const list = g.cards[key];
+        if (!Array.isArray(list)) continue;
+        for (const c of list) {
+          if (c.n) upsertPlayer(map, canonicalPlayerName(c.n), 'soccer', g.date, { team, league: g.league });
+        }
       }
     }
   }
