@@ -463758,7 +463758,7 @@
     "homePitcher": "스미다",
     "awayScore": 4,
     "homeScore": 2,
-    "inningInfo": "8회초"
+    "inningInfo": "9회초"
   },
   {
     "date": "2026-09-28",
@@ -463775,7 +463775,7 @@
     "homePitcher": "아즈마",
     "awayScore": 4,
     "homeScore": 2,
-    "inningInfo": "8회말"
+    "inningInfo": "9회말"
   },
   {
     "date": "2026-09-28",
@@ -463787,12 +463787,29 @@
     "stadium": "ZOZO 마린 스타디움",
     "timeTbd": false,
     "gameId": "20260928NHJL0",
-    "status": "live",
+    "status": "completed",
     "awayPitcher": "후쿠시마",
     "homePitcher": "잭슨",
     "awayScore": 8,
     "homeScore": 3,
-    "inningInfo": "9회말"
+    "winPitcher": "후쿠시마",
+    "losePitcher": "잭슨",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "야마구치",
+          "player": "야마구치"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "군지",
+          "player": "군지"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-28",
@@ -463804,37 +463821,45 @@
     "stadium": "에디온 피스 윙 히로시마 스타디움",
     "timeTbd": false,
     "gameId": "83n8UqLKd5z58Jk",
-    "status": "live",
+    "status": "completed",
     "awayScore": 1,
-    "homeScore": 1,
-    "matchPeriod": "후반 42'",
+    "homeScore": 2,
     "scorers": {
       "home": [
         {
           "n": "우에다",
-          "m": 49,
-          "a": "Junya Ito",
-          "nat": "Japan",
-          "aNat": "Japan"
+          "m": 49
+        },
+        {
+          "n": "우에다",
+          "m": 90
         }
       ],
       "away": [
         {
           "n": "켈시",
-          "m": 46,
-          "a": "Luís Balbo",
-          "nat": "Venezuela",
-          "aNat": "Venezuela"
+          "m": 46
         }
       ]
     },
     "cards": {
-      "home": [],
+      "home": [
+        {
+          "n": "Ao Tanaka",
+          "type": "Y",
+          "m": 90
+        }
+      ],
       "away": [
         {
           "n": "Jon Aramburu",
           "type": "Y",
           "m": 65
+        },
+        {
+          "n": "José Contreras",
+          "type": "Y",
+          "m": 90
         }
       ]
     }
@@ -463850,9 +463875,9 @@
     "timeTbd": false,
     "gameId": "Q9Jhg3Wdqrlpm3d",
     "status": "live",
-    "awayScore": 3,
+    "awayScore": 4,
     "homeScore": 0,
-    "matchPeriod": "후반 5'",
+    "matchPeriod": "후반 19'",
     "scorers": {
       "home": [],
       "away": [
@@ -463874,6 +463899,13 @@
           "n": "김민재",
           "m": 43,
           "og": true
+        },
+        {
+          "n": "누녜스",
+          "m": 62,
+          "a": "Guillermo Varela",
+          "nat": "Uruguay",
+          "aNat": "Uruguay"
         }
       ]
     },
