@@ -90,7 +90,10 @@ async function extractScorers(comp, homeTeamId, awayTeamId, slug) {
     if (d.penaltyKick) entry.pk = true;
     if (d.ownGoal) entry.og = true;
     const teamId = String(d.team?.id ?? '');
-    const nat = await getAthleteNationality('soccer', slug, teamId, scorer.id);
+    // 자책골은 teamId가 득점 수혜팀이라 실제 득점 선수가 그 로스터에 없어 조회가 항상 실패
+    // 하던 구조적 버그(2026-09-28 발견) — 반대팀 id로 대신 조회.
+    const scorerTeamId = d.ownGoal ? (teamId === String(homeTeamId) ? String(awayTeamId) : String(homeTeamId)) : teamId;
+    const nat = await getAthleteNationality('soccer', slug, scorerTeamId, scorer.id);
     if (nat) entry.nat = nat;
     if (scorer.id) entry.pid = `espn:${scorer.id}`;
     if (teamId === String(homeTeamId)) home.push(entry);

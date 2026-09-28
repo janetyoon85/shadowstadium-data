@@ -751,6 +751,10 @@ function parseAssistFromText(text) {
 // "실점한(자책한) 팀"으로 team 을 표기하지만 Naver 는 "이득 본(수혜)" 팀 목록에 자책골을 넣으므로
 // team 필드는 자책골이어도 이미 "득점 수혜팀"(Naver 와 동일 관례, 실측 확인: Chelsea 소속 주앙 페드로의
 // 자책골 이벤트의 team 이 수혜팀인 Brighton — 뒤집으면 안 됨) 이라 별도 반전 불필요.
+// 단, 국적 조회(getAthleteNationality)는 다름 — 그건 "실제 득점 선수가 속한 팀"의 로스터에서
+// athleteId를 찾아야 하는데, 자책골이면 team.id(수혜팀)엔 그 선수가 없어서 항상 조회 실패함
+// (2026-09-28 실사용 리포트로 발견: 웨일스 자책골 선수 국적이 계속 안 채워짐 — 구조적 버그였음,
+// 백필을 아무리 돌려도 안 고쳐짐). og 플래그를 심어서 zip() 호출부가 반대팀 id로 조회하게 함.
 function extractEspnGoalsBySide(summaryJson, homeTeamName, awayTeamName) {
   const events = summaryJson.keyEvents || [];
   const home = [];
@@ -773,7 +777,7 @@ function extractEspnGoalsBySide(summaryJson, homeTeamName, awayTeamName) {
     const assistAthleteId = isOwnGoal ? undefined : e.participants?.[1]?.athlete?.id;
     const entry = {
       a: assist, m: Number.isFinite(clockNum) ? clockNum : null,
-      teamId: e.team?.id, athleteId: scorerAthleteId, assistAthleteId,
+      teamId: e.team?.id, athleteId: scorerAthleteId, assistAthleteId, og: isOwnGoal,
     };
     (side === 'home' ? home : away).push(entry);
   }
@@ -1157,30 +1161,33 @@ async function enrichEuroAssists(allGames) {
           } else {
             // 시간순 정렬 후 짝짓기 — 원본 배열 순서(App 표시 순서)는 건드리지 않고 객체 참조로만
             // a(어시스트)·nat(득점자 국적) 부착. nat은 이름 매칭이 아니라 이미 시각+스코어로 확정된
-            // 이 골 이벤트의 athleteId를 그 팀 로스터에서 정확히 조회한 값이라 오매칭 없음(자책골은
-            // e.team이 수혜팀이라 실제 득점자 소속과 달라 로스터에 없어 자연히 nat 미부착 — 안전).
-            const zip = async (naverArr, espnArr) => {
+            // 이 골 이벤트의 athleteId를 그 팀 로스터에서 정확히 조회한 값이라 오매칭 없음. 자책골은
+            // team.id(수혜팀)에 실제 득점 선수가 없어 국적 조회가 항상 실패하던 구조적 버그가
+            // 있었음(2026-09-28 실사용 리포트로 발견) — oppTeamId(반대팀)로 대신 조회하도록 수정.
+            const zip = async (naverArr, espnArr, oppTeamId) => {
               const naverSorted = [...naverArr].sort((a, b) => (a.m ?? 999) - (b.m ?? 999));
               const espnSorted = [...espnArr].sort((a, b) => (a.m ?? 999) - (b.m ?? 999));
               for (let i = 0; i < naverSorted.length; i++) {
                 const s = naverSorted[i];
                 const espnEntry = espnSorted[i];
                 if (espnEntry?.a) s.a = espnEntry.a;
-                if (espnEntry?.teamId && espnEntry?.athleteId) {
-                  const nat = await getAthleteNationality('soccer', slug, espnEntry.teamId, espnEntry.athleteId);
+                const scorerTeamId = espnEntry?.og ? oppTeamId : espnEntry?.teamId;
+                if (scorerTeamId && espnEntry?.athleteId) {
+                  const nat = await getAthleteNationality('soccer', slug, scorerTeamId, espnEntry.athleteId);
                   if (nat) s.nat = nat;
                   // s.n(득점자, 네이버 원문)은 늘 한글 — 이 골이 실제로 어느 ESPN 선수인지는 이미
                   // athleteId로 확정됐으니, 그 선수의 진짜 영문명(displayName)을 자동사전에 적립.
                   // 수작업 사전(PLAYER_NAME_EN)과 달리 ESPN 연동 리그에서 매칭 성공하는 모든 선수를
                   // 자동으로 커버(2026-09-28, "모든 선수 미리 가지고 있으면" 요청 대응).
                   if (s.n) {
-                    const displayName = await getAthleteDisplayName('soccer', slug, espnEntry.teamId, espnEntry.athleteId);
+                    const displayName = await getAthleteDisplayName('soccer', slug, scorerTeamId, espnEntry.athleteId);
                     if (displayName) autoPlayerNames[s.n] = displayName;
                   }
                   // 동명이인 구분용 고유ID(2026-09-28) — 추가 fetch 불필요, 이미 확정된 athleteId 그대로.
                   s.pid = `espn:${espnEntry.athleteId}`;
                 }
-                // 어시스트 국적 — 어시스트 선수는 득점자와 같은 팀이라 teamId 재사용.
+                // 어시스트 국적 — 어시스트 선수는 득점자와 같은 팀이라 teamId 재사용(자책골엔
+                // 애초에 어시스트가 안 붙음, extractEspnGoalsBySide에서 이미 null 처리).
                 if (espnEntry?.teamId && espnEntry?.assistAthleteId) {
                   const aNat = await getAthleteNationality('soccer', slug, espnEntry.teamId, espnEntry.assistAthleteId);
                   if (aNat) s.aNat = aNat;
@@ -1188,8 +1195,8 @@ async function enrichEuroAssists(allGames) {
                 }
               }
             };
-            await zip(g.scorers?.home || [], espnGoals.home);
-            await zip(g.scorers?.away || [], espnGoals.away);
+            await zip(g.scorers?.home || [], espnGoals.home, awayC?.team?.id);
+            await zip(g.scorers?.away || [], espnGoals.away, homeC?.team?.id);
             cache[g.gameId] = {
               homeAssists: (g.scorers?.home || []).map((s) => s.a || null),
               awayAssists: (g.scorers?.away || []).map((s) => s.a || null),
