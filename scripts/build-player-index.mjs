@@ -38,10 +38,16 @@ function pushAppearance(entry, appearance) {
 function upsertPlayer(map, name, sport, date, appearance) {
   const key = name.trim();
   if (!key) return;
-  let entry = map.get(key);
+  // sport까지 포함한 복합 키(2026-09-28) — 예전엔 이름만으로 키를 잡아서 스포츠가 다른 완전
+  // 다른 사람(예: 축구 "데이비스"와 MLB 피츠버그 소속 "데이비스")까지 한 항목에 섞였음
+  // (사용자 리포트로 발견: 자책골 넣은 웨일스 축구선수 검색에 야구선수 데이터가 붙어있었음).
+  // 같은 스포츠 내 동명이인(예: 축구 데이비스 여러 명)은 여전히 섞임 — 이름만으론 구분 불가한
+  // 근본 한계라 App.tsx 쪽에서 국적 충돌 감지로 별도 처리.
+  const mapKey = `${sport}:${key}`;
+  let entry = map.get(mapKey);
   if (!entry) {
     entry = { name: key, sport, appearances: [], lastSeenDate: date };
-    map.set(key, entry);
+    map.set(mapKey, entry);
   }
   if (!entry.lastSeenDate || date > entry.lastSeenDate) entry.lastSeenDate = date;
   pushAppearance(entry, appearance);
