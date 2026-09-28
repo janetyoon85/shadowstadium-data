@@ -1,6 +1,6 @@
 {
   "KBO": {
-    "updatedAt": "2026-09-28T13:00:52.645Z",
+    "updatedAt": "2026-09-28T14:00:53.390Z",
     "seasonCode": "2026",
     "rows": [
       {
@@ -698,7 +698,7 @@
     ]
   },
   "K리그1": {
-    "updatedAt": "2026-09-28T13:00:55.378Z",
+    "updatedAt": "2026-09-28T14:00:55.940Z",
     "seasonCode": "2026",
     "rows": [
       {
@@ -1302,7 +1302,7 @@
     ]
   },
   "K리그2": {
-    "updatedAt": "2026-09-28T13:00:56.942Z",
+    "updatedAt": "2026-09-28T14:00:57.360Z",
     "seasonCode": "2026",
     "rows": [
       {
@@ -2016,7 +2016,7 @@
     ]
   },
   "MLB": {
-    "updatedAt": "2026-09-28T13:00:58.490Z",
+    "updatedAt": "2026-09-28T14:00:58.733Z",
     "seasonCode": "2026",
     "rows": [
       {
@@ -3318,7 +3318,7 @@
     ]
   },
   "NPB": {
-    "updatedAt": "2026-09-28T13:01:00.941Z",
+    "updatedAt": "2026-09-28T14:01:01.233Z",
     "seasonCode": "2026",
     "rows": [
       {
@@ -3346,12 +3346,12 @@
       {
         "team": "세이부",
         "rank": 2,
-        "played": 139,
+        "played": 140,
         "win": 76,
-        "loss": 59,
+        "loss": 60,
         "draw": 4,
-        "winPct": 0.56296,
-        "gb": 12.5,
+        "winPct": 0.55882,
+        "gb": 13,
         "group": "퍼시픽리그"
       },
       {
@@ -3368,23 +3368,34 @@
       {
         "team": "닛폰햄",
         "rank": 3,
-        "played": 141,
-        "win": 76,
+        "played": 142,
+        "win": 77,
         "loss": 62,
         "draw": 3,
-        "winPct": 0.55072,
-        "gb": 14,
+        "winPct": 0.55395,
+        "gb": 13.5,
         "group": "퍼시픽리그"
       },
       {
         "team": "요코하마",
         "rank": 3,
-        "played": 140,
+        "played": 141,
         "win": 69,
-        "loss": 68,
+        "loss": 69,
         "draw": 3,
-        "winPct": 0.50364,
-        "gb": 8,
+        "winPct": 0.5,
+        "gb": 8.5,
+        "group": "센트럴리그"
+      },
+      {
+        "team": "히로시마",
+        "rank": 4,
+        "played": 137,
+        "win": 58,
+        "loss": 75,
+        "draw": 4,
+        "winPct": 0.43609,
+        "gb": 17,
         "group": "센트럴리그"
       },
       {
@@ -3399,8 +3410,19 @@
         "group": "퍼시픽리그"
       },
       {
+        "team": "지바롯데",
+        "rank": 5,
+        "played": 135,
+        "win": 60,
+        "loss": 72,
+        "draw": 3,
+        "winPct": 0.45454,
+        "gb": 27,
+        "group": "퍼시픽리그"
+      },
+      {
         "team": "야쿠르트",
-        "rank": 4,
+        "rank": 5,
         "played": 138,
         "win": 59,
         "loss": 77,
@@ -3408,28 +3430,6 @@
         "winPct": 0.43382,
         "gb": 17.5,
         "group": "센트럴리그"
-      },
-      {
-        "team": "히로시마",
-        "rank": 5,
-        "played": 136,
-        "win": 57,
-        "loss": 75,
-        "draw": 4,
-        "winPct": 0.43181,
-        "gb": 17.5,
-        "group": "센트럴리그"
-      },
-      {
-        "team": "지바롯데",
-        "rank": 5,
-        "played": 134,
-        "win": 60,
-        "loss": 71,
-        "draw": 3,
-        "winPct": 0.45801,
-        "gb": 26.5,
-        "group": "퍼시픽리그"
       },
       {
         "team": "주니치",
@@ -3445,12 +3445,12 @@
       {
         "team": "라쿠텐",
         "rank": 6,
-        "played": 136,
-        "win": 54,
+        "played": 137,
+        "win": 55,
         "loss": 81,
         "draw": 1,
-        "winPct": 0.4,
-        "gb": 34.5,
+        "winPct": 0.40441,
+        "gb": 34,
         "group": "퍼시픽리그"
       }
     ],
@@ -3522,6 +3522,17 @@
         "hold": null
       },
       {
+        "team": "히로시마",
+        "avg": 0.224,
+        "hr": 87,
+        "rbi": 383,
+        "sb": 71,
+        "era": 3.42939,
+        "whip": 1.27,
+        "save": 31,
+        "hold": null
+      },
+      {
         "team": "오릭스",
         "avg": 0.243,
         "hr": 96,
@@ -3529,6 +3540,17 @@
         "sb": 42,
         "era": 3.95157,
         "whip": 1.38,
+        "save": 37,
+        "hold": null
+      },
+      {
+        "team": "지바롯데",
+        "avg": 0.236,
+        "hr": 120,
+        "rbi": 454,
+        "sb": 45,
+        "era": 3.85279,
+        "whip": 1.31,
         "save": 37,
         "hold": null
       },
@@ -3541,28 +3563,6 @@
         "era": 3.71315,
         "whip": 1.31,
         "save": 32,
-        "hold": null
-      },
-      {
-        "team": "히로시마",
-        "avg": 0.224,
-        "hr": 87,
-        "rbi": 383,
-        "sb": 71,
-        "era": 3.42939,
-        "whip": 1.27,
-        "save": 31,
-        "hold": null
-      },
-      {
-        "team": "지바롯데",
-        "avg": 0.236,
-        "hr": 120,
-        "rbi": 454,
-        "sb": 45,
-        "era": 3.85279,
-        "whip": 1.31,
-        "save": 37,
         "hold": null
       },
       {
@@ -3883,7 +3883,7 @@
     ]
   },
   "EPL": {
-    "updatedAt": "2026-09-28T13:01:02.851Z",
+    "updatedAt": "2026-09-28T14:01:02.937Z",
     "seasonCode": "gMoc",
     "rows": [
       {
@@ -4663,7 +4663,7 @@
     ]
   },
   "EFL": {
-    "updatedAt": "2026-09-28T13:01:04.462Z",
+    "updatedAt": "2026-09-28T14:01:04.258Z",
     "seasonCode": "Gpa6",
     "rows": [
       {
@@ -5531,7 +5531,7 @@
     ]
   },
   "LALIGA": {
-    "updatedAt": "2026-09-28T13:01:05.962Z",
+    "updatedAt": "2026-09-28T14:01:05.667Z",
     "seasonCode": "AKz3",
     "rows": [
       {
@@ -6311,7 +6311,7 @@
     ]
   },
   "BUNDESLIGA": {
-    "updatedAt": "2026-09-28T13:01:07.442Z",
+    "updatedAt": "2026-09-28T14:01:07.023Z",
     "seasonCode": "QAF5",
     "rows": [
       {
@@ -7047,7 +7047,7 @@
     ]
   },
   "SERIEA": {
-    "updatedAt": "2026-09-28T13:01:08.871Z",
+    "updatedAt": "2026-09-28T14:01:08.354Z",
     "seasonCode": "YUEy",
     "rows": [
       {
@@ -7827,7 +7827,7 @@
     ]
   },
   "LIGUE1": {
-    "updatedAt": "2026-09-28T13:01:10.381Z",
+    "updatedAt": "2026-09-28T14:01:09.769Z",
     "seasonCode": "yEGP",
     "rows": [
       {
@@ -8563,7 +8563,7 @@
     ]
   },
   "EREDIVISIE": {
-    "updatedAt": "2026-09-28T13:01:11.840Z",
+    "updatedAt": "2026-09-28T14:01:11.121Z",
     "seasonCode": "rY5l",
     "rows": [
       {
@@ -9299,7 +9299,7 @@
     ]
   },
   "MLS": {
-    "updatedAt": "2026-09-28T13:01:13.279Z",
+    "updatedAt": "2026-09-28T14:01:12.498Z",
     "seasonCode": "kFAV",
     "rows": [
       {
@@ -10329,7 +10329,7 @@
     ]
   },
   "SCOTLAND": {
-    "updatedAt": "2026-09-28T13:01:14.816Z",
+    "updatedAt": "2026-09-28T14:01:13.961Z",
     "seasonCode": "tcRg",
     "rows": [
       {
@@ -10933,7 +10933,7 @@
     ]
   },
   "DENMARK": {
-    "updatedAt": "2026-09-28T13:01:16.258Z",
+    "updatedAt": "2026-09-28T14:01:15.330Z",
     "seasonCode": "ut8A",
     "rows": [
       {
@@ -11537,7 +11537,7 @@
     ]
   },
   "SAUDI": {
-    "updatedAt": "2026-09-28T13:01:17.666Z",
+    "updatedAt": "2026-09-28T14:01:16.687Z",
     "seasonCode": "mNWf",
     "rows": [
       {
@@ -12273,7 +12273,7 @@
     ]
   },
   "J1": {
-    "updatedAt": "2026-09-28T13:01:19.120Z",
+    "updatedAt": "2026-09-28T14:01:18.086Z",
     "seasonCode": "sxaF",
     "rows": [
       {
@@ -13053,7 +13053,7 @@
     ]
   },
   "UCL": {
-    "updatedAt": "2026-09-28T13:01:20.526Z",
+    "updatedAt": "2026-09-28T14:01:19.415Z",
     "seasonCode": "SwZB",
     "rows": [
       {
@@ -14185,7 +14185,7 @@
     ]
   },
   "UEL": {
-    "updatedAt": "2026-09-28T13:01:22.046Z",
+    "updatedAt": "2026-09-28T14:01:20.838Z",
     "seasonCode": "zKAT",
     "rows": [
       {
@@ -15317,7 +15317,7 @@
     ]
   },
   "UECL": {
-    "updatedAt": "2026-09-28T13:01:23.540Z",
+    "updatedAt": "2026-09-28T14:01:22.236Z",
     "seasonCode": "cKUe",
     "rows": [
       {
@@ -16425,7 +16425,7 @@
     ]
   },
   "ACL": {
-    "updatedAt": "2026-09-28T13:01:24.977Z",
+    "updatedAt": "2026-09-28T14:01:23.635Z",
     "seasonCode": "oNJx",
     "rows": [
       {
@@ -17501,7 +17501,7 @@
     ]
   },
   "ACL2": {
-    "updatedAt": "2026-09-28T13:01:26.422Z",
+    "updatedAt": "2026-09-28T14:01:25.031Z",
     "seasonCode": "PtcK",
     "rows": [
       {
@@ -18577,7 +18577,7 @@
     ]
   },
   "WORLDCUP": {
-    "updatedAt": "2026-09-28T13:01:27.869Z",
+    "updatedAt": "2026-09-28T14:01:26.412Z",
     "seasonCode": "3F9X",
     "rows": [
       {
@@ -20021,7 +20021,7 @@
     ]
   },
   "AFRICACUP": {
-    "updatedAt": "2026-09-28T13:01:29.394Z",
+    "updatedAt": "2026-09-28T14:01:27.917Z",
     "seasonCode": "GZMA",
     "rows": [
       {
@@ -20913,7 +20913,7 @@
     ]
   },
   "U17WORLDCUP": {
-    "updatedAt": "2026-09-28T13:01:30.848Z",
+    "updatedAt": "2026-09-28T14:01:29.305Z",
     "seasonCode": "LjKn",
     "rows": [
       {
@@ -21930,7 +21930,7 @@
     "players": []
   },
   "CONCACAFCUP": {
-    "updatedAt": "2026-09-28T13:01:32.234Z",
+    "updatedAt": "2026-09-28T14:01:30.539Z",
     "seasonCode": "G9oo",
     "rows": [
       {
@@ -22864,7 +22864,7 @@
     ]
   },
   "UNL": {
-    "updatedAt": "2026-09-28T13:01:33.728Z",
+    "updatedAt": "2026-09-28T14:01:31.951Z",
     "seasonCode": "0Eel",
     "rows": [
       {
@@ -24446,7 +24446,7 @@
     ]
   },
   "WCQUEFA": {
-    "updatedAt": "2026-09-28T13:01:35.307Z",
+    "updatedAt": "2026-09-28T14:01:33.433Z",
     "seasonCode": "lbrT",
     "rows": [
       {
@@ -26028,7 +26028,7 @@
     ]
   },
   "WCQAFC": {
-    "updatedAt": "2026-09-28T13:01:36.982Z",
+    "updatedAt": "2026-09-28T14:01:35.031Z",
     "seasonCode": "ECsm",
     "rows": [
       {
@@ -27196,7 +27196,7 @@
     ]
   },
   "ASIANCUP": {
-    "updatedAt": "2026-09-28T13:01:38.467Z",
+    "updatedAt": "2026-09-28T14:01:36.453Z",
     "seasonCode": "h5za",
     "rows": [
       {
@@ -27709,7 +27709,7 @@
     "players": []
   },
   "U17ASIANCUP": {
-    "updatedAt": "2026-09-28T13:01:39.813Z",
+    "updatedAt": "2026-09-28T14:01:37.862Z",
     "seasonCode": "W0Pm",
     "rows": [
       {
@@ -28394,7 +28394,7 @@
     ]
   },
   "U20ASIANCUP": {
-    "updatedAt": "2026-09-28T13:01:41.256Z",
+    "updatedAt": "2026-09-28T14:01:39.188Z",
     "seasonCode": "KL2i",
     "rows": [
       {
@@ -29102,7 +29102,7 @@
     ]
   },
   "U23ASIANCUP": {
-    "updatedAt": "2026-09-28T13:01:42.721Z",
+    "updatedAt": "2026-09-28T14:01:40.528Z",
     "seasonCode": "Ui6E",
     "rows": [
       {
@@ -29810,7 +29810,7 @@
     ]
   },
   "WOMENASIANCUP": {
-    "updatedAt": "2026-09-28T13:01:44.251Z",
+    "updatedAt": "2026-09-28T14:01:41.895Z",
     "seasonCode": "HlL4",
     "rows": [
       {
@@ -30426,7 +30426,7 @@
     ]
   },
   "U20WOMENASIANCUP": {
-    "updatedAt": "2026-09-28T13:01:45.695Z",
+    "updatedAt": "2026-09-28T14:01:43.274Z",
     "seasonCode": "BMHu",
     "rows": [
       {
@@ -31042,7 +31042,7 @@
     ]
   },
   "AFFCUP": {
-    "updatedAt": "2026-09-28T13:01:47.129Z",
+    "updatedAt": "2026-09-28T14:01:44.588Z",
     "seasonCode": "lOl0",
     "rows": [
       {
@@ -31612,7 +31612,7 @@
     ]
   },
   "E1MEN": {
-    "updatedAt": "2026-09-28T13:01:48.525Z",
+    "updatedAt": "2026-09-28T14:01:45.900Z",
     "seasonCode": "uqX4",
     "rows": [
       {
@@ -32040,7 +32040,7 @@
     ]
   },
   "E1WOMEN": {
-    "updatedAt": "2026-09-28T13:01:49.887Z",
+    "updatedAt": "2026-09-28T14:01:47.211Z",
     "seasonCode": "RagT",
     "rows": [
       {
@@ -32468,7 +32468,7 @@
     ]
   },
   "COPAAMERICA": {
-    "updatedAt": "2026-09-28T13:01:51.332Z",
+    "updatedAt": "2026-09-28T14:01:48.537Z",
     "seasonCode": "2bjq",
     "rows": [
       {
@@ -33176,7 +33176,7 @@
     ]
   },
   "CLUBWORLDCUP": {
-    "updatedAt": "2026-09-28T13:01:52.738Z",
+    "updatedAt": "2026-09-28T14:01:50.079Z",
     "seasonCode": "o2Rl",
     "rows": [
       {
@@ -34252,7 +34252,7 @@
     ]
   },
   "UEFAEURO": {
-    "updatedAt": "2026-09-28T13:01:54.220Z",
+    "updatedAt": "2026-09-28T14:01:51.593Z",
     "seasonCode": "bNU9",
     "rows": [
       {
@@ -35144,7 +35144,7 @@
     ]
   },
   "U20WORLDCUP": {
-    "updatedAt": "2026-09-28T13:01:55.737Z",
+    "updatedAt": "2026-09-28T14:01:53.048Z",
     "seasonCode": "o26O",
     "rows": [
       {
@@ -36036,7 +36036,7 @@
     ]
   },
   "U20WOMENWORLDCUP": {
-    "updatedAt": "2026-09-28T13:01:57.232Z",
+    "updatedAt": "2026-09-28T14:01:54.425Z",
     "seasonCode": "0Lw5",
     "rows": [
       {
@@ -36928,7 +36928,7 @@
     ]
   },
   "U17WOMENASIANCUP": {
-    "updatedAt": "2026-09-28T13:01:58.705Z",
+    "updatedAt": "2026-09-28T14:01:55.792Z",
     "seasonCode": "DbeE",
     "rows": [
       {
