@@ -532,7 +532,14 @@ async function enrichSaves(allGames) {
     // "축구처럼 팀 나누어" 요청으로 분리) — 배열이면 아직 안 갈라진 옛 캐시로 간주해 재조회.
     const isSplitHighlightFormat =
       isNewFormat && cached.highlights && typeof cached.highlights === 'object' && !Array.isArray(cached.highlights);
-    const needsHighlightRefetch = recentHighlightIds.has(g.gameId) && !isSplitHighlightFormat;
+    // MLB 국적 enrichment 도입(2026-09-28) 이전에 이미 split-format으로 캐시된 경기는
+    // isSplitHighlightFormat이 true라 영원히 재조회 안 되고, MLB 블록은 birth 필드를 매번
+    // 지워버려서(성공/실패 무관) "시도했는지"를 구분할 신호 자체가 없었음 — 사실상 이 도입
+    // 이후 완료된 MLB 경기조차 국적이 하나도 안 채워지는 결과로 이어짐(사용자 질문 "mlb도
+    // 국적채워지는거지??"로 실측 발견: 오늘 경기도 0%). mlbNatChecked 플래그로 "이미 시도함"을
+    // 명시적으로 기록해 이게 없는 MLB 경기만 재조회 트리거.
+    const needsMlbNatBackfill = g.league === 'MLB' && isSplitHighlightFormat && !cached.mlbNatChecked;
+    const needsHighlightRefetch = recentHighlightIds.has(g.gameId) && (!isSplitHighlightFormat || needsMlbNatBackfill);
     const needsSavesFetch = cached === undefined || needsHighlightRefetch;
     if (needsSavesFetch && savesFetchUsed >= SAVES_FETCH_BUDGET) continue; // 이번 실행 예산 소진 — 다음 실행 재시도.
     if (needsSavesFetch) {
@@ -574,6 +581,7 @@ async function enrichSaves(allGames) {
                 delete h.backnum;
               }
             }
+            rec.mlbNatChecked = true; // "이미 시도함" 기록 — birth 삭제로 사라지는 신호를 대체.
           }
         }
       }
