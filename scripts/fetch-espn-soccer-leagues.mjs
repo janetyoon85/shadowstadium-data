@@ -81,6 +81,8 @@ async function extractScorers(comp, homeTeamId, awayTeamId, slug) {
     // 득점자 국적 — athletesInvolved[].id ↔ 팀 로스터 id 정확 매칭(이름 매칭 아님, 오차 없음).
     const nat = await getAthleteNationality('soccer', slug, teamId, scorer.id);
     if (nat) entry.nat = nat;
+    // 동명이인 구분용 고유ID(2026-09-28) — 이미 알고 있는 id 그대로, 추가 fetch 없음.
+    if (scorer.id) entry.pid = `espn:${scorer.id}`;
     if (teamId === String(homeTeamId)) home.push(entry);
     else if (teamId === String(awayTeamId)) away.push(entry);
   }
@@ -102,6 +104,7 @@ function extractCards(comp, homeTeamId, awayTeamId) {
     const entry = { n: player.displayName, type: /red|second yellow/i.test(text) ? 'R' : 'Y' };
     const m = /^(\d+)/.exec(d.clock?.displayValue || '');
     if (m) entry.m = parseInt(m[1], 10);
+    if (player.id) entry.pid = `espn:${player.id}`;
     const teamId = String(d.team?.id ?? '');
     if (teamId === String(homeTeamId)) home.push(entry);
     else if (teamId === String(awayTeamId)) away.push(entry);

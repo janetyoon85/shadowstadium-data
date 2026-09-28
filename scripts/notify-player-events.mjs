@@ -65,11 +65,11 @@ async function main() {
           // 동일 정규화 재사용, 두 스크립트가 다른 이름으로 정규화하면 다시 어긋나므로 반드시 동기화).
           if (s.n) {
             const dedupKey = `${g.gameId}:${key}:scorer:${i}`;
-            if (!sent[dedupKey]) pending.push({ dedupKey, name: canonicalPlayerName(s.n), game: g, team, icon: '⚽', label: '골', minute: s.m });
+            if (!sent[dedupKey]) pending.push({ dedupKey, name: canonicalPlayerName(s.n), pid: s.pid, game: g, team, icon: '⚽', label: '골', minute: s.m });
           }
           if (s.a) {
             const dedupKey = `${g.gameId}:${key}:assist:${i}`;
-            if (!sent[dedupKey]) pending.push({ dedupKey, name: canonicalPlayerName(s.a), game: g, team, icon: '🅰️', label: '어시스트', minute: s.m });
+            if (!sent[dedupKey]) pending.push({ dedupKey, name: canonicalPlayerName(s.a), pid: s.apid, game: g, team, icon: '🅰️', label: '어시스트', minute: s.m });
           }
         }
       }
@@ -85,13 +85,13 @@ async function main() {
           if (!c.n) continue;
           const dedupKey = `${g.gameId}:${key}:card:${i}`;
           const isRed = c.type === 'R';
-          if (!sent[dedupKey]) pending.push({ dedupKey, name: canonicalPlayerName(c.n), game: g, team, icon: isRed ? '🟥' : '🟨', label: isRed ? '퇴장' : '경고', minute: c.m });
+          if (!sent[dedupKey]) pending.push({ dedupKey, name: canonicalPlayerName(c.n), pid: c.pid, game: g, team, icon: isRed ? '🟥' : '🟨', label: isRed ? '퇴장' : '경고', minute: c.m });
         }
       }
     }
     // 야구 하이라이트(홈런/도루/2루타/3루타/실책/병살타/결승타 등, 2026-09-28 2차) — 전부
     // 네이버 원문(한글)이라 canonicalPlayerName(ESPN 영문 매칭용) 불필요. how 필드를 라벨로
-    // 그대로 사용(종류가 많아 하드코딩 매핑 대신 원문 재사용).
+    // 그대로 사용(종류가 많아 하드코딩 매핑 대신 원문 재사용). 야구는 아직 pid 미지원.
     if (g.highlights) {
       for (const { key, team } of sides) {
         const list = g.highlights[key];
@@ -100,7 +100,7 @@ async function main() {
           const h = list[i];
           if (!h.player) continue;
           const dedupKey = `${g.gameId}:${key}:highlight:${i}`;
-          if (!sent[dedupKey]) pending.push({ dedupKey, name: h.player, game: g, team, icon: '⚾', label: h.how });
+          if (!sent[dedupKey]) pending.push({ dedupKey, name: h.player, pid: undefined, game: g, team, icon: '⚾', label: h.how });
         }
       }
     }
@@ -108,16 +108,27 @@ async function main() {
 
   let sentCount = 0;
   for (const item of pending) {
-    const { dedupKey, name, game: g, team, icon, label, minute } = item;
+    const { dedupKey, name, pid, game: g, team, icon, label, minute } = item;
     const minuteLabel = typeof minute === 'number' ? ` (${minute}분)` : '';
     const title = `${icon} ${name} ${label}!`;
     const body = `${team}${scoreLine(g)}${minuteLabel}`;
-    try {
-      await sendPlayerEvent(name, { title, body, gameId: g.gameId });
+    // 동명이인 구분용 고유ID가 있으면 그 ID 전용 토픽으로도 보냄(정확한 매칭) — 이름 토픽도
+    // 항상 같이 보내서 이 기능이 ID 도입 전부터 "이름"으로 즐겨찾기해둔 기존 구독이 계속
+    // 작동하게 함(2026-09-28, 무마이그레이션 하위호환). ID가 없으면(아직 못 붙인 소스) 기존과
+    // 완전히 동일하게 이름 토픽 1건만.
+    const targets = pid && pid !== name ? [pid, name] : [name];
+    let anyOk = false;
+    for (const target of targets) {
+      try {
+        await sendPlayerEvent(target, { title, body, gameId: g.gameId, displayName: name });
+        anyOk = true;
+      } catch (e) {
+        console.error(`[player-alerts] FAIL ${dedupKey} (${target}): ${e?.message ?? e}`);
+      }
+    }
+    if (anyOk) {
       sent[dedupKey] = new Date().toISOString();
       sentCount++;
-    } catch (e) {
-      console.error(`[player-alerts] FAIL ${dedupKey}: ${e?.message ?? e}`);
     }
   }
 

@@ -693,15 +693,32 @@ function extractAssists(playersNested) {
     .map((p) => ({ n: p.name.trim(), count: p.assists }));
 }
 
+// 동명이인 구분용 Naver 고유 선수ID(2026-09-28, [[project_player_favorite_alerts]] 관련 사용자
+// 리포트: "데이비스" 이름 하나에 서로 다른 선수 여러 명이 섞여 국적이 뒤죽박죽으로 뜸 —
+// "고유id로해야겠네") — /lineup 응답의 모든 선수(어시스트 여부 무관)가 playerId를 갖고 있고,
+// 같은 실제 선수는 여러 경기에서 항상 같은 playerId(실측 확인: "김종민"이 서로 다른 두 경기에서
+// 둘 다 20220242)라 이름 대신 이걸로 매칭하면 동명이인이 안 섞임. name→playerId 맵만 만들어서
+// 반환 — 어시스트 카운트(extractAssists)와는 별개로 scorers/cards 항목에 나중에 붙임.
+function extractPlayerIds(playersNested) {
+  const flat = (playersNested || []).flat();
+  const map = {};
+  for (const p of flat) {
+    const name = (p?.name || '').trim();
+    if (name && p.playerId) map[name] = String(p.playerId);
+  }
+  return map;
+}
+
 async function fetchLineupAssists(gameId) {
   const res = await fetch(LINEUP_API(gameId), { headers: { 'User-Agent': USER_AGENT } });
   if (!res.ok) throw new Error(`HTTP ${res.status} lineup ${gameId}`);
   const json = await res.json();
   const lineup = json?.result?.lineUpData?.lineup;
-  if (!lineup) return { home: [], away: [] };
+  if (!lineup) return { home: [], away: [], pids: { home: {}, away: {} } };
   return {
     home: extractAssists(lineup.home?.players),
     away: extractAssists(lineup.away?.players),
+    pids: { home: extractPlayerIds(lineup.home?.players), away: extractPlayerIds(lineup.away?.players) },
   };
 }
 
@@ -782,6 +799,9 @@ function extractEspnCardsBySide(summaryJson, homeTeamName, awayTeamName) {
     const clockNum = parseInt(clockDigits, 10);
     const entry = { n: name, type };
     if (Number.isFinite(clockNum)) entry.m = clockNum;
+    // 동명이인 구분용(2026-09-28) — athleteId는 이 이벤트 자체에 이미 있어 추가 fetch 없이 바로 부착.
+    const athleteId = e.participants?.[0]?.athlete?.id;
+    if (athleteId) entry.pid = `espn:${athleteId}`;
     (side === 'home' ? home : away).push(entry);
   }
   return { home, away };
@@ -938,15 +958,22 @@ async function enrichAssists(allGames) {
   let fromCache = 0;
   let fetched = 0;
   let failed = 0;
+  // 이 필드 추가 전(2026-09-28) 캐시된 완료 경기는 pids가 없어서, 없으면 예산 내에서 강제
+  // 재조회 — cards 백필(CARD_BACKFILL_BUDGET)과 동일 패턴.
+  const PID_BACKFILL_BUDGET = 60;
+  let pidBackfillUsed = 0;
 
   for (const g of targets) {
     const cached = cache[g.gameId];
-    const needsFetch = !cached || g.status === 'live' || (g.status === 'completed' && cached.final === false);
+    const isPidBackfillOnly = cached && cached.final !== false && g.status !== 'live' && !cached.pids;
+    if (isPidBackfillOnly && pidBackfillUsed >= PID_BACKFILL_BUDGET) continue;
+    const needsFetch = !cached || g.status === 'live' || (g.status === 'completed' && cached.final === false) || isPidBackfillOnly;
+    if (isPidBackfillOnly) pidBackfillUsed++;
     if (needsFetch) {
       try {
         await sleep(REQUEST_DELAY_MS);
         const as = await fetchLineupAssists(g.gameId);
-        cache[g.gameId] = { home: as.home, away: as.away, final: g.status === 'completed' };
+        cache[g.gameId] = { home: as.home, away: as.away, pids: as.pids, final: g.status === 'completed' };
         fetched++;
       } catch (e) {
         failed++;
@@ -959,6 +986,29 @@ async function enrichAssists(allGames) {
     const as = cache[g.gameId];
     if (as && ((as.home && as.home.length) || (as.away && as.away.length))) {
       g.assists = { home: as.home, away: as.away };
+    }
+    // 동명이인 구분용 Naver playerId 부착(2026-09-28) — enrichScorers가 먼저 실행돼 g.scorers/
+    // g.cards가 이미 채워져있는 상태(main()의 호출 순서). 이름이 일치하는 항목에만 pid를 붙임
+    // (이 게임 로스터에 없는 이름이면 안 붙임 — 오매칭 방지, 자책골처럼 이름이 반대쪽에 실리는
+    // 경우도 로스터 측 매칭이라 자연히 올바른 쪽에서 찾아짐).
+    if (as?.pids) {
+      // 자책골(og)은 "득점 수혜팀" 배열에 실리지만 실제 득점 선수는 상대팀 로스터 소속이라
+      // (App.tsx ScorerLine/build-player-index.mjs와 동일 반전 원칙) 반대쪽 pid맵에서 찾음.
+      const tagSide = (arr, ownPidMap, oppPidMap) => {
+        if (!Array.isArray(arr)) return;
+        for (const item of arr) {
+          const pid = item.og ? oppPidMap[item.n] : ownPidMap[item.n];
+          if (pid) item.pid = `naver:${pid}`;
+        }
+      };
+      if (g.scorers) {
+        tagSide(g.scorers.home, as.pids.home, as.pids.away);
+        tagSide(g.scorers.away, as.pids.away, as.pids.home);
+      }
+      if (g.cards) {
+        tagSide(g.cards.home, as.pids.home, as.pids.away);
+        tagSide(g.cards.away, as.pids.away, as.pids.home);
+      }
     }
   }
 
@@ -1050,7 +1100,8 @@ async function enrichEuroAssists(allGames) {
     const isBackfillOnly = g.status !== 'live' && (
       !cached ||
       (cached.final !== false &&
-        ((!('homeNats' in cached) || !('awayNats' in cached) || !('homeANats' in cached) || !('awayANats' in cached)) || needsCardBackfill))
+        ((!('homeNats' in cached) || !('awayNats' in cached) || !('homeANats' in cached) || !('awayANats' in cached) ||
+          !('homePids' in cached) || !('awayPids' in cached)) || needsCardBackfill))
     );
     if (isBackfillOnly && backfillUsed >= BACKFILL_BUDGET) continue; // 이번 실행 예산 소진 — 다음 실행에서 재시도.
     const needsFetch = !cached || g.status === 'live' || (g.status === 'completed' && cached.final === false) || isBackfillOnly;
@@ -1126,11 +1177,14 @@ async function enrichEuroAssists(allGames) {
                     const displayName = await getAthleteDisplayName('soccer', slug, espnEntry.teamId, espnEntry.athleteId);
                     if (displayName) autoPlayerNames[s.n] = displayName;
                   }
+                  // 동명이인 구분용 고유ID(2026-09-28) — 추가 fetch 불필요, 이미 확정된 athleteId 그대로.
+                  s.pid = `espn:${espnEntry.athleteId}`;
                 }
                 // 어시스트 국적 — 어시스트 선수는 득점자와 같은 팀이라 teamId 재사용.
                 if (espnEntry?.teamId && espnEntry?.assistAthleteId) {
                   const aNat = await getAthleteNationality('soccer', slug, espnEntry.teamId, espnEntry.assistAthleteId);
                   if (aNat) s.aNat = aNat;
+                  s.apid = `espn:${espnEntry.assistAthleteId}`;
                 }
               }
             };
@@ -1143,6 +1197,10 @@ async function enrichEuroAssists(allGames) {
               awayNats: (g.scorers?.away || []).map((s) => s.nat || null),
               homeANats: (g.scorers?.home || []).map((s) => s.aNat || null),
               awayANats: (g.scorers?.away || []).map((s) => s.aNat || null),
+              homePids: (g.scorers?.home || []).map((s) => s.pid || null),
+              awayPids: (g.scorers?.away || []).map((s) => s.pid || null),
+              homeAPids: (g.scorers?.home || []).map((s) => s.apid || null),
+              awayAPids: (g.scorers?.away || []).map((s) => s.apid || null),
               final: g.status === 'completed',
             };
             fetched++;
@@ -1163,11 +1221,15 @@ async function enrichEuroAssists(allGames) {
         if (c.homeAssists?.[i]) s.a = c.homeAssists[i];
         if (c.homeNats?.[i]) s.nat = c.homeNats[i];
         if (c.homeANats?.[i]) s.aNat = c.homeANats[i];
+        if (c.homePids?.[i]) s.pid = c.homePids[i];
+        if (c.homeAPids?.[i]) s.apid = c.homeAPids[i];
       });
       (g.scorers?.away || []).forEach((s, i) => {
         if (c.awayAssists?.[i]) s.a = c.awayAssists[i];
         if (c.awayNats?.[i]) s.nat = c.awayNats[i];
         if (c.awayANats?.[i]) s.aNat = c.awayANats[i];
+        if (c.awayPids?.[i]) s.pid = c.awayPids[i];
+        if (c.awayAPids?.[i]) s.apid = c.awayAPids[i];
       });
     }
     const cd = cardCache[g.gameId];

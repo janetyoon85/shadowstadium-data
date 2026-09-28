@@ -92,6 +92,7 @@ async function extractScorers(comp, homeTeamId, awayTeamId, slug) {
     const teamId = String(d.team?.id ?? '');
     const nat = await getAthleteNationality('soccer', slug, teamId, scorer.id);
     if (nat) entry.nat = nat;
+    if (scorer.id) entry.pid = `espn:${scorer.id}`;
     if (teamId === String(homeTeamId)) home.push(entry);
     else if (teamId === String(awayTeamId)) away.push(entry);
   }
@@ -113,6 +114,7 @@ function extractCards(comp, homeTeamId, awayTeamId) {
     const entry = { n: player.displayName, type: /red|second yellow/i.test(text) ? 'R' : 'Y' };
     const m = /^(\d+)/.exec(d.clock?.displayValue || '');
     if (m) entry.m = parseInt(m[1], 10);
+    if (player.id) entry.pid = `espn:${player.id}`;
     const teamId = String(d.team?.id ?? '');
     if (teamId === String(homeTeamId)) home.push(entry);
     else if (teamId === String(awayTeamId)) away.push(entry);

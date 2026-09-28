@@ -35,20 +35,28 @@ function pushAppearance(entry, appearance) {
   if (entry.appearances.length > MAX_APPEARANCES_PER_PLAYER) entry.appearances.length = MAX_APPEARANCES_PER_PLAYER;
 }
 
-function upsertPlayer(map, name, sport, date, appearance) {
+// 동명이인 완전 분리(2026-09-28, 사용자 요청: "고유id로해야겠네") — pid("espn:12345"/
+// "naver:20220242")가 있으면 그걸로 키를 잡아서 실존 인물 단위로 정확히 묶고, 없으면(아직
+// ID를 못 붙인 소스) 예전처럼 이름으로만 묶음(동명이인 섞임 위험 그대로 남음 — 근본 한계).
+// entry.id는 App.tsx의 즐겨찾기 저장 키 겸 FCM 토픽 계산 입력값으로 그대로 씀 — pid가 있으면
+// pid 문자열 자체(이미 "espn:"/"naver:"로 네임스페이스됨), 없으면 이름 그대로(기존 동작과
+// 100% 동일 — 기존에 이름으로 즐겨찾기해둔 유저의 구독이 깨지지 않도록 하위호환 유지).
+function upsertPlayer(map, name, sport, date, appearance, pid) {
   const key = name.trim();
   if (!key) return;
   // sport까지 포함한 복합 키(2026-09-28) — 예전엔 이름만으로 키를 잡아서 스포츠가 다른 완전
   // 다른 사람(예: 축구 "데이비스"와 MLB 피츠버그 소속 "데이비스")까지 한 항목에 섞였음
   // (사용자 리포트로 발견: 자책골 넣은 웨일스 축구선수 검색에 야구선수 데이터가 붙어있었음).
-  // 같은 스포츠 내 동명이인(예: 축구 데이비스 여러 명)은 여전히 섞임 — 이름만으론 구분 불가한
-  // 근본 한계라 App.tsx 쪽에서 국적 충돌 감지로 별도 처리.
-  const mapKey = `${sport}:${key}`;
+  const id = pid || key;
+  const mapKey = `${sport}:${pid ? `pid:${pid}` : `name:${key}`}`;
   let entry = map.get(mapKey);
   if (!entry) {
-    entry = { name: key, sport, appearances: [], lastSeenDate: date };
+    entry = { name: key, sport, id, appearances: [], lastSeenDate: date };
     map.set(mapKey, entry);
   }
+  // 같은 실존 인물(pid 기준)이라도 표기가 갈릴 수 있어(한글 원문 vs 영문 원문) 최신 등장의
+  // 이름으로 갱신 — appearances와 동일하게 "최근 것 우선" 원칙.
+  if (!entry.lastSeenDate || date >= entry.lastSeenDate) entry.name = key;
   if (!entry.lastSeenDate || date > entry.lastSeenDate) entry.lastSeenDate = date;
   pushAppearance(entry, appearance);
 }
@@ -85,10 +93,11 @@ async function main() {
           // 선수는 상대팀(oppTeam) 소속 — App.tsx ScorerLine과 동일 반전 적용(사용자 리포트,
           // 2026-09-28: "즐겨찾기 선수 할때도 그 국적 따라가야함" — 팀 폴백용 team이 틀리면
           // 즐겨찾기/검색의 국기도 같이 틀어짐).
-          if (s.n) upsertPlayer(map, canonicalPlayerName(s.n), 'soccer', g.date, { team: s.og ? oppTeam : team, league: g.league, nat: s.nat });
+          if (s.n) upsertPlayer(map, canonicalPlayerName(s.n), 'soccer', g.date, { team: s.og ? oppTeam : team, league: g.league, nat: s.nat }, s.pid);
           // 어시스트 선수는 실제로는 상대 팀이 아니라 같은 팀 소속 — team은 골 넣은 쪽과 동일
-          // (자책골엔 애초에 어시스트가 안 붙음, s.og면 s.a 자체가 없음).
-          if (s.a) upsertPlayer(map, canonicalPlayerName(s.a), 'soccer', g.date, { team, league: g.league, nat: s.aNat });
+          // (자책골엔 애초에 어시스트가 안 붙음, s.og면 s.a 자체가 없음). 어시스트는 득점자와
+          // 다른 사람이라 pid도 별도(s.apid) — s.pid를 잘못 재사용하면 두 사람이 하나로 묶임.
+          if (s.a) upsertPlayer(map, canonicalPlayerName(s.a), 'soccer', g.date, { team, league: g.league, nat: s.aNat }, s.apid);
         }
       }
     }
@@ -100,7 +109,7 @@ async function main() {
         const list = g.cards[key];
         if (!Array.isArray(list)) continue;
         for (const c of list) {
-          if (c.n) upsertPlayer(map, canonicalPlayerName(c.n), 'soccer', g.date, { team, league: g.league });
+          if (c.n) upsertPlayer(map, canonicalPlayerName(c.n), 'soccer', g.date, { team, league: g.league }, c.pid);
         }
       }
     }

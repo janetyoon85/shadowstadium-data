@@ -91,6 +91,7 @@ function extractScorers(comp, homeTeamId, awayTeamId) {
     if (m) entry.m = parseInt(m[1], 10);
     if (d.penaltyKick) entry.pk = true;
     if (d.ownGoal) entry.og = true;
+    if (scorer.id) entry.pid = `espn:${scorer.id}`;
     const teamId = String(d.team?.id ?? '');
     if (teamId === String(homeTeamId)) home.push(entry);
     else if (teamId === String(awayTeamId)) away.push(entry);
