@@ -14,6 +14,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { sendPlayerEvent } from './send-player-alert.mjs';
+import { canonicalPlayerName } from './player-name-canon.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -55,13 +56,17 @@ async function main() {
       if (!Array.isArray(list)) continue;
       for (let i = 0; i < list.length; i++) {
         const s = list[i];
+        // 득점자(한글, 네이버원문)/어시스트(영문, ESPN원문)가 같은 선수여도 문자열이 갈라지는
+        // 문제 발견(2026-09-28) — canonicalPlayerName으로 정규화해서 토픽을 계산해야 "손흥민"으로
+        // 즐겨찾기한 사람이 어시스트("Son Heung-Min")에도 알림을 받음(build-player-index.mjs와
+        // 동일 정규화 재사용, 두 스크립트가 다른 이름으로 정규화하면 다시 어긋나므로 반드시 동기화).
         if (s.n) {
           const dedupKey = `${g.gameId}:${key}:scorer:${i}`;
-          if (!sent[dedupKey]) pending.push({ dedupKey, name: s.n, game: g, team, kind: 'goal', minute: s.m });
+          if (!sent[dedupKey]) pending.push({ dedupKey, name: canonicalPlayerName(s.n), game: g, team, kind: 'goal', minute: s.m });
         }
         if (s.a) {
           const dedupKey = `${g.gameId}:${key}:assist:${i}`;
-          if (!sent[dedupKey]) pending.push({ dedupKey, name: s.a, game: g, team, kind: 'assist', minute: s.m });
+          if (!sent[dedupKey]) pending.push({ dedupKey, name: canonicalPlayerName(s.a), game: g, team, kind: 'assist', minute: s.m });
         }
       }
     }

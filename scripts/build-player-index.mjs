@@ -15,6 +15,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { canonicalPlayerName } from './player-name-canon.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -68,9 +69,13 @@ async function main() {
       const list = g.scorers[key];
       if (!Array.isArray(list)) continue;
       for (const s of list) {
-        if (s.n) upsertPlayer(map, s.n, 'soccer', g.date, { team, league: g.league, nat: s.nat });
+        // 득점자(s.n)는 네이버 원문(한글), 어시스트(s.a)는 ESPN 원문(영문)이라 같은 선수인데
+        // 문자열이 갈라지는 문제 발견(2026-09-28, "손흥민"으로 즐겨찾기해도 어시스트인 "Son
+        // Heung-Min"은 안 잡히던 버그) — canonicalPlayerName으로 알려진 한국 선수는 한글 키로
+        // 합쳐서 인덱싱(모르는 이름은 그대로 통과, 지어내지 않음).
+        if (s.n) upsertPlayer(map, canonicalPlayerName(s.n), 'soccer', g.date, { team, league: g.league, nat: s.nat });
         // 어시스트 선수는 실제로는 상대 팀이 아니라 같은 팀 소속 — team은 골 넣은 쪽과 동일.
-        if (s.a) upsertPlayer(map, s.a, 'soccer', g.date, { team, league: g.league, nat: s.aNat });
+        if (s.a) upsertPlayer(map, canonicalPlayerName(s.a), 'soccer', g.date, { team, league: g.league, nat: s.aNat });
       }
     }
   }
