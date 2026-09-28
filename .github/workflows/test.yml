@@ -1,0 +1,25 @@
+name: Unit Tests
+
+# 크롤러 순수 로직(선수명 파싱, ESPN 매칭 등) 회귀 테스트(2026-09-28 도입). 데이터 파일 커밋과
+# 무관하게 코드 push마다 돎 — 오늘 실사용 중 발견된 버그들(동시킥오프 콜리전, 야구 이름 파싱)
+# 같은 회귀를 다음번엔 배포 전에 잡기 위함.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/**'
+  pull_request:
+    paths:
+      - 'scripts/**'
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm test

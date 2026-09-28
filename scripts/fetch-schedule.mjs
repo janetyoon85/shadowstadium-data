@@ -4,6 +4,8 @@ import { fileURLToPath } from 'node:url';
 import { execSync } from 'node:child_process';
 import { validateDataset } from './validators.mjs';
 import { getAthleteNationality, getAthleteDisplayName } from './espn-nationality.mjs';
+import { parseBaseballHighlights } from './baseball-highlight-parse.mjs';
+import { selectUniqueScoreMatch } from './espn-match-select.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -462,89 +464,9 @@ function sortGames(games) {
 // - KBO: pitchingResult 단일 배열, wls 영문코드('S').
 // - MLB/NPB: homePitcher/awayPitcher 배열 분리, wls 한글('세'). (실측 확인됨, 2026-09)
 // 세이브 없는 경기(대부분)·DRAW → null. name 은 성만 — schedule 투수명과 동일 표기.
-// etcRecords: [{result, how}] — 홈런/2루타/도루/실책/병살타/결승타 등 이미 정리된 하이라이트인데,
-// team 필드가 없어 양팀 선수가 한 문자열에 섞여 나옴(예: "박민우(1회) 한재환(3회)"가 실제론
-// 서로 다른 팀 선수). "심판"(그 경기 심판진 명단)만 실제 경기 하이라이트가 아니라서 제외.
-// 2026-09-26: 사용자 요청("축구처럼 팀 나누어서 표기해줘야해")으로 팀별 분리 추가 —
-// 같은 /record 응답의 battersBoxscore/pitchersBoxscore(홈/원정 로스터, 추가 요청 없음)에서
-// 이름 집합을 만들어 각 "이름(디테일)" 토큰을 로스터 매칭으로 홈/원정 귀속.
-function classifyHighlightSide(name, homeNames, awayNames) {
-  if (homeNames.has(name)) return 'home';
-  if (awayNames.has(name)) return 'away';
-  return null;
-}
-// MLB/NPB는 /record 응답 스키마 자체가 KBO와 달라 etcRecords(인닝별 하이라이트 로그)가 없고
-// homeBatter/awayBatter(선수별 박스스코어 집계, hr/sb 숫자만)만 내려옴 — 실측 확인(2026-09-27,
-// 백필 컷오프 확장 후 MLB/NPB만 하이라이트가 0%로 계속 안 늘어서 조사). 인닝·상황 디테일은
-// 낼 수 없어 KBO와 같은 문구는 불가능하지만, 홈런/도루 집계라도 보여주기 위해 이미 팀별로
-// 분리된 이 필드로 대체 생성(사용자 승인, 2026-09-27 — "집계형 문구로 별도 구현").
-function parseBaseballHighlightsFromBoxscore(rd) {
-  const build = (arr) => {
-    const out = [];
-    for (const p of arr || []) {
-      const name = (p?.name || '').trim();
-      if (!name) continue;
-      // "N호"는 한국 야구 관례상 시즌 누적 홈런 개수를 뜻하는데, 이 필드(p.hr)는 이 경기
-      // 한 경기의 홈런 개수라 대부분 1이 찍혀 "다 1호"로 보이는 오해를 낳음(2026-09-28 사용자
-      // 리포트) — Naver 이 엔드포인트엔 타자 시즌누적 홈런수 필드 자체가 없어(seasonHra는
-      // 있어도 seasonHr는 없음, 실측 확인) 진짜 "N호"는 구현 불가. 1개일 땐 개수 생략, 2개+
-      // (한 경기 멀티 홈런)일 때만 개수 표기. "홈런"/"도루" 단어는 HighlightColumn이 how 필드로
-      // 이미 앞에 붙여 렌더링하므로(App.tsx) text에 중복 기재하지 않음.
-      // 즐겨찾기 선수 알림 2차(야구, 2026-09-28) — name이 이미 지역변수로 있으니 player 필드로도 부착.
-      if (p.hr > 0) out.push({ how: '홈런', text: p.hr === 1 ? name : `${name} ${p.hr}개`, player: name });
-      if (p.sb > 0) out.push({ how: '도루', text: p.sb === 1 ? name : `${name} ${p.sb}개`, player: name });
-    }
-    return out;
-  };
-  const home = build(rd?.homeBatter);
-  const away = build(rd?.awayBatter);
-  // 무득점/무도루(홈런·도루 둘 다 0)라도 반드시 { home:[], away:[] } 객체로 돌려줘야 함 — undefined를
-  // 돌려주면 isSplitHighlightFormat 판정에서 "아직 새 포맷으로 재조회 안 된 옛 캐시"와 구분이 안 돼
-  // 매 실행마다 이 경기를 영원히 재조회하는 버그가 있었음(실측 확인, 2026-09-27 — 96.5%에서
-  // 141건이 계속 안 늘어남. 확인해보니 전부 실제로 홈런·도루 0개인 정상 경기였는데 매번
-  // 헛되이 재조회 예산만 쓰고 있었음).
-  return { home, away };
-}
-function parseBaseballHighlights(rd) {
-  const etcRecords = rd?.etcRecords;
-  if (!Array.isArray(etcRecords)) return parseBaseballHighlightsFromBoxscore(rd);
-  const homeNames = new Set([
-    ...(rd?.battersBoxscore?.home || []).map((p) => p?.name).filter(Boolean),
-    ...(rd?.pitchersBoxscore?.home || []).map((p) => p?.name).filter(Boolean),
-  ]);
-  const awayNames = new Set([
-    ...(rd?.battersBoxscore?.away || []).map((p) => p?.name).filter(Boolean),
-    ...(rd?.pitchersBoxscore?.away || []).map((p) => p?.name).filter(Boolean),
-  ]);
-  const home = [];
-  const away = [];
-  // "강백호33호(4회2점 구창모)"처럼 시즌 홈런 개수(숫자+호)가 이름에 바로 붙는 표기도 있고,
-  // 홈런 외 반복 이벤트(실책/도루/폭투/병살타/2루타/3루타/주루사/도루자/포일 등)는 "호" 없이
-  // 그냥 "이강민2(6 7회)"처럼 횟수 숫자만 붙는 표기도 있음(2026-09-28 실사용 리포트: 선수
-  // 즐겨찾기 검색에 "이강민2(6 7회)"가 통째로 이름처럼 뜸 — 이 숫자를 안 걷어내던 게 원인).
-  // 이름 자체는 한글/영문만(숫자 제외)으로 잡고 그 뒤 숫자(+호는 있어도/없어도)는 통째로
-  // 매치에 포함만 시킴.
-  const playerTokenRe = /([가-힣A-Za-z]+)(?:\d+호?)?\(([^)]*)\)/g;
-  for (const e of etcRecords) {
-    if (!e || !e.how || e.how === '심판') continue;
-    const result = (e.result || '').trim();
-    if (!result) continue;
-    playerTokenRe.lastIndex = 0;
-    let m;
-    let matched = false;
-    while ((m = playerTokenRe.exec(result))) {
-      matched = true;
-      const side = classifyHighlightSide(m[1], homeNames, awayNames);
-      // 즐겨찾기 선수 알림 2차(야구, 2026-09-28) — 이름은 이미 파싱 중 추출되니 구조화된 필드로도
-      // 남김(기존 text 자유문자열은 그대로 유지, 표시 코드 변경 없음).
-      const entry = { how: e.how, text: m[0], player: m[1] };
-      if (side === 'home') home.push(entry);
-      else away.push(entry); // 로스터 매칭 실패(외국인 표기차 등)도 정보 유실 방지로 away 폴백.
-    }
-    if (!matched) away.push({ how: e.how, text: result }); // 파싱 실패 — 원문 그대로 폴백.
-  }
-  return { home, away };
-}
+// 하이라이트 파싱 함수들(classifyHighlightSide/parseBaseballHighlights/FromBoxscore)은
+// 순수 함수라 테스트 자동화 도입(2026-09-28) 때 baseball-highlight-parse.mjs로 분리 —
+// 로직은 그대로, import만 해서 씀(scripts/__tests__/에서 이 크롤러 main() 실행 없이 검증 가능).
 
 async function fetchGameRecord(gameId) {
   const res = await fetch(RECORD_API(gameId), { headers: { 'User-Agent': USER_AGENT } });
@@ -1127,28 +1049,9 @@ async function enrichEuroAssists(allGames) {
           events = await fetchEspnScoreboard(slug, yyyymmdd);
           scoreboardCache.set(sbKey, events);
         }
-        // 같은 리그 안에서도 여러 경기가 동시 킥오프하는 경우가 흔함(EPL 토요일 15시 동시킥오프 등) —
-        // 시각만으로는 여러 후보 중 아무거나 골라버릴 수 있어(실측 확인: 맨시티전 조회에 브라이턴전이
-        // 잘못 매칭됨), 시각으로 후보를 추린 뒤 최종 스코어까지 일치하는 것만 채택.
-        //
-        // 버그(2026-09-28 발견, 사용자 리포트 "국가가 이상한데?"): 동시킥오프 경기 중 "최종 스코어가
-        // 우연히 같은 경기"가 2개 이상이면 .find()가 그중 첫 번째(events 배열 순서상 우연히 먼저 나온
-        // 것)를 아무 근거 없이 채택해버려, 완전히 다른 경기의 어시스트·국적이 잘못 붙는 사고 발생
-        // 확인(예: 뮌헨글라드바흐 4-0 호펜하임 ↔ 동시각 우니온베를린도 4-0 아우크스부르크라 후자의
-        // 실제 득점자 국적[한국 정우영 등]이 전자의 무관한 선수에게 잘못 부착됨). "스코어까지 일치하는
-        // 후보"가 유일해야만 채택하고, 2개 이상 동률이면 무엇도 확신할 수 없으므로 미매칭 처리
-        // (오귀속보다 미부착이 낫다는 이 함수 원래 설계 원칙을 실제로 지키도록 수정).
-        const timeCandidates = events.filter((e) => Math.abs(Date.parse(e.date) - kickoffMs) <= 5 * 60 * 1000);
-        const scoreCandidates =
-          timeCandidates.length <= 1
-            ? timeCandidates
-            : timeCandidates.filter((e) => {
-                const comp = e.competitions?.[0];
-                const h = comp?.competitors?.find((c) => c.homeAway === 'home');
-                const a = comp?.competitors?.find((c) => c.homeAway === 'away');
-                return h && a && Number(h.score) === g.homeScore && Number(a.score) === g.awayScore;
-              });
-        const match = scoreCandidates.length === 1 ? scoreCandidates[0] : undefined;
+        // 동시킥오프+동일스코어 오매칭 방지 로직 — espn-match-select.mjs 참고(2026-09-28,
+        // backfill-player-name-auto.mjs와 공유하도록 분리됨).
+        const match = selectUniqueScoreMatch(events, kickoffMs, g.homeScore, g.awayScore);
         if (!match) {
           noMatch++;
           // completed 인데 이벤트 자체를 못 찾으면(ESPN 미중계 등) 영구 불가로 보고 확정 캐시 —

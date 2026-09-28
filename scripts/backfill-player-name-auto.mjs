@@ -13,6 +13,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { getAthleteDisplayName } from './espn-nationality.mjs';
+import { selectUniqueScoreMatch } from './espn-match-select.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -124,17 +125,7 @@ async function main() {
     for (const g of groupGames) {
       processed++;
       const kickoffMs = naverKickoffUtcMs(g);
-      const timeCandidates = events.filter((e) => Math.abs(Date.parse(e.date) - kickoffMs) <= 5 * 60 * 1000);
-      const scoreCandidates =
-        timeCandidates.length <= 1
-          ? timeCandidates
-          : timeCandidates.filter((e) => {
-              const comp = e.competitions?.[0];
-              const h = comp?.competitors?.find((c) => c.homeAway === 'home');
-              const a = comp?.competitors?.find((c) => c.homeAway === 'away');
-              return h && a && Number(h.score) === g.homeScore && Number(a.score) === g.awayScore;
-            });
-      const match = scoreCandidates.length === 1 ? scoreCandidates[0] : undefined;
+      const match = selectUniqueScoreMatch(events, kickoffMs, g.homeScore, g.awayScore);
       if (!match) continue;
 
       const comp = match.competitions?.[0];
