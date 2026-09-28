@@ -25626,6 +25626,33 @@
   {
     "date": "2026-03-04",
     "time": "19:00",
+    "league": "ACL",
+    "venueId": "seoulwc",
+    "home": "서울",
+    "away": "비셀 고베",
+    "stadium": "서울월드컵경기장",
+    "timeTbd": false,
+    "gameId": "U8avFl0tEXRq1RV",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "마테우스 툴레르",
+          "m": 23
+        }
+      ]
+    },
+    "phaseCode": "T16",
+    "leg": 1,
+    "homeAggregateScore": 1,
+    "awayAggregateScore": 3
+  },
+  {
+    "date": "2026-03-04",
+    "time": "19:00",
     "league": "ACL2",
     "venueId": "panasonic_stadium_suita",
     "home": "감바 오사카",
@@ -25654,33 +25681,6 @@
     "leg": 1,
     "homeAggregateScore": 3,
     "awayAggregateScore": 2
-  },
-  {
-    "date": "2026-03-04",
-    "time": "19:00",
-    "league": "ACL",
-    "venueId": "seoulwc",
-    "home": "서울",
-    "away": "비셀 고베",
-    "stadium": "서울월드컵경기장",
-    "timeTbd": false,
-    "gameId": "U8avFl0tEXRq1RV",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 0,
-    "scorers": {
-      "home": [],
-      "away": [
-        {
-          "n": "마테우스 툴레르",
-          "m": 23
-        }
-      ]
-    },
-    "phaseCode": "T16",
-    "leg": 1,
-    "homeAggregateScore": 1,
-    "awayAggregateScore": 3
   },
   {
     "date": "2026-03-04",
@@ -77518,7 +77518,37 @@
     "awayScore": 2,
     "homeScore": 5,
     "winPitcher": "밀러",
-    "losePitcher": "메히아"
+    "losePitcher": "메히아",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "쉬츠 2개",
+          "player": "쉬츠",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "캄푸사노",
+          "player": "캄푸사노",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "벡",
+          "player": "벡",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "카스트로",
+          "player": "카스트로",
+          "nat": "Puerto Rico"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-11",
@@ -77536,7 +77566,26 @@
     "awayScore": 6,
     "homeScore": 9,
     "winPitcher": "핸콕",
-    "losePitcher": "와이스"
+    "losePitcher": "와이스",
+    "savePitcher": "무뇨스",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "아로자레나",
+          "player": "아로자레나",
+          "nat": "Cuba"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "알바레스",
+          "player": "알바레스",
+          "nat": "Cuba"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-11",
@@ -77568,7 +77617,55 @@
     "awayScore": 7,
     "homeScore": 8,
     "winPitcher": "디아즈",
-    "losePitcher": "라츠"
+    "losePitcher": "라츠",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "먼시 3개",
+          "player": "먼시",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "파헤스",
+          "player": "파헤스",
+          "nat": "Cuba"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "랭포드",
+          "player": "랭포드",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "시거",
+          "player": "시거",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "카터",
+          "player": "카터",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "카터",
+          "player": "카터",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "해거티",
+          "player": "해거티",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-11",
@@ -80233,7 +80330,38 @@
     "awayScore": 3,
     "homeScore": 4,
     "winPitcher": "워커",
-    "losePitcher": "팟"
+    "losePitcher": "팟",
+    "savePitcher": "듀란",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "슈와버",
+          "player": "슈와버",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "하퍼",
+          "player": "하퍼",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "마르테",
+          "player": "마르테",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "도루",
+          "text": "토마스",
+          "player": "토마스",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-12",
@@ -80251,7 +80379,32 @@
     "awayScore": 1,
     "homeScore": 6,
     "winPitcher": "마이즈",
-    "losePitcher": "정크"
+    "losePitcher": "정크",
+    "savePitcher": "앤더슨",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "그린",
+          "player": "그린",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "그린",
+          "player": "그린",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "에르난데스",
+          "player": "에르난데스",
+          "nat": "Dominican Republic"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-12",
@@ -80352,7 +80505,24 @@
     "awayScore": 4,
     "homeScore": 3,
     "winPitcher": "라미레즈",
-    "losePitcher": "틸바"
+    "losePitcher": "틸바",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "도루",
+          "text": "크루즈 3개",
+          "player": "크루즈",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "도루",
+          "text": "그리핀",
+          "player": "그리핀",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-12",
@@ -80569,7 +80739,37 @@
     "awayScore": 7,
     "homeScore": 4,
     "winPitcher": "라이언",
-    "losePitcher": "라우어"
+    "losePitcher": "라우어",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "바쇼",
+          "player": "바쇼",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "산체스",
+          "player": "산체스",
+          "nat": "Dominican Republic"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "라나크",
+          "player": "라나크",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "리",
+          "player": "리",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-12",
@@ -80629,7 +80829,49 @@
     "awayScore": 11,
     "homeScore": 6,
     "winPitcher": "로페즈",
-    "losePitcher": "센가"
+    "losePitcher": "센가",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "폴랑코",
+          "player": "폴랑코",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "홈런",
+          "text": "비셋",
+          "player": "비셋",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "알바레즈",
+          "player": "알바레즈",
+          "nat": "Venezuela"
+        },
+        {
+          "how": "도루",
+          "text": "벤지",
+          "player": "벤지",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "소더스트롬 2개",
+          "player": "소더스트롬",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "코르테스",
+          "player": "코르테스",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-12",
@@ -80647,7 +80889,36 @@
     "awayScore": 3,
     "homeScore": 7,
     "winPitcher": "존슨",
-    "losePitcher": "클라센"
+    "losePitcher": "클라센",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "프리들",
+          "player": "프리들",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "스티어",
+          "player": "스티어",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "맥클레인",
+          "player": "맥클레인",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "데 라 크루즈 2개",
+          "player": "데 라 크루즈",
+          "nat": "Dominican Republic"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-04-12",
@@ -80665,7 +80936,19 @@
     "awayScore": 0,
     "homeScore": 2,
     "winPitcher": "와카",
-    "losePitcher": "페디"
+    "losePitcher": "페디",
+    "savePitcher": "에르세그",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "가르시아",
+          "player": "가르시아",
+          "nat": "Venezuela"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-04-12",
@@ -80758,7 +81041,37 @@
     "awayScore": 4,
     "homeScore": 5,
     "winPitcher": "술세르",
-    "losePitcher": "베드너"
+    "losePitcher": "베드너",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "심슨",
+          "player": "심슨",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "저지",
+          "player": "저지",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "벨린저",
+          "player": "벨린저",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "웰스",
+          "player": "웰스",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-12",
@@ -80860,7 +81173,19 @@
     "awayScore": 3,
     "homeScore": 1,
     "winPitcher": "그리핀",
-    "losePitcher": "해리슨"
+    "losePitcher": "해리슨",
+    "savePitcher": "비터",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "콘트레라스",
+          "player": "콘트레라스",
+          "nat": "Venezuela"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-04-12",
@@ -80878,7 +81203,18 @@
     "awayScore": 7,
     "homeScore": 1,
     "winPitcher": "수아레즈",
-    "losePitcher": "레이히"
+    "losePitcher": "레이히",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "워커",
+          "player": "워커",
+          "nat": "USA"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-04-12",
@@ -80896,7 +81232,42 @@
     "awayScore": 2,
     "homeScore": 6,
     "winPitcher": "볼프람",
-    "losePitcher": "웹"
+    "losePitcher": "웹",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "헨더슨",
+          "player": "헨더슨",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "헨더슨",
+          "player": "헨더슨",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "알론소",
+          "player": "알론소",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "비버스",
+          "player": "비버스",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "잭슨",
+          "player": "잭슨",
+          "nat": "USA"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-04-12",
@@ -80914,7 +81285,36 @@
     "awayScore": 6,
     "homeScore": 0,
     "winPitcher": "메식",
-    "losePitcher": "페레즈"
+    "losePitcher": "페레즈",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "도루",
+          "text": "콴",
+          "player": "콴",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "마르티네스",
+          "player": "마르티네스",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "홈런",
+          "text": "라미레즈",
+          "player": "라미레즈",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "도루",
+          "text": "라미레즈 2개",
+          "player": "라미레즈",
+          "nat": "Dominican Republic"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-12",
@@ -81158,7 +81558,50 @@
     "awayScore": 5,
     "homeScore": 9,
     "winPitcher": "마르케스",
-    "losePitcher": "펠트너"
+    "losePitcher": "펠트너",
+    "savePitcher": "아담",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "로리아노",
+          "player": "로리아노",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "도루",
+          "text": "타티스 주니어",
+          "player": "타티스 주니어",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "홈런",
+          "text": "마차도",
+          "player": "마차도",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "줄리엔",
+          "player": "줄리엔",
+          "nat": "Canada"
+        },
+        {
+          "how": "도루",
+          "text": "줄리엔",
+          "player": "줄리엔",
+          "nat": "Canada"
+        },
+        {
+          "how": "홈런",
+          "text": "모니악 2개",
+          "player": "모니악",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-12",
@@ -81176,7 +81619,44 @@
     "awayScore": 3,
     "homeScore": 6,
     "winPitcher": "시한",
-    "losePitcher": "라이터"
+    "losePitcher": "라이터",
+    "savePitcher": "베시아",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "오타니",
+          "player": "오타니",
+          "nat": "Japan"
+        },
+        {
+          "how": "홈런",
+          "text": "T.에르난데스",
+          "player": "T.에르난데스",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "도루",
+          "text": "파헤스",
+          "player": "파헤스",
+          "nat": "Cuba"
+        },
+        {
+          "how": "도루",
+          "text": "김혜성",
+          "player": "김혜성",
+          "nat": "Republic of Korea"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "니모 2개",
+          "player": "니모",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-12",
@@ -81292,7 +81772,31 @@
     "awayScore": 7,
     "homeScore": 8,
     "winPitcher": "무뇨스",
-    "losePitcher": "어브레유"
+    "losePitcher": "어브레유",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "랄리",
+          "player": "랄리",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "로드리게스",
+          "player": "로드리게스",
+          "nat": "Dominican Republic"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "알바레스",
+          "player": "알바레스",
+          "nat": "Cuba"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-12",
@@ -83407,7 +83911,31 @@
     "awayScore": 2,
     "homeScore": 6,
     "winPitcher": "포비치",
-    "losePitcher": "후저"
+    "losePitcher": "후저",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "헨더슨",
+          "player": "헨더슨",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "바살로",
+          "player": "바살로",
+          "nat": "Dominican Republic"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "슈미트",
+          "player": "슈미트",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-13",
@@ -83425,7 +83953,32 @@
     "awayScore": 4,
     "homeScore": 3,
     "winPitcher": "클라크",
-    "losePitcher": "알바라도"
+    "losePitcher": "알바라도",
+    "savePitcher": "시월드",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "터너",
+          "player": "터너",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "스탓",
+          "player": "스탓",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "페도모",
+          "player": "페도모",
+          "nat": "Dominican Republic"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-13",
@@ -83443,7 +83996,30 @@
     "awayScore": 8,
     "homeScore": 2,
     "winPitcher": "브래들리",
-    "losePitcher": "슈어저"
+    "losePitcher": "슈어저",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "클레멘스",
+          "player": "클레멘스",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "키샬",
+          "player": "키샬",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "그래이",
+          "player": "그래이",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-13",
@@ -83461,7 +84037,25 @@
     "awayScore": 1,
     "homeScore": 0,
     "winPitcher": "시베일",
-    "losePitcher": "페랄타"
+    "losePitcher": "페랄타",
+    "savePitcher": "쿠넬",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "커츠",
+          "player": "커츠",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "에르나이즈",
+          "player": "에르나이즈",
+          "nat": "Puerto Rico"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-13",
@@ -83479,7 +84073,37 @@
     "awayScore": 2,
     "homeScore": 8,
     "winPitcher": "스쿠발",
-    "losePitcher": "알칸타라"
+    "losePitcher": "알칸타라",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "맥고니글",
+          "player": "맥고니글",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "딩글러",
+          "player": "딩글러",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "카펜터",
+          "player": "카펜터",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "로페즈",
+          "player": "로페즈",
+          "nat": "Dominican Republic"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-13",
@@ -83497,7 +84121,31 @@
     "awayScore": 9,
     "homeScore": 6,
     "winPitcher": "소리아노",
-    "losePitcher": "애보트"
+    "losePitcher": "애보트",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "데 라 크루즈",
+          "player": "데 라 크루즈",
+          "nat": "Dominican Republic"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "페라자",
+          "player": "페라자",
+          "nat": "Venezuela"
+        },
+        {
+          "how": "도루",
+          "text": "테오도시오",
+          "player": "테오도시오",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-13",
@@ -83515,7 +84163,32 @@
     "awayScore": 4,
     "homeScore": 5,
     "winPitcher": "라스무센",
-    "losePitcher": "슐리틀러"
+    "losePitcher": "슐리틀러",
+    "savePitcher": "잉그러트",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "심슨",
+          "player": "심슨",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "월스",
+          "player": "월스",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "저지",
+          "player": "저지",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-13",
@@ -83585,7 +84258,50 @@
     "awayScore": 8,
     "homeScore": 6,
     "winPitcher": "폴린",
-    "losePitcher": "제르파"
+    "losePitcher": "제르파",
+    "savePitcher": "바랜드",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "투랑 2개",
+          "player": "투랑",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "산체스",
+          "player": "산체스",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "홈런",
+          "text": "바우어스",
+          "player": "바우어스",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "우드",
+          "player": "우드",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "우드",
+          "player": "우드",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "미드",
+          "player": "미드",
+          "nat": "Australia"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-13",
@@ -83603,7 +84319,25 @@
     "awayScore": 6,
     "homeScore": 5,
     "winPitcher": "레저",
-    "losePitcher": "슈라이버"
+    "losePitcher": "슈라이버",
+    "savePitcher": "도밍게스",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "몽고메리",
+          "player": "몽고메리",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "머레이",
+          "player": "머레이",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-13",
@@ -83621,7 +84355,31 @@
     "awayScore": 9,
     "homeScore": 3,
     "winPitcher": "벨로",
-    "losePitcher": "팔란테"
+    "losePitcher": "팔란테",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "벌레슨",
+          "player": "벌레슨",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "워커",
+          "player": "워커",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "콘트레라스",
+          "player": "콘트레라스",
+          "nat": "Venezuela"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-13",
@@ -83639,7 +84397,49 @@
     "awayScore": 6,
     "homeScore": 7,
     "winPitcher": "팔렌시아",
-    "losePitcher": "우르퀴디"
+    "losePitcher": "우르퀴디",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "발레스테로스",
+          "player": "발레스테로스",
+          "nat": "Venezuela"
+        },
+        {
+          "how": "홈런",
+          "text": "스완슨",
+          "player": "스완슨",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "크루즈",
+          "player": "크루즈",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "도루",
+          "text": "크루즈",
+          "player": "크루즈",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "홈런",
+          "text": "로우 2개",
+          "player": "로우",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "레이놀즈",
+          "player": "레이놀즈",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-13",
@@ -83806,7 +84606,26 @@
     "awayScore": 5,
     "homeScore": 2,
     "winPitcher": "디그롬",
-    "losePitcher": "사사키"
+    "losePitcher": "사사키",
+    "savePitcher": "유니스",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "오타니",
+          "player": "오타니",
+          "nat": "Japan"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "카터",
+          "player": "카터",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-13",
@@ -83824,7 +84643,36 @@
     "awayScore": 2,
     "homeScore": 7,
     "winPitcher": "모건",
-    "losePitcher": "허겟"
+    "losePitcher": "허겟",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "로리아노",
+          "player": "로리아노",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "홈런",
+          "text": "메릴",
+          "player": "메릴",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "메릴",
+          "player": "메릴",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "프랑스",
+          "player": "프랑스",
+          "nat": "USA"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-04-13",
@@ -83842,7 +84690,25 @@
     "awayScore": 1,
     "homeScore": 6,
     "winPitcher": "길버트",
-    "losePitcher": "볼튼"
+    "losePitcher": "볼튼",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "로드리게스",
+          "player": "로드리게스",
+          "nat": "Dominican Republic"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "디아즈",
+          "player": "디아즈",
+          "nat": "Dominican Republic"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-13",
@@ -83901,7 +84767,38 @@
     "awayScore": 1,
     "homeScore": 13,
     "winPitcher": "세일",
-    "losePitcher": "바이비"
+    "losePitcher": "바이비",
+    "savePitcher": "도드",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "아쿠나",
+          "player": "아쿠나",
+          "nat": "Venezuela"
+        },
+        {
+          "how": "홈런",
+          "text": "스미스",
+          "player": "스미스",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "라미레즈",
+          "player": "라미레즈",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "홈런",
+          "text": "호스킨스",
+          "player": "호스킨스",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-13",
@@ -84105,7 +85002,18 @@
     "awayScore": 2,
     "homeScore": 6,
     "winPitcher": "커비",
-    "losePitcher": "버로우스"
+    "losePitcher": "버로우스",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "네일러 2개",
+          "player": "네일러",
+          "nat": "Canada"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-04-14",
@@ -84123,7 +85031,38 @@
     "awayScore": 7,
     "homeScore": 9,
     "winPitcher": "수아레즈",
-    "losePitcher": "로아이시가"
+    "losePitcher": "로아이시가",
+    "savePitcher": "헬슬리",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "알론소",
+          "player": "알론소",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "잭슨 2개",
+          "player": "잭슨",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "마르테 2개",
+          "player": "마르테",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "홈런",
+          "text": "아레나도 2개",
+          "player": "아레나도",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-14",
@@ -84141,7 +85080,31 @@
     "awayScore": 7,
     "homeScore": 13,
     "winPitcher": "산체스",
-    "losePitcher": "아사드"
+    "losePitcher": "아사드",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "슈와버 2개",
+          "player": "슈와버",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "마쉬",
+          "player": "마쉬",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "스완슨",
+          "player": "스완슨",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-14",
@@ -84159,7 +85122,49 @@
     "awayScore": 5,
     "homeScore": 16,
     "winPitcher": "스킨스",
-    "losePitcher": "카발리"
+    "losePitcher": "카발리",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "크루즈",
+          "player": "크루즈",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "홈런",
+          "text": "로우",
+          "player": "로우",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "호위츠",
+          "player": "호위츠",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "데이비스",
+          "player": "데이비스",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "에이브람스",
+          "player": "에이브람스",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "영",
+          "player": "영",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-14",
@@ -84177,7 +85182,43 @@
     "awayScore": 10,
     "homeScore": 11,
     "winPitcher": "블랙번",
-    "losePitcher": "로마노"
+    "losePitcher": "로마노",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "저지 2개",
+          "player": "저지",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "그리샴 2개",
+          "player": "그리샴",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "카바예로",
+          "player": "카바예로",
+          "nat": "Panama"
+        },
+        {
+          "how": "도루",
+          "text": "카바예로",
+          "player": "카바예로",
+          "nat": "Panama"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "트라웃 2개",
+          "player": "트라웃",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-14",
@@ -84195,7 +85236,55 @@
     "awayScore": 10,
     "homeScore": 4,
     "winPitcher": "나르디",
-    "losePitcher": "범머"
+    "losePitcher": "범머",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "라일리",
+          "player": "라일리",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "야스트렘스키",
+          "player": "야스트렘스키",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "마르시",
+          "player": "마르시",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "라미레즈",
+          "player": "라미레즈",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "도루",
+          "text": "힉스",
+          "player": "힉스",
+          "nat": "Canada"
+        },
+        {
+          "how": "홈런",
+          "text": "노르비",
+          "player": "노르비",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "에르난데스",
+          "player": "에르난데스",
+          "nat": "Dominican Republic"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-14",
@@ -84213,7 +85302,43 @@
     "awayScore": 6,
     "homeScore": 13,
     "winPitcher": "오버",
-    "losePitcher": "크로셰"
+    "losePitcher": "크로셰",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "벅스턴",
+          "player": "벅스턴",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "제퍼스",
+          "player": "제퍼스",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "카라티니",
+          "player": "카라티니",
+          "nat": "Puerto Rico"
+        },
+        {
+          "how": "홈런",
+          "text": "크라이들러",
+          "player": "크라이들러",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "듀란",
+          "player": "듀란",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-14",
@@ -84231,7 +85356,37 @@
     "awayScore": 9,
     "homeScore": 3,
     "winPitcher": "윌리엄스",
-    "losePitcher": "리베라토레"
+    "losePitcher": "리베라토레",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "워커",
+          "player": "워커",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "마르티네스",
+          "player": "마르티네스",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "도루",
+          "text": "라미레즈 2개",
+          "player": "라미레즈",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "홈런",
+          "text": "로키오",
+          "player": "로키오",
+          "nat": "Venezuela"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-14",
@@ -84249,7 +85404,31 @@
     "awayScore": 8,
     "homeScore": 1,
     "winPitcher": "이발디",
-    "losePitcher": "세베리노"
+    "losePitcher": "세베리노",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "버틀러",
+          "player": "버틀러",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "버거 2개",
+          "player": "버거",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "듀란",
+          "player": "듀란",
+          "nat": "Dominican Republic"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-14",
@@ -84267,7 +85446,18 @@
     "awayScore": 0,
     "homeScore": 4,
     "winPitcher": "로블레스키",
-    "losePitcher": "피터슨"
+    "losePitcher": "피터슨",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "파헤스",
+          "player": "파헤스",
+          "nat": "Cuba"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-04-14",
@@ -85201,7 +86391,38 @@
     "awayScore": 4,
     "homeScore": 3,
     "winPitcher": "켈리",
-    "losePitcher": "로저스"
+    "losePitcher": "로저스",
+    "savePitcher": "시월드",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "워드",
+          "player": "워드",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "바살로",
+          "player": "바살로",
+          "nat": "Dominican Republic"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "바르가스",
+          "player": "바르가스",
+          "nat": "Venezuela"
+        },
+        {
+          "how": "도루",
+          "text": "페도모 2개",
+          "player": "페도모",
+          "nat": "Dominican Republic"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-15",
@@ -85219,7 +86440,25 @@
     "awayScore": 10,
     "homeScore": 4,
     "winPitcher": "레아",
-    "losePitcher": "마이자"
+    "losePitcher": "마이자",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "소사",
+          "player": "소사",
+          "nat": "Panama"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "켈리",
+          "player": "켈리",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-15",
@@ -85237,7 +86476,19 @@
     "awayScore": 1,
     "homeScore": 2,
     "winPitcher": "베스트",
-    "losePitcher": "미어스"
+    "losePitcher": "미어스",
+    "savePitcher": "잰슨",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "도루",
+          "text": "토마스",
+          "player": "토마스",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-15",
@@ -85255,7 +86506,32 @@
     "awayScore": 1,
     "homeScore": 2,
     "winPitcher": "싱어",
-    "losePitcher": "레이"
+    "losePitcher": "레이",
+    "savePitcher": "파간",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "스튜어트",
+          "player": "스튜어트",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "스티어",
+          "player": "스티어",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "아다메스",
+          "player": "아다메스",
+          "nat": "Dominican Republic"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-15",
@@ -85273,7 +86549,38 @@
     "awayScore": 5,
     "homeScore": 4,
     "winPitcher": "파커",
-    "losePitcher": "켈러"
+    "losePitcher": "켈러",
+    "savePitcher": "바랜드",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "로우",
+          "player": "로우",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "바트",
+          "player": "바트",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "우드",
+          "player": "우드",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "에이브람스",
+          "player": "에이브람스",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-15",
@@ -85305,7 +86612,42 @@
     "awayScore": 7,
     "homeScore": 1,
     "winPitcher": "디트머스",
-    "losePitcher": "웨더스"
+    "losePitcher": "웨더스",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "트라웃",
+          "player": "트라웃",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "아델",
+          "player": "아델",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "솔레어",
+          "player": "솔레어",
+          "nat": "Cuba"
+        },
+        {
+          "how": "홈런",
+          "text": "몬카다",
+          "player": "몬카다",
+          "nat": "Cuba"
+        },
+        {
+          "how": "홈런",
+          "text": "페라자",
+          "player": "페라자",
+          "nat": "Venezuela"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-15",
@@ -85323,7 +86665,38 @@
     "awayScore": 5,
     "homeScore": 6,
     "winPitcher": "수아레즈",
-    "losePitcher": "페어뱅크스"
+    "losePitcher": "페어뱅크스",
+    "savePitcher": "이글레시아스",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "아쿠나",
+          "player": "아쿠나",
+          "nat": "Venezuela"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "마르시",
+          "player": "마르시",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "로페즈",
+          "player": "로페즈",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "도루",
+          "text": "사노하",
+          "player": "사노하",
+          "nat": "Venezuela"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-15",
@@ -85369,7 +86742,49 @@
     "awayScore": 9,
     "homeScore": 7,
     "winPitcher": "발랜드",
-    "losePitcher": "앤더슨"
+    "losePitcher": "앤더슨",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "프렐릭",
+          "player": "프렐릭",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "투랑",
+          "player": "투랑",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "산체스",
+          "player": "산체스",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "홈런",
+          "text": "바우어스",
+          "player": "바우어스",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "바쇼",
+          "player": "바쇼",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "히메네즈",
+          "player": "히메네즈",
+          "nat": "Venezuela"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-15",
@@ -85387,7 +86802,50 @@
     "awayScore": 8,
     "homeScore": 5,
     "winPitcher": "맥클라나한",
-    "losePitcher": "슐츠"
+    "losePitcher": "슐츠",
+    "savePitcher": "베이커",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "메이드로스",
+          "player": "메이드로스",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "무라카미",
+          "player": "무라카미",
+          "nat": "Japan"
+        },
+        {
+          "how": "홈런",
+          "text": "페레이라",
+          "player": "페레이라",
+          "nat": "Venezuela"
+        },
+        {
+          "how": "도루",
+          "text": "퀴에로",
+          "player": "퀴에로",
+          "nat": "Cuba"
+        },
+        {
+          "how": "도루",
+          "text": "힐",
+          "player": "힐",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "월스",
+          "player": "월스",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-15",
@@ -85405,7 +86863,30 @@
     "awayScore": 0,
     "homeScore": 6,
     "winPitcher": "아벨",
-    "losePitcher": "그레이"
+    "losePitcher": "그레이",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "벅스턴 2개",
+          "player": "벅스턴",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "클레멘스",
+          "player": "클레멘스",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "리",
+          "player": "리",
+          "nat": "USA"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-04-15",
@@ -85423,7 +86904,49 @@
     "awayScore": 5,
     "homeScore": 6,
     "winPitcher": "오브라이언",
-    "losePitcher": "헤린"
+    "losePitcher": "헤린",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "웨더홀트 2개",
+          "player": "웨더홀트",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "에레라",
+          "player": "에레라",
+          "nat": "Panama"
+        },
+        {
+          "how": "도루",
+          "text": "워커",
+          "player": "워커",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "라미레즈",
+          "player": "라미레즈",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "도루",
+          "text": "라미레즈",
+          "player": "라미레즈",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "홈런",
+          "text": "슈니먼",
+          "player": "슈니먼",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-15",
@@ -85441,7 +86964,32 @@
     "awayScore": 6,
     "homeScore": 7,
     "winPitcher": "블루바흐",
-    "losePitcher": "로렌젠"
+    "losePitcher": "로렌젠",
+    "savePitcher": "디 로스 산토스",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "워커",
+          "player": "워커",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "굿맨 2개",
+          "player": "굿맨",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "벡",
+          "player": "벡",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-15",
@@ -85533,7 +87081,19 @@
     "awayScore": 1,
     "homeScore": 4,
     "winPitcher": "킹",
-    "losePitcher": "우"
+    "losePitcher": "우",
+    "savePitcher": "밀러",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "메릴",
+          "player": "메릴",
+          "nat": "USA"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-04-15",
@@ -85551,7 +87111,19 @@
     "awayScore": 1,
     "homeScore": 2,
     "winPitcher": "스프링스",
-    "losePitcher": "고어"
+    "losePitcher": "고어",
+    "savePitcher": "레이터 주니어",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "도루",
+          "text": "듀란",
+          "player": "듀란",
+          "nat": "Dominican Republic"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-15",
@@ -85569,7 +87141,25 @@
     "awayScore": 1,
     "homeScore": 2,
     "winPitcher": "트레이넨",
-    "losePitcher": "레일리"
+    "losePitcher": "레일리",
+    "savePitcher": "베시아",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "린도어",
+          "player": "린도어",
+          "nat": "Puerto Rico"
+        },
+        {
+          "how": "도루",
+          "text": "린도어",
+          "player": "린도어",
+          "nat": "Puerto Rico"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-15",
@@ -86415,7 +88005,38 @@
     "awayScore": 8,
     "homeScore": 5,
     "winPitcher": "톰슨",
-    "losePitcher": "웰스"
+    "losePitcher": "웰스",
+    "savePitcher": "모리요",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "헨더슨",
+          "player": "헨더슨",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "잭슨",
+          "player": "잭슨",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "알렉산더",
+          "player": "알렉산더",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "델 카스티요",
+          "player": "델 카스티요",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-16",
@@ -86447,7 +88068,37 @@
     "awayScore": 3,
     "homeScore": 5,
     "winPitcher": "메이",
-    "losePitcher": "브록던"
+    "losePitcher": "브록던",
+    "savePitcher": "오브라이언",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "웨더홀트",
+          "player": "웨더홀트",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "처치",
+          "player": "처치",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "파헤스",
+          "player": "파헤스",
+          "nat": "Venezuela"
+        },
+        {
+          "how": "도루",
+          "text": "스캇 2세",
+          "player": "스캇 2세",
+          "nat": "USA"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-04-16",
@@ -86465,7 +88116,37 @@
     "awayScore": 9,
     "homeScore": 5,
     "winPitcher": "얼리",
-    "losePitcher": "우즈-리차드슨"
+    "losePitcher": "우즈-리차드슨",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "마틴",
+          "player": "마틴",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "크라이들러",
+          "player": "크라이들러",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "스토리",
+          "player": "스토리",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "웡",
+          "player": "웡",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-16",
@@ -86604,7 +88285,49 @@
     "awayScore": 11,
     "homeScore": 2,
     "winPitcher": "이마나가",
-    "losePitcher": "루자르도"
+    "losePitcher": "루자르도",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "터너",
+          "player": "터너",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "하퍼",
+          "player": "하퍼",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "호너",
+          "player": "호너",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "호너",
+          "player": "호너",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "브레그먼",
+          "player": "브레그먼",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "스완슨",
+          "player": "스완슨",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-16",
@@ -86622,7 +88345,19 @@
     "awayScore": 1,
     "homeScore": 2,
     "winPitcher": "피네건",
-    "losePitcher": "모건"
+    "losePitcher": "모건",
+    "savePitcher": "잰슨",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "페레즈",
+          "player": "페레즈",
+          "nat": "Dominican Republic"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-04-16",
@@ -86640,7 +88375,30 @@
     "awayScore": 3,
     "homeScore": 8,
     "winPitcher": "로더",
-    "losePitcher": "말리"
+    "losePitcher": "말리",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "데 라 크루즈",
+          "player": "데 라 크루즈",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "홈런",
+          "text": "스튜어트 2개",
+          "player": "스튜어트",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "수아레즈",
+          "player": "수아레즈",
+          "nat": "Venezuela"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-04-16",
@@ -86658,7 +88416,19 @@
     "awayScore": 0,
     "homeScore": 2,
     "winPitcher": "모진스키",
-    "losePitcher": "어빈"
+    "losePitcher": "어빈",
+    "savePitcher": "산타나",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "오헌",
+          "player": "오헌",
+          "nat": "USA"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-04-16",
@@ -86704,7 +88474,48 @@
     "awayScore": 4,
     "homeScore": 5,
     "winPitcher": "베드너",
-    "losePitcher": "로마노"
+    "losePitcher": "로마노",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "저지",
+          "player": "저지",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "치좀",
+          "player": "치좀",
+          "nat": "Bahamas"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "트라웃",
+          "player": "트라웃",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "페라자",
+          "player": "페라자",
+          "nat": "Venezuela"
+        },
+        {
+          "how": "홈런",
+          "text": "오하피",
+          "player": "오하피"
+        },
+        {
+          "how": "홈런",
+          "text": "프레이저",
+          "player": "프레이저",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-16",
@@ -86722,7 +88533,44 @@
     "awayScore": 3,
     "homeScore": 6,
     "winPitcher": "엘더",
-    "losePitcher": "페덱"
+    "losePitcher": "페덱",
+    "savePitcher": "이글레시아스",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "올슨",
+          "player": "올슨",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "라일리",
+          "player": "라일리",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "알비스",
+          "player": "알비스",
+          "nat": "Curacao"
+        },
+        {
+          "how": "도루",
+          "text": "해리스",
+          "player": "해리스",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "힉스",
+          "player": "힉스",
+          "nat": "Canada"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-16",
@@ -86768,7 +88616,19 @@
     "awayScore": 1,
     "homeScore": 2,
     "winPitcher": "애쉬비",
-    "losePitcher": "로저스"
+    "losePitcher": "로저스",
+    "savePitcher": "유리베",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "오티즈",
+          "player": "오티즈",
+          "nat": "USA"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-04-16",
@@ -86786,7 +88646,48 @@
     "awayScore": 8,
     "homeScore": 3,
     "winPitcher": "숄텐스",
-    "losePitcher": "버크"
+    "losePitcher": "버크",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "카미네로",
+          "player": "카미네로",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "홈런",
+          "text": "프랠리",
+          "player": "프랠리",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "프랠리",
+          "player": "프랠리",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "데루카",
+          "player": "데루카",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "멀린스",
+          "player": "멀린스",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "팔라시오스",
+          "player": "팔라시오스",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-16",
@@ -86818,7 +88719,32 @@
     "awayScore": 1,
     "homeScore": 3,
     "winPitcher": "아리게티",
-    "losePitcher": "퀸타나"
+    "losePitcher": "퀸타나",
+    "savePitcher": "디 로스 산토스",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "알바레스",
+          "player": "알바레스",
+          "nat": "Cuba"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "도일",
+          "player": "도일",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "맥카시",
+          "player": "맥카시",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-16",
@@ -86927,7 +88853,31 @@
     "awayScore": 6,
     "homeScore": 7,
     "winPitcher": "제이콥",
-    "losePitcher": "무뇨스"
+    "losePitcher": "무뇨스",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "보가츠",
+          "player": "보가츠",
+          "nat": "Aruba"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "아로자레나",
+          "player": "아로자레나",
+          "nat": "Cuba"
+        },
+        {
+          "how": "홈런",
+          "text": "레일리",
+          "player": "레일리",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-16",
@@ -86945,7 +88895,56 @@
     "awayScore": 5,
     "homeScore": 6,
     "winPitcher": "해리스",
-    "losePitcher": "빅스"
+    "losePitcher": "빅스",
+    "savePitcher": "쿠넬",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "랭겔리어스",
+          "player": "랭겔리어스",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "윌슨",
+          "player": "윌슨",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "먼시",
+          "player": "먼시",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "클락",
+          "player": "클락",
+          "nat": "Canada"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "시거",
+          "player": "시거",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "카터",
+          "player": "카터",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "버거",
+          "player": "버거",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-16",
@@ -86963,7 +88962,42 @@
     "awayScore": 2,
     "homeScore": 8,
     "winPitcher": "오타니",
-    "losePitcher": "홈스"
+    "losePitcher": "홈스",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "터커",
+          "player": "터커",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "T.에르난데스",
+          "player": "T.에르난데스",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "도루",
+          "text": "파헤스",
+          "player": "파헤스",
+          "nat": "Cuba"
+        },
+        {
+          "how": "홈런",
+          "text": "러싱",
+          "player": "러싱",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "김혜성",
+          "player": "김혜성",
+          "nat": "Republic of Korea"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-04-16",
@@ -87649,7 +89683,44 @@
     "awayScore": 8,
     "homeScore": 7,
     "winPitcher": "비터",
-    "losePitcher": "산타나"
+    "losePitcher": "산타나",
+    "savePitcher": "리발타",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "맨검",
+          "player": "맨검",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "크루즈 2개",
+          "player": "크루즈",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "홈런",
+          "text": "오즈나",
+          "player": "오즈나",
+          "nat": "Dominican Republic"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "우드",
+          "player": "우드",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "가르시아",
+          "player": "가르시아",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-17",
@@ -87667,7 +89738,8 @@
     "awayScore": 3,
     "homeScore": 0,
     "winPitcher": "룹",
-    "losePitcher": "버크"
+    "losePitcher": "버크",
+    "savePitcher": "밀러"
   },
   {
     "date": "2026-04-17",
@@ -87765,7 +89837,37 @@
     "awayScore": 9,
     "homeScore": 10,
     "winPitcher": "시볼드",
-    "losePitcher": "에르세그"
+    "losePitcher": "에르세그",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "딩글러",
+          "player": "딩글러",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "비어링",
+          "player": "비어링",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "파스콴티노",
+          "player": "파스콴티노",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "페레즈",
+          "player": "페레즈",
+          "nat": "Venezuela"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-17",
@@ -87825,7 +89927,67 @@
     "awayScore": 11,
     "homeScore": 4,
     "winPitcher": "알더게리",
-    "losePitcher": "프리드"
+    "losePitcher": "프리드",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "저지",
+          "player": "저지",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "스탠튼",
+          "player": "스탠튼",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "라이스",
+          "player": "라이스",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "치좀",
+          "player": "치좀",
+          "nat": "Bahamas"
+        },
+        {
+          "how": "도루",
+          "text": "카바예로 2개",
+          "player": "카바예로",
+          "nat": "Panama"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "트라웃",
+          "player": "트라웃",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "아델",
+          "player": "아델",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "페라자",
+          "player": "페라자",
+          "nat": "Venezuela"
+        },
+        {
+          "how": "도루",
+          "text": "페라자",
+          "player": "페라자",
+          "nat": "Venezuela"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-17",
@@ -87843,7 +90005,8 @@
     "awayScore": 1,
     "homeScore": 2,
     "winPitcher": "애쉬비",
-    "losePitcher": "낸스"
+    "losePitcher": "낸스",
+    "savePitcher": "제르파"
   },
   {
     "date": "2026-04-17",
@@ -87875,7 +90038,37 @@
     "awayScore": 5,
     "homeScore": 3,
     "winPitcher": "켈리",
-    "losePitcher": "도밍게스"
+    "losePitcher": "도밍게스",
+    "savePitcher": "베이커",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "바가스",
+          "player": "바가스",
+          "nat": "Cuba"
+        },
+        {
+          "how": "홈런",
+          "text": "페레이라",
+          "player": "페레이라",
+          "nat": "Venezuela"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "카미네로",
+          "player": "카미네로",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "도루",
+          "text": "빌라드",
+          "player": "빌라드"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-17",
@@ -88122,7 +90315,43 @@
     "awayScore": 9,
     "homeScore": 6,
     "winPitcher": "콴트릴",
-    "losePitcher": "스터너"
+    "losePitcher": "스터너",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "윌슨",
+          "player": "윌슨",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "에르나이즈",
+          "player": "에르나이즈",
+          "nat": "Puerto Rico"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "랭포드",
+          "player": "랭포드",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "영",
+          "player": "영",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "듀란",
+          "player": "듀란",
+          "nat": "Dominican Republic"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-17",
@@ -88140,7 +90369,19 @@
     "awayScore": 2,
     "homeScore": 4,
     "winPitcher": "메식",
-    "losePitcher": "바즈"
+    "losePitcher": "바즈",
+    "savePitcher": "스미스",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "라미레즈",
+          "player": "라미레즈",
+          "nat": "Dominican Republic"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-04-17",
@@ -88270,7 +90511,25 @@
     "awayScore": 3,
     "homeScore": 2,
     "winPitcher": "돌랜더",
-    "losePitcher": "로아"
+    "losePitcher": "로아",
+    "savePitcher": "보드닉",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "굿맨",
+          "player": "굿맨",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "도일 2개",
+          "player": "도일",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-17",
@@ -88316,7 +90575,8 @@
     "awayScore": 2,
     "homeScore": 5,
     "winPitcher": "뷸러",
-    "losePitcher": "카스티요"
+    "losePitcher": "카스티요",
+    "savePitcher": "밀러"
   },
   {
     "date": "2026-04-17",
@@ -88946,7 +91206,30 @@
     "awayScore": 4,
     "homeScore": 12,
     "winPitcher": "카브레라",
-    "losePitcher": "센가"
+    "losePitcher": "센가",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "호너",
+          "player": "호너",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "햅",
+          "player": "햅",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "발레스테로스",
+          "player": "발레스테로스",
+          "nat": "Venezuela"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-04-18",
@@ -89119,7 +91402,38 @@
     "awayScore": 6,
     "homeScore": 4,
     "winPitcher": "가르시아",
-    "losePitcher": "사브로스키"
+    "losePitcher": "사브로스키",
+    "savePitcher": "헬슬리",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "라미레즈",
+          "player": "라미레즈",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "홈런",
+          "text": "슈니먼",
+          "player": "슈니먼",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "타베라스",
+          "player": "타베라스",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "홈런",
+          "text": "잭슨",
+          "player": "잭슨",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-18",
@@ -89179,7 +91493,31 @@
     "awayScore": 9,
     "homeScore": 0,
     "winPitcher": "페레즈",
-    "losePitcher": "워커"
+    "losePitcher": "워커",
+    "savePitcher": "수아레즈",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "라일리 2개",
+          "player": "라일리",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "스미스",
+          "player": "스미스",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "해리스",
+          "player": "해리스",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-18",
@@ -89211,7 +91549,43 @@
     "awayScore": 10,
     "homeScore": 5,
     "winPitcher": "웹",
-    "losePitcher": "리텔"
+    "losePitcher": "리텔",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "우드",
+          "player": "우드",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "라일",
+          "player": "라일",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "슈미트",
+          "player": "슈미트",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "라모스",
+          "player": "라모스",
+          "nat": "Puerto Rico"
+        },
+        {
+          "how": "홈런",
+          "text": "길버트",
+          "player": "길버트",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-18",
@@ -89229,7 +91603,37 @@
     "awayScore": 1,
     "homeScore": 5,
     "winPitcher": "챈들러",
-    "losePitcher": "마르티네즈"
+    "losePitcher": "마르티네즈",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "크루즈",
+          "player": "크루즈",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "도루",
+          "text": "쿡",
+          "player": "쿡",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "그리핀",
+          "player": "그리핀",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "프랠리",
+          "player": "프랠리",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-18",
@@ -89261,7 +91665,44 @@
     "awayScore": 2,
     "homeScore": 4,
     "winPitcher": "도발",
-    "losePitcher": "랭"
+    "losePitcher": "랭",
+    "savePitcher": "베드너",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "저지",
+          "player": "저지",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "라이스",
+          "player": "라이스",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "맥먼",
+          "player": "맥먼",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "카바예로",
+          "player": "카바예로",
+          "nat": "Panama"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "파스콴티노",
+          "player": "파스콴티노",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-18",
@@ -89279,7 +91720,38 @@
     "awayScore": 7,
     "homeScore": 5,
     "winPitcher": "유리베",
-    "losePitcher": "포셰"
+    "losePitcher": "포셰",
+    "savePitcher": "메길",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "로페즈",
+          "player": "로페즈",
+          "nat": "Dominican Republic"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "바우어스",
+          "player": "바우어스",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "렌히포",
+          "player": "렌히포",
+          "nat": "Venezuela"
+        },
+        {
+          "how": "도루",
+          "text": "존스",
+          "player": "존스",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-18",
@@ -89297,7 +91769,18 @@
     "awayScore": 0,
     "homeScore": 1,
     "winPitcher": "위틀록",
-    "losePitcher": "베스트"
+    "losePitcher": "베스트",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "듀란",
+          "player": "듀란",
+          "nat": "USA"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-04-18",
@@ -89371,7 +91854,49 @@
     "awayScore": 9,
     "homeScore": 4,
     "winPitcher": "레이히",
-    "losePitcher": "램버트"
+    "losePitcher": "램버트",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "알튜베",
+          "player": "알튜베",
+          "nat": "Venezuela"
+        },
+        {
+          "how": "홈런",
+          "text": "알바레스",
+          "player": "알바레스",
+          "nat": "Cuba"
+        },
+        {
+          "how": "홈런",
+          "text": "바스케스",
+          "player": "바스케스",
+          "nat": "Puerto Rico"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "에레라",
+          "player": "에레라",
+          "nat": "Panama"
+        },
+        {
+          "how": "홈런",
+          "text": "고먼",
+          "player": "고먼",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "처치",
+          "player": "처치",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-18",
@@ -89389,7 +91914,19 @@
     "awayScore": 2,
     "homeScore": 1,
     "winPitcher": "윌리엄슨",
-    "losePitcher": "라이언"
+    "losePitcher": "라이언",
+    "savePitcher": "파간",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "도루",
+          "text": "스튜어트",
+          "player": "스튜어트",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-18",
@@ -89449,7 +91986,31 @@
     "awayScore": 7,
     "homeScore": 1,
     "winPitcher": "글라스노우",
-    "losePitcher": "스가노"
+    "losePitcher": "스가노",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "모니악",
+          "player": "모니악",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "먼시 2개",
+          "player": "먼시",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "김혜성 2개",
+          "player": "김혜성",
+          "nat": "Republic of Korea"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-18",
@@ -89481,7 +92042,24 @@
     "awayScore": 0,
     "homeScore": 8,
     "winPitcher": "소리아노",
-    "losePitcher": "월드론"
+    "losePitcher": "월드론",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "몬카다",
+          "player": "몬카다",
+          "nat": "Cuba"
+        },
+        {
+          "how": "홈런",
+          "text": "로우",
+          "player": "로우",
+          "nat": "USA"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-04-18",
@@ -89499,7 +92077,32 @@
     "awayScore": 3,
     "homeScore": 6,
     "winPitcher": "소로카",
-    "losePitcher": "라우어"
+    "losePitcher": "라우어",
+    "savePitcher": "시월드",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "아레나도",
+          "player": "아레나도",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "스트로",
+          "player": "스트로",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "히메네즈",
+          "player": "히메네즈",
+          "nat": "Venezuela"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-18",
@@ -89517,7 +92120,24 @@
     "awayScore": 9,
     "homeScore": 2,
     "winPitcher": "마틴",
-    "losePitcher": "시베일"
+    "losePitcher": "시베일",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "무라카미",
+          "player": "무라카미",
+          "nat": "Japan"
+        },
+        {
+          "how": "도루",
+          "text": "아쿠냐",
+          "player": "아쿠냐",
+          "nat": "Venezuela"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-18",
@@ -89535,7 +92155,18 @@
     "awayScore": 5,
     "homeScore": 0,
     "winPitcher": "콜리어",
-    "losePitcher": "길버트"
+    "losePitcher": "길버트",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "니모",
+          "player": "니모",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-18",
@@ -91869,7 +94500,37 @@
     "awayScore": 4,
     "homeScore": 13,
     "winPitcher": "워렌",
-    "losePitcher": "카메론"
+    "losePitcher": "카메론",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "로사리오",
+          "player": "로사리오",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "홈런",
+          "text": "벨린저 2개",
+          "player": "벨린저",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "라이스",
+          "player": "라이스",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "젠슨",
+          "player": "젠슨",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-19",
@@ -91957,7 +94618,26 @@
     "awayScore": 5,
     "homeScore": 4,
     "winPitcher": "니콜라스",
-    "losePitcher": "샌즈"
+    "losePitcher": "샌즈",
+    "savePitcher": "산틸란",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "키샬",
+          "player": "키샬",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "벤슨",
+          "player": "벤슨",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-19",
@@ -91975,7 +94655,32 @@
     "awayScore": 2,
     "homeScore": 4,
     "winPitcher": "타이욘",
-    "losePitcher": "페랄타"
+    "losePitcher": "페랄타",
+    "savePitcher": "틸바",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "햅",
+          "player": "햅",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "켈리",
+          "player": "켈리",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "비엔토스",
+          "player": "비엔토스",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-19",
@@ -92195,7 +94900,44 @@
     "awayScore": 8,
     "homeScore": 7,
     "winPitcher": "잭스",
-    "losePitcher": "라미레즈"
+    "losePitcher": "라미레즈",
+    "savePitcher": "고메즈",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "오헌",
+          "player": "오헌",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "오즈나",
+          "player": "오즈나",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "도루",
+          "text": "그리핀",
+          "player": "그리핀",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "멀린스",
+          "player": "멀린스",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "월스",
+          "player": "월스",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-19",
@@ -92227,7 +94969,25 @@
     "awayScore": 7,
     "homeScore": 6,
     "winPitcher": "킬리언",
-    "losePitcher": "페레즈"
+    "losePitcher": "페레즈",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "우드",
+          "player": "우드",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "라모스",
+          "player": "라모스",
+          "nat": "Puerto Rico"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-19",
@@ -92245,7 +95005,61 @@
     "awayScore": 6,
     "homeScore": 7,
     "winPitcher": "퍼킨스",
-    "losePitcher": "심스"
+    "losePitcher": "심스",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "커츠",
+          "player": "커츠",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "윌슨",
+          "player": "윌슨",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "클락",
+          "player": "클락",
+          "nat": "Canada"
+        },
+        {
+          "how": "도루",
+          "text": "버틀러 2개",
+          "player": "버틀러",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "베닌텐디",
+          "player": "베닌텐디",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "무라카미",
+          "player": "무라카미",
+          "nat": "Japan"
+        },
+        {
+          "how": "도루",
+          "text": "아쿠냐",
+          "player": "아쿠냐",
+          "nat": "Venezuela"
+        },
+        {
+          "how": "홈런",
+          "text": "몽고메리",
+          "player": "몽고메리",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-19",
@@ -92263,7 +95077,26 @@
     "awayScore": 4,
     "homeScore": 1,
     "winPitcher": "스쿠발",
-    "losePitcher": "벨로"
+    "losePitcher": "벨로",
+    "savePitcher": "잰슨",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "모나스테리오",
+          "player": "모나스테리오",
+          "nat": "Venezuela"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "카펜터",
+          "player": "카펜터",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-19",
@@ -92281,7 +95114,31 @@
     "awayScore": 5,
     "homeScore": 2,
     "winPitcher": "우드러프",
-    "losePitcher": "알칸타라"
+    "losePitcher": "알칸타라",
+    "savePitcher": "유리베",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "투랑",
+          "player": "투랑",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "미첼",
+          "player": "미첼",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "로크리지",
+          "player": "로크리지",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-19",
@@ -92368,7 +95225,44 @@
     "awayScore": 2,
     "homeScore": 4,
     "winPitcher": "윌리엄스",
-    "losePitcher": "크레머"
+    "losePitcher": "크레머",
+    "savePitcher": "스미스",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "라미레즈",
+          "player": "라미레즈",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "홈런",
+          "text": "네일러",
+          "player": "네일러",
+          "nat": "Canada"
+        },
+        {
+          "how": "홈런",
+          "text": "로키오",
+          "player": "로키오",
+          "nat": "Venezuela"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "헨더슨",
+          "player": "헨더슨",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "타베라스",
+          "player": "타베라스",
+          "nat": "Dominican Republic"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-19",
@@ -92428,7 +95322,56 @@
     "awayScore": 7,
     "homeScore": 5,
     "winPitcher": "팔란테",
-    "losePitcher": "맥컬러스"
+    "losePitcher": "맥컬러스",
+    "savePitcher": "오브라이언",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "알바레스",
+          "player": "알바레스",
+          "nat": "Cuba"
+        },
+        {
+          "how": "도루",
+          "text": "트람멜",
+          "player": "트람멜",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "위트컴",
+          "player": "위트컴",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "벌레슨",
+          "player": "벌레슨",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "워커",
+          "player": "워커",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "윈",
+          "player": "윈",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "페르민",
+          "player": "페르민",
+          "nat": "Dominican Republic"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-19",
@@ -92446,7 +95389,25 @@
     "awayScore": 3,
     "homeScore": 1,
     "winPitcher": "세일",
-    "losePitcher": "산체스"
+    "losePitcher": "산체스",
+    "savePitcher": "수아레즈",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "터너",
+          "player": "터너",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "레예스",
+          "player": "레예스",
+          "nat": "Dominican Republic"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-04-19",
@@ -92464,7 +95425,32 @@
     "awayScore": 3,
     "homeScore": 7,
     "winPitcher": "커비",
-    "losePitcher": "이발디"
+    "losePitcher": "이발디",
+    "savePitcher": "무뇨스",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "레일리",
+          "player": "레일리",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "영",
+          "player": "영",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "영",
+          "player": "영",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-19",
@@ -92689,7 +95675,24 @@
     "awayScore": 2,
     "homeScore": 6,
     "winPitcher": "모리요",
-    "losePitcher": "호프먼"
+    "losePitcher": "호프먼",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "캐롤",
+          "player": "캐롤",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "캐롤",
+          "player": "캐롤",
+          "nat": "USA"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-04-19",
@@ -92707,7 +95710,32 @@
     "awayScore": 3,
     "homeScore": 4,
     "winPitcher": "버나디노",
-    "losePitcher": "클라인"
+    "losePitcher": "클라인",
+    "savePitcher": "보드닉",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "존스턴",
+          "player": "존스턴",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "터커",
+          "player": "터커",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "러싱",
+          "player": "러싱",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-19",
@@ -92904,7 +95932,25 @@
     "awayScore": 4,
     "homeScore": 1,
     "winPitcher": "모레혼",
-    "losePitcher": "제퍼잔"
+    "losePitcher": "제퍼잔",
+    "savePitcher": "밀러",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "도루",
+          "text": "타티스 주니어",
+          "player": "타티스 주니어",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "도루",
+          "text": "존슨",
+          "player": "존슨",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-19",
@@ -94798,7 +97844,24 @@
     "awayScore": 0,
     "homeScore": 3,
     "winPitcher": "알바레즈",
-    "losePitcher": "레이"
+    "losePitcher": "레이",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "미드",
+          "player": "미드",
+          "nat": "Australia"
+        },
+        {
+          "how": "도루",
+          "text": "누네스",
+          "player": "누네스",
+          "nat": "USA"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-04-20",
@@ -94816,7 +97879,55 @@
     "awayScore": 3,
     "homeScore": 6,
     "winPitcher": "켈러",
-    "losePitcher": "맥클라나한"
+    "losePitcher": "맥클라나한",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "맨검",
+          "player": "맨검",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "요크",
+          "player": "요크",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "그리핀",
+          "player": "그리핀",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "쿡",
+          "player": "쿡",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "호위츠",
+          "player": "호위츠",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "카미네로",
+          "player": "카미네로",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "도루",
+          "text": "데루카",
+          "player": "데루카",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-20",
@@ -94834,7 +97945,30 @@
     "awayScore": 0,
     "homeScore": 7,
     "winPitcher": "웨더스",
-    "losePitcher": "라간스"
+    "losePitcher": "라간스",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "라이스",
+          "player": "라이스",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "저지",
+          "player": "저지",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "그리샴",
+          "player": "그리샴",
+          "nat": "USA"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-04-20",
@@ -94852,7 +97986,19 @@
     "awayScore": 3,
     "homeScore": 5,
     "winPitcher": "페레즈",
-    "losePitcher": "미저라우스키"
+    "losePitcher": "미저라우스키",
+    "savePitcher": "페어뱅크스",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "도루",
+          "text": "해밀튼",
+          "player": "해밀튼",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-20",
@@ -94870,7 +98016,37 @@
     "awayScore": 4,
     "homeScore": 8,
     "winPitcher": "페스타",
-    "losePitcher": "로저스"
+    "losePitcher": "로저스",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "라미레즈 2개",
+          "player": "라미레즈",
+          "nat": "Dominican Republic"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "워드",
+          "player": "워드",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "잭슨",
+          "player": "잭슨",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "윌슨",
+          "player": "윌슨",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-20",
@@ -94930,7 +98106,19 @@
     "awayScore": 7,
     "homeScore": 5,
     "winPitcher": "오브라이언",
-    "losePitcher": "킹"
+    "losePitcher": "킹",
+    "savePitcher": "그레이스포",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "알바레스",
+          "player": "알바레스",
+          "nat": "Cuba"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-04-20",
@@ -94948,7 +98136,19 @@
     "awayScore": 7,
     "homeScore": 4,
     "winPitcher": "파간",
-    "losePitcher": "액턴"
+    "losePitcher": "액턴",
+    "savePitcher": "애쉬크래프트",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "도루",
+          "text": "프리들",
+          "player": "프리들",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-20",
@@ -94966,7 +98166,31 @@
     "awayScore": 1,
     "homeScore": 2,
     "winPitcher": "틸바",
-    "losePitcher": "킴브럴"
+    "losePitcher": "킴브럴",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "호너",
+          "player": "호너",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "멜렌데즈",
+          "player": "멜렌데즈",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "세미엔",
+          "player": "세미엔",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-20",
@@ -95122,7 +98346,30 @@
     "awayScore": 6,
     "homeScore": 9,
     "winPitcher": "센자텔라",
-    "losePitcher": "트레이넨"
+    "losePitcher": "트레이넨",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "모니악",
+          "player": "모니악",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "카스트로",
+          "player": "카스트로",
+          "nat": "Puerto Rico"
+        },
+        {
+          "how": "홈런",
+          "text": "카로스",
+          "player": "카로스",
+          "nat": "USA"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-04-20",
@@ -95182,7 +98429,44 @@
     "awayScore": 7,
     "homeScore": 4,
     "winPitcher": "슐츠",
-    "losePitcher": "스프링스"
+    "losePitcher": "스프링스",
+    "savePitcher": "도밍게스",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "에르나이즈",
+          "player": "에르나이즈",
+          "nat": "Puerto Rico"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "바가스",
+          "player": "바가스",
+          "nat": "Cuba"
+        },
+        {
+          "how": "홈런",
+          "text": "무라카미",
+          "player": "무라카미",
+          "nat": "Japan"
+        },
+        {
+          "how": "홈런",
+          "text": "몽고메리",
+          "player": "몽고메리",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "힐",
+          "player": "힐",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-20",
@@ -95200,7 +98484,32 @@
     "awayScore": 2,
     "homeScore": 1,
     "winPitcher": "킹",
-    "losePitcher": "우레나"
+    "losePitcher": "우레나",
+    "savePitcher": "밀러",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "네토",
+          "player": "네토",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "타티스 주니어",
+          "player": "타티스 주니어",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "도루",
+          "text": "존슨",
+          "player": "존슨",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-20",
@@ -95218,7 +98527,25 @@
     "awayScore": 10,
     "homeScore": 4,
     "winPitcher": "가우스먼",
-    "losePitcher": "넬슨"
+    "losePitcher": "넬슨",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "바로사",
+          "player": "바로사",
+          "nat": "Venezuela"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "오카모토",
+          "player": "오카모토",
+          "nat": "Japan"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-20",
@@ -95236,7 +98563,37 @@
     "awayScore": 2,
     "homeScore": 5,
     "winPitcher": "우",
-    "losePitcher": "고어"
+    "losePitcher": "고어",
+    "savePitcher": "무뇨스",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "레프스나이더",
+          "player": "레프스나이더",
+          "nat": "Republic of Korea"
+        },
+        {
+          "how": "홈런",
+          "text": "아로자레나",
+          "player": "아로자레나",
+          "nat": "Cuba"
+        },
+        {
+          "how": "도루",
+          "text": "조",
+          "player": "조",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "크로포드",
+          "player": "크로포드",
+          "nat": "USA"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-04-20",
@@ -95268,7 +98625,37 @@
     "awayScore": 6,
     "homeScore": 2,
     "winPitcher": "발데스",
-    "losePitcher": "크로셰"
+    "losePitcher": "크로셰",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "콘트레라스",
+          "player": "콘트레라스",
+          "nat": "Venezuela"
+        },
+        {
+          "how": "도루",
+          "text": "스토리",
+          "player": "스토리",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "존스",
+          "player": "존스",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "딩글러",
+          "player": "딩글러",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-20",
@@ -95329,7 +98716,26 @@
     "awayScore": 4,
     "homeScore": 2,
     "winPitcher": "킨리",
-    "losePitcher": "페인터"
+    "losePitcher": "페인터",
+    "savePitcher": "이글레시아스",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "슈와버",
+          "player": "슈와버",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "해리스",
+          "player": "해리스",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-21",
@@ -95347,7 +98753,38 @@
     "awayScore": 6,
     "homeScore": 8,
     "winPitcher": "위틀록",
-    "losePitcher": "홀튼"
+    "losePitcher": "홀튼",
+    "savePitcher": "채프먼",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "안소니",
+          "player": "안소니",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "카이너-팔레파",
+          "player": "카이너-팔레파",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "나바에스",
+          "player": "나바에스",
+          "nat": "Venezuela"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "로저스",
+          "player": "로저스",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-21",
@@ -95474,7 +98911,43 @@
     "awayScore": 9,
     "homeScore": 2,
     "winPitcher": "아리게티",
-    "losePitcher": "체코니"
+    "losePitcher": "체코니",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "로키오",
+          "player": "로키오",
+          "nat": "Venezuela"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "워커",
+          "player": "워커",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "파레데스 2개",
+          "player": "파레데스",
+          "nat": "Mexico"
+        },
+        {
+          "how": "도루",
+          "text": "스미스",
+          "player": "스미스",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "매튜스",
+          "player": "매튜스",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-21",
@@ -95492,7 +98965,38 @@
     "awayScore": 3,
     "homeScore": 5,
     "winPitcher": "포셰",
-    "losePitcher": "맥그리비"
+    "losePitcher": "맥그리비",
+    "savePitcher": "페어뱅크스",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "로페즈",
+          "player": "로페즈",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "홈런",
+          "text": "라미레즈",
+          "player": "라미레즈",
+          "nat": "Dominican Republic"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "워커",
+          "player": "워커",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "윈",
+          "player": "윈",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-21",
@@ -95510,7 +99014,24 @@
     "awayScore": 6,
     "homeScore": 1,
     "winPitcher": "로더",
-    "losePitcher": "숄텐스"
+    "losePitcher": "숄텐스",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "스튜어트",
+          "player": "스튜어트",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "스튜어트",
+          "player": "스튜어트",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-21",
@@ -95528,7 +99049,31 @@
     "awayScore": 9,
     "homeScore": 4,
     "winPitcher": "엘더",
-    "losePitcher": "어빈"
+    "losePitcher": "어빈",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "에이브람스",
+          "player": "에이브람스",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "라일",
+          "player": "라일",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "올슨",
+          "player": "올슨",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-21",
@@ -95546,7 +99091,25 @@
     "awayScore": 7,
     "homeScore": 5,
     "winPitcher": "누네즈",
-    "losePitcher": "랭"
+    "losePitcher": "랭",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "캐글리아논",
+          "player": "캐글리아논",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "타베라스",
+          "player": "타베라스",
+          "nat": "Dominican Republic"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-21",
@@ -95564,7 +99127,25 @@
     "awayScore": 1,
     "homeScore": 5,
     "winPitcher": "레아",
-    "losePitcher": "놀라"
+    "losePitcher": "놀라",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "스완슨",
+          "player": "스완슨",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "스탓",
+          "player": "스탓",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-21",
@@ -95582,7 +99163,49 @@
     "awayScore": 12,
     "homeScore": 3,
     "winPitcher": "로블레스키",
-    "losePitcher": "퀸타나"
+    "losePitcher": "퀸타나",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "J. 럼필드",
+          "player": "J. 럼필드",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "오타니",
+          "player": "오타니",
+          "nat": "Japan"
+        },
+        {
+          "how": "도루",
+          "text": "파헤스",
+          "player": "파헤스",
+          "nat": "Cuba"
+        },
+        {
+          "how": "홈런",
+          "text": "먼시 2개",
+          "player": "먼시",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "로하스",
+          "player": "로하스",
+          "nat": "Venezuela"
+        },
+        {
+          "how": "홈런",
+          "text": "러싱 2개",
+          "player": "러싱",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-21",
@@ -95600,7 +99223,32 @@
     "awayScore": 5,
     "homeScore": 2,
     "winPitcher": "시즈",
-    "losePitcher": "디트머스"
+    "losePitcher": "디트머스",
+    "savePitcher": "호프먼",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "네토 2개",
+          "player": "네토",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "트라웃",
+          "player": "트라웃",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "게레로 주니어",
+          "player": "게레로 주니어",
+          "nat": "Canada"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-21",
@@ -95618,7 +99266,62 @@
     "awayScore": 6,
     "homeScore": 4,
     "winPitcher": "해리스",
-    "losePitcher": "레구미나"
+    "losePitcher": "레구미나",
+    "savePitcher": "쿠넬",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "랄리",
+          "player": "랄리",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "로드리게스",
+          "player": "로드리게스",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "도루",
+          "text": "네일러",
+          "player": "네일러",
+          "nat": "Canada"
+        },
+        {
+          "how": "홈런",
+          "text": "칸조네 도미닉",
+          "player": "칸조네 도미닉",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "커츠",
+          "player": "커츠",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "랭겔리어스",
+          "player": "랭겔리어스",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "코르테스",
+          "player": "코르테스",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "버틀러",
+          "player": "버틀러",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-21",
@@ -97084,7 +100787,24 @@
     "awayScore": 5,
     "homeScore": 8,
     "winPitcher": "팔레트",
-    "losePitcher": "디 로스 산토스"
+    "losePitcher": "디 로스 산토스",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "라미레즈",
+          "player": "라미레즈",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "홈런",
+          "text": "마르티네스",
+          "player": "마르티네스",
+          "nat": "Dominican Republic"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-04-22",
@@ -97190,7 +100910,32 @@
     "awayScore": 5,
     "homeScore": 3,
     "winPitcher": "메이",
-    "losePitcher": "페덱"
+    "losePitcher": "페덱",
+    "savePitcher": "오브라이언",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "마르시",
+          "player": "마르시",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "처치",
+          "player": "처치",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "처치",
+          "player": "처치",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-22",
@@ -97208,7 +100953,67 @@
     "awayScore": 12,
     "homeScore": 6,
     "winPitcher": "번스",
-    "losePitcher": "마츠"
+    "losePitcher": "마츠",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "아란다",
+          "player": "아란다",
+          "nat": "Mexico"
+        },
+        {
+          "how": "도루",
+          "text": "멀린스",
+          "player": "멀린스",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "마이어스",
+          "player": "마이어스",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "맥클레인",
+          "player": "맥클레인",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "데 라 크루즈 2개",
+          "player": "데 라 크루즈",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "도루",
+          "text": "데 라 크루즈",
+          "player": "데 라 크루즈",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "도루",
+          "text": "스튜어트",
+          "player": "스튜어트",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "스티어",
+          "player": "스티어",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "헤이즈",
+          "player": "헤이즈",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-22",
@@ -97226,7 +101031,18 @@
     "awayScore": 4,
     "homeScore": 0,
     "winPitcher": "힐",
-    "losePitcher": "얼리"
+    "losePitcher": "얼리",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "스탠튼",
+          "player": "스탠튼",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-22",
@@ -97244,7 +101060,55 @@
     "awayScore": 4,
     "homeScore": 11,
     "winPitcher": "그리핀",
-    "losePitcher": "로페스"
+    "losePitcher": "로페스",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "우드",
+          "player": "우드",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "가르시아",
+          "player": "가르시아",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "누네스 2개",
+          "player": "누네스",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "하우스",
+          "player": "하우스",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "미드",
+          "player": "미드",
+          "nat": "Australia"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "볼드윈",
+          "player": "볼드윈",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "화이트",
+          "player": "화이트",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-22",
@@ -97262,7 +101126,43 @@
     "awayScore": 5,
     "homeScore": 3,
     "winPitcher": "샌즈",
-    "losePitcher": "윌리엄스"
+    "losePitcher": "윌리엄스",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "린도어",
+          "player": "린도어",
+          "nat": "Puerto Rico"
+        },
+        {
+          "how": "도루",
+          "text": "벤지",
+          "player": "벤지",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "벅스턴",
+          "player": "벅스턴",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "아웃맨",
+          "player": "아웃맨",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "키샬",
+          "player": "키샬",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-22",
@@ -97308,7 +101208,37 @@
     "awayScore": 5,
     "homeScore": 6,
     "winPitcher": "에르세그",
-    "losePitcher": "헬슬리"
+    "losePitcher": "헬슬리",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "가르시아",
+          "player": "가르시아",
+          "nat": "Venezuela"
+        },
+        {
+          "how": "홈런",
+          "text": "매시",
+          "player": "매시",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "러치맨",
+          "player": "러치맨",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "메이요",
+          "player": "메이요",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-22",
@@ -97326,7 +101256,50 @@
     "awayScore": 4,
     "homeScore": 7,
     "winPitcher": "이마나가",
-    "losePitcher": "뱅크스"
+    "losePitcher": "뱅크스",
+    "savePitcher": "틸바",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "호너",
+          "player": "호너",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "햅",
+          "player": "햅",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "스즈키",
+          "player": "스즈키",
+          "nat": "Japan"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "터너",
+          "player": "터너",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "슈와버",
+          "player": "슈와버",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "하퍼",
+          "player": "하퍼",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-22",
@@ -97344,7 +101317,25 @@
     "awayScore": 1,
     "homeScore": 5,
     "winPitcher": "로커",
-    "losePitcher": "모진스키"
+    "losePitcher": "모진스키",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "랭포드",
+          "player": "랭포드",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "크루즈",
+          "player": "크루즈",
+          "nat": "Dominican Republic"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-22",
@@ -97376,7 +101367,19 @@
     "awayScore": 1,
     "homeScore": 0,
     "winPitcher": "바스케즈",
-    "losePitcher": "돌랜더"
+    "losePitcher": "돌랜더",
+    "savePitcher": "모레혼",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "토바",
+          "player": "토바",
+          "nat": "Venezuela"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-04-22",
@@ -97394,7 +101397,8 @@
     "awayScore": 4,
     "homeScore": 2,
     "winPitcher": "플루허티",
-    "losePitcher": "포머란츠"
+    "losePitcher": "포머란츠",
+    "savePitcher": "발랜드"
   },
   {
     "date": "2026-04-22",
@@ -97412,7 +101416,55 @@
     "awayScore": 11,
     "homeScore": 5,
     "winPitcher": "버크",
-    "losePitcher": "켈리"
+    "losePitcher": "켈리",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "바르가스",
+          "player": "바르가스",
+          "nat": "Venezuela"
+        },
+        {
+          "how": "홈런",
+          "text": "토마스",
+          "player": "토마스",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "무라카미",
+          "player": "무라카미",
+          "nat": "Japan"
+        },
+        {
+          "how": "홈런",
+          "text": "바가스",
+          "player": "바가스",
+          "nat": "Cuba"
+        },
+        {
+          "how": "홈런",
+          "text": "몽고메리",
+          "player": "몽고메리",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "안토나치",
+          "player": "안토나치",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "피터스",
+          "player": "피터스",
+          "nat": "Canada"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-22",
@@ -97430,7 +101482,38 @@
     "awayScore": 5,
     "homeScore": 2,
     "winPitcher": "로페즈",
-    "losePitcher": "바자르도"
+    "losePitcher": "바자르도",
+    "savePitcher": "퍼킨스",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "랄리",
+          "player": "랄리",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "커츠",
+          "player": "커츠",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "랭겔리어스",
+          "player": "랭겔리어스",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "맥닐",
+          "player": "맥닐",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-22",
@@ -97448,7 +101531,8 @@
     "awayScore": 1,
     "homeScore": 3,
     "winPitcher": "룹",
-    "losePitcher": "야마모토"
+    "losePitcher": "야마모토",
+    "savePitcher": "워커"
   },
   {
     "date": "2026-04-22",
@@ -98383,7 +102467,26 @@
     "awayScore": 1,
     "homeScore": 4,
     "winPitcher": "정크",
-    "losePitcher": "레이히"
+    "losePitcher": "레이히",
+    "savePitcher": "페어뱅크스",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "마르시",
+          "player": "마르시",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "에레라",
+          "player": "에레라",
+          "nat": "Panama"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-23",
@@ -98486,7 +102589,19 @@
     "awayScore": 2,
     "homeScore": 0,
     "winPitcher": "램버트",
-    "losePitcher": "바이비"
+    "losePitcher": "바이비",
+    "savePitcher": "디 로스 산토스",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "알바레스",
+          "player": "알바레스",
+          "nat": "Cuba"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-23",
@@ -98504,7 +102619,18 @@
     "awayScore": 1,
     "homeScore": 6,
     "winPitcher": "마르티네즈",
-    "losePitcher": "윌리엄슨"
+    "losePitcher": "윌리엄슨",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "카미네로",
+          "player": "카미네로",
+          "nat": "Dominican Republic"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-04-23",
@@ -98624,7 +102750,50 @@
     "awayScore": 8,
     "homeScore": 6,
     "winPitcher": "배싯",
-    "losePitcher": "와카"
+    "losePitcher": "와카",
+    "savePitcher": "누네즈",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "위트 주니어",
+          "player": "위트 주니어",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "파스콴티노",
+          "player": "파스콴티노",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "젠슨",
+          "player": "젠슨",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "이스벨",
+          "player": "이스벨",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "알론소",
+          "player": "알론소",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "메이요",
+          "player": "메이요",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-23",
@@ -98929,7 +103098,30 @@
     "awayScore": 3,
     "homeScore": 7,
     "winPitcher": "수터",
-    "losePitcher": "낸스"
+    "losePitcher": "낸스",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "트라웃",
+          "player": "트라웃",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "트라웃",
+          "player": "트라웃",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "샤뉴엘",
+          "player": "샤뉴엘",
+          "nat": "USA"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-04-23",
@@ -98970,7 +103162,37 @@
     "awayScore": 4,
     "homeScore": 5,
     "winPitcher": "무뇨스",
-    "losePitcher": "쿠넬"
+    "losePitcher": "쿠넬",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "랄리",
+          "player": "랄리",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "랄리",
+          "player": "랄리",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "아로자레나",
+          "player": "아로자레나",
+          "nat": "Cuba"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "커츠",
+          "player": "커츠",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-23",
@@ -99086,7 +103308,38 @@
     "awayScore": 2,
     "homeScore": 5,
     "winPitcher": "마이즈",
-    "losePitcher": "패트릭"
+    "losePitcher": "패트릭",
+    "savePitcher": "잰슨",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "토켈슨",
+          "player": "토켈슨",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "카펜터",
+          "player": "카펜터",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "투랑",
+          "player": "투랑",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "미첼",
+          "player": "미첼",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-23",
@@ -99104,7 +103357,24 @@
     "awayScore": 4,
     "homeScore": 1,
     "winPitcher": "프리드",
-    "losePitcher": "수아레즈"
+    "losePitcher": "수아레즈",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "도루",
+          "text": "저지",
+          "player": "저지",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "로사리오",
+          "player": "로사리오",
+          "nat": "Dominican Republic"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-23",
@@ -99122,7 +103392,56 @@
     "awayScore": 8,
     "homeScore": 6,
     "winPitcher": "리",
-    "losePitcher": "리텔"
+    "losePitcher": "리텔",
+    "savePitcher": "수아레즈",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "우드",
+          "player": "우드",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "라일",
+          "player": "라일",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "위머",
+          "player": "위머",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "위머",
+          "player": "위머",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "볼드윈",
+          "player": "볼드윈",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "올슨",
+          "player": "올슨",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "해리스 2개",
+          "player": "해리스",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-23",
@@ -99154,7 +103473,25 @@
     "awayScore": 2,
     "homeScore": 3,
     "winPitcher": "위버",
-    "losePitcher": "로저스"
+    "losePitcher": "로저스",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "세미엔",
+          "player": "세미엔",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "벅스턴",
+          "player": "벅스턴",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-23",
@@ -99364,7 +103701,30 @@
     "awayScore": 2,
     "homeScore": 7,
     "winPitcher": "브라운",
-    "losePitcher": "워커"
+    "losePitcher": "워커",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "스즈키",
+          "player": "스즈키",
+          "nat": "Japan"
+        },
+        {
+          "how": "홈런",
+          "text": "부시",
+          "player": "부시",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "크로우-암스트롱",
+          "player": "크로우-암스트롱",
+          "nat": "USA"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-04-23",
@@ -99415,7 +103775,37 @@
     "awayScore": 8,
     "homeScore": 4,
     "winPitcher": "소토",
-    "losePitcher": "윈"
+    "losePitcher": "윈",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "영",
+          "player": "영",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "카터",
+          "player": "카터",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "크루즈",
+          "player": "크루즈",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "도루",
+          "text": "곤잘레스",
+          "player": "곤잘레스",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-23",
@@ -99481,7 +103871,31 @@
     "awayScore": 3,
     "homeScore": 8,
     "winPitcher": "스가노",
-    "losePitcher": "뷸러"
+    "losePitcher": "뷸러",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "굿맨",
+          "player": "굿맨",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "메릴",
+          "player": "메릴",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "캄푸사노",
+          "player": "캄푸사노",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-23",
@@ -99541,7 +103955,55 @@
     "awayScore": 7,
     "homeScore": 11,
     "winPitcher": "로드리게스",
-    "losePitcher": "케이"
+    "losePitcher": "케이",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "캐롤 2개",
+          "player": "캐롤",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "아레나도",
+          "player": "아레나도",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "바르가스 2개",
+          "player": "바르가스",
+          "nat": "Venezuela"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "바가스",
+          "player": "바가스",
+          "nat": "Cuba"
+        },
+        {
+          "how": "도루",
+          "text": "바가스",
+          "player": "바가스",
+          "nat": "Cuba"
+        },
+        {
+          "how": "홈런",
+          "text": "무라카미",
+          "player": "무라카미",
+          "nat": "Japan"
+        },
+        {
+          "how": "홈런",
+          "text": "몽고메리",
+          "player": "몽고메리",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-23",
@@ -99559,7 +104021,19 @@
     "awayScore": 0,
     "homeScore": 3,
     "winPitcher": "말리",
-    "losePitcher": "드레이어"
+    "losePitcher": "드레이어",
+    "savePitcher": "워커",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "베일리",
+          "player": "베일리",
+          "nat": "USA"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-04-23",
@@ -100468,7 +104942,37 @@
     "awayScore": 7,
     "homeScore": 2,
     "winPitcher": "R 리치",
-    "losePitcher": "페레즈"
+    "losePitcher": "페레즈",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "우드",
+          "player": "우드",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "에이브람스",
+          "player": "에이브람스",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "볼드윈",
+          "player": "볼드윈",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "알비스",
+          "player": "알비스",
+          "nat": "Curacao"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-24",
@@ -100500,7 +105004,30 @@
     "awayScore": 4,
     "homeScore": 5,
     "winPitcher": "허터",
-    "losePitcher": "유리베"
+    "losePitcher": "유리베",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "존스",
+          "player": "존스",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "그린",
+          "player": "그린",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "토켈슨",
+          "player": "토켈슨",
+          "nat": "USA"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-04-24",
@@ -100644,7 +105171,61 @@
     "awayScore": 7,
     "homeScore": 8,
     "winPitcher": "아사드",
-    "losePitcher": "뱅크스"
+    "losePitcher": "뱅크스",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "햅",
+          "player": "햅",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "스즈키",
+          "player": "스즈키",
+          "nat": "Japan"
+        },
+        {
+          "how": "홈런",
+          "text": "부시",
+          "player": "부시",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "쇼",
+          "player": "쇼",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "무어",
+          "player": "무어",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "마쉬 2개",
+          "player": "마쉬",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "소사",
+          "player": "소사",
+          "nat": "Panama"
+        },
+        {
+          "how": "홈런",
+          "text": "가르시아",
+          "player": "가르시아",
+          "nat": "Cuba"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-24",
@@ -100744,7 +105325,38 @@
     "awayScore": 10,
     "homeScore": 8,
     "winPitcher": "마니라시오",
-    "losePitcher": "보드닉"
+    "losePitcher": "보드닉",
+    "savePitcher": "밀러",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "모니악 2개",
+          "player": "모니악",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "보가츠",
+          "player": "보가츠",
+          "nat": "Aruba"
+        },
+        {
+          "how": "홈런",
+          "text": "쉬츠",
+          "player": "쉬츠",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "크로넨워스",
+          "player": "크로넨워스",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-24",
@@ -100790,7 +105402,38 @@
     "awayScore": 4,
     "homeScore": 1,
     "winPitcher": "테일러",
-    "losePitcher": "시월드"
+    "losePitcher": "시월드",
+    "savePitcher": "도밍게스",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "토마스",
+          "player": "토마스",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "베닌텐디",
+          "player": "베닌텐디",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "바가스",
+          "player": "바가스",
+          "nat": "Cuba"
+        },
+        {
+          "how": "도루",
+          "text": "힐",
+          "player": "힐",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-24",
@@ -100808,7 +105451,26 @@
     "awayScore": 3,
     "homeScore": 0,
     "winPitcher": "글라스노우",
-    "losePitcher": "웹"
+    "losePitcher": "웹",
+    "savePitcher": "스캇",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "아라에즈",
+          "player": "아라에즈",
+          "nat": "Venezuela"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "김혜성",
+          "player": "김혜성",
+          "nat": "Republic of Korea"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-24",
@@ -100868,7 +105530,26 @@
     "awayScore": 4,
     "homeScore": 2,
     "winPitcher": "슐리틀러",
-    "losePitcher": "쿨롬"
+    "losePitcher": "쿨롬",
+    "savePitcher": "베드너",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "나바에스",
+          "player": "나바에스",
+          "nat": "Venezuela"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "치좀",
+          "player": "치좀",
+          "nat": "Bahamas"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-24",
@@ -100956,7 +105637,49 @@
     "awayScore": 8,
     "homeScore": 10,
     "winPitcher": "윌리엄스",
-    "losePitcher": "모리스"
+    "losePitcher": "모리스",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "비셋",
+          "player": "비셋",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "베이티",
+          "player": "베이티",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "세미엔",
+          "player": "세미엔",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "벤지",
+          "player": "벤지",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "제퍼스",
+          "player": "제퍼스",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "그래이",
+          "player": "그래이",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-24",
@@ -100974,7 +105697,37 @@
     "awayScore": 1,
     "homeScore": 6,
     "winPitcher": "디그롬",
-    "losePitcher": "챈들러"
+    "losePitcher": "챈들러",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "시거",
+          "player": "시거",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "카터",
+          "player": "카터",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "스미스",
+          "player": "스미스",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "크루즈",
+          "player": "크루즈",
+          "nat": "Dominican Republic"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-24",
@@ -101901,7 +106654,67 @@
     "awayScore": 8,
     "homeScore": 9,
     "winPitcher": "애쉬크래프트",
-    "losePitcher": "잰슨"
+    "losePitcher": "잰슨",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "맥클레인 2개",
+          "player": "맥클레인",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "스튜어트",
+          "player": "스튜어트",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "스티어",
+          "player": "스티어",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "로우 2개",
+          "player": "로우",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "카펜터",
+          "player": "카펜터",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "맥고니글",
+          "player": "맥고니글",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "그린",
+          "player": "그린",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "토켈슨",
+          "player": "토켈슨",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "바에즈",
+          "player": "바에즈",
+          "nat": "Puerto Rico"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-25",
@@ -101961,7 +106774,55 @@
     "awayScore": 3,
     "homeScore": 10,
     "winPitcher": "영",
-    "losePitcher": "벨로"
+    "losePitcher": "벨로",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "헨더슨",
+          "player": "헨더슨",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "러치맨 2개",
+          "player": "러치맨",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "비버스",
+          "player": "비버스",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "바살로",
+          "player": "바살로",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "홈런",
+          "text": "메이요",
+          "player": "메이요",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "도루",
+          "text": "듀란",
+          "player": "듀란",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "어브레유",
+          "player": "어브레유",
+          "nat": "Venezuela"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-25",
@@ -101979,7 +106840,38 @@
     "awayScore": 8,
     "homeScore": 6,
     "winPitcher": "윌리엄스",
-    "losePitcher": "슈어저"
+    "losePitcher": "슈어저",
+    "savePitcher": "스미스",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "산체스",
+          "player": "산체스",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "홈런",
+          "text": "오카모토",
+          "player": "오카모토",
+          "nat": "Japan"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "슈니먼",
+          "player": "슈니먼",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "마르티네스 2개",
+          "player": "마르티네스",
+          "nat": "Dominican Republic"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-25",
@@ -101997,7 +106889,19 @@
     "awayScore": 4,
     "homeScore": 3,
     "winPitcher": "로렌젠",
-    "losePitcher": "페랄타"
+    "losePitcher": "페랄타",
+    "savePitcher": "센자텔라",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "도루",
+          "text": "도일",
+          "player": "도일",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-25",
@@ -102015,7 +106919,44 @@
     "awayScore": 2,
     "homeScore": 6,
     "winPitcher": "라스무센",
-    "losePitcher": "브래들리"
+    "losePitcher": "브래들리",
+    "savePitcher": "베이커",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "카미네로 2개",
+          "player": "카미네로",
+          "nat": "Dominican Republic"
+        },
+        {
+          "how": "홈런",
+          "text": "아란다 2개",
+          "player": "아란다",
+          "nat": "Mexico"
+        },
+        {
+          "how": "도루",
+          "text": "멀린스",
+          "player": "멀린스",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "루이스",
+          "player": "루이스",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "리",
+          "player": "리",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-25",
@@ -102033,7 +106974,38 @@
     "awayScore": 3,
     "homeScore": 5,
     "winPitcher": "홈스",
-    "losePitcher": "페인터"
+    "losePitcher": "페인터",
+    "savePitcher": "수아레즈",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "아쿠나",
+          "player": "아쿠나",
+          "nat": "Venezuela"
+        },
+        {
+          "how": "도루",
+          "text": "마테오",
+          "player": "마테오",
+          "nat": "Dominican Republic"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "터너",
+          "player": "터너",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "하퍼",
+          "player": "하퍼",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-25",
@@ -102051,7 +107023,24 @@
     "awayScore": 6,
     "homeScore": 0,
     "winPitcher": "스킨스",
-    "losePitcher": "우드러프"
+    "losePitcher": "우드러프",
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "그리핀",
+          "player": "그리핀",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "그리핀",
+          "player": "그리핀",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-25",
@@ -102069,7 +107058,19 @@
     "awayScore": 3,
     "homeScore": 6,
     "winPitcher": "카메론",
-    "losePitcher": "기쿠치"
+    "losePitcher": "기쿠치",
+    "savePitcher": "에르세그",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "이스벨",
+          "player": "이스벨",
+          "nat": "USA"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-04-25",
@@ -102087,7 +107088,38 @@
     "awayScore": 4,
     "homeScore": 5,
     "winPitcher": "레저",
-    "losePitcher": "코넬리오"
+    "losePitcher": "코넬리오",
+    "savePitcher": "도밍게스",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "페레이라",
+          "player": "페레이라",
+          "nat": "Venezuela"
+        },
+        {
+          "how": "홈런",
+          "text": "무라카미",
+          "player": "무라카미",
+          "nat": "Japan"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "하우스",
+          "player": "하우스",
+          "nat": "USA"
+        },
+        {
+          "how": "도루",
+          "text": "누네스",
+          "player": "누네스",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-25",
@@ -102133,7 +107165,43 @@
     "awayScore": 8,
     "homeScore": 1,
     "winPitcher": "세베리노",
-    "losePitcher": "이발디"
+    "losePitcher": "이발디",
+    "highlights": {
+      "home": [
+        {
+          "how": "도루",
+          "text": "영",
+          "player": "영",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "커츠",
+          "player": "커츠",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "코르테스 2개",
+          "player": "코르테스",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "소더스트롬",
+          "player": "소더스트롬",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "겔로프",
+          "player": "겔로프",
+          "nat": "USA"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-25",
@@ -102165,7 +107233,49 @@
     "awayScore": 12,
     "homeScore": 4,
     "winPitcher": "워렌",
-    "losePitcher": "맥컬러스"
+    "losePitcher": "맥컬러스",
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "슈메이크",
+          "player": "슈메이크",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "디아즈",
+          "player": "디아즈",
+          "nat": "Dominican Republic"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "라이스",
+          "player": "라이스",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "치좀",
+          "player": "치좀",
+          "nat": "Bahamas"
+        },
+        {
+          "how": "홈런",
+          "text": "맥먼",
+          "player": "맥먼",
+          "nat": "USA"
+        },
+        {
+          "how": "홈런",
+          "text": "카바예로",
+          "player": "카바예로",
+          "nat": "Panama"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-25",
@@ -114923,46 +120033,6 @@
     "time": "16:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
-    "home": "대한민국",
-    "away": "필리핀",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
-    "timeTbd": false,
-    "gameId": "INfbBvjkK2ARSQU",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 5,
-    "scorers": {
-      "home": [
-        {
-          "n": "백서영",
-          "m": 6
-        },
-        {
-          "n": "백서영",
-          "m": 14
-        },
-        {
-          "n": "백서영",
-          "m": 34
-        },
-        {
-          "n": "백서영",
-          "m": 55
-        },
-        {
-          "n": "김희나",
-          "m": 67
-        }
-      ],
-      "away": []
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-02",
-    "time": "16:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
     "home": "일본",
     "away": "레바논",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
@@ -115025,6 +120095,46 @@
         {
           "n": "나나미",
           "m": 80
+        }
+      ],
+      "away": []
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-02",
+    "time": "16:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
+    "home": "대한민국",
+    "away": "필리핀",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
+    "timeTbd": false,
+    "gameId": "INfbBvjkK2ARSQU",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 5,
+    "scorers": {
+      "home": [
+        {
+          "n": "백서영",
+          "m": 6
+        },
+        {
+          "n": "백서영",
+          "m": 14
+        },
+        {
+          "n": "백서영",
+          "m": 34
+        },
+        {
+          "n": "백서영",
+          "m": 55
+        },
+        {
+          "n": "김희나",
+          "m": 67
         }
       ],
       "away": []
@@ -116023,6 +121133,35 @@
     "time": "20:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
+    "home": "호주",
+    "away": "인도",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
+    "timeTbd": false,
+    "gameId": "fS1J3kxSwziVvHl",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "무이티스",
+          "m": 25
+        },
+        {
+          "n": "바스넷",
+          "m": 59,
+          "og": true
+        }
+      ],
+      "away": []
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-02",
+    "time": "20:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
     "home": "북한",
     "away": "차이니스 타이베이",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
@@ -116072,35 +121211,6 @@
         {
           "n": "유종향",
           "m": 90
-        }
-      ],
-      "away": []
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-02",
-    "time": "20:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
-    "home": "호주",
-    "away": "인도",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
-    "timeTbd": false,
-    "gameId": "fS1J3kxSwziVvHl",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "무이티스",
-          "m": 25
-        },
-        {
-          "n": "바스넷",
-          "m": 59,
-          "og": true
         }
       ],
       "away": []
@@ -122771,38 +127881,6 @@
     "time": "20:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
-    "home": "인도",
-    "away": "일본",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
-    "timeTbd": false,
-    "gameId": "SyGtvWeiJaOs0ZA",
-    "status": "completed",
-    "awayScore": 3,
-    "homeScore": 0,
-    "scorers": {
-      "home": [],
-      "away": [
-        {
-          "n": "하야시",
-          "m": 59
-        },
-        {
-          "n": "이케다",
-          "m": 76
-        },
-        {
-          "n": "이케다",
-          "m": 81
-        }
-      ]
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-05",
-    "time": "20:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
     "home": "필리핀",
     "away": "북한",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
@@ -122845,6 +127923,38 @@
         {
           "n": "송원용",
           "m": 85
+        }
+      ]
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-05",
+    "time": "20:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
+    "home": "인도",
+    "away": "일본",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
+    "timeTbd": false,
+    "gameId": "SyGtvWeiJaOs0ZA",
+    "status": "completed",
+    "awayScore": 3,
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "하야시",
+          "m": 59
+        },
+        {
+          "n": "이케다",
+          "m": 76
+        },
+        {
+          "n": "이케다",
+          "m": 81
         }
       ]
     },
@@ -126568,6 +131678,21 @@
     "time": "20:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
+    "home": "필리핀",
+    "away": "차이니스 타이베이",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
+    "timeTbd": false,
+    "gameId": "iI57xIcnv4pTYV5",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 0,
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-08",
+    "time": "20:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
     "home": "북한",
     "away": "대한민국",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
@@ -126593,21 +131718,6 @@
       ],
       "away": []
     },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-08",
-    "time": "20:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
-    "home": "필리핀",
-    "away": "차이니스 타이베이",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
-    "timeTbd": false,
-    "gameId": "iI57xIcnv4pTYV5",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 0,
     "phaseCode": "GROUP"
   },
   {
@@ -134922,6 +140032,34 @@
     "time": "01:00",
     "league": "U17ASIANCUP",
     "venueId": "king_abdullah_sports_city",
+    "home": "중국",
+    "away": "카타르",
+    "stadium": "킹 압둘라 스포츠 시티 피치 퓨처 C",
+    "timeTbd": false,
+    "gameId": "OW7BBRLBR5Yg9Mi",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "하시판",
+          "m": 14
+        },
+        {
+          "n": "장 보린",
+          "m": 71
+        }
+      ],
+      "away": []
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-13",
+    "time": "01:00",
+    "league": "U17ASIANCUP",
+    "venueId": "king_abdullah_sports_city",
     "home": "일본",
     "away": "인도네시아",
     "stadium": "킹 압둘라 스포츠 시티 피치 스타스 A",
@@ -134951,34 +140089,6 @@
           "m": 70
         }
       ]
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-13",
-    "time": "01:00",
-    "league": "U17ASIANCUP",
-    "venueId": "king_abdullah_sports_city",
-    "home": "중국",
-    "away": "카타르",
-    "stadium": "킹 압둘라 스포츠 시티 피치 퓨처 C",
-    "timeTbd": false,
-    "gameId": "OW7BBRLBR5Yg9Mi",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "하시판",
-          "m": 14
-        },
-        {
-          "n": "장 보린",
-          "m": 71
-        }
-      ],
-      "away": []
     },
     "phaseCode": "GROUP"
   },
@@ -301622,6 +306732,102 @@
   {
     "date": "2026-09-09",
     "time": "03:45",
+    "league": "EFL",
+    "venueId": "southampton_st_marys",
+    "home": "사우샘프턴",
+    "away": "스완지",
+    "stadium": "세인트 메리스 스타디움",
+    "timeTbd": false,
+    "gameId": "YEzthB2I7ULBOnY",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "아자즈",
+          "m": 9
+        },
+        {
+          "n": "래린",
+          "m": 33
+        },
+        {
+          "n": "레오 시엔자",
+          "m": 78
+        }
+      ],
+      "away": [
+        {
+          "n": "비포트니크",
+          "m": 52
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-09",
+    "time": "03:45",
+    "league": "EFL",
+    "venueId": "watford_vicarage_road",
+    "home": "왓퍼드",
+    "away": "프레스턴",
+    "stadium": "비커리지 로드",
+    "timeTbd": false,
+    "gameId": "2n8KOshcekINj3A",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "에도 카옘베",
+          "m": 69
+        },
+        {
+          "n": "둠비아",
+          "m": 76
+        }
+      ],
+      "away": [
+        {
+          "n": "랭",
+          "m": 5
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-09",
+    "time": "03:45",
+    "league": "EFL",
+    "venueId": "wrexham_racecourse_ground",
+    "home": "렉섬",
+    "away": "번리",
+    "stadium": "레이스코스 그라운드",
+    "timeTbd": false,
+    "gameId": "8059agG5ekMqb6q",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "에코미에",
+          "m": 55
+        }
+      ],
+      "away": [
+        {
+          "n": "암두니",
+          "m": 26
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-09",
+    "time": "03:45",
     "league": "EFLCUP",
     "venueId": "bournemouth_dean_court",
     "home": "본머스",
@@ -301748,102 +306954,6 @@
       "away": []
     },
     "phaseCode": "T32"
-  },
-  {
-    "date": "2026-09-09",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "southampton_st_marys",
-    "home": "사우샘프턴",
-    "away": "스완지",
-    "stadium": "세인트 메리스 스타디움",
-    "timeTbd": false,
-    "gameId": "YEzthB2I7ULBOnY",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 3,
-    "scorers": {
-      "home": [
-        {
-          "n": "아자즈",
-          "m": 9
-        },
-        {
-          "n": "래린",
-          "m": 33
-        },
-        {
-          "n": "레오 시엔자",
-          "m": 78
-        }
-      ],
-      "away": [
-        {
-          "n": "비포트니크",
-          "m": 52
-        }
-      ]
-    }
-  },
-  {
-    "date": "2026-09-09",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "watford_vicarage_road",
-    "home": "왓퍼드",
-    "away": "프레스턴",
-    "stadium": "비커리지 로드",
-    "timeTbd": false,
-    "gameId": "2n8KOshcekINj3A",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "에도 카옘베",
-          "m": 69
-        },
-        {
-          "n": "둠비아",
-          "m": 76
-        }
-      ],
-      "away": [
-        {
-          "n": "랭",
-          "m": 5
-        }
-      ]
-    }
-  },
-  {
-    "date": "2026-09-09",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "wrexham_racecourse_ground",
-    "home": "렉섬",
-    "away": "번리",
-    "stadium": "레이스코스 그라운드",
-    "timeTbd": false,
-    "gameId": "8059agG5ekMqb6q",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 1,
-    "scorers": {
-      "home": [
-        {
-          "n": "에코미에",
-          "m": 55
-        }
-      ],
-      "away": [
-        {
-          "n": "암두니",
-          "m": 26
-        }
-      ]
-    }
   },
   {
     "date": "2026-09-09",
@@ -316034,8 +321144,8 @@
           "m": 41,
           "a": "Hugo González",
           "nat": "Spain",
-          "pid": "espn:279904",
           "aNat": "Spain",
+          "pid": "espn:279904",
           "apid": "espn:324811"
         }
       ],
@@ -316045,8 +321155,8 @@
           "m": 83,
           "a": "Pablo Martínez",
           "nat": "Spain",
-          "pid": "espn:373542",
           "aNat": "Spain",
+          "pid": "espn:373542",
           "apid": "espn:271151"
         }
       ]
@@ -324142,6 +329252,77 @@
   {
     "date": "2026-09-16",
     "time": "03:45",
+    "league": "EFL",
+    "venueId": "middlesbrough_riverside",
+    "home": "미들즈브러",
+    "away": "밀월",
+    "stadium": "리버사이드 스타디움",
+    "timeTbd": false,
+    "gameId": "YK3SlqCpysSMqvp",
+    "status": "completed",
+    "awayScore": 2,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "코지어-뒤베리",
+          "m": 50,
+          "nat": "England",
+          "pid": "espn:327170"
+        },
+        {
+          "n": "랭크셔",
+          "m": 61,
+          "a": "Luke Ayling",
+          "nat": "England",
+          "aNat": "England",
+          "pid": "espn:349181",
+          "apid": "espn:136380"
+        }
+      ],
+      "away": [
+        {
+          "n": "아르콘테",
+          "m": 11,
+          "a": "Camiel Neghli",
+          "nat": "Guadeloupe",
+          "aNat": "Algeria",
+          "pid": "espn:315189",
+          "apid": "espn:310173"
+        },
+        {
+          "n": "다이크스",
+          "m": 36,
+          "a": "Caleb Taylor",
+          "nat": "Scotland",
+          "aNat": "England",
+          "pid": "espn:207538",
+          "apid": "espn:308572"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Riley McGree",
+          "type": "Y",
+          "m": 66,
+          "pid": "espn:235096"
+        }
+      ],
+      "away": [
+        {
+          "n": "Derek Mazou-Sacko",
+          "type": "Y",
+          "m": 59,
+          "pid": "espn:324659"
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-16",
+    "time": "03:45",
     "league": "EFLCUP",
     "venueId": "westham_london_stadium",
     "home": "웨스트햄",
@@ -324212,77 +329393,6 @@
       ]
     },
     "phaseCode": "T32"
-  },
-  {
-    "date": "2026-09-16",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "middlesbrough_riverside",
-    "home": "미들즈브러",
-    "away": "밀월",
-    "stadium": "리버사이드 스타디움",
-    "timeTbd": false,
-    "gameId": "YK3SlqCpysSMqvp",
-    "status": "completed",
-    "awayScore": 2,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "코지어-뒤베리",
-          "m": 50,
-          "nat": "England",
-          "pid": "espn:327170"
-        },
-        {
-          "n": "랭크셔",
-          "m": 61,
-          "a": "Luke Ayling",
-          "nat": "England",
-          "aNat": "England",
-          "pid": "espn:349181",
-          "apid": "espn:136380"
-        }
-      ],
-      "away": [
-        {
-          "n": "아르콘테",
-          "m": 11,
-          "a": "Camiel Neghli",
-          "nat": "Guadeloupe",
-          "aNat": "Algeria",
-          "pid": "espn:315189",
-          "apid": "espn:310173"
-        },
-        {
-          "n": "다이크스",
-          "m": 36,
-          "a": "Caleb Taylor",
-          "nat": "Scotland",
-          "aNat": "England",
-          "pid": "espn:207538",
-          "apid": "espn:308572"
-        }
-      ]
-    },
-    "cards": {
-      "home": [
-        {
-          "n": "Riley McGree",
-          "type": "Y",
-          "m": 66,
-          "pid": "espn:235096"
-        }
-      ],
-      "away": [
-        {
-          "n": "Derek Mazou-Sacko",
-          "type": "Y",
-          "m": 59,
-          "pid": "espn:324659"
-        }
-      ]
-    }
   },
   {
     "date": "2026-09-16",
@@ -325863,30 +330973,6 @@
   {
     "date": "2026-09-16",
     "time": "19:00",
-    "league": "ACL2",
-    "venueId": "seoulwc",
-    "home": "서울",
-    "away": "반둥",
-    "stadium": "서울월드컵경기장",
-    "timeTbd": false,
-    "gameId": "2idpicTW6SmPYVP",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 0,
-    "scorers": {
-      "home": [],
-      "away": [
-        {
-          "n": "훌리오 세자르",
-          "m": 5
-        }
-      ]
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-09-16",
-    "time": "19:00",
     "league": "ACL",
     "venueId": "jeonju",
     "home": "전북",
@@ -325960,6 +331046,30 @@
   {
     "date": "2026-09-16",
     "time": "19:00",
+    "league": "ACL2",
+    "venueId": "seoulwc",
+    "home": "서울",
+    "away": "반둥",
+    "stadium": "서울월드컵경기장",
+    "timeTbd": false,
+    "gameId": "2idpicTW6SmPYVP",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "훌리오 세자르",
+          "m": 5
+        }
+      ]
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-09-16",
+    "time": "19:00",
     "league": "ASIANGAMESFOOTBALL",
     "venueId": "wave_stadium_kariya",
     "home": "중국 (남자)",
@@ -325984,35 +331094,6 @@
     "status": "completed",
     "homeScore": 2,
     "awayScore": 0
-  },
-  {
-    "date": "2026-09-16",
-    "time": "21:15",
-    "league": "ACL2",
-    "venueId": "cahn_hang_day",
-    "home": "비에트텔",
-    "away": "멜버른 FC",
-    "stadium": "선번동 항더이 (항더이 스타디움)",
-    "timeTbd": false,
-    "gameId": "gqA22tVR2bUJFof",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 1,
-    "scorers": {
-      "home": [
-        {
-          "n": "리바마르",
-          "m": 62
-        }
-      ],
-      "away": [
-        {
-          "n": "클라리스마리우 호드리게스",
-          "m": 58
-        }
-      ]
-    },
-    "phaseCode": "GROUP"
   },
   {
     "date": "2026-09-16",
@@ -326085,6 +331166,35 @@
           "type": "Y",
           "m": 73,
           "pid": "espn:143697"
+        }
+      ]
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-09-16",
+    "time": "21:15",
+    "league": "ACL2",
+    "venueId": "cahn_hang_day",
+    "home": "비에트텔",
+    "away": "멜버른 FC",
+    "stadium": "선번동 항더이 (항더이 스타디움)",
+    "timeTbd": false,
+    "gameId": "gqA22tVR2bUJFof",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "리바마르",
+          "m": 62
+        }
+      ],
+      "away": [
+        {
+          "n": "클라리스마리우 호드리게스",
+          "m": 58
         }
       ]
     },
@@ -369804,19 +374914,6 @@
   {
     "date": "2026-10-14",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "al_seeb_stadium",
-    "home": "알 시브",
-    "away": "알 후세인",
-    "stadium": "알-시브 스타디움",
-    "timeTbd": false,
-    "gameId": "OQsSGAzKGbKHXDT",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-14",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "al_sadd_jassim_bin_hamad",
     "home": "알 사드",
@@ -369824,6 +374921,19 @@
     "stadium": "자심 빈 하마드 스타디움",
     "timeTbd": false,
     "gameId": "zcfrVKksVO8hhNi",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-14",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "al_seeb_stadium",
+    "home": "알 시브",
+    "away": "알 후세인",
+    "stadium": "알-시브 스타디움",
+    "timeTbd": false,
+    "gameId": "OQsSGAzKGbKHXDT",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -381317,19 +386427,6 @@
   {
     "date": "2026-10-28",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "al_seeb_stadium",
-    "home": "알 시브",
-    "away": "이스트 벵갈",
-    "stadium": "알-시브 스타디움",
-    "timeTbd": false,
-    "gameId": "AW3p0efTl1zL9Jt",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-28",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "shabab_alahli_al_rashid",
     "home": "샤바브 알 아흘리",
@@ -381337,6 +386434,19 @@
     "stadium": "알라시드 스타디움",
     "timeTbd": false,
     "gameId": "uVJg9XVeZVSJFpb",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-28",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "al_seeb_stadium",
+    "home": "알 시브",
+    "away": "이스트 벵갈",
+    "stadium": "알-시브 스타디움",
+    "timeTbd": false,
+    "gameId": "AW3p0efTl1zL9Jt",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -381527,19 +386637,6 @@
   {
     "date": "2026-10-28",
     "time": "03:15",
-    "league": "ACL2",
-    "venueId": "al_zawraa_stadium",
-    "home": "알 쇼르타",
-    "away": "알 후세인",
-    "stadium": "알-자우라 스타디움",
-    "timeTbd": false,
-    "gameId": "HCihM9DqxKOXBbt",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-28",
-    "time": "03:15",
     "league": "ACL",
     "venueId": "al_shamal_al_bayt",
     "home": "알샤말",
@@ -381547,6 +386644,19 @@
     "stadium": "알베이트 스타디움",
     "timeTbd": false,
     "gameId": "3aZWRb5fy3Nyk9x",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-28",
+    "time": "03:15",
+    "league": "ACL2",
+    "venueId": "al_zawraa_stadium",
+    "home": "알 쇼르타",
+    "away": "알 후세인",
+    "stadium": "알-자우라 스타디움",
+    "timeTbd": false,
+    "gameId": "HCihM9DqxKOXBbt",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -384547,19 +389657,6 @@
   {
     "date": "2026-11-04",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "amman_international_stadium",
-    "home": "알 후세인",
-    "away": "알 쇼르타",
-    "stadium": "암만 인터내셔널 스태디엄",
-    "timeTbd": false,
-    "gameId": "87Yzcj2B505kzbh",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-11-04",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "basra_international",
     "home": "에스테그랄",
@@ -384567,6 +389664,19 @@
     "stadium": "바스라 인터내셔널 스타디움",
     "timeTbd": false,
     "gameId": "CbaeNHtf2qOthye",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-11-04",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "amman_international_stadium",
+    "home": "알 후세인",
+    "away": "알 쇼르타",
+    "stadium": "암만 인터내셔널 스태디엄",
+    "timeTbd": false,
+    "gameId": "87Yzcj2B505kzbh",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -384824,19 +389934,6 @@
   {
     "date": "2026-11-04",
     "time": "19:00",
-    "league": "ACL2",
-    "venueId": "seoulwc",
-    "home": "서울",
-    "away": "비에트텔",
-    "stadium": "서울월드컵경기장",
-    "timeTbd": false,
-    "gameId": "lZapB69mvTiiYds",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-11-04",
-    "time": "19:00",
     "league": "ACL",
     "venueId": "pohang",
     "home": "포항",
@@ -384844,6 +389941,19 @@
     "stadium": "포항스틸야드",
     "timeTbd": false,
     "gameId": "pmIB9z9UAQ4XPV2",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-11-04",
+    "time": "19:00",
+    "league": "ACL2",
+    "venueId": "seoulwc",
+    "home": "서울",
+    "away": "비에트텔",
+    "stadium": "서울월드컵경기장",
+    "timeTbd": false,
+    "gameId": "lZapB69mvTiiYds",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -390184,19 +395294,6 @@
   {
     "date": "2026-11-25",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "al_seeb_stadium",
-    "home": "알 시브",
-    "away": "알 쇼르타",
-    "stadium": "알-시브 스타디움",
-    "timeTbd": false,
-    "gameId": "zVJrrC6Kzu5rPRu",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-11-25",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "shabab_alahli_al_rashid",
     "home": "샤바브 알 아흘리",
@@ -390204,6 +395301,19 @@
     "stadium": "알라시드 스타디움",
     "timeTbd": false,
     "gameId": "Rsba5lmQWhdIFqs",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-11-25",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "al_seeb_stadium",
+    "home": "알 시브",
+    "away": "알 쇼르타",
+    "stadium": "알-시브 스타디움",
+    "timeTbd": false,
+    "gameId": "zVJrrC6Kzu5rPRu",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
