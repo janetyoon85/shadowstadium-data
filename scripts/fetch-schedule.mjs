@@ -786,7 +786,11 @@ function extractEspnGoalsBySide(summaryJson, homeTeamName, awayTeamName) {
 
 // ESPN keyEvents → 카드(경고/퇴장). type.text가 "Yellow Card"/"Red Card"/"Second Yellow Card"
 // 셋 다 있음(실측 확인) — Second Yellow도 퇴장이라 R로 취급.
-function extractEspnCardsBySide(summaryJson, homeTeamName, awayTeamName) {
+// nat 조회(2026-09-29, 사용자 질문 "백필되면 카드정보에 국기 없는것들도 추가된다 이거지??"
+// 계기로 발견 — 카드는 지금까지 국적 조회 로직 자체가 없어서 그 선수가 다른 경기에서 득점/
+// 어시스트로 국적이 확인된 적 없으면 클럽 리그 카드는 영원히 국기가 안 붙었음). 득점자와
+// 동일하게 팀 로스터 대조로 직접 조회 — 카드는 자책골 개념이 없어 팀 반전 불필요.
+async function extractEspnCardsBySide(summaryJson, homeTeamName, awayTeamName, slug, homeTeamId, awayTeamId) {
   const events = summaryJson.keyEvents || [];
   const home = [];
   const away = [];
@@ -805,7 +809,14 @@ function extractEspnCardsBySide(summaryJson, homeTeamName, awayTeamName) {
     if (Number.isFinite(clockNum)) entry.m = clockNum;
     // 동명이인 구분용(2026-09-28) — athleteId는 이 이벤트 자체에 이미 있어 추가 fetch 없이 바로 부착.
     const athleteId = e.participants?.[0]?.athlete?.id;
-    if (athleteId) entry.pid = `espn:${athleteId}`;
+    if (athleteId) {
+      entry.pid = `espn:${athleteId}`;
+      const teamId = side === 'home' ? homeTeamId : awayTeamId;
+      if (teamId) {
+        const nat = await getAthleteNationality('soccer', slug, teamId, athleteId);
+        if (nat) entry.nat = nat;
+      }
+    }
     (side === 'home' ? home : away).push(entry);
   }
   return { home, away };
@@ -1145,7 +1156,7 @@ async function enrichEuroAssists(allGames) {
           await sleep(REQUEST_DELAY_MS);
           const summary = await fetchEspnSummary(slug, match.id);
           // 카드는 골 개수 일치 여부와 무관하게 독립적으로 추출(zip 불필요라 더 안전).
-          const espnCards = extractEspnCardsBySide(summary, homeC?.team?.displayName, awayC?.team?.displayName);
+          const espnCards = await extractEspnCardsBySide(summary, homeC?.team?.displayName, awayC?.team?.displayName, slug, homeC?.team?.id, awayC?.team?.id);
           cardCache[g.gameId] = { home: espnCards.home, away: espnCards.away, final: g.status === 'completed' };
           const espnGoals = extractEspnGoalsBySide(summary, homeC?.team?.displayName, awayC?.team?.displayName);
           const naverHomeLen = (g.scorers?.home || []).length;

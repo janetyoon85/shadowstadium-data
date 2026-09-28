@@ -109,14 +109,14 @@ async function main() {
       }
     }
     // 카드(경고/퇴장) 받은 선수 — 골/어시 없이 카드만 받은 선수도 즐겨찾기·검색 가능하게
-    // 인덱스에 포함(2026-09-28, "카드 정보 추가됐을 때도 알람" 요청 대응). nat 정보 없음(카드
-    // 데이터엔 국적 조회 로직이 안 붙어있음).
+    // 인덱스에 포함(2026-09-28, "카드 정보 추가됐을 때도 알람" 요청 대응). c.nat: ESPN 연동
+    // 리그는 2026-09-29부터 직접 조회됨(K리그는 여전히 없음).
     if (g.cards) {
       for (const { key, team } of sides) {
         const list = g.cards[key];
         if (!Array.isArray(list)) continue;
         for (const c of list) {
-          if (c.n) upsertPlayer(map, canonicalPlayerName(c.n), 'soccer', g.date, { team, league: g.league }, c.pid);
+          if (c.n) upsertPlayer(map, canonicalPlayerName(c.n), 'soccer', g.date, { team, league: g.league, nat: c.nat }, c.pid);
         }
       }
     }

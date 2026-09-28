@@ -80,7 +80,9 @@ async function extractScorers(comp, homeTeamId, awayTeamId, slug) {
 // 텍스트만 추림(2026-09-26, 이 리그들은 fetch-schedule.mjs의 enrichEuroAssists 대상이 아니라서 —
 // _ESPN_ gameId로 이 크롤러가 직접 생성하는 게임이라 enrichEuroAssists의 allGames에 안 잡힘 —
 // 여기서 직접 부착 안 하면 영원히 카드가 안 붙는 구조적 갭이었음, 실측으로 발견).
-function extractCards(comp, homeTeamId, awayTeamId) {
+// nat 조회(2026-09-29) — 카드는 이제까지 국적 조회가 없었음(발견 계기: 사용자 질문 "백필되면
+// 카드정보에 국기 없는것들도 추가된다 이거지??"). 득점자와 동일하게 팀 로스터 대조로 직접 조회.
+async function extractCards(comp, homeTeamId, awayTeamId, slug) {
   const home = [];
   const away = [];
   for (const d of comp.details || []) {
@@ -91,8 +93,12 @@ function extractCards(comp, homeTeamId, awayTeamId) {
     const entry = { n: player.displayName, type: /red|second yellow/i.test(text) ? 'R' : 'Y' };
     const m = /^(\d+)/.exec(d.clock?.displayValue || '');
     if (m) entry.m = parseInt(m[1], 10);
-    if (player.id) entry.pid = `espn:${player.id}`;
     const teamId = String(d.team?.id ?? '');
+    if (player.id) {
+      entry.pid = `espn:${player.id}`;
+      const nat = await getAthleteNationality('soccer', slug, teamId, player.id);
+      if (nat) entry.nat = nat;
+    }
     if (teamId === String(homeTeamId)) home.push(entry);
     else if (teamId === String(awayTeamId)) away.push(entry);
   }
@@ -146,7 +152,7 @@ async function fetchEspnLeagueRange(code, slug, dayYmd, unknownTeams, unknownVen
       if (!Number.isNaN(as)) out.awayScore = as;
       const scorers = await extractScorers(comp, home.team?.id, away.team?.id, slug);
       if (scorers) out.scorers = scorers;
-      const cards = extractCards(comp, home.team?.id, away.team?.id);
+      const cards = await extractCards(comp, home.team?.id, away.team?.id, slug);
       if (cards) out.cards = cards;
     }
     games.push(out);
