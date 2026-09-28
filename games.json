@@ -25626,6 +25626,33 @@
   {
     "date": "2026-03-04",
     "time": "19:00",
+    "league": "ACL",
+    "venueId": "seoulwc",
+    "home": "서울",
+    "away": "비셀 고베",
+    "stadium": "서울월드컵경기장",
+    "timeTbd": false,
+    "gameId": "U8avFl0tEXRq1RV",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "마테우스 툴레르",
+          "m": 23
+        }
+      ]
+    },
+    "phaseCode": "T16",
+    "leg": 1,
+    "homeAggregateScore": 1,
+    "awayAggregateScore": 3
+  },
+  {
+    "date": "2026-03-04",
+    "time": "19:00",
     "league": "ACL2",
     "venueId": "panasonic_stadium_suita",
     "home": "감바 오사카",
@@ -25654,33 +25681,6 @@
     "leg": 1,
     "homeAggregateScore": 3,
     "awayAggregateScore": 2
-  },
-  {
-    "date": "2026-03-04",
-    "time": "19:00",
-    "league": "ACL",
-    "venueId": "seoulwc",
-    "home": "서울",
-    "away": "비셀 고베",
-    "stadium": "서울월드컵경기장",
-    "timeTbd": false,
-    "gameId": "U8avFl0tEXRq1RV",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 0,
-    "scorers": {
-      "home": [],
-      "away": [
-        {
-          "n": "마테우스 툴레르",
-          "m": 23
-        }
-      ]
-    },
-    "phaseCode": "T16",
-    "leg": 1,
-    "homeAggregateScore": 1,
-    "awayAggregateScore": 3
   },
   {
     "date": "2026-03-04",
@@ -56831,10 +56831,12 @@
       "home": [],
       "away": [
         {
-          "n": "유니스"
+          "n": "유니스",
+          "nat": "USA"
         },
         {
-          "n": "빅스"
+          "n": "빅스",
+          "nat": "USA"
         }
       ]
     },
@@ -56874,6 +56876,8 @@
     "homeScore": 2,
     "winPitcher": "그리핀",
     "losePitcher": "워커",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
     "highlights": {
       "home": [
         {
@@ -56904,13 +56908,18 @@
     "winPitcher": "번스",
     "losePitcher": "애쉬크레프트",
     "savePitcher": "필립스",
+    "winPitcherNat": "Italy",
+    "losePitcherNat": "USA",
+    "savePitcherNat": "USA",
     "holds": {
       "home": [
         {
-          "n": "프랑코"
+          "n": "프랑코",
+          "nat": "Venezuela"
         },
         {
-          "n": "애쉬크래프트"
+          "n": "애쉬크래프트",
+          "nat": "USA"
         }
       ],
       "away": []
@@ -56945,6 +56954,9 @@
     "winPitcher": "마틴",
     "losePitcher": "페덱",
     "savePitcher": "힉스",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "savePitcherNat": "USA",
     "highlights": {
       "home": [
         {
@@ -56993,6 +57005,8 @@
     "homeScore": 5,
     "winPitcher": "돌랜더",
     "losePitcher": "발랜드",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
     "highlights": {
       "home": [
         {
@@ -57071,13 +57085,17 @@
     "homeScore": 4,
     "winPitcher": "엘더",
     "losePitcher": "로페즈",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
     "holds": {
       "home": [
         {
-          "n": "범머"
+          "n": "범머",
+          "nat": "USA"
         },
         {
-          "n": "수아레즈"
+          "n": "수아레즈",
+          "nat": "Venezuela"
         }
       ],
       "away": []
@@ -57112,11 +57130,15 @@
     "winPitcher": "클레빈저",
     "losePitcher": "메길",
     "savePitcher": "켈리",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "savePitcherNat": "USA",
     "holds": {
       "home": [],
       "away": [
         {
-          "n": "시모어"
+          "n": "시모어",
+          "nat": "USA"
         }
       ]
     },
@@ -57181,6 +57203,9 @@
     "winPitcher": "카브레라",
     "losePitcher": "존슨",
     "savePitcher": "레아",
+    "winPitcherNat": "Dominican Republic",
+    "losePitcherNat": "USA",
+    "savePitcherNat": "USA",
     "highlights": {
       "home": [
         {
@@ -57230,14 +57255,19 @@
     "winPitcher": "홈스",
     "losePitcher": "레이히",
     "savePitcher": "윌리엄스",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "savePitcherNat": "USA",
     "holds": {
       "home": [],
       "away": [
         {
-          "n": "마이어스"
+          "n": "마이어스",
+          "nat": "USA"
         },
         {
-          "n": "레일리"
+          "n": "레일리",
+          "nat": "USA"
         }
       ]
     },
@@ -57277,6 +57307,8 @@
     "homeScore": 8,
     "winPitcher": "맥컬러스",
     "losePitcher": "수아레즈",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "Venezuela",
     "highlights": {
       "home": [
         {
@@ -57319,14 +57351,19 @@
     "winPitcher": "룹",
     "losePitcher": "뷸러",
     "savePitcher": "워커",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "savePitcherNat": "USA",
     "holds": {
       "home": [],
       "away": [
         {
-          "n": "게이지"
+          "n": "게이지",
+          "nat": "USA"
         },
         {
-          "n": "윈"
+          "n": "윈",
+          "nat": "USA"
         }
       ]
     },
@@ -57372,10 +57409,13 @@
     "homeScore": 2,
     "winPitcher": "브레쉬",
     "losePitcher": "블랙번",
+    "winPitcherNat": "Canada",
+    "losePitcherNat": "USA",
     "holds": {
       "home": [
         {
-          "n": "페레"
+          "n": "페레",
+          "nat": "Dominican Republic"
         }
       ],
       "away": []
@@ -57399,13 +57439,18 @@
     "winPitcher": "소로카",
     "losePitcher": "벌랜더",
     "savePitcher": "시월드",
+    "winPitcherNat": "Canada",
+    "losePitcherNat": "USA",
+    "savePitcherNat": "USA",
     "holds": {
       "home": [
         {
-          "n": "모리요"
+          "n": "모리요",
+          "nat": "Venezuela"
         },
         {
-          "n": "클라크"
+          "n": "클라크",
+          "nat": "USA"
         }
       ],
       "away": []
@@ -57451,11 +57496,14 @@
     "homeScore": 2,
     "winPitcher": "메식",
     "losePitcher": "사사키",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "Japan",
     "holds": {
       "home": [],
       "away": [
         {
-          "n": "사브로스키"
+          "n": "사브로스키",
+          "nat": "Canada"
         }
       ]
     },
@@ -59164,6 +59212,8 @@
     "homeScore": 5,
     "winPitcher": "윈",
     "losePitcher": "카노",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "Cuba",
     "highlights": {
       "home": [
         {
@@ -59213,13 +59263,18 @@
     "winPitcher": "페인터",
     "losePitcher": "리텔",
     "savePitcher": "듀란",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "savePitcherNat": "Dominican Republic",
     "holds": {
       "home": [
         {
-          "n": "뱅크스"
+          "n": "뱅크스",
+          "nat": "USA"
         },
         {
-          "n": "켈러"
+          "n": "켈러",
+          "nat": "USA"
         }
       ],
       "away": []
@@ -59272,11 +59327,14 @@
     "homeScore": 3,
     "winPitcher": "라미레즈",
     "losePitcher": "윌리엄슨",
+    "winPitcherNat": "Dominican Republic",
+    "losePitcherNat": "USA",
     "holds": {
       "home": [],
       "away": [
         {
-          "n": "산타나"
+          "n": "산타나",
+          "nat": "Dominican Republic"
         }
       ]
     },
@@ -59334,6 +59392,8 @@
     "homeScore": 9,
     "winPitcher": "벤더",
     "losePitcher": "페디",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
     "highlights": {
       "home": [
         {
@@ -59425,13 +59485,17 @@
     "homeScore": 5,
     "winPitcher": "슈어저",
     "losePitcher": "메히아",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "Dominican Republic",
     "holds": {
       "home": [
         {
-          "n": "플루허티"
+          "n": "플루허티",
+          "nat": "USA"
         },
         {
-          "n": "피셔"
+          "n": "피셔",
+          "nat": "USA"
         }
       ],
       "away": []
@@ -59473,17 +59537,23 @@
     "winPitcher": "시베일",
     "losePitcher": "수아레즈",
     "savePitcher": "레이터 주니어",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "Venezuela",
+    "savePitcherNat": "USA",
     "holds": {
       "home": [],
       "away": [
         {
-          "n": "해리스"
+          "n": "해리스",
+          "nat": "USA"
         },
         {
-          "n": "스터너"
+          "n": "스터너",
+          "nat": "USA"
         },
         {
-          "n": "바로우"
+          "n": "바로우",
+          "nat": "USA"
         }
       ]
     },
@@ -59605,6 +59675,25 @@
     "homeScore": 6,
     "winPitcher": "우드러프",
     "losePitcher": "맥클라나한",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "holds": {
+      "home": [
+        {
+          "n": "케이닉",
+          "nat": "USA"
+        },
+        {
+          "n": "앤더슨",
+          "nat": "USA"
+        },
+        {
+          "n": "유리베",
+          "nat": "Dominican Republic"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -59672,14 +59761,19 @@
     "winPitcher": "소리아노",
     "losePitcher": "메이튼",
     "savePitcher": "로마노",
+    "winPitcherNat": "Dominican Republic",
+    "losePitcherNat": "USA",
+    "savePitcherNat": "Canada",
     "holds": {
       "home": [],
       "away": [
         {
-          "n": "실세스"
+          "n": "실세스",
+          "nat": "USA"
         },
         {
-          "n": "포머란츠"
+          "n": "포머란츠",
+          "nat": "USA"
         }
       ]
     },
@@ -59719,6 +59813,26 @@
     "winPitcher": "팔란테",
     "losePitcher": "센가",
     "savePitcher": "오브라이언",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "Japan",
+    "savePitcherNat": "USA",
+    "holds": {
+      "home": [
+        {
+          "n": "그레이스포",
+          "nat": "USA"
+        },
+        {
+          "n": "스타넥",
+          "nat": "USA"
+        },
+        {
+          "n": "로메로",
+          "nat": "USA"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -59813,6 +59927,9 @@
     "winPitcher": "브라운",
     "losePitcher": "벨로",
     "savePitcher": "볼튼",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "Dominican Republic",
+    "savePitcherNat": "USA",
     "highlights": {
       "home": [
         {
@@ -59960,6 +60077,9 @@
     "winPitcher": "호프만",
     "losePitcher": "베스트",
     "savePitcher": "시월드",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "savePitcherNat": "USA",
     "highlights": {
       "home": [
         {
@@ -59995,6 +60115,8 @@
     "homeScore": 3,
     "winPitcher": "웹",
     "losePitcher": "마르케스",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "Venezuela",
     "highlights": {
       "home": [
         {
@@ -60043,6 +60165,8 @@
     "homeScore": 0,
     "winPitcher": "프리드",
     "losePitcher": "길버트",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
     "highlights": {
       "home": [],
       "away": [
@@ -60078,6 +60202,21 @@
     "homeScore": 4,
     "winPitcher": "오타니",
     "losePitcher": "바이비",
+    "winPitcherNat": "Japan",
+    "losePitcherNat": "USA",
+    "holds": {
+      "home": [
+        {
+          "n": "베시아",
+          "nat": "USA"
+        },
+        {
+          "n": "드레이어",
+          "nat": "USA"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -60873,6 +61012,8 @@
     "homeScore": 5,
     "winPitcher": "세일",
     "losePitcher": "세베리노",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "Dominican Republic",
     "highlights": {
       "home": [],
       "away": [
@@ -60903,6 +61044,9 @@
     "winPitcher": "로저스",
     "losePitcher": "이발디",
     "savePitcher": "수아레즈",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "savePitcherNat": "Venezuela",
     "highlights": {
       "home": [
         {
@@ -60945,6 +61089,25 @@
     "homeScore": 3,
     "winPitcher": "스킨스",
     "losePitcher": "애보트",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "몽고메리",
+          "nat": "USA"
+        },
+        {
+          "n": "맷슨",
+          "nat": "USA"
+        },
+        {
+          "n": "로렌스",
+          "nat": "Panama"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
@@ -61029,6 +61192,25 @@
     "homeScore": 6,
     "winPitcher": "듀란",
     "losePitcher": "헨리",
+    "winPitcherNat": "Dominican Republic",
+    "losePitcherNat": "USA",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "페레즈",
+          "nat": "Cuba"
+        },
+        {
+          "n": "비터",
+          "nat": "USA"
+        },
+        {
+          "n": "폴린",
+          "nat": "USA"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
@@ -61084,6 +61266,18 @@
     "winPitcher": "버나디노",
     "losePitcher": "리틀",
     "savePitcher": "허겟",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "savePitcherNat": "USA",
+    "holds": {
+      "home": [
+        {
+          "n": "로저스",
+          "nat": "USA"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [],
       "away": [
@@ -61119,6 +61313,8 @@
     "homeScore": 10,
     "winPitcher": "알칸타라",
     "losePitcher": "스미스",
+    "winPitcherNat": "Dominican Republic",
+    "losePitcherNat": "USA",
     "highlights": {
       "home": [
         {
@@ -61154,6 +61350,8 @@
     "homeScore": 2,
     "winPitcher": "그레이스포",
     "losePitcher": "마이어스",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
     "highlights": {
       "home": [
         {
@@ -61190,6 +61388,8 @@
     "homeScore": 8,
     "winPitcher": "애쉬비",
     "losePitcher": "잭스",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
     "highlights": {
       "home": [
         {
@@ -61267,6 +61467,22 @@
     "winPitcher": "버로우스",
     "losePitcher": "크로셰",
     "savePitcher": "어브레유",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "savePitcherNat": "Dominican Republic",
+    "holds": {
+      "home": [
+        {
+          "n": "블루바흐",
+          "nat": "USA"
+        },
+        {
+          "n": "킹",
+          "nat": "USA"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -61321,6 +61537,8 @@
     "homeScore": 6,
     "winPitcher": "보이드",
     "losePitcher": "기쿠치",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "Japan",
     "highlights": {
       "home": [
         {
@@ -61351,6 +61569,22 @@
     "winPitcher": "갈렌",
     "losePitcher": "스쿠발",
     "savePitcher": "로아이시가",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "savePitcherNat": "Nicaragua",
+    "holds": {
+      "home": [
+        {
+          "n": "클라크",
+          "nat": "USA"
+        },
+        {
+          "n": "모리요",
+          "nat": "Venezuela"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -61395,6 +61629,22 @@
     "winPitcher": "피베타",
     "losePitcher": "후저",
     "savePitcher": "밀러",
+    "winPitcherNat": "Canada",
+    "losePitcherNat": "USA",
+    "savePitcherNat": "USA",
+    "holds": {
+      "home": [
+        {
+          "n": "에스트라다",
+          "nat": "USA"
+        },
+        {
+          "n": "모레혼",
+          "nat": "Cuba"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -61432,6 +61682,9 @@
     "winPitcher": "슐리틀러",
     "losePitcher": "커비",
     "savePitcher": "베드너",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "savePitcherNat": "USA",
     "highlights": {
       "home": [
         {
@@ -61523,6 +61776,9 @@
     "winPitcher": "카메론",
     "losePitcher": "라이언",
     "savePitcher": "에르세그",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "savePitcherNat": "USA",
     "highlights": {
       "home": [
         {
@@ -61591,6 +61847,17 @@
     "homeScore": 1,
     "winPitcher": "윌리엄스",
     "losePitcher": "야마모토",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "Japan",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "사브로스키",
+          "nat": "Canada"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
@@ -62482,6 +62749,25 @@
     "homeScore": 1,
     "winPitcher": "브래들리",
     "losePitcher": "라간스",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "펀더벅",
+          "nat": "USA"
+        },
+        {
+          "n": "샌즈",
+          "nat": "USA"
+        },
+        {
+          "n": "로저스",
+          "nat": "USA"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
@@ -62691,6 +62977,9 @@
     "winPitcher": "로페스",
     "losePitcher": "넬슨",
     "savePitcher": "비도",
+    "winPitcherNat": "Dominican Republic",
+    "losePitcherNat": "USA",
+    "savePitcherNat": "Dominican Republic",
     "highlights": {
       "home": [
         {
@@ -62746,6 +63035,9 @@
     "winPitcher": "레이",
     "losePitcher": "피터슨",
     "savePitcher": "티드웰",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "savePitcherNat": "USA",
     "highlights": {
       "home": [
         {
@@ -63917,6 +64209,8 @@
     "homeScore": 6,
     "winPitcher": "시한",
     "losePitcher": "마이콜라스",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
     "highlights": {
       "home": [
         {
@@ -63991,6 +64285,8 @@
     "homeScore": 4,
     "winPitcher": "발데스",
     "losePitcher": "맥그리비",
+    "winPitcherNat": "Dominican Republic",
+    "losePitcherNat": "USA",
     "highlights": {
       "home": [
         {
@@ -64032,6 +64328,21 @@
     "homeScore": 8,
     "winPitcher": "워렌",
     "losePitcher": "페레즈",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "Dominican Republic",
+    "holds": {
+      "home": [
+        {
+          "n": "힐",
+          "nat": "USA"
+        },
+        {
+          "n": "버드",
+          "nat": "USA"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -64161,6 +64472,22 @@
     "winPitcher": "그레이",
     "losePitcher": "킹",
     "savePitcher": "채프먼",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "savePitcherNat": "Cuba",
+    "holds": {
+      "home": [
+        {
+          "n": "위저트",
+          "nat": "USA"
+        },
+        {
+          "n": "슬레이튼",
+          "nat": "USA"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -64203,6 +64530,8 @@
     "homeScore": 5,
     "winPitcher": "도밍게스",
     "losePitcher": "호프먼",
+    "winPitcherNat": "Dominican Republic",
+    "losePitcherNat": "USA",
     "highlights": {
       "home": [
         {
@@ -64371,6 +64700,18 @@
     "winPitcher": "산틸란",
     "losePitcher": "마틴",
     "savePitcher": "파간",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "savePitcherNat": "USA",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "몰",
+          "nat": "USA"
+        }
+      ]
+    },
     "highlights": {
       "home": [],
       "away": [
@@ -64454,6 +64795,17 @@
     "winPitcher": "브록던",
     "losePitcher": "하비",
     "savePitcher": "스미스",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "savePitcherNat": "Canada",
+    "holds": {
+      "home": [
+        {
+          "n": "암스트롱"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -64538,6 +64890,20 @@
     "winPitcher": "켈러",
     "losePitcher": "브래디쉬",
     "savePitcher": "소토",
+    "holds": {
+      "home": [
+        {
+          "n": "라미레즈"
+        },
+        {
+          "n": "몽고메리"
+        },
+        {
+          "n": "산타나"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [],
       "away": [
@@ -64829,6 +65195,14 @@
     "homeScore": 3,
     "winPitcher": "맥클린",
     "losePitcher": "말리",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "레일리"
+        }
+      ]
+    },
     "highlights": {
       "home": [],
       "away": [
@@ -67280,6 +67654,17 @@
     "homeScore": 11,
     "winPitcher": "허터",
     "losePitcher": "메이",
+    "holds": {
+      "home": [
+        {
+          "n": "베스트"
+        },
+        {
+          "n": "홀튼"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -67384,6 +67769,14 @@
     "winPitcher": "패트릭",
     "losePitcher": "아빌라",
     "savePitcher": "메길",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "유리베"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
@@ -67421,6 +67814,17 @@
     "winPitcher": "머피",
     "losePitcher": "리틀",
     "savePitcher": "도밍게스",
+    "holds": {
+      "home": [
+        {
+          "n": "힉스"
+        },
+        {
+          "n": "뉴컴"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -67762,6 +68166,17 @@
     "homeScore": 3,
     "winPitcher": "산타나",
     "losePitcher": "헬슬리",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "가르시아"
+        },
+        {
+          "n": "볼프람"
+        }
+      ]
+    },
     "highlights": {
       "home": [],
       "away": [
@@ -67826,7 +68241,15 @@
     "homeScore": 2,
     "winPitcher": "모레혼",
     "losePitcher": "채프먼",
-    "savePitcher": "밀러"
+    "savePitcher": "밀러",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "에스트라다"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-05",
@@ -67970,7 +68393,18 @@
     "homeScore": 0,
     "winPitcher": "로더",
     "losePitcher": "로커",
-    "savePitcher": "파간"
+    "savePitcher": "파간",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "애쉬크래프트"
+        },
+        {
+          "n": "산틸란"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-05",
@@ -67990,6 +68424,14 @@
     "winPitcher": "헤드릭",
     "losePitcher": "피터슨",
     "savePitcher": "베드너",
+    "holds": {
+      "home": [
+        {
+          "n": "크루즈"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -68110,7 +68552,21 @@
     "homeScore": 2,
     "winPitcher": "소로카",
     "losePitcher": "엘더",
-    "savePitcher": "시월드"
+    "savePitcher": "시월드",
+    "holds": {
+      "home": [
+        {
+          "n": "클라크"
+        },
+        {
+          "n": "로아이시가"
+        },
+        {
+          "n": "모리요"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-04-05",
@@ -68404,6 +68860,17 @@
     "winPitcher": "루자르도",
     "losePitcher": "돌랜더",
     "savePitcher": "듀란",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "알바라도"
+        },
+        {
+          "n": "켈러"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
@@ -68583,6 +69050,23 @@
     "winPitcher": "코채노위츠",
     "losePitcher": "핸콕",
     "savePitcher": "로마노",
+    "holds": {
+      "home": [
+        {
+          "n": "루케이시"
+        },
+        {
+          "n": "실세스"
+        },
+        {
+          "n": "바크먼"
+        },
+        {
+          "n": "포머란츠"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -70683,7 +71167,15 @@
     "homeScore": 0,
     "winPitcher": "틸바",
     "losePitcher": "브록던",
-    "savePitcher": "팔렌시아"
+    "savePitcher": "팔렌시아",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "밀너"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-06",
@@ -70703,6 +71195,14 @@
     "winPitcher": "에스트라다",
     "losePitcher": "우버스타인",
     "savePitcher": "밀러",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "로드리게스"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
@@ -70746,6 +71246,14 @@
     "winPitcher": "드레이어",
     "losePitcher": "페레즈",
     "savePitcher": "디아즈",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "스캇"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
@@ -70848,6 +71356,18 @@
     "winPitcher": "킹",
     "losePitcher": "버드",
     "savePitcher": "벤더",
+    "holds": {
+      "home": [
+        {
+          "n": "크루즈"
+        }
+      ],
+      "away": [
+        {
+          "n": "포셰"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
@@ -71063,6 +71583,20 @@
     "winPitcher": "해리슨",
     "losePitcher": "부빅",
     "savePitcher": "메길",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "앤더슨"
+        },
+        {
+          "n": "유리베"
+        },
+        {
+          "n": "제르파"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
@@ -71124,6 +71658,17 @@
     "winPitcher": "마틴",
     "losePitcher": "라우어",
     "savePitcher": "머피",
+    "holds": {
+      "home": [
+        {
+          "n": "허드슨"
+        },
+        {
+          "n": "레저"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -71203,6 +71748,14 @@
     "winPitcher": "몰",
     "losePitcher": "가르시아",
     "savePitcher": "버크",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "필립스"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
@@ -71414,6 +71967,17 @@
     "winPitcher": "스가노",
     "losePitcher": "워커",
     "savePitcher": "보드닉",
+    "holds": {
+      "home": [
+        {
+          "n": "힐"
+        },
+        {
+          "n": "버나디노"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -71485,6 +72049,14 @@
     "winPitcher": "브라조반",
     "losePitcher": "윈",
     "savePitcher": "윌리엄스",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "위버"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
@@ -71635,6 +72207,14 @@
     "homeScore": 6,
     "winPitcher": "라시",
     "losePitcher": "파이암프스",
+    "holds": {
+      "home": [
+        {
+          "n": "긴켈"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -71762,6 +72342,20 @@
     "winPitcher": "레이히",
     "losePitcher": "몬테로",
     "savePitcher": "오브라이언",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "소리아노"
+        },
+        {
+          "n": "로메로"
+        },
+        {
+          "n": "스타넥"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
@@ -72302,6 +72896,17 @@
     "winPitcher": "켈리",
     "losePitcher": "타이욘",
     "savePitcher": "베이커",
+    "holds": {
+      "home": [
+        {
+          "n": "시모어"
+        },
+        {
+          "n": "비그"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -72363,6 +72968,14 @@
     "winPitcher": "와카",
     "losePitcher": "팔레트",
     "savePitcher": "에르세그",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "스트라움"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
@@ -72418,6 +73031,17 @@
     "winPitcher": "윌리엄슨",
     "losePitcher": "정크",
     "savePitcher": "파간",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "버크"
+        },
+        {
+          "n": "산틸란"
+        }
+      ]
+    },
     "highlights": {
       "home": [],
       "away": [
@@ -72496,6 +73120,14 @@
     "winPitcher": "애쉬비",
     "losePitcher": "위틀록",
     "savePitcher": "제르파",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "앤더슨"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
@@ -72652,6 +73284,17 @@
     "winPitcher": "영",
     "losePitcher": "페디",
     "savePitcher": "헬슬리",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "웰스"
+        },
+        {
+          "n": "가르시아"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
@@ -72689,6 +73332,20 @@
     "winPitcher": "라이언",
     "losePitcher": "마이즈",
     "savePitcher": "로우라슨",
+    "holds": {
+      "home": [
+        {
+          "n": "반다"
+        },
+        {
+          "n": "오스"
+        },
+        {
+          "n": "펀더벅"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -72726,6 +73383,20 @@
     "winPitcher": "빅스",
     "losePitcher": "길버트",
     "savePitcher": "유니스",
+    "holds": {
+      "home": [
+        {
+          "n": "알렉산더"
+        },
+        {
+          "n": "윈"
+        },
+        {
+          "n": "가르시아"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -72763,6 +73434,14 @@
     "winPitcher": "펠트너",
     "losePitcher": "와이스",
     "savePitcher": "메히아",
+    "holds": {
+      "home": [
+        {
+          "n": "허겟"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -72849,6 +73528,17 @@
     "winPitcher": "볼란",
     "losePitcher": "보루키",
     "savePitcher": "듀란",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "알바라도"
+        },
+        {
+          "n": "켈러"
+        }
+      ]
+    },
     "highlights": {
       "home": [],
       "away": [
@@ -73814,6 +74504,21 @@
     "winPitcher": "카노",
     "losePitcher": "힉스",
     "savePitcher": "헬슬리",
+    "holds": {
+      "home": [
+        {
+          "n": "레저"
+        }
+      ],
+      "away": [
+        {
+          "n": "볼프람"
+        },
+        {
+          "n": "누네즈"
+        }
+      ]
+    },
     "highlights": {
       "home": [],
       "away": [
@@ -73862,7 +74567,18 @@
     "awayScore": 3,
     "homeScore": 4,
     "winPitcher": "위버",
-    "losePitcher": "시월드"
+    "losePitcher": "시월드",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "톰슨"
+        },
+        {
+          "n": "모리요"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-08",
@@ -74025,6 +74741,17 @@
     "homeScore": 7,
     "winPitcher": "스킨스",
     "losePitcher": "피베타",
+    "holds": {
+      "home": [
+        {
+          "n": "맷슨"
+        },
+        {
+          "n": "소토"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -74115,6 +74842,17 @@
     "winPitcher": "크로셰",
     "losePitcher": "미저라우스키",
     "savePitcher": "채프먼",
+    "holds": {
+      "home": [
+        {
+          "n": "켈리"
+        },
+        {
+          "n": "위틀록"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [],
       "away": [
@@ -74145,6 +74883,14 @@
     "winPitcher": "소리아노",
     "losePitcher": "헨리",
     "savePitcher": "오브라이언",
+    "holds": {
+      "home": [
+        {
+          "n": "폴린"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -74244,6 +74990,14 @@
     "winPitcher": "크루즈",
     "losePitcher": "레이터 주니어",
     "savePitcher": "베드너",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "스터너"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
@@ -74298,7 +75052,18 @@
     "homeScore": 1,
     "winPitcher": "야마모토",
     "losePitcher": "가우스먼",
-    "savePitcher": "디아즈"
+    "savePitcher": "디아즈",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "베시아"
+        },
+        {
+          "n": "트레이넨"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-08",
@@ -74331,7 +75096,21 @@
     "homeScore": 4,
     "winPitcher": "브래들리",
     "losePitcher": "스쿠발",
-    "savePitcher": "토파"
+    "savePitcher": "토파",
+    "holds": {
+      "home": [
+        {
+          "n": "로저스"
+        },
+        {
+          "n": "샌즈"
+        },
+        {
+          "n": "오스"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-04-08",
@@ -74383,6 +75162,14 @@
     "winPitcher": "이발디",
     "losePitcher": "커비",
     "savePitcher": "유니스",
+    "holds": {
+      "home": [
+        {
+          "n": "라츠"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -74497,6 +75284,20 @@
     "winPitcher": "킨리",
     "losePitcher": "기쿠치",
     "savePitcher": "이글레시아스",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "리"
+        },
+        {
+          "n": "수아레즈"
+        },
+        {
+          "n": "범머"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
@@ -74552,7 +75353,15 @@
     "awayScore": 0,
     "homeScore": 6,
     "winPitcher": "레이",
-    "losePitcher": "산체스"
+    "losePitcher": "산체스",
+    "holds": {
+      "home": [
+        {
+          "n": "워커"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-04-08",
@@ -75554,6 +76363,17 @@
     "homeScore": 2,
     "winPitcher": "킹",
     "losePitcher": "로렌스",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "하트"
+        },
+        {
+          "n": "에스트라다"
+        }
+      ]
+    },
     "highlights": {
       "home": [],
       "away": [
@@ -75674,6 +76494,17 @@
     "winPitcher": "칸틸로",
     "losePitcher": "라간스",
     "savePitcher": "페스타",
+    "holds": {
+      "home": [
+        {
+          "n": "브록던"
+        },
+        {
+          "n": "사브로스키"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -75709,6 +76540,14 @@
     "homeScore": 5,
     "winPitcher": "그레이",
     "losePitcher": "드로한",
+    "holds": {
+      "home": [
+        {
+          "n": "위저트"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -75851,6 +76690,20 @@
     "winPitcher": "브래디쉬",
     "losePitcher": "심스",
     "savePitcher": "가르시아",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "웰스"
+        },
+        {
+          "n": "볼프람"
+        },
+        {
+          "n": "누네즈"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
@@ -75880,7 +76733,18 @@
     "homeScore": 3,
     "winPitcher": "고어",
     "losePitcher": "우",
-    "savePitcher": "윈"
+    "savePitcher": "윈",
+    "holds": {
+      "home": [
+        {
+          "n": "마틴"
+        },
+        {
+          "n": "쿠베로"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-04-09",
@@ -76051,6 +76915,17 @@
     "homeScore": 5,
     "winPitcher": "게이지",
     "losePitcher": "놀라",
+    "holds": {
+      "home": [
+        {
+          "n": "킬리언"
+        },
+        {
+          "n": "티드웰"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -76080,6 +76955,17 @@
     "homeScore": 1,
     "winPitcher": "맥그리비",
     "losePitcher": "마이콜라스",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "스밴슨"
+        },
+        {
+          "n": "브루흘"
+        }
+      ]
+    },
     "highlights": {
       "home": [],
       "away": [
@@ -76157,6 +77043,14 @@
     "homeScore": 2,
     "winPitcher": "넬슨",
     "losePitcher": "피터슨",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "톰슨"
+        }
+      ]
+    },
     "highlights": {
       "home": [],
       "away": [
@@ -76271,6 +77165,20 @@
     "winPitcher": "페레즈",
     "losePitcher": "싱어",
     "savePitcher": "피터슨",
+    "holds": {
+      "home": [
+        {
+          "n": "거스토"
+        },
+        {
+          "n": "나르디"
+        },
+        {
+          "n": "바처"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -76398,6 +77306,17 @@
     "winPitcher": "오버",
     "losePitcher": "발데스",
     "savePitcher": "펀더벅",
+    "holds": {
+      "home": [
+        {
+          "n": "샌즈"
+        },
+        {
+          "n": "로우라슨"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -76814,6 +77733,14 @@
     "winPitcher": "메이어",
     "losePitcher": "로더",
     "savePitcher": "필립스",
+    "holds": {
+      "home": [
+        {
+          "n": "벤더"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -76948,6 +77875,14 @@
     "winPitcher": "스프링스",
     "losePitcher": "웨더스",
     "savePitcher": "해리스",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "스터너"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
@@ -77366,6 +78301,14 @@
     "homeScore": 1,
     "winPitcher": "로드리게스",
     "losePitcher": "맥클린",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "클라크"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
@@ -77416,6 +78359,17 @@
     "winPitcher": "케이",
     "losePitcher": "루고",
     "savePitcher": "도밍게스",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "테일러"
+        },
+        {
+          "n": "레저"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
@@ -78339,6 +79293,17 @@
     "winPitcher": "몽고메리",
     "losePitcher": "틸바",
     "savePitcher": "산타나",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "맷슨"
+        },
+        {
+          "n": "소토"
+        }
+      ]
+    },
     "highlights": {
       "home": [],
       "away": [
@@ -78653,6 +79618,17 @@
     "winPitcher": "소로카",
     "losePitcher": "루자르도",
     "savePitcher": "시월드",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "로아이시가"
+        },
+        {
+          "n": "모리요"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
@@ -78702,6 +79678,17 @@
     "winPitcher": "몬테로",
     "losePitcher": "페덱",
     "savePitcher": "잰슨",
+    "holds": {
+      "home": [
+        {
+          "n": "허터"
+        },
+        {
+          "n": "피네건"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -78821,6 +79808,14 @@
     "homeScore": 10,
     "winPitcher": "맨티플리",
     "losePitcher": "우즈-리차드슨",
+    "holds": {
+      "home": [
+        {
+          "n": "발랜드"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -78880,7 +79875,15 @@
     "awayScore": 4,
     "homeScore": 0,
     "winPitcher": "퍼킨스",
-    "losePitcher": "홈스"
+    "losePitcher": "홈스",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "바로우"
+        }
+      ]
+    }
   },
   {
     "date": "2026-04-11",
@@ -78900,6 +79903,20 @@
     "winPitcher": "마츠",
     "losePitcher": "힐",
     "savePitcher": "베이커",
+    "holds": {
+      "home": [
+        {
+          "n": "잭스"
+        },
+        {
+          "n": "시모어"
+        },
+        {
+          "n": "비그"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -78996,6 +80013,14 @@
     "homeScore": 11,
     "winPitcher": "킨리",
     "losePitcher": "체코니",
+    "holds": {
+      "home": [
+        {
+          "n": "파이암프스"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -79093,6 +80118,14 @@
     "winPitcher": "부빅",
     "losePitcher": "마틴",
     "savePitcher": "에르세그",
+    "holds": {
+      "home": [
+        {
+          "n": "스트라움"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -79158,6 +80191,17 @@
     "winPitcher": "메이",
     "losePitcher": "켈리",
     "savePitcher": "오브라이언",
+    "holds": {
+      "home": [
+        {
+          "n": "스타넥"
+        },
+        {
+          "n": "로메로"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [],
       "away": [
@@ -79221,6 +80265,14 @@
     "homeScore": 5,
     "winPitcher": "밀러",
     "losePitcher": "메히아",
+    "holds": {
+      "home": [
+        {
+          "n": "하트"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -79270,6 +80322,20 @@
     "winPitcher": "핸콕",
     "losePitcher": "와이스",
     "savePitcher": "무뇨스",
+    "holds": {
+      "home": [
+        {
+          "n": "스피어"
+        },
+        {
+          "n": "바자르도"
+        },
+        {
+          "n": "브레쉬"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -79320,6 +80386,17 @@
     "homeScore": 8,
     "winPitcher": "디아즈",
     "losePitcher": "라츠",
+    "holds": {
+      "home": [
+        {
+          "n": "베시아"
+        },
+        {
+          "n": "스캇"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -82096,6 +83173,23 @@
     "winPitcher": "워커",
     "losePitcher": "팟",
     "savePitcher": "듀란",
+    "holds": {
+      "home": [
+        {
+          "n": "마이자"
+        },
+        {
+          "n": "커커링"
+        },
+        {
+          "n": "알바라도"
+        },
+        {
+          "n": "켈러"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -82270,6 +83364,23 @@
     "homeScore": 3,
     "winPitcher": "라미레즈",
     "losePitcher": "틸바",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "몽고메리"
+        },
+        {
+          "n": "로렌스"
+        },
+        {
+          "n": "소토"
+        },
+        {
+          "n": "맷슨"
+        }
+      ]
+    },
     "highlights": {
       "home": [],
       "away": [
@@ -82594,6 +83705,17 @@
     "homeScore": 6,
     "winPitcher": "로페즈",
     "losePitcher": "센가",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "쿠넬"
+        },
+        {
+          "n": "스터너"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
@@ -82654,6 +83776,17 @@
     "homeScore": 7,
     "winPitcher": "존슨",
     "losePitcher": "클라센",
+    "holds": {
+      "home": [
+        {
+          "n": "애쉬크래프트"
+        },
+        {
+          "n": "산틸란"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -82806,6 +83939,14 @@
     "homeScore": 5,
     "winPitcher": "술세르",
     "losePitcher": "베드너",
+    "holds": {
+      "home": [
+        {
+          "n": "잭스"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -82939,6 +84080,17 @@
     "winPitcher": "그리핀",
     "losePitcher": "해리슨",
     "savePitcher": "비터",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "로드"
+        },
+        {
+          "n": "페레즈"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
@@ -82968,6 +84120,20 @@
     "homeScore": 1,
     "winPitcher": "수아레즈",
     "losePitcher": "레이히",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "위저트"
+        },
+        {
+          "n": "쿨롬"
+        },
+        {
+          "n": "위틀록"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
@@ -82997,6 +84163,20 @@
     "homeScore": 6,
     "winPitcher": "볼프람",
     "losePitcher": "웹",
+    "holds": {
+      "home": [
+        {
+          "n": "카노"
+        },
+        {
+          "n": "가르시아"
+        },
+        {
+          "n": "누네즈"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -83050,6 +84230,17 @@
     "homeScore": 0,
     "winPitcher": "메식",
     "losePitcher": "페레즈",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "브록던"
+        },
+        {
+          "n": "사브로스키"
+        }
+      ]
+    },
     "highlights": {
       "home": [],
       "away": [
@@ -83324,6 +84515,14 @@
     "winPitcher": "마르케스",
     "losePitcher": "펠트너",
     "savePitcher": "아담",
+    "holds": {
+      "home": [
+        {
+          "n": "페랄타"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -83385,6 +84584,20 @@
     "winPitcher": "시한",
     "losePitcher": "라이터",
     "savePitcher": "베시아",
+    "holds": {
+      "home": [
+        {
+          "n": "드레이어"
+        },
+        {
+          "n": "스캇"
+        },
+        {
+          "n": "트레이넨"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -85748,6 +86961,17 @@
     "winPitcher": "클라크",
     "losePitcher": "알바라도",
     "savePitcher": "시월드",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "긴켈"
+        },
+        {
+          "n": "톰슨"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
@@ -85832,6 +87056,20 @@
     "winPitcher": "시베일",
     "losePitcher": "페랄타",
     "savePitcher": "쿠넬",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "해리스"
+        },
+        {
+          "n": "바로우"
+        },
+        {
+          "n": "알바라도"
+        }
+      ]
+    },
     "highlights": {
       "home": [],
       "away": [
@@ -85958,6 +87196,17 @@
     "winPitcher": "라스무센",
     "losePitcher": "슐리틀러",
     "savePitcher": "잉그러트",
+    "holds": {
+      "home": [
+        {
+          "n": "술세르"
+        },
+        {
+          "n": "켈리"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -86114,6 +87363,14 @@
     "winPitcher": "레저",
     "losePitcher": "슈라이버",
     "savePitcher": "도밍게스",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "심스"
+        }
+      ]
+    },
     "highlights": {
       "home": [],
       "away": [
@@ -86191,8 +87448,14 @@
     "homeScore": 7,
     "winPitcher": "팔렌시아",
     "losePitcher": "우르퀴디",
-    "winPitcherNat": "Venezuela",
-    "losePitcherNat": "Mexico",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "바르코"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
@@ -86403,9 +87666,17 @@
     "winPitcher": "디그롬",
     "losePitcher": "사사키",
     "savePitcher": "유니스",
-    "winPitcherNat": "USA",
-    "losePitcherNat": "Japan",
-    "savePitcherNat": "USA",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "라츠"
+        },
+        {
+          "n": "윈"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
@@ -86442,8 +87713,6 @@
     "homeScore": 7,
     "winPitcher": "모건",
     "losePitcher": "허겟",
-    "winPitcherNat": "USA",
-    "losePitcherNat": "USA",
     "highlights": {
       "home": [
         {
@@ -86569,9 +87838,6 @@
     "winPitcher": "세일",
     "losePitcher": "바이비",
     "savePitcher": "도드",
-    "winPitcherNat": "USA",
-    "losePitcherNat": "USA",
-    "savePitcherNat": "USA",
     "highlights": {
       "home": [
         {
@@ -86806,8 +88072,14 @@
     "homeScore": 6,
     "winPitcher": "커비",
     "losePitcher": "버로우스",
-    "winPitcherNat": "USA",
-    "losePitcherNat": "USA",
+    "holds": {
+      "home": [
+        {
+          "n": "브레쉬"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -86838,6 +88110,14 @@
     "winPitcher": "수아레즈",
     "losePitcher": "로아이시가",
     "savePitcher": "헬슬리",
+    "holds": {
+      "home": [
+        {
+          "n": "가르시아"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -86988,6 +88268,14 @@
     "homeScore": 11,
     "winPitcher": "블랙번",
     "losePitcher": "로마노",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "포머란츠"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
@@ -87042,6 +88330,14 @@
     "homeScore": 4,
     "winPitcher": "나르디",
     "losePitcher": "범머",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "킹"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
@@ -88223,6 +89519,20 @@
     "winPitcher": "켈리",
     "losePitcher": "로저스",
     "savePitcher": "시월드",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "클라크"
+        },
+        {
+          "n": "모리요"
+        },
+        {
+          "n": "톰슨"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
@@ -88271,6 +89581,14 @@
     "homeScore": 4,
     "winPitcher": "레아",
     "losePitcher": "마이자",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "틸바"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
@@ -88308,6 +89626,14 @@
     "winPitcher": "베스트",
     "losePitcher": "미어스",
     "savePitcher": "잰슨",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "스트라움"
+        }
+      ]
+    },
     "highlights": {
       "home": [],
       "away": [
@@ -88338,6 +89664,17 @@
     "winPitcher": "싱어",
     "losePitcher": "레이",
     "savePitcher": "파간",
+    "holds": {
+      "home": [
+        {
+          "n": "애쉬크래프트"
+        },
+        {
+          "n": "산틸란"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -88381,6 +89718,17 @@
     "winPitcher": "파커",
     "losePitcher": "켈러",
     "savePitcher": "바랜드",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "페레즈"
+        },
+        {
+          "n": "비터"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
@@ -88497,6 +89845,14 @@
     "winPitcher": "수아레즈",
     "losePitcher": "페어뱅크스",
     "savePitcher": "이글레시아스",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "피터슨"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
@@ -88573,6 +89929,20 @@
     "homeScore": 7,
     "winPitcher": "발랜드",
     "losePitcher": "앤더슨",
+    "holds": {
+      "home": [
+        {
+          "n": "홀"
+        },
+        {
+          "n": "제르파"
+        },
+        {
+          "n": "유리베"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -88634,6 +90004,14 @@
     "winPitcher": "맥클라나한",
     "losePitcher": "슐츠",
     "savePitcher": "베이커",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "비그"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
@@ -88735,6 +90113,14 @@
     "homeScore": 6,
     "winPitcher": "오브라이언",
     "losePitcher": "헤린",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "사브로스키"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
@@ -88796,6 +90182,20 @@
     "winPitcher": "블루바흐",
     "losePitcher": "로렌젠",
     "savePitcher": "디 로스 산토스",
+    "holds": {
+      "home": [
+        {
+          "n": "오컬트"
+        },
+        {
+          "n": "덩카이웨이"
+        },
+        {
+          "n": "킹"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -88913,6 +90313,17 @@
     "winPitcher": "킹",
     "losePitcher": "우",
     "savePitcher": "밀러",
+    "holds": {
+      "home": [
+        {
+          "n": "모레혼"
+        },
+        {
+          "n": "아담"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -88943,6 +90354,20 @@
     "winPitcher": "스프링스",
     "losePitcher": "고어",
     "savePitcher": "레이터 주니어",
+    "holds": {
+      "home": [
+        {
+          "n": "스터너"
+        },
+        {
+          "n": "해리스"
+        },
+        {
+          "n": "알바라도"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [],
       "away": [
@@ -89873,9 +91298,6 @@
     "winPitcher": "톰슨",
     "losePitcher": "웰스",
     "savePitcher": "모리요",
-    "winPitcherNat": "USA",
-    "losePitcherNat": "USA",
-    "savePitcherNat": "Venezuela",
     "highlights": {
       "home": [
         {
@@ -89939,9 +91361,17 @@
     "winPitcher": "메이",
     "losePitcher": "브록던",
     "savePitcher": "오브라이언",
-    "winPitcherNat": "USA",
-    "losePitcherNat": "USA",
-    "savePitcherNat": "USA",
+    "holds": {
+      "home": [
+        {
+          "n": "브루흘"
+        },
+        {
+          "n": "로메로"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -89989,8 +91419,6 @@
     "homeScore": 5,
     "winPitcher": "얼리",
     "losePitcher": "우즈-리차드슨",
-    "winPitcherNat": "USA",
-    "losePitcherNat": "USA",
     "highlights": {
       "home": [
         {
@@ -90160,8 +91588,6 @@
     "homeScore": 2,
     "winPitcher": "이마나가",
     "losePitcher": "루자르도",
-    "winPitcherNat": "Japan",
-    "losePitcherNat": "Peru",
     "highlights": {
       "home": [
         {
@@ -90294,6 +91720,14 @@
     "winPitcher": "모진스키",
     "losePitcher": "어빈",
     "savePitcher": "산타나",
+    "holds": {
+      "home": [
+        {
+          "n": "소토"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -90351,6 +91785,14 @@
     "homeScore": 5,
     "winPitcher": "베드너",
     "losePitcher": "로마노",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "포머란츠"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
@@ -90411,9 +91853,20 @@
     "winPitcher": "엘더",
     "losePitcher": "페덱",
     "savePitcher": "이글레시아스",
-    "winPitcherNat": "USA",
-    "losePitcherNat": "USA",
-    "savePitcherNat": "Cuba",
+    "holds": {
+      "home": [
+        {
+          "n": "리"
+        },
+        {
+          "n": "킨리"
+        },
+        {
+          "n": "수아레즈"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
@@ -125105,46 +126558,6 @@
     "time": "16:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
-    "home": "대한민국",
-    "away": "필리핀",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
-    "timeTbd": false,
-    "gameId": "INfbBvjkK2ARSQU",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 5,
-    "scorers": {
-      "home": [
-        {
-          "n": "백서영",
-          "m": 6
-        },
-        {
-          "n": "백서영",
-          "m": 14
-        },
-        {
-          "n": "백서영",
-          "m": 34
-        },
-        {
-          "n": "백서영",
-          "m": 55
-        },
-        {
-          "n": "김희나",
-          "m": 67
-        }
-      ],
-      "away": []
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-02",
-    "time": "16:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
     "home": "일본",
     "away": "레바논",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
@@ -125207,6 +126620,46 @@
         {
           "n": "나나미",
           "m": 80
+        }
+      ],
+      "away": []
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-02",
+    "time": "16:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
+    "home": "대한민국",
+    "away": "필리핀",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
+    "timeTbd": false,
+    "gameId": "INfbBvjkK2ARSQU",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 5,
+    "scorers": {
+      "home": [
+        {
+          "n": "백서영",
+          "m": 6
+        },
+        {
+          "n": "백서영",
+          "m": 14
+        },
+        {
+          "n": "백서영",
+          "m": 34
+        },
+        {
+          "n": "백서영",
+          "m": 55
+        },
+        {
+          "n": "김희나",
+          "m": 67
         }
       ],
       "away": []
@@ -126235,6 +127688,35 @@
     "time": "20:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
+    "home": "호주",
+    "away": "인도",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
+    "timeTbd": false,
+    "gameId": "fS1J3kxSwziVvHl",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "무이티스",
+          "m": 25
+        },
+        {
+          "n": "바스넷",
+          "m": 59,
+          "og": true
+        }
+      ],
+      "away": []
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-02",
+    "time": "20:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
     "home": "북한",
     "away": "차이니스 타이베이",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
@@ -126284,35 +127766,6 @@
         {
           "n": "유종향",
           "m": 90
-        }
-      ],
-      "away": []
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-02",
-    "time": "20:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
-    "home": "호주",
-    "away": "인도",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
-    "timeTbd": false,
-    "gameId": "fS1J3kxSwziVvHl",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "무이티스",
-          "m": 25
-        },
-        {
-          "n": "바스넷",
-          "m": 59,
-          "og": true
         }
       ],
       "away": []
@@ -134030,38 +135483,6 @@
     "time": "20:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
-    "home": "인도",
-    "away": "일본",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
-    "timeTbd": false,
-    "gameId": "SyGtvWeiJaOs0ZA",
-    "status": "completed",
-    "awayScore": 3,
-    "homeScore": 0,
-    "scorers": {
-      "home": [],
-      "away": [
-        {
-          "n": "하야시",
-          "m": 59
-        },
-        {
-          "n": "이케다",
-          "m": 76
-        },
-        {
-          "n": "이케다",
-          "m": 81
-        }
-      ]
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-05",
-    "time": "20:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
     "home": "필리핀",
     "away": "북한",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
@@ -134104,6 +135525,38 @@
         {
           "n": "송원용",
           "m": 85
+        }
+      ]
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-05",
+    "time": "20:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
+    "home": "인도",
+    "away": "일본",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
+    "timeTbd": false,
+    "gameId": "SyGtvWeiJaOs0ZA",
+    "status": "completed",
+    "awayScore": 3,
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "하야시",
+          "m": 59
+        },
+        {
+          "n": "이케다",
+          "m": 76
+        },
+        {
+          "n": "이케다",
+          "m": 81
         }
       ]
     },
@@ -138953,6 +140406,21 @@
     "time": "20:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
+    "home": "필리핀",
+    "away": "차이니스 타이베이",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
+    "timeTbd": false,
+    "gameId": "iI57xIcnv4pTYV5",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 0,
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-08",
+    "time": "20:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
     "home": "북한",
     "away": "대한민국",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
@@ -138978,21 +140446,6 @@
       ],
       "away": []
     },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-08",
-    "time": "20:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
-    "home": "필리핀",
-    "away": "차이니스 타이베이",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
-    "timeTbd": false,
-    "gameId": "iI57xIcnv4pTYV5",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 0,
     "phaseCode": "GROUP"
   },
   {
@@ -148532,6 +149985,34 @@
     "time": "01:00",
     "league": "U17ASIANCUP",
     "venueId": "king_abdullah_sports_city",
+    "home": "중국",
+    "away": "카타르",
+    "stadium": "킹 압둘라 스포츠 시티 피치 퓨처 C",
+    "timeTbd": false,
+    "gameId": "OW7BBRLBR5Yg9Mi",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "하시판",
+          "m": 14
+        },
+        {
+          "n": "장 보린",
+          "m": 71
+        }
+      ],
+      "away": []
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-13",
+    "time": "01:00",
+    "league": "U17ASIANCUP",
+    "venueId": "king_abdullah_sports_city",
     "home": "일본",
     "away": "인도네시아",
     "stadium": "킹 압둘라 스포츠 시티 피치 스타스 A",
@@ -148561,34 +150042,6 @@
           "m": 70
         }
       ]
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-13",
-    "time": "01:00",
-    "league": "U17ASIANCUP",
-    "venueId": "king_abdullah_sports_city",
-    "home": "중국",
-    "away": "카타르",
-    "stadium": "킹 압둘라 스포츠 시티 피치 퓨처 C",
-    "timeTbd": false,
-    "gameId": "OW7BBRLBR5Yg9Mi",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "하시판",
-          "m": 14
-        },
-        {
-          "n": "장 보린",
-          "m": 71
-        }
-      ],
-      "away": []
     },
     "phaseCode": "GROUP"
   },
@@ -359980,6 +361433,102 @@
   {
     "date": "2026-09-09",
     "time": "03:45",
+    "league": "EFL",
+    "venueId": "southampton_st_marys",
+    "home": "사우샘프턴",
+    "away": "스완지",
+    "stadium": "세인트 메리스 스타디움",
+    "timeTbd": false,
+    "gameId": "YEzthB2I7ULBOnY",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "아자즈",
+          "m": 9
+        },
+        {
+          "n": "래린",
+          "m": 33
+        },
+        {
+          "n": "레오 시엔자",
+          "m": 78
+        }
+      ],
+      "away": [
+        {
+          "n": "비포트니크",
+          "m": 52
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-09",
+    "time": "03:45",
+    "league": "EFL",
+    "venueId": "watford_vicarage_road",
+    "home": "왓퍼드",
+    "away": "프레스턴",
+    "stadium": "비커리지 로드",
+    "timeTbd": false,
+    "gameId": "2n8KOshcekINj3A",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "에도 카옘베",
+          "m": 69
+        },
+        {
+          "n": "둠비아",
+          "m": 76
+        }
+      ],
+      "away": [
+        {
+          "n": "랭",
+          "m": 5
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-09",
+    "time": "03:45",
+    "league": "EFL",
+    "venueId": "wrexham_racecourse_ground",
+    "home": "렉섬",
+    "away": "번리",
+    "stadium": "레이스코스 그라운드",
+    "timeTbd": false,
+    "gameId": "8059agG5ekMqb6q",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "에코미에",
+          "m": 55
+        }
+      ],
+      "away": [
+        {
+          "n": "암두니",
+          "m": 26
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-09",
+    "time": "03:45",
     "league": "EFLCUP",
     "venueId": "bournemouth_dean_court",
     "home": "본머스",
@@ -360106,102 +361655,6 @@
       "away": []
     },
     "phaseCode": "T32"
-  },
-  {
-    "date": "2026-09-09",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "southampton_st_marys",
-    "home": "사우샘프턴",
-    "away": "스완지",
-    "stadium": "세인트 메리스 스타디움",
-    "timeTbd": false,
-    "gameId": "YEzthB2I7ULBOnY",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 3,
-    "scorers": {
-      "home": [
-        {
-          "n": "아자즈",
-          "m": 9
-        },
-        {
-          "n": "래린",
-          "m": 33
-        },
-        {
-          "n": "레오 시엔자",
-          "m": 78
-        }
-      ],
-      "away": [
-        {
-          "n": "비포트니크",
-          "m": 52
-        }
-      ]
-    }
-  },
-  {
-    "date": "2026-09-09",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "watford_vicarage_road",
-    "home": "왓퍼드",
-    "away": "프레스턴",
-    "stadium": "비커리지 로드",
-    "timeTbd": false,
-    "gameId": "2n8KOshcekINj3A",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "에도 카옘베",
-          "m": 69
-        },
-        {
-          "n": "둠비아",
-          "m": 76
-        }
-      ],
-      "away": [
-        {
-          "n": "랭",
-          "m": 5
-        }
-      ]
-    }
-  },
-  {
-    "date": "2026-09-09",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "wrexham_racecourse_ground",
-    "home": "렉섬",
-    "away": "번리",
-    "stadium": "레이스코스 그라운드",
-    "timeTbd": false,
-    "gameId": "8059agG5ekMqb6q",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 1,
-    "scorers": {
-      "home": [
-        {
-          "n": "에코미에",
-          "m": 55
-        }
-      ],
-      "away": [
-        {
-          "n": "암두니",
-          "m": 26
-        }
-      ]
-    }
   },
   {
     "date": "2026-09-09",
@@ -385333,6 +386786,77 @@
   {
     "date": "2026-09-16",
     "time": "03:45",
+    "league": "EFL",
+    "venueId": "middlesbrough_riverside",
+    "home": "미들즈브러",
+    "away": "밀월",
+    "stadium": "리버사이드 스타디움",
+    "timeTbd": false,
+    "gameId": "YK3SlqCpysSMqvp",
+    "status": "completed",
+    "awayScore": 2,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "코지어-뒤베리",
+          "m": 50,
+          "nat": "England",
+          "pid": "espn:327170"
+        },
+        {
+          "n": "랭크셔",
+          "m": 61,
+          "a": "Luke Ayling",
+          "nat": "England",
+          "aNat": "England",
+          "pid": "espn:349181",
+          "apid": "espn:136380"
+        }
+      ],
+      "away": [
+        {
+          "n": "아르콘테",
+          "m": 11,
+          "a": "Camiel Neghli",
+          "nat": "Guadeloupe",
+          "aNat": "Algeria",
+          "pid": "espn:315189",
+          "apid": "espn:310173"
+        },
+        {
+          "n": "다이크스",
+          "m": 36,
+          "a": "Caleb Taylor",
+          "nat": "Scotland",
+          "aNat": "England",
+          "pid": "espn:207538",
+          "apid": "espn:308572"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Riley McGree",
+          "type": "Y",
+          "m": 66,
+          "pid": "espn:235096"
+        }
+      ],
+      "away": [
+        {
+          "n": "Derek Mazou-Sacko",
+          "type": "Y",
+          "m": 59,
+          "pid": "espn:324659"
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-16",
+    "time": "03:45",
     "league": "EFLCUP",
     "venueId": "westham_london_stadium",
     "home": "웨스트햄",
@@ -385403,77 +386927,6 @@
       ]
     },
     "phaseCode": "T32"
-  },
-  {
-    "date": "2026-09-16",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "middlesbrough_riverside",
-    "home": "미들즈브러",
-    "away": "밀월",
-    "stadium": "리버사이드 스타디움",
-    "timeTbd": false,
-    "gameId": "YK3SlqCpysSMqvp",
-    "status": "completed",
-    "awayScore": 2,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "코지어-뒤베리",
-          "m": 50,
-          "nat": "England",
-          "pid": "espn:327170"
-        },
-        {
-          "n": "랭크셔",
-          "m": 61,
-          "a": "Luke Ayling",
-          "nat": "England",
-          "aNat": "England",
-          "pid": "espn:349181",
-          "apid": "espn:136380"
-        }
-      ],
-      "away": [
-        {
-          "n": "아르콘테",
-          "m": 11,
-          "a": "Camiel Neghli",
-          "nat": "Guadeloupe",
-          "aNat": "Algeria",
-          "pid": "espn:315189",
-          "apid": "espn:310173"
-        },
-        {
-          "n": "다이크스",
-          "m": 36,
-          "a": "Caleb Taylor",
-          "nat": "Scotland",
-          "aNat": "England",
-          "pid": "espn:207538",
-          "apid": "espn:308572"
-        }
-      ]
-    },
-    "cards": {
-      "home": [
-        {
-          "n": "Riley McGree",
-          "type": "Y",
-          "m": 66,
-          "pid": "espn:235096"
-        }
-      ],
-      "away": [
-        {
-          "n": "Derek Mazou-Sacko",
-          "type": "Y",
-          "m": 59,
-          "pid": "espn:324659"
-        }
-      ]
-    }
   },
   {
     "date": "2026-09-16",
@@ -387507,30 +388960,6 @@
   {
     "date": "2026-09-16",
     "time": "19:00",
-    "league": "ACL2",
-    "venueId": "seoulwc",
-    "home": "서울",
-    "away": "반둥",
-    "stadium": "서울월드컵경기장",
-    "timeTbd": false,
-    "gameId": "2idpicTW6SmPYVP",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 0,
-    "scorers": {
-      "home": [],
-      "away": [
-        {
-          "n": "훌리오 세자르",
-          "m": 5
-        }
-      ]
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-09-16",
-    "time": "19:00",
     "league": "ACL",
     "venueId": "jeonju",
     "home": "전북",
@@ -387604,6 +389033,30 @@
   {
     "date": "2026-09-16",
     "time": "19:00",
+    "league": "ACL2",
+    "venueId": "seoulwc",
+    "home": "서울",
+    "away": "반둥",
+    "stadium": "서울월드컵경기장",
+    "timeTbd": false,
+    "gameId": "2idpicTW6SmPYVP",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "훌리오 세자르",
+          "m": 5
+        }
+      ]
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-09-16",
+    "time": "19:00",
     "league": "ASIANGAMESFOOTBALL",
     "venueId": "wave_stadium_kariya",
     "home": "중국 (남자)",
@@ -387628,35 +389081,6 @@
     "status": "completed",
     "homeScore": 2,
     "awayScore": 0
-  },
-  {
-    "date": "2026-09-16",
-    "time": "21:15",
-    "league": "ACL2",
-    "venueId": "cahn_hang_day",
-    "home": "비에트텔",
-    "away": "멜버른 FC",
-    "stadium": "선번동 항더이 (항더이 스타디움)",
-    "timeTbd": false,
-    "gameId": "gqA22tVR2bUJFof",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 1,
-    "scorers": {
-      "home": [
-        {
-          "n": "리바마르",
-          "m": 62
-        }
-      ],
-      "away": [
-        {
-          "n": "클라리스마리우 호드리게스",
-          "m": 58
-        }
-      ]
-    },
-    "phaseCode": "GROUP"
   },
   {
     "date": "2026-09-16",
@@ -387729,6 +389153,35 @@
           "type": "Y",
           "m": 73,
           "pid": "espn:143697"
+        }
+      ]
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-09-16",
+    "time": "21:15",
+    "league": "ACL2",
+    "venueId": "cahn_hang_day",
+    "home": "비에트텔",
+    "away": "멜버른 FC",
+    "stadium": "선번동 항더이 (항더이 스타디움)",
+    "timeTbd": false,
+    "gameId": "gqA22tVR2bUJFof",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "리바마르",
+          "m": 62
+        }
+      ],
+      "away": [
+        {
+          "n": "클라리스마리우 호드리게스",
+          "m": 58
         }
       ]
     },
@@ -436173,19 +437626,6 @@
   {
     "date": "2026-10-14",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "al_seeb_stadium",
-    "home": "알 시브",
-    "away": "알 후세인",
-    "stadium": "알-시브 스타디움",
-    "timeTbd": false,
-    "gameId": "OQsSGAzKGbKHXDT",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-14",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "al_sadd_jassim_bin_hamad",
     "home": "알 사드",
@@ -436193,6 +437633,19 @@
     "stadium": "자심 빈 하마드 스타디움",
     "timeTbd": false,
     "gameId": "zcfrVKksVO8hhNi",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-14",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "al_seeb_stadium",
+    "home": "알 시브",
+    "away": "알 후세인",
+    "stadium": "알-시브 스타디움",
+    "timeTbd": false,
+    "gameId": "OQsSGAzKGbKHXDT",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -447698,19 +449151,6 @@
   {
     "date": "2026-10-28",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "al_seeb_stadium",
-    "home": "알 시브",
-    "away": "이스트 벵갈",
-    "stadium": "알-시브 스타디움",
-    "timeTbd": false,
-    "gameId": "AW3p0efTl1zL9Jt",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-28",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "shabab_alahli_al_rashid",
     "home": "샤바브 알 아흘리",
@@ -447718,6 +449158,19 @@
     "stadium": "알라시드 스타디움",
     "timeTbd": false,
     "gameId": "uVJg9XVeZVSJFpb",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-28",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "al_seeb_stadium",
+    "home": "알 시브",
+    "away": "이스트 벵갈",
+    "stadium": "알-시브 스타디움",
+    "timeTbd": false,
+    "gameId": "AW3p0efTl1zL9Jt",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -447908,19 +449361,6 @@
   {
     "date": "2026-10-28",
     "time": "03:15",
-    "league": "ACL2",
-    "venueId": "al_zawraa_stadium",
-    "home": "알 쇼르타",
-    "away": "알 후세인",
-    "stadium": "알-자우라 스타디움",
-    "timeTbd": false,
-    "gameId": "HCihM9DqxKOXBbt",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-28",
-    "time": "03:15",
     "league": "ACL",
     "venueId": "al_shamal_al_bayt",
     "home": "알샤말",
@@ -447928,6 +449368,19 @@
     "stadium": "알베이트 스타디움",
     "timeTbd": false,
     "gameId": "3aZWRb5fy3Nyk9x",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-28",
+    "time": "03:15",
+    "league": "ACL2",
+    "venueId": "al_zawraa_stadium",
+    "home": "알 쇼르타",
+    "away": "알 후세인",
+    "stadium": "알-자우라 스타디움",
+    "timeTbd": false,
+    "gameId": "HCihM9DqxKOXBbt",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -450928,19 +452381,6 @@
   {
     "date": "2026-11-04",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "amman_international_stadium",
-    "home": "알 후세인",
-    "away": "알 쇼르타",
-    "stadium": "암만 인터내셔널 스태디엄",
-    "timeTbd": false,
-    "gameId": "87Yzcj2B505kzbh",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-11-04",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "basra_international",
     "home": "에스테그랄",
@@ -450948,6 +452388,19 @@
     "stadium": "바스라 인터내셔널 스타디움",
     "timeTbd": false,
     "gameId": "CbaeNHtf2qOthye",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-11-04",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "amman_international_stadium",
+    "home": "알 후세인",
+    "away": "알 쇼르타",
+    "stadium": "암만 인터내셔널 스태디엄",
+    "timeTbd": false,
+    "gameId": "87Yzcj2B505kzbh",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -451205,19 +452658,6 @@
   {
     "date": "2026-11-04",
     "time": "19:00",
-    "league": "ACL2",
-    "venueId": "seoulwc",
-    "home": "서울",
-    "away": "비에트텔",
-    "stadium": "서울월드컵경기장",
-    "timeTbd": false,
-    "gameId": "lZapB69mvTiiYds",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-11-04",
-    "time": "19:00",
     "league": "ACL",
     "venueId": "pohang",
     "home": "포항",
@@ -451225,6 +452665,19 @@
     "stadium": "포항스틸야드",
     "timeTbd": false,
     "gameId": "pmIB9z9UAQ4XPV2",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-11-04",
+    "time": "19:00",
+    "league": "ACL2",
+    "venueId": "seoulwc",
+    "home": "서울",
+    "away": "비에트텔",
+    "stadium": "서울월드컵경기장",
+    "timeTbd": false,
+    "gameId": "lZapB69mvTiiYds",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -456565,19 +458018,6 @@
   {
     "date": "2026-11-25",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "al_seeb_stadium",
-    "home": "알 시브",
-    "away": "알 쇼르타",
-    "stadium": "알-시브 스타디움",
-    "timeTbd": false,
-    "gameId": "zVJrrC6Kzu5rPRu",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-11-25",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "shabab_alahli_al_rashid",
     "home": "샤바브 알 아흘리",
@@ -456585,6 +458025,19 @@
     "stadium": "알라시드 스타디움",
     "timeTbd": false,
     "gameId": "Rsba5lmQWhdIFqs",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-11-25",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "al_seeb_stadium",
+    "home": "알 시브",
+    "away": "알 쇼르타",
+    "stadium": "알-시브 스타디움",
+    "timeTbd": false,
+    "gameId": "zVJrrC6Kzu5rPRu",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
