@@ -3,7 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execSync } from 'node:child_process';
 import { validateDataset } from './validators.mjs';
-import { getAthleteNationality } from './espn-nationality.mjs';
+import { getAthleteNationality, getAthleteDisplayName } from './espn-nationality.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -133,6 +133,12 @@ const EURO_ASSISTS_PATH = path.join(REPO_ROOT, 'euro_assists.json');
 // 같은 경기에 fetchEspnSummary를 호출하니 그 summary를 그대로 재사용해 카드도 같이 추출.
 // 골 득점자가 있는 경기만 대상(현재 매칭 로직 제약) — 0-0 무득점 경기는 카드 미지원(추후 보완).
 const EURO_CARDS_PATH = path.join(REPO_ROOT, 'euro_cards.json');
+// 즐겨찾기 선수 알림(2026-09-28)용 자동 확장 선수명 사전 — 득점자(네이버 원문 한글)가 ESPN
+// athleteId로 정확히 매칭되면(zip 성공), 그 선수의 실제 영문명(displayName)을 자동으로 여기 축적.
+// 기존 App.tsx PLAYER_NAME_EN(수작업, 유명 선수 위주 1300여명)은 수동 동기화가 필요했는데
+// (player-name-en.json), 이 파일은 ESPN 연동 리그에서 매칭 성공하는 모든 선수를 자동으로
+// 커버해서 수작업 없이 계속 늘어남 — player-name-canon.mjs가 두 파일을 합쳐서 사용.
+const PLAYER_NAME_AUTO_PATH = path.join(REPO_ROOT, 'player-name-auto.json');
 // 처음엔 "N일 이내"로 컷오프했다가(2026-09-26) 축구/야구 경기 빈도 차이로 안 맞아 "팀당 최근
 // 5경기"로 바꿨는데(2026-09-27), 팀 상세 페이지가 리그·컵대회 안 가리고 그 팀의 완료 경기를 전부(개수 제한 없이) 보여주는
 // 구조로 바뀌면서(2026-09-27, "보여지는경기는 모두백필해줘 최소한이정도는 해야할듯"), "팀당
@@ -1044,6 +1050,14 @@ async function enrichEuroAssists(allGames) {
     if (e.code !== 'ENOENT') throw e;
     console.log('[euroCards] no euro_cards.json yet — backfilling from scratch');
   }
+  // 자동 확장 선수명 사전(2026-09-28) — 매칭 성공한 득점자마다 실제 영문명을 여기 누적.
+  let autoPlayerNames = {};
+  try {
+    autoPlayerNames = JSON.parse(await fs.readFile(PLAYER_NAME_AUTO_PATH, 'utf-8'));
+  } catch (e) {
+    if (e.code !== 'ENOENT') throw e;
+    console.log('[playerNameAuto] no player-name-auto.json yet — starting fresh');
+  }
 
   // 0-0 무득점 경기도 카드는 붙어야 해서(사용자 요청, 2026-09-26) g.scorers 존재 요건을 뺌 —
   // 어시스트/국적 로직은 원래대로 scorers가 없으면 그냥 빈 배열([].length===0)로 자연히 스킵됨.
@@ -1170,6 +1184,14 @@ async function enrichEuroAssists(allGames) {
                 if (espnEntry?.teamId && espnEntry?.athleteId) {
                   const nat = await getAthleteNationality('soccer', slug, espnEntry.teamId, espnEntry.athleteId);
                   if (nat) s.nat = nat;
+                  // s.n(득점자, 네이버 원문)은 늘 한글 — 이 골이 실제로 어느 ESPN 선수인지는 이미
+                  // athleteId로 확정됐으니, 그 선수의 진짜 영문명(displayName)을 자동사전에 적립.
+                  // 수작업 사전(PLAYER_NAME_EN)과 달리 ESPN 연동 리그에서 매칭 성공하는 모든 선수를
+                  // 자동으로 커버(2026-09-28, "모든 선수 미리 가지고 있으면" 요청 대응).
+                  if (s.n) {
+                    const displayName = await getAthleteDisplayName('soccer', slug, espnEntry.teamId, espnEntry.athleteId);
+                    if (displayName) autoPlayerNames[s.n] = displayName;
+                  }
                 }
                 // 어시스트 국적 — 어시스트 선수는 득점자와 같은 팀이라 teamId 재사용.
                 if (espnEntry?.teamId && espnEntry?.assistAthleteId) {
@@ -1232,6 +1254,7 @@ async function enrichEuroAssists(allGames) {
     if (Object.prototype.hasOwnProperty.call(cardCache, id)) prunedCards[id] = cardCache[id];
   }
   await fs.writeFile(EURO_CARDS_PATH, JSON.stringify(prunedCards, null, 2) + '\n', 'utf-8');
+  await fs.writeFile(PLAYER_NAME_AUTO_PATH, JSON.stringify(autoPlayerNames, null, 2) + '\n', 'utf-8');
 
   const withCards = targets.filter((g) => g.cards).length;
   console.log(
