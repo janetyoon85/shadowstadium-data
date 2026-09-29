@@ -49,8 +49,9 @@ function extractEspnGoalsBySide(summaryJson, homeTeamName, awayTeamName) {
   const home = [];
   const away = [];
   for (const e of events) {
-    const typeText = (e.type && e.type.text) || '';
-    if (!/goal/i.test(typeText)) continue;
+    // fetch-schedule.mjs와 동일 버그(2026-09-29, "메시가정보가없다") — 득점 페널티는
+    // type.text가 "Penalty - Scored"라 "goal" 단어가 없어 누락됨. scoringPlay로 교체.
+    if (e.scoringPlay !== true) continue;
     const scoringTeam = e.team && e.team.displayName;
     const side = scoringTeam === homeTeamName ? 'home' : scoringTeam === awayTeamName ? 'away' : null;
     if (side == null) continue;

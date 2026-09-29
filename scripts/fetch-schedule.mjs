@@ -1032,8 +1032,10 @@ async function enrichScorers(allGames) {
 
   // "화면에 보여지는거만" — 팀 상세 최근경기(리그당 팀별 최근 완료 5경기)와 정확히 같은 기준으로
   // 타겟팅(2026-09-27, 날짜 컷오프 방식은 주 1회 축구/매일 야구처럼 경기 빈도가 다른 종목에
-  // 고정폭이 안 맞아 폐기).
-  const recentSoccerIds = buildRecentCompletedGameIds(allGames, new Set([...SOCCER_LEAGUES, ...STRUCTURED_SCORER_LEAGUES]));
+  // 고정폭이 안 맞아 폐기). 버그 발견(2026-09-29, "무슨버그가계속나오냐" 계기로 한 패턴 전수
+  // 점검 중 발견): enrichEuroAssists/enrichSaves와 동일하게 n(5) 인자가 누락돼 있었음 — 여기도
+  // n=5 복원.
+  const recentSoccerIds = buildRecentCompletedGameIds(allGames, new Set([...SOCCER_LEAGUES, ...STRUCTURED_SCORER_LEAGUES]), 5);
   const targets = allGames.filter(
     (g) =>
       (SOCCER_LEAGUES.has(g.league) || STRUCTURED_SCORER_LEAGUES.has(g.league)) &&
