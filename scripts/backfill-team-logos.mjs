@@ -29,12 +29,35 @@ const REQUEST_DELAY_MS = 2200; // 분당 약 27회 — 30회 한도 안쪽으로
 const BUDGET = 200; // 팀 수가 유한(수백 개)이라 며칠 안에 전체 백필 완료, 이후엔 매일 0건.
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-async function fetchTeamBadge(englishName) {
+// 야구 리그 판정(2026-09-30, "mlb인데축구장사진이있네" 리포트로 구장사진 백필에서 발견한 동일
+// 버그 클래스를 여기도 같이 수정 — "Houston" 검색이 야구팀 없이 무관한 스포츠 팀 1건만 반환하는
+// 경우, 스포츠 필터 없이 무조건 teams[0]을 쓰면 완전히 다른 스포츠의 배지가 붙을 수 있음).
+// fetch-schedule.mjs의 BASEBALL_LEAGUES(KBO/MLB/NPB/PREMIER12)는 Naver 소스 리그만 포함해서
+// 부족 — WBC/카리브해시리즈/윈터리그(LIDOM/LMP/LVBP/LMB/PWL/ABL/AFL)와 "*BASEBALL" 접미사가
+// 붙는 대회들(올림픽야구, 아시안게임야구 등)까지 games.json 실측 리그 목록 기준으로 보강.
+const EXTRA_BASEBALL_LEAGUES = new Set(['WBC', 'CARIBBEANSERIES', 'LIDOM', 'LMP', 'LVBP', 'LMB', 'PWL', 'ABL', 'AFL']);
+function isBaseballLeague(league) {
+  return league === 'KBO' || league === 'MLB' || league === 'NPB' || league === 'PREMIER12' ||
+    EXTRA_BASEBALL_LEAGUES.has(league) || /BASEBALL/.test(league || '');
+}
+
+// team-logos.json은 한글 팀명 문자열 하나를 키로 배지 하나만 캐시하는데, MLB/MLS 도시명이
+// 겹치는 9곳([[project_i18n_japanese]] 메모의 "휴스턴 등 9개")은 실제로는 서로 다른 두 구단이
+// 같은 "휴스턴" 문자열을 씀 — 이 스크립트가 sportLabel로 한쪽(예: MLB 애스트로스)을 정확히
+// 찾아 캐시해도, 다른 쪽(MLS 다이나모) 경기 화면엔 그 잘못된 배지가 그대로 노출됨(캐시 키가
+// 스포츠 구분이 없어서). 리그별로 따로 캐싱하려면 App.tsx의 TEAM_LOGOS 조회 쪽도 함께 바꿔야
+// 하는 스키마 변경이 필요해 지금 스코프 밖 — 안전하게 이 9곳은 아예 캐싱을 건너뛰어("배지
+// 없음"으로 통일) 한쪽 스포츠에 다른 쪽 배지가 잘못 붙는 걸 막음(오귀속보단 유실이 안전).
+const AMBIGUOUS_TEAM_KO_NAMES = new Set(['휴스턴', '시애틀', '마이애미', '토론토', '신시내티', '콜로라도', '미네소타', '필라델피아', '세인트루이스']);
+
+async function fetchTeamBadge(englishName, sportLabel) {
   try {
     const res = await fetch(`https://www.thesportsdb.com/api/v1/json/3/searchteams.php?t=${encodeURIComponent(englishName)}`);
     if (!res.ok) return null;
     const j = await res.json();
-    const team = (j.teams || [])[0];
+    const teams = j.teams || [];
+    // sportLabel 필터 — 못 찾으면 잘못된 스포츠 배지보단 "없음"이 안전(구장사진 백필과 동일 철학).
+    const team = teams.find((t) => t.strSport === sportLabel);
     return team?.strBadge || null;
   } catch {
     return null;
@@ -44,11 +67,15 @@ async function fetchTeamBadge(englishName) {
 async function main() {
   const games = JSON.parse(await fs.readFile(GAMES_PATH, 'utf-8'));
   const teamNameEn = JSON.parse(await fs.readFile(TEAM_NAME_EN_PATH, 'utf-8'));
-  const koTeamNames = new Set();
+  // 팀명→스포츠 맵(sportLabel 필터용). AMBIGUOUS_TEAM_KO_NAMES 9곳은 실제로 여러 스포츠에
+  // 걸치지만(위 주석 참고) 그 목록에서 아예 건너뛰므로 여기선 "첫 관측 스포츠 고정"이 안전.
+  const koTeamSport = new Map();
   for (const g of games) {
-    if (g.home) koTeamNames.add(g.home);
-    if (g.away) koTeamNames.add(g.away);
+    const sportLabel = isBaseballLeague(g.league) ? 'Baseball' : 'Soccer';
+    if (g.home && !koTeamSport.has(g.home)) koTeamSport.set(g.home, sportLabel);
+    if (g.away && !koTeamSport.has(g.away)) koTeamSport.set(g.away, sportLabel);
   }
+  const koTeamNames = new Set(koTeamSport.keys());
 
   let cache = {};
   try {
@@ -63,6 +90,7 @@ async function main() {
   let noEnglishName = 0;
   for (const koName of koTeamNames) {
     if (koName in cache) continue; // 이미 시도함(null도 캐시 — "찾아봤지만 없음"과 "아직 안 찾아봄" 구분).
+    if (AMBIGUOUS_TEAM_KO_NAMES.has(koName)) continue; // 위 주석 참고 — 캐싱 자체를 건너뜀.
     const englishName = teamNameEn[koName];
     if (!englishName) {
       noEnglishName++;
@@ -71,7 +99,7 @@ async function main() {
     if (used >= BUDGET) break;
     used++;
     await sleep(REQUEST_DELAY_MS);
-    const badge = await fetchTeamBadge(englishName);
+    const badge = await fetchTeamBadge(englishName, koTeamSport.get(koName));
     cache[koName] = badge;
     if (badge) found++;
   }
