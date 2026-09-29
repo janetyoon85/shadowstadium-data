@@ -1178,11 +1178,14 @@ async function enrichScorers(allGames) {
     const cached = cache[g.gameId];
     const isCardBackfillOnly = SOCCER_LEAGUES.has(g.league) && cached && cached.final !== false &&
       g.status !== 'live' && !(g.gameId in cardCache);
-    if (isCardBackfillOnly && cardBackfillUsed >= CARD_BACKFILL_BUDGET) continue;
+    // enrichEuroAssists와 동일 버그(2026-09-29): 카드백필 예산 소진 시 통째로 continue하면 이미
+    // 캐시된 득점자 이름(scorers)까지도 재적용이 스킵됨 — "새로 fetch할지"만 예산으로 막아야 함.
+    const cardBudgetExhausted = isCardBackfillOnly && cardBackfillUsed >= CARD_BACKFILL_BUDGET;
     const wantsRevalidate = needsPostGameRevalidation(g, cached) && revalidateUsed < REVALIDATE_BUDGET;
-    const needsFetch = !cached || g.status === 'live' || (g.status === 'completed' && cached.final === false) || isCardBackfillOnly || wantsRevalidate;
+    const needsFetch = !cardBudgetExhausted && (!cached || g.status === 'live' || (g.status === 'completed' && cached.final === false) || isCardBackfillOnly || wantsRevalidate);
     if (needsFetch && !cached && g.status !== 'live' && scorersFetchUsed >= SCORERS_FETCH_BUDGET) continue; // 완전 신규 fetch 예산 소진 — 다음 실행 재시도.
-    if (isCardBackfillOnly) cardBackfillUsed++;
+    if (cardBudgetExhausted && !cached) continue; // 재적용할 캐시 자체가 없는 완전 신규만 다음 실행으로 미룸.
+    if (isCardBackfillOnly && !cardBudgetExhausted) cardBackfillUsed++;
     if (needsFetch && !cached && g.status !== 'live') scorersFetchUsed++;
     if (wantsRevalidate) revalidateUsed++;
     if (needsFetch) {
@@ -1262,9 +1265,12 @@ async function enrichAssists(allGames) {
   for (const g of targets) {
     const cached = cache[g.gameId];
     const isPidBackfillOnly = cached && cached.final !== false && g.status !== 'live' && !cached.pids;
-    if (isPidBackfillOnly && pidBackfillUsed >= PID_BACKFILL_BUDGET) continue;
-    const needsFetch = !cached || g.status === 'live' || (g.status === 'completed' && cached.final === false) || isPidBackfillOnly;
-    if (isPidBackfillOnly) pidBackfillUsed++;
+    // enrichEuroAssists와 동일 버그(2026-09-29): 예산 소진 시 통째로 continue하면 이미 캐시된
+    // 어시스트(assists)까지도 재적용이 스킵됨 — "새로 fetch할지"만 예산으로 막아야 함.
+    const pidBudgetExhausted = isPidBackfillOnly && pidBackfillUsed >= PID_BACKFILL_BUDGET;
+    const needsFetch = !pidBudgetExhausted && (!cached || g.status === 'live' || (g.status === 'completed' && cached.final === false) || isPidBackfillOnly);
+    if (pidBudgetExhausted && !cached) continue; // 재적용할 캐시 자체가 없는 완전 신규만 다음 실행으로 미룸.
+    if (isPidBackfillOnly && !pidBudgetExhausted) pidBackfillUsed++;
     if (needsFetch) {
       try {
         await sleep(REQUEST_DELAY_MS);
@@ -1415,9 +1421,15 @@ async function enrichEuroAssists(allGames) {
         ((!('homeNats' in cached) || !('awayNats' in cached) || !('homeANats' in cached) || !('awayANats' in cached) ||
           !('homePids' in cached) || !('awayPids' in cached)) || needsCardBackfill || needsShootoutBackfill))
     );
-    if (isBackfillOnly && backfillUsed >= BACKFILL_BUDGET) continue; // 이번 실행 예산 소진 — 다음 실행에서 재시도.
-    const needsFetch = !cached || g.status === 'live' || (g.status === 'completed' && cached.final === false) || isBackfillOnly;
-    if (isBackfillOnly) backfillUsed++;
+    // 버그(2026-09-29 발견, 사용자 요청 "선수정보안나온경우 찾아줘 원인파악도"로 조사): 예산 소진 시
+    // 이 게임을 통째로 continue해버려서, homePids 등 신규 키만 없을 뿐 homeNats(국적)는 이미 잘
+    // 캐시돼있는 358경기(EPL/라리가/세리에A 포함, WORLDCUP·CONCACAFCUP 등은 전량)까지도 국적 재적용
+    // 자체가 스킵됨 — pid 백필(신규) 예산 부족이 이미 확정된 국적(기존) 표시까지 매 실행마다 지워버리는
+    // 구조였음. "새로 fetch할지"만 예산으로 막고, "이미 있는 캐시 재적용"은 예산과 무관하게 항상 수행.
+    const budgetExhausted = isBackfillOnly && backfillUsed >= BACKFILL_BUDGET;
+    const needsFetch = !budgetExhausted && (!cached || g.status === 'live' || (g.status === 'completed' && cached.final === false) || isBackfillOnly);
+    if (isBackfillOnly && !budgetExhausted) backfillUsed++;
+    if (budgetExhausted && !cached) continue; // 완전 신규(재적용할 캐시 자체가 없음)만 다음 실행으로 미룸.
     if (needsFetch) {
       try {
         const slug = ESPN_LEAGUE_SLUG[g.league];
