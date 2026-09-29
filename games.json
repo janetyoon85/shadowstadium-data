@@ -23583,6 +23583,24 @@
   {
     "date": "2026-03-04",
     "time": "19:00",
+    "league": "ACL",
+    "venueId": "seoulwc",
+    "home": "서울",
+    "away": "비셀 고베",
+    "stadium": "서울월드컵경기장",
+    "timeTbd": false,
+    "gameId": "U8avFl0tEXRq1RV",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 0,
+    "phaseCode": "T16",
+    "leg": 1,
+    "homeAggregateScore": 1,
+    "awayAggregateScore": 3
+  },
+  {
+    "date": "2026-03-04",
+    "time": "19:00",
     "league": "ACL2",
     "venueId": "panasonic_stadium_suita",
     "home": "감바 오사카",
@@ -23611,24 +23629,6 @@
     "leg": 1,
     "homeAggregateScore": 3,
     "awayAggregateScore": 2
-  },
-  {
-    "date": "2026-03-04",
-    "time": "19:00",
-    "league": "ACL",
-    "venueId": "seoulwc",
-    "home": "서울",
-    "away": "비셀 고베",
-    "stadium": "서울월드컵경기장",
-    "timeTbd": false,
-    "gameId": "U8avFl0tEXRq1RV",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 0,
-    "phaseCode": "T16",
-    "leg": 1,
-    "homeAggregateScore": 1,
-    "awayAggregateScore": 3
   },
   {
     "date": "2026-03-04",
@@ -106954,6 +106954,10 @@
     "homeScore": 3,
     "winPitcher": "코빈",
     "losePitcher": "우즈-리차드슨",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "winPitcherPid": "mlb:571578",
+    "losePitcherPid": "mlb:680573",
     "holds": {
       "home": [],
       "away": [
@@ -107000,10 +107004,16 @@
     "homeScore": 7,
     "winPitcher": "리베라토레",
     "losePitcher": "시한",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "winPitcherPid": "mlb:669461",
+    "losePitcherPid": "mlb:686218",
     "holds": {
       "home": [
         {
-          "n": "소리아노"
+          "n": "소리아노",
+          "nat": "Dominican Republic",
+          "pid": "mlb:666277"
         }
       ],
       "away": []
@@ -107081,6 +107091,12 @@
     "winPitcher": "푸엔테스",
     "losePitcher": "메히아",
     "savePitcher": "수아레즈",
+    "winPitcherNat": "Colombia",
+    "losePitcherNat": "Dominican Republic",
+    "savePitcherNat": "Venezuela",
+    "winPitcherPid": "mlb:800311",
+    "losePitcherPid": "mlb:675848",
+    "savePitcherPid": "mlb:663158",
     "highlights": {
       "home": [
         {
@@ -107148,18 +107164,30 @@
     "winPitcher": "브라조반",
     "losePitcher": "페르민",
     "savePitcher": "윌리엄스",
+    "winPitcherNat": "Dominican Republic",
+    "losePitcherNat": "Dominican Republic",
+    "savePitcherNat": "USA",
+    "winPitcherPid": "mlb:623211",
+    "losePitcherPid": "mlb:820862",
+    "savePitcherPid": "mlb:642207",
     "holds": {
       "home": [
         {
-          "n": "수터"
+          "n": "수터",
+          "nat": "USA",
+          "pid": "mlb:608718"
         }
       ],
       "away": [
         {
-          "n": "레일리"
+          "n": "레일리",
+          "nat": "USA",
+          "pid": "mlb:548384"
         },
         {
-          "n": "위버"
+          "n": "위버",
+          "nat": "USA",
+          "pid": "mlb:596133"
         }
       ]
     },
@@ -107208,6 +107236,10 @@
     "homeScore": 2,
     "winPitcher": "슐츠",
     "losePitcher": "마르케스",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "Venezuela",
+    "winPitcherPid": "mlb:702273",
+    "losePitcherPid": "mlb:608566",
     "highlights": {
       "home": [
         {
@@ -107254,14 +107286,24 @@
     "winPitcher": "사브로스키",
     "losePitcher": "긴",
     "savePitcher": "스미스",
+    "winPitcherNat": "Canada",
+    "losePitcherNat": "USA",
+    "savePitcherNat": "Canada",
+    "winPitcherPid": "mlb:681870",
+    "losePitcherPid": "mlb:669372",
+    "savePitcherPid": "mlb:671922",
     "holds": {
       "home": [],
       "away": [
         {
-          "n": "페스타"
+          "n": "페스타",
+          "nat": "USA",
+          "pid": "mlb:670036"
         },
         {
-          "n": "브록던"
+          "n": "브록던",
+          "nat": "USA",
+          "pid": "mlb:641401"
         }
       ]
     },
@@ -107304,14 +107346,24 @@
     "winPitcher": "린치",
     "losePitcher": "페레",
     "savePitcher": "에르세그",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "Dominican Republic",
+    "savePitcherNat": "USA",
+    "winPitcherPid": "mlb:663738",
+    "losePitcherPid": "mlb:678606",
+    "savePitcherPid": "mlb:668674",
     "holds": {
       "home": [],
       "away": [
         {
-          "n": "미어스"
+          "n": "미어스",
+          "nat": "USA",
+          "pid": "mlb:683232"
         },
         {
-          "n": "스트라움"
+          "n": "스트라움",
+          "nat": "USA",
+          "pid": "mlb:621381"
         }
       ]
     },
@@ -107717,7 +107769,16 @@
     "gameId": "20260502182163",
     "status": "completed",
     "awayScore": 1,
-    "homeScore": 0
+    "homeScore": 0,
+    "assists": {
+      "home": [],
+      "away": [
+        {
+          "n": "강준혁",
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "date": "2026-05-02",
@@ -107745,21 +107806,6 @@
         }
       ]
     }
-  },
-  {
-    "date": "2026-05-02",
-    "time": "16:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
-    "home": "대한민국",
-    "away": "필리핀",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
-    "timeTbd": false,
-    "gameId": "INfbBvjkK2ARSQU",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 5,
-    "phaseCode": "GROUP"
   },
   {
     "date": "2026-05-02",
@@ -107832,6 +107878,21 @@
       ],
       "away": []
     },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-02",
+    "time": "16:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
+    "home": "대한민국",
+    "away": "필리핀",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
+    "timeTbd": false,
+    "gameId": "INfbBvjkK2ARSQU",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 5,
     "phaseCode": "GROUP"
   },
   {
@@ -108241,7 +108302,16 @@
     "gameId": "20260502272665",
     "status": "completed",
     "awayScore": 1,
-    "homeScore": 0
+    "homeScore": 0,
+    "assists": {
+      "home": [],
+      "away": [
+        {
+          "n": "바사니",
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "date": "2026-05-02",
@@ -108255,7 +108325,20 @@
     "gameId": "20260502221066",
     "status": "completed",
     "awayScore": 5,
-    "homeScore": 0
+    "homeScore": 0,
+    "assists": {
+      "home": [],
+      "away": [
+        {
+          "n": "루빅손",
+          "count": 1
+        },
+        {
+          "n": "서진수",
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "date": "2026-05-02",
@@ -108581,6 +108664,21 @@
     "time": "20:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
+    "home": "호주",
+    "away": "인도",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
+    "timeTbd": false,
+    "gameId": "fS1J3kxSwziVvHl",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 2,
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-02",
+    "time": "20:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
     "home": "북한",
     "away": "차이니스 타이베이",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
@@ -108634,21 +108732,6 @@
       ],
       "away": []
     },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-02",
-    "time": "20:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
-    "home": "호주",
-    "away": "인도",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
-    "timeTbd": false,
-    "gameId": "fS1J3kxSwziVvHl",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 2,
     "phaseCode": "GROUP"
   },
   {
@@ -109362,16 +109445,26 @@
     "homeScore": 9,
     "winPitcher": "웨더스",
     "losePitcher": "브래디쉬",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "winPitcherPid": "mlb:677960",
+    "losePitcherPid": "mlb:680694",
     "holds": {
       "home": [
         {
-          "n": "버드"
+          "n": "버드",
+          "nat": "USA",
+          "pid": "mlb:656234"
         },
         {
-          "n": "도발"
+          "n": "도발",
+          "nat": "Dominican Republic",
+          "pid": "mlb:666808"
         },
         {
-          "n": "힐"
+          "n": "힐",
+          "nat": "USA",
+          "pid": "mlb:657612"
         }
       ],
       "away": []
@@ -109526,13 +109619,21 @@
     "homeScore": 4,
     "winPitcher": "시즈",
     "losePitcher": "가르시아",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "Dominican Republic",
+    "winPitcherPid": "mlb:656302",
+    "losePitcherPid": "mlb:472610",
     "holds": {
       "home": [
         {
-          "n": "토파"
+          "n": "토파",
+          "nat": "USA",
+          "pid": "mlb:623437"
         },
         {
-          "n": "펀더벅"
+          "n": "펀더벅",
+          "nat": "USA",
+          "pid": "mlb:681892"
         }
       ],
       "away": []
@@ -109597,6 +109698,12 @@
     "winPitcher": "이마나가",
     "losePitcher": "넬슨",
     "savePitcher": "브라운",
+    "winPitcherNat": "Japan",
+    "losePitcherNat": "USA",
+    "savePitcherNat": "USA",
+    "winPitcherPid": "mlb:684007",
+    "losePitcherPid": "mlb:669194",
+    "savePitcherPid": "mlb:676962",
     "highlights": {
       "home": [
         {
@@ -109741,17 +109848,29 @@
     "winPitcher": "해리슨",
     "losePitcher": "그리핀",
     "savePitcher": "유리베",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "savePitcherNat": "Dominican Republic",
+    "winPitcherPid": "mlb:690986",
+    "losePitcherPid": "mlb:656492",
+    "savePitcherPid": "mlb:682842",
     "holds": {
       "home": [],
       "away": [
         {
-          "n": "앤더슨"
+          "n": "앤더슨",
+          "nat": "USA",
+          "pid": "mlb:681982"
         },
         {
-          "n": "홀"
+          "n": "홀",
+          "nat": "USA",
+          "pid": "mlb:669084"
         },
         {
-          "n": "메길"
+          "n": "메길",
+          "nat": "USA",
+          "pid": "mlb:656730"
         }
       ]
     }
@@ -109773,6 +109892,10 @@
     "homeScore": 17,
     "winPitcher": "모진스키",
     "losePitcher": "로더",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "winPitcherPid": "mlb:669387",
+    "losePitcherPid": "mlb:695076",
     "highlights": {
       "home": [],
       "away": [
@@ -109810,11 +109933,17 @@
     "homeScore": 6,
     "winPitcher": "체코니",
     "losePitcher": "로페즈",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "winPitcherPid": "mlb:677944",
+    "losePitcherPid": "mlb:682052",
     "holds": {
       "home": [],
       "away": [
         {
-          "n": "페스타"
+          "n": "페스타",
+          "nat": "USA",
+          "pid": "mlb:670036"
         }
       ]
     },
@@ -109892,11 +110021,19 @@
     "winPitcher": "아리게티",
     "losePitcher": "얼리",
     "savePitcher": "킹",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "savePitcherNat": "USA",
+    "winPitcherPid": "mlb:681293",
+    "losePitcherPid": "mlb:813349",
+    "savePitcherPid": "mlb:687911",
     "holds": {
       "home": [],
       "away": [
         {
-          "n": "덩카이웨이"
+          "n": "덩카이웨이",
+          "nat": "Taiwan",
+          "pid": "mlb:678906"
         }
       ]
     },
@@ -109952,6 +110089,10 @@
     "homeScore": 4,
     "winPitcher": "메이어",
     "losePitcher": "페인터",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "winPitcherPid": "mlb:676974",
+    "losePitcherPid": "mlb:691725",
     "highlights": {
       "home": [
         {
@@ -110011,13 +110152,21 @@
     "homeScore": 5,
     "winPitcher": "숄텐스",
     "losePitcher": "룹",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "winPitcherPid": "mlb:669947",
+    "losePitcherPid": "mlb:694738",
     "holds": {
       "home": [
         {
-          "n": "켈리"
+          "n": "켈리",
+          "nat": "USA",
+          "pid": "mlb:687330"
         },
         {
-          "n": "클레빈저"
+          "n": "클레빈저",
+          "nat": "USA",
+          "pid": "mlb:664076"
         }
       ],
       "away": []
@@ -110095,13 +110244,23 @@
     "winPitcher": "맥그리비",
     "losePitcher": "사사키",
     "savePitcher": "오브라이언",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "Japan",
+    "savePitcherNat": "USA",
+    "winPitcherPid": "mlb:700241",
+    "losePitcherPid": "mlb:808963",
+    "savePitcherPid": "mlb:676617",
     "holds": {
       "home": [
         {
-          "n": "스타넥"
+          "n": "스타넥",
+          "nat": "USA",
+          "pid": "mlb:592773"
         },
         {
-          "n": "로메로"
+          "n": "로메로",
+          "nat": "USA",
+          "pid": "mlb:668941"
         }
       ],
       "away": []
@@ -110136,6 +110295,10 @@
     "homeScore": 5,
     "winPitcher": "몬테로",
     "losePitcher": "로커",
+    "winPitcherNat": "Venezuela",
+    "losePitcherNat": "USA",
+    "winPitcherPid": "mlb:672456",
+    "losePitcherPid": "mlb:677958",
     "highlights": {
       "home": [
         {
@@ -110313,6 +110476,10 @@
     "homeScore": 1,
     "winPitcher": "세일",
     "losePitcher": "버나디노",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "winPitcherPid": "mlb:519242",
+    "losePitcherPid": "mlb:657514",
     "highlights": {
       "home": [],
       "away": [
@@ -110422,7 +110589,13 @@
     "homeScore": 0,
     "winPitcher": "버크",
     "losePitcher": "킹",
-    "savePitcher": "도밍게스"
+    "savePitcher": "도밍게스",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "savePitcherNat": "Dominican Republic",
+    "winPitcherPid": "mlb:680732",
+    "losePitcherPid": "mlb:650633",
+    "savePitcherPid": "mlb:622554"
   },
   {
     "date": "2026-05-03",
@@ -110470,6 +110643,10 @@
     "homeScore": 4,
     "winPitcher": "제퍼잔",
     "losePitcher": "워렌",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "winPitcherPid": "mlb:666171",
+    "losePitcherPid": "mlb:681810",
     "highlights": {
       "home": [],
       "away": [
@@ -110508,10 +110685,18 @@
     "winPitcher": "스트라움",
     "losePitcher": "크리스웰",
     "savePitcher": "에르세그",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "savePitcherNat": "USA",
+    "winPitcherPid": "mlb:621381",
+    "losePitcherPid": "mlb:681867",
+    "savePitcherPid": "mlb:668674",
     "holds": {
       "home": [
         {
-          "n": "바자르도"
+          "n": "바자르도",
+          "nat": "Venezuela",
+          "pid": "mlb:660825"
         }
       ],
       "away": []
@@ -111712,13 +111897,23 @@
     "winPitcher": "모리스",
     "losePitcher": "예세비지",
     "savePitcher": "토파",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "savePitcherNat": "USA",
+    "winPitcherPid": "mlb:702193",
+    "losePitcherPid": "mlb:702056",
+    "savePitcherPid": "mlb:623437",
     "holds": {
       "home": [
         {
-          "n": "오스"
+          "n": "오스",
+          "nat": "USA",
+          "pid": "mlb:573124"
         },
         {
-          "n": "펀더벅"
+          "n": "펀더벅",
+          "nat": "USA",
+          "pid": "mlb:679358"
         }
       ],
       "away": []
@@ -111873,6 +112068,10 @@
     "homeScore": 1,
     "winPitcher": "어브레유",
     "losePitcher": "켈리",
+    "winPitcherNat": "Dominican Republic",
+    "losePitcherNat": "USA",
+    "winPitcherPid": "mlb:650556",
+    "losePitcherPid": "mlb:677161",
     "highlights": {
       "home": [
         {
@@ -111911,13 +112110,23 @@
     "winPitcher": "리텔",
     "losePitcher": "핸더슨",
     "savePitcher": "러브레이디",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "savePitcherNat": "USA",
+    "winPitcherPid": "mlb:641793",
+    "losePitcherPid": "mlb:701656",
+    "savePitcherPid": "mlb:663992",
     "holds": {
       "home": [
         {
-          "n": "파커"
+          "n": "파커",
+          "nat": "USA",
+          "pid": "mlb:680730"
         },
         {
-          "n": "바랜드"
+          "n": "바랜드",
+          "nat": "USA",
+          "pid": "mlb:681402"
         }
       ],
       "away": []
@@ -111952,6 +112161,10 @@
     "homeScore": 1,
     "winPitcher": "소토",
     "losePitcher": "산틸란",
+    "winPitcherNat": "Dominican Republic",
+    "losePitcherNat": "USA",
+    "winPitcherPid": "mlb:642397",
+    "losePitcherPid": "mlb:663574",
     "highlights": {
       "home": [
         {
@@ -111982,10 +112195,16 @@
     "homeScore": 11,
     "winPitcher": "크루즈",
     "losePitcher": "볼프람",
+    "winPitcherNat": "Puerto Rico",
+    "losePitcherNat": "USA",
+    "winPitcherPid": "mlb:518585",
+    "losePitcherPid": "mlb:664991",
     "holds": {
       "home": [
         {
-          "n": "헤드릭"
+          "n": "헤드릭",
+          "nat": "USA",
+          "pid": "mlb:687396"
         }
       ],
       "away": []
@@ -112056,6 +112275,10 @@
     "homeScore": 2,
     "winPitcher": "루자르도",
     "losePitcher": "페덱",
+    "winPitcherNat": "Peru",
+    "losePitcherNat": "USA",
+    "winPitcherPid": "mlb:666200",
+    "losePitcherPid": "mlb:663978",
     "highlights": {
       "home": [
         {
@@ -112101,14 +112324,22 @@
     "homeScore": 2,
     "winPitcher": "시모어",
     "losePitcher": "킬리언",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "winPitcherPid": "mlb:693855",
+    "losePitcherPid": "mlb:668873",
     "holds": {
       "home": [],
       "away": [
         {
-          "n": "게이지"
+          "n": "게이지",
+          "nat": "USA",
+          "pid": "mlb:657424"
         },
         {
-          "n": "윈"
+          "n": "윈",
+          "nat": "USA",
+          "pid": "mlb:676775"
         }
       ]
     },
@@ -112270,14 +112501,24 @@
     "winPitcher": "로블레스키",
     "losePitcher": "메이",
     "savePitcher": "스캇",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "savePitcherNat": "USA",
+    "winPitcherPid": "mlb:680736",
+    "losePitcherPid": "mlb:669160",
+    "savePitcherPid": "mlb:656945",
     "holds": {
       "home": [],
       "away": [
         {
-          "n": "클라인"
+          "n": "클라인",
+          "nat": "USA",
+          "pid": "mlb:694361"
         },
         {
-          "n": "트레이넨"
+          "n": "트레이넨",
+          "nat": "USA",
+          "pid": "mlb:595014"
         }
       ]
     },
@@ -114461,7 +114702,16 @@
     "gameId": "20260505260468",
     "status": "completed",
     "awayScore": 1,
-    "homeScore": 0
+    "homeScore": 0,
+    "assists": {
+      "home": [],
+      "away": [
+        {
+          "n": "김륜성",
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "date": "2026-05-05",
@@ -114475,7 +114725,20 @@
     "gameId": "20260505052267",
     "status": "completed",
     "awayScore": 0,
-    "homeScore": 4
+    "homeScore": 4,
+    "assists": {
+      "home": [
+        {
+          "n": "오베르단",
+          "count": 1
+        },
+        {
+          "n": "이영재",
+          "count": 1
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-05-05",
@@ -114752,7 +115015,21 @@
     "gameId": "20260505210371",
     "status": "completed",
     "awayScore": 1,
-    "homeScore": 1
+    "homeScore": 1,
+    "assists": {
+      "home": [
+        {
+          "n": "모재현",
+          "count": 1
+        }
+      ],
+      "away": [
+        {
+          "n": "기성용",
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "date": "2026-05-05",
@@ -114766,7 +115043,25 @@
     "gameId": "20260505350169",
     "status": "completed",
     "awayScore": 2,
-    "homeScore": 1
+    "homeScore": 1,
+    "assists": {
+      "home": [
+        {
+          "n": "이상헌",
+          "count": 1
+        }
+      ],
+      "away": [
+        {
+          "n": "강상우",
+          "count": 1
+        },
+        {
+          "n": "이동경",
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "date": "2026-05-05",
@@ -114853,13 +115148,13 @@
     "time": "20:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
-    "home": "인도",
-    "away": "일본",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
+    "home": "필리핀",
+    "away": "북한",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
     "timeTbd": false,
-    "gameId": "SyGtvWeiJaOs0ZA",
+    "gameId": "GL60R919H16s8H0",
     "status": "completed",
-    "awayScore": 3,
+    "awayScore": 8,
     "homeScore": 0,
     "phaseCode": "GROUP"
   },
@@ -114868,13 +115163,13 @@
     "time": "20:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
-    "home": "필리핀",
-    "away": "북한",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
+    "home": "인도",
+    "away": "일본",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
     "timeTbd": false,
-    "gameId": "GL60R919H16s8H0",
+    "gameId": "SyGtvWeiJaOs0ZA",
     "status": "completed",
-    "awayScore": 8,
+    "awayScore": 3,
     "homeScore": 0,
     "phaseCode": "GROUP"
   },
@@ -120081,21 +120376,6 @@
     "time": "20:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
-    "home": "북한",
-    "away": "대한민국",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
-    "timeTbd": false,
-    "gameId": "YhSbZX9A9wuMTQV",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 3,
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-08",
-    "time": "20:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
     "home": "필리핀",
     "away": "차이니스 타이베이",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
@@ -120104,6 +120384,21 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 0,
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-08",
+    "time": "20:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
+    "home": "북한",
+    "away": "대한민국",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
+    "timeTbd": false,
+    "gameId": "YhSbZX9A9wuMTQV",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 3,
     "phaseCode": "GROUP"
   },
   {
@@ -121433,7 +121728,21 @@
     "gameId": "20260509040973",
     "status": "completed",
     "awayScore": 1,
-    "homeScore": 2
+    "homeScore": 2,
+    "assists": {
+      "home": [
+        {
+          "n": "네게바",
+          "count": 1
+        }
+      ],
+      "away": [
+        {
+          "n": "이승모",
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "date": "2026-05-09",
@@ -121700,7 +122009,16 @@
     "gameId": "20260509351874",
     "status": "completed",
     "awayScore": 3,
-    "homeScore": 0
+    "homeScore": 0,
+    "assists": {
+      "home": [],
+      "away": [
+        {
+          "n": "이명주",
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "date": "2026-05-09",
@@ -122132,7 +122450,16 @@
     "gameId": "20260509100376",
     "status": "completed",
     "awayScore": 2,
-    "homeScore": 0
+    "homeScore": 0,
+    "assists": {
+      "home": [],
+      "away": [
+        {
+          "n": "조상혁",
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "date": "2026-05-09",
@@ -124784,7 +125111,16 @@
     "gameId": "20260510012677",
     "status": "completed",
     "awayScore": 0,
-    "homeScore": 1
+    "homeScore": 1,
+    "assists": {
+      "home": [
+        {
+          "n": "말컹",
+          "count": 1
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-05-10",
@@ -124940,7 +125276,16 @@
     "gameId": "20260510270578",
     "status": "completed",
     "awayScore": 1,
-    "homeScore": 1
+    "homeScore": 1,
+    "assists": {
+      "home": [],
+      "away": [
+        {
+          "n": "김태현",
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "date": "2026-05-10",
@@ -128221,7 +128566,20 @@
     "gameId": "20260512211079",
     "status": "completed",
     "awayScore": 0,
-    "homeScore": 2
+    "homeScore": 2,
+    "assists": {
+      "home": [
+        {
+          "n": "모재현",
+          "count": 1
+        },
+        {
+          "n": "김건희",
+          "count": 1
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-05-12",
@@ -128235,7 +128593,16 @@
     "gameId": "20260512220980",
     "status": "completed",
     "awayScore": 1,
-    "homeScore": 0
+    "homeScore": 0,
+    "assists": {
+      "home": [],
+      "away": [
+        {
+          "n": "송민규",
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "date": "2026-05-12",
@@ -128256,21 +128623,6 @@
     "time": "01:00",
     "league": "U17ASIANCUP",
     "venueId": "king_abdullah_sports_city",
-    "home": "일본",
-    "away": "인도네시아",
-    "stadium": "킹 압둘라 스포츠 시티 피치 스타스 A",
-    "timeTbd": false,
-    "gameId": "sHwLLJ3ysMllgVD",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 3,
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-13",
-    "time": "01:00",
-    "league": "U17ASIANCUP",
-    "venueId": "king_abdullah_sports_city",
     "home": "중국",
     "away": "카타르",
     "stadium": "킹 압둘라 스포츠 시티 피치 퓨처 C",
@@ -128279,6 +128631,21 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 2,
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-13",
+    "time": "01:00",
+    "league": "U17ASIANCUP",
+    "venueId": "king_abdullah_sports_city",
+    "home": "일본",
+    "away": "인도네시아",
+    "stadium": "킹 압둘라 스포츠 시티 피치 스타스 A",
+    "timeTbd": false,
+    "gameId": "sHwLLJ3ysMllgVD",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 3,
     "phaseCode": "GROUP"
   },
   {
@@ -130266,7 +130633,16 @@
     "gameId": "20260513273583",
     "status": "completed",
     "awayScore": 2,
-    "homeScore": 2
+    "homeScore": 2,
+    "assists": {
+      "home": [],
+      "away": [
+        {
+          "n": "박철우",
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "date": "2026-05-13",
@@ -130294,7 +130670,21 @@
     "gameId": "20260513010482",
     "status": "completed",
     "awayScore": 1,
-    "homeScore": 2
+    "homeScore": 2,
+    "assists": {
+      "home": [
+        {
+          "n": "보야니치",
+          "count": 1
+        }
+      ],
+      "away": [
+        {
+          "n": "박창준",
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "date": "2026-05-14",
@@ -135786,7 +136176,25 @@
     "gameId": "20260516100985",
     "status": "completed",
     "awayScore": 2,
-    "homeScore": 1
+    "homeScore": 1,
+    "assists": {
+      "home": [
+        {
+          "n": "서진수",
+          "count": 1
+        }
+      ],
+      "away": [
+        {
+          "n": "후이즈",
+          "count": 1
+        },
+        {
+          "n": "정승원",
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "date": "2026-05-16",
@@ -136223,7 +136631,24 @@
     "gameId": "20260516182286",
     "status": "completed",
     "awayScore": 0,
-    "homeScore": 4
+    "homeScore": 4,
+    "assists": {
+      "home": [
+        {
+          "n": "이주용",
+          "count": 1
+        },
+        {
+          "n": "이동률",
+          "count": 1
+        },
+        {
+          "n": "이청용",
+          "count": 1
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-05-16",
@@ -138982,7 +139407,25 @@
     "gameId": "20260517042788",
     "status": "completed",
     "awayScore": 2,
-    "homeScore": 1
+    "homeScore": 1,
+    "assists": {
+      "home": [
+        {
+          "n": "네게바",
+          "count": 1
+        }
+      ],
+      "away": [
+        {
+          "n": "채현우",
+          "count": 1
+        },
+        {
+          "n": "라파엘",
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "date": "2026-05-17",
@@ -139038,7 +139481,16 @@
     "gameId": "20260517053587",
     "status": "completed",
     "awayScore": 0,
-    "homeScore": 1
+    "homeScore": 1,
+    "assists": {
+      "home": [
+        {
+          "n": "김영빈",
+          "count": 1
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-05-17",
@@ -139080,7 +139532,20 @@
     "gameId": "20260517260390",
     "status": "completed",
     "awayScore": 0,
-    "homeScore": 2
+    "homeScore": 2,
+    "assists": {
+      "home": [
+        {
+          "n": "홍성욱",
+          "count": 1
+        },
+        {
+          "n": "티아깅요",
+          "count": 1
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-05-17",
@@ -139094,7 +139559,20 @@
     "gameId": "20260517210189",
     "status": "completed",
     "awayScore": 0,
-    "homeScore": 2
+    "homeScore": 2,
+    "assists": {
+      "home": [
+        {
+          "n": "강준혁",
+          "count": 1
+        },
+        {
+          "n": "김대원",
+          "count": 1
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-05-17",
@@ -223832,7 +224310,25 @@
     "gameId": "20260704270393",
     "status": "completed",
     "awayScore": 3,
-    "homeScore": 2
+    "homeScore": 2,
+    "assists": {
+      "home": [
+        {
+          "n": "채현우",
+          "count": 1
+        }
+      ],
+      "away": [
+        {
+          "n": "완델손",
+          "count": 1
+        },
+        {
+          "n": "김동진",
+          "count": 2
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-04",
@@ -223846,7 +224342,25 @@
     "gameId": "20260704102692",
     "status": "completed",
     "awayScore": 2,
-    "homeScore": 2
+    "homeScore": 2,
+    "assists": {
+      "home": [
+        {
+          "n": "루빅손",
+          "count": 1
+        },
+        {
+          "n": "디오고",
+          "count": 1
+        }
+      ],
+      "away": [
+        {
+          "n": "카즈",
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-04",
@@ -223860,7 +224374,16 @@
     "gameId": "20260704052191",
     "status": "completed",
     "awayScore": 2,
-    "homeScore": 1
+    "homeScore": 1,
+    "assists": {
+      "home": [],
+      "away": [
+        {
+          "n": "모재현",
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-04",
@@ -225978,7 +226501,16 @@
     "gameId": "20260705350495",
     "status": "completed",
     "awayScore": 1,
-    "homeScore": 1
+    "homeScore": 1,
+    "assists": {
+      "home": [],
+      "away": [
+        {
+          "n": "오재혁",
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-05",
@@ -225992,7 +226524,16 @@
     "gameId": "20260705220196",
     "status": "completed",
     "awayScore": 1,
-    "homeScore": 1
+    "homeScore": 1,
+    "assists": {
+      "home": [
+        {
+          "n": "정지훈",
+          "count": 1
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-07-05",
@@ -226006,7 +226547,16 @@
     "gameId": "20260705091894",
     "status": "completed",
     "awayScore": 0,
-    "homeScore": 1
+    "homeScore": 1,
+    "assists": {
+      "home": [
+        {
+          "n": "손정범",
+          "count": 1
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-07-05",
@@ -235139,7 +235689,21 @@
     "gameId": "20260711352698",
     "status": "completed",
     "awayScore": 1,
-    "homeScore": 1
+    "homeScore": 1,
+    "assists": {
+      "home": [
+        {
+          "n": "정재민",
+          "count": 1
+        }
+      ],
+      "away": [
+        {
+          "n": "패트릭",
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-11",
@@ -235153,7 +235717,24 @@
     "gameId": "20260711220399",
     "status": "completed",
     "awayScore": 3,
-    "homeScore": 0
+    "homeScore": 0,
+    "assists": {
+      "home": [],
+      "away": [
+        {
+          "n": "트란지스카",
+          "count": 1
+        },
+        {
+          "n": "완델손",
+          "count": 1
+        },
+        {
+          "n": "어정원",
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-11",
@@ -235167,7 +235748,25 @@
     "gameId": "20260711010597",
     "status": "completed",
     "awayScore": 3,
-    "homeScore": 1
+    "homeScore": 1,
+    "assists": {
+      "home": [
+        {
+          "n": "조현택",
+          "count": 1
+        }
+      ],
+      "away": [
+        {
+          "n": "이동준",
+          "count": 1
+        },
+        {
+          "n": "김태현",
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-11",
@@ -237070,7 +237669,16 @@
     "gameId": "202607121827101",
     "status": "completed",
     "awayScore": 1,
-    "homeScore": 0
+    "homeScore": 0,
+    "assists": {
+      "home": [],
+      "away": [
+        {
+          "n": "마테우스",
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-12",
@@ -242122,7 +242730,25 @@
     "gameId": "202607181001103",
     "status": "completed",
     "awayScore": 2,
-    "homeScore": 2
+    "homeScore": 2,
+    "assists": {
+      "home": [
+        {
+          "n": "이명재",
+          "count": 1
+        },
+        {
+          "n": "강윤성",
+          "count": 1
+        }
+      ],
+      "away": [
+        {
+          "n": "이동경",
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-18",
@@ -242136,7 +242762,16 @@
     "gameId": "202607182135104",
     "status": "completed",
     "awayScore": 0,
-    "homeScore": 2
+    "homeScore": 2,
+    "assists": {
+      "home": [
+        {
+          "n": "이유현",
+          "count": 1
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-07-18",
@@ -242164,7 +242799,20 @@
     "gameId": "202607180403106",
     "status": "completed",
     "awayScore": 1,
-    "homeScore": 2
+    "homeScore": 2,
+    "assists": {
+      "home": [
+        {
+          "n": "유인수",
+          "count": 1
+        },
+        {
+          "n": "이창민",
+          "count": 1
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-07-18",
@@ -244471,7 +245119,16 @@
     "gameId": "202607192722107",
     "status": "completed",
     "awayScore": 1,
-    "homeScore": 1
+    "homeScore": 1,
+    "assists": {
+      "home": [],
+      "away": [
+        {
+          "n": "아이데일",
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-19",
@@ -244485,7 +245142,25 @@
     "gameId": "202607192609108",
     "status": "completed",
     "awayScore": 3,
-    "homeScore": 1
+    "homeScore": 1,
+    "assists": {
+      "home": [
+        {
+          "n": "바사니",
+          "count": 1
+        }
+      ],
+      "away": [
+        {
+          "n": "클리말라",
+          "count": 1
+        },
+        {
+          "n": "안데르손",
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-19",
@@ -247755,7 +248430,21 @@
     "gameId": "202607210421109",
     "status": "completed",
     "awayScore": 1,
-    "homeScore": 1
+    "homeScore": 1,
+    "assists": {
+      "home": [
+        {
+          "n": "이창민",
+          "count": 1
+        }
+      ],
+      "away": [
+        {
+          "n": "김대원",
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-21",
@@ -247783,7 +248472,21 @@
     "gameId": "202607210118110",
     "status": "completed",
     "awayScore": 2,
-    "homeScore": 1
+    "homeScore": 1,
+    "assists": {
+      "home": [
+        {
+          "n": "에릭",
+          "count": 1
+        }
+      ],
+      "away": [
+        {
+          "n": "김성민",
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-21",
@@ -249379,7 +250082,29 @@
     "gameId": "202607222627112",
     "status": "completed",
     "awayScore": 3,
-    "homeScore": 2
+    "homeScore": 2,
+    "assists": {
+      "home": [
+        {
+          "n": "이재원",
+          "count": 1
+        },
+        {
+          "n": "바사니",
+          "count": 1
+        }
+      ],
+      "away": [
+        {
+          "n": "엘쿠라노",
+          "count": 1
+        },
+        {
+          "n": "마테우스",
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-22",
@@ -249393,7 +250118,21 @@
     "gameId": "202607222235113",
     "status": "completed",
     "awayScore": 1,
-    "homeScore": 1
+    "homeScore": 1,
+    "assists": {
+      "home": [
+        {
+          "n": "문민서",
+          "count": 1
+        }
+      ],
+      "away": [
+        {
+          "n": "정재민",
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-22",
@@ -249407,7 +250146,29 @@
     "gameId": "202607220903114",
     "status": "completed",
     "awayScore": 1,
-    "homeScore": 3
+    "homeScore": 3,
+    "assists": {
+      "home": [
+        {
+          "n": "안데르손",
+          "count": 1
+        },
+        {
+          "n": "이승모",
+          "count": 1
+        },
+        {
+          "n": "문선민",
+          "count": 1
+        }
+      ],
+      "away": [
+        {
+          "n": "기성용",
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-23",
@@ -254767,7 +255528,29 @@
     "gameId": "202607253510116",
     "status": "completed",
     "awayScore": 2,
-    "homeScore": 3
+    "homeScore": 3,
+    "assists": {
+      "home": [
+        {
+          "n": "박세진",
+          "count": 1
+        },
+        {
+          "n": "고재현",
+          "count": 1
+        }
+      ],
+      "away": [
+        {
+          "n": "정재희",
+          "count": 1
+        },
+        {
+          "n": "김문환",
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-25",
@@ -254781,7 +255564,20 @@
     "gameId": "202607250305115",
     "status": "completed",
     "awayScore": 2,
-    "homeScore": 0
+    "homeScore": 0,
+    "assists": {
+      "home": [],
+      "away": [
+        {
+          "n": "이승우",
+          "count": 1
+        },
+        {
+          "n": "모따",
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-25",
@@ -257273,7 +258069,16 @@
     "gameId": "202607262721117",
     "status": "completed",
     "awayScore": 1,
-    "homeScore": 2
+    "homeScore": 2,
+    "assists": {
+      "home": [
+        {
+          "n": "유키치",
+          "count": 2
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-07-26",
@@ -257287,7 +258092,20 @@
     "gameId": "202607262204118",
     "status": "completed",
     "awayScore": 2,
-    "homeScore": 1
+    "homeScore": 1,
+    "assists": {
+      "home": [],
+      "away": [
+        {
+          "n": "이탈로",
+          "count": 1
+        },
+        {
+          "n": "최병욱",
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-26",
@@ -257301,7 +258119,16 @@
     "gameId": "202607261826119",
     "status": "completed",
     "awayScore": 1,
-    "homeScore": 1
+    "homeScore": 1,
+    "assists": {
+      "home": [
+        {
+          "n": "정치인",
+          "count": 1
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-07-26",
@@ -257315,7 +258142,25 @@
     "gameId": "202607260901120",
     "status": "completed",
     "awayScore": 3,
-    "homeScore": 1
+    "homeScore": 1,
+    "assists": {
+      "home": [
+        {
+          "n": "문선민",
+          "count": 1
+        }
+      ],
+      "away": [
+        {
+          "n": "에릭",
+          "count": 1
+        },
+        {
+          "n": "이동경",
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "date": "2026-07-26",
@@ -267129,7 +267974,20 @@
     "gameId": "202608012126121",
     "status": "completed",
     "awayScore": 3,
-    "homeScore": 0
+    "homeScore": 0,
+    "assists": {
+      "home": [],
+      "away": [
+        {
+          "n": "바사니",
+          "count": 1
+        },
+        {
+          "n": "김승빈",
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-01",
@@ -267157,7 +268015,16 @@
     "gameId": "202608010335123",
     "status": "completed",
     "awayScore": 1,
-    "homeScore": 0
+    "homeScore": 0,
+    "assists": {
+      "home": [],
+      "away": [
+        {
+          "n": "박태준",
+          "count": 1
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-01",
@@ -349347,6 +350214,159 @@
   {
     "date": "2026-09-09",
     "time": "03:45",
+    "league": "EFL",
+    "venueId": "southampton_st_marys",
+    "home": "사우샘프턴",
+    "away": "스완지",
+    "stadium": "세인트 메리스 스타디움",
+    "timeTbd": false,
+    "gameId": "YEzthB2I7ULBOnY",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "아자즈",
+          "m": 9,
+          "a": "Flynn Downes",
+          "nat": "Republic of Ireland",
+          "aNat": "England",
+          "pid": "espn:251631",
+          "apid": "espn:255916"
+        },
+        {
+          "n": "래린",
+          "m": 33,
+          "a": "James Bree",
+          "nat": "Canada",
+          "aNat": "England",
+          "pid": "espn:205024",
+          "apid": "espn:204286"
+        },
+        {
+          "n": "레오 시엔자",
+          "m": 78,
+          "a": "Kuryu Matsuki",
+          "nat": "Brazil",
+          "aNat": "Japan",
+          "pid": "espn:343995",
+          "apid": "espn:333631"
+        }
+      ],
+      "away": [
+        {
+          "n": "비포트니크",
+          "m": 52,
+          "nat": "Slovenia",
+          "pid": "espn:322158"
+        }
+      ]
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Ronald",
+          "type": "Y",
+          "m": 54,
+          "pid": "espn:319788",
+          "nat": "Brazil"
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-09",
+    "time": "03:45",
+    "league": "EFL",
+    "venueId": "watford_vicarage_road",
+    "home": "왓퍼드",
+    "away": "프레스턴",
+    "stadium": "비커리지 로드",
+    "timeTbd": false,
+    "gameId": "2n8KOshcekINj3A",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "에도 카옘베",
+          "m": 69,
+          "nat": "Congo DR",
+          "pid": "espn:268986"
+        },
+        {
+          "n": "둠비아",
+          "m": 76,
+          "a": "Iker Bravo",
+          "nat": "Mali",
+          "aNat": "Spain",
+          "pid": "espn:137393",
+          "apid": "espn:330242"
+        }
+      ],
+      "away": [
+        {
+          "n": "랭",
+          "m": 5,
+          "nat": "England",
+          "pid": "espn:240158"
+        }
+      ]
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Andrija Vukcevic",
+          "type": "Y",
+          "m": 62,
+          "pid": "espn:221307",
+          "nat": "Montenegro"
+        },
+        {
+          "n": "Lewis Gibson",
+          "type": "Y",
+          "m": 67,
+          "pid": "espn:261431",
+          "nat": "England"
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-09",
+    "time": "03:45",
+    "league": "EFL",
+    "venueId": "wrexham_racecourse_ground",
+    "home": "렉섬",
+    "away": "번리",
+    "stadium": "레이스코스 그라운드",
+    "timeTbd": false,
+    "gameId": "8059agG5ekMqb6q",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "에코미에",
+          "m": 55
+        }
+      ],
+      "away": [
+        {
+          "n": "암두니",
+          "m": 26
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-09",
+    "time": "03:45",
     "league": "EFLCUP",
     "venueId": "bournemouth_dean_court",
     "home": "본머스",
@@ -349658,159 +350678,6 @@
       ]
     },
     "phaseCode": "T32"
-  },
-  {
-    "date": "2026-09-09",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "southampton_st_marys",
-    "home": "사우샘프턴",
-    "away": "스완지",
-    "stadium": "세인트 메리스 스타디움",
-    "timeTbd": false,
-    "gameId": "YEzthB2I7ULBOnY",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 3,
-    "scorers": {
-      "home": [
-        {
-          "n": "아자즈",
-          "m": 9,
-          "a": "Flynn Downes",
-          "nat": "Republic of Ireland",
-          "aNat": "England",
-          "pid": "espn:251631",
-          "apid": "espn:255916"
-        },
-        {
-          "n": "래린",
-          "m": 33,
-          "a": "James Bree",
-          "nat": "Canada",
-          "aNat": "England",
-          "pid": "espn:205024",
-          "apid": "espn:204286"
-        },
-        {
-          "n": "레오 시엔자",
-          "m": 78,
-          "a": "Kuryu Matsuki",
-          "nat": "Brazil",
-          "aNat": "Japan",
-          "pid": "espn:343995",
-          "apid": "espn:333631"
-        }
-      ],
-      "away": [
-        {
-          "n": "비포트니크",
-          "m": 52,
-          "nat": "Slovenia",
-          "pid": "espn:322158"
-        }
-      ]
-    },
-    "cards": {
-      "home": [],
-      "away": [
-        {
-          "n": "Ronald",
-          "type": "Y",
-          "m": 54,
-          "pid": "espn:319788",
-          "nat": "Brazil"
-        }
-      ]
-    }
-  },
-  {
-    "date": "2026-09-09",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "watford_vicarage_road",
-    "home": "왓퍼드",
-    "away": "프레스턴",
-    "stadium": "비커리지 로드",
-    "timeTbd": false,
-    "gameId": "2n8KOshcekINj3A",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "에도 카옘베",
-          "m": 69,
-          "nat": "Congo DR",
-          "pid": "espn:268986"
-        },
-        {
-          "n": "둠비아",
-          "m": 76,
-          "a": "Iker Bravo",
-          "nat": "Mali",
-          "aNat": "Spain",
-          "pid": "espn:137393",
-          "apid": "espn:330242"
-        }
-      ],
-      "away": [
-        {
-          "n": "랭",
-          "m": 5,
-          "nat": "England",
-          "pid": "espn:240158"
-        }
-      ]
-    },
-    "cards": {
-      "home": [],
-      "away": [
-        {
-          "n": "Andrija Vukcevic",
-          "type": "Y",
-          "m": 62,
-          "pid": "espn:221307",
-          "nat": "Montenegro"
-        },
-        {
-          "n": "Lewis Gibson",
-          "type": "Y",
-          "m": 67,
-          "pid": "espn:261431",
-          "nat": "England"
-        }
-      ]
-    }
-  },
-  {
-    "date": "2026-09-09",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "wrexham_racecourse_ground",
-    "home": "렉섬",
-    "away": "번리",
-    "stadium": "레이스코스 그라운드",
-    "timeTbd": false,
-    "gameId": "8059agG5ekMqb6q",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 1,
-    "scorers": {
-      "home": [
-        {
-          "n": "에코미에",
-          "m": 55
-        }
-      ],
-      "away": [
-        {
-          "n": "암두니",
-          "m": 26
-        }
-      ]
-    }
   },
   {
     "date": "2026-09-09",
@@ -379280,6 +380147,77 @@
   {
     "date": "2026-09-16",
     "time": "03:45",
+    "league": "EFL",
+    "venueId": "middlesbrough_riverside",
+    "home": "미들즈브러",
+    "away": "밀월",
+    "stadium": "리버사이드 스타디움",
+    "timeTbd": false,
+    "gameId": "YK3SlqCpysSMqvp",
+    "status": "completed",
+    "awayScore": 2,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "코지어-뒤베리",
+          "m": 50,
+          "nat": "England",
+          "pid": "espn:327170"
+        },
+        {
+          "n": "랭크셔",
+          "m": 61,
+          "a": "Luke Ayling",
+          "nat": "England",
+          "aNat": "England",
+          "pid": "espn:349181",
+          "apid": "espn:136380"
+        }
+      ],
+      "away": [
+        {
+          "n": "아르콘테",
+          "m": 11,
+          "a": "Camiel Neghli",
+          "nat": "Guadeloupe",
+          "aNat": "Algeria",
+          "pid": "espn:315189",
+          "apid": "espn:310173"
+        },
+        {
+          "n": "다이크스",
+          "m": 36,
+          "a": "Caleb Taylor",
+          "nat": "Scotland",
+          "aNat": "England",
+          "pid": "espn:207538",
+          "apid": "espn:308572"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Riley McGree",
+          "type": "Y",
+          "m": 66,
+          "pid": "espn:235096"
+        }
+      ],
+      "away": [
+        {
+          "n": "Derek Mazou-Sacko",
+          "type": "Y",
+          "m": 59,
+          "pid": "espn:324659"
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-16",
+    "time": "03:45",
     "league": "EFLCUP",
     "venueId": "westham_london_stadium",
     "home": "웨스트햄",
@@ -379350,77 +380288,6 @@
       ]
     },
     "phaseCode": "T32"
-  },
-  {
-    "date": "2026-09-16",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "middlesbrough_riverside",
-    "home": "미들즈브러",
-    "away": "밀월",
-    "stadium": "리버사이드 스타디움",
-    "timeTbd": false,
-    "gameId": "YK3SlqCpysSMqvp",
-    "status": "completed",
-    "awayScore": 2,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "코지어-뒤베리",
-          "m": 50,
-          "nat": "England",
-          "pid": "espn:327170"
-        },
-        {
-          "n": "랭크셔",
-          "m": 61,
-          "a": "Luke Ayling",
-          "nat": "England",
-          "aNat": "England",
-          "pid": "espn:349181",
-          "apid": "espn:136380"
-        }
-      ],
-      "away": [
-        {
-          "n": "아르콘테",
-          "m": 11,
-          "a": "Camiel Neghli",
-          "nat": "Guadeloupe",
-          "aNat": "Algeria",
-          "pid": "espn:315189",
-          "apid": "espn:310173"
-        },
-        {
-          "n": "다이크스",
-          "m": 36,
-          "a": "Caleb Taylor",
-          "nat": "Scotland",
-          "aNat": "England",
-          "pid": "espn:207538",
-          "apid": "espn:308572"
-        }
-      ]
-    },
-    "cards": {
-      "home": [
-        {
-          "n": "Riley McGree",
-          "type": "Y",
-          "m": 66,
-          "pid": "espn:235096"
-        }
-      ],
-      "away": [
-        {
-          "n": "Derek Mazou-Sacko",
-          "type": "Y",
-          "m": 59,
-          "pid": "espn:324659"
-        }
-      ]
-    }
   },
   {
     "date": "2026-09-16",
@@ -381539,30 +382406,6 @@
   {
     "date": "2026-09-16",
     "time": "19:00",
-    "league": "ACL2",
-    "venueId": "seoulwc",
-    "home": "서울",
-    "away": "반둥",
-    "stadium": "서울월드컵경기장",
-    "timeTbd": false,
-    "gameId": "2idpicTW6SmPYVP",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 0,
-    "scorers": {
-      "home": [],
-      "away": [
-        {
-          "n": "훌리오 세자르",
-          "m": 5
-        }
-      ]
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-09-16",
-    "time": "19:00",
     "league": "ACL",
     "venueId": "jeonju",
     "home": "전북",
@@ -381636,6 +382479,30 @@
   {
     "date": "2026-09-16",
     "time": "19:00",
+    "league": "ACL2",
+    "venueId": "seoulwc",
+    "home": "서울",
+    "away": "반둥",
+    "stadium": "서울월드컵경기장",
+    "timeTbd": false,
+    "gameId": "2idpicTW6SmPYVP",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "훌리오 세자르",
+          "m": 5
+        }
+      ]
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-09-16",
+    "time": "19:00",
     "league": "ASIANGAMESFOOTBALL",
     "venueId": "wave_stadium_kariya",
     "home": "중국 (남자)",
@@ -381660,35 +382527,6 @@
     "status": "completed",
     "homeScore": 2,
     "awayScore": 0
-  },
-  {
-    "date": "2026-09-16",
-    "time": "21:15",
-    "league": "ACL2",
-    "venueId": "cahn_hang_day",
-    "home": "비에트텔",
-    "away": "멜버른 FC",
-    "stadium": "선번동 항더이 (항더이 스타디움)",
-    "timeTbd": false,
-    "gameId": "gqA22tVR2bUJFof",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 1,
-    "scorers": {
-      "home": [
-        {
-          "n": "리바마르",
-          "m": 62
-        }
-      ],
-      "away": [
-        {
-          "n": "클라리스마리우 호드리게스",
-          "m": 58
-        }
-      ]
-    },
-    "phaseCode": "GROUP"
   },
   {
     "date": "2026-09-16",
@@ -381761,6 +382599,35 @@
           "type": "Y",
           "m": 73,
           "pid": "espn:143697"
+        }
+      ]
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-09-16",
+    "time": "21:15",
+    "league": "ACL2",
+    "venueId": "cahn_hang_day",
+    "home": "비에트텔",
+    "away": "멜버른 FC",
+    "stadium": "선번동 항더이 (항더이 스타디움)",
+    "timeTbd": false,
+    "gameId": "gqA22tVR2bUJFof",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "리바마르",
+          "m": 62
+        }
+      ],
+      "away": [
+        {
+          "n": "클라리스마리우 호드리게스",
+          "m": 58
         }
       ]
     },
@@ -433129,19 +433996,6 @@
   {
     "date": "2026-10-14",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "al_seeb_stadium",
-    "home": "알 시브",
-    "away": "알 후세인",
-    "stadium": "알-시브 스타디움",
-    "timeTbd": false,
-    "gameId": "OQsSGAzKGbKHXDT",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-14",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "al_sadd_jassim_bin_hamad",
     "home": "알 사드",
@@ -433149,6 +434003,19 @@
     "stadium": "자심 빈 하마드 스타디움",
     "timeTbd": false,
     "gameId": "zcfrVKksVO8hhNi",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-14",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "al_seeb_stadium",
+    "home": "알 시브",
+    "away": "알 후세인",
+    "stadium": "알-시브 스타디움",
+    "timeTbd": false,
+    "gameId": "OQsSGAzKGbKHXDT",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -444654,19 +445521,6 @@
   {
     "date": "2026-10-28",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "al_seeb_stadium",
-    "home": "알 시브",
-    "away": "이스트 벵갈",
-    "stadium": "알-시브 스타디움",
-    "timeTbd": false,
-    "gameId": "AW3p0efTl1zL9Jt",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-28",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "shabab_alahli_al_rashid",
     "home": "샤바브 알 아흘리",
@@ -444674,6 +445528,19 @@
     "stadium": "알라시드 스타디움",
     "timeTbd": false,
     "gameId": "uVJg9XVeZVSJFpb",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-28",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "al_seeb_stadium",
+    "home": "알 시브",
+    "away": "이스트 벵갈",
+    "stadium": "알-시브 스타디움",
+    "timeTbd": false,
+    "gameId": "AW3p0efTl1zL9Jt",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -444864,19 +445731,6 @@
   {
     "date": "2026-10-28",
     "time": "03:15",
-    "league": "ACL2",
-    "venueId": "al_zawraa_stadium",
-    "home": "알 쇼르타",
-    "away": "알 후세인",
-    "stadium": "알-자우라 스타디움",
-    "timeTbd": false,
-    "gameId": "HCihM9DqxKOXBbt",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-28",
-    "time": "03:15",
     "league": "ACL",
     "venueId": "al_shamal_al_bayt",
     "home": "알샤말",
@@ -444884,6 +445738,19 @@
     "stadium": "알베이트 스타디움",
     "timeTbd": false,
     "gameId": "3aZWRb5fy3Nyk9x",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-28",
+    "time": "03:15",
+    "league": "ACL2",
+    "venueId": "al_zawraa_stadium",
+    "home": "알 쇼르타",
+    "away": "알 후세인",
+    "stadium": "알-자우라 스타디움",
+    "timeTbd": false,
+    "gameId": "HCihM9DqxKOXBbt",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -448160,19 +449027,6 @@
   {
     "date": "2026-11-04",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "amman_international_stadium",
-    "home": "알 후세인",
-    "away": "알 쇼르타",
-    "stadium": "암만 인터내셔널 스태디엄",
-    "timeTbd": false,
-    "gameId": "87Yzcj2B505kzbh",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-11-04",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "basra_international",
     "home": "에스테그랄",
@@ -448180,6 +449034,19 @@
     "stadium": "바스라 인터내셔널 스타디움",
     "timeTbd": false,
     "gameId": "CbaeNHtf2qOthye",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-11-04",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "amman_international_stadium",
+    "home": "알 후세인",
+    "away": "알 쇼르타",
+    "stadium": "암만 인터내셔널 스태디엄",
+    "timeTbd": false,
+    "gameId": "87Yzcj2B505kzbh",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -448437,19 +449304,6 @@
   {
     "date": "2026-11-04",
     "time": "19:00",
-    "league": "ACL2",
-    "venueId": "seoulwc",
-    "home": "서울",
-    "away": "비에트텔",
-    "stadium": "서울월드컵경기장",
-    "timeTbd": false,
-    "gameId": "lZapB69mvTiiYds",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-11-04",
-    "time": "19:00",
     "league": "ACL",
     "venueId": "pohang",
     "home": "포항",
@@ -448457,6 +449311,19 @@
     "stadium": "포항스틸야드",
     "timeTbd": false,
     "gameId": "pmIB9z9UAQ4XPV2",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-11-04",
+    "time": "19:00",
+    "league": "ACL2",
+    "venueId": "seoulwc",
+    "home": "서울",
+    "away": "비에트텔",
+    "stadium": "서울월드컵경기장",
+    "timeTbd": false,
+    "gameId": "lZapB69mvTiiYds",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -453797,19 +454664,6 @@
   {
     "date": "2026-11-25",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "al_seeb_stadium",
-    "home": "알 시브",
-    "away": "알 쇼르타",
-    "stadium": "알-시브 스타디움",
-    "timeTbd": false,
-    "gameId": "zVJrrC6Kzu5rPRu",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-11-25",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "shabab_alahli_al_rashid",
     "home": "샤바브 알 아흘리",
@@ -453817,6 +454671,19 @@
     "stadium": "알라시드 스타디움",
     "timeTbd": false,
     "gameId": "Rsba5lmQWhdIFqs",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-11-25",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "al_seeb_stadium",
+    "home": "알 시브",
+    "away": "알 쇼르타",
+    "stadium": "알-시브 스타디움",
+    "timeTbd": false,
+    "gameId": "zVJrrC6Kzu5rPRu",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
