@@ -526,10 +526,18 @@ async function enrichSaves(allGames) {
   const targets = allGames.filter(
     (g) => BASEBALL_LEAGUES.has(g.league) && g.status === 'completed' && g.gameId,
   );
+  // enrichScorers/enrichEuroAssists와 동일 이유(2026-09-26)로 여기도 정렬 누락돼있었음 — games.json
+  // 날짜 오름차순 그대로라 예산제 백필(MLB_PITCHER_NAT_BUDGET)이 4월 경기부터 순서대로 처리되며
+  // 정작 사용자가 보는 최근 9월 경기는 몇 시간이 지나도 국적 0%로 남는 버그(백필현황 점검 중
+  // 발견, 2026-09-29 — mlbPitcherNatChecked 2,430건 중 2,024건 미처리, earliest unchecked
+  // 2026-04-05였음에도 최근 10일 경기는 0% 처리).
+  targets.sort((a, b) => (b.date + b.time).localeCompare(a.date + a.time));
   let fromCache = 0;
   let fetched = 0;
   let failed = 0;
-  const recentHighlightIds = buildRecentCompletedGameIds(allGames, BASEBALL_LEAGUES);
+  // 위 주석대로 "팀당 최근 5경기"가 의도였는데 enrichEuroAssists와 동일하게 n 인자가 누락돼
+  // Infinity가 적용돼있었음(2026-09-29, 같은 백필현황 점검 중 발견) — n=5 복원.
+  const recentHighlightIds = buildRecentCompletedGameIds(allGames, BASEBALL_LEAGUES, 5);
   // 팀당 5경기 캡을 없애면서(2026-09-27) 대상이 143→3966으로 커져 한 실행이 1시간+ 로 늘어나
   // 5분 주기 외부 트리거와 계속 겹치는 문제 실측(동시성 큐잉만으론 실행 자체가 안 끝나 무의미) —
   // enrichEuroAssists의 BACKFILL_BUDGET과 동일 패턴으로 실행당 예산을 두고 나머지는 다음
