@@ -891,10 +891,19 @@ async function fetchLineupAssists(gameId) {
   const json = await res.json();
   const lineup = json?.result?.lineUpData?.lineup;
   if (!lineup) return { home: [], away: [], pids: { home: {}, away: {} } };
+  // 교체 출전 선수 pid 누락 버그 수정(2026-09-29, "홍철" 카드 실사례로 발견) — lineUpData.
+  // substitution.{home,away}는 lineUpData.lineup.{home,away}.players(선발 11명, 포지션별
+  // 중첩배열)와 완전히 별개의 최상위 필드인데 지금까지 안 합쳐서, 교체로 들어온 선수는
+  // 골/카드를 기록해도 이 선수ID 맵에 없어 pid가 영원히 안 붙었음. substitution 항목은 이미
+  // 평평한 배열(중첩 아님)이라 players(중첩배열)와 나란히 넣어도 flat() 한 번으로 둘 다
+  // 올바르게 펼쳐짐.
+  const substitution = json?.result?.lineUpData?.substitution;
+  const allHome = [...(lineup.home?.players || []), ...(substitution?.home || [])];
+  const allAway = [...(lineup.away?.players || []), ...(substitution?.away || [])];
   return {
-    home: extractAssists(lineup.home?.players),
-    away: extractAssists(lineup.away?.players),
-    pids: { home: extractPlayerIds(lineup.home?.players), away: extractPlayerIds(lineup.away?.players) },
+    home: extractAssists(allHome),
+    away: extractAssists(allAway),
+    pids: { home: extractPlayerIds(allHome), away: extractPlayerIds(allAway) },
   };
 }
 
