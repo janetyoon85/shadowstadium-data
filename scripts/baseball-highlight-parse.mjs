@@ -103,3 +103,63 @@ export function parseBaseballHighlights(rd) {
   }
   return { home, away };
 }
+
+// KBO 경기중(live) 하이라이트 — /record의 etcRecords는 경기가 거의 끝나야 한꺼번에 채워지는
+// 것으로 실측 확인(2026-09-29, 사용자 리포트 "지금 경기중인 야구경기에 이벤트 하나도 안붙음"으로
+// 발견) — 진행중엔 대신 /relay(문자중계)의 타석별 결과(textOptions[].type 13/23="이름 : 결과",
+// 14/24=주자 진루/실책/폭투)를 파싱. 이 창은 "현재 하프이닝 전체"만 담고(고정 개수 롤링 윈도우가
+// 아님, 실측 확인) 하프이닝이 바뀌면 이전 것은 복구 불가 — 그래서 여러 번 poll한 결과를 seqno
+// 기준으로 누적해야 함(이 함수 자체는 한 번의 응답만 파싱하는 순수함수, 누적은 호출부 책임).
+// 선수 로스터 정보가 없어 pid는 못 붙임(경기 종료 후 etcRecords 기반 parseBaseballHighlights가
+// pid까지 채운 최종본으로 자연히 교체됨).
+const RELAY_HOW_PATTERNS = [
+  [/홈런/, '홈런'],
+  [/3루타/, '3루타'],
+  [/2루타/, '2루타'],
+  [/병살타|병살/, '병살타'],
+  [/실책/, '실책'],
+  [/폭투/, '폭투'],
+  [/도루/, '도루'],
+];
+
+function classifyRelayHow(desc) {
+  for (const [re, how] of RELAY_HOW_PATTERNS) {
+    if (re.test(desc)) return how;
+  }
+  return null;
+}
+
+export function parseKboRelayHighlights(textRelayData, homeTeamName, awayTeamName) {
+  const relays = [...(textRelayData?.textRelays || [])].sort((a, b) => a.no - b.no);
+  const home = [];
+  const away = [];
+  let seenSeqnos = [];
+  let maxSeqno = 0;
+  let battingSide = null; // 'home' | 'away' — 하프이닝 시작 타이틀("9회초 한화 공격")로 판정.
+  for (const r of relays) {
+    // 실측 확인(2026-09-29): titleStyle은 문자열("0","8" 등)로 내려옴 — 숫자 엄격비교(=== 0)로
+    // 짜서 한 번도 안 걸리던 버그가 있었음(하프이닝 시작을 못 잡아 battingSide가 계속 null로
+    // 남아 실제 이벤트가 전부 유실됐음). 문자열/숫자 둘 다 안전하게 매치되도록 Number()로 비교.
+    if (Number(r.titleStyle) === 0 && r.title) {
+      if (homeTeamName && r.title.includes(homeTeamName)) battingSide = 'home';
+      else if (awayTeamName && r.title.includes(awayTeamName)) battingSide = 'away';
+    }
+    for (const opt of r.textOptions || []) {
+      if (typeof opt.seqno === 'number') maxSeqno = Math.max(maxSeqno, opt.seqno);
+      if (![13, 14, 23, 24].includes(Number(opt.type))) continue;
+      const text = (opt.text || '').trim();
+      const m = /^(?:\d루주자\s+)?(.+?)\s*:\s*(.+)$/.exec(text);
+      if (!m) continue;
+      const [, name, desc] = m;
+      const how = classifyRelayHow(desc);
+      if (!how) continue;
+      const entry = { how, text: `${name.trim()} ${desc.trim()}`, player: name.trim(), seqno: opt.seqno };
+      seenSeqnos.push(opt.seqno);
+      if (battingSide === 'home') home.push(entry);
+      else if (battingSide === 'away') away.push(entry);
+      // battingSide 미확정(첫 하프이닝 타이틀을 못 찾은 경우)이면 어느 쪽에도 안 넣음 —
+      // 오귀속보단 유실이 안전(누적 로직이라 다음 poll에서 하프이닝 타이틀 포함하면 잡힘).
+    }
+  }
+  return { home, away, maxSeqno, seenSeqnos };
+}

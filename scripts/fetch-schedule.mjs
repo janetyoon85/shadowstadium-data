@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { execSync } from 'node:child_process';
 import { validateDataset } from './validators.mjs';
 import { getAthleteNationality, getAthleteDisplayName } from './espn-nationality.mjs';
-import { parseBaseballHighlights } from './baseball-highlight-parse.mjs';
+import { parseBaseballHighlights, parseKboRelayHighlights } from './baseball-highlight-parse.mjs';
 import { selectUniqueScoreMatch } from './espn-match-select.mjs';
 import { getMlbNationality, getMlbPitcherDecisionNats, getMlbHoldNats } from './mlb-nationality.mjs';
 
@@ -475,6 +475,17 @@ function sortGames(games) {
 // 순수 함수라 테스트 자동화 도입(2026-09-28) 때 baseball-highlight-parse.mjs로 분리 —
 // 로직은 그대로, import만 해서 씀(scripts/__tests__/에서 이 크롤러 main() 실행 없이 검증 가능).
 
+// KBO 라이브 하이라이트용 문자중계(2026-09-29, "지금 경기중인 야구경기에 이벤트 하나도 안붙음"
+// 리포트로 추가) — /record의 etcRecords는 경기 막판에야 채워져서 진행 중엔 대신 이 엔드포인트를
+// 씀. RELAY_API는 이미 K리그 득점자/카드용으로 존재하던 상수 재사용(같은 URL 패턴, 스포츠별로
+// 응답 스키마만 다름).
+async function fetchKboRelay(gameId) {
+  const res = await fetch(RELAY_API(gameId), { headers: { 'User-Agent': USER_AGENT } });
+  if (!res.ok) throw new Error(`HTTP ${res.status} relay ${gameId}`);
+  const json = await res.json();
+  return json?.result?.textRelayData || null;
+}
+
 async function fetchGameRecord(gameId) {
   const res = await fetch(RECORD_API(gameId), { headers: { 'User-Agent': USER_AGENT } });
   if (!res.ok) throw new Error(`HTTP ${res.status} record ${gameId}`);
@@ -634,6 +645,31 @@ async function enrichSaves(allGames) {
     } else if (!needsSavesFetch) {
       fromCache++;
     }
+    // KBO 라이브 하이라이트 — 별도 엔드포인트(/relay)라 위 SAVES_FETCH_BUDGET/예산 로직과
+    // 무관하게 처리(어차피 live는 매 실행 무조건 시도, 신규/백필 예산 경합 없음). 새 크론 주기를
+    // 만들지 않고 기존 5분 주기 실행 안에 그대로 얹음(사용자 요청: "차단 안되게" — 호출 빈도를
+    // 전혀 늘리지 않는 쪽으로 설계). 하프이닝 하나를 통째로 놓칠 아주 작은 위험은 있지만, 경기
+    // 종료 시점에 etcRecords 기반 최종본이 어차피 덮어써서 데이터 유실은 없음(지연만 발생).
+    if (g.league === 'KBO' && g.status === 'live' && cache[g.gameId] && typeof cache[g.gameId] === 'object') {
+      try {
+        await sleep(REQUEST_DELAY_MS);
+        const trd = await fetchKboRelay(g.gameId);
+        if (trd) {
+          const rc = cache[g.gameId];
+          const parsed = parseKboRelayHighlights(trd, g.home, g.away);
+          const prevMax = rc.relayMaxSeqno || 0;
+          if (!rc.relayHighlights) rc.relayHighlights = { home: [], away: [] };
+          for (const side of ['home', 'away']) {
+            for (const entry of parsed[side]) {
+              if (entry.seqno > prevMax) rc.relayHighlights[side].push(entry);
+            }
+          }
+          rc.relayMaxSeqno = Math.max(prevMax, parsed.maxSeqno);
+        }
+      } catch (e) {
+        console.warn(`[saves] KBO relay fetch failed ${g.gameId}: ${e.message}`);
+      }
+    }
     // needsSavesFetch인데 예산 초과로 이번엔 재조회 못 한 경우 — 예전엔 여기서 continue로 루프를
     // 통째로 건너뛰어서 이미 캐시된 값(승/패/세 국적 등)까지 이번 실행 결과물에서 통째로 빠지는
     // 심각한 회귀가 있었음(2026-09-29 발견: 홀드 백필 트리거가 거의 모든 게임을 needsSavesFetch로
@@ -647,6 +683,9 @@ async function enrichSaves(allGames) {
         if (rec.save) g.savePitcher = rec.save;
         if (rec.highlights && ((rec.highlights.home && rec.highlights.home.length) || (rec.highlights.away && rec.highlights.away.length))) {
           g.highlights = rec.highlights;
+          // etcRecords(최종본)가 채워지면 /relay 임시 누적본은 더 필요 없음 — saves.json 비대화 방지.
+          delete rec.relayHighlights;
+          delete rec.relayMaxSeqno;
           // MLB 국적 enrichment(2026-09-28, "야구도 국기 있으면 좋겠다" 요청 대응 조사 후 MLB만
           // 우선 적용 — KBO/NPB는 무료 API가 없음). rec.highlights는 cache[g.gameId]와 동일
           // 참조라 여기서 mutate하면 saves.json에도 그대로 저장되어 다음 실행부턴 재조회 없이
@@ -692,6 +731,18 @@ async function enrichSaves(allGames) {
               }
             }
           }
+        } else if (
+          g.league === 'KBO' && g.status === 'live' && rec.relayHighlights &&
+          ((rec.relayHighlights.home && rec.relayHighlights.home.length) || (rec.relayHighlights.away && rec.relayHighlights.away.length))
+        ) {
+          // etcRecords가 아직 비어있는(경기 진행 중) 동안엔 /relay 기반 누적 하이라이트로 대체
+          // 표시 — pid는 못 붙지만(로스터 정보 없음) 경기 종료 후 위 etcRecords 경로가 pid까지
+          // 채운 최종본으로 자연히 교체됨(이 else 분기 자체가 안 타게 됨). seqno는 다음 poll
+          // dedup용 내부 필드라 games.json에는 안 나가게 정리(캐시에 저장된 원본은 그대로 유지).
+          g.highlights = {
+            home: rec.relayHighlights.home.map(({ seqno, ...rest }) => rest),
+            away: rec.relayHighlights.away.map(({ seqno, ...rest }) => rest),
+          };
         }
       }
     }
