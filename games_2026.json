@@ -300363,6 +300363,7 @@
     "status": "completed",
     "awayPitcher": "요시카와",
     "homePitcher": "쇼지",
+    "awayPitcherPid": "npb:2107880",
     "homePitcherPid": "npb:2106793",
     "awayScore": 2,
     "homeScore": 6,
@@ -314888,6 +314889,7 @@
     "status": "completed",
     "awayPitcher": "모이넬로",
     "homePitcher": "요시카와",
+    "homePitcherPid": "npb:2107880",
     "awayScore": 9,
     "homeScore": 0,
     "winPitcher": "모이넬로",
@@ -432689,13 +432691,54 @@
     "stadium": "라쿠텐모바일 최강파크 미야기",
     "timeTbd": false,
     "gameId": "20260929JLRT0",
-    "status": "live",
+    "status": "completed",
     "awayPitcher": "요시카와",
     "homePitcher": "이토",
+    "awayPitcherPid": "npb:2107880",
     "homePitcherPid": "npb:2000079",
     "awayScore": 6,
     "homeScore": 3,
-    "inningInfo": "9회초"
+    "winPitcher": "요시카와",
+    "losePitcher": "이토",
+    "savePitcher": "요코야마",
+    "winPitcherPid": "npb:2107880",
+    "losePitcherPid": "npb:1950716",
+    "savePitcherPid": "npb:1900083",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "마스다",
+          "pid": "npb:1100104"
+        },
+        {
+          "n": "나카모리",
+          "pid": "npb:2000088"
+        },
+        {
+          "n": "스즈키",
+          "pid": "npb:2000087"
+        }
+      ]
+    },
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "타츠미",
+          "player": "타츠미",
+          "pid": "npb:1800117"
+        }
+      ],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "야마모토 2개",
+          "player": "야마모토",
+          "pid": "npb:2000094"
+        }
+      ]
+    }
   },
   {
     "date": "2026-09-29",
@@ -432753,7 +432796,7 @@
     "awayPitcherPid": "kbo:p:56709",
     "homePitcherPid": "kbo:p:56459",
     "awayScore": 3,
-    "homeScore": 6,
+    "homeScore": 10,
     "inningInfo": "7회말"
   },
   {
@@ -432773,7 +432816,7 @@
     "homePitcherPid": "kbo:p:55633",
     "awayScore": 4,
     "homeScore": 5,
-    "inningInfo": "7회초"
+    "inningInfo": "7회말"
   },
   {
     "date": "2026-09-29",
@@ -432792,7 +432835,7 @@
     "homePitcherPid": "kbo:p:52043",
     "awayScore": 2,
     "homeScore": 5,
-    "inningInfo": "6회말"
+    "inningInfo": "7회말"
   },
   {
     "date": "2026-09-29",
@@ -432811,7 +432854,7 @@
     "homePitcherPid": "kbo:p:56801",
     "awayScore": 1,
     "homeScore": 7,
-    "inningInfo": "8회초"
+    "inningInfo": "9회초"
   },
   {
     "date": "2026-09-29",
@@ -432830,7 +432873,7 @@
     "homePitcherPid": "kbo:p:64021",
     "awayScore": 2,
     "homeScore": 4,
-    "inningInfo": "7회말"
+    "inningInfo": "8회말"
   },
   {
     "date": "2026-09-29",
@@ -432843,9 +432886,9 @@
     "timeTbd": false,
     "gameId": "3R89ld4AAucZyed",
     "status": "live",
-    "awayScore": 3,
+    "awayScore": 4,
     "homeScore": 2,
-    "matchPeriod": "후반 29'",
+    "matchPeriod": "후반 49'",
     "scorers": {
       "home": [
         {
@@ -432888,6 +432931,12 @@
           "pid": "espn:218522",
           "aNat": "Brazil",
           "apid": "espn:346612"
+        },
+        {
+          "n": "비니시우스",
+          "m": 80,
+          "nat": "Brazil",
+          "pid": "espn:252107"
         }
       ]
     },
@@ -432938,7 +432987,7 @@
     "gameId": "ASIANGAMESFOOTBALL_AG2026_W.TEAM11------------.SFNL.000200--",
     "status": "live",
     "phaseCode": "T4",
-    "homeScore": 1,
+    "homeScore": 2,
     "awayScore": 0
   },
   {
@@ -458833,6 +458882,18 @@
   },
   {
     "date": "2026-11-21",
+    "time": "03:00",
+    "league": "DENMARK",
+    "venueId": "ceres_park_aarhus",
+    "home": "AGF",
+    "away": "링비",
+    "stadium": "오르후스 경기장",
+    "timeTbd": false,
+    "gameId": "Vu4dH2OjnsKpgtI",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-21",
     "time": "04:30",
     "league": "BUNDESLIGA",
     "venueId": "allianz_arena",
@@ -459200,60 +459261,12 @@
     "date": "2026-11-22",
     "time": "00:00",
     "league": "DENMARK",
-    "venueId": "casa_arena_horsens",
-    "home": "호르센스",
-    "away": "실케보리",
-    "stadium": "히벨 아레나 호르센",
-    "timeTbd": false,
-    "gameId": "1oMulRhiA02vG6i",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-11-22",
-    "time": "00:00",
-    "league": "DENMARK",
-    "venueId": "ceres_park_aarhus",
-    "home": "AGF",
-    "away": "링비",
-    "stadium": "오르후스 경기장",
-    "timeTbd": false,
-    "gameId": "Vu4dH2OjnsKpgtI",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-11-22",
-    "time": "00:00",
-    "league": "DENMARK",
     "venueId": "energi_viborg_arena",
     "home": "비보리",
     "away": "라네르스",
     "stadium": "에네르기 비보르 아레나",
     "timeTbd": false,
     "gameId": "RDYcbm8ybyQpB5E",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-11-22",
-    "time": "00:00",
-    "league": "DENMARK",
-    "venueId": "right_to_dream_park_farum",
-    "home": "노르셸란",
-    "away": "코펜하겐",
-    "stadium": "파룸 파크",
-    "timeTbd": false,
-    "gameId": "Nq8m5rKPKZ3UJPX",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-11-22",
-    "time": "00:00",
-    "league": "DENMARK",
-    "venueId": "sydbank_park_haderslev",
-    "home": "쇠네르위스케",
-    "away": "OB",
-    "stadium": "하데르슬레프 축구 경기장",
-    "timeTbd": false,
-    "gameId": "zItnfhUcKZhLVX1",
     "status": "scheduled"
   },
   {
@@ -459924,6 +459937,18 @@
   {
     "date": "2026-11-22",
     "time": "22:00",
+    "league": "DENMARK",
+    "venueId": "casa_arena_horsens",
+    "home": "호르센스",
+    "away": "실케보리",
+    "stadium": "히벨 아레나 호르센",
+    "timeTbd": false,
+    "gameId": "1oMulRhiA02vG6i",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-22",
+    "time": "22:00",
     "league": "U17WORLDCUP",
     "venueId": "aspire_pitch_1",
     "home": "에콰도르",
@@ -460047,6 +460072,18 @@
   {
     "date": "2026-11-23",
     "time": "00:00",
+    "league": "DENMARK",
+    "venueId": "sydbank_park_haderslev",
+    "home": "쇠네르위스케",
+    "away": "OB",
+    "stadium": "하데르슬레프 축구 경기장",
+    "timeTbd": false,
+    "gameId": "zItnfhUcKZhLVX1",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-23",
+    "time": "00:00",
     "league": "U17WORLDCUP",
     "venueId": "aspire_pitch_2",
     "home": "카타르",
@@ -460129,6 +460166,18 @@
     "stadium": "안필드",
     "timeTbd": false,
     "gameId": "b1cW2vRIqa1oBuY",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-23",
+    "time": "02:00",
+    "league": "DENMARK",
+    "venueId": "right_to_dream_park_farum",
+    "home": "노르셸란",
+    "away": "코펜하겐",
+    "stadium": "파룸 파크",
+    "timeTbd": false,
+    "gameId": "Nq8m5rKPKZ3UJPX",
     "status": "scheduled"
   },
   {
