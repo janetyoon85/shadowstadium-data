@@ -1234,8 +1234,12 @@ async function enrichEuroAssists(allGames) {
   // 0-0 무득점 경기도 카드는 붙어야 해서(사용자 요청, 2026-09-26) g.scorers 존재 요건을 뺌 —
   // 어시스트/국적 로직은 원래대로 scorers가 없으면 그냥 빈 배열([].length===0)로 자연히 스킵됨.
   // 타겟팅도 enrichScorers와 동일하게 날짜 컷오프 대신 팀별 최근 완료 5경기 기준으로 교체
-  // (2026-09-27, "화면에 보여주는거만 채워줘").
-  const recentEuroIds = buildRecentCompletedGameIds(allGames, new Set(Object.keys(ESPN_LEAGUE_SLUG)));
+  // (2026-09-27, "화면에 보여주는거만 채워줘"). 버그 발견(2026-09-29, 백필현황 점검 중): n(5)
+  // 인자가 실제로는 안 넘어가고 있어서 buildRecentCompletedGameIds 기본값(Infinity)이 적용돼
+  // 있었음 — 이 함수가 관리하는 전체(3,340경기) 중 94%(3,152건)가 매번 "백필 필요" 대상이
+  // 돼서 80/run 예산을 최신순 정렬로 나눠 먹느라 몇 달 지난 경기는 사실상 영구 방치되던 버그
+  // (승부차기 신기능 조사 중 발견 — 3월 FA컵 실경기가 우선순위 3142번째로 밀려 있었음).
+  const recentEuroIds = buildRecentCompletedGameIds(allGames, new Set(Object.keys(ESPN_LEAGUE_SLUG)), 5);
   const targets = allGames.filter(
     (g) =>
       ESPN_LEAGUE_SLUG[g.league] &&
