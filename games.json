@@ -23748,38 +23748,6 @@
   {
     "date": "2026-03-04",
     "time": "19:00",
-    "league": "ACL2",
-    "venueId": "panasonic_stadium_suita",
-    "home": "감바 오사카",
-    "away": "라차부리",
-    "stadium": "파나소닉 스타디움 스이타",
-    "timeTbd": false,
-    "gameId": "vMQl5HEfnRYLMzO",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 1,
-    "scorers": {
-      "home": [
-        {
-          "n": "나와타",
-          "m": 84
-        }
-      ],
-      "away": [
-        {
-          "n": "다니엘 팅",
-          "m": 18
-        }
-      ]
-    },
-    "phaseCode": "T8",
-    "leg": 1,
-    "homeAggregateScore": 3,
-    "awayAggregateScore": 2
-  },
-  {
-    "date": "2026-03-04",
-    "time": "19:00",
     "league": "ACL",
     "venueId": "seoulwc",
     "home": "서울",
@@ -23825,6 +23793,38 @@
     "leg": 1,
     "homeAggregateScore": 1,
     "awayAggregateScore": 3
+  },
+  {
+    "date": "2026-03-04",
+    "time": "19:00",
+    "league": "ACL2",
+    "venueId": "panasonic_stadium_suita",
+    "home": "감바 오사카",
+    "away": "라차부리",
+    "stadium": "파나소닉 스타디움 스이타",
+    "timeTbd": false,
+    "gameId": "vMQl5HEfnRYLMzO",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "나와타",
+          "m": 84
+        }
+      ],
+      "away": [
+        {
+          "n": "다니엘 팅",
+          "m": 18
+        }
+      ]
+    },
+    "phaseCode": "T8",
+    "leg": 1,
+    "homeAggregateScore": 3,
+    "awayAggregateScore": 2
   },
   {
     "date": "2026-03-04",
@@ -78410,7 +78410,9 @@
         {
           "n": "Maxi Araújo",
           "type": "Y",
-          "m": 79
+          "m": 79,
+          "pid": "espn:287025",
+          "nat": "Uruguay"
         }
       ]
     },
@@ -80012,22 +80014,25 @@
           "n": "라파엘 무지카",
           "m": 6,
           "a": "Akram Afif",
-          "nat": "Spain",
-          "aNat": "Qatar"
+          "pid": "espn:240555",
+          "aNat": "Qatar",
+          "apid": "espn:219258"
         },
         {
           "n": "라파엘 무지카",
           "m": 61,
           "a": "Roberto Firmino",
-          "nat": "Spain",
-          "aNat": "Brazil"
+          "pid": "espn:240555",
+          "aNat": "Brazil",
+          "apid": "espn:147234"
         },
         {
           "n": "호베르투 피르미누",
           "m": 65,
           "a": "Rafa Mújica",
           "nat": "Brazil",
-          "aNat": "Spain"
+          "pid": "espn:147234",
+          "apid": "espn:240555"
         }
       ],
       "away": [
@@ -80036,20 +80041,26 @@
           "m": 24,
           "a": "Gotoku Sakai",
           "nat": "Japan",
-          "aNat": "Japan"
+          "pid": "espn:133286",
+          "aNat": "Japan",
+          "apid": "espn:169584"
         },
         {
           "n": "이데구치",
           "m": 74,
           "a": "Jean Patric",
           "nat": "Japan",
-          "aNat": "Brazil"
+          "pid": "espn:224053",
+          "aNat": "Brazil",
+          "apid": "espn:275753"
         },
         {
           "n": "무토",
           "m": 90,
           "a": "Rikuto Hirose",
-          "nat": "Japan"
+          "nat": "Japan",
+          "pid": "espn:202090",
+          "apid": "espn:285323"
         }
       ]
     },
@@ -80059,7 +80070,85 @@
         {
           "n": "Shuichi Gonda",
           "type": "Y",
-          "m": 108
+          "m": 108,
+          "pid": "espn:143697",
+          "nat": "Japan"
+        }
+      ]
+    },
+    "shootout": {
+      "home": [
+        {
+          "n": "Roberto Firmino",
+          "made": true,
+          "order": 1,
+          "pid": "espn:147234",
+          "nat": "Brazil"
+        },
+        {
+          "n": "Agustín Soría",
+          "made": true,
+          "order": 2,
+          "pid": "espn:380123",
+          "nat": "Uruguay"
+        },
+        {
+          "n": "Claudinho",
+          "made": false,
+          "order": 3,
+          "pid": "espn:226991",
+          "nat": "Brazil"
+        },
+        {
+          "n": "Boualem Khoukhi",
+          "made": true,
+          "order": 4,
+          "pid": "espn:205377",
+          "nat": "Qatar"
+        },
+        {
+          "n": "Akram Afif",
+          "made": true,
+          "order": 5,
+          "pid": "espn:219258",
+          "nat": "Qatar"
+        }
+      ],
+      "away": [
+        {
+          "n": "Yuya Osako",
+          "made": true,
+          "order": 1,
+          "pid": "espn:133286",
+          "nat": "Japan"
+        },
+        {
+          "n": "Yoshinori Muto",
+          "made": true,
+          "order": 2,
+          "pid": "espn:202090",
+          "nat": "Japan"
+        },
+        {
+          "n": "Mitsuki Hidaka",
+          "made": true,
+          "order": 3,
+          "pid": "espn:339744",
+          "nat": "Japan"
+        },
+        {
+          "n": "Katsuya Nagato",
+          "made": true,
+          "order": 4,
+          "pid": "espn:253605",
+          "nat": "Japan"
+        },
+        {
+          "n": "Jean Patric",
+          "made": true,
+          "order": 5,
+          "pid": "espn:275753",
+          "nat": "Brazil"
         }
       ]
     },
@@ -80201,14 +80290,17 @@
         {
           "n": "옌센",
           "m": 73,
-          "nat": "Denmark"
+          "nat": "Denmark",
+          "pid": "espn:309651"
         },
         {
           "n": "신",
           "m": 80,
           "a": "Bendegúz Kovács",
           "nat": "Czechia",
-          "aNat": "Hungary"
+          "pid": "espn:382643",
+          "aNat": "Hungary",
+          "apid": "espn:408528"
         }
       ],
       "away": [
@@ -80217,14 +80309,18 @@
           "m": 58,
           "a": "Kauã Elias",
           "nat": "Brazil",
-          "aNat": "Brazil"
+          "pid": "espn:359420",
+          "aNat": "Brazil",
+          "apid": "espn:361432"
         },
         {
           "n": "루카 메이렐레스",
           "m": 83,
           "a": "Lucas Ferreira",
           "nat": "Brazil",
-          "aNat": "Brazil"
+          "pid": "espn:396504",
+          "aNat": "Brazil",
+          "apid": "espn:383068"
         }
       ]
     },
@@ -80233,44 +80329,60 @@
         {
           "n": "Mateo Chávez",
           "type": "Y",
-          "m": 31
+          "m": 31,
+          "pid": "espn:379193",
+          "nat": "Mexico"
         },
         {
           "n": "Billy Van Duijl",
           "type": "Y",
-          "m": 33
+          "m": 33,
+          "pid": "espn:340532",
+          "nat": "Netherlands"
         },
         {
           "n": "Kasper Boogaard",
           "type": "Y",
-          "m": 35
+          "m": 35,
+          "pid": "espn:380174",
+          "nat": "Netherlands"
         },
         {
           "n": "Ibrahim Sadiq",
           "type": "Y",
-          "m": 45
+          "m": 45,
+          "pid": "espn:266593",
+          "nat": "Ghana"
         }
       ],
       "away": [
         {
           "n": "Isaque",
           "type": "Y",
-          "m": 25
+          "m": 25,
+          "pid": "espn:382970",
+          "nat": "Brazil"
         },
         {
           "n": "Vinicius Augusto",
           "type": "Y",
-          "m": 71
+          "m": 71,
+          "pid": "espn:307928",
+          "nat": "Brazil"
         },
         {
           "n": "Eguinaldo",
           "type": "Y",
-          "m": 78
+          "m": 78,
+          "pid": "espn:345648",
+          "nat": "Brazil"
         },
         {
           "n": "Mykola Matviyenko",
           "type": "Y",
-          "m": 85
+          "m": 85,
+          "pid": "espn:226181",
+          "nat": "Ukraine"
         }
       ]
     },
@@ -80624,21 +80736,79 @@
       "home": [
         {
           "n": "지니",
-          "m": 13
+          "m": 13,
+          "a": "Stavros Pilios",
+          "nat": "Angola",
+          "pid": "espn:297754",
+          "aNat": "Albania",
+          "apid": "espn:285427"
         },
         {
           "n": "마린",
-          "m": 36
+          "m": 36,
+          "nat": "Romania",
+          "pid": "espn:239738"
         },
         {
           "n": "지니",
-          "m": 51
+          "m": 51,
+          "a": "Dereck Kutesa",
+          "nat": "Angola",
+          "pid": "espn:297754",
+          "aNat": "Switzerland",
+          "apid": "espn:238490"
         }
       ],
       "away": [
         {
           "n": "이시 팔라존",
-          "m": 60
+          "m": 60,
+          "a": "Pedro Díaz",
+          "nat": "Spain",
+          "pid": "espn:264197",
+          "aNat": "Spain",
+          "apid": "espn:264078"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Barnabás Varga",
+          "type": "Y",
+          "m": 30,
+          "pid": "espn:246666",
+          "nat": "Hungary"
+        },
+        {
+          "n": "Aboubakary Koita",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:260026",
+          "nat": "Mauritania"
+        }
+      ],
+      "away": [
+        {
+          "n": "Ilias Akhomach",
+          "type": "Y",
+          "m": 19,
+          "pid": "espn:331047",
+          "nat": "Morocco"
+        },
+        {
+          "n": "Unai López",
+          "type": "Y",
+          "m": 45,
+          "pid": "espn:203711",
+          "nat": "Spain"
+        },
+        {
+          "n": "Pedro Díaz",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:264078",
+          "nat": "Spain"
         }
       ]
     },
@@ -80700,29 +80870,102 @@
       "home": [
         {
           "n": "안토니",
-          "m": 13
+          "m": 13,
+          "nat": "Brazil",
+          "pid": "espn:281558"
         },
         {
           "n": "에잘줄리",
-          "m": 26
+          "m": 26,
+          "nat": "Morocco",
+          "pid": "espn:300912"
         }
       ],
       "away": [
         {
           "n": "파우 빅토르",
-          "m": 38
+          "m": 38,
+          "a": "Víctor Gómez",
+          "nat": "Spain",
+          "pid": "espn:303808",
+          "aNat": "Spain",
+          "apid": "espn:265984"
         },
         {
           "n": "비토르 카르발류",
-          "m": 49
+          "m": 49,
+          "a": "Ricardo Horta",
+          "nat": "Brazil",
+          "pid": "espn:250906",
+          "aNat": "Portugal",
+          "apid": "espn:184423"
         },
         {
           "n": "리카르도 호르타",
-          "m": 53
+          "m": 53,
+          "nat": "Portugal",
+          "pid": "espn:184423"
         },
         {
           "n": "고르비",
-          "m": 74
+          "m": 74,
+          "nat": "France",
+          "pid": "espn:326029"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Abde Ezzalzouli",
+          "type": "Y",
+          "m": 43,
+          "pid": "espn:300912",
+          "nat": "Morocco"
+        },
+        {
+          "n": "Pablo Fornals",
+          "type": "Y",
+          "m": 47,
+          "pid": "espn:227714",
+          "nat": "Spain"
+        },
+        {
+          "n": "Marc Bartra",
+          "type": "Y",
+          "m": 72,
+          "pid": "espn:145078",
+          "nat": "Spain"
+        },
+        {
+          "n": "Antony",
+          "type": "Y",
+          "m": 83,
+          "pid": "espn:281558",
+          "nat": "Brazil"
+        }
+      ],
+      "away": [
+        {
+          "n": "Vítor Carvalho",
+          "type": "Y",
+          "m": 35,
+          "pid": "espn:250906",
+          "nat": "Brazil"
+        },
+        {
+          "n": "Gabri Martínez",
+          "type": "Y",
+          "m": 67,
+          "pid": "espn:98573",
+          "nat": "Spain"
+        },
+        {
+          "n": "Gabriel Moscardo",
+          "type": "Y",
+          "m": 69,
+          "pid": "espn:361468",
+          "nat": "Brazil"
         }
       ]
     },
@@ -80751,7 +80994,9 @@
           "m": 12,
           "a": "Neco Williams",
           "nat": "England",
-          "aNat": "Wales"
+          "pid": "espn:243396",
+          "aNat": "Wales",
+          "apid": "espn:291638"
         }
       ],
       "away": []
@@ -80761,29 +81006,39 @@
         {
           "n": "Omari Hutchinson",
           "type": "Y",
-          "m": 40
+          "m": 40,
+          "pid": "espn:322771",
+          "nat": "England"
         }
       ],
       "away": [
         {
           "n": "Jan Bednarek",
           "type": "R",
-          "m": 8
+          "m": 8,
+          "pid": "espn:221788",
+          "nat": "Poland"
         },
         {
           "n": "Terem Moffi",
           "type": "Y",
-          "m": 32
+          "m": 32,
+          "pid": "espn:289769",
+          "nat": "Nigeria"
         },
         {
           "n": "Alberto Costa",
           "type": "Y",
-          "m": 36
+          "m": 36,
+          "pid": "espn:346111",
+          "nat": "Portugal"
         },
         {
           "n": "William Gomes",
           "type": "Y",
-          "m": 90
+          "m": 90,
+          "pid": "espn:376664",
+          "nat": "Brazil"
         }
       ]
     },
@@ -81634,18 +81889,105 @@
       "home": [
         {
           "n": "케시에",
-          "m": 45
+          "m": 45,
+          "a": "Galeno",
+          "pid": "espn:194711",
+          "aNat": "Brazil",
+          "apid": "espn:259732"
         },
         {
           "n": "갈레노",
-          "m": 54
+          "m": 54,
+          "a": "Zakaria Hawsawi",
+          "nat": "Brazil",
+          "pid": "espn:259732",
+          "aNat": "Saudi Arabia",
+          "apid": "espn:349151"
         }
       ],
       "away": [
         {
           "n": "알리 마즈라시",
           "m": 19,
-          "og": true
+          "og": true,
+          "nat": "Saudi Arabia",
+          "pid": "espn:331920"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Ali Majrashi",
+          "type": "R",
+          "m": 37,
+          "pid": "espn:331920",
+          "nat": "Saudi Arabia"
+        },
+        {
+          "n": "Ivan Toney",
+          "type": "Y",
+          "m": 45,
+          "pid": "espn:180639",
+          "nat": "England"
+        },
+        {
+          "n": "Valentin Atangana",
+          "type": "Y",
+          "m": 73,
+          "pid": "espn:359165",
+          "nat": "France"
+        },
+        {
+          "n": "Édouard Mendy",
+          "type": "Y",
+          "m": 84,
+          "pid": "espn:238362",
+          "nat": "Senegal"
+        }
+      ],
+      "away": [
+        {
+          "n": "Marcos Guilherme",
+          "type": "Y",
+          "m": 29,
+          "pid": "espn:198960",
+          "nat": "Brazil"
+        },
+        {
+          "n": "Jonathan Silva",
+          "type": "Y",
+          "m": 41,
+          "pid": "espn:79997",
+          "nat": "Argentina"
+        },
+        {
+          "n": "Natxo Insa",
+          "type": "Y",
+          "m": 41,
+          "pid": "espn:85394",
+          "nat": "Malaysia"
+        },
+        {
+          "n": "Nené",
+          "type": "Y",
+          "m": 75,
+          "pid": "espn:289514",
+          "nat": "Portugal"
+        },
+        {
+          "n": "Ager Aketxe",
+          "type": "Y",
+          "m": 86,
+          "pid": "espn:185830",
+          "nat": "Spain"
+        },
+        {
+          "n": "Yago",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:239303",
+          "nat": "Brazil"
         }
       ]
     },
@@ -81799,13 +82141,61 @@
       "home": [
         {
           "n": "메츠",
-          "m": 69
+          "m": 69,
+          "a": "Hauke Wahl",
+          "nat": "Estonia",
+          "pid": "espn:196297",
+          "aNat": "Germany",
+          "apid": "espn:207317"
         }
       ],
       "away": [
         {
           "n": "발트슈미트",
-          "m": 86
+          "m": 86,
+          "nat": "Germany",
+          "pid": "espn:191352"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Andreas Hountondji",
+          "type": "Y",
+          "m": 71,
+          "pid": "espn:317322",
+          "nat": "Benin"
+        },
+        {
+          "n": "Tomoya Ando",
+          "type": "Y",
+          "m": 76,
+          "pid": "espn:399042",
+          "nat": "Japan"
+        },
+        {
+          "n": "Mathias Pereira Lage",
+          "type": "Y",
+          "m": 87,
+          "pid": "espn:233835",
+          "nat": "Portugal"
+        },
+        {
+          "n": "Danel Sinani",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:259453",
+          "nat": "Luxembourg"
+        }
+      ],
+      "away": [
+        {
+          "n": "Said El Mala",
+          "type": "Y",
+          "m": 87,
+          "pid": "espn:380795",
+          "nat": "Germany"
         }
       ]
     }
@@ -84143,41 +84533,52 @@
           "n": "사미 모르시",
           "m": 2,
           "a": "Cameron Pring",
-          "aNat": "England"
+          "pid": "espn:138879",
+          "aNat": "England",
+          "apid": "espn:267325"
         },
         {
           "n": "벨",
           "m": 90,
           "a": "Delano Burgzorg",
-          "nat": "England"
+          "nat": "England",
+          "pid": "espn:311108",
+          "apid": "espn:268606"
         }
       ],
       "away": [
         {
           "n": "투레",
           "m": 51,
-          "nat": "Australia"
+          "nat": "Australia",
+          "pid": "espn:302688"
         },
         {
           "n": "투레",
           "m": 70,
           "a": "Oscar Schwartau",
           "nat": "Australia",
-          "aNat": "Denmark"
+          "pid": "espn:302688",
+          "aNat": "Denmark",
+          "apid": "espn:345568"
         },
         {
           "n": "투레",
           "m": 75,
           "a": "Paris Maghoma",
           "nat": "Australia",
-          "aNat": "England"
+          "pid": "espn:302688",
+          "aNat": "England",
+          "apid": "espn:267458"
         },
         {
           "n": "코르도바",
           "m": 78,
           "a": "Kenny McLean",
           "nat": "Panama",
-          "aNat": "Scotland"
+          "pid": "espn:286667",
+          "aNat": "Scotland",
+          "apid": "espn:141870"
         }
       ]
     },
@@ -84187,12 +84588,16 @@
         {
           "n": "Mohamed Toure",
           "type": "Y",
-          "m": 54
+          "m": 54,
+          "pid": "espn:302688",
+          "nat": "Australia"
         },
         {
           "n": "Kenny McLean",
           "type": "Y",
-          "m": 72
+          "m": 72,
+          "pid": "espn:141870",
+          "nat": "Scotland"
         }
       ]
     }
@@ -84368,26 +84773,96 @@
       "home": [
         {
           "n": "비솔리",
-          "m": 64
+          "m": 64,
+          "nat": "Brazil",
+          "pid": "espn:268471"
         },
         {
           "n": "줄리",
-          "m": 70
+          "m": 70,
+          "pid": "espn:201372"
         }
       ],
       "away": [
         {
           "n": "줄리",
           "m": 13,
-          "og": true
+          "og": true,
+          "pid": "espn:201372"
         },
         {
           "n": "에자톨라히",
-          "m": 49
+          "m": 49,
+          "a": "Renan",
+          "nat": "Iran",
+          "pid": "espn:194863",
+          "aNat": "Brazil",
+          "apid": "espn:297086"
         },
         {
           "n": "헤난",
-          "m": 93
+          "m": 93,
+          "nat": "Brazil",
+          "pid": "espn:297086"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Kenneth Dougall",
+          "type": "Y",
+          "m": 52,
+          "pid": "espn:207218",
+          "nat": "Australia"
+        },
+        {
+          "n": "Peter Zulj",
+          "type": "Y",
+          "m": 81,
+          "pid": "espn:201372"
+        },
+        {
+          "n": "Sandy Walsh",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:165300"
+        },
+        {
+          "n": "Curtis Good",
+          "type": "Y",
+          "m": 102,
+          "pid": "espn:167567",
+          "nat": "Australia"
+        },
+        {
+          "n": "Goran Causic",
+          "type": "Y",
+          "m": 116,
+          "pid": "espn:179210",
+          "nat": "Serbia"
+        },
+        {
+          "n": "Go Myeong-Seok",
+          "type": "R",
+          "m": 120,
+          "pid": "espn:302437"
+        }
+      ],
+      "away": [
+        {
+          "n": "Breno Cascardo",
+          "type": "Y",
+          "m": 56,
+          "pid": "espn:359157",
+          "nat": "Brazil"
+        },
+        {
+          "n": "Rakaan Waleed",
+          "type": "Y",
+          "m": 83,
+          "pid": "espn:332076",
+          "nat": "United Arab Emirates"
         }
       ]
     },
@@ -84833,21 +85308,155 @@
       "home": [
         {
           "n": "루크만",
-          "m": 19
+          "m": 19,
+          "a": "Antoine Griezmann",
+          "nat": "Nigeria",
+          "pid": "espn:229645",
+          "aNat": "France",
+          "apid": "espn:140416"
         },
         {
           "n": "알바레스",
-          "m": 83
+          "m": 83,
+          "a": "Thiago Almada",
+          "nat": "Argentina",
+          "pid": "espn:277206",
+          "aNat": "Argentina",
+          "apid": "espn:277208"
         }
       ],
       "away": [
         {
           "n": "바렌네체아",
-          "m": 1
+          "m": 1,
+          "a": "Gonçalo Guedes",
+          "nat": "Spain",
+          "pid": "espn:283941",
+          "aNat": "Portugal",
+          "apid": "espn:213141"
         },
         {
           "n": "미켈 오야르사발",
-          "m": 45
+          "m": 45,
+          "nat": "Spain",
+          "pid": "espn:229018"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Robin Le Normand",
+          "type": "Y",
+          "m": 33,
+          "pid": "espn:214888",
+          "nat": "Spain"
+        },
+        {
+          "n": "Juan Musso",
+          "type": "Y",
+          "m": 43,
+          "pid": "espn:177927",
+          "nat": "Argentina"
+        }
+      ],
+      "away": [
+        {
+          "n": "Mikel Oyarzabal",
+          "type": "Y",
+          "m": 30,
+          "pid": "espn:229018",
+          "nat": "Spain"
+        },
+        {
+          "n": "Jon Gorrotxategi",
+          "type": "Y",
+          "m": 120,
+          "pid": "espn:388601",
+          "nat": "Spain"
+        },
+        {
+          "n": "Aritz Elustondo",
+          "type": "Y",
+          "m": 120,
+          "pid": "espn:214742",
+          "nat": "Spain"
+        }
+      ]
+    },
+    "shootout": {
+      "home": [
+        {
+          "n": "Alexander Sørloth",
+          "made": false,
+          "order": 1,
+          "pid": "espn:188230",
+          "nat": "Norway"
+        },
+        {
+          "n": "Julián Álvarez",
+          "made": false,
+          "order": 2,
+          "pid": "espn:277206",
+          "nat": "Argentina"
+        },
+        {
+          "n": "Nico González",
+          "made": true,
+          "order": 3,
+          "pid": "espn:76017",
+          "nat": "Argentina"
+        },
+        {
+          "n": "Thiago Almada",
+          "made": true,
+          "order": 4,
+          "pid": "espn:277208",
+          "nat": "Argentina"
+        },
+        {
+          "n": "Álex Baena",
+          "made": true,
+          "order": 5,
+          "pid": "espn:297373",
+          "nat": "Spain"
+        }
+      ],
+      "away": [
+        {
+          "n": "Carlos Soler",
+          "made": true,
+          "order": 1,
+          "pid": "espn:235072",
+          "nat": "Spain"
+        },
+        {
+          "n": "Orri Óskarsson",
+          "made": false,
+          "order": 2,
+          "pid": "espn:341367",
+          "nat": "Iceland"
+        },
+        {
+          "n": "Luka Sucic",
+          "made": true,
+          "order": 3,
+          "pid": "espn:306263",
+          "nat": "Croatia"
+        },
+        {
+          "n": "Aihen Muñoz",
+          "made": true,
+          "order": 4,
+          "pid": "espn:283891",
+          "nat": "Spain"
+        },
+        {
+          "n": "Pablo Marín",
+          "made": true,
+          "order": 5,
+          "pid": "espn:326900",
+          "nat": "Spain"
         }
       ]
     },
@@ -87044,7 +87653,9 @@
           "m": 9,
           "a": "Francis Coquelin",
           "nat": "Egypt",
-          "aNat": "France"
+          "pid": "espn:243816",
+          "aNat": "France",
+          "apid": "espn:121406"
         }
       ],
       "away": [
@@ -87052,7 +87663,9 @@
           "n": "샤르도네",
           "m": 90,
           "a": "Romain Del Castillo",
-          "nat": "France"
+          "nat": "France",
+          "pid": "espn:186408",
+          "apid": "espn:230896"
         }
       ]
     },
@@ -87061,29 +87674,37 @@
         {
           "n": "Louis Leroux",
           "type": "Y",
-          "m": 56
+          "m": 56,
+          "pid": "espn:388558",
+          "nat": "France"
         },
         {
           "n": "Dehmaine Tabibou",
           "type": "R",
-          "m": 65
+          "m": 65,
+          "pid": "espn:363129",
+          "nat": "France"
         },
         {
           "n": "Anthony Lopes",
           "type": "Y",
-          "m": 90
+          "m": 90,
+          "pid": "espn:131743",
+          "nat": "Portugal"
         }
       ],
       "away": [
         {
           "n": "Daouda Guindo",
           "type": "Y",
-          "m": 41
+          "m": 41,
+          "pid": "espn:321099"
         },
         {
           "n": "Romain Del Castillo",
           "type": "Y",
-          "m": 45
+          "m": 45,
+          "pid": "espn:230896"
         }
       ]
     }
@@ -87122,26 +87743,33 @@
           "m": 31,
           "a": "Sadibou Sané",
           "nat": "Georgia",
-          "aNat": "Senegal"
+          "pid": "espn:221131",
+          "aNat": "Senegal",
+          "apid": "espn:362288"
         }
       ],
       "away": [
         {
           "n": "고리",
-          "m": 21
+          "m": 21,
+          "pid": "espn:238392"
         },
         {
           "n": "오타비우",
           "m": 69,
           "a": "Ciro Immobile",
-          "nat": "Brazil"
+          "nat": "Brazil",
+          "pid": "espn:308195",
+          "apid": "espn:130123"
         },
         {
           "n": "케발",
           "m": 89,
           "a": "Diego Coppola",
           "nat": "Algeria",
-          "aNat": "Italy"
+          "pid": "espn:304918",
+          "aNat": "Italy",
+          "apid": "espn:332549"
         }
       ]
     },
@@ -87150,24 +87778,31 @@
         {
           "n": "Urie-Michel Mboula",
           "type": "Y",
-          "m": 13
+          "m": 13,
+          "pid": "espn:370501",
+          "nat": "Gabon"
         },
         {
           "n": "Koffi Kouao",
           "type": "Y",
-          "m": 38
+          "m": 38,
+          "pid": "espn:257052",
+          "nat": "Ivory Coast"
         }
       ],
       "away": [
         {
           "n": "Ilan Kebbal",
           "type": "Y",
-          "m": 45
+          "m": 45,
+          "pid": "espn:304918",
+          "nat": "Algeria"
         },
         {
           "n": "Alimani Gory",
           "type": "Y",
-          "m": 62
+          "m": 62,
+          "pid": "espn:238392"
         }
       ]
     }
@@ -89825,7 +90460,8 @@
         {
           "n": "소마",
           "m": 12,
-          "nat": "Japan"
+          "nat": "Japan",
+          "pid": "espn:277360"
         }
       ],
       "away": []
@@ -89835,34 +90471,46 @@
         {
           "n": "Shota Fujio",
           "type": "Y",
-          "m": 72
+          "m": 72,
+          "pid": "espn:303013",
+          "nat": "Japan"
         },
         {
           "n": "Yuki Soma",
           "type": "Y",
-          "m": 90
+          "m": 90,
+          "pid": "espn:277360",
+          "nat": "Japan"
         }
       ],
       "away": [
         {
           "n": "Saeid Ezatolahi",
           "type": "Y",
-          "m": 88
+          "m": 88,
+          "pid": "espn:194863",
+          "nat": "Iran"
         },
         {
           "n": "Fede Cartabia",
           "type": "Y",
-          "m": 90
+          "m": 90,
+          "pid": "espn:181646",
+          "nat": "Argentina"
         },
         {
           "n": "Hamad Al Meqebaali",
           "type": "Y",
-          "m": 90
+          "m": 90,
+          "pid": "espn:389407",
+          "nat": "United Arab Emirates"
         },
         {
           "n": "Hamad Al Meqebaali",
           "type": "R",
-          "m": 90
+          "m": 90,
+          "pid": "espn:389407",
+          "nat": "United Arab Emirates"
         }
       ]
     },
@@ -89931,7 +90579,9 @@
           "m": 40,
           "a": "Sam Smith",
           "nat": "England",
-          "aNat": "England"
+          "pid": "espn:182338",
+          "aNat": "England",
+          "apid": "espn:243757"
         }
       ]
     },
@@ -89940,29 +90590,38 @@
         {
           "n": "Aidomo Emakhu",
           "type": "Y",
-          "m": 62
+          "m": 62,
+          "pid": "espn:320328"
         },
         {
           "n": "Stanley Mills",
           "type": "Y",
-          "m": 90
+          "m": 90,
+          "pid": "espn:328022",
+          "nat": "England"
         }
       ],
       "away": [
         {
           "n": "Ryan Longman",
           "type": "Y",
-          "m": 32
+          "m": 32,
+          "pid": "espn:266411",
+          "nat": "England"
         },
         {
           "n": "Issa Kaboré",
           "type": "Y",
-          "m": 66
+          "m": 66,
+          "pid": "espn:294427",
+          "nat": "Burkina Faso"
         },
         {
           "n": "George Dobson",
           "type": "Y",
-          "m": 90
+          "m": 90,
+          "pid": "espn:234449",
+          "nat": "England"
         }
       ]
     }
@@ -91944,17 +92603,62 @@
       "home": [
         {
           "n": "파기르",
-          "m": 73
+          "m": 73,
+          "pid": "espn:307190"
         }
       ],
       "away": [
         {
           "n": "맥코왓",
-          "m": 70
+          "m": 70,
+          "pid": "espn:228279"
         },
         {
           "n": "아담센",
-          "m": 90
+          "m": 90,
+          "pid": "espn:347071"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Lasse Nielsen",
+          "type": "Y",
+          "m": 14,
+          "pid": "espn:121314"
+        },
+        {
+          "n": "Mads Enggård",
+          "type": "Y",
+          "m": 60,
+          "pid": "espn:315621"
+        },
+        {
+          "n": "Lasse Nielsen",
+          "type": "R",
+          "m": 89,
+          "pid": "espn:121314"
+        },
+        {
+          "n": "Valdemar Lund Jensen",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:320917"
+        }
+      ],
+      "away": [
+        {
+          "n": "Callum McCowatt",
+          "type": "Y",
+          "m": 60,
+          "pid": "espn:228279"
+        },
+        {
+          "n": "Alexander Simmelhack",
+          "type": "Y",
+          "m": 80,
+          "pid": "espn:336483"
         }
       ]
     },
@@ -92034,18 +92738,57 @@
       "home": [
         {
           "n": "크바라트스켈리아",
-          "m": 13
+          "m": 13,
+          "nat": "Georgia",
+          "pid": "espn:274745"
         },
         {
           "n": "두에",
-          "m": 37
+          "m": 37,
+          "a": "Achraf Hakimi",
+          "nat": "France",
+          "pid": "espn:336388",
+          "aNat": "Morocco",
+          "apid": "espn:240233"
         },
         {
           "n": "크바라트스켈리아",
-          "m": 50
+          "m": 50,
+          "a": "Ousmane Dembélé",
+          "nat": "Georgia",
+          "pid": "espn:274745",
+          "aNat": "France",
+          "apid": "espn:229744"
         }
       ],
       "away": []
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Warren Zaïre-Emery",
+          "type": "Y",
+          "m": 35,
+          "pid": "espn:345581",
+          "nat": "France"
+        },
+        {
+          "n": "Illia Zabarnyi",
+          "type": "Y",
+          "m": 41,
+          "pid": "espn:304503",
+          "nat": "Ukraine"
+        }
+      ],
+      "away": [
+        {
+          "n": "Frédéric Guilbert",
+          "type": "Y",
+          "m": 46,
+          "pid": "espn:215709",
+          "nat": "France"
+        }
+      ]
     }
   },
   {
@@ -92340,7 +93083,8 @@
       "home": [
         {
           "n": "휘태커",
-          "m": 11
+          "m": 11,
+          "pid": "espn:292002"
         }
       ],
       "away": []
@@ -92350,24 +93094,31 @@
         {
           "n": "Morgan Whittaker",
           "type": "Y",
-          "m": 30
+          "m": 30,
+          "pid": "espn:292002"
         },
         {
           "n": "Adilson Malanda",
           "type": "Y",
-          "m": 52
+          "m": 52,
+          "pid": "espn:312130",
+          "nat": "France"
         }
       ],
       "away": [
         {
           "n": "Jarvis Thornton",
           "type": "Y",
-          "m": 51
+          "m": 51,
+          "pid": "espn:408682",
+          "nat": "England"
         },
         {
           "n": "Max Lowe",
           "type": "Y",
-          "m": 70
+          "m": 70,
+          "pid": "espn:194108",
+          "nat": "England"
         }
       ]
     }
@@ -94086,22 +94837,54 @@
       "home": [
         {
           "n": "비에르켄그렌",
-          "m": 29
+          "m": 29,
+          "nat": "Sweden",
+          "pid": "espn:286726"
         },
         {
           "n": "에두지",
-          "m": 46
+          "m": 46,
+          "nat": "Ghana",
+          "pid": "espn:406151"
         }
       ],
       "away": [
         {
           "n": "요하네센",
-          "m": 5
+          "m": 5,
+          "pid": "espn:392978"
         },
         {
           "n": "셸스타드",
           "m": 34,
-          "og": true
+          "og": true,
+          "nat": "Norway",
+          "pid": "espn:333796"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "John Bjorkengren",
+          "type": "Y",
+          "m": 40,
+          "pid": "espn:286726",
+          "nat": "Sweden"
+        }
+      ],
+      "away": [
+        {
+          "n": "Svenn Crone",
+          "type": "Y",
+          "m": 57,
+          "pid": "espn:221166"
+        },
+        {
+          "n": "Jeppe Kudsk",
+          "type": "Y",
+          "m": 66,
+          "pid": "espn:330296"
         }
       ]
     },
@@ -95641,20 +96424,34 @@
       "home": [
         {
           "n": "맥토미니",
-          "m": 3
+          "m": 3,
+          "a": "Kevin De Bruyne",
+          "nat": "Scotland",
+          "pid": "espn:255850",
+          "aNat": "Belgium",
+          "apid": "espn:134947"
         },
         {
           "n": "테라치아노",
           "m": 45,
-          "og": true
+          "og": true,
+          "nat": "Italy",
+          "pid": "espn:303919"
         },
         {
           "n": "더 브라위너",
-          "m": 45
+          "m": 45,
+          "nat": "Belgium",
+          "pid": "espn:134947"
         },
         {
           "n": "알리슨 산토스",
-          "m": 52
+          "m": 52,
+          "a": "Vanja Milinkovic-Savic",
+          "nat": "Brazil",
+          "pid": "espn:319697",
+          "aNat": "Serbia",
+          "apid": "espn:219531"
         }
       ],
       "away": []
@@ -95678,13 +96475,53 @@
         {
           "n": "쿠퍼",
           "m": 78,
-          "og": true
+          "og": true,
+          "nat": "Australia",
+          "pid": "espn:207461",
+          "aNat": "England",
+          "apid": "espn:227706"
         }
       ],
       "away": [
         {
           "n": "랭스태프",
-          "m": 90
+          "m": 90,
+          "a": "Ryan Leonard",
+          "pid": "espn:252773",
+          "aNat": "England",
+          "apid": "espn:146223"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Hamza Choudhury",
+          "type": "Y",
+          "m": 72,
+          "pid": "espn:234320",
+          "nat": "Bangladesh"
+        }
+      ],
+      "away": [
+        {
+          "n": "Jake Cooper",
+          "type": "Y",
+          "m": 50,
+          "pid": "espn:190963",
+          "nat": "England"
+        },
+        {
+          "n": "Femi Azeez",
+          "type": "Y",
+          "m": 60,
+          "pid": "espn:308402"
+        },
+        {
+          "n": "Thierno Ballo",
+          "type": "Y",
+          "m": 67,
+          "pid": "espn:296408"
         }
       ]
     }
@@ -98035,7 +98872,9 @@
           "n": "엘페주",
           "m": 82,
           "a": "Oliver Sørensen",
-          "nat": "France"
+          "nat": "France",
+          "pid": "espn:361749",
+          "apid": "espn:297751"
         }
       ],
       "away": []
@@ -98045,19 +98884,25 @@
         {
           "n": "Abdoulaye Ndiaye",
           "type": "Y",
-          "m": 89
+          "m": 89,
+          "pid": "espn:288540",
+          "nat": "Senegal"
         }
       ],
       "away": [
         {
           "n": "Simone Canestrelli",
           "type": "Y",
-          "m": 18
+          "m": 18,
+          "pid": "espn:267942",
+          "nat": "Italy"
         },
         {
           "n": "Isak Vural",
           "type": "Y",
-          "m": 44
+          "m": 44,
+          "pid": "espn:340184",
+          "nat": "Türkiye"
         }
       ]
     }
@@ -98166,14 +99011,18 @@
           "m": 3,
           "a": "Jan Schöppner",
           "nat": "Georgia",
-          "aNat": "Germany"
+          "pid": "espn:237727",
+          "aNat": "Germany",
+          "apid": "espn:291798"
         },
         {
           "n": "딩크치",
           "m": 82,
           "a": "Diant Ramaj",
           "nat": "Türkiye",
-          "aNat": "Germany"
+          "pid": "espn:312112",
+          "aNat": "Germany",
+          "apid": "espn:287713"
         }
       ],
       "away": []
@@ -98184,7 +99033,9 @@
         {
           "n": "Martijn Kaars",
           "type": "Y",
-          "m": 76
+          "m": 76,
+          "pid": "espn:250459",
+          "nat": "Netherlands"
         }
       ]
     }
@@ -98207,29 +99058,38 @@
         {
           "n": "Adam Daghim",
           "type": "Y",
-          "m": 90
+          "m": 90,
+          "pid": "espn:338854",
+          "nat": "Denmark"
         }
       ],
       "away": [
         {
           "n": "Fabio Chiarodia",
           "type": "Y",
-          "m": 61
+          "m": 61,
+          "pid": "espn:323061",
+          "nat": "Italy"
         },
         {
           "n": "Jens Castrop",
           "type": "R",
-          "m": 90
+          "m": 90,
+          "pid": "espn:304793",
+          "nat": "South Korea"
         },
         {
           "n": "Rocco Reitz",
           "type": "Y",
-          "m": 90
+          "m": 90,
+          "pid": "espn:307364"
         },
         {
           "n": "Robin Hack",
           "type": "Y",
-          "m": 90
+          "m": 90,
+          "pid": "espn:258876",
+          "nat": "Germany"
         }
       ]
     }
@@ -98265,17 +99125,59 @@
       "home": [
         {
           "n": "노이만",
-          "m": 8
+          "m": 8,
+          "a": "Demarai Gray",
+          "nat": "Germany",
+          "pid": "espn:238884",
+          "aNat": "Jamaica",
+          "apid": "espn:194403"
         },
         {
           "n": "솔리스",
-          "m": 29
+          "m": 29,
+          "nat": "Colombia",
+          "pid": "espn:285048"
         }
       ],
       "away": [
         {
           "n": "호르바트",
-          "m": 82
+          "m": 82,
+          "nat": "Slovenia",
+          "pid": "espn:289798"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Jhon Solís",
+          "type": "Y",
+          "m": 14,
+          "pid": "espn:285048",
+          "nat": "Colombia"
+        },
+        {
+          "n": "Jay Stansfield",
+          "type": "Y",
+          "m": 81,
+          "pid": "espn:301248",
+          "nat": "England"
+        },
+        {
+          "n": "Christoph Klarer",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:263133",
+          "nat": "Austria"
+        }
+      ],
+      "away": [
+        {
+          "n": "Delano Burgzorg",
+          "type": "Y",
+          "m": 75,
+          "pid": "espn:268606"
         }
       ]
     }
@@ -98300,26 +99202,33 @@
           "m": 5,
           "a": "Stanley Mills",
           "nat": "England",
-          "aNat": "England"
+          "pid": "espn:349181",
+          "aNat": "England",
+          "apid": "espn:328022"
         },
         {
           "n": "랭크셔",
           "m": 27,
           "a": "Myles Peart-Harris",
           "nat": "England",
-          "aNat": "England"
+          "pid": "espn:349181",
+          "aNat": "England",
+          "apid": "espn:306541"
         },
         {
           "n": "보크스",
           "m": 67,
-          "nat": "Wales"
+          "nat": "Wales",
+          "pid": "espn:171575"
         },
         {
           "n": "퍼트해리스",
           "m": 73,
           "a": "Will Lankshear",
           "nat": "England",
-          "aNat": "England"
+          "pid": "espn:306541",
+          "aNat": "England",
+          "apid": "espn:349181"
         }
       ],
       "away": [
@@ -98328,7 +99237,9 @@
           "m": 72,
           "a": "Nathaniel Chalobah",
           "nat": "Wales",
-          "aNat": "England"
+          "pid": "espn:409133",
+          "aNat": "England",
+          "apid": "espn:149755"
         }
       ]
     },
@@ -98337,7 +99248,9 @@
         {
           "n": "Brodie Spencer",
           "type": "Y",
-          "m": 82
+          "m": 82,
+          "pid": "espn:341407",
+          "nat": "Northern Ireland"
         }
       ],
       "away": []
@@ -98516,11 +99429,48 @@
         {
           "n": "고기치",
           "m": 67,
-          "og": true
+          "og": true,
+          "nat": "Cyprus",
+          "pid": "espn:243535"
         },
         {
           "n": "피트맨",
-          "m": 81
+          "m": 81,
+          "nat": "Scotland",
+          "pid": "espn:223406"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Alexander Gogic",
+          "type": "Y",
+          "m": 31,
+          "pid": "espn:243535",
+          "nat": "Cyprus"
+        },
+        {
+          "n": "Allan Campbell",
+          "type": "Y",
+          "m": 47,
+          "pid": "espn:220707"
+        }
+      ],
+      "away": [
+        {
+          "n": "Mohamad Sylla",
+          "type": "Y",
+          "m": 58,
+          "pid": "espn:284426",
+          "nat": "France"
+        },
+        {
+          "n": "Robbie Muirhead",
+          "type": "Y",
+          "m": 71,
+          "pid": "espn:177855",
+          "nat": "Scotland"
         }
       ]
     }
@@ -98801,12 +99751,16 @@
           "n": "글러흐",
           "m": 20,
           "a": "Mika Godts",
-          "nat": "Israel"
+          "nat": "Israel",
+          "pid": "espn:325609",
+          "apid": "espn:353363"
         },
         {
           "n": "고츠",
           "m": 41,
-          "a": "Wout Weghorst"
+          "a": "Wout Weghorst",
+          "pid": "espn:353363",
+          "apid": "espn:177042"
         }
       ]
     },
@@ -98816,12 +99770,14 @@
         {
           "n": "Kou Itakura",
           "type": "Y",
-          "m": 78
+          "m": 78,
+          "pid": "espn:238033"
         },
         {
           "n": "Wout Weghorst",
           "type": "Y",
-          "m": 85
+          "m": 85,
+          "pid": "espn:177042"
         }
       ]
     }
@@ -99026,39 +99982,51 @@
         {
           "n": "Jean-Daniel Akpa Akpro",
           "type": "Y",
-          "m": 52
+          "m": 52,
+          "pid": "espn:164519",
+          "nat": "France"
         },
         {
           "n": "Nicolás Valentini",
           "type": "Y",
-          "m": 82
+          "m": 82,
+          "pid": "espn:318084",
+          "nat": "Argentina"
         }
       ],
       "away": [
         {
           "n": "Lassana Coulibaly",
           "type": "Y",
-          "m": 12
+          "m": 12,
+          "pid": "espn:223947",
+          "nat": "Mali"
         },
         {
           "n": "Ylber Ramadani",
           "type": "Y",
-          "m": 67
+          "m": 67,
+          "pid": "espn:237455"
         },
         {
           "n": "Walid Cheddira",
           "type": "Y",
-          "m": 86
+          "m": 86,
+          "pid": "espn:292241"
         },
         {
           "n": "Konan N’Dri",
           "type": "Y",
-          "m": 90
+          "m": 90,
+          "pid": "espn:286582",
+          "nat": "Ivory Coast"
         },
         {
           "n": "Danilo Veiga",
           "type": "Y",
-          "m": 90
+          "m": 90,
+          "pid": "espn:344844",
+          "nat": "Portugal"
         }
       ]
     }
@@ -101242,12 +102210,14 @@
         {
           "n": "이스마힐라 우에드라오고",
           "m": 12,
-          "nat": "Burkina Faso"
+          "nat": "Burkina Faso",
+          "pid": "espn:312748"
         },
         {
           "n": "아르프",
           "m": 31,
-          "nat": "Germany"
+          "nat": "Germany",
+          "pid": "espn:261164"
         }
       ]
     },
@@ -101256,19 +102226,23 @@
         {
           "n": "Friday Etim",
           "type": "Y",
-          "m": 45
+          "m": 45,
+          "pid": "espn:333739"
         },
         {
           "n": "Felix Winther",
           "type": "Y",
-          "m": 76
+          "m": 76,
+          "pid": "espn:319263"
         }
       ],
       "away": [
         {
           "n": "Adam Sorensen",
           "type": "Y",
-          "m": 69
+          "m": 69,
+          "pid": "espn:270885",
+          "nat": "Denmark"
         }
       ]
     },
@@ -101321,14 +102295,17 @@
         {
           "n": "데스코트",
           "m": 55,
-          "nat": "Belgium"
+          "nat": "Belgium",
+          "pid": "espn:299929"
         },
         {
           "n": "뮈렌",
           "m": 62,
           "a": "Brandley Kuwas",
           "nat": "Netherlands",
-          "aNat": "Curaçao"
+          "pid": "espn:164393",
+          "aNat": "Curaçao",
+          "apid": "espn:177058"
         }
       ]
     },
@@ -101337,7 +102314,9 @@
         {
           "n": "Lequincio Zeefuik",
           "type": "Y",
-          "m": 87
+          "m": 87,
+          "pid": "espn:318386",
+          "nat": "Netherlands"
         }
       ],
       "away": []
@@ -101530,37 +102509,91 @@
       "home": [
         {
           "n": "사마타",
-          "m": 5
+          "m": 5,
+          "nat": "Tanzania",
+          "pid": "espn:231366"
         },
         {
           "n": "케츠타",
-          "m": 13
+          "m": 13,
+          "pid": "espn:319290"
         },
         {
           "n": "조우아오위",
-          "m": 52
+          "m": 52,
+          "pid": "espn:386384"
         },
         {
           "n": "두쿠레",
-          "m": 61
+          "m": 61,
+          "a": "Issa Soumaré",
+          "pid": "espn:306548",
+          "apid": "espn:297743"
         }
       ],
       "away": [
         {
           "n": "퀼리타이아",
-          "m": 9
+          "m": 9,
+          "a": "Gauthier Hein",
+          "nat": "Georgia",
+          "pid": "espn:221131",
+          "aNat": "France",
+          "apid": "espn:239905"
         },
         {
           "n": "헤인",
-          "m": 45
+          "m": 45,
+          "nat": "France",
+          "pid": "espn:239905"
         },
         {
           "n": "판도레",
-          "m": 54
+          "m": 54,
+          "a": "Nathan Mbala",
+          "nat": "France",
+          "pid": "espn:420467",
+          "apid": "espn:416422"
         },
         {
           "n": "헤인",
-          "m": 85
+          "m": 85,
+          "a": "Nathan Mbala",
+          "nat": "France",
+          "pid": "espn:239905",
+          "apid": "espn:416422"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Lucas Gourna-Douath",
+          "type": "Y",
+          "m": 80,
+          "pid": "espn:303338"
+        },
+        {
+          "n": "Simon Ebonog",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:346519",
+          "nat": "France"
+        },
+        {
+          "n": "Gautier Lloris",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:180174"
+        }
+      ],
+      "away": [
+        {
+          "n": "Giorgi Kvilitaia",
+          "type": "Y",
+          "m": 47,
+          "pid": "espn:221131",
+          "nat": "Georgia"
         }
       ]
     }
@@ -101582,17 +102615,67 @@
       "home": [
         {
           "n": "르폴",
-          "m": 8
+          "m": 8,
+          "nat": "France",
+          "pid": "espn:323850"
         },
         {
           "n": "론지에",
-          "m": 90
+          "m": 90,
+          "nat": "France",
+          "pid": "espn:207136"
         }
       ],
       "away": [
         {
           "n": "가나고",
-          "m": 40
+          "m": 40,
+          "a": "Nicolas Cozza",
+          "nat": "Cameroon",
+          "pid": "espn:262507",
+          "aNat": "France",
+          "apid": "espn:259022"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Abdelhamid Aït Boudlal",
+          "type": "Y",
+          "m": 73,
+          "pid": "espn:376339",
+          "nat": "Morocco"
+        },
+        {
+          "n": "Valentin Rongier",
+          "type": "Y",
+          "m": 88,
+          "pid": "espn:207136",
+          "nat": "France"
+        },
+        {
+          "n": "Sebastian Szymanski",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:243844",
+          "nat": "Poland"
+        }
+      ],
+      "away": [
+        {
+          "n": "Nicolas Cozza",
+          "type": "Y",
+          "m": 38,
+          "pid": "espn:259022",
+          "nat": "France"
+        },
+        {
+          "n": "Deiver Machado",
+          "type": "Y",
+          "m": 50,
+          "pid": "espn:197401",
+          "nat": "Colombia"
         }
       ]
     }
@@ -101657,21 +102740,64 @@
       "home": [
         {
           "n": "시메오네",
-          "m": 70
+          "m": 70,
+          "a": "Emirhan Ilkhan",
+          "nat": "Argentina",
+          "pid": "espn:189974",
+          "aNat": "Türkiye",
+          "apid": "espn:330707"
         },
         {
           "n": "블라시치",
-          "m": 79
+          "m": 79,
+          "nat": "Croatia",
+          "pid": "espn:206378"
         }
       ],
       "away": [
         {
           "n": "튀랑",
-          "m": 23
+          "m": 23,
+          "a": "Federico Dimarco",
+          "nat": "France",
+          "pid": "espn:217331",
+          "aNat": "Italy",
+          "apid": "espn:194748"
         },
         {
           "n": "비세크",
-          "m": 61
+          "m": 61,
+          "a": "Federico Dimarco",
+          "nat": "Germany",
+          "pid": "espn:266660",
+          "aNat": "Italy",
+          "apid": "espn:194748"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Enzo Ebosse",
+          "type": "Y",
+          "m": 85,
+          "pid": "espn:242601"
+        }
+      ],
+      "away": [
+        {
+          "n": "Andy Diouf",
+          "type": "Y",
+          "m": 84,
+          "pid": "espn:319167",
+          "nat": "France"
+        },
+        {
+          "n": "Nicolò Barella",
+          "type": "Y",
+          "m": 86,
+          "pid": "espn:204441",
+          "nat": "Italy"
         }
       ]
     }
@@ -102945,18 +104071,41 @@
       "home": [
         {
           "n": "엘유누시",
-          "m": 31
+          "m": 31,
+          "nat": "Norway",
+          "pid": "espn:162484"
         },
         {
           "n": "다다손",
-          "m": 73
+          "m": 73,
+          "nat": "Iceland",
+          "pid": "espn:411168"
         },
         {
           "n": "라르손",
-          "m": 85
+          "m": 85,
+          "pid": "espn:206530"
         }
       ],
       "away": []
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Mathias Jørgensen",
+          "type": "Y",
+          "m": 88,
+          "pid": "espn:111177"
+        }
+      ],
+      "away": [
+        {
+          "n": "Mads Enggård",
+          "type": "Y",
+          "m": 12,
+          "pid": "espn:315621"
+        }
+      ]
     },
     "phaseCode": "RELEG"
   },
@@ -104292,7 +105441,8 @@
         {
           "n": "밀린코비치-사비치",
           "m": 18,
-          "nat": "Serbia"
+          "nat": "Serbia",
+          "pid": "espn:211141"
         }
       ],
       "away": []
@@ -104303,7 +105453,9 @@
         {
           "n": "Khaled Al Samiri",
           "type": "Y",
-          "m": 47
+          "m": 47,
+          "pid": "espn:256669",
+          "nat": "Saudi Arabia"
         }
       ]
     }
@@ -104325,22 +105477,55 @@
       "home": [
         {
           "n": "킹",
-          "m": 7
+          "m": 7,
+          "nat": "Norway",
+          "pid": "espn:141188"
         },
         {
           "n": "킹",
-          "m": 52
+          "m": 52,
+          "nat": "Norway",
+          "pid": "espn:141188"
         },
         {
           "n": "파올로 페르난데스",
-          "m": 59
+          "m": 59,
+          "pid": "espn:259139"
         }
       ],
       "away": [
         {
           "n": "모리스",
           "m": 16,
-          "og": true
+          "og": true,
+          "nat": "Luxembourg",
+          "pid": "espn:140195"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Arif Al Haydar",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:357628"
+        }
+      ],
+      "away": [
+        {
+          "n": "Abdullah Al Hawsawi",
+          "type": "Y",
+          "m": 53,
+          "pid": "espn:357664",
+          "nat": "Saudi Arabia"
+        },
+        {
+          "n": "Felippe Cardoso",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:269498",
+          "nat": "Brazil"
         }
       ]
     }
@@ -106172,22 +107357,26 @@
         {
           "n": "압둘라",
           "m": 7,
-          "nat": "Saudi Arabia"
+          "nat": "Saudi Arabia",
+          "pid": "espn:286249"
         },
         {
           "n": "압둘라",
           "m": 77,
-          "nat": "Saudi Arabia"
+          "nat": "Saudi Arabia",
+          "pid": "espn:286249"
         },
         {
           "n": "퀴뇨네스",
           "m": 87,
-          "nat": "Mexico"
+          "nat": "Mexico",
+          "pid": "espn:233075"
         },
         {
           "n": "퀴뇨네스",
           "m": 90,
-          "nat": "Mexico"
+          "nat": "Mexico",
+          "pid": "espn:233075"
         }
       ]
     },
@@ -106196,19 +107385,23 @@
         {
           "n": "Marzouq Tambakti",
           "type": "Y",
-          "m": 56
+          "m": 56,
+          "pid": "espn:372196"
         },
         {
           "n": "Abdulelah Al Khaibari",
           "type": "Y",
-          "m": 89
+          "m": 89,
+          "pid": "espn:367369"
         }
       ],
       "away": [
         {
           "n": "Koen Casteels",
           "type": "Y",
-          "m": 90
+          "m": 90,
+          "pid": "espn:140079",
+          "nat": "Belgium"
         }
       ]
     }
@@ -107937,23 +109130,27 @@
         {
           "n": "페드로사",
           "m": 60,
-          "nat": "Colombia"
+          "nat": "Colombia",
+          "pid": "espn:196748"
         }
       ],
       "away": [
         {
           "n": "알바로 메드란",
           "m": 45,
-          "nat": "Spain"
+          "nat": "Spain",
+          "pid": "espn:200986"
         },
         {
           "n": "칼리드 알 간남",
           "m": 74,
-          "nat": "Saudi Arabia"
+          "nat": "Saudi Arabia",
+          "pid": "espn:288570"
         },
         {
           "n": "훼이날덤",
-          "m": 79
+          "m": 79,
+          "pid": "espn:98342"
         }
       ]
     },
@@ -107963,12 +109160,14 @@
         {
           "n": "Francisco Calvo",
           "type": "Y",
-          "m": 22
+          "m": 22,
+          "pid": "espn:159195"
         },
         {
           "n": "Mohau Nkota",
           "type": "Y",
-          "m": 47
+          "m": 47,
+          "pid": "espn:380803"
         }
       ]
     }
@@ -108430,7 +109629,9 @@
           "m": 47,
           "a": "Kauã Elias",
           "nat": "Ukraine",
-          "aNat": "Brazil"
+          "pid": "espn:338311",
+          "aNat": "Brazil",
+          "apid": "espn:361432"
         }
       ],
       "away": [
@@ -108439,21 +109640,27 @@
           "m": 1,
           "a": "Jean-Philippe Mateta",
           "nat": "Senegal",
-          "aNat": "France"
+          "pid": "espn:241012",
+          "aNat": "France",
+          "apid": "espn:241187"
         },
         {
           "n": "카마다",
           "m": 58,
           "a": "Maxence Lacroix",
           "nat": "Japan",
-          "aNat": "France"
+          "pid": "espn:219362",
+          "aNat": "France",
+          "apid": "espn:265918"
         },
         {
           "n": "스트란드 라르센",
           "m": 84,
           "a": "Daichi Kamada",
           "nat": "Norway",
-          "aNat": "Japan"
+          "pid": "espn:252747",
+          "aNat": "Japan",
+          "apid": "espn:219362"
         }
       ]
     },
@@ -108462,29 +109669,39 @@
         {
           "n": "Oleh Ocheretko",
           "type": "Y",
-          "m": 31
+          "m": 31,
+          "pid": "espn:338311",
+          "nat": "Ukraine"
         },
         {
           "n": "Vinicius Augusto",
           "type": "Y",
-          "m": 38
+          "m": 38,
+          "pid": "espn:307928",
+          "nat": "Brazil"
         },
         {
           "n": "Pedrinho",
           "type": "Y",
-          "m": 52
+          "m": 52,
+          "pid": "espn:313078",
+          "nat": "Brazil"
         }
       ],
       "away": [
         {
           "n": "Yéremy Pino",
           "type": "Y",
-          "m": 44
+          "m": 44,
+          "pid": "espn:297370",
+          "nat": "Spain"
         },
         {
           "n": "Jaydee Canvot",
           "type": "Y",
-          "m": 56
+          "m": 56,
+          "pid": "espn:386252",
+          "nat": "France"
         }
       ]
     },
@@ -108531,12 +109748,15 @@
           "m": 8,
           "a": "Víctor Gómez",
           "nat": "Türkiye",
-          "aNat": "Spain"
+          "pid": "espn:328795",
+          "aNat": "Spain",
+          "apid": "espn:265984"
         },
         {
           "n": "도르젤레스",
           "m": 90,
-          "nat": "Ivory Coast"
+          "nat": "Ivory Coast",
+          "pid": "espn:347459"
         }
       ],
       "away": [
@@ -108545,7 +109765,9 @@
           "m": 16,
           "a": "Niklas Beste",
           "nat": "Italy",
-          "aNat": "Germany"
+          "pid": "espn:179571",
+          "aNat": "Germany",
+          "apid": "espn:231190"
         }
       ]
     },
@@ -108554,29 +109776,39 @@
         {
           "n": "Vítor Carvalho",
           "type": "Y",
-          "m": 16
+          "m": 16,
+          "pid": "espn:250906",
+          "nat": "Brazil"
         },
         {
           "n": "Víctor Gómez",
           "type": "Y",
-          "m": 57
+          "m": 57,
+          "pid": "espn:265984",
+          "nat": "Spain"
         }
       ],
       "away": [
         {
           "n": "Vincenzo Grifo",
           "type": "Y",
-          "m": 18
+          "m": 18,
+          "pid": "espn:179571",
+          "nat": "Italy"
         },
         {
           "n": "Philipp Lienhart",
           "type": "Y",
-          "m": 45
+          "m": 45,
+          "pid": "espn:219316",
+          "nat": "Austria"
         },
         {
           "n": "Jordy Makengo",
           "type": "Y",
-          "m": 72
+          "m": 72,
+          "pid": "espn:367558",
+          "nat": "France"
         }
       ]
     },
@@ -109902,22 +111134,63 @@
       "home": [
         {
           "n": "노블",
-          "m": 47
+          "m": 47,
+          "nat": "England",
+          "pid": "espn:282898"
         },
         {
           "n": "뮤어헤드",
-          "m": 78
+          "m": 78,
+          "nat": "Scotland",
+          "pid": "espn:177855"
         }
       ],
       "away": [
         {
           "n": "프레임",
-          "m": 24
+          "m": 24,
+          "nat": "Scotland",
+          "pid": "espn:354877"
         },
         {
           "n": "핀레이슨",
           "m": 71,
-          "og": true
+          "og": true,
+          "nat": "Northern Ireland",
+          "pid": "espn:261513"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Babacar Fati",
+          "type": "Y",
+          "m": 70,
+          "pid": "espn:401969",
+          "nat": "Guinea-Bissau"
+        },
+        {
+          "n": "Daniel Finlayson",
+          "type": "Y",
+          "m": 81,
+          "pid": "espn:261513",
+          "nat": "Northern Ireland"
+        },
+        {
+          "n": "Macauley Tait",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:326253",
+          "nat": "Scotland"
+        }
+      ],
+      "away": [
+        {
+          "n": "Topi Keskinen",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:341438"
         }
       ]
     }
@@ -109940,20 +111213,25 @@
         {
           "n": "레리스",
           "m": 56,
-          "nat": "Algeria"
+          "nat": "Algeria",
+          "pid": "espn:256212"
         }
       ],
       "away": [
         {
           "n": "반다",
           "m": 52,
-          "a": "Walid Cheddira"
+          "a": "Walid Cheddira",
+          "pid": "espn:267910",
+          "apid": "espn:292241"
         },
         {
           "n": "체디라",
           "m": 65,
           "a": "Santiago Pierotti",
-          "aNat": "Argentina"
+          "pid": "espn:292241",
+          "aNat": "Argentina",
+          "apid": "espn:288429"
         }
       ]
     },
@@ -109962,34 +111240,45 @@
         {
           "n": "Antonio Caracciolo",
           "type": "Y",
-          "m": 43
+          "m": 43,
+          "pid": "espn:144600",
+          "nat": "Italy"
         },
         {
           "n": "Michel Aebischer",
           "type": "Y",
-          "m": 61
+          "m": 61,
+          "pid": "espn:245623",
+          "nat": "Switzerland"
         },
         {
           "n": "Rafiu Durosinmi",
           "type": "Y",
-          "m": 82
+          "m": 82,
+          "pid": "espn:358249",
+          "nat": "Nigeria"
         },
         {
           "n": "Henrik Meister",
           "type": "Y",
-          "m": 90
+          "m": 90,
+          "pid": "espn:366395",
+          "nat": "Denmark"
         }
       ],
       "away": [
         {
           "n": "Walid Cheddira",
           "type": "Y",
-          "m": 66
+          "m": 66,
+          "pid": "espn:292241"
         },
         {
           "n": "Santiago Pierotti",
           "type": "Y",
-          "m": 88
+          "m": 88,
+          "pid": "espn:288429",
+          "nat": "Argentina"
         }
       ]
     }
@@ -111477,21 +112766,6 @@
     "time": "16:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
-    "home": "대한민국",
-    "away": "필리핀",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
-    "timeTbd": false,
-    "gameId": "INfbBvjkK2ARSQU",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 5,
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-02",
-    "time": "16:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
     "home": "일본",
     "away": "레바논",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
@@ -111558,6 +112832,21 @@
       ],
       "away": []
     },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-02",
+    "time": "16:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
+    "home": "대한민국",
+    "away": "필리핀",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
+    "timeTbd": false,
+    "gameId": "INfbBvjkK2ARSQU",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 5,
     "phaseCode": "GROUP"
   },
   {
@@ -112126,7 +113415,8 @@
         {
           "n": "마비디디",
           "m": 78,
-          "nat": "England"
+          "nat": "England",
+          "pid": "espn:225549"
         }
       ]
     },
@@ -112135,14 +113425,18 @@
         {
           "n": "Sean McLoughlin",
           "type": "Y",
-          "m": 62
+          "m": 62,
+          "pid": "espn:274535",
+          "nat": "Republic of Ireland"
         }
       ],
       "away": [
         {
           "n": "Ricardo Pereira",
           "type": "Y",
-          "m": 54
+          "m": 54,
+          "pid": "espn:171144",
+          "nat": "Portugal"
         }
       ]
     }
@@ -112350,6 +113644,21 @@
     "time": "20:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
+    "home": "호주",
+    "away": "인도",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
+    "timeTbd": false,
+    "gameId": "fS1J3kxSwziVvHl",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 2,
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-02",
+    "time": "20:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
     "home": "북한",
     "away": "차이니스 타이베이",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
@@ -112403,21 +113712,6 @@
       ],
       "away": []
     },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-02",
-    "time": "20:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
-    "home": "호주",
-    "away": "인도",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
-    "timeTbd": false,
-    "gameId": "fS1J3kxSwziVvHl",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 2,
     "phaseCode": "GROUP"
   },
   {
@@ -112566,21 +113860,27 @@
           "m": 50,
           "a": "Matthis Abline",
           "nat": "Cameroon",
-          "aNat": "France"
+          "pid": "espn:262507",
+          "aNat": "France",
+          "apid": "espn:318389"
         },
         {
           "n": "카벨라",
           "m": 54,
           "a": "Ignatius Ganago",
           "nat": "France",
-          "aNat": "Cameroon"
+          "pid": "espn:136688",
+          "aNat": "Cameroon",
+          "apid": "espn:262507"
         },
         {
           "n": "에블린",
           "m": 58,
           "a": "Mohamed Kaba",
           "nat": "France",
-          "aNat": "France"
+          "pid": "espn:318389",
+          "aNat": "France",
+          "apid": "espn:223292"
         }
       ],
       "away": []
@@ -112590,24 +113890,29 @@
         {
           "n": "Matthis Abline",
           "type": "Y",
-          "m": 17
+          "m": 17,
+          "pid": "espn:318389",
+          "nat": "France"
         }
       ],
       "away": [
         {
           "n": "Quinten Timber",
           "type": "Y",
-          "m": 31
+          "m": 31,
+          "pid": "espn:282230"
         },
         {
           "n": "Ange Lago",
           "type": "Y",
-          "m": 49
+          "m": 49,
+          "pid": "espn:414466"
         },
         {
           "n": "Facundo Medina",
           "type": "Y",
-          "m": 81
+          "m": 81,
+          "pid": "espn:249663"
         }
       ]
     }
@@ -112913,13 +114218,17 @@
           "n": "드 위트",
           "m": 86,
           "a": "Jesper Karlsson",
-          "nat": "Netherlands"
+          "nat": "Netherlands",
+          "pid": "espn:250528",
+          "apid": "espn:235503"
         },
         {
           "n": "블레이크",
           "m": 90,
           "a": "David Min",
-          "nat": "England"
+          "nat": "England",
+          "pid": "espn:340665",
+          "apid": "espn:251979"
         }
       ],
       "away": []
@@ -112930,17 +114239,23 @@
         {
           "n": "Mohamed Nassoh",
           "type": "R",
-          "m": 35
+          "m": 35,
+          "pid": "espn:310137",
+          "nat": "Morocco"
         },
         {
           "n": "Maximilien Balard",
           "type": "Y",
-          "m": 40
+          "m": 40,
+          "pid": "espn:312264",
+          "nat": "Australia"
         },
         {
           "n": "Daniel Bielica",
           "type": "Y",
-          "m": 82
+          "m": 82,
+          "pid": "espn:275751",
+          "nat": "Poland"
         }
       ]
     }
@@ -113020,12 +114335,14 @@
         {
           "n": "킹",
           "m": 29,
-          "nat": "Norway"
+          "nat": "Norway",
+          "pid": "espn:141188"
         },
         {
           "n": "킹",
           "m": 90,
-          "nat": "Norway"
+          "nat": "Norway",
+          "pid": "espn:141188"
         }
       ]
     },
@@ -113034,29 +114351,38 @@
         {
           "n": "Tariq Mohammed",
           "type": "Y",
-          "m": 43
+          "m": 43,
+          "pid": "espn:286014",
+          "nat": "Saudi Arabia"
         }
       ],
       "away": [
         {
           "n": "Majed Kanabah",
           "type": "Y",
-          "m": 32
+          "m": 32,
+          "pid": "espn:357521",
+          "nat": "Saudi Arabia"
         },
         {
           "n": "Mohammed Khubrani",
           "type": "Y",
-          "m": 37
+          "m": 37,
+          "pid": "espn:267868",
+          "nat": "Saudi Arabia"
         },
         {
           "n": "Joshua King",
           "type": "Y",
-          "m": 43
+          "m": 43,
+          "pid": "espn:141188",
+          "nat": "Norway"
         },
         {
           "n": "Kostas Fortounis",
           "type": "Y",
-          "m": 73
+          "m": 73,
+          "pid": "espn:160020"
         }
       ]
     }
@@ -113151,7 +114477,9 @@
           "m": 49,
           "a": "Gauthier Hein",
           "nat": "France",
-          "aNat": "France"
+          "pid": "espn:265200",
+          "aNat": "France",
+          "apid": "espn:239905"
         }
       ],
       "away": [
@@ -113159,13 +114487,17 @@
           "n": "발로건",
           "m": 61,
           "a": "Maghnes Akliouche",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "espn:282643",
+          "apid": "espn:329690"
         },
         {
           "n": "안수 파티",
           "m": 90,
           "a": "Caio Henrique",
-          "nat": "Spain"
+          "nat": "Guinea-Bissau",
+          "pid": "espn:292957",
+          "apid": "espn:240353"
         }
       ]
     },
@@ -113175,12 +114507,16 @@
         {
           "n": "Mamadou Coulibaly",
           "type": "Y",
-          "m": 62
+          "m": 62,
+          "pid": "espn:208518",
+          "nat": "France"
         },
         {
           "n": "Christian Mawissa",
           "type": "Y",
-          "m": 81
+          "m": 81,
+          "pid": "espn:350525",
+          "nat": "France"
         }
       ]
     }
@@ -115324,14 +116660,18 @@
           "m": 8,
           "a": "Vasilios Zagaritis",
           "nat": "Belgium",
-          "aNat": "Greece"
+          "pid": "espn:303548",
+          "aNat": "Greece",
+          "apid": "espn:290209"
         },
         {
           "n": "벤테",
           "m": 86,
           "a": "Jacob Trenskow",
           "nat": "Suriname",
-          "aNat": "Denmark"
+          "pid": "espn:253396",
+          "aNat": "Denmark",
+          "apid": "espn:308051"
         }
       ]
     },
@@ -115340,34 +116680,43 @@
         {
           "n": "Precious Ugwu",
           "type": "Y",
-          "m": 6
+          "m": 6,
+          "pid": "espn:380940",
+          "nat": "Netherlands"
         },
         {
           "n": "Juninho Bacuna",
           "type": "Y",
-          "m": 11
+          "m": 11,
+          "pid": "espn:216287",
+          "nat": "Curaçao"
         },
         {
           "n": "Nordin Bukala",
           "type": "Y",
-          "m": 40
+          "m": 40,
+          "pid": "espn:365390",
+          "nat": "Netherlands"
         }
       ],
       "away": [
         {
           "n": "Joris van Overeem",
           "type": "Y",
-          "m": 41
+          "m": 41,
+          "pid": "espn:159252"
         },
         {
           "n": "Luuk Brouwers",
           "type": "Y",
-          "m": 80
+          "m": 80,
+          "pid": "espn:218528"
         },
         {
           "n": "Lasse Nordas",
           "type": "Y",
-          "m": 90
+          "m": 90,
+          "pid": "espn:319226"
         }
       ]
     }
@@ -115417,10 +116766,37 @@
       "home": [
         {
           "n": "마흠두",
-          "m": 60
+          "m": 60,
+          "nat": "France",
+          "pid": "espn:304214"
         }
       ],
       "away": []
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Cyril Edudzi",
+          "type": "R",
+          "m": 29,
+          "pid": "espn:406151",
+          "nat": "Ghana"
+        }
+      ],
+      "away": [
+        {
+          "n": "Tobias Bach",
+          "type": "Y",
+          "m": 43,
+          "pid": "espn:379095"
+        },
+        {
+          "n": "Giorgi Tabatadze",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:387965"
+        }
+      ]
     },
     "phaseCode": "RELEG"
   },
@@ -115486,7 +116862,9 @@
           "n": "맥널티",
           "m": 19,
           "a": "Ryan Thomas",
-          "aNat": "New Zealand"
+          "pid": "espn:320920",
+          "aNat": "New Zealand",
+          "apid": "espn:156146"
         }
       ],
       "away": []
@@ -115496,34 +116874,46 @@
         {
           "n": "Ryan Thomas",
           "type": "Y",
-          "m": 21
+          "m": 21,
+          "pid": "espn:156146",
+          "nat": "New Zealand"
         },
         {
           "n": "Sherel Floranus",
           "type": "Y",
-          "m": 68
+          "m": 68,
+          "pid": "espn:224786",
+          "nat": "Curaçao"
         }
       ],
       "away": [
         {
           "n": "Alec Van Hoorenbeeck",
           "type": "Y",
-          "m": 31
+          "m": 31,
+          "pid": "espn:289363",
+          "nat": "Belgium"
         },
         {
           "n": "Djevencio van der Kust",
           "type": "Y",
-          "m": 38
+          "m": 38,
+          "pid": "espn:283835",
+          "nat": "Suriname"
         },
         {
           "n": "Sem Scheperman",
           "type": "Y",
-          "m": 62
+          "m": 62,
+          "pid": "espn:336728",
+          "nat": "Netherlands"
         },
         {
           "n": "Sem Scheperman",
           "type": "R",
-          "m": 63
+          "m": 63,
+          "pid": "espn:336728",
+          "nat": "Netherlands"
         }
       ]
     }
@@ -115590,7 +116980,9 @@
           "m": 87,
           "a": "Martijn Kaars",
           "nat": "Gambia",
-          "aNat": "Netherlands"
+          "pid": "espn:387129",
+          "aNat": "Netherlands",
+          "apid": "espn:250459"
         }
       ],
       "away": [
@@ -115599,14 +116991,18 @@
           "m": 6,
           "a": "Sheraldo Becker",
           "nat": "Germany",
-          "aNat": "Suriname"
+          "pid": "espn:234376",
+          "aNat": "Suriname",
+          "apid": "espn:195027"
         },
         {
           "n": "음웨네",
           "m": 40,
           "a": "Silvan Widmer",
           "nat": "Austria",
-          "aNat": "Switzerland"
+          "pid": "espn:239574",
+          "aNat": "Switzerland",
+          "apid": "espn:175905"
         }
       ]
     },
@@ -115615,24 +117011,31 @@
         {
           "n": "Karol Mets",
           "type": "Y",
-          "m": 88
+          "m": 88,
+          "pid": "espn:196297",
+          "nat": "Estonia"
         },
         {
           "n": "Connor Metcalfe",
           "type": "Y",
-          "m": 90
+          "m": 90,
+          "pid": "espn:260643",
+          "nat": "Australia"
         },
         {
           "n": "Abdoulie Ceesay",
           "type": "Y",
-          "m": 90
+          "m": 90,
+          "pid": "espn:387129",
+          "nat": "Gambia"
         }
       ],
       "away": [
         {
           "n": "Daniel Batz",
           "type": "Y",
-          "m": 68
+          "m": 68,
+          "pid": "espn:149297"
         }
       ]
     }
@@ -115654,29 +117057,76 @@
       "home": [
         {
           "n": "에팀",
-          "m": 1
+          "m": 1,
+          "pid": "espn:333739"
         },
         {
           "n": "린데킬데",
-          "m": 24
+          "m": 24,
+          "pid": "espn:368355"
         },
         {
           "n": "에팀",
-          "m": 83
+          "m": 83,
+          "pid": "espn:333739"
         }
       ],
       "away": [
         {
           "n": "코르넬리우스",
-          "m": 11
+          "m": 11,
+          "nat": "Denmark",
+          "pid": "espn:176668"
         },
         {
           "n": "에밀 매드슨",
-          "m": 32
+          "m": 32,
+          "nat": "Denmark",
+          "pid": "espn:242850"
         },
         {
           "n": "라르손",
-          "m": 87
+          "m": 87,
+          "pid": "espn:206530"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Frederik Rieper",
+          "type": "Y",
+          "m": 69,
+          "pid": "espn:380661"
+        }
+      ],
+      "away": [
+        {
+          "n": "William Clem",
+          "type": "Y",
+          "m": 45,
+          "pid": "espn:332428",
+          "nat": "Denmark"
+        },
+        {
+          "n": "Thomas Delaney",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:151757",
+          "nat": "Denmark"
+        },
+        {
+          "n": "Geovanni Vianney",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:418782",
+          "nat": "Cameroon"
+        },
+        {
+          "n": "Elias Achouri",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:324510"
         }
       ]
     },
@@ -115840,7 +117290,8 @@
       "home": [
         {
           "n": "블라호비치",
-          "m": 62
+          "m": 62,
+          "pid": "espn:235677"
         }
       ],
       "away": [
@@ -115849,7 +117300,9 @@
           "m": 34,
           "a": "Domagoj Bradaric",
           "nat": "Scotland",
-          "aNat": "Croatia"
+          "pid": "espn:283375",
+          "aNat": "Croatia",
+          "apid": "espn:276582"
         }
       ]
     },
@@ -115858,29 +117311,39 @@
         {
           "n": "Manuel Locatelli",
           "type": "Y",
-          "m": 33
+          "m": 33,
+          "pid": "espn:217538",
+          "nat": "Italy"
         }
       ],
       "away": [
         {
           "n": "Roberto Gagliardini",
           "type": "Y",
-          "m": 5
+          "m": 5,
+          "pid": "espn:193977",
+          "nat": "Italy"
         },
         {
           "n": "Martin Frese",
           "type": "Y",
-          "m": 31
+          "m": 31,
+          "pid": "espn:253960",
+          "nat": "Denmark"
         },
         {
           "n": "Antoine Bernede",
           "type": "Y",
-          "m": 63
+          "m": 63,
+          "pid": "espn:259820",
+          "nat": "France"
         },
         {
           "n": "Abdou Harroui",
           "type": "Y",
-          "m": 90
+          "m": 90,
+          "pid": "espn:268961",
+          "nat": "Morocco"
         }
       ]
     }
@@ -115905,21 +117368,27 @@
           "m": 22,
           "a": "Pablo Fornals",
           "nat": "Colombia",
-          "aNat": "Spain"
+          "pid": "espn:336809",
+          "aNat": "Spain",
+          "apid": "espn:227714"
         },
         {
           "n": "에잘줄리",
           "m": 45,
           "a": "Antony",
           "nat": "Morocco",
-          "aNat": "Brazil"
+          "pid": "espn:300912",
+          "aNat": "Brazil",
+          "apid": "espn:281558"
         },
         {
           "n": "에르난데스",
           "m": 58,
           "a": "Abde Ezzalzouli",
           "nat": "Colombia",
-          "aNat": "Morocco"
+          "pid": "espn:336809",
+          "aNat": "Morocco",
+          "apid": "espn:300912"
         }
       ],
       "away": []
@@ -116074,7 +117543,9 @@
           "n": "린하르트",
           "m": 75,
           "a": "Johan Manzambi",
-          "nat": "Austria"
+          "nat": "Austria",
+          "pid": "espn:219316",
+          "apid": "espn:386992"
         }
       ],
       "away": [
@@ -116083,7 +117554,9 @@
           "m": 55,
           "a": "Christian Eriksen",
           "nat": "Greece",
-          "aNat": "Denmark"
+          "pid": "espn:336104",
+          "aNat": "Denmark",
+          "apid": "espn:144130"
         }
       ]
     },
@@ -116092,14 +117565,18 @@
         {
           "n": "Matthias Ginter",
           "type": "Y",
-          "m": 57
+          "m": 57,
+          "pid": "espn:170209",
+          "nat": "Germany"
         }
       ],
       "away": [
         {
           "n": "Mattias Svanberg",
           "type": "Y",
-          "m": 81
+          "m": 81,
+          "pid": "espn:220120",
+          "nat": "Sweden"
         }
       ]
     }
@@ -116455,20 +117932,24 @@
         {
           "n": "아탕가나 에도아",
           "m": 26,
-          "nat": "France"
+          "nat": "France",
+          "pid": "espn:359165"
         },
         {
           "n": "케시에",
-          "m": 36
+          "m": 36,
+          "pid": "espn:194711"
         },
         {
           "n": "케시에",
-          "m": 43
+          "m": 43,
+          "pid": "espn:194711"
         },
         {
           "n": "페라스 알 부라이칸",
           "m": 72,
-          "nat": "Saudi Arabia"
+          "nat": "Saudi Arabia",
+          "pid": "espn:283331"
         }
       ],
       "away": []
@@ -116479,17 +117960,23 @@
         {
           "n": "Tokmac Nguen",
           "type": "Y",
-          "m": 29
+          "m": 29,
+          "pid": "espn:164556",
+          "nat": "Norway"
         },
         {
           "n": "Hussain Al Zabdani",
           "type": "R",
-          "m": 45
+          "m": 45,
+          "pid": "espn:367747",
+          "nat": "Saudi Arabia"
         },
         {
           "n": "Mateo Borrell",
           "type": "Y",
-          "m": 64
+          "m": 64,
+          "pid": "espn:395382",
+          "nat": "Argentina"
         }
       ]
     }
@@ -116512,24 +117999,28 @@
         {
           "n": "모하메드 아부 알 샤맛",
           "m": 24,
-          "nat": "Saudi Arabia"
+          "nat": "Saudi Arabia",
+          "pid": "espn:361692"
         },
         {
           "n": "무사브 알 주와이르",
           "m": 55,
-          "nat": "Saudi Arabia"
+          "nat": "Saudi Arabia",
+          "pid": "espn:315523"
         },
         {
           "n": "퀴뇨네스",
           "m": 78,
-          "nat": "Mexico"
+          "nat": "Mexico",
+          "pid": "espn:233075"
         }
       ],
       "away": [
         {
           "n": "주앙 펠릭스",
           "m": 39,
-          "nat": "Portugal"
+          "nat": "Portugal",
+          "pid": "espn:276350"
         }
       ]
     },
@@ -116538,24 +118029,31 @@
         {
           "n": "Otávio",
           "type": "Y",
-          "m": 46
+          "m": 46,
+          "pid": "espn:196881"
         }
       ],
       "away": [
         {
           "n": "Iñigo Martínez",
           "type": "Y",
-          "m": 41
+          "m": 41,
+          "pid": "espn:165562",
+          "nat": "Spain"
         },
         {
           "n": "João Félix",
           "type": "Y",
-          "m": 49
+          "m": 49,
+          "pid": "espn:276350",
+          "nat": "Portugal"
         },
         {
           "n": "Aiman Yahya",
           "type": "Y",
-          "m": 89
+          "m": 89,
+          "pid": "espn:296602",
+          "nat": "Saudi Arabia"
         }
       ]
     }
@@ -116737,14 +118235,18 @@
           "m": 45,
           "a": "Piotr Zielinski",
           "nat": "France",
-          "aNat": "Poland"
+          "pid": "espn:217331",
+          "aNat": "Poland",
+          "apid": "espn:177782"
         },
         {
           "n": "미키타리안",
           "m": 80,
           "a": "Lautaro Martínez",
           "nat": "Armenia",
-          "aNat": "Argentina"
+          "pid": "espn:147625",
+          "aNat": "Argentina",
+          "apid": "espn:219713"
         }
       ],
       "away": []
@@ -116754,7 +118256,9 @@
         {
           "n": "Piotr Zielinski",
           "type": "Y",
-          "m": 64
+          "m": 64,
+          "pid": "espn:177782",
+          "nat": "Poland"
         }
       ],
       "away": []
@@ -117596,7 +119100,9 @@
           "m": 29,
           "a": "Romano Floriani Mussolini",
           "nat": "Italy",
-          "aNat": "Italy"
+          "pid": "espn:197062",
+          "aNat": "Italy",
+          "apid": "espn:330041"
         }
       ],
       "away": [
@@ -117605,13 +119111,17 @@
           "m": 53,
           "a": "Tijjani Noslin",
           "nat": "Denmark",
-          "aNat": "Netherlands"
+          "pid": "espn:291550",
+          "aNat": "Netherlands",
+          "apid": "espn:323113"
         },
         {
           "n": "노슬린",
           "m": 90,
           "a": "Boulaye Dia",
-          "nat": "Netherlands"
+          "nat": "Netherlands",
+          "pid": "espn:323113",
+          "apid": "espn:282381"
         }
       ]
     },
@@ -117620,19 +119130,25 @@
         {
           "n": "Tommaso Barbieri",
           "type": "Y",
-          "m": 76
+          "m": 76,
+          "pid": "espn:297783",
+          "nat": "Italy"
         }
       ],
       "away": [
         {
           "n": "Oliver Provstgaard",
           "type": "Y",
-          "m": 40
+          "m": 40,
+          "pid": "espn:333311",
+          "nat": "Denmark"
         },
         {
           "n": "Nuno Tavares",
           "type": "Y",
-          "m": 88
+          "m": 88,
+          "pid": "espn:288901",
+          "nat": "Portugal"
         }
       ]
     }
@@ -119331,13 +120847,13 @@
     "time": "20:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
-    "home": "인도",
-    "away": "일본",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
+    "home": "필리핀",
+    "away": "북한",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
     "timeTbd": false,
-    "gameId": "SyGtvWeiJaOs0ZA",
+    "gameId": "GL60R919H16s8H0",
     "status": "completed",
-    "awayScore": 3,
+    "awayScore": 8,
     "homeScore": 0,
     "phaseCode": "GROUP"
   },
@@ -119346,13 +120862,13 @@
     "time": "20:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
-    "home": "필리핀",
-    "away": "북한",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
+    "home": "인도",
+    "away": "일본",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
     "timeTbd": false,
-    "gameId": "GL60R919H16s8H0",
+    "gameId": "SyGtvWeiJaOs0ZA",
     "status": "completed",
-    "awayScore": 8,
+    "awayScore": 3,
     "homeScore": 0,
     "phaseCode": "GROUP"
   },
@@ -123213,8 +124729,8 @@
           "m": 52,
           "a": "Tyrick Mitchell",
           "nat": "Senegal",
-          "pid": "espn:241012",
           "aNat": "England",
+          "pid": "espn:241012",
           "apid": "espn:300853"
         }
       ],
@@ -123224,8 +124740,8 @@
           "m": 34,
           "a": "Pedro Henrique",
           "nat": "Brazil",
-          "pid": "espn:345648",
           "aNat": "Brazil",
+          "pid": "espn:345648",
           "apid": "espn:313078"
         }
       ]
@@ -123273,8 +124789,8 @@
           "m": 41,
           "a": "Philipp Treu",
           "nat": "Switzerland",
-          "pid": "espn:386992",
           "aNat": "Germany",
+          "pid": "espn:386992",
           "apid": "espn:364596"
         },
         {
@@ -123282,8 +124798,8 @@
           "m": 72,
           "a": "Vincenzo Grifo",
           "nat": "Germany",
-          "pid": "espn:171701",
           "aNat": "Italy",
+          "pid": "espn:171701",
           "apid": "espn:179571"
         }
       ],
@@ -123293,8 +124809,8 @@
           "m": 79,
           "a": "Víctor Gómez",
           "nat": "Spain",
-          "pid": "espn:303808",
           "aNat": "Spain",
+          "pid": "espn:303808",
           "apid": "espn:265984"
         }
       ]
@@ -124671,21 +126187,6 @@
     "time": "20:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
-    "home": "북한",
-    "away": "대한민국",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
-    "timeTbd": false,
-    "gameId": "YhSbZX9A9wuMTQV",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 3,
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-08",
-    "time": "20:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
     "home": "필리핀",
     "away": "차이니스 타이베이",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
@@ -124694,6 +126195,21 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 0,
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-08",
+    "time": "20:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
+    "home": "북한",
+    "away": "대한민국",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
+    "timeTbd": false,
+    "gameId": "YhSbZX9A9wuMTQV",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 3,
     "phaseCode": "GROUP"
   },
   {
@@ -124773,8 +126289,8 @@
           "m": 79,
           "a": "Andrija Bulatovic",
           "nat": "Portugal",
-          "pid": "espn:412217",
           "aNat": "Montenegro",
+          "pid": "espn:412217",
           "apid": "espn:387061"
         }
       ],
@@ -127153,8 +128669,8 @@
           "n": "크사버 슐라거",
           "m": 45,
           "a": "Christoph Baumgartner",
-          "pid": "espn:238886",
           "aNat": "Austria",
+          "pid": "espn:238886",
           "apid": "espn:274897"
         },
         {
@@ -127162,8 +128678,8 @@
           "m": 54,
           "a": "David Raum",
           "nat": "Hungary",
-          "pid": "espn:162162",
           "aNat": "Germany",
+          "pid": "espn:162162",
           "apid": "espn:249548"
         }
       ],
@@ -127173,8 +128689,8 @@
           "m": 86,
           "a": "Jackson Irvine",
           "nat": "Gambia",
-          "pid": "espn:387129",
           "aNat": "Australia",
+          "pid": "espn:387129",
           "apid": "espn:178071"
         }
       ]
@@ -127485,8 +129001,8 @@
           "m": 6,
           "a": "Marcus Thuram",
           "nat": "Argentina",
-          "pid": "espn:219713",
           "aNat": "France",
+          "pid": "espn:219713",
           "apid": "espn:217331"
         },
         {
@@ -127494,8 +129010,8 @@
           "m": 39,
           "a": "Lautaro Martínez",
           "nat": "Croatia",
-          "pid": "espn:341494",
           "aNat": "Argentina",
+          "pid": "espn:341494",
           "apid": "espn:219713"
         },
         {
@@ -127503,8 +129019,8 @@
           "m": 76,
           "a": "Ange-Yoan Bonny",
           "nat": "Armenia",
-          "pid": "espn:147625",
           "aNat": "Ivory Coast",
+          "pid": "espn:147625",
           "apid": "espn:309185"
         }
       ]
@@ -127662,8 +129178,8 @@
           "m": 56,
           "a": "Konrad Laimer",
           "nat": "France",
-          "pid": "espn:286831",
           "aNat": "Austria",
+          "pid": "espn:286831",
           "apid": "espn:169189"
         }
       ]
@@ -130006,8 +131522,8 @@
           "m": 71,
           "a": "Marc Oliver Kempf",
           "nat": "Greece",
-          "pid": "espn:262071",
           "aNat": "Germany",
+          "pid": "espn:262071",
           "apid": "espn:175887"
         }
       ]
@@ -130359,8 +131875,8 @@
           "m": 51,
           "a": "Jari Vandeputte",
           "nat": "Italy",
-          "pid": "espn:197062",
           "aNat": "Belgium",
+          "pid": "espn:197062",
           "apid": "espn:197345"
         },
         {
@@ -130368,8 +131884,8 @@
           "m": 86,
           "a": "Alessio Zerbin",
           "nat": "Nigeria",
-          "pid": "espn:233087",
           "aNat": "Italy",
+          "pid": "espn:233087",
           "apid": "espn:252447"
         }
       ],
@@ -130567,8 +132083,8 @@
           "n": "노슬린",
           "m": 72,
           "a": "Patrick Brouwer",
-          "pid": "espn:359132",
           "aNat": "Netherlands",
+          "pid": "espn:359132",
           "apid": "espn:306445"
         },
         {
@@ -130742,8 +132258,8 @@
           "m": 10,
           "a": "Tom Krauß",
           "nat": "Germany",
-          "pid": "espn:275797",
           "aNat": "Germany",
+          "pid": "espn:275797",
           "apid": "espn:283683"
         }
       ],
@@ -130753,8 +132269,8 @@
           "m": 8,
           "a": "Arijon Ibrahimovic",
           "nat": "Germany",
-          "pid": "espn:291798",
           "aNat": "Germany",
+          "pid": "espn:291798",
           "apid": "espn:333400"
         },
         {
@@ -131905,8 +133421,8 @@
           "m": 24,
           "a": "Arsène Kouassi",
           "nat": "France",
-          "pid": "espn:225557",
           "aNat": "Burkina Faso",
+          "pid": "espn:225557",
           "apid": "espn:381626"
         },
         {
@@ -132584,8 +134100,8 @@
           "m": 86,
           "a": "Unai López",
           "nat": "Brazil",
-          "pid": "espn:313024",
           "aNat": "Spain",
+          "pid": "espn:313024",
           "apid": "espn:203711"
         }
       ],
@@ -132595,8 +134111,8 @@
           "m": 90,
           "a": "Viktor Tsygankov",
           "nat": "Uruguay",
-          "pid": "espn:113737",
           "aNat": "Ukraine",
+          "pid": "espn:113737",
           "apid": "espn:212231"
         }
       ]
@@ -133661,21 +135177,6 @@
     "time": "01:00",
     "league": "U17ASIANCUP",
     "venueId": "king_abdullah_sports_city",
-    "home": "일본",
-    "away": "인도네시아",
-    "stadium": "킹 압둘라 스포츠 시티 피치 스타스 A",
-    "timeTbd": false,
-    "gameId": "sHwLLJ3ysMllgVD",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 3,
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-13",
-    "time": "01:00",
-    "league": "U17ASIANCUP",
-    "venueId": "king_abdullah_sports_city",
     "home": "중국",
     "away": "카타르",
     "stadium": "킹 압둘라 스포츠 시티 피치 퓨처 C",
@@ -133684,6 +135185,21 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 2,
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-13",
+    "time": "01:00",
+    "league": "U17ASIANCUP",
+    "venueId": "king_abdullah_sports_city",
+    "home": "일본",
+    "away": "인도네시아",
+    "stadium": "킹 압둘라 스포츠 시티 피치 스타스 A",
+    "timeTbd": false,
+    "gameId": "sHwLLJ3ysMllgVD",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 3,
     "phaseCode": "GROUP"
   },
   {
@@ -136160,24 +137676,24 @@
           "m": 32,
           "a": "Phil Foden",
           "nat": "Ghana",
-          "pid": "espn:273292",
           "aNat": "England",
+          "pid": "espn:273292",
           "apid": "espn:250787"
         },
         {
           "n": "오마르 마르무시",
           "m": 40,
           "a": "Phil Foden",
-          "pid": "espn:303745",
           "aNat": "England",
+          "pid": "espn:303745",
           "apid": "espn:250787"
         },
         {
           "n": "사비우",
           "m": 84,
           "a": "Rayan Cherki",
-          "pid": "espn:304470",
           "aNat": "France",
+          "pid": "espn:304470",
           "apid": "espn:298008"
         }
       ],
@@ -136303,8 +137819,8 @@
           "m": 65,
           "a": "Pablo Torre",
           "nat": "Equatorial Guinea",
-          "pid": "espn:174966",
           "aNat": "Spain",
+          "pid": "espn:174966",
           "apid": "espn:206110"
         }
       ]
@@ -138567,8 +140083,8 @@
           "m": 66,
           "a": "Arnau Martínez",
           "nat": "Uruguay",
-          "pid": "espn:113737",
           "aNat": "Spain",
+          "pid": "espn:113737",
           "apid": "espn:308728"
         }
       ],
@@ -138578,8 +140094,8 @@
           "m": 28,
           "a": "Sergio Gómez",
           "nat": "Spain",
-          "pid": "espn:366885",
           "aNat": "Spain",
+          "pid": "espn:366885",
           "apid": "espn:265993"
         }
       ]
@@ -138895,8 +140411,8 @@
           "n": "곤살로 가르시아",
           "m": 44,
           "a": "Brahim Díaz",
-          "pid": "espn:87297",
           "aNat": "Morocco",
+          "pid": "espn:87297",
           "apid": "espn:246532"
         },
         {
@@ -138904,8 +140420,8 @@
           "m": 80,
           "a": "Kylian Mbappé",
           "nat": "England",
-          "pid": "espn:291281",
           "aNat": "France",
+          "pid": "espn:291281",
           "apid": "espn:231388"
         }
       ],
@@ -142387,16 +143903,16 @@
           "m": 10,
           "a": "Joshua Kimmich",
           "nat": "England",
-          "pid": "espn:142200",
           "aNat": "Germany",
+          "pid": "espn:142200",
           "apid": "espn:190161"
         },
         {
           "n": "케인",
           "m": 13,
           "nat": "England",
-          "pid": "espn:142200",
           "aNat": "Germany",
+          "pid": "espn:142200",
           "apid": "espn:190161"
         },
         {
@@ -142404,8 +143920,8 @@
           "m": 22,
           "a": "Lennart Karl",
           "nat": "Germany",
-          "pid": "espn:324660",
           "aNat": "Germany",
+          "pid": "espn:324660",
           "apid": "espn:402841"
         },
         {
@@ -142420,8 +143936,8 @@
           "n": "잭슨",
           "m": 83,
           "a": "Luis Díaz",
-          "pid": "espn:308524",
           "aNat": "Colombia",
+          "pid": "espn:308524",
           "apid": "espn:257390"
         }
       ],
@@ -142510,8 +144026,8 @@
           "m": 78,
           "a": "Aleix García",
           "nat": "England",
-          "pid": "espn:298524",
           "aNat": "Spain",
+          "pid": "espn:298524",
           "apid": "espn:219294"
         }
       ],
@@ -142521,8 +144037,8 @@
           "m": 61,
           "a": "Nicolás Capaldo",
           "nat": "Portugal",
-          "pid": "espn:88865",
           "aNat": "Argentina",
+          "pid": "espn:88865",
           "apid": "espn:284835"
         }
       ]
@@ -142637,8 +144153,8 @@
           "m": 57,
           "a": "Connor Metcalfe",
           "nat": "Gambia",
-          "pid": "espn:387129",
           "aNat": "Australia",
+          "pid": "espn:387129",
           "apid": "espn:260643"
         }
       ],
@@ -142648,8 +144164,8 @@
           "m": 37,
           "a": "Christian Eriksen",
           "nat": "Greece",
-          "pid": "espn:336104",
           "aNat": "Denmark",
+          "pid": "espn:336104",
           "apid": "espn:144130"
         },
         {
@@ -142846,16 +144362,16 @@
           "m": 56,
           "a": "Adam Idah",
           "nat": "England",
-          "pid": "espn:328023",
           "aNat": "Republic of Ireland",
+          "pid": "espn:328023",
           "apid": "espn:288958"
         },
         {
           "n": "모이란",
           "m": 62,
           "a": "Dara O'Shea",
-          "pid": "espn:378638",
           "aNat": "Republic of Ireland",
+          "pid": "espn:378638",
           "apid": "espn:243440"
         },
         {
@@ -145418,8 +146934,8 @@
           "m": 21,
           "a": "Rasmus Højlund",
           "nat": "Scotland",
-          "pid": "espn:255850",
           "aNat": "Denmark",
+          "pid": "espn:255850",
           "apid": "espn:309273"
         },
         {
@@ -145795,8 +147311,8 @@
           "m": 90,
           "a": "Weslley Patati",
           "nat": "Netherlands",
-          "pid": "espn:332465",
           "aNat": "Brazil",
+          "pid": "espn:332465",
           "apid": "espn:338959"
         }
       ],
@@ -145806,8 +147322,8 @@
           "m": 61,
           "a": "Cherrion Valerius",
           "nat": "France",
-          "pid": "espn:357000",
           "aNat": "Netherlands",
+          "pid": "espn:357000",
           "apid": "espn:379184"
         },
         {
@@ -145815,8 +147331,8 @@
           "m": 71,
           "a": "Fredrik Oldrup Jensen",
           "nat": "France",
-          "pid": "espn:357000",
           "aNat": "Norway",
+          "pid": "espn:357000",
           "apid": "espn:221227"
         },
         {
@@ -145824,8 +147340,8 @@
           "m": 89,
           "a": "Cherrion Valerius",
           "nat": "Finland",
-          "pid": "espn:370623",
           "aNat": "Netherlands",
+          "pid": "espn:370623",
           "apid": "espn:379184"
         }
       ]
@@ -146165,8 +147681,8 @@
           "m": 88,
           "a": "Sepp van den Berg",
           "nat": "Burkina Faso",
-          "pid": "espn:315530",
           "aNat": "Netherlands",
+          "pid": "espn:315530",
           "apid": "espn:270507"
         }
       ],
@@ -151546,8 +153062,8 @@
           "m": 41,
           "a": "Morgan Rogers",
           "nat": "Belgium",
-          "pid": "espn:193297",
           "aNat": "England",
+          "pid": "espn:193297",
           "apid": "espn:265653"
         },
         {
@@ -151555,8 +153071,8 @@
           "m": 45,
           "a": "John McGinn",
           "nat": "Argentina",
-          "pid": "espn:214375",
           "aNat": "Scotland",
+          "pid": "espn:214375",
           "apid": "espn:162843"
         },
         {
@@ -151564,8 +153080,8 @@
           "m": 58,
           "a": "Emiliano Buendía",
           "nat": "England",
-          "pid": "espn:265653",
           "aNat": "Argentina",
+          "pid": "espn:265653",
           "apid": "espn:214375"
         }
       ]
@@ -156911,16 +158427,16 @@
           "m": 33,
           "a": "Reda Belahyane",
           "nat": "Nigeria",
-          "pid": "espn:295515",
           "aNat": "Morocco",
+          "pid": "espn:295515",
           "apid": "espn:345323"
         },
         {
           "n": "페드로",
           "m": 35,
           "a": "Tijjani Noslin",
-          "pid": "espn:114032",
           "aNat": "Netherlands",
+          "pid": "espn:114032",
           "apid": "espn:323113"
         }
       ],
@@ -156930,8 +158446,8 @@
           "m": 23,
           "a": "Michel Aebischer",
           "nat": "Italy",
-          "pid": "espn:207874",
           "aNat": "Switzerland",
+          "pid": "espn:207874",
           "apid": "espn:245623"
         }
       ]
@@ -157109,8 +158625,8 @@
           "m": 42,
           "a": "Pablo Maffeo",
           "nat": "Spain",
-          "pid": "espn:206110",
           "aNat": "Argentina",
+          "pid": "espn:206110",
           "apid": "espn:222661"
         },
         {
@@ -159870,16 +161386,16 @@
           "m": 56,
           "a": "Paulo Dybala",
           "nat": "Netherlands",
-          "pid": "espn:259481",
           "aNat": "Argentina",
+          "pid": "espn:259481",
           "apid": "espn:164839"
         },
         {
           "n": "엘 샤라위",
           "m": 90,
           "a": "Paulo Dybala",
-          "pid": "espn:130036",
           "aNat": "Argentina",
+          "pid": "espn:130036",
           "apid": "espn:164839"
         }
       ]
@@ -159952,8 +161468,8 @@
           "m": 51,
           "a": "Jesús Rodríguez",
           "nat": "Greece",
-          "pid": "espn:262071",
           "aNat": "Spain",
+          "pid": "espn:262071",
           "apid": "espn:387491"
         },
         {
@@ -159967,8 +161483,8 @@
           "m": 81,
           "a": "Maxence Caqueret",
           "nat": "France",
-          "pid": "espn:291285",
           "aNat": "France",
+          "pid": "espn:291285",
           "apid": "espn:265912"
         }
       ]
@@ -165677,8 +167193,8 @@
           "m": 65,
           "a": "Mohamed Hany",
           "nat": "Egypt",
-          "pid": "espn:378495",
           "aNat": "Egypt",
+          "pid": "espn:378495",
           "apid": "espn:119993"
         }
       ],
@@ -169312,8 +170828,8 @@
           "n": "샹클랜드",
           "m": 59,
           "a": "Ryan Christie",
-          "pid": "espn:173306",
           "aNat": "Scotland",
+          "pid": "espn:173306",
           "apid": "espn:93435"
         },
         {
@@ -169336,8 +170852,8 @@
           "m": 17,
           "a": "Armando Obispo",
           "nat": "Curaçao",
-          "pid": "espn:276218",
           "aNat": "Curaçao",
+          "pid": "espn:276218",
           "apid": "espn:245918"
         }
       ]
@@ -374112,6 +375628,159 @@
   {
     "date": "2026-09-09",
     "time": "03:45",
+    "league": "EFL",
+    "venueId": "southampton_st_marys",
+    "home": "사우샘프턴",
+    "away": "스완지",
+    "stadium": "세인트 메리스 스타디움",
+    "timeTbd": false,
+    "gameId": "YEzthB2I7ULBOnY",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "아자즈",
+          "m": 9,
+          "a": "Flynn Downes",
+          "nat": "Republic of Ireland",
+          "aNat": "England",
+          "pid": "espn:251631",
+          "apid": "espn:255916"
+        },
+        {
+          "n": "래린",
+          "m": 33,
+          "a": "James Bree",
+          "nat": "Canada",
+          "aNat": "England",
+          "pid": "espn:205024",
+          "apid": "espn:204286"
+        },
+        {
+          "n": "레오 시엔자",
+          "m": 78,
+          "a": "Kuryu Matsuki",
+          "nat": "Brazil",
+          "aNat": "Japan",
+          "pid": "espn:343995",
+          "apid": "espn:333631"
+        }
+      ],
+      "away": [
+        {
+          "n": "비포트니크",
+          "m": 52,
+          "nat": "Slovenia",
+          "pid": "espn:322158"
+        }
+      ]
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Ronald",
+          "type": "Y",
+          "m": 54,
+          "pid": "espn:319788",
+          "nat": "Brazil"
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-09",
+    "time": "03:45",
+    "league": "EFL",
+    "venueId": "watford_vicarage_road",
+    "home": "왓퍼드",
+    "away": "프레스턴",
+    "stadium": "비커리지 로드",
+    "timeTbd": false,
+    "gameId": "2n8KOshcekINj3A",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "에도 카옘베",
+          "m": 69,
+          "nat": "Congo DR",
+          "pid": "espn:268986"
+        },
+        {
+          "n": "둠비아",
+          "m": 76,
+          "a": "Iker Bravo",
+          "nat": "Mali",
+          "aNat": "Spain",
+          "pid": "espn:137393",
+          "apid": "espn:330242"
+        }
+      ],
+      "away": [
+        {
+          "n": "랭",
+          "m": 5,
+          "nat": "England",
+          "pid": "espn:240158"
+        }
+      ]
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Andrija Vukcevic",
+          "type": "Y",
+          "m": 62,
+          "pid": "espn:221307",
+          "nat": "Montenegro"
+        },
+        {
+          "n": "Lewis Gibson",
+          "type": "Y",
+          "m": 67,
+          "pid": "espn:261431",
+          "nat": "England"
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-09",
+    "time": "03:45",
+    "league": "EFL",
+    "venueId": "wrexham_racecourse_ground",
+    "home": "렉섬",
+    "away": "번리",
+    "stadium": "레이스코스 그라운드",
+    "timeTbd": false,
+    "gameId": "8059agG5ekMqb6q",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "에코미에",
+          "m": 55
+        }
+      ],
+      "away": [
+        {
+          "n": "암두니",
+          "m": 26
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-09",
+    "time": "03:45",
     "league": "EFLCUP",
     "venueId": "bournemouth_dean_court",
     "home": "본머스",
@@ -374423,159 +376092,6 @@
       ]
     },
     "phaseCode": "T32"
-  },
-  {
-    "date": "2026-09-09",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "southampton_st_marys",
-    "home": "사우샘프턴",
-    "away": "스완지",
-    "stadium": "세인트 메리스 스타디움",
-    "timeTbd": false,
-    "gameId": "YEzthB2I7ULBOnY",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 3,
-    "scorers": {
-      "home": [
-        {
-          "n": "아자즈",
-          "m": 9,
-          "a": "Flynn Downes",
-          "nat": "Republic of Ireland",
-          "aNat": "England",
-          "pid": "espn:251631",
-          "apid": "espn:255916"
-        },
-        {
-          "n": "래린",
-          "m": 33,
-          "a": "James Bree",
-          "nat": "Canada",
-          "aNat": "England",
-          "pid": "espn:205024",
-          "apid": "espn:204286"
-        },
-        {
-          "n": "레오 시엔자",
-          "m": 78,
-          "a": "Kuryu Matsuki",
-          "nat": "Brazil",
-          "aNat": "Japan",
-          "pid": "espn:343995",
-          "apid": "espn:333631"
-        }
-      ],
-      "away": [
-        {
-          "n": "비포트니크",
-          "m": 52,
-          "nat": "Slovenia",
-          "pid": "espn:322158"
-        }
-      ]
-    },
-    "cards": {
-      "home": [],
-      "away": [
-        {
-          "n": "Ronald",
-          "type": "Y",
-          "m": 54,
-          "pid": "espn:319788",
-          "nat": "Brazil"
-        }
-      ]
-    }
-  },
-  {
-    "date": "2026-09-09",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "watford_vicarage_road",
-    "home": "왓퍼드",
-    "away": "프레스턴",
-    "stadium": "비커리지 로드",
-    "timeTbd": false,
-    "gameId": "2n8KOshcekINj3A",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "에도 카옘베",
-          "m": 69,
-          "nat": "Congo DR",
-          "pid": "espn:268986"
-        },
-        {
-          "n": "둠비아",
-          "m": 76,
-          "a": "Iker Bravo",
-          "nat": "Mali",
-          "aNat": "Spain",
-          "pid": "espn:137393",
-          "apid": "espn:330242"
-        }
-      ],
-      "away": [
-        {
-          "n": "랭",
-          "m": 5,
-          "nat": "England",
-          "pid": "espn:240158"
-        }
-      ]
-    },
-    "cards": {
-      "home": [],
-      "away": [
-        {
-          "n": "Andrija Vukcevic",
-          "type": "Y",
-          "m": 62,
-          "pid": "espn:221307",
-          "nat": "Montenegro"
-        },
-        {
-          "n": "Lewis Gibson",
-          "type": "Y",
-          "m": 67,
-          "pid": "espn:261431",
-          "nat": "England"
-        }
-      ]
-    }
-  },
-  {
-    "date": "2026-09-09",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "wrexham_racecourse_ground",
-    "home": "렉섬",
-    "away": "번리",
-    "stadium": "레이스코스 그라운드",
-    "timeTbd": false,
-    "gameId": "8059agG5ekMqb6q",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 1,
-    "scorers": {
-      "home": [
-        {
-          "n": "에코미에",
-          "m": 55
-        }
-      ],
-      "away": [
-        {
-          "n": "암두니",
-          "m": 26
-        }
-      ]
-    }
   },
   {
     "date": "2026-09-09",
@@ -404435,6 +405951,77 @@
   {
     "date": "2026-09-16",
     "time": "03:45",
+    "league": "EFL",
+    "venueId": "middlesbrough_riverside",
+    "home": "미들즈브러",
+    "away": "밀월",
+    "stadium": "리버사이드 스타디움",
+    "timeTbd": false,
+    "gameId": "YK3SlqCpysSMqvp",
+    "status": "completed",
+    "awayScore": 2,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "코지어-뒤베리",
+          "m": 50,
+          "nat": "England",
+          "pid": "espn:327170"
+        },
+        {
+          "n": "랭크셔",
+          "m": 61,
+          "a": "Luke Ayling",
+          "nat": "England",
+          "aNat": "England",
+          "pid": "espn:349181",
+          "apid": "espn:136380"
+        }
+      ],
+      "away": [
+        {
+          "n": "아르콘테",
+          "m": 11,
+          "a": "Camiel Neghli",
+          "nat": "Guadeloupe",
+          "aNat": "Algeria",
+          "pid": "espn:315189",
+          "apid": "espn:310173"
+        },
+        {
+          "n": "다이크스",
+          "m": 36,
+          "a": "Caleb Taylor",
+          "nat": "Scotland",
+          "aNat": "England",
+          "pid": "espn:207538",
+          "apid": "espn:308572"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Riley McGree",
+          "type": "Y",
+          "m": 66,
+          "pid": "espn:235096"
+        }
+      ],
+      "away": [
+        {
+          "n": "Derek Mazou-Sacko",
+          "type": "Y",
+          "m": 59,
+          "pid": "espn:324659"
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-16",
+    "time": "03:45",
     "league": "EFLCUP",
     "venueId": "westham_london_stadium",
     "home": "웨스트햄",
@@ -404505,77 +406092,6 @@
       ]
     },
     "phaseCode": "T32"
-  },
-  {
-    "date": "2026-09-16",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "middlesbrough_riverside",
-    "home": "미들즈브러",
-    "away": "밀월",
-    "stadium": "리버사이드 스타디움",
-    "timeTbd": false,
-    "gameId": "YK3SlqCpysSMqvp",
-    "status": "completed",
-    "awayScore": 2,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "코지어-뒤베리",
-          "m": 50,
-          "nat": "England",
-          "pid": "espn:327170"
-        },
-        {
-          "n": "랭크셔",
-          "m": 61,
-          "a": "Luke Ayling",
-          "nat": "England",
-          "aNat": "England",
-          "pid": "espn:349181",
-          "apid": "espn:136380"
-        }
-      ],
-      "away": [
-        {
-          "n": "아르콘테",
-          "m": 11,
-          "a": "Camiel Neghli",
-          "nat": "Guadeloupe",
-          "aNat": "Algeria",
-          "pid": "espn:315189",
-          "apid": "espn:310173"
-        },
-        {
-          "n": "다이크스",
-          "m": 36,
-          "a": "Caleb Taylor",
-          "nat": "Scotland",
-          "aNat": "England",
-          "pid": "espn:207538",
-          "apid": "espn:308572"
-        }
-      ]
-    },
-    "cards": {
-      "home": [
-        {
-          "n": "Riley McGree",
-          "type": "Y",
-          "m": 66,
-          "pid": "espn:235096"
-        }
-      ],
-      "away": [
-        {
-          "n": "Derek Mazou-Sacko",
-          "type": "Y",
-          "m": 59,
-          "pid": "espn:324659"
-        }
-      ]
-    }
   },
   {
     "date": "2026-09-16",
@@ -406704,30 +408220,6 @@
   {
     "date": "2026-09-16",
     "time": "19:00",
-    "league": "ACL2",
-    "venueId": "seoulwc",
-    "home": "서울",
-    "away": "반둥",
-    "stadium": "서울월드컵경기장",
-    "timeTbd": false,
-    "gameId": "2idpicTW6SmPYVP",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 0,
-    "scorers": {
-      "home": [],
-      "away": [
-        {
-          "n": "훌리오 세자르",
-          "m": 5
-        }
-      ]
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-09-16",
-    "time": "19:00",
     "league": "ACL",
     "venueId": "jeonju",
     "home": "전북",
@@ -406801,6 +408293,30 @@
   {
     "date": "2026-09-16",
     "time": "19:00",
+    "league": "ACL2",
+    "venueId": "seoulwc",
+    "home": "서울",
+    "away": "반둥",
+    "stadium": "서울월드컵경기장",
+    "timeTbd": false,
+    "gameId": "2idpicTW6SmPYVP",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "훌리오 세자르",
+          "m": 5
+        }
+      ]
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-09-16",
+    "time": "19:00",
     "league": "ASIANGAMESFOOTBALL",
     "venueId": "wave_stadium_kariya",
     "home": "중국 (남자)",
@@ -406825,35 +408341,6 @@
     "status": "completed",
     "homeScore": 2,
     "awayScore": 0
-  },
-  {
-    "date": "2026-09-16",
-    "time": "21:15",
-    "league": "ACL2",
-    "venueId": "cahn_hang_day",
-    "home": "비에트텔",
-    "away": "멜버른 FC",
-    "stadium": "선번동 항더이 (항더이 스타디움)",
-    "timeTbd": false,
-    "gameId": "gqA22tVR2bUJFof",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 1,
-    "scorers": {
-      "home": [
-        {
-          "n": "리바마르",
-          "m": 62
-        }
-      ],
-      "away": [
-        {
-          "n": "클라리스마리우 호드리게스",
-          "m": 58
-        }
-      ]
-    },
-    "phaseCode": "GROUP"
   },
   {
     "date": "2026-09-16",
@@ -406926,6 +408413,35 @@
           "type": "Y",
           "m": 73,
           "pid": "espn:143697"
+        }
+      ]
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-09-16",
+    "time": "21:15",
+    "league": "ACL2",
+    "venueId": "cahn_hang_day",
+    "home": "비에트텔",
+    "away": "멜버른 FC",
+    "stadium": "선번동 항더이 (항더이 스타디움)",
+    "timeTbd": false,
+    "gameId": "gqA22tVR2bUJFof",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "리바마르",
+          "m": 62
+        }
+      ],
+      "away": [
+        {
+          "n": "클라리스마리우 호드리게스",
+          "m": 58
         }
       ]
     },
@@ -453272,17 +454788,7 @@
     "homePitcher": "A.J. 블루바흐",
     "awayScore": 1,
     "homeScore": 0,
-    "inningInfo": "1회말",
-    "highlights": {
-      "home": [],
-      "away": [
-        {
-          "how": "실책",
-          "text": "안토나치 1루수 실책으로3루까지 진루",
-          "player": "안토나치"
-        }
-      ]
-    }
+    "inningInfo": "2회초"
   },
   {
     "date": "2026-09-30",
@@ -460074,19 +461580,6 @@
   {
     "date": "2026-10-14",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "al_seeb_stadium",
-    "home": "알 시브",
-    "away": "알 후세인",
-    "stadium": "알-시브 스타디움",
-    "timeTbd": false,
-    "gameId": "OQsSGAzKGbKHXDT",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-14",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "al_sadd_jassim_bin_hamad",
     "home": "알 사드",
@@ -460094,6 +461587,19 @@
     "stadium": "자심 빈 하마드 스타디움",
     "timeTbd": false,
     "gameId": "zcfrVKksVO8hhNi",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-14",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "al_seeb_stadium",
+    "home": "알 시브",
+    "away": "알 후세인",
+    "stadium": "알-시브 스타디움",
+    "timeTbd": false,
+    "gameId": "OQsSGAzKGbKHXDT",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -471599,19 +473105,6 @@
   {
     "date": "2026-10-28",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "al_seeb_stadium",
-    "home": "알 시브",
-    "away": "이스트 벵갈",
-    "stadium": "알-시브 스타디움",
-    "timeTbd": false,
-    "gameId": "AW3p0efTl1zL9Jt",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-28",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "shabab_alahli_al_rashid",
     "home": "샤바브 알 아흘리",
@@ -471619,6 +473112,19 @@
     "stadium": "알라시드 스타디움",
     "timeTbd": false,
     "gameId": "uVJg9XVeZVSJFpb",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-28",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "al_seeb_stadium",
+    "home": "알 시브",
+    "away": "이스트 벵갈",
+    "stadium": "알-시브 스타디움",
+    "timeTbd": false,
+    "gameId": "AW3p0efTl1zL9Jt",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -471809,19 +473315,6 @@
   {
     "date": "2026-10-28",
     "time": "03:15",
-    "league": "ACL2",
-    "venueId": "al_zawraa_stadium",
-    "home": "알 쇼르타",
-    "away": "알 후세인",
-    "stadium": "알-자우라 스타디움",
-    "timeTbd": false,
-    "gameId": "HCihM9DqxKOXBbt",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-28",
-    "time": "03:15",
     "league": "ACL",
     "venueId": "al_shamal_al_bayt",
     "home": "알샤말",
@@ -471829,6 +473322,19 @@
     "stadium": "알베이트 스타디움",
     "timeTbd": false,
     "gameId": "3aZWRb5fy3Nyk9x",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-28",
+    "time": "03:15",
+    "league": "ACL2",
+    "venueId": "al_zawraa_stadium",
+    "home": "알 쇼르타",
+    "away": "알 후세인",
+    "stadium": "알-자우라 스타디움",
+    "timeTbd": false,
+    "gameId": "HCihM9DqxKOXBbt",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -475105,19 +476611,6 @@
   {
     "date": "2026-11-04",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "amman_international_stadium",
-    "home": "알 후세인",
-    "away": "알 쇼르타",
-    "stadium": "암만 인터내셔널 스태디엄",
-    "timeTbd": false,
-    "gameId": "87Yzcj2B505kzbh",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-11-04",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "basra_international",
     "home": "에스테그랄",
@@ -475125,6 +476618,19 @@
     "stadium": "바스라 인터내셔널 스타디움",
     "timeTbd": false,
     "gameId": "CbaeNHtf2qOthye",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-11-04",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "amman_international_stadium",
+    "home": "알 후세인",
+    "away": "알 쇼르타",
+    "stadium": "암만 인터내셔널 스태디엄",
+    "timeTbd": false,
+    "gameId": "87Yzcj2B505kzbh",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -475382,19 +476888,6 @@
   {
     "date": "2026-11-04",
     "time": "19:00",
-    "league": "ACL2",
-    "venueId": "seoulwc",
-    "home": "서울",
-    "away": "비에트텔",
-    "stadium": "서울월드컵경기장",
-    "timeTbd": false,
-    "gameId": "lZapB69mvTiiYds",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-11-04",
-    "time": "19:00",
     "league": "ACL",
     "venueId": "pohang",
     "home": "포항",
@@ -475402,6 +476895,19 @@
     "stadium": "포항스틸야드",
     "timeTbd": false,
     "gameId": "pmIB9z9UAQ4XPV2",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-11-04",
+    "time": "19:00",
+    "league": "ACL2",
+    "venueId": "seoulwc",
+    "home": "서울",
+    "away": "비에트텔",
+    "stadium": "서울월드컵경기장",
+    "timeTbd": false,
+    "gameId": "lZapB69mvTiiYds",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -480742,19 +482248,6 @@
   {
     "date": "2026-11-25",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "al_seeb_stadium",
-    "home": "알 시브",
-    "away": "알 쇼르타",
-    "stadium": "알-시브 스타디움",
-    "timeTbd": false,
-    "gameId": "zVJrrC6Kzu5rPRu",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-11-25",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "shabab_alahli_al_rashid",
     "home": "샤바브 알 아흘리",
@@ -480762,6 +482255,19 @@
     "stadium": "알라시드 스타디움",
     "timeTbd": false,
     "gameId": "Rsba5lmQWhdIFqs",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-11-25",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "al_seeb_stadium",
+    "home": "알 시브",
+    "away": "알 쇼르타",
+    "stadium": "알-시브 스타디움",
+    "timeTbd": false,
+    "gameId": "zVJrrC6Kzu5rPRu",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
