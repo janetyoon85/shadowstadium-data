@@ -888,7 +888,13 @@ function extractEspnGoalsBySide(summaryJson, homeTeamName, awayTeamName) {
   const away = [];
   for (const e of events) {
     const typeText = (e.type && e.type.text) || '';
-    if (!/goal/i.test(typeText)) continue;
+    // 버그 수정(2026-09-29, "메시가정보가없다" 리포트로 발견): 득점 페널티는 type.text가
+    // "Penalty - Scored"라 "goal" 단어가 없어 이 필터에서 빠졌음 — 자책골(own goal)이 아닌데도
+    // 개수 불일치(countMismatch)를 유발해 그 경기 전체(메시 골 포함)의 국적/pid 부착이 통째로
+    // 스킵됨(실측: MLS 콜럼버스vs마이애미, 조세프 마티네스 28분 페널티골 하나 때문에 메시 33분
+    // 골까지 영향받음). type.text 문자열 매칭 대신 ESPN이 이벤트마다 직접 주는 구조화 필드
+    // scoringPlay(득점 이벤트 여부, 페널티 골도 true)로 교체 — 훨씬 안전.
+    if (e.scoringPlay !== true) continue;
     const isOwnGoal = /own goal/i.test(typeText);
     const scoringTeam = e.team && e.team.displayName;
     const side = scoringTeam === homeTeamName ? 'home' : scoringTeam === awayTeamName ? 'away' : null;
