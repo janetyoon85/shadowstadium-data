@@ -1428,7 +1428,18 @@ async function enrichEuroAssists(allGames) {
   // 있었음 — 이 함수가 관리하는 전체(3,340경기) 중 94%(3,152건)가 매번 "백필 필요" 대상이
   // 돼서 80/run 예산을 최신순 정렬로 나눠 먹느라 몇 달 지난 경기는 사실상 영구 방치되던 버그
   // (승부차기 신기능 조사 중 발견 — 3월 FA컵 실경기가 우선순위 3142번째로 밀려 있었음).
-  const recentEuroIds = buildRecentCompletedGameIds(allGames, new Set(Object.keys(ESPN_LEAGUE_SLUG)), 5);
+  //
+  // 5경기 캡 제거(2026-09-30, "이런건 백필이 안되어있어서 스코어만있는건가" 리포트 — 팀 상세
+  // 과거 경기 목록이 최근 5경기 빼고는 전부 스코어만 있던 게 이 캡 때문임을 확인, "ㅇㅔ백필로
+  // 채워야지" 요청) — 당시 "영구 방치" 버그의 진짜 원인은 캡이 없어서가 아니라, noMatch/
+  // countMismatch 영구실패 스텁이 pid 키 누락으로 매번 재시도되며 예산을 통째로 낭비해 신규
+  // 게임까지 밀어냈던 것(오늘 이미 수정 — [[project_soccer_pid_stuck_backfill_bug]] 참고,
+  // 스텁에 homePids 등 키 보강). 그 스텁 버그가 고쳐졌으니 이제 캡 없이도 안전 — targets가
+  // 여전히 최신순 정렬이라 매 실행 신규 경기가 항상 먼저 처리되고(수는 적어 금방 끝남), 남는
+  // 예산이 자연히 과거 경기로 흘러가며 여러 실행에 걸쳐 서서히 채워짐. BACKFILL_BUDGET(80)과
+  // REQUEST_DELAY_MS(1.1초)는 그대로라 실행당 ESPN 요청 "속도" 자체는 안 늘어남(IP 차단 우려
+  // 없음) — 늘어나는 건 전체 과거분(3천+ 경기)을 다 채우는 데 걸리는 "실행 횟수"뿐.
+  const recentEuroIds = buildRecentCompletedGameIds(allGames, new Set(Object.keys(ESPN_LEAGUE_SLUG)), Infinity);
   const targets = allGames.filter(
     (g) =>
       ESPN_LEAGUE_SLUG[g.league] &&
