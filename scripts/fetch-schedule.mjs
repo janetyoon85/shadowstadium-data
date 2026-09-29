@@ -617,13 +617,18 @@ async function enrichSaves(allGames) {
             for (const side of ['home', 'away']) {
               const team = side === 'home' ? g.home : g.away;
               for (const h of g.highlights[side] || []) {
-                if (h.nat === undefined && h.birth) {
+                // 버그 수정(2026-09-29, "야구는 선수누르면정보가안나오는데?" 리포트로 발견): pid
+                // 마이그레이션(needsMlbPidBackfill)이 재조회를 트리거해도, 이 조건이 h.nat===undefined
+                // 일 때만 조회해서 이미 nat이 있던(=마이그레이션 이전에 이미 국적 채워졌던) 기존
+                // 항목은 조회 자체를 건너뛰어 pid가 영원히 안 붙었음(497개 게임 실측 확인) — nat과
+                // 무관하게 pid가 없으면 조회하도록 분리. nat은 이미 있으면 덮어쓰지 않음(안전).
+                if (h.birth && (h.nat === undefined || h.pid === undefined)) {
                   const found = await getMlbNationality(team, h.birth);
                   if (found) {
-                    h.nat = found.nat;
+                    if (h.nat === undefined) h.nat = found.nat;
                     // pid(MLB personId, 2026-09-29 추가) — 선수 정보 카드에서 statsapi.mlb.com
                     // people 엔드포인트로 바로 상세 조회할 때 씀. 축구 pid(espn:...)와 동일 역할.
-                    if (found.personId != null) h.pid = `mlb:${found.personId}`;
+                    if (h.pid === undefined && found.personId != null) h.pid = `mlb:${found.personId}`;
                   }
                 }
                 delete h.birth; // games.json엔 임시 필드 안 나가게 정리.
