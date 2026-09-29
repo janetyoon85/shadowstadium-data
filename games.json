@@ -25626,6 +25626,33 @@
   {
     "date": "2026-03-04",
     "time": "19:00",
+    "league": "ACL",
+    "venueId": "seoulwc",
+    "home": "서울",
+    "away": "비셀 고베",
+    "stadium": "서울월드컵경기장",
+    "timeTbd": false,
+    "gameId": "U8avFl0tEXRq1RV",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "마테우스 툴레르",
+          "m": 23
+        }
+      ]
+    },
+    "phaseCode": "T16",
+    "leg": 1,
+    "homeAggregateScore": 1,
+    "awayAggregateScore": 3
+  },
+  {
+    "date": "2026-03-04",
+    "time": "19:00",
     "league": "ACL2",
     "venueId": "panasonic_stadium_suita",
     "home": "감바 오사카",
@@ -25654,33 +25681,6 @@
     "leg": 1,
     "homeAggregateScore": 3,
     "awayAggregateScore": 2
-  },
-  {
-    "date": "2026-03-04",
-    "time": "19:00",
-    "league": "ACL",
-    "venueId": "seoulwc",
-    "home": "서울",
-    "away": "비셀 고베",
-    "stadium": "서울월드컵경기장",
-    "timeTbd": false,
-    "gameId": "U8avFl0tEXRq1RV",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 0,
-    "scorers": {
-      "home": [],
-      "away": [
-        {
-          "n": "마테우스 툴레르",
-          "m": 23
-        }
-      ]
-    },
-    "phaseCode": "T16",
-    "leg": 1,
-    "homeAggregateScore": 1,
-    "awayAggregateScore": 3
   },
   {
     "date": "2026-03-04",
@@ -114195,10 +114195,18 @@
     "winPitcher": "라스무센",
     "losePitcher": "브래들리",
     "savePitcher": "베이커",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "savePitcherNat": "USA",
+    "winPitcherPid": "mlb:656876",
+    "losePitcherPid": "mlb:671737",
+    "savePitcherPid": "mlb:641329",
     "holds": {
       "home": [
         {
-          "n": "술세르"
+          "n": "술세르",
+          "nat": "USA",
+          "pid": "mlb:642121"
         }
       ],
       "away": []
@@ -114258,13 +114266,23 @@
     "winPitcher": "홈스",
     "losePitcher": "페인터",
     "savePitcher": "수아레즈",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "savePitcherNat": "Venezuela",
+    "winPitcherPid": "mlb:656550",
+    "losePitcherPid": "mlb:691725",
+    "savePitcherPid": "mlb:663158",
     "holds": {
       "home": [
         {
-          "n": "범머"
+          "n": "범머",
+          "nat": "USA",
+          "pid": "mlb:607481"
         },
         {
-          "n": "파이암프스"
+          "n": "파이암프스",
+          "nat": "Dominican Republic",
+          "pid": "mlb:606303"
         }
       ],
       "away": []
@@ -114317,6 +114335,10 @@
     "homeScore": 0,
     "winPitcher": "스킨스",
     "losePitcher": "우드러프",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "winPitcherPid": "mlb:694973",
+    "losePitcherPid": "mlb:605540",
     "highlights": {
       "home": [],
       "away": [
@@ -114353,16 +114375,28 @@
     "winPitcher": "카메론",
     "losePitcher": "기쿠치",
     "savePitcher": "에르세그",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "Japan",
+    "savePitcherNat": "USA",
+    "winPitcherPid": "mlb:702070",
+    "losePitcherPid": "mlb:579328",
+    "savePitcherPid": "mlb:668674",
     "holds": {
       "home": [
         {
-          "n": "미어스"
+          "n": "미어스",
+          "nat": "USA",
+          "pid": "mlb:683232"
         },
         {
-          "n": "린치"
+          "n": "린치",
+          "nat": "USA",
+          "pid": "mlb:663738"
         },
         {
-          "n": "스트라움"
+          "n": "스트라움",
+          "nat": "USA",
+          "pid": "mlb:621381"
         }
       ],
       "away": []
@@ -114397,11 +114431,19 @@
     "winPitcher": "레저",
     "losePitcher": "코넬리오",
     "savePitcher": "도밍게스",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "savePitcherNat": "Dominican Republic",
+    "winPitcherPid": "mlb:673929",
+    "losePitcherPid": "mlb:683000",
+    "savePitcherPid": "mlb:622554",
     "holds": {
       "home": [],
       "away": [
         {
-          "n": "러브레이디"
+          "n": "러브레이디",
+          "nat": "USA",
+          "pid": "mlb:663992"
         }
       ]
     },
@@ -114481,6 +114523,10 @@
     "homeScore": 1,
     "winPitcher": "세베리노",
     "losePitcher": "이발디",
+    "winPitcherNat": "Dominican Republic",
+    "losePitcherNat": "USA",
+    "winPitcherPid": "mlb:622663",
+    "losePitcherPid": "mlb:543135",
     "highlights": {
       "home": [
         {
@@ -114549,6 +114595,10 @@
     "homeScore": 4,
     "winPitcher": "워렌",
     "losePitcher": "맥컬러스",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "winPitcherPid": "mlb:701542",
+    "losePitcherPid": "mlb:621121",
     "highlights": {
       "home": [
         {
@@ -114610,17 +114660,29 @@
     "winPitcher": "커비",
     "losePitcher": "팔란테",
     "savePitcher": "무뇨스",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "savePitcherNat": "Mexico",
+    "winPitcherPid": "mlb:669923",
+    "losePitcherPid": "mlb:669467",
+    "savePitcherPid": "mlb:662253",
     "holds": {
       "home": [],
       "away": [
         {
-          "n": "브레쉬"
+          "n": "브레쉬",
+          "nat": "Canada",
+          "pid": "mlb:666374"
         },
         {
-          "n": "스피어"
+          "n": "스피어",
+          "nat": "USA",
+          "pid": "mlb:642100"
         },
         {
-          "n": "바자르도"
+          "n": "바자르도",
+          "nat": "Venezuela",
+          "pid": "mlb:660825"
         }
       ]
     },
@@ -114702,6 +114764,12 @@
     "winPitcher": "로리슨",
     "losePitcher": "스캇",
     "savePitcher": "마틴",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "savePitcherNat": "USA",
+    "winPitcherPid": "mlb:669020",
+    "losePitcherPid": "mlb:656945",
+    "savePitcherPid": "mlb:656686",
     "highlights": {
       "home": [
         {
@@ -114750,6 +114818,10 @@
     "homeScore": 4,
     "winPitcher": "알칸타라",
     "losePitcher": "후저",
+    "winPitcherNat": "Dominican Republic",
+    "losePitcherNat": "USA",
+    "winPitcherPid": "mlb:645261",
+    "losePitcherPid": "mlb:605288",
     "highlights": {
       "home": [
         {
@@ -117219,6 +117291,10 @@
     "homeScore": 1,
     "winPitcher": "크로셰",
     "losePitcher": "로저스",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "winPitcherPid": "mlb:676979",
+    "losePitcherPid": "mlb:669432",
     "highlights": {
       "home": [],
       "away": [
@@ -117660,6 +117736,12 @@
     "winPitcher": "브레쉬",
     "losePitcher": "오브라이언",
     "savePitcher": "무뇨스",
+    "winPitcherNat": "Canada",
+    "losePitcherNat": "USA",
+    "savePitcherNat": "Mexico",
+    "winPitcherPid": "mlb:666374",
+    "losePitcherPid": "mlb:676617",
+    "savePitcherPid": "mlb:662253",
     "highlights": {
       "home": [
         {
@@ -117893,13 +117975,23 @@
     "winPitcher": "가우스먼",
     "losePitcher": "칸틸로",
     "savePitcher": "발랜드",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "savePitcherNat": "USA",
+    "winPitcherPid": "mlb:592332",
+    "losePitcherPid": "mlb:676282",
+    "savePitcherPid": "mlb:686973",
     "holds": {
       "home": [
         {
-          "n": "플루허티"
+          "n": "플루허티",
+          "nat": "USA",
+          "pid": "mlb:689254"
         },
         {
-          "n": "로저스"
+          "n": "로저스",
+          "nat": "USA",
+          "pid": "mlb:643511"
         }
       ],
       "away": []
@@ -118006,13 +118098,21 @@
     "homeScore": 6,
     "winPitcher": "게이지",
     "losePitcher": "페레즈",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "Dominican Republic",
+    "winPitcherPid": "mlb:657424",
+    "losePitcherPid": "mlb:691587",
     "holds": {
       "home": [
         {
-          "n": "윈"
+          "n": "윈",
+          "nat": "USA",
+          "pid": "mlb:676775"
         },
         {
-          "n": "밀러"
+          "n": "밀러",
+          "nat": "USA",
+          "pid": "mlb:669062"
         }
       ],
       "away": []
@@ -118119,11 +118219,17 @@
     "homeScore": 3,
     "winPitcher": "페레즈",
     "losePitcher": "레저",
+    "winPitcherNat": "Cuba",
+    "losePitcherNat": "USA",
+    "winPitcherPid": "mlb:672335",
+    "losePitcherPid": "mlb:673929",
     "holds": {
       "home": [],
       "away": [
         {
-          "n": "파커"
+          "n": "파커",
+          "nat": "USA",
+          "pid": "mlb:680730"
         }
       ]
     },
@@ -118156,10 +118262,16 @@
     "homeScore": 6,
     "winPitcher": "맥클라나한",
     "losePitcher": "오버",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "winPitcherPid": "mlb:663556",
+    "losePitcherPid": "mlb:641927",
     "holds": {
       "home": [
         {
-          "n": "켈리"
+          "n": "켈리",
+          "nat": "USA",
+          "pid": "mlb:687330"
         }
       ],
       "away": []
@@ -118299,14 +118411,24 @@
     "winPitcher": "마르케스",
     "losePitcher": "클라크",
     "savePitcher": "밀러",
+    "winPitcherNat": "Venezuela",
+    "losePitcherNat": "USA",
+    "savePitcherNat": "USA",
+    "winPitcherPid": "mlb:608566",
+    "losePitcherPid": "mlb:664199",
+    "savePitcherPid": "mlb:695243",
     "holds": {
       "home": [],
       "away": [
         {
-          "n": "모레혼"
+          "n": "모레혼",
+          "nat": "Cuba",
+          "pid": "mlb:670970"
         },
         {
-          "n": "아담"
+          "n": "아담",
+          "nat": "USA",
+          "pid": "mlb:592094"
         }
       ]
     },
@@ -118375,13 +118497,23 @@
     "winPitcher": "윈",
     "losePitcher": "스프링스",
     "savePitcher": "라츠",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "savePitcherNat": "USA",
+    "winPitcherPid": "mlb:668390",
+    "losePitcherPid": "mlb:605488",
+    "savePitcherPid": "mlb:656641",
     "holds": {
       "home": [
         {
-          "n": "빅스"
+          "n": "빅스",
+          "nat": "USA",
+          "pid": "mlb:656222"
         },
         {
-          "n": "유니스"
+          "n": "유니스",
+          "nat": "USA",
+          "pid": "mlb:596001"
         }
       ],
       "away": []
@@ -118416,6 +118548,12 @@
     "winPitcher": "소토",
     "losePitcher": "제르파",
     "savePitcher": "라미레즈",
+    "winPitcherNat": "Dominican Republic",
+    "losePitcherNat": "Venezuela",
+    "savePitcherNat": "Dominican Republic",
+    "winPitcherPid": "mlb:642397",
+    "losePitcherPid": "mlb:672582",
+    "savePitcherPid": "mlb:670990",
     "highlights": {
       "home": [],
       "away": [
@@ -118445,11 +118583,17 @@
     "homeScore": 3,
     "winPitcher": "크루즈",
     "losePitcher": "덩카이웨이",
+    "winPitcherNat": "Puerto Rico",
+    "losePitcherNat": "Taiwan",
+    "winPitcherPid": "mlb:518585",
+    "losePitcherPid": "mlb:678906",
     "holds": {
       "home": [],
       "away": [
         {
-          "n": "버드"
+          "n": "버드",
+          "nat": "USA",
+          "pid": "mlb:656234"
         }
       ]
     },
@@ -118513,6 +118657,10 @@
     "homeScore": 12,
     "winPitcher": "라간스",
     "losePitcher": "우레나",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "Dominican Republic",
+    "winPitcherPid": "mlb:666142",
+    "losePitcherPid": "mlb:700712",
     "highlights": {
       "home": [
         {
@@ -118555,13 +118703,21 @@
     "homeScore": 12,
     "winPitcher": "사사키",
     "losePitcher": "레아",
+    "winPitcherNat": "Japan",
+    "losePitcherNat": "USA",
+    "winPitcherPid": "mlb:808963",
+    "losePitcherPid": "mlb:607067",
     "holds": {
       "home": [
         {
-          "n": "드레이어"
+          "n": "드레이어",
+          "nat": "USA",
+          "pid": "mlb:676263"
         },
         {
-          "n": "클라인"
+          "n": "클라인",
+          "nat": "USA",
+          "pid": "mlb:694361"
         }
       ],
       "away": []
@@ -118620,6 +118776,10 @@
     "homeScore": 9,
     "winPitcher": "싱어",
     "losePitcher": "플래허티",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "winPitcherPid": "mlb:663903",
+    "losePitcherPid": "mlb:656427",
     "highlights": {
       "home": [
         {
@@ -118680,6 +118840,10 @@
     "homeScore": 5,
     "winPitcher": "켈러",
     "losePitcher": "킨리",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "winPitcherPid": "mlb:641745",
+    "losePitcherPid": "mlb:641755",
     "highlights": {
       "home": [
         {
@@ -121430,14 +121594,24 @@
     "winPitcher": "얼리",
     "losePitcher": "브래디쉬",
     "savePitcher": "채프먼",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "savePitcherNat": "Cuba",
+    "winPitcherPid": "mlb:813349",
+    "losePitcherPid": "mlb:680694",
+    "savePitcherPid": "mlb:547973",
     "holds": {
       "home": [],
       "away": [
         {
-          "n": "켈리"
+          "n": "켈리",
+          "nat": "USA",
+          "pid": "mlb:677161"
         },
         {
-          "n": "위틀록"
+          "n": "위틀록",
+          "nat": "USA",
+          "pid": "mlb:676477"
         }
       ]
     },
@@ -121501,6 +121675,10 @@
     "homeScore": 6,
     "winPitcher": "세일",
     "losePitcher": "놀라",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "winPitcherPid": "mlb:519242",
+    "losePitcherPid": "mlb:605400",
     "highlights": {
       "home": [
         {
@@ -121550,13 +121728,23 @@
     "winPitcher": "피셔",
     "losePitcher": "체코니",
     "savePitcher": "발랜드",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "savePitcherNat": "USA",
+    "winPitcherPid": "mlb:680755",
+    "losePitcherPid": "mlb:677944",
+    "savePitcherPid": "mlb:686973",
     "holds": {
       "home": [
         {
-          "n": "로저스"
+          "n": "로저스",
+          "nat": "USA",
+          "pid": "mlb:643511"
         },
         {
-          "n": "호프먼"
+          "n": "호프먼",
+          "nat": "USA",
+          "pid": "mlb:656546"
         }
       ],
       "away": []
@@ -130812,46 +131000,6 @@
     "time": "16:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
-    "home": "대한민국",
-    "away": "필리핀",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
-    "timeTbd": false,
-    "gameId": "INfbBvjkK2ARSQU",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 5,
-    "scorers": {
-      "home": [
-        {
-          "n": "백서영",
-          "m": 6
-        },
-        {
-          "n": "백서영",
-          "m": 14
-        },
-        {
-          "n": "백서영",
-          "m": 34
-        },
-        {
-          "n": "백서영",
-          "m": 55
-        },
-        {
-          "n": "김희나",
-          "m": 67
-        }
-      ],
-      "away": []
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-02",
-    "time": "16:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
     "home": "일본",
     "away": "레바논",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
@@ -130914,6 +131062,46 @@
         {
           "n": "나나미",
           "m": 80
+        }
+      ],
+      "away": []
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-02",
+    "time": "16:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
+    "home": "대한민국",
+    "away": "필리핀",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
+    "timeTbd": false,
+    "gameId": "INfbBvjkK2ARSQU",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 5,
+    "scorers": {
+      "home": [
+        {
+          "n": "백서영",
+          "m": 6
+        },
+        {
+          "n": "백서영",
+          "m": 14
+        },
+        {
+          "n": "백서영",
+          "m": 34
+        },
+        {
+          "n": "백서영",
+          "m": 55
+        },
+        {
+          "n": "김희나",
+          "m": 67
         }
       ],
       "away": []
@@ -131942,6 +132130,35 @@
     "time": "20:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
+    "home": "호주",
+    "away": "인도",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
+    "timeTbd": false,
+    "gameId": "fS1J3kxSwziVvHl",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "무이티스",
+          "m": 25
+        },
+        {
+          "n": "바스넷",
+          "m": 59,
+          "og": true
+        }
+      ],
+      "away": []
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-02",
+    "time": "20:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
     "home": "북한",
     "away": "차이니스 타이베이",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
@@ -131991,35 +132208,6 @@
         {
           "n": "유종향",
           "m": 90
-        }
-      ],
-      "away": []
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-02",
-    "time": "20:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
-    "home": "호주",
-    "away": "인도",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
-    "timeTbd": false,
-    "gameId": "fS1J3kxSwziVvHl",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "무이티스",
-          "m": 25
-        },
-        {
-          "n": "바스넷",
-          "m": 59,
-          "og": true
         }
       ],
       "away": []
@@ -140103,38 +140291,6 @@
     "time": "20:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
-    "home": "인도",
-    "away": "일본",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
-    "timeTbd": false,
-    "gameId": "SyGtvWeiJaOs0ZA",
-    "status": "completed",
-    "awayScore": 3,
-    "homeScore": 0,
-    "scorers": {
-      "home": [],
-      "away": [
-        {
-          "n": "하야시",
-          "m": 59
-        },
-        {
-          "n": "이케다",
-          "m": 76
-        },
-        {
-          "n": "이케다",
-          "m": 81
-        }
-      ]
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-05",
-    "time": "20:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
     "home": "필리핀",
     "away": "북한",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
@@ -140177,6 +140333,38 @@
         {
           "n": "송원용",
           "m": 85
+        }
+      ]
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-05",
+    "time": "20:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
+    "home": "인도",
+    "away": "일본",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
+    "timeTbd": false,
+    "gameId": "SyGtvWeiJaOs0ZA",
+    "status": "completed",
+    "awayScore": 3,
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "하야시",
+          "m": 59
+        },
+        {
+          "n": "이케다",
+          "m": 76
+        },
+        {
+          "n": "이케다",
+          "m": 81
         }
       ]
     },
@@ -145380,6 +145568,21 @@
     "time": "20:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
+    "home": "필리핀",
+    "away": "차이니스 타이베이",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
+    "timeTbd": false,
+    "gameId": "iI57xIcnv4pTYV5",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 0,
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-08",
+    "time": "20:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
     "home": "북한",
     "away": "대한민국",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
@@ -145405,21 +145608,6 @@
       ],
       "away": []
     },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-08",
-    "time": "20:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
-    "home": "필리핀",
-    "away": "차이니스 타이베이",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
-    "timeTbd": false,
-    "gameId": "iI57xIcnv4pTYV5",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 0,
     "phaseCode": "GROUP"
   },
   {
@@ -155362,6 +155550,34 @@
     "time": "01:00",
     "league": "U17ASIANCUP",
     "venueId": "king_abdullah_sports_city",
+    "home": "중국",
+    "away": "카타르",
+    "stadium": "킹 압둘라 스포츠 시티 피치 퓨처 C",
+    "timeTbd": false,
+    "gameId": "OW7BBRLBR5Yg9Mi",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "하시판",
+          "m": 14
+        },
+        {
+          "n": "장 보린",
+          "m": 71
+        }
+      ],
+      "away": []
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-13",
+    "time": "01:00",
+    "league": "U17ASIANCUP",
+    "venueId": "king_abdullah_sports_city",
     "home": "일본",
     "away": "인도네시아",
     "stadium": "킹 압둘라 스포츠 시티 피치 스타스 A",
@@ -155391,34 +155607,6 @@
           "m": 70
         }
       ]
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-13",
-    "time": "01:00",
-    "league": "U17ASIANCUP",
-    "venueId": "king_abdullah_sports_city",
-    "home": "중국",
-    "away": "카타르",
-    "stadium": "킹 압둘라 스포츠 시티 피치 퓨처 C",
-    "timeTbd": false,
-    "gameId": "OW7BBRLBR5Yg9Mi",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "하시판",
-          "m": 14
-        },
-        {
-          "n": "장 보린",
-          "m": 71
-        }
-      ],
-      "away": []
     },
     "phaseCode": "GROUP"
   },
@@ -331975,19 +332163,32 @@
     "winPitcher": "몰",
     "losePitcher": "리베라토레",
     "savePitcher": "파간",
+    "holds": {
+      "home": [
+        {
+          "n": "버크"
+        },
+        {
+          "n": "메이"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "홈런",
           "text": "스튜어트",
           "player": "스튜어트",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:701398"
         },
         {
           "how": "도루",
           "text": "맥클레인",
           "player": "맥클레인",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:680574"
         }
       ],
       "away": [
@@ -331995,13 +332196,15 @@
           "how": "홈런",
           "text": "워커",
           "player": "워커",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:691023"
         },
         {
           "how": "도루",
           "text": "바에즈 2개",
           "player": "바에즈",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:695491"
         }
       ]
     }
@@ -332055,19 +332258,35 @@
     "winPitcher": "라스무센",
     "losePitcher": "슈어저",
     "savePitcher": "베이커",
+    "holds": {
+      "home": [
+        {
+          "n": "부저"
+        },
+        {
+          "n": "켈리"
+        },
+        {
+          "n": "웰스"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "홈런",
           "text": "디아즈",
           "player": "디아즈",
-          "nat": "Cuba"
+          "nat": "Cuba",
+          "pid": "mlb:650490"
         },
         {
           "how": "도루",
           "text": "월스",
           "player": "월스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:670764"
         }
       ],
       "away": [
@@ -332075,13 +332294,15 @@
           "how": "홈런",
           "text": "커크",
           "player": "커크",
-          "nat": "Mexico"
+          "nat": "Mexico",
+          "pid": "mlb:672386"
         },
         {
           "how": "도루",
           "text": "맥아두",
           "player": "맥아두",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:807727"
         }
       ]
     }
@@ -332384,25 +332605,36 @@
     "winPitcher": "길버트",
     "losePitcher": "메이",
     "savePitcher": "무뇨스",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "스피어"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
           "how": "도루",
           "text": "투랑",
           "player": "투랑",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:668930"
         },
         {
           "how": "도루",
           "text": "추리오",
           "player": "추리오",
-          "nat": "Venezuela"
+          "nat": "Venezuela",
+          "pid": "mlb:694192"
         },
         {
           "how": "홈런",
           "text": "오티즈",
           "player": "오티즈",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:687401"
         }
       ],
       "away": [
@@ -332410,7 +332642,8 @@
           "how": "도루",
           "text": "네일러",
           "player": "네일러",
-          "nat": "Canada"
+          "nat": "Canada",
+          "pid": "mlb:647304"
         }
       ]
     }
@@ -332432,13 +332665,25 @@
     "homeScore": 9,
     "winPitcher": "킴브럴",
     "losePitcher": "람",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "블루엣"
+        },
+        {
+          "n": "알바라도"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
           "how": "홈런",
           "text": "파스콴티노",
           "player": "파스콴티노",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:686469"
         }
       ],
       "away": [
@@ -332446,13 +332691,15 @@
           "how": "도루",
           "text": "겔로프",
           "player": "겔로프",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:680869"
         },
         {
           "how": "홈런",
           "text": "먼시",
           "player": "먼시",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:691777"
         }
       ]
     }
@@ -332538,13 +332785,15 @@
           "how": "홈런",
           "text": "테나",
           "player": "테나",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:677588"
         },
         {
           "how": "홈런",
           "text": "차파로",
           "player": "차파로",
-          "nat": "Venezuela"
+          "nat": "Venezuela",
+          "pid": "mlb:665953"
         }
       ]
     }
@@ -332567,13 +332816,28 @@
     "winPitcher": "수자",
     "losePitcher": "우레나",
     "savePitcher": "헤이더",
+    "holds": {
+      "home": [
+        {
+          "n": "블루바흐"
+        },
+        {
+          "n": "오컬트"
+        },
+        {
+          "n": "어브레유"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "홈런",
           "text": "바스케스",
           "player": "바스케스",
-          "nat": "Puerto Rico"
+          "nat": "Puerto Rico",
+          "pid": "mlb:543877"
         }
       ],
       "away": [
@@ -332581,13 +332845,15 @@
           "how": "도루",
           "text": "네토",
           "player": "네토",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:687263"
         },
         {
           "how": "도루",
           "text": "프레이저",
           "player": "프레이저",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:624428"
         }
       ]
     }
@@ -332671,13 +332937,22 @@
     "winPitcher": "허트",
     "losePitcher": "허겟",
     "savePitcher": "스캇",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "스튜어트"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
           "how": "홈런",
           "text": "모니악",
           "player": "모니악",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:666160"
         }
       ],
       "away": [
@@ -332685,13 +332960,15 @@
           "how": "홈런",
           "text": "베츠",
           "player": "베츠",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:605141"
         },
         {
           "how": "홈런",
           "text": "K.에르난데스",
           "player": "K.에르난데스",
-          "nat": "Puerto Rico"
+          "nat": "Puerto Rico",
+          "pid": "mlb:571771"
         }
       ]
     }
@@ -333663,19 +333940,32 @@
     "winPitcher": "스트젤레키",
     "losePitcher": "버크",
     "savePitcher": "오브라이언",
+    "holds": {
+      "home": [
+        {
+          "n": "가르시아"
+        },
+        {
+          "n": "안톤"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "도루",
           "text": "데 라 크루즈",
           "player": "데 라 크루즈",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:682829"
         },
         {
           "how": "홈런",
           "text": "맥클레인",
           "player": "맥클레인",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:680574"
         }
       ],
       "away": [
@@ -333683,7 +333973,8 @@
           "how": "홈런",
           "text": "워커",
           "player": "워커",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:691023"
         }
       ]
     }
@@ -333706,13 +333997,28 @@
     "winPitcher": "윌리엄스",
     "losePitcher": "룹",
     "savePitcher": "스미스",
+    "holds": {
+      "home": [
+        {
+          "n": "헤린"
+        },
+        {
+          "n": "사브로스키"
+        },
+        {
+          "n": "개디스"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "도루",
           "text": "베일리",
           "player": "베일리",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:672275"
         }
       ],
       "away": [
@@ -333720,7 +334026,8 @@
           "how": "홈런",
           "text": "아다메스",
           "player": "아다메스",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:642715"
         }
       ]
     }
@@ -333749,25 +334056,29 @@
           "how": "홈런",
           "text": "카메론",
           "player": "카메론",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:663662"
         },
         {
           "how": "홈런",
           "text": "오카모토",
           "player": "오카모토",
-          "nat": "Japan"
+          "nat": "Japan",
+          "pid": "mlb:672960"
         },
         {
           "how": "도루",
           "text": "히메네즈 2개",
           "player": "히메네즈",
-          "nat": "Venezuela"
+          "nat": "Venezuela",
+          "pid": "mlb:665926"
         },
         {
           "how": "홈런",
           "text": "룩스",
           "player": "룩스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:664770"
         }
       ]
     }
@@ -333892,25 +334203,36 @@
     "winPitcher": "패트릭",
     "losePitcher": "커비",
     "savePitcher": "메길",
+    "holds": {
+      "home": [
+        {
+          "n": "애쉬비"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "도루",
           "text": "추리오",
           "player": "추리오",
-          "nat": "Venezuela"
+          "nat": "Venezuela",
+          "pid": "mlb:694192"
         },
         {
           "how": "도루",
           "text": "오티즈",
           "player": "오티즈",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:687401"
         },
         {
           "how": "홈런",
           "text": "미첼",
           "player": "미첼",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:669003"
         }
       ],
       "away": []
@@ -333939,13 +334261,15 @@
           "how": "홈런",
           "text": "위트 주니어",
           "player": "위트 주니어",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:677951"
         },
         {
           "how": "도루",
           "text": "톨버트",
           "player": "톨버트",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:686475"
         }
       ],
       "away": []
@@ -333968,7 +334292,18 @@
     "homeScore": 0,
     "winPitcher": "홈스",
     "losePitcher": "케이",
-    "savePitcher": "이글레시아스"
+    "savePitcher": "이글레시아스",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "푸엔테스"
+        },
+        {
+          "n": "리"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-21",
@@ -334106,7 +334441,8 @@
           "how": "홈런",
           "text": "비버스",
           "player": "비버스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:687637"
         }
       ],
       "away": [
@@ -334114,19 +334450,22 @@
           "how": "홈런",
           "text": "가르시아",
           "player": "가르시아",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:671277"
         },
         {
           "how": "홈런",
           "text": "존스",
           "player": "존스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:682987"
         },
         {
           "how": "도루",
           "text": "존스",
           "player": "존스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:682987"
         }
       ]
     }
@@ -334219,25 +334558,39 @@
     "winPitcher": "디그롬",
     "losePitcher": "알바레즈",
     "savePitcher": "라츠",
+    "holds": {
+      "home": [
+        {
+          "n": "유니스"
+        },
+        {
+          "n": "실세스"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "도루",
           "text": "랭포드",
           "player": "랭포드",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:694671"
         },
         {
           "how": "홈런",
           "text": "시거",
           "player": "시거",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:608369"
         },
         {
           "how": "도루",
           "text": "듀란",
           "player": "듀란",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:677649"
         }
       ],
       "away": [
@@ -334245,7 +334598,8 @@
           "how": "도루",
           "text": "테나",
           "player": "테나",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:677588"
         }
       ]
     }
@@ -334274,19 +334628,22 @@
           "how": "도루",
           "text": "멕클러",
           "player": "멕클러",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:685133"
         },
         {
           "how": "홈런",
           "text": "구스만",
           "player": "구스만",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:694203"
         },
         {
           "how": "홈런",
           "text": "네토",
           "player": "네토",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:687263"
         }
       ]
     }
@@ -335253,6 +335610,14 @@
     "winPitcher": "미저라우스키",
     "losePitcher": "세일",
     "savePitcher": "메길",
+    "holds": {
+      "home": [
+        {
+          "n": "센자텔라"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [],
       "away": [
@@ -335260,7 +335625,8 @@
           "how": "도루",
           "text": "토마스",
           "player": "토마스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:657041"
         }
       ]
     }
@@ -335310,6 +335676,14 @@
     "homeScore": 7,
     "winPitcher": "맥팔레인",
     "losePitcher": "가스텔룸",
+    "holds": {
+      "home": [
+        {
+          "n": "커커링"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [],
       "away": [
@@ -335317,19 +335691,22 @@
           "how": "홈런",
           "text": "워커",
           "player": "워커",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:691023"
         },
         {
           "how": "홈런",
           "text": "바에즈",
           "player": "바에즈",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:695491"
         },
         {
           "how": "도루",
           "text": "처치",
           "player": "처치",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:701675"
         }
       ]
     }
@@ -335422,19 +335799,32 @@
     "winPitcher": "슐리틀러",
     "losePitcher": "아리게티",
     "savePitcher": "베드너",
+    "holds": {
+      "home": [
+        {
+          "n": "헤드릭"
+        },
+        {
+          "n": "블랙번"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "도루",
           "text": "그리샴",
           "player": "그리샴",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:663757"
         },
         {
           "how": "홈런",
           "text": "존스",
           "player": "존스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:682987"
         }
       ],
       "away": []
@@ -335458,13 +335848,25 @@
     "winPitcher": "그레이",
     "losePitcher": "웹",
     "savePitcher": "채프먼",
+    "holds": {
+      "home": [
+        {
+          "n": "밀러"
+        },
+        {
+          "n": "감보아"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "홈런",
           "text": "콘트레라스",
           "player": "콘트레라스",
-          "nat": "Venezuela"
+          "nat": "Venezuela",
+          "pid": "mlb:575929"
         }
       ],
       "away": [
@@ -335472,13 +335874,15 @@
           "how": "홈런",
           "text": "길버트",
           "player": "길버트",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:687551"
         },
         {
           "how": "홈런",
           "text": "데버스",
           "player": "데버스",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:646240"
         }
       ]
     }
@@ -335500,13 +335904,22 @@
     "homeScore": 3,
     "winPitcher": "페어뱅크스",
     "losePitcher": "비터",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "리발타"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
           "how": "도루",
           "text": "로페즈",
           "player": "로페즈",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:672640"
         }
       ],
       "away": [
@@ -335514,19 +335927,22 @@
           "how": "홈런",
           "text": "루이즈",
           "player": "루이즈",
-          "nat": "Venezuela"
+          "nat": "Venezuela",
+          "pid": "mlb:660688"
         },
         {
           "how": "도루",
           "text": "누네스 2개",
           "player": "누네스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:683083"
         },
         {
           "how": "도루",
           "text": "영",
           "player": "영",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:696285"
         }
       ]
     }
@@ -335549,19 +335965,29 @@
     "winPitcher": "로저스",
     "losePitcher": "페랄타",
     "savePitcher": "가르시아",
+    "holds": {
+      "home": [
+        {
+          "n": "키트리지"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "홈런",
           "text": "알론소",
           "player": "알론소",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:624413"
         },
         {
           "how": "홈런",
           "text": "비버스",
           "player": "비버스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:687637"
         }
       ],
       "away": [
@@ -335569,13 +335995,15 @@
           "how": "도루",
           "text": "마테오",
           "player": "마테오",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:622761"
         },
         {
           "how": "홈런",
           "text": "파이퍼",
           "player": "파이퍼",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:700652"
         }
       ]
     }
@@ -335617,25 +336045,29 @@
           "how": "홈런",
           "text": "바가스",
           "player": "바가스",
-          "nat": "Cuba"
+          "nat": "Cuba",
+          "pid": "mlb:678246"
         },
         {
           "how": "홈런",
           "text": "그리칙",
           "player": "그리칙",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:545341"
         },
         {
           "how": "홈런",
           "text": "몽고메리",
           "player": "몽고메리",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:695657"
         },
         {
           "how": "홈런",
           "text": "로저스",
           "player": "로저스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:668670"
         }
       ],
       "away": [
@@ -335643,7 +336075,8 @@
           "how": "홈런",
           "text": "비셋",
           "player": "비셋",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:666182"
         }
       ]
     }
@@ -335693,6 +336126,17 @@
     "homeScore": 4,
     "winPitcher": "웨스네스키",
     "losePitcher": "긴",
+    "holds": {
+      "home": [
+        {
+          "n": "수자"
+        },
+        {
+          "n": "어브레유"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [],
       "away": [
@@ -335700,7 +336144,8 @@
           "how": "도루",
           "text": "월턴",
           "player": "월턴",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:622268"
         }
       ]
     }
@@ -335723,25 +336168,42 @@
     "winPitcher": "카메론",
     "losePitcher": "멜턴",
     "savePitcher": "피어슨",
+    "holds": {
+      "home": [
+        {
+          "n": "쿠아스"
+        },
+        {
+          "n": "슈라이버"
+        },
+        {
+          "n": "크루즈"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "홈런",
           "text": "젠슨",
           "player": "젠슨",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:695600"
         },
         {
           "how": "홈런",
           "text": "파스콴티노",
           "player": "파스콴티노",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:686469"
         },
         {
           "how": "홈런",
           "text": "이스벨",
           "player": "이스벨",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:664728"
         }
       ],
       "away": []
@@ -335771,7 +336233,8 @@
           "how": "도루",
           "text": "시리",
           "player": "시리",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:642350"
         }
       ]
     }
@@ -335842,19 +336305,22 @@
           "how": "도루",
           "text": "바자나",
           "player": "바자나",
-          "nat": "Australia"
+          "nat": "Australia",
+          "pid": "mlb:683953"
         },
         {
           "how": "홈런",
           "text": "베일리",
           "player": "베일리",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:672275"
         },
         {
           "how": "홈런",
           "text": "할핀",
           "player": "할핀",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:690984"
         }
       ]
     }
@@ -335882,31 +336348,36 @@
           "how": "도루",
           "text": "캐롤",
           "player": "캐롤",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:682998"
         },
         {
           "how": "도루",
           "text": "모레노",
           "player": "모레노",
-          "nat": "Venezuela"
+          "nat": "Venezuela",
+          "pid": "mlb:672515"
         },
         {
           "how": "도루",
           "text": "타와",
           "player": "타와",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:694374"
         },
         {
           "how": "홈런",
           "text": "롤러",
           "player": "롤러",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:691783"
         },
         {
           "how": "도루",
           "text": "페르난데스",
           "player": "페르난데스",
-          "nat": "Venezuela"
+          "nat": "Venezuela",
+          "pid": "mlb:699912"
         }
       ],
       "away": []
@@ -335935,7 +336406,8 @@
           "how": "홈런",
           "text": "프랑스",
           "player": "프랑스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:664034"
         }
       ],
       "away": []
@@ -335972,19 +336444,29 @@
     "homeScore": 5,
     "winPitcher": "필립스",
     "losePitcher": "소토",
+    "holds": {
+      "home": [
+        {
+          "n": "스튜어트"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "도루",
           "text": "오타니",
           "player": "오타니",
-          "nat": "Japan"
+          "nat": "Japan",
+          "pid": "mlb:660271"
         },
         {
           "how": "홈런",
           "text": "먼시",
           "player": "먼시",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:571970"
         }
       ],
       "away": [
@@ -335992,7 +336474,8 @@
           "how": "홈런",
           "text": "크루즈",
           "player": "크루즈",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:665833"
         }
       ]
     }
@@ -336014,13 +336497,25 @@
     "homeScore": 6,
     "winPitcher": "도밍게스",
     "losePitcher": "제퍼잔",
+    "holds": {
+      "home": [
+        {
+          "n": "스피어"
+        },
+        {
+          "n": "바자르도"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "홈런",
           "text": "랄리",
           "player": "랄리",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:663728"
         }
       ],
       "away": [
@@ -336028,25 +336523,29 @@
           "how": "홈런",
           "text": "크로우-암스트롱",
           "player": "크로우-암스트롱",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:691718"
         },
         {
           "how": "홈런",
           "text": "브레그먼 2개",
           "player": "브레그먼",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:608324"
         },
         {
           "how": "홈런",
           "text": "햅",
           "player": "햅",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:664023"
         },
         {
           "how": "도루",
           "text": "호너",
           "player": "호너",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:663538"
         }
       ]
     }
@@ -338138,31 +338637,46 @@
     "winPitcher": "시즈",
     "losePitcher": "웨더스",
     "savePitcher": "발랜드",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "마일스"
+        },
+        {
+          "n": "로저스"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
           "how": "도루",
           "text": "그리샴",
           "player": "그리샴",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:663757"
         },
         {
           "how": "홈런",
           "text": "가르시아",
           "player": "가르시아",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:671277"
         },
         {
           "how": "도루",
           "text": "존스",
           "player": "존스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:682987"
         },
         {
           "how": "도루",
           "text": "치좀",
           "player": "치좀",
-          "nat": "Bahamas"
+          "nat": "Bahamas",
+          "pid": "mlb:665862"
         }
       ],
       "away": [
@@ -338170,7 +338684,8 @@
           "how": "홈런",
           "text": "룩스",
           "player": "룩스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:664770"
         }
       ]
     }
@@ -338242,13 +338757,25 @@
     "winPitcher": "핸더슨",
     "losePitcher": "페레즈",
     "savePitcher": "애쉬비",
+    "holds": {
+      "home": [
+        {
+          "n": "패트릭"
+        },
+        {
+          "n": "홀"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "홈런",
           "text": "바우어스",
           "player": "바우어스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:641343"
         }
       ],
       "away": []
@@ -338505,25 +339032,42 @@
     "winPitcher": "페레즈",
     "losePitcher": "어빈",
     "savePitcher": "포셰",
+    "holds": {
+      "home": [
+        {
+          "n": "피터슨"
+        },
+        {
+          "n": "에크네스"
+        },
+        {
+          "n": "주버"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "홈런",
           "text": "마르시",
           "player": "마르시",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:805300"
         },
         {
           "how": "도루",
           "text": "마르시",
           "player": "마르시",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:805300"
         },
         {
           "how": "홈런",
           "text": "에르난데스",
           "player": "에르난데스",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:681715"
         }
       ],
       "away": []
@@ -338606,13 +339150,15 @@
           "how": "홈런",
           "text": "슈와버",
           "player": "슈와버",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:656941"
         },
         {
           "how": "홈런",
           "text": "하퍼",
           "player": "하퍼",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:547180"
         }
       ],
       "away": [
@@ -338620,7 +339166,8 @@
           "how": "홈런",
           "text": "웨더홀트",
           "player": "웨더홀트",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:802139"
         }
       ]
     }
@@ -338724,13 +339271,22 @@
     "homeScore": 3,
     "winPitcher": "가르시아",
     "losePitcher": "베이커",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "웰스"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
           "how": "홈런",
           "text": "바살로",
           "player": "바살로",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:694212"
         }
       ],
       "away": [
@@ -338738,7 +339294,8 @@
           "how": "홈런",
           "text": "힉스",
           "player": "힉스",
-          "nat": "Canada"
+          "nat": "Canada",
+          "pid": "mlb:689414"
         }
       ]
     }
@@ -338761,6 +339318,14 @@
     "winPitcher": "존슨",
     "losePitcher": "브래드퍼드",
     "savePitcher": "왓슨",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "풀머"
+        }
+      ]
+    },
     "highlights": {
       "home": [],
       "away": [
@@ -338768,13 +339333,15 @@
           "how": "도루",
           "text": "네토",
           "player": "네토",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:687263"
         },
         {
           "how": "도루",
           "text": "트라웃",
           "player": "트라웃",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:545361"
         }
       ]
     }
@@ -338797,13 +339364,22 @@
     "winPitcher": "메디나",
     "losePitcher": "수자",
     "savePitcher": "알바라도",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "해리스"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
           "how": "홈런",
           "text": "바쇼",
           "player": "바쇼",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:662139"
         }
       ],
       "away": [
@@ -338811,7 +339387,8 @@
           "how": "홈런",
           "text": "월턴",
           "player": "월턴",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:622268"
         }
       ]
     }
@@ -338833,6 +339410,14 @@
     "homeScore": 5,
     "winPitcher": "워렌",
     "losePitcher": "카스티요",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "누네스"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
@@ -338844,7 +339429,8 @@
           "how": "홈런",
           "text": "피터스",
           "player": "피터스",
-          "nat": "Canada"
+          "nat": "Canada",
+          "pid": "mlb:671976"
         }
       ],
       "away": [
@@ -338852,37 +339438,43 @@
           "how": "도루",
           "text": "유잉",
           "player": "유잉",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:805999"
         },
         {
           "how": "홈런",
           "text": "비셋",
           "player": "비셋",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:666182"
         },
         {
           "how": "홈런",
           "text": "벤지",
           "player": "벤지",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:701807"
         },
         {
           "how": "도루",
           "text": "벤지",
           "player": "벤지",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:701807"
         },
         {
           "how": "홈런",
           "text": "로버트 2개",
           "player": "로버트",
-          "nat": "Cuba"
+          "nat": "Cuba",
+          "pid": "mlb:673357"
         },
         {
           "how": "홈런",
           "text": "토렌스",
           "player": "토렌스",
-          "nat": "Venezuela"
+          "nat": "Venezuela",
+          "pid": "mlb:620443"
         }
       ]
     }
@@ -338905,13 +339497,25 @@
     "winPitcher": "스쿠발",
     "losePitcher": "라미레즈",
     "savePitcher": "스캇",
+    "holds": {
+      "home": [
+        {
+          "n": "필립스"
+        },
+        {
+          "n": "드레이어"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "도루",
           "text": "터커",
           "player": "터커",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:663656"
         }
       ],
       "away": []
@@ -338934,6 +339538,17 @@
     "homeScore": 3,
     "winPitcher": "올즈",
     "losePitcher": "헨지스",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "시모어"
+        },
+        {
+          "n": "스미스"
+        }
+      ]
+    },
     "highlights": {
       "home": [],
       "away": [
@@ -338941,19 +339556,22 @@
           "how": "홈런",
           "text": "아다메스",
           "player": "아다메스",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:642715"
         },
         {
           "how": "도루",
           "text": "이정후",
           "player": "이정후",
-          "nat": "Republic of Korea"
+          "nat": "Republic of Korea",
+          "pid": "mlb:808982"
         },
         {
           "how": "홈런",
           "text": "키즈너",
           "player": "키즈너",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:668800"
         }
       ]
     }
@@ -338976,25 +339594,36 @@
     "winPitcher": "와카",
     "losePitcher": "앤더슨",
     "savePitcher": "킴브럴",
+    "holds": {
+      "home": [
+        {
+          "n": "랭"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "도루",
           "text": "위트 주니어",
           "player": "위트 주니어",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:677951"
         },
         {
           "how": "홈런",
           "text": "페레즈",
           "player": "페레즈",
-          "nat": "Venezuela"
+          "nat": "Venezuela",
+          "pid": "mlb:521692"
         },
         {
           "how": "홈런",
           "text": "이스벨",
           "player": "이스벨",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:664728"
         }
       ],
       "away": [
@@ -339002,7 +339631,8 @@
           "how": "홈런",
           "text": "하오유 리",
           "player": "하오유 리",
-          "nat": "Taiwan"
+          "nat": "Taiwan",
+          "pid": "mlb:701678"
         }
       ]
     }
@@ -339024,13 +339654,25 @@
     "homeScore": 5,
     "winPitcher": "루커",
     "losePitcher": "웹",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "손튼"
+        },
+        {
+          "n": "로리슨"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
           "how": "홈런",
           "text": "아로자레나 2개",
           "player": "아로자레나",
-          "nat": "Cuba"
+          "nat": "Cuba",
+          "pid": "mlb:668227"
         }
       ],
       "away": [
@@ -339038,19 +339680,22 @@
           "how": "홈런",
           "text": "브레그먼",
           "player": "브레그먼",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:608324"
         },
         {
           "how": "홈런",
           "text": "부시",
           "player": "부시",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:683737"
         },
         {
           "how": "도루",
           "text": "테일러",
           "player": "테일러",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:621438"
         }
       ]
     }
@@ -339304,13 +339949,15 @@
           "how": "홈런",
           "text": "아레나도",
           "player": "아레나도",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:571448"
         },
         {
           "how": "홈런",
           "text": "타와",
           "player": "타와",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:694374"
         }
       ],
       "away": [
@@ -339318,25 +339965,29 @@
           "how": "홈런",
           "text": "데 라 크루즈",
           "player": "데 라 크루즈",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:682829"
         },
         {
           "how": "홈런",
           "text": "블레데이",
           "player": "블레데이",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:668709"
         },
         {
           "how": "홈런",
           "text": "맥클레인",
           "player": "맥클레인",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:680574"
         },
         {
           "how": "홈런",
           "text": "로드리게스",
           "player": "로드리게스",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:699302"
         }
       ]
     }
@@ -339359,25 +340010,39 @@
     "winPitcher": "바이비",
     "losePitcher": "휴스",
     "savePitcher": "스미스",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "사브로스키"
+        },
+        {
+          "n": "개디스"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
           "how": "도루",
           "text": "맥카시",
           "player": "맥카시",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:664983"
         },
         {
           "how": "홈런",
           "text": "모니악",
           "player": "모니악",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:666160"
         },
         {
           "how": "홈런",
           "text": "노르비",
           "player": "노르비",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:681393"
         }
       ],
       "away": [
@@ -339385,7 +340050,8 @@
           "how": "홈런",
           "text": "아델",
           "player": "아델",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:666176"
         }
       ]
     }
@@ -339524,13 +340190,26 @@
     "winPitcher": "캐닝",
     "losePitcher": "모리스",
     "savePitcher": "밀러",
+    "holds": {
+      "home": [
+        {
+          "n": "모레혼"
+        }
+      ],
+      "away": [
+        {
+          "n": "민터"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
           "how": "홈런",
           "text": "메릴",
           "player": "메릴",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:701538"
         }
       ],
       "away": [
@@ -339538,19 +340217,22 @@
           "how": "홈런",
           "text": "키샬",
           "player": "키샬",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:807712"
         },
         {
           "how": "홈런",
           "text": "리",
           "player": "리",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:686797"
         },
         {
           "how": "홈런",
           "text": "컬페퍼",
           "player": "컬페퍼",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:701785"
         }
       ]
     }
@@ -341673,13 +342355,25 @@
     "winPitcher": "마르티네즈",
     "losePitcher": "바즈",
     "savePitcher": "베이커",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "부저"
+        },
+        {
+          "n": "켈리"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
           "how": "홈런",
           "text": "카우저",
           "player": "카우저",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:681297"
         }
       ],
       "away": []
@@ -341702,13 +342396,22 @@
     "homeScore": 6,
     "winPitcher": "맥팔레인",
     "losePitcher": "오브라이언",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "브루흘"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
           "how": "홈런",
           "text": "슈와버",
           "player": "슈와버",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:656941"
         }
       ],
       "away": [
@@ -341716,19 +342419,22 @@
           "how": "도루",
           "text": "웨더홀트",
           "player": "웨더홀트",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:802139"
         },
         {
           "how": "도루",
           "text": "워커",
           "player": "워커",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:691023"
         },
         {
           "how": "홈런",
           "text": "페르민",
           "player": "페르민",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:665877"
         }
       ]
     }
@@ -341750,19 +342456,29 @@
     "homeScore": 8,
     "winPitcher": "블랙번",
     "losePitcher": "소리아노",
+    "holds": {
+      "home": [
+        {
+          "n": "야브로"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "홈런",
           "text": "그리샴",
           "player": "그리샴",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:663757"
         },
         {
           "how": "홈런",
           "text": "치좀",
           "player": "치좀",
-          "nat": "Bahamas"
+          "nat": "Bahamas",
+          "pid": "mlb:665862"
         }
       ],
       "away": []
@@ -341784,7 +342500,18 @@
     "awayScore": 2,
     "homeScore": 6,
     "winPitcher": "피터슨",
-    "losePitcher": "켄트"
+    "losePitcher": "켄트",
+    "holds": {
+      "home": [
+        {
+          "n": "포셰"
+        },
+        {
+          "n": "랠스턴"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-08-24",
@@ -341860,19 +342587,32 @@
     "winPitcher": "퍼킨스",
     "losePitcher": "오컬트",
     "savePitcher": "해리스",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "블루엣"
+        },
+        {
+          "n": "메디나"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
           "how": "홈런",
           "text": "파레데스",
           "player": "파레데스",
-          "nat": "Mexico"
+          "nat": "Mexico",
+          "pid": "mlb:670623"
         },
         {
           "how": "홈런",
           "text": "알튜베",
           "player": "알튜베",
-          "nat": "Venezuela"
+          "nat": "Venezuela",
+          "pid": "mlb:514888"
         }
       ],
       "away": [
@@ -341880,13 +342620,15 @@
           "how": "홈런",
           "text": "먼시",
           "player": "먼시",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:691777"
         },
         {
           "how": "홈런",
           "text": "서번",
           "player": "서번",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:661531"
         }
       ]
     }
@@ -341908,43 +342650,60 @@
     "homeScore": 11,
     "winPitcher": "슈라이버",
     "losePitcher": "시어스",
+    "holds": {
+      "home": [
+        {
+          "n": "쿠아스"
+        },
+        {
+          "n": "피어슨"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "홈런",
           "text": "로프틴",
           "player": "로프틴",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:679845"
         },
         {
           "how": "도루",
           "text": "위트 주니어",
           "player": "위트 주니어",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:677951"
         },
         {
           "how": "도루",
           "text": "페레즈",
           "player": "페레즈",
-          "nat": "Venezuela"
+          "nat": "Venezuela",
+          "pid": "mlb:521692"
         },
         {
           "how": "홈런",
           "text": "레이브",
           "player": "레이브",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:670231"
         },
         {
           "how": "도루",
           "text": "레이브 2개",
           "player": "레이브",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:670231"
         },
         {
           "how": "도루",
           "text": "이스벨",
           "player": "이스벨",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:664728"
         }
       ],
       "away": [
@@ -341952,19 +342711,22 @@
           "how": "홈런",
           "text": "맥고니글",
           "player": "맥고니글",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:805808"
         },
         {
           "how": "도루",
           "text": "말게리",
           "player": "말게리",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:701162"
         },
         {
           "how": "도루",
           "text": "클라크",
           "player": "클라크",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:703601"
         }
       ]
     }
@@ -341992,13 +342754,15 @@
           "how": "홈런",
           "text": "피터스",
           "player": "피터스",
-          "nat": "Canada"
+          "nat": "Canada",
+          "pid": "mlb:671976"
         },
         {
           "how": "도루",
           "text": "피터스",
           "player": "피터스",
-          "nat": "Canada"
+          "nat": "Canada",
+          "pid": "mlb:671976"
         }
       ],
       "away": []
@@ -342036,25 +342800,36 @@
     "winPitcher": "콴트릴",
     "losePitcher": "기쿠치",
     "savePitcher": "라츠",
+    "holds": {
+      "home": [
+        {
+          "n": "실세스"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "홈런",
           "text": "듀란",
           "player": "듀란",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:677649"
         },
         {
           "how": "도루",
           "text": "버거",
           "player": "버거",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:669394"
         },
         {
           "how": "홈런",
           "text": "디아즈",
           "player": "디아즈",
-          "nat": "Venezuela"
+          "nat": "Venezuela",
+          "pid": "mlb:553869"
         }
       ],
       "away": [
@@ -342062,7 +342837,8 @@
           "how": "홈런",
           "text": "네토",
           "player": "네토",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:687263"
         }
       ]
     }
@@ -342219,13 +342995,15 @@
           "how": "도루",
           "text": "마르티네스",
           "player": "마르티네스",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:682657"
         },
         {
           "how": "도루",
           "text": "로키오",
           "player": "로키오",
-          "nat": "Venezuela"
+          "nat": "Venezuela",
+          "pid": "mlb:677587"
         }
       ]
     }
@@ -342248,19 +343026,29 @@
     "winPitcher": "베넷",
     "losePitcher": "윌킨슨",
     "savePitcher": "채프먼",
+    "holds": {
+      "home": [
+        {
+          "n": "게레로"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "도루",
           "text": "라파엘라",
           "player": "라파엘라",
-          "nat": "Curacao"
+          "nat": "Curacao",
+          "pid": "mlb:678882"
         },
         {
           "how": "홈런",
           "text": "소가드",
           "player": "소가드",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:686765"
         }
       ],
       "away": [
@@ -342268,7 +343056,8 @@
           "how": "홈런",
           "text": "콕스",
           "player": "콕스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:813841"
         }
       ]
     }
@@ -342363,7 +343152,8 @@
           "how": "도루",
           "text": "오타니",
           "player": "오타니",
-          "nat": "Japan"
+          "nat": "Japan",
+          "pid": "mlb:660271"
         }
       ],
       "away": [
@@ -342371,7 +343161,8 @@
           "how": "도루",
           "text": "곤잘레스",
           "player": "곤잘레스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:693304"
         }
       ]
     }
@@ -342399,19 +343190,22 @@
           "how": "홈런",
           "text": "타티스 주니어 2개",
           "player": "타티스 주니어",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:665487"
         },
         {
           "how": "도루",
           "text": "타티스 주니어",
           "player": "타티스 주니어",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:665487"
         },
         {
           "how": "홈런",
           "text": "메릴",
           "player": "메릴",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:701538"
         }
       ],
       "away": [
@@ -342419,7 +343213,8 @@
           "how": "홈런",
           "text": "리",
           "player": "리",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:686797"
         }
       ]
     }
@@ -342447,13 +343242,15 @@
           "how": "홈런",
           "text": "아로자레나",
           "player": "아로자레나",
-          "nat": "Cuba"
+          "nat": "Cuba",
+          "pid": "mlb:668227"
         },
         {
           "how": "도루",
           "text": "로블레스 2개",
           "player": "로블레스",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:645302"
         }
       ],
       "away": [
@@ -342461,37 +343258,43 @@
           "how": "홈런",
           "text": "크로우-암스트롱",
           "player": "크로우-암스트롱",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:691718"
         },
         {
           "how": "도루",
           "text": "크로우-암스트롱",
           "player": "크로우-암스트롱",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:691718"
         },
         {
           "how": "도루",
           "text": "스즈키",
           "player": "스즈키",
-          "nat": "Japan"
+          "nat": "Japan",
+          "pid": "mlb:673548"
         },
         {
           "how": "홈런",
           "text": "햅",
           "player": "햅",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:664023"
         },
         {
           "how": "홈런",
           "text": "라미레즈",
           "player": "라미레즈",
-          "nat": "Venezuela"
+          "nat": "Venezuela",
+          "pid": "mlb:699393"
         },
         {
           "how": "홈런",
           "text": "콘포토",
           "player": "콘포토",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:624424"
         }
       ]
     }
@@ -342513,7 +343316,18 @@
     "homeScore": 5,
     "winPitcher": "로아이시가",
     "losePitcher": "애보트",
-    "savePitcher": "긴켈"
+    "savePitcher": "긴켈",
+    "holds": {
+      "home": [
+        {
+          "n": "모리요"
+        },
+        {
+          "n": "가르시아"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-08-24",
@@ -342609,6 +343423,17 @@
     "winPitcher": "말리",
     "losePitcher": "드로한",
     "savePitcher": "이글레시아스",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "푸엔테스"
+        },
+        {
+          "n": "리"
+        }
+      ]
+    },
     "highlights": {
       "home": [],
       "away": [
@@ -342616,19 +343441,22 @@
           "how": "홈런",
           "text": "해리스",
           "player": "해리스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:671739"
         },
         {
           "how": "도루",
           "text": "아쿠나",
           "player": "아쿠나",
-          "nat": "Venezuela"
+          "nat": "Venezuela",
+          "pid": "mlb:660670"
         },
         {
           "how": "도루",
           "text": "라일리",
           "player": "라일리",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:663586"
         }
       ]
     }
@@ -342934,6 +343762,17 @@
     "winPitcher": "라스무센",
     "losePitcher": "발데스",
     "savePitcher": "베이커",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "클레빈저"
+        },
+        {
+          "n": "로드리게스"
+        }
+      ]
+    },
     "highlights": {
       "home": [],
       "away": [
@@ -342941,7 +343780,8 @@
           "how": "홈런",
           "text": "아란다",
           "player": "아란다",
-          "nat": "Mexico"
+          "nat": "Mexico",
+          "pid": "mlb:666018"
         }
       ]
     }
@@ -342988,19 +343828,22 @@
           "how": "도루",
           "text": "에이브람스 2개",
           "player": "에이브람스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:682928"
         },
         {
           "how": "홈런",
           "text": "라일",
           "player": "라일",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:695734"
         },
         {
           "how": "도루",
           "text": "라일",
           "player": "라일",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:695734"
         }
       ],
       "away": [
@@ -343008,19 +343851,22 @@
           "how": "도루",
           "text": "맥카시",
           "player": "맥카시",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:664983"
         },
         {
           "how": "홈런",
           "text": "카스트로",
           "player": "카스트로",
-          "nat": "Puerto Rico"
+          "nat": "Puerto Rico",
+          "pid": "mlb:650489"
         },
         {
           "how": "홈런",
           "text": "토바",
           "player": "토바",
-          "nat": "Venezuela"
+          "nat": "Venezuela",
+          "pid": "mlb:678662"
         }
       ]
     }
@@ -343048,7 +343894,8 @@
           "how": "홈런",
           "text": "피터스",
           "player": "피터스",
-          "nat": "Canada"
+          "nat": "Canada",
+          "pid": "mlb:671976"
         }
       ],
       "away": [
@@ -343056,13 +343903,15 @@
           "how": "홈런",
           "text": "랭포드",
           "player": "랭포드",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:694671"
         },
         {
           "how": "홈런",
           "text": "버거",
           "player": "버거",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:669394"
         }
       ]
     }
@@ -343085,13 +343934,25 @@
     "winPitcher": "메식",
     "losePitcher": "클라센",
     "savePitcher": "스미스",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "홀더만"
+        },
+        {
+          "n": "개디스"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
           "how": "도루",
           "text": "로우",
           "player": "로우",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:666139"
         }
       ],
       "away": [
@@ -343099,7 +343960,8 @@
           "how": "홈런",
           "text": "헤지스",
           "player": "헤지스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:595978"
         }
       ]
     }
@@ -343127,7 +343989,8 @@
           "how": "도루",
           "text": "캐롤 2개",
           "player": "캐롤",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:682998"
         }
       ],
       "away": [
@@ -343135,13 +343998,15 @@
           "how": "홈런",
           "text": "콘포토",
           "player": "콘포토",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:624424"
         },
         {
           "how": "홈런",
           "text": "켈리",
           "player": "켈리",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:608348"
         }
       ]
     }
@@ -343164,25 +344029,36 @@
     "winPitcher": "예이츠",
     "losePitcher": "에스트라다",
     "savePitcher": "라미레즈",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "소토"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
           "how": "도루",
           "text": "타티스 주니어",
           "player": "타티스 주니어",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:665487"
         },
         {
           "how": "도루",
           "text": "마차도",
           "player": "마차도",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:592518"
         },
         {
           "how": "도루",
           "text": "보가츠",
           "player": "보가츠",
-          "nat": "Aruba"
+          "nat": "Aruba",
+          "pid": "mlb:593428"
         }
       ],
       "away": [
@@ -343190,19 +344066,22 @@
           "how": "도루",
           "text": "곤잘레스",
           "player": "곤잘레스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:693304"
         },
         {
           "how": "홈런",
           "text": "발데스",
           "player": "발데스",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:699013"
         },
         {
           "how": "도루",
           "text": "트리올로",
           "player": "트리올로",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:669707"
         }
       ]
     }
@@ -343232,7 +344111,8 @@
           "how": "홈런",
           "text": "크라이들러",
           "player": "크라이들러",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:668952"
         }
       ]
     }
@@ -343260,19 +344140,22 @@
           "how": "홈런",
           "text": "로드리게스",
           "player": "로드리게스",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:677594"
         },
         {
           "how": "홈런",
           "text": "랄리 3개",
           "player": "랄리",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:663728"
         },
         {
           "how": "홈런",
           "text": "영",
           "player": "영",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:702284"
         }
       ],
       "away": [
@@ -343280,7 +344163,8 @@
           "how": "홈런",
           "text": "리얼무토",
           "player": "리얼무토",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:592663"
         }
       ]
     }
@@ -343308,13 +344192,15 @@
           "how": "홈런",
           "text": "데버스",
           "player": "데버스",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:646240"
         },
         {
           "how": "도루",
           "text": "힐",
           "player": "힐",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:806367"
         }
       ],
       "away": []
@@ -344330,13 +345216,25 @@
     "winPitcher": "소머스",
     "losePitcher": "시모어",
     "savePitcher": "잰슨",
+    "holds": {
+      "home": [
+        {
+          "n": "웨그스펙"
+        },
+        {
+          "n": "홀튼"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "홈런",
           "text": "클라크",
           "player": "클라크",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:703601"
         }
       ],
       "away": []
@@ -344365,13 +345263,15 @@
           "how": "도루",
           "text": "로페즈 2개",
           "player": "로페즈",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:672640"
         },
         {
           "how": "홈런",
           "text": "에르난데스",
           "player": "에르난데스",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:681715"
         }
       ],
       "away": [
@@ -344379,13 +345279,15 @@
           "how": "홈런",
           "text": "가스퍼 2개",
           "player": "가스퍼",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:681508"
         },
         {
           "how": "홈런",
           "text": "듀란",
           "player": "듀란",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:680776"
         }
       ]
     }
@@ -344450,19 +345352,35 @@
     "winPitcher": "맨프레디",
     "losePitcher": "알바레즈",
     "savePitcher": "로마노",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "허겟"
+        },
+        {
+          "n": "힐"
+        },
+        {
+          "n": "버나디노"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
           "how": "홈런",
           "text": "라일",
           "player": "라일",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:695734"
         },
         {
           "how": "도루",
           "text": "영",
           "player": "영",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:696285"
         }
       ],
       "away": [
@@ -344470,7 +345388,8 @@
           "how": "홈런",
           "text": "굿맨",
           "player": "굿맨",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:696100"
         }
       ]
     }
@@ -344513,19 +345432,22 @@
           "how": "홈런",
           "text": "가르시아",
           "player": "가르시아",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:671277"
         },
         {
           "how": "홈런",
           "text": "벨린저",
           "player": "벨린저",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:641355"
         },
         {
           "how": "도루",
           "text": "치좀",
           "player": "치좀",
-          "nat": "Bahamas"
+          "nat": "Bahamas",
+          "pid": "mlb:665862"
         }
       ],
       "away": [
@@ -344533,13 +345455,15 @@
           "how": "홈런",
           "text": "페냐",
           "player": "페냐",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:665161"
         },
         {
           "how": "홈런",
           "text": "디아즈 2개",
           "player": "디아즈",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:673237"
         }
       ]
     }
@@ -344561,6 +345485,20 @@
     "homeScore": 3,
     "winPitcher": "루고",
     "losePitcher": "슈어저",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "슈라이버"
+        },
+        {
+          "n": "토마스"
+        },
+        {
+          "n": "피어슨"
+        }
+      ]
+    },
     "highlights": {
       "home": [],
       "away": [
@@ -344568,13 +345506,15 @@
           "how": "도루",
           "text": "파스콴티노",
           "player": "파스콴티노",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:686469"
         },
         {
           "how": "도루",
           "text": "톨버트",
           "player": "톨버트",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:686475"
         }
       ]
     }
@@ -344596,25 +345536,36 @@
     "homeScore": 3,
     "winPitcher": "핀타로",
     "losePitcher": "메길",
+    "holds": {
+      "home": [
+        {
+          "n": "라벤더"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "홈런",
           "text": "린도어",
           "player": "린도어",
-          "nat": "Puerto Rico"
+          "nat": "Puerto Rico",
+          "pid": "mlb:596019"
         },
         {
           "how": "홈런",
           "text": "로버트",
           "player": "로버트",
-          "nat": "Cuba"
+          "nat": "Cuba",
+          "pid": "mlb:673357"
         },
         {
           "how": "도루",
           "text": "유잉",
           "player": "유잉",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:805999"
         }
       ],
       "away": []
@@ -344644,13 +345595,15 @@
           "how": "도루",
           "text": "아쿠나",
           "player": "아쿠나",
-          "nat": "Venezuela"
+          "nat": "Venezuela",
+          "pid": "mlb:660670"
         },
         {
           "how": "도루",
           "text": "해리스",
           "player": "해리스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:671739"
         }
       ],
       "away": [
@@ -344658,7 +345611,8 @@
           "how": "도루",
           "text": "에드먼",
           "player": "에드먼",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:669242"
         }
       ]
     }
@@ -344715,13 +345669,15 @@
           "how": "홈런",
           "text": "피터스",
           "player": "피터스",
-          "nat": "Canada"
+          "nat": "Canada",
+          "pid": "mlb:671976"
         },
         {
           "how": "도루",
           "text": "도일",
           "player": "도일",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:686668"
         }
       ],
       "away": [
@@ -344729,19 +345685,22 @@
           "how": "홈런",
           "text": "포스큐",
           "player": "포스큐",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:679822"
         },
         {
           "how": "홈런",
           "text": "버거",
           "player": "버거",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:669394"
         },
         {
           "how": "홈런",
           "text": "잰슨",
           "player": "잰슨",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:643376"
         }
       ]
     }
@@ -344783,7 +345742,8 @@
           "how": "홈런",
           "text": "처치",
           "player": "처치",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:701675"
         }
       ],
       "away": [
@@ -344791,13 +345751,15 @@
           "how": "홈런",
           "text": "알론소",
           "player": "알론소",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:624413"
         },
         {
           "how": "홈런",
           "text": "엔카나시온-스트랜드",
           "player": "엔카나시온-스트랜드",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:687952"
         }
       ]
     }
@@ -344848,19 +345810,29 @@
     "winPitcher": "사브로스키",
     "losePitcher": "웨이만",
     "savePitcher": "스미스",
+    "holds": {
+      "home": [
+        {
+          "n": "사우세도"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "홈런",
           "text": "그리섬 2개",
           "player": "그리섬",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:687093"
         },
         {
           "how": "홈런",
           "text": "무어",
           "player": "무어",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:695681"
         }
       ],
       "away": [
@@ -344868,13 +345840,15 @@
           "how": "도루",
           "text": "라미레즈",
           "player": "라미레즈",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:608070"
         },
         {
           "how": "도루",
           "text": "아델",
           "player": "아델",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:666176"
         }
       ]
     }
@@ -344902,13 +345876,15 @@
           "how": "도루",
           "text": "페르난데스",
           "player": "페르난데스",
-          "nat": "Venezuela"
+          "nat": "Venezuela",
+          "pid": "mlb:699912"
         },
         {
           "how": "홈런",
           "text": "월드슈미트",
           "player": "월드슈미트",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:814439"
         }
       ],
       "away": [
@@ -344916,7 +345892,8 @@
           "how": "홈런",
           "text": "햅",
           "player": "햅",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:664023"
         }
       ]
     }
@@ -344945,7 +345922,8 @@
           "how": "도루",
           "text": "보웬",
           "player": "보웬",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:687749"
         }
       ],
       "away": [
@@ -344953,7 +345931,8 @@
           "how": "홈런",
           "text": "크루즈",
           "player": "크루즈",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:665833"
         }
       ]
     }
@@ -344976,13 +345955,25 @@
     "winPitcher": "점프",
     "losePitcher": "브래들리",
     "savePitcher": "알바라도",
+    "holds": {
+      "home": [
+        {
+          "n": "해리스"
+        },
+        {
+          "n": "메디나"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "홈런",
           "text": "코르테스",
           "player": "코르테스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:666126"
         }
       ],
       "away": [
@@ -344990,13 +345981,15 @@
           "how": "도루",
           "text": "키샬",
           "player": "키샬",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:807712"
         },
         {
           "how": "도루",
           "text": "루이스",
           "player": "루이스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:668904"
         }
       ]
     }
@@ -345019,25 +346012,36 @@
     "winPitcher": "커비",
     "losePitcher": "놀라",
     "savePitcher": "무뇨스",
+    "holds": {
+      "home": [
+        {
+          "n": "페레"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "도루",
           "text": "칸조네 도미닉",
           "player": "칸조네 도미닉",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:686527"
         },
         {
           "how": "도루",
           "text": "로드리게스",
           "player": "로드리게스",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:677594"
         },
         {
           "how": "홈런",
           "text": "랄리",
           "player": "랄리",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:663728"
         }
       ],
       "away": []
@@ -345061,19 +346065,32 @@
     "winPitcher": "몰리나",
     "losePitcher": "싱어",
     "savePitcher": "시모어",
+    "holds": {
+      "home": [
+        {
+          "n": "헨지스"
+        },
+        {
+          "n": "해리스"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "홈런",
           "text": "데버스",
           "player": "데버스",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:646240"
         },
         {
           "how": "도루",
           "text": "이정후",
           "player": "이정후",
-          "nat": "Republic of Korea"
+          "nat": "Republic of Korea",
+          "pid": "mlb:808982"
         }
       ],
       "away": [
@@ -345081,7 +346098,8 @@
           "how": "홈런",
           "text": "스튜어트",
           "player": "스튜어트",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:701398"
         }
       ]
     }
@@ -346068,7 +347086,15 @@
     "homeScore": 0,
     "winPitcher": "페랄타",
     "losePitcher": "멜턴",
-    "savePitcher": "웰스"
+    "savePitcher": "웰스",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "켈리"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-27",
@@ -346194,13 +347220,22 @@
     "winPitcher": "로드리게스",
     "losePitcher": "보이드",
     "savePitcher": "모리요",
+    "holds": {
+      "home": [
+        {
+          "n": "가르시아"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "홈런",
           "text": "롤러",
           "player": "롤러",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:691783"
         }
       ],
       "away": [
@@ -346208,7 +347243,8 @@
           "how": "도루",
           "text": "테일러",
           "player": "테일러",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:621438"
         }
       ]
     }
@@ -346231,25 +347267,39 @@
     "winPitcher": "산틸란",
     "losePitcher": "스미스",
     "savePitcher": "파간",
+    "holds": {
+      "home": [
+        {
+          "n": "워커"
+        },
+        {
+          "n": "비벤스"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "홈런",
           "text": "콕스",
           "player": "콕스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:813841"
         },
         {
           "how": "홈런",
           "text": "데버스",
           "player": "데버스",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:646240"
         },
         {
           "how": "홈런",
           "text": "위트컴",
           "player": "위트컴",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:694376"
         }
       ],
       "away": [
@@ -346257,31 +347307,36 @@
           "how": "홈런",
           "text": "로드리게스 2개",
           "player": "로드리게스",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:699302"
         },
         {
           "how": "도루",
           "text": "데 라 크루즈",
           "player": "데 라 크루즈",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:682829"
         },
         {
           "how": "홈런",
           "text": "수아레즈",
           "player": "수아레즈",
-          "nat": "Venezuela"
+          "nat": "Venezuela",
+          "pid": "mlb:553993"
         },
         {
           "how": "도루",
           "text": "마이어스",
           "player": "마이어스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:667472"
         },
         {
           "how": "도루",
           "text": "맥클레인",
           "player": "맥클레인",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:680574"
         }
       ]
     }
@@ -346304,13 +347359,25 @@
     "winPitcher": "개디스",
     "losePitcher": "왓슨",
     "savePitcher": "사브로스키",
+    "holds": {
+      "home": [
+        {
+          "n": "페랄타"
+        },
+        {
+          "n": "머피"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "도루",
           "text": "로우",
           "player": "로우",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:666139"
         }
       ],
       "away": [
@@ -346318,7 +347385,8 @@
           "how": "도루",
           "text": "라미레즈",
           "player": "라미레즈",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:608070"
         }
       ]
     }
@@ -346341,13 +347409,28 @@
     "winPitcher": "바스케즈",
     "losePitcher": "챈들러",
     "savePitcher": "로드리게스",
+    "holds": {
+      "home": [
+        {
+          "n": "하트"
+        },
+        {
+          "n": "캐닝"
+        },
+        {
+          "n": "마츠이"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "도루",
           "text": "페르민",
           "player": "페르민",
-          "nat": "Venezuela"
+          "nat": "Venezuela",
+          "pid": "mlb:666023"
         }
       ],
       "away": []
@@ -346377,13 +347460,15 @@
           "how": "홈런",
           "text": "슈와버",
           "player": "슈와버",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:656941"
         },
         {
           "how": "홈런",
           "text": "하퍼",
           "player": "하퍼",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:547180"
         }
       ]
     }
@@ -346475,25 +347560,39 @@
     "homeScore": 4,
     "winPitcher": "거스토",
     "losePitcher": "그레이",
+    "holds": {
+      "home": [
+        {
+          "n": "보드닉"
+        },
+        {
+          "n": "정크"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "도루",
           "text": "에르난데스",
           "player": "에르난데스",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:681715"
         },
         {
           "how": "도루",
           "text": "로페즈 2개",
           "player": "로페즈",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:672640"
         },
         {
           "how": "도루",
           "text": "사노하 3개",
           "player": "사노하",
-          "nat": "Venezuela"
+          "nat": "Venezuela",
+          "pid": "mlb:691594"
         }
       ],
       "away": []
@@ -346550,7 +347649,8 @@
           "how": "홈런",
           "text": "차파로",
           "player": "차파로",
-          "nat": "Venezuela"
+          "nat": "Venezuela",
+          "pid": "mlb:665953"
         }
       ],
       "away": [
@@ -346558,37 +347658,43 @@
           "how": "도루",
           "text": "맥카시",
           "player": "맥카시",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:664983"
         },
         {
           "how": "홈런",
           "text": "캐리그",
           "player": "캐리그",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:694249"
         },
         {
           "how": "홈런",
           "text": "굿맨",
           "player": "굿맨",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:696100"
         },
         {
           "how": "홈런",
           "text": "노르비",
           "player": "노르비",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:681393"
         },
         {
           "how": "홈런",
           "text": "존스턴",
           "player": "존스턴",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:687859"
         },
         {
           "how": "도루",
           "text": "토바",
           "player": "토바",
-          "nat": "Venezuela"
+          "nat": "Venezuela",
+          "pid": "mlb:678662"
         }
       ]
     }
@@ -346630,19 +347736,22 @@
           "how": "홈런",
           "text": "라이스",
           "player": "라이스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:700250"
         },
         {
           "how": "홈런",
           "text": "가르시아",
           "player": "가르시아",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:671277"
         },
         {
           "how": "도루",
           "text": "치좀",
           "player": "치좀",
-          "nat": "Bahamas"
+          "nat": "Bahamas",
+          "pid": "mlb:665862"
         }
       ],
       "away": [
@@ -346650,7 +347759,8 @@
           "how": "홈런",
           "text": "바쇼",
           "player": "바쇼",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:662139"
         }
       ]
     }
@@ -346673,13 +347783,28 @@
     "winPitcher": "댈러스",
     "losePitcher": "도브낙",
     "savePitcher": "발랜드",
+    "holds": {
+      "home": [
+        {
+          "n": "플루허티"
+        },
+        {
+          "n": "시월드"
+        },
+        {
+          "n": "로저스"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "홈런",
           "text": "룩스",
           "player": "룩스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:664770"
         }
       ],
       "away": [
@@ -346687,13 +347812,15 @@
           "how": "도루",
           "text": "젠슨",
           "player": "젠슨",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:695600"
         },
         {
           "how": "도루",
           "text": "톨버트",
           "player": "톨버트",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:686475"
         }
       ]
     }
@@ -346721,7 +347848,8 @@
           "how": "도루",
           "text": "유잉 2개",
           "player": "유잉",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:805999"
         }
       ],
       "away": [
@@ -346729,19 +347857,22 @@
           "how": "홈런",
           "text": "투랑",
           "player": "투랑",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:668930"
         },
         {
           "how": "도루",
           "text": "라라",
           "player": "라라",
-          "nat": "Venezuela"
+          "nat": "Venezuela",
+          "pid": "mlb:800325"
         },
         {
           "how": "도루",
           "text": "프랫",
           "player": "프랫",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:806198"
         }
       ]
     }
@@ -346763,37 +347894,50 @@
     "homeScore": 6,
     "winPitcher": "메데로스",
     "losePitcher": "스캇",
+    "holds": {
+      "home": [
+        {
+          "n": "도드"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "홈런",
           "text": "올슨",
           "player": "올슨",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:621566"
         },
         {
           "how": "도루",
           "text": "두본",
           "player": "두본",
-          "nat": "Honduras"
+          "nat": "Honduras",
+          "pid": "mlb:643289"
         },
         {
           "how": "도루",
           "text": "알비스",
           "player": "알비스",
-          "nat": "Curacao"
+          "nat": "Curacao",
+          "pid": "mlb:645277"
         },
         {
           "how": "도루",
           "text": "토마스",
           "player": "토마스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:657041"
         },
         {
           "how": "홈런",
           "text": "머피",
           "player": "머피",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:669221"
         }
       ],
       "away": [
@@ -346801,13 +347945,15 @@
           "how": "도루",
           "text": "오타니",
           "player": "오타니",
-          "nat": "Japan"
+          "nat": "Japan",
+          "pid": "mlb:660271"
         },
         {
           "how": "홈런",
           "text": "에드먼",
           "player": "에드먼",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:669242"
         }
       ]
     }
@@ -346836,19 +347982,22 @@
           "how": "도루",
           "text": "바가스",
           "player": "바가스",
-          "nat": "Cuba"
+          "nat": "Cuba",
+          "pid": "mlb:678246"
         },
         {
           "how": "홈런",
           "text": "도일",
           "player": "도일",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:686668"
         },
         {
           "how": "홈런",
           "text": "피터스",
           "player": "피터스",
-          "nat": "Canada"
+          "nat": "Canada",
+          "pid": "mlb:671976"
         }
       ],
       "away": [
@@ -346856,7 +348005,8 @@
           "how": "홈런",
           "text": "피더슨",
           "player": "피더슨",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:592626"
         }
       ]
     }
@@ -346899,19 +348049,22 @@
           "how": "도루",
           "text": "처치",
           "player": "처치",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:701675"
         },
         {
           "how": "홈런",
           "text": "고먼",
           "player": "고먼",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:669357"
         },
         {
           "how": "도루",
           "text": "토레스",
           "player": "토레스",
-          "nat": "Puerto Rico"
+          "nat": "Puerto Rico",
+          "pid": "mlb:663494"
         }
       ],
       "away": [
@@ -346919,13 +348072,15 @@
           "how": "홈런",
           "text": "알론소",
           "player": "알론소",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:624413"
         },
         {
           "how": "홈런",
           "text": "타베라스",
           "player": "타베라스",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:665750"
         }
       ]
     }
@@ -346962,13 +348117,22 @@
     "winPitcher": "긴",
     "losePitcher": "모리스",
     "savePitcher": "알바라도",
+    "holds": {
+      "home": [
+        {
+          "n": "바소"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "홈런",
           "text": "버틀러",
           "player": "버틀러",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:671732"
         }
       ],
       "away": [
@@ -346976,19 +348140,22 @@
           "how": "홈런",
           "text": "리",
           "player": "리",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:686797"
         },
         {
           "how": "홈런",
           "text": "라나크",
           "player": "라나크",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:663616"
         },
         {
           "how": "홈런",
           "text": "컬페퍼",
           "player": "컬페퍼",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:701785"
         }
       ]
     }
@@ -347670,31 +348837,46 @@
     "homeScore": 7,
     "winPitcher": "코스그로브",
     "losePitcher": "휴스",
+    "holds": {
+      "home": [
+        {
+          "n": "톨먼"
+        },
+        {
+          "n": "비터"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "홈런",
           "text": "라일",
           "player": "라일",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:695734"
         },
         {
           "how": "홈런",
           "text": "루이즈",
           "player": "루이즈",
-          "nat": "Venezuela"
+          "nat": "Venezuela",
+          "pid": "mlb:660688"
         },
         {
           "how": "도루",
           "text": "영 2개",
           "player": "영",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:696285"
         },
         {
           "how": "도루",
           "text": "누네스",
           "player": "누네스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:683083"
         }
       ],
       "away": [
@@ -347702,19 +348884,22 @@
           "how": "도루",
           "text": "캐리그",
           "player": "캐리그",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:694249"
         },
         {
           "how": "도루",
           "text": "카스트로",
           "player": "카스트로",
-          "nat": "Puerto Rico"
+          "nat": "Puerto Rico",
+          "pid": "mlb:650489"
         },
         {
           "how": "도루",
           "text": "빈",
           "player": "빈",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:691728"
         }
       ]
     }
@@ -347751,25 +348936,36 @@
     "winPitcher": "가스텔룸",
     "losePitcher": "로저스",
     "savePitcher": "오브라이언",
+    "holds": {
+      "home": [
+        {
+          "n": "소리아노"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "도루",
           "text": "페르민",
           "player": "페르민",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:665877"
         },
         {
           "how": "홈런",
           "text": "조던",
           "player": "조던",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:691458"
         },
         {
           "how": "홈런",
           "text": "우리아스",
           "player": "우리아스",
-          "nat": "Mexico"
+          "nat": "Mexico",
+          "pid": "mlb:602104"
         }
       ],
       "away": [
@@ -347777,13 +348973,15 @@
           "how": "도루",
           "text": "홀리데이",
           "player": "홀리데이",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:702616"
         },
         {
           "how": "홈런",
           "text": "메이요",
           "player": "메이요",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:691723"
         }
       ]
     }
@@ -347976,13 +349174,25 @@
     "homeScore": 1,
     "winPitcher": "웨스네스키",
     "losePitcher": "콜",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "오컬트"
+        },
+        {
+          "n": "블루바흐"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
           "how": "도루",
           "text": "치좀 2개",
           "player": "치좀",
-          "nat": "Bahamas"
+          "nat": "Bahamas",
+          "pid": "mlb:665862"
         }
       ],
       "away": [
@@ -347990,13 +349200,15 @@
           "how": "홈런",
           "text": "페냐",
           "player": "페냐",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:665161"
         },
         {
           "how": "홈런",
           "text": "워커",
           "player": "워커",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:572233"
         }
       ]
     }
@@ -348024,7 +349236,8 @@
           "how": "홈런",
           "text": "스프링어",
           "player": "스프링어",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:543807"
         }
       ],
       "away": [
@@ -348032,25 +349245,29 @@
           "how": "홈런",
           "text": "젠슨",
           "player": "젠슨",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:695600"
         },
         {
           "how": "도루",
           "text": "위트 주니어",
           "player": "위트 주니어",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:677951"
         },
         {
           "how": "홈런",
           "text": "캐글리아논",
           "player": "캐글리아논",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:695506"
         },
         {
           "how": "홈런",
           "text": "파스콴티노",
           "player": "파스콴티노",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:686469"
         }
       ]
     }
@@ -348079,19 +349296,22 @@
           "how": "홈런",
           "text": "추리오 2개",
           "player": "추리오",
-          "nat": "Venezuela"
+          "nat": "Venezuela",
+          "pid": "mlb:694192"
         },
         {
           "how": "도루",
           "text": "추리오",
           "player": "추리오",
-          "nat": "Venezuela"
+          "nat": "Venezuela",
+          "pid": "mlb:694192"
         },
         {
           "how": "도루",
           "text": "프랫",
           "player": "프랫",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:806198"
         }
       ]
     }
@@ -348119,19 +349339,22 @@
           "how": "홈런",
           "text": "볼드윈",
           "player": "볼드윈",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:686948"
         },
         {
           "how": "도루",
           "text": "해리스",
           "player": "해리스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:671739"
         },
         {
           "how": "도루",
           "text": "김하성",
           "player": "김하성",
-          "nat": "Republic of Korea"
+          "nat": "Republic of Korea",
+          "pid": "mlb:673490"
         }
       ],
       "away": []
@@ -348224,19 +349447,32 @@
     "homeScore": 6,
     "winPitcher": "룹",
     "losePitcher": "카브레라",
+    "holds": {
+      "home": [
+        {
+          "n": "해리스"
+        },
+        {
+          "n": "시모어"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "홈런",
           "text": "길버트",
           "player": "길버트",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:687551"
         },
         {
           "how": "도루",
           "text": "콕스",
           "player": "콕스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:813841"
         }
       ],
       "away": [
@@ -348244,13 +349480,15 @@
           "how": "홈런",
           "text": "모레노",
           "player": "모레노",
-          "nat": "Venezuela"
+          "nat": "Venezuela",
+          "pid": "mlb:672515"
         },
         {
           "how": "도루",
           "text": "페도모",
           "player": "페도모",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:672695"
         }
       ]
     }
@@ -348953,25 +350191,36 @@
     "winPitcher": "로더",
     "losePitcher": "손튼",
     "savePitcher": "파간",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "몰"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
           "how": "홈런",
           "text": "부시",
           "player": "부시",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:683737"
         },
         {
           "how": "도루",
           "text": "호너",
           "player": "호너",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:663538"
         },
         {
           "how": "홈런",
           "text": "라미레즈",
           "player": "라미레즈",
-          "nat": "Venezuela"
+          "nat": "Venezuela",
+          "pid": "mlb:699393"
         }
       ],
       "away": [
@@ -348979,25 +350228,29 @@
           "how": "홈런",
           "text": "스튜어트",
           "player": "스튜어트",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:701398"
         },
         {
           "how": "홈런",
           "text": "스티븐슨",
           "player": "스티븐슨",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:663886"
         },
         {
           "how": "홈런",
           "text": "트레비노",
           "player": "트레비노",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:624431"
         },
         {
           "how": "홈런",
           "text": "프리들",
           "player": "프리들",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:670770"
         }
       ]
     }
@@ -349253,6 +350506,17 @@
     "winPitcher": "필립스",
     "losePitcher": "웨그스펙",
     "savePitcher": "스캇",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "스튜어트"
+        },
+        {
+          "n": "베시아"
+        }
+      ]
+    },
     "highlights": {
       "home": [],
       "away": [
@@ -349260,7 +350524,8 @@
           "how": "도루",
           "text": "터커",
           "player": "터커",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:663656"
         }
       ]
     }
@@ -349330,13 +350595,15 @@
           "how": "홈런",
           "text": "하우스",
           "player": "하우스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:691781"
         },
         {
           "how": "홈런",
           "text": "포드",
           "player": "포드",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:695670"
         }
       ],
       "away": [
@@ -349344,13 +350611,15 @@
           "how": "홈런",
           "text": "에르난데스",
           "player": "에르난데스",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:681715"
         },
         {
           "how": "도루",
           "text": "에드워즈",
           "player": "에드워즈",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:669364"
         }
       ]
     }
@@ -349387,6 +350656,14 @@
     "winPitcher": "브라운",
     "losePitcher": "스콧",
     "savePitcher": "헤이더",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "어브레유"
+        }
+      ]
+    },
     "highlights": {
       "home": [],
       "away": [
@@ -349394,7 +350671,8 @@
           "how": "도루",
           "text": "페냐",
           "player": "페냐",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:665161"
         }
       ]
     }
@@ -349424,7 +350702,8 @@
           "how": "홈런",
           "text": "젠슨",
           "player": "젠슨",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:695600"
         }
       ]
     }
@@ -349446,31 +350725,46 @@
     "homeScore": 9,
     "winPitcher": "맥클라나한",
     "losePitcher": "마이즈",
+    "holds": {
+      "home": [
+        {
+          "n": "로드리게스"
+        },
+        {
+          "n": "켈리"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "홈런",
           "text": "디아즈",
           "player": "디아즈",
-          "nat": "Cuba"
+          "nat": "Cuba",
+          "pid": "mlb:650490"
         },
         {
           "how": "도루",
           "text": "심슨 2개",
           "player": "심슨",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:802415"
         },
         {
           "how": "홈런",
           "text": "멀린스",
           "player": "멀린스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:656775"
         },
         {
           "how": "도루",
           "text": "월스",
           "player": "월스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:670764"
         }
       ],
       "away": [
@@ -349478,7 +350772,8 @@
           "how": "홈런",
           "text": "메릴",
           "player": "메릴",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:701538"
         }
       ]
     }
@@ -349520,25 +350815,29 @@
           "how": "도루",
           "text": "베이트먼",
           "player": "베이트먼",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:703520"
         },
         {
           "how": "홈런",
           "text": "룩스",
           "player": "룩스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:664770"
         },
         {
           "how": "홈런",
           "text": "스프링어",
           "player": "스프링어",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:543807"
         },
         {
           "how": "홈런",
           "text": "오카모토",
           "player": "오카모토",
-          "nat": "Japan"
+          "nat": "Japan",
+          "pid": "mlb:672960"
         }
       ],
       "away": [
@@ -349546,7 +350845,8 @@
           "how": "홈런",
           "text": "칸조네 도미닉",
           "player": "칸조네 도미닉",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:686527"
         }
       ]
     }
@@ -349569,13 +350869,28 @@
     "winPitcher": "홈스",
     "losePitcher": "스가노",
     "savePitcher": "이글레시아스",
+    "holds": {
+      "home": [
+        {
+          "n": "도드"
+        },
+        {
+          "n": "커"
+        },
+        {
+          "n": "메데로스"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "홈런",
           "text": "해리스",
           "player": "해리스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:671739"
         }
       ],
       "away": []
@@ -349599,13 +350914,25 @@
     "winPitcher": "슐리틀러",
     "losePitcher": "산도발",
     "savePitcher": "베드너",
+    "holds": {
+      "home": [
+        {
+          "n": "헤드릭"
+        },
+        {
+          "n": "블랙번"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "홈런",
           "text": "골드슈미트",
           "player": "골드슈미트",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:502671"
         }
       ],
       "away": []
@@ -349628,13 +350955,22 @@
     "homeScore": 6,
     "winPitcher": "핸더슨",
     "losePitcher": "브래드퍼드",
+    "holds": {
+      "home": [
+        {
+          "n": "애쉬비"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "도루",
           "text": "바우어스",
           "player": "바우어스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:641343"
         }
       ],
       "away": [
@@ -349642,7 +350978,8 @@
           "how": "홈런",
           "text": "잰슨",
           "player": "잰슨",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:643376"
         }
       ]
     }
@@ -349727,19 +351064,22 @@
           "how": "홈런",
           "text": "리",
           "player": "리",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:686797"
         },
         {
           "how": "홈런",
           "text": "클레멘스",
           "player": "클레멘스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:665019"
         },
         {
           "how": "도루",
           "text": "루이스",
           "player": "루이스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:668904"
         }
       ],
       "away": [
@@ -349747,13 +351087,15 @@
           "how": "도루",
           "text": "안토나치",
           "player": "안토나치",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:803011"
         },
         {
           "how": "홈런",
           "text": "몽고메리",
           "player": "몽고메리",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:695657"
         }
       ]
     }
@@ -349776,13 +351118,25 @@
     "winPitcher": "매튜스",
     "losePitcher": "존스",
     "savePitcher": "스타넥",
+    "holds": {
+      "home": [
+        {
+          "n": "페르난데스"
+        },
+        {
+          "n": "퍼거슨"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "홈런",
           "text": "크룩스",
           "player": "크룩스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:699625"
         }
       ],
       "away": []
@@ -349820,6 +351174,20 @@
     "winPitcher": "맥팔레인",
     "losePitcher": "조이스",
     "savePitcher": "볼란",
+    "holds": {
+      "home": [
+        {
+          "n": "페르민"
+        },
+        {
+          "n": "왓슨"
+        },
+        {
+          "n": "사우세도"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [],
       "away": [
@@ -349827,7 +351195,8 @@
           "how": "홈런",
           "text": "소사",
           "player": "소사",
-          "nat": "Panama"
+          "nat": "Panama",
+          "pid": "mlb:624641"
         }
       ]
     }
@@ -349856,13 +351225,15 @@
           "how": "도루",
           "text": "겔로프",
           "player": "겔로프",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:680869"
         },
         {
           "how": "홈런",
           "text": "하임",
           "player": "하임",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:641680"
         }
       ],
       "away": [
@@ -349870,7 +351241,8 @@
           "how": "도루",
           "text": "메이요",
           "player": "메이요",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:691723"
         }
       ]
     }
@@ -349926,19 +351298,22 @@
           "how": "홈런",
           "text": "엘드리지",
           "player": "엘드리지",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:805811"
         },
         {
           "how": "도루",
           "text": "이정후",
           "player": "이정후",
-          "nat": "Republic of Korea"
+          "nat": "Republic of Korea",
+          "pid": "mlb:808982"
         },
         {
           "how": "홈런",
           "text": "코스",
           "player": "코스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:683766"
         }
       ],
       "away": [
@@ -349946,31 +351321,36 @@
           "how": "홈런",
           "text": "눗바",
           "player": "눗바",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:663457"
         },
         {
           "how": "도루",
           "text": "바로사",
           "player": "바로사",
-          "nat": "Venezuela"
+          "nat": "Venezuela",
+          "pid": "mlb:678489"
         },
         {
           "how": "홈런",
           "text": "캐롤",
           "player": "캐롤",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:682998"
         },
         {
           "how": "도루",
           "text": "페도모",
           "player": "페도모",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:672695"
         },
         {
           "how": "홈런",
           "text": "타와",
           "player": "타와",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:694374"
         }
       ]
     }
@@ -352599,6 +353979,17 @@
     "homeScore": 0,
     "winPitcher": "베넷",
     "losePitcher": "로돈",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "게레로"
+        },
+        {
+          "n": "위틀록"
+        }
+      ]
+    },
     "highlights": {
       "home": [],
       "away": [
@@ -352606,7 +353997,8 @@
           "how": "홈런",
           "text": "어브레유",
           "player": "어브레유",
-          "nat": "Venezuela"
+          "nat": "Venezuela",
+          "pid": "mlb:677800"
         }
       ]
     }
@@ -352634,13 +354026,15 @@
           "how": "도루",
           "text": "하오유 리",
           "player": "하오유 리",
-          "nat": "Taiwan"
+          "nat": "Taiwan",
+          "pid": "mlb:701678"
         },
         {
           "how": "도루",
           "text": "맥킨스트리",
           "player": "맥킨스트리",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:656716"
         }
       ],
       "away": []
@@ -352709,13 +354103,22 @@
     "winPitcher": "페디",
     "losePitcher": "모리스",
     "savePitcher": "허드슨",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "뉴컴"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
           "how": "도루",
           "text": "젠킨스",
           "player": "젠킨스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:805805"
         }
       ],
       "away": [
@@ -352723,7 +354126,8 @@
           "how": "홈런",
           "text": "베닌텐디",
           "player": "베닌텐디",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:643217"
         }
       ]
     }
@@ -352745,13 +354149,25 @@
     "homeScore": 2,
     "winPitcher": "모진스키",
     "losePitcher": "마우츠",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "소토"
+        },
+        {
+          "n": "위버"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
           "how": "홈런",
           "text": "바에즈",
           "player": "바에즈",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:695491"
         }
       ],
       "away": [
@@ -352759,13 +354175,15 @@
           "how": "홈런",
           "text": "로우",
           "player": "로우",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:664040"
         },
         {
           "how": "홈런",
           "text": "플로레스",
           "player": "플로레스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:804668"
         }
       ]
     }
@@ -352793,25 +354211,29 @@
           "how": "홈런",
           "text": "크로우-암스트롱 3개",
           "player": "크로우-암스트롱",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:691718"
         },
         {
           "how": "홈런",
           "text": "스즈키",
           "player": "스즈키",
-          "nat": "Japan"
+          "nat": "Japan",
+          "pid": "mlb:673548"
         },
         {
           "how": "홈런",
           "text": "브레그먼",
           "player": "브레그먼",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:608324"
         },
         {
           "how": "홈런",
           "text": "켈리",
           "player": "켈리",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:608348"
         }
       ],
       "away": [
@@ -352819,19 +354241,22 @@
           "how": "도루",
           "text": "데 라 크루즈",
           "player": "데 라 크루즈",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:682829"
         },
         {
           "how": "홈런",
           "text": "스튜어트",
           "player": "스튜어트",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:701398"
         },
         {
           "how": "홈런",
           "text": "수아레즈",
           "player": "수아레즈",
-          "nat": "Venezuela"
+          "nat": "Venezuela",
+          "pid": "mlb:553993"
         }
       ]
     }
@@ -353049,19 +354474,32 @@
     "winPitcher": "소리아노",
     "losePitcher": "페레",
     "savePitcher": "발랜드",
+    "holds": {
+      "home": [
+        {
+          "n": "로저스"
+        },
+        {
+          "n": "플루허티"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "도루",
           "text": "커크",
           "player": "커크",
-          "nat": "Mexico"
+          "nat": "Mexico",
+          "pid": "mlb:672386"
         },
         {
           "how": "도루",
           "text": "스프링어",
           "player": "스프링어",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:543807"
         }
       ],
       "away": [
@@ -353069,7 +354507,8 @@
           "how": "홈런",
           "text": "랄리",
           "player": "랄리",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:663728"
         }
       ]
     }
@@ -353148,7 +354587,8 @@
           "how": "홈런",
           "text": "에르난데스",
           "player": "에르난데스",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:681715"
         }
       ]
     }
@@ -353178,13 +354618,15 @@
           "how": "도루",
           "text": "타와",
           "player": "타와",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:694374"
         },
         {
           "how": "홈런",
           "text": "눗바",
           "player": "눗바",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:663457"
         }
       ]
     }
@@ -353206,13 +354648,22 @@
     "homeScore": 6,
     "winPitcher": "맥클린",
     "losePitcher": "하비에르",
+    "holds": {
+      "home": [
+        {
+          "n": "두아르테"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "도루",
           "text": "세미엔",
           "player": "세미엔",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:543760"
         }
       ],
       "away": [
@@ -353220,7 +354671,8 @@
           "how": "홈런",
           "text": "알바레스",
           "player": "알바레스",
-          "nat": "Cuba"
+          "nat": "Cuba",
+          "pid": "mlb:670541"
         }
       ]
     }
@@ -353248,7 +354700,8 @@
           "how": "홈런",
           "text": "마르티네스",
           "player": "마르티네스",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:682657"
         }
       ],
       "away": [
@@ -353256,7 +354709,8 @@
           "how": "홈런",
           "text": "로하스",
           "player": "로하스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:668942"
         }
       ]
     }
@@ -353285,13 +354739,15 @@
           "how": "홈런",
           "text": "아란다",
           "player": "아란다",
-          "nat": "Mexico"
+          "nat": "Mexico",
+          "pid": "mlb:666018"
         },
         {
           "how": "홈런",
           "text": "카미네로",
           "player": "카미네로",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:691406"
         }
       ],
       "away": [
@@ -353299,25 +354755,29 @@
           "how": "도루",
           "text": "타티스 주니어",
           "player": "타티스 주니어",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:665487"
         },
         {
           "how": "도루",
           "text": "마차도",
           "player": "마차도",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:592518"
         },
         {
           "how": "홈런",
           "text": "프랑스",
           "player": "프랑스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:664034"
         },
         {
           "how": "도루",
           "text": "해리스",
           "player": "해리스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:687957"
         }
       ]
     }
@@ -353340,19 +354800,29 @@
     "winPitcher": "수터",
     "losePitcher": "힐",
     "savePitcher": "푸엔테스",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "허겟"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
           "how": "도루",
           "text": "아쿠나",
           "player": "아쿠나",
-          "nat": "Venezuela"
+          "nat": "Venezuela",
+          "pid": "mlb:660670"
         },
         {
           "how": "도루",
           "text": "라일리",
           "player": "라일리",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:663586"
         }
       ],
       "away": []
@@ -353567,25 +355037,39 @@
     "winPitcher": "드로한",
     "losePitcher": "콴트릴",
     "savePitcher": "메길",
+    "holds": {
+      "home": [
+        {
+          "n": "패트릭"
+        },
+        {
+          "n": "센자텔라"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "홈런",
           "text": "추리오",
           "player": "추리오",
-          "nat": "Venezuela"
+          "nat": "Venezuela",
+          "pid": "mlb:694192"
         },
         {
           "how": "홈런",
           "text": "콘트레라스",
           "player": "콘트레라스",
-          "nat": "Venezuela"
+          "nat": "Venezuela",
+          "pid": "mlb:661388"
         },
         {
           "how": "도루",
           "text": "옐리치",
           "player": "옐리치",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:592885"
         }
       ],
       "away": [
@@ -353593,19 +355077,22 @@
           "how": "홈런",
           "text": "니모",
           "player": "니모",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:607043"
         },
         {
           "how": "도루",
           "text": "니모",
           "player": "니모",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:607043"
         },
         {
           "how": "홈런",
           "text": "프리먼",
           "player": "프리먼",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:683227"
         }
       ]
     }
@@ -353628,25 +355115,39 @@
     "homeScore": 9,
     "winPitcher": "블랙번",
     "losePitcher": "벨로",
+    "holds": {
+      "home": [
+        {
+          "n": "힐"
+        },
+        {
+          "n": "헤드릭"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "도루",
           "text": "가르시아",
           "player": "가르시아",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:671277"
         },
         {
           "how": "도루",
           "text": "로사리오",
           "player": "로사리오",
-          "nat": "Dominican Republic"
+          "nat": "Dominican Republic",
+          "pid": "mlb:642708"
         },
         {
           "how": "도루",
           "text": "카바예로",
           "player": "카바예로",
-          "nat": "Panama"
+          "nat": "Panama",
+          "pid": "mlb:676609"
         }
       ],
       "away": [
@@ -353654,7 +355155,8 @@
           "how": "홈런",
           "text": "소가드",
           "player": "소가드",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:686765"
         }
       ]
     }
@@ -354061,19 +355563,35 @@
     "homeScore": 7,
     "winPitcher": "산마르틴",
     "losePitcher": "브랫",
+    "holds": {
+      "home": [
+        {
+          "n": "해리스"
+        },
+        {
+          "n": "폴리"
+        },
+        {
+          "n": "시모어"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
           "how": "도루",
           "text": "콕스 3개",
           "player": "콕스",
-          "nat": "USA"
+          "nat": "USA",
+          "pid": "mlb:813841"
         },
         {
           "how": "도루",
           "text": "바사베",
           "player": "바사베",
-          "nat": "Venezuela"
+          "nat": "Venezuela",
+          "pid": "mlb:678545"
         }
       ],
       "away": []
@@ -379118,6 +380636,102 @@
   {
     "date": "2026-09-09",
     "time": "03:45",
+    "league": "EFL",
+    "venueId": "southampton_st_marys",
+    "home": "사우샘프턴",
+    "away": "스완지",
+    "stadium": "세인트 메리스 스타디움",
+    "timeTbd": false,
+    "gameId": "YEzthB2I7ULBOnY",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "아자즈",
+          "m": 9
+        },
+        {
+          "n": "래린",
+          "m": 33
+        },
+        {
+          "n": "레오 시엔자",
+          "m": 78
+        }
+      ],
+      "away": [
+        {
+          "n": "비포트니크",
+          "m": 52
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-09",
+    "time": "03:45",
+    "league": "EFL",
+    "venueId": "watford_vicarage_road",
+    "home": "왓퍼드",
+    "away": "프레스턴",
+    "stadium": "비커리지 로드",
+    "timeTbd": false,
+    "gameId": "2n8KOshcekINj3A",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "에도 카옘베",
+          "m": 69
+        },
+        {
+          "n": "둠비아",
+          "m": 76
+        }
+      ],
+      "away": [
+        {
+          "n": "랭",
+          "m": 5
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-09",
+    "time": "03:45",
+    "league": "EFL",
+    "venueId": "wrexham_racecourse_ground",
+    "home": "렉섬",
+    "away": "번리",
+    "stadium": "레이스코스 그라운드",
+    "timeTbd": false,
+    "gameId": "8059agG5ekMqb6q",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "에코미에",
+          "m": 55
+        }
+      ],
+      "away": [
+        {
+          "n": "암두니",
+          "m": 26
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-09",
+    "time": "03:45",
     "league": "EFLCUP",
     "venueId": "bournemouth_dean_court",
     "home": "본머스",
@@ -379244,102 +380858,6 @@
       "away": []
     },
     "phaseCode": "T32"
-  },
-  {
-    "date": "2026-09-09",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "southampton_st_marys",
-    "home": "사우샘프턴",
-    "away": "스완지",
-    "stadium": "세인트 메리스 스타디움",
-    "timeTbd": false,
-    "gameId": "YEzthB2I7ULBOnY",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 3,
-    "scorers": {
-      "home": [
-        {
-          "n": "아자즈",
-          "m": 9
-        },
-        {
-          "n": "래린",
-          "m": 33
-        },
-        {
-          "n": "레오 시엔자",
-          "m": 78
-        }
-      ],
-      "away": [
-        {
-          "n": "비포트니크",
-          "m": 52
-        }
-      ]
-    }
-  },
-  {
-    "date": "2026-09-09",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "watford_vicarage_road",
-    "home": "왓퍼드",
-    "away": "프레스턴",
-    "stadium": "비커리지 로드",
-    "timeTbd": false,
-    "gameId": "2n8KOshcekINj3A",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "에도 카옘베",
-          "m": 69
-        },
-        {
-          "n": "둠비아",
-          "m": 76
-        }
-      ],
-      "away": [
-        {
-          "n": "랭",
-          "m": 5
-        }
-      ]
-    }
-  },
-  {
-    "date": "2026-09-09",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "wrexham_racecourse_ground",
-    "home": "렉섬",
-    "away": "번리",
-    "stadium": "레이스코스 그라운드",
-    "timeTbd": false,
-    "gameId": "8059agG5ekMqb6q",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 1,
-    "scorers": {
-      "home": [
-        {
-          "n": "에코미에",
-          "m": 55
-        }
-      ],
-      "away": [
-        {
-          "n": "암두니",
-          "m": 26
-        }
-      ]
-    }
   },
   {
     "date": "2026-09-09",
@@ -404471,6 +405989,77 @@
   {
     "date": "2026-09-16",
     "time": "03:45",
+    "league": "EFL",
+    "venueId": "middlesbrough_riverside",
+    "home": "미들즈브러",
+    "away": "밀월",
+    "stadium": "리버사이드 스타디움",
+    "timeTbd": false,
+    "gameId": "YK3SlqCpysSMqvp",
+    "status": "completed",
+    "awayScore": 2,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "코지어-뒤베리",
+          "m": 50,
+          "nat": "England",
+          "pid": "espn:327170"
+        },
+        {
+          "n": "랭크셔",
+          "m": 61,
+          "a": "Luke Ayling",
+          "nat": "England",
+          "aNat": "England",
+          "pid": "espn:349181",
+          "apid": "espn:136380"
+        }
+      ],
+      "away": [
+        {
+          "n": "아르콘테",
+          "m": 11,
+          "a": "Camiel Neghli",
+          "nat": "Guadeloupe",
+          "aNat": "Algeria",
+          "pid": "espn:315189",
+          "apid": "espn:310173"
+        },
+        {
+          "n": "다이크스",
+          "m": 36,
+          "a": "Caleb Taylor",
+          "nat": "Scotland",
+          "aNat": "England",
+          "pid": "espn:207538",
+          "apid": "espn:308572"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Riley McGree",
+          "type": "Y",
+          "m": 66,
+          "pid": "espn:235096"
+        }
+      ],
+      "away": [
+        {
+          "n": "Derek Mazou-Sacko",
+          "type": "Y",
+          "m": 59,
+          "pid": "espn:324659"
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-16",
+    "time": "03:45",
     "league": "EFLCUP",
     "venueId": "westham_london_stadium",
     "home": "웨스트햄",
@@ -404541,77 +406130,6 @@
       ]
     },
     "phaseCode": "T32"
-  },
-  {
-    "date": "2026-09-16",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "middlesbrough_riverside",
-    "home": "미들즈브러",
-    "away": "밀월",
-    "stadium": "리버사이드 스타디움",
-    "timeTbd": false,
-    "gameId": "YK3SlqCpysSMqvp",
-    "status": "completed",
-    "awayScore": 2,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "코지어-뒤베리",
-          "m": 50,
-          "nat": "England",
-          "pid": "espn:327170"
-        },
-        {
-          "n": "랭크셔",
-          "m": 61,
-          "a": "Luke Ayling",
-          "nat": "England",
-          "aNat": "England",
-          "pid": "espn:349181",
-          "apid": "espn:136380"
-        }
-      ],
-      "away": [
-        {
-          "n": "아르콘테",
-          "m": 11,
-          "a": "Camiel Neghli",
-          "nat": "Guadeloupe",
-          "aNat": "Algeria",
-          "pid": "espn:315189",
-          "apid": "espn:310173"
-        },
-        {
-          "n": "다이크스",
-          "m": 36,
-          "a": "Caleb Taylor",
-          "nat": "Scotland",
-          "aNat": "England",
-          "pid": "espn:207538",
-          "apid": "espn:308572"
-        }
-      ]
-    },
-    "cards": {
-      "home": [
-        {
-          "n": "Riley McGree",
-          "type": "Y",
-          "m": 66,
-          "pid": "espn:235096"
-        }
-      ],
-      "away": [
-        {
-          "n": "Derek Mazou-Sacko",
-          "type": "Y",
-          "m": 59,
-          "pid": "espn:324659"
-        }
-      ]
-    }
   },
   {
     "date": "2026-09-16",
@@ -406645,30 +408163,6 @@
   {
     "date": "2026-09-16",
     "time": "19:00",
-    "league": "ACL2",
-    "venueId": "seoulwc",
-    "home": "서울",
-    "away": "반둥",
-    "stadium": "서울월드컵경기장",
-    "timeTbd": false,
-    "gameId": "2idpicTW6SmPYVP",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 0,
-    "scorers": {
-      "home": [],
-      "away": [
-        {
-          "n": "훌리오 세자르",
-          "m": 5
-        }
-      ]
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-09-16",
-    "time": "19:00",
     "league": "ACL",
     "venueId": "jeonju",
     "home": "전북",
@@ -406742,6 +408236,30 @@
   {
     "date": "2026-09-16",
     "time": "19:00",
+    "league": "ACL2",
+    "venueId": "seoulwc",
+    "home": "서울",
+    "away": "반둥",
+    "stadium": "서울월드컵경기장",
+    "timeTbd": false,
+    "gameId": "2idpicTW6SmPYVP",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "훌리오 세자르",
+          "m": 5
+        }
+      ]
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-09-16",
+    "time": "19:00",
     "league": "ASIANGAMESFOOTBALL",
     "venueId": "wave_stadium_kariya",
     "home": "중국 (남자)",
@@ -406766,35 +408284,6 @@
     "status": "completed",
     "homeScore": 2,
     "awayScore": 0
-  },
-  {
-    "date": "2026-09-16",
-    "time": "21:15",
-    "league": "ACL2",
-    "venueId": "cahn_hang_day",
-    "home": "비에트텔",
-    "away": "멜버른 FC",
-    "stadium": "선번동 항더이 (항더이 스타디움)",
-    "timeTbd": false,
-    "gameId": "gqA22tVR2bUJFof",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 1,
-    "scorers": {
-      "home": [
-        {
-          "n": "리바마르",
-          "m": 62
-        }
-      ],
-      "away": [
-        {
-          "n": "클라리스마리우 호드리게스",
-          "m": 58
-        }
-      ]
-    },
-    "phaseCode": "GROUP"
   },
   {
     "date": "2026-09-16",
@@ -406867,6 +408356,35 @@
           "type": "Y",
           "m": 73,
           "pid": "espn:143697"
+        }
+      ]
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-09-16",
+    "time": "21:15",
+    "league": "ACL2",
+    "venueId": "cahn_hang_day",
+    "home": "비에트텔",
+    "away": "멜버른 FC",
+    "stadium": "선번동 항더이 (항더이 스타디움)",
+    "timeTbd": false,
+    "gameId": "gqA22tVR2bUJFof",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "리바마르",
+          "m": 62
+        }
+      ],
+      "away": [
+        {
+          "n": "클라리스마리우 호드리게스",
+          "m": 58
         }
       ]
     },
@@ -455375,19 +456893,6 @@
   {
     "date": "2026-10-14",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "al_seeb_stadium",
-    "home": "알 시브",
-    "away": "알 후세인",
-    "stadium": "알-시브 스타디움",
-    "timeTbd": false,
-    "gameId": "OQsSGAzKGbKHXDT",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-14",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "al_sadd_jassim_bin_hamad",
     "home": "알 사드",
@@ -455395,6 +456900,19 @@
     "stadium": "자심 빈 하마드 스타디움",
     "timeTbd": false,
     "gameId": "zcfrVKksVO8hhNi",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-14",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "al_seeb_stadium",
+    "home": "알 시브",
+    "away": "알 후세인",
+    "stadium": "알-시브 스타디움",
+    "timeTbd": false,
+    "gameId": "OQsSGAzKGbKHXDT",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -466900,19 +468418,6 @@
   {
     "date": "2026-10-28",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "al_seeb_stadium",
-    "home": "알 시브",
-    "away": "이스트 벵갈",
-    "stadium": "알-시브 스타디움",
-    "timeTbd": false,
-    "gameId": "AW3p0efTl1zL9Jt",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-28",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "shabab_alahli_al_rashid",
     "home": "샤바브 알 아흘리",
@@ -466920,6 +468425,19 @@
     "stadium": "알라시드 스타디움",
     "timeTbd": false,
     "gameId": "uVJg9XVeZVSJFpb",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-28",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "al_seeb_stadium",
+    "home": "알 시브",
+    "away": "이스트 벵갈",
+    "stadium": "알-시브 스타디움",
+    "timeTbd": false,
+    "gameId": "AW3p0efTl1zL9Jt",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -467110,19 +468628,6 @@
   {
     "date": "2026-10-28",
     "time": "03:15",
-    "league": "ACL2",
-    "venueId": "al_zawraa_stadium",
-    "home": "알 쇼르타",
-    "away": "알 후세인",
-    "stadium": "알-자우라 스타디움",
-    "timeTbd": false,
-    "gameId": "HCihM9DqxKOXBbt",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-28",
-    "time": "03:15",
     "league": "ACL",
     "venueId": "al_shamal_al_bayt",
     "home": "알샤말",
@@ -467130,6 +468635,19 @@
     "stadium": "알베이트 스타디움",
     "timeTbd": false,
     "gameId": "3aZWRb5fy3Nyk9x",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-28",
+    "time": "03:15",
+    "league": "ACL2",
+    "venueId": "al_zawraa_stadium",
+    "home": "알 쇼르타",
+    "away": "알 후세인",
+    "stadium": "알-자우라 스타디움",
+    "timeTbd": false,
+    "gameId": "HCihM9DqxKOXBbt",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -470406,19 +471924,6 @@
   {
     "date": "2026-11-04",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "amman_international_stadium",
-    "home": "알 후세인",
-    "away": "알 쇼르타",
-    "stadium": "암만 인터내셔널 스태디엄",
-    "timeTbd": false,
-    "gameId": "87Yzcj2B505kzbh",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-11-04",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "basra_international",
     "home": "에스테그랄",
@@ -470426,6 +471931,19 @@
     "stadium": "바스라 인터내셔널 스타디움",
     "timeTbd": false,
     "gameId": "CbaeNHtf2qOthye",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-11-04",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "amman_international_stadium",
+    "home": "알 후세인",
+    "away": "알 쇼르타",
+    "stadium": "암만 인터내셔널 스태디엄",
+    "timeTbd": false,
+    "gameId": "87Yzcj2B505kzbh",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -470683,19 +472201,6 @@
   {
     "date": "2026-11-04",
     "time": "19:00",
-    "league": "ACL2",
-    "venueId": "seoulwc",
-    "home": "서울",
-    "away": "비에트텔",
-    "stadium": "서울월드컵경기장",
-    "timeTbd": false,
-    "gameId": "lZapB69mvTiiYds",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-11-04",
-    "time": "19:00",
     "league": "ACL",
     "venueId": "pohang",
     "home": "포항",
@@ -470703,6 +472208,19 @@
     "stadium": "포항스틸야드",
     "timeTbd": false,
     "gameId": "pmIB9z9UAQ4XPV2",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-11-04",
+    "time": "19:00",
+    "league": "ACL2",
+    "venueId": "seoulwc",
+    "home": "서울",
+    "away": "비에트텔",
+    "stadium": "서울월드컵경기장",
+    "timeTbd": false,
+    "gameId": "lZapB69mvTiiYds",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -476043,19 +477561,6 @@
   {
     "date": "2026-11-25",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "al_seeb_stadium",
-    "home": "알 시브",
-    "away": "알 쇼르타",
-    "stadium": "알-시브 스타디움",
-    "timeTbd": false,
-    "gameId": "zVJrrC6Kzu5rPRu",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-11-25",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "shabab_alahli_al_rashid",
     "home": "샤바브 알 아흘리",
@@ -476063,6 +477568,19 @@
     "stadium": "알라시드 스타디움",
     "timeTbd": false,
     "gameId": "Rsba5lmQWhdIFqs",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-11-25",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "al_seeb_stadium",
+    "home": "알 시브",
+    "away": "알 쇼르타",
+    "stadium": "알-시브 스타디움",
+    "timeTbd": false,
+    "gameId": "zVJrrC6Kzu5rPRu",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
