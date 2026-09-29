@@ -1007,6 +1007,23 @@ async function fetchStructuredScorers(gameId) {
   return { home: conv(scorers.home), away: conv(scorers.away) };
 }
 
+// 경기 종료 후 사후 정정 재확인(2026-09-29, 실사용 리포트: "이강인골이 손흥민으로바뀌었는데
+// 업데이트안되는버그임" — 네이버가 오귀속된 득점자를 경기 후에 정정했는데, final:true로 캐시가
+// 영구 고정돼있어 우리는 영원히 옛 이름을 보여주고 있었음. VAR 판독·기록 정정은 경기 직후
+// ~반나절 내에 몰려있다고 보고, 킥오프 후 24시간 동안만 시간당 1회 재확인 — 그 이후는 포기
+// (오래 지난 경기까지 계속 재확인하면 예산이 무한정 소모됨, 이미 여러 번 겪은 패턴).
+const REVALIDATE_WINDOW_MS = 24 * 3600000;
+const REVALIDATE_INTERVAL_MS = 3600000;
+function needsPostGameRevalidation(g, cached) {
+  if (!cached || cached.final !== true || g.status !== 'completed') return false;
+  const kickoffMs = naverKickoffUtcMs(g);
+  if (!Number.isFinite(kickoffMs)) return false;
+  const sinceKickoff = Date.now() - kickoffMs;
+  if (sinceKickoff < 0 || sinceKickoff > REVALIDATE_WINDOW_MS) return false;
+  const lastCheck = cached.revalidatedAt ? Date.parse(cached.revalidatedAt) : 0;
+  return Date.now() - lastCheck >= REVALIDATE_INTERVAL_MS;
+}
+
 // 종료+진행중 축구 경기에 득점자(scorers) 부착. scorers.json 캐시로 신규/미확정분만 fetch(리그별로
 // 다른 엔드포인트/스키마 — K리그는 /relay 전·후반 2요청, EPL/EFL은 /schedule/games/{id}?fields=all 1요청).
 // 진행중(live) 경기는 골이 계속 늘 수 있어 매 실행마다 재조회(final:false)하고, 종료(completed) 시
@@ -1060,25 +1077,31 @@ async function enrichScorers(allGames) {
   // 분산(enrichSaves/enrichEuroAssists와 동일 패턴).
   const SCORERS_FETCH_BUDGET = 200;
   let scorersFetchUsed = 0;
+  // 사후 정정 재확인 전용 예산(위 needsPostGameRevalidation 참고) — 킥오프 24시간 이내 경기만
+  // 대상이라 보통 소수라 작게 잡음, 다른 백필 우선순위를 밀어내지 않게 분리.
+  const REVALIDATE_BUDGET = 60;
+  let revalidateUsed = 0;
 
   for (const g of targets) {
     const cached = cache[g.gameId];
     const isCardBackfillOnly = SOCCER_LEAGUES.has(g.league) && cached && cached.final !== false &&
       g.status !== 'live' && !(g.gameId in cardCache);
     if (isCardBackfillOnly && cardBackfillUsed >= CARD_BACKFILL_BUDGET) continue;
-    const needsFetch = !cached || g.status === 'live' || (g.status === 'completed' && cached.final === false) || isCardBackfillOnly;
+    const wantsRevalidate = needsPostGameRevalidation(g, cached) && revalidateUsed < REVALIDATE_BUDGET;
+    const needsFetch = !cached || g.status === 'live' || (g.status === 'completed' && cached.final === false) || isCardBackfillOnly || wantsRevalidate;
     if (needsFetch && !cached && g.status !== 'live' && scorersFetchUsed >= SCORERS_FETCH_BUDGET) continue; // 완전 신규 fetch 예산 소진 — 다음 실행 재시도.
     if (isCardBackfillOnly) cardBackfillUsed++;
     if (needsFetch && !cached && g.status !== 'live') scorersFetchUsed++;
+    if (wantsRevalidate) revalidateUsed++;
     if (needsFetch) {
       try {
         await sleep(REQUEST_DELAY_MS);
         if (STRUCTURED_SCORER_LEAGUES.has(g.league)) {
           const sc = await fetchStructuredScorers(g.gameId);
-          cache[g.gameId] = { home: sc.home, away: sc.away, final: g.status === 'completed' };
+          cache[g.gameId] = { home: sc.home, away: sc.away, final: g.status === 'completed', revalidatedAt: new Date().toISOString() };
         } else {
           const { scorers: sc, cards: cd } = await fetchScorersAndCards(g.gameId);
-          cache[g.gameId] = { home: sc.home, away: sc.away, final: g.status === 'completed' };
+          cache[g.gameId] = { home: sc.home, away: sc.away, final: g.status === 'completed', revalidatedAt: new Date().toISOString() };
           cardCache[g.gameId] = { home: cd.home, away: cd.away, final: g.status === 'completed' };
         }
         fetched++;
@@ -1118,7 +1141,7 @@ async function enrichScorers(allGames) {
   const withScorers = targets.filter((g) => g.scorers).length;
   const withCards = targets.filter((g) => g.cards).length;
   console.log(
-    `[scorers] completedOrLiveSoccer=${targets.length} cached=${fromCache} fetched=${fetched} failed=${failed} withScorers=${withScorers} withCards=${withCards}`,
+    `[scorers] completedOrLiveSoccer=${targets.length} cached=${fromCache} fetched=${fetched} failed=${failed} withScorers=${withScorers} withCards=${withCards} revalidateUsed=${revalidateUsed}/${REVALIDATE_BUDGET}`,
   );
 }
 
