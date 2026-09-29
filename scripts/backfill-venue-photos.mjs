@@ -60,9 +60,24 @@ const TEAM_SEARCH_NAME_OVERRIDES = {
   '알라베스': 'Deportivo Alaves',
 };
 
+// fetch 타임아웃(2026-09-30, 실측 발견) — 위키 폴백 추가 후 배치 하나가 20분+ 멈춰있던 사고를
+// 조사하던 중, 이 TheSportsDB 호출도 애초에 타임아웃이 전혀 없었다는 걸 확인(원래부터 있던
+// 문제, 위키 쪽만 먼저 고치고 보니 재발 — 같은 사고가 이쪽 fetch에서도 날 수 있음). 10초 안에
+// 응답 없으면 그 후보만 포기.
+const FETCH_TIMEOUT_MS = 10000;
+async function fetchWithTimeout(url, options) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+  try {
+    return await fetch(url, { ...options, signal: controller.signal });
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 async function fetchVenuePhoto(englishTeamName, sportLabel) {
   try {
-    const res = await fetch(`https://www.thesportsdb.com/api/v1/json/3/searchteams.php?t=${encodeURIComponent(englishTeamName)}`);
+    const res = await fetchWithTimeout(`https://www.thesportsdb.com/api/v1/json/3/searchteams.php?t=${encodeURIComponent(englishTeamName)}`);
     if (!res.ok) return null;
     const j = await res.json();
     const teams = j.teams || [];
@@ -80,7 +95,7 @@ async function fetchVenuePhoto(englishTeamName, sportLabel) {
     const team = teams.find((t) => t.strSport === sportLabel && t.strGender !== 'Female');
     if (!team?.idVenue) return null;
     await sleep(REQUEST_DELAY_MS);
-    const vres = await fetch(`https://www.thesportsdb.com/api/v1/json/3/lookupvenue.php?id=${team.idVenue}`);
+    const vres = await fetchWithTimeout(`https://www.thesportsdb.com/api/v1/json/3/lookupvenue.php?id=${team.idVenue}`);
     if (!vres.ok) return null;
     const vj = await vres.json();
     const venue = (vj.venues || [])[0];
