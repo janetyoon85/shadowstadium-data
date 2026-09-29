@@ -136,6 +136,7 @@ const EURO_ASSISTS_PATH = path.join(REPO_ROOT, 'euro_assists.json');
 // 같은 경기에 fetchEspnSummary를 호출하니 그 summary를 그대로 재사용해 카드도 같이 추출.
 // 골 득점자가 있는 경기만 대상(현재 매칭 로직 제약) — 0-0 무득점 경기는 카드 미지원(추후 보완).
 const EURO_CARDS_PATH = path.join(REPO_ROOT, 'euro_cards.json');
+const EURO_SHOOTOUT_PATH = path.join(REPO_ROOT, 'euro_shootout.json');
 // 즐겨찾기 선수 알림(2026-09-28)용 자동 확장 선수명 사전 — 득점자(네이버 원문 한글)가 ESPN
 // athleteId로 정확히 매칭되면(zip 성공), 그 선수의 실제 영문명(displayName)을 자동으로 여기 축적.
 // 기존 App.tsx PLAYER_NAME_EN(수작업, 유명 선수 위주 1300여명)은 수동 동기화가 필요했는데
@@ -935,6 +936,37 @@ async function extractEspnCardsBySide(summaryJson, homeTeamName, awayTeamName, s
   return { home, away };
 }
 
+// 승부차기 킥별 성공/실패(2026-09-29, 사용자 질문 "승부차기는 누가차고성공실패기록은못가져오나?"
+// → 실측 확인 후 "ㄱㄱ하자"로 구현 확정). summary 응답 최상위 shootout 배열(scoreboard 엔 없고
+// summary 에만 있음 — FA컵 실경기로 검증) — 팀별로 이미 순서대로 옴 {playerId, player, shotNumber,
+// didScore}. 카드와 동일하게 팀명 매칭 후 로스터 대조로 국적 부착(로스터는 같은 경기에서 카드/골
+// 추출 시 이미 캐싱돼 추가 fetch 없음).
+async function extractEspnShootoutBySide(summaryJson, homeTeamName, awayTeamName, slug, homeTeamId, awayTeamId) {
+  const groups = summaryJson.shootout || [];
+  const home = [];
+  const away = [];
+  for (const grp of groups) {
+    const side = grp.team === homeTeamName ? 'home' : grp.team === awayTeamName ? 'away' : null;
+    if (side == null) continue;
+    const teamId = side === 'home' ? homeTeamId : awayTeamId;
+    const shots = [...(grp.shots || [])].sort((a, b) => (a.shotNumber ?? 0) - (b.shotNumber ?? 0));
+    const arr = side === 'home' ? home : away;
+    for (const s of shots) {
+      if (!s.player) continue;
+      const entry = { n: s.player, made: !!s.didScore, order: s.shotNumber };
+      if (s.playerId) {
+        entry.pid = `espn:${s.playerId}`;
+        if (teamId) {
+          const nat = await getAthleteNationality('soccer', slug, teamId, s.playerId);
+          if (nat) entry.nat = nat;
+        }
+      }
+      arr.push(entry);
+    }
+  }
+  return { home, away };
+}
+
 // EPL/EFL 득점자 — K리그(/relay HTML 파싱)와 완전히 다른 스키마. 이미 구조화된 JSON으로
 // /schedule/games/{gameId}?fields=all 의 game.scorers.{home,away}[].{time,addedTime,playerName,ownGoal}
 // 에 그대로 들어있음(실측 확인, 2026-09). PK 여부 필드는 이 스키마에 없어 pk는 항상 미표기.
@@ -1181,6 +1213,15 @@ async function enrichEuroAssists(allGames) {
     if (e.code !== 'ENOENT') throw e;
     console.log('[euroCards] no euro_cards.json yet — backfilling from scratch');
   }
+  // 승부차기 킥별 기록(2026-09-29) — PK 스코어가 있는 경기만 대상, 카드와 동일하게 이미 받아온
+  // summary 재사용(추가 fetch 없음).
+  let shootoutCache = {};
+  try {
+    shootoutCache = JSON.parse(await fs.readFile(EURO_SHOOTOUT_PATH, 'utf-8'));
+  } catch (e) {
+    if (e.code !== 'ENOENT') throw e;
+    console.log('[euroShootout] no euro_shootout.json yet — backfilling from scratch');
+  }
   // 자동 확장 선수명 사전(2026-09-28) — 매칭 성공한 득점자마다 실제 영문명을 여기 누적.
   let autoPlayerNames = {};
   try {
@@ -1221,6 +1262,9 @@ async function enrichEuroAssists(allGames) {
   for (const g of targets) {
     const cached = cache[g.gameId];
     const needsCardBackfill = g.status !== 'live' && !(g.gameId in cardCache);
+    // 승부차기 있는 경기(PK 스코어 존재)만 대상 — 나머지 대다수 경기엔 애초에 shootout 자체가
+    // 없어 무의미한 백필 트리거를 안 만듦.
+    const needsShootoutBackfill = g.status !== 'live' && (g.homePkScore != null || g.awayPkScore != null) && !(g.gameId in shootoutCache);
     // 0-0 무득점 경기를 대상에 새로 포함시키면서(2026-09-26) 이 경기들은 cache[g.gameId] 자체가
     // 아예 없어(!cached) 예산 체크를 건너뛰고 무제한으로 fetch되는 버그 발생 — 실행이 몇 분 만에
     // 끝나던 게 계속 진행중으로 관측됨(실측). live가 아닌 한(실시간 급하지 않음) "완전 신규"도
@@ -1229,7 +1273,7 @@ async function enrichEuroAssists(allGames) {
       !cached ||
       (cached.final !== false &&
         ((!('homeNats' in cached) || !('awayNats' in cached) || !('homeANats' in cached) || !('awayANats' in cached) ||
-          !('homePids' in cached) || !('awayPids' in cached)) || needsCardBackfill))
+          !('homePids' in cached) || !('awayPids' in cached)) || needsCardBackfill || needsShootoutBackfill))
     );
     if (isBackfillOnly && backfillUsed >= BACKFILL_BUDGET) continue; // 이번 실행 예산 소진 — 다음 실행에서 재시도.
     const needsFetch = !cached || g.status === 'live' || (g.status === 'completed' && cached.final === false) || isBackfillOnly;
@@ -1271,6 +1315,12 @@ async function enrichEuroAssists(allGames) {
           // 카드는 골 개수 일치 여부와 무관하게 독립적으로 추출(zip 불필요라 더 안전).
           const espnCards = await extractEspnCardsBySide(summary, homeC?.team?.displayName, awayC?.team?.displayName, slug, homeC?.team?.id, awayC?.team?.id);
           cardCache[g.gameId] = { home: espnCards.home, away: espnCards.away, final: g.status === 'completed' };
+          if (g.homePkScore != null || g.awayPkScore != null) {
+            const espnShootout = await extractEspnShootoutBySide(summary, homeC?.team?.displayName, awayC?.team?.displayName, slug, homeC?.team?.id, awayC?.team?.id);
+            if (espnShootout.home.length || espnShootout.away.length) {
+              shootoutCache[g.gameId] = { home: espnShootout.home, away: espnShootout.away, final: g.status === 'completed' };
+            }
+          }
           const espnGoals = extractEspnGoalsBySide(summary, homeC?.team?.displayName, awayC?.team?.displayName);
           const naverHomeLen = (g.scorers?.home || []).length;
           const naverAwayLen = (g.scorers?.away || []).length;
@@ -1367,6 +1417,10 @@ async function enrichEuroAssists(allGames) {
     if (cd && ((cd.home && cd.home.length) || (cd.away && cd.away.length))) {
       g.cards = { home: cd.home, away: cd.away };
     }
+    const so = shootoutCache[g.gameId];
+    if (so && ((so.home && so.home.length) || (so.away && so.away.length))) {
+      g.shootout = { home: so.home, away: so.away };
+    }
   }
 
   const validIds = new Set(targets.map((g) => g.gameId));
@@ -1381,11 +1435,18 @@ async function enrichEuroAssists(allGames) {
     if (Object.prototype.hasOwnProperty.call(cardCache, id)) prunedCards[id] = cardCache[id];
   }
   await fs.writeFile(EURO_CARDS_PATH, JSON.stringify(prunedCards, null, 2) + '\n', 'utf-8');
+
+  const prunedShootout = {};
+  for (const id of validIds) {
+    if (Object.prototype.hasOwnProperty.call(shootoutCache, id)) prunedShootout[id] = shootoutCache[id];
+  }
+  await fs.writeFile(EURO_SHOOTOUT_PATH, JSON.stringify(prunedShootout, null, 2) + '\n', 'utf-8');
   await fs.writeFile(PLAYER_NAME_AUTO_PATH, JSON.stringify(autoPlayerNames, null, 2) + '\n', 'utf-8');
 
   const withCards = targets.filter((g) => g.cards).length;
+  const withShootout = targets.filter((g) => g.shootout).length;
   console.log(
-    `[euroAssists] targets=${targets.length} cached=${fromCache} fetched=${fetched} failed=${failed} noMatch=${noMatch} countMismatch=${countMismatch} backfillUsed=${backfillUsed}/${BACKFILL_BUDGET} withCards=${withCards}`,
+    `[euroAssists] targets=${targets.length} cached=${fromCache} fetched=${fetched} failed=${failed} noMatch=${noMatch} countMismatch=${countMismatch} backfillUsed=${backfillUsed}/${BACKFILL_BUDGET} withCards=${withCards} withShootout=${withShootout}`,
   );
 }
 
@@ -1432,6 +1493,8 @@ function serializeGame(g) {
   if (g.scorers) out.scorers = g.scorers;
   // 축구 카드(경고/퇴장) — K리그만, 있을 때만. {home,away} 각 [{n,type:'Y'|'R',m?}].
   if (g.cards) out.cards = g.cards;
+  // 승부차기 킥별 성공/실패(ESPN 연동 리그만, 2026-09-29). {home,away} 각 [{n,made,order,pid?,nat?}].
+  if (g.shootout && ((g.shootout.home && g.shootout.home.length) || (g.shootout.away && g.shootout.away.length))) out.shootout = g.shootout;
   // K리그 어시스트 — 종료+진행중, 이 경기 누적 어시스트 있을 때만. {home,away} 각 [{n,count}].
   // 득점자와 달리 특정 골에 귀속되지 않음(스키마 한계, K리그1/2 전용 — 해외 리그는 미제공).
   if (g.assists) out.assists = g.assists;
