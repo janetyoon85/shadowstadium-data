@@ -547,8 +547,13 @@ async function enrichSaves(allGames) {
     console.log('[playerCodes] no player-codes.json yet — starting fresh');
   }
 
+  // 버그(2026-09-29 발견, 사용자 리포트 "지금 경기중인 야구경기에 이벤트 하나도 안붙음"): status가
+  // completed일 때만 대상에 포함시켜서, 축구(enrichScorers/enrichEuroAssists)와 달리 야구는
+  // 경기 진행 중에는 하이라이트/세이브가 원천적으로 한 번도 조회되지 않고 있었음 — 화면(App.tsx)은
+  // 이미 라이브 하이라이트를 표시할 준비가 돼있었는데 크롤러가 안 채워주고 있던 구조적 공백.
+  // live도 대상에 포함시키고, live는 매 실행 무조건 재조회(캐시/예산 무관, 아래 참고).
   const targets = allGames.filter(
-    (g) => BASEBALL_LEAGUES.has(g.league) && g.status === 'completed' && g.gameId,
+    (g) => BASEBALL_LEAGUES.has(g.league) && (g.status === 'completed' || g.status === 'live') && g.gameId,
   );
   // enrichScorers/enrichEuroAssists와 동일 이유(2026-09-26)로 여기도 정렬 누락돼있었음 — games.json
   // 날짜 오름차순 그대로라 예산제 백필(MLB_PITCHER_NAT_BUDGET)이 4월 경기부터 순서대로 처리되며
@@ -611,9 +616,11 @@ async function enrichSaves(allGames) {
     // "이미 재조회함" 신호 — 별도 Checked 플래그 불필요, 한 번 재조회되면 자동으로 안정됨.
     const needsKboNpbPidBackfill = (g.league === 'KBO' || g.league === 'NPB') && isNewFormat && !cached.pitcherCodeByName;
     const needsHighlightRefetch = recentHighlightIds.has(g.gameId) && (!isSplitHighlightFormat || needsMlbNatBackfill || needsMlbPidBackfill || needsHoldBackfill || needsKboNpbPidBackfill);
-    const needsSavesFetch = cached === undefined || needsHighlightRefetch;
-    if (needsSavesFetch && savesFetchUsed < SAVES_FETCH_BUDGET) {
-      savesFetchUsed++;
+    // live는 스코어/이닝이 계속 바뀌므로 캐시·예산과 무관하게 매 실행 무조건 재조회(축구 enrichScorers/
+    // enrichEuroAssists와 동일 패턴) — 완전신규/백필만 SAVES_FETCH_BUDGET으로 제한.
+    const needsSavesFetch = g.status === 'live' || cached === undefined || needsHighlightRefetch;
+    if (needsSavesFetch && (g.status === 'live' || savesFetchUsed < SAVES_FETCH_BUDGET)) {
+      if (g.status !== 'live') savesFetchUsed++;
       try {
         await sleep(REQUEST_DELAY_MS);
         cache[g.gameId] = await fetchGameRecord(g.gameId);
