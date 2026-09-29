@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { execSync } from 'node:child_process';
 import { validateDataset } from './validators.mjs';
 import { getAthleteNationality, getAthleteDisplayName } from './espn-nationality.mjs';
-import { parseBaseballHighlights, parseKboRelayHighlights } from './baseball-highlight-parse.mjs';
+import { parseBaseballHighlights, parseKboRelayHighlights, extractPitcherDecisions } from './baseball-highlight-parse.mjs';
 import { selectUniqueScoreMatch } from './espn-match-select.mjs';
 import { getMlbNationality, getMlbPitcherDecisionNats, getMlbHoldNats } from './mlb-nationality.mjs';
 
@@ -492,46 +492,8 @@ async function fetchGameRecord(gameId) {
   const json = await res.json();
   const rd = json?.result?.recordData;
   if (!rd) return { save: null, highlights: undefined };
-  let save = null;
-  if (Array.isArray(rd.pitchingResult)) {
-    const sv = rd.pitchingResult.find((p) => p && p.wls === 'S');
-    save = sv ? (sv.name || '').trim() || null : null;
-  } else {
-    for (const key of ['homePitcher', 'awayPitcher']) {
-      const arr = rd[key];
-      if (!Array.isArray(arr)) continue;
-      const sv = arr.find((p) => p && p.wls === '세');
-      if (sv) {
-        save = (sv.name || '').trim() || null;
-        break;
-      }
-    }
-  }
-  // 홀드 투수(2026-09-29, "투수 홀드 정보도 가져올수있음?") — 팀별 분리가 필요해서(경기당 여러 명
-  // 가능) KBO는 pitchersBoxscore.{home,away}(팀분리 있음, wls '홀')를, MLB/NPB는 homePitcher/
-  // awayPitcher(원래도 팀분리, wls '홀')를 씀. KBO의 pitchingResult는 팀분리가 없어 홀드용으론 부적합.
-  const holdHome = [];
-  const holdAway = [];
-  // 투수 이름→코드 맵(2026-09-29, 선수 정보 카드용 — "가져올수있는정보 최대한많이 가져와야지").
-  // 승/패/세/홀드 전부 같은 배열(pitchersBoxscore 또는 homePitcher/awayPitcher)에 wls로만
-  // 구분돼 같이 들어있어 여기서 한 번에 이름→코드로 뽑아두면 호출부가 승/패/세/홀드 이름으로
-  // 바로 조회 가능(KBO는 pcode, MLB/NPB는 playerId 필드명 — MLB는 호출부가 리그로 걸러서
-  // 이 값을 안 씀, statsapi.mlb.com 공식 personId와 별개 체계라 birth 대조 매칭을 따로 함).
-  const pitcherCodeByName = {};
-  if (rd.pitchersBoxscore) {
-    for (const p of rd.pitchersBoxscore.home || []) if (p && p.wls === '홀') { const n = (p.name || '').trim(); if (n) holdHome.push(n); }
-    for (const p of rd.pitchersBoxscore.away || []) if (p && p.wls === '홀') { const n = (p.name || '').trim(); if (n) holdAway.push(n); }
-    for (const p of [...(rd.pitchersBoxscore.home || []), ...(rd.pitchersBoxscore.away || [])]) {
-      if (p?.name && p?.pcode) pitcherCodeByName[p.name.trim()] = String(p.pcode);
-    }
-  } else {
-    for (const p of rd.homePitcher || []) if (p && p.wls === '홀') { const n = (p.name || '').trim(); if (n) holdHome.push(n); }
-    for (const p of rd.awayPitcher || []) if (p && p.wls === '홀') { const n = (p.name || '').trim(); if (n) holdAway.push(n); }
-    for (const p of [...(rd.homePitcher || []), ...(rd.awayPitcher || [])]) {
-      if (p?.name && p?.playerId) pitcherCodeByName[p.name.trim()] = String(p.playerId);
-    }
-  }
-  return { save, holdHome, holdAway, pitcherCodeByName, highlights: parseBaseballHighlights(rd) };
+  const decisions = extractPitcherDecisions(rd);
+  return { ...decisions, highlights: parseBaseballHighlights(rd) };
 }
 // 하이라이트(홈런 등)는 새 필드라 옛 캐시(saves.json, 지금까지는 savePitcher 문자열만 저장)엔
 // 당연히 없음 — 처음엔 사용자 지시대로 최근 3일치만 재조회했으나("백필할필요없고 백필은
@@ -626,7 +588,12 @@ async function enrichSaves(allGames) {
     // 재발). 이 필드는 fetchGameRecord가 항상 반환(빈 객체 {}라도)하므로 존재 여부 자체가
     // "이미 재조회함" 신호 — 별도 Checked 플래그 불필요, 한 번 재조회되면 자동으로 안정됨.
     const needsKboNpbPidBackfill = (g.league === 'KBO' || g.league === 'NPB') && isNewFormat && !cached.pitcherCodeByName;
-    const needsHighlightRefetch = recentHighlightIds.has(g.gameId) && (!isSplitHighlightFormat || needsMlbNatBackfill || needsMlbPidBackfill || needsHoldBackfill || needsKboNpbPidBackfill);
+    // 승/패/세 코드 직접추출 마이그레이션(2026-09-30, "타마무라" 리포트 — 이름 음역 불일치로
+    // 이름 매칭 자체가 실패하던 문제 발견, wls 코드로 직접 뽑도록 수정) — 이 필드 도입 이전에
+    // 캐시된 경기는 winPitcherCode 자체가 없어서(undefined) 재조회 안 하면 영원히 안 채워짐
+    // (같은 계열의 반복 패턴, [[feedback_final_cache_stale_snapshot_bug]]).
+    const needsPitcherCodeMigration = (g.league === 'KBO' || g.league === 'NPB') && isNewFormat && !('winPitcherCode' in cached);
+    const needsHighlightRefetch = recentHighlightIds.has(g.gameId) && (!isSplitHighlightFormat || needsMlbNatBackfill || needsMlbPidBackfill || needsHoldBackfill || needsKboNpbPidBackfill || needsPitcherCodeMigration);
     // live는 스코어/이닝이 계속 바뀌므로 캐시·예산과 무관하게 매 실행 무조건 재조회(축구 enrichScorers/
     // enrichEuroAssists와 동일 패턴) — 완전신규/백필만 SAVES_FETCH_BUDGET으로 제한.
     const needsSavesFetch = g.status === 'live' || cached === undefined || needsHighlightRefetch;
@@ -784,12 +751,29 @@ async function enrichSaves(allGames) {
       // MLB처럼 국적은 없지만(공식 국적 API 자체가 없음), pitcherCodeByName은 같은 /record
       // 응답에서 추가 fetch 없이 이미 나옴 — koreabaseball.com pcode/야후재팬 선수ID와 실측
       // 검증된 값이라 그대로 pid로 승격.
-      if (!g.winPitcherPid && rec.pitcherCodeByName) {
+      {
         const prefix = g.league === 'KBO' ? 'kbo:p:' : g.league === 'NPB' ? 'npb:' : null;
         if (prefix) {
-          if (g.winPitcher && rec.pitcherCodeByName[g.winPitcher]) g.winPitcherPid = `${prefix}${rec.pitcherCodeByName[g.winPitcher]}`;
-          if (g.losePitcher && rec.pitcherCodeByName[g.losePitcher]) g.losePitcherPid = `${prefix}${rec.pitcherCodeByName[g.losePitcher]}`;
-          if (g.savePitcher && rec.pitcherCodeByName[g.savePitcher]) g.savePitcherPid = `${prefix}${rec.pitcherCodeByName[g.savePitcher]}`;
+          // 버그 수정(2026-09-30, "타마무라" 리포트: 정보 없음으로 뜸) — 예전엔 g.winPitcherPid가
+          // 이미 있으면 이 블록 전체(lose/save 포함)를 건너뛰던 필드 간 상호간섭 버그가 있었음
+          // (잠재 버그, 실측상 아직 발현 사례는 없었지만 원칙적으로 필드별 독립이어야 함).
+          // 무엇보다 이름 매칭(pitcherCodeByName[g.winPitcher]) 자체가 네이버 두 API의 일본
+          // 선수명 음역 불일치(예: "타마무라" vs "다마무라", 탁음/청음 표기 차이)로 실패하는
+          // 경우가 실측 15건 확인됨. wls 코드로 직접 뽑은 winPitcherCode/losePitcherCode/
+          // savePitcherCode(이름 매칭 불필요, 같은 응답의 코드 필드라 항상 정확)를 우선 쓰고,
+          // 그마저 없으면 기존 이름 매칭으로 폴백(필드별 완전 독립 — 한쪽 성공이 다른 쪽을 막지 않음).
+          if (g.winPitcher && !g.winPitcherPid) {
+            const code = rec.winPitcherCode || rec.pitcherCodeByName?.[g.winPitcher];
+            if (code) g.winPitcherPid = `${prefix}${code}`;
+          }
+          if (g.losePitcher && !g.losePitcherPid) {
+            const code = rec.losePitcherCode || rec.pitcherCodeByName?.[g.losePitcher];
+            if (code) g.losePitcherPid = `${prefix}${code}`;
+          }
+          if (g.savePitcher && !g.savePitcherPid) {
+            const code = rec.savePitcherCode || rec.pitcherCodeByName?.[g.savePitcher];
+            if (code) g.savePitcherPid = `${prefix}${code}`;
+          }
         }
       }
       // 선발투수(경기 전) pid 레지스트리 갱신 — 승/패/세 여부와 무관하게 이 경기 박스스코어에

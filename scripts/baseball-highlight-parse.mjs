@@ -3,6 +3,73 @@
 // — fetch-schedule.mjs는 이 모듈을 import해서 그대로 쓰고, 테스트는 fetch-schedule.mjs의
 // main() 자동실행(전체 크롤링)을 트리거하지 않고 이 파일만 독립적으로 불러와 검증 가능.
 
+// 승/패/세/홀드 투수 + 선수코드 추출(2026-09-30, "타마무라" 리포트로 발견) — 예전엔 승/패/세
+// 투수의 pid를 pitcherCodeByName(이름→코드 맵)으로 역매칭했는데, 네이버 schedule API(승/패/세
+// 투수명)와 record API(boxscore 이름)가 같은 일본 선수를 서로 다른 한글 표기로 음역하는 경우가
+// 있어(실측: "타마무라" vs "다마무라", "타카하시" vs "다카하시" — 탁음/청음 표기 불일치) 이름
+// 매칭 자체가 실패하는 경우가 실측 15건 확인됨. 대신 이 배열엔 wls(승패세홀 코드)가 선수
+// 코드(pCode/playerId)와 함께 이미 붙어있어 이름 매칭 없이 바로 뽑을 수 있음 — 훨씬 신뢰도
+// 높은 방법. KBO(pitchingResult, wls='W'/'L'/'S')와 MLB/NPB(homePitcher/awayPitcher, wls=
+// '승'/'패'/'세')는 스키마가 달라 분기 처리.
+export function extractPitcherDecisions(rd) {
+  let save = null;
+  let winPitcherCode = null;
+  let losePitcherCode = null;
+  let savePitcherCode = null;
+  if (Array.isArray(rd?.pitchingResult)) {
+    const sv = rd.pitchingResult.find((p) => p && p.wls === 'S');
+    save = sv ? (sv.name || '').trim() || null : null;
+    const w = rd.pitchingResult.find((p) => p && p.wls === 'W');
+    const l = rd.pitchingResult.find((p) => p && p.wls === 'L');
+    if (w?.pCode) winPitcherCode = String(w.pCode);
+    if (l?.pCode) losePitcherCode = String(l.pCode);
+    if (sv?.pCode) savePitcherCode = String(sv.pCode);
+  } else {
+    for (const key of ['homePitcher', 'awayPitcher']) {
+      const arr = rd?.[key];
+      if (!Array.isArray(arr)) continue;
+      const sv = arr.find((p) => p && p.wls === '세');
+      if (sv) {
+        save = (sv.name || '').trim() || null;
+        if (sv.playerId) savePitcherCode = String(sv.playerId);
+        break;
+      }
+    }
+    for (const key of ['homePitcher', 'awayPitcher']) {
+      const arr = rd?.[key];
+      if (!Array.isArray(arr)) continue;
+      const w = arr.find((p) => p && p.wls === '승');
+      const l = arr.find((p) => p && p.wls === '패');
+      if (w?.playerId && !winPitcherCode) winPitcherCode = String(w.playerId);
+      if (l?.playerId && !losePitcherCode) losePitcherCode = String(l.playerId);
+    }
+  }
+
+  // 홀드 투수(2026-09-29) — 팀별 분리가 필요해서(경기당 여러 명 가능) KBO는
+  // pitchersBoxscore.{home,away}(팀분리 있음, wls '홀')를, MLB/NPB는 homePitcher/awayPitcher
+  // (원래도 팀분리, wls '홀')를 씀. KBO의 pitchingResult는 팀분리가 없어 홀드용으론 부적합.
+  const holdHome = [];
+  const holdAway = [];
+  // 투수 이름→코드 맵(2026-09-29, 선수 정보 카드용) — 위 직접추출로 대부분 안 쓰이게 됐지만
+  // 홀드 투수 pid 조회 등 이름 기반 조회가 필요한 나머지 호출부를 위해 계속 유지.
+  const pitcherCodeByName = {};
+  if (rd?.pitchersBoxscore) {
+    for (const p of rd.pitchersBoxscore.home || []) if (p && p.wls === '홀') { const n = (p.name || '').trim(); if (n) holdHome.push(n); }
+    for (const p of rd.pitchersBoxscore.away || []) if (p && p.wls === '홀') { const n = (p.name || '').trim(); if (n) holdAway.push(n); }
+    for (const p of [...(rd.pitchersBoxscore.home || []), ...(rd.pitchersBoxscore.away || [])]) {
+      if (p?.name && p?.pcode) pitcherCodeByName[p.name.trim()] = String(p.pcode);
+    }
+  } else {
+    for (const p of rd?.homePitcher || []) if (p && p.wls === '홀') { const n = (p.name || '').trim(); if (n) holdHome.push(n); }
+    for (const p of rd?.awayPitcher || []) if (p && p.wls === '홀') { const n = (p.name || '').trim(); if (n) holdAway.push(n); }
+    for (const p of [...(rd?.homePitcher || []), ...(rd?.awayPitcher || [])]) {
+      if (p?.name && p?.playerId) pitcherCodeByName[p.name.trim()] = String(p.playerId);
+    }
+  }
+
+  return { save, winPitcherCode, losePitcherCode, savePitcherCode, holdHome, holdAway, pitcherCodeByName };
+}
+
 // /record 응답 selection: 어떤 선수가 어느 팀 소속인지. etcRecords는 team 필드가 없어 양팀
 // 선수가 한 문자열에 섞여 나오므로(예: "박민우(1회) 한재환(3회)"가 실제론 서로 다른 팀 선수),
 // battersBoxscore/pitchersBoxscore(홈/원정 로스터)에서 이름 집합을 만들어 매칭.

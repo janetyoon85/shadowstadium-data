@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { classifyHighlightSide, parseBaseballHighlights, parseBaseballHighlightsFromBoxscore, parseKboRelayHighlights } from '../baseball-highlight-parse.mjs';
+import { classifyHighlightSide, parseBaseballHighlights, parseBaseballHighlightsFromBoxscore, parseKboRelayHighlights, extractPitcherDecisions } from '../baseball-highlight-parse.mjs';
 
 test('classifyHighlightSide - home/away/unknown', () => {
   const home = new Set(['강백호']);
@@ -136,4 +136,63 @@ test('parseKboRelayHighlights - 홈런/도루/2루타/병살타/폭투 키워드
   assert.equal(parseKboRelayHighlights(withTitle(mk('최지훈 : 좌익수 2루타')), '삼성', '한화').away[0].how, '2루타');
   assert.equal(parseKboRelayHighlights(withTitle(mk('추재현 : 2루수 병살타 아웃')), '삼성', '한화').away[0].how, '병살타');
   assert.equal(parseKboRelayHighlights(withTitle(mk('톨허스트2 : 폭투')), '삼성', '한화').away[0].how, '폭투');
+});
+
+// 2026-09-30 실측(NPB 20260929HIYO0, KBO 20260312SSHH02026) 구조 그대로 축약한 픽스처 —
+// "타마무라" 리포트("정보를 찾을 수 없어요")로 이름 매칭 실패를 발견, wls 코드 직접추출로 교체.
+test('extractPitcherDecisions - NPB(homePitcher/awayPitcher) 실측: 이름 음역이 달라도(다마무라 vs 타마무라) 코드는 정확히 뽑힘', () => {
+  const rd = {
+    homePitcher: [
+      { name: '도고', wls: '승', playerId: '1800028' },
+      { name: '라이델', wls: '세', playerId: '1700010' },
+    ],
+    awayPitcher: [
+      // schedule API 쪽 losePitcher 이름은 "타마무라"지만 이 record API boxscore엔 "다마무라"로
+      // 표기됨(실측 확인) — 이름이 아니라 wls 코드로 뽑으므로 이 불일치와 무관하게 정확함.
+      { name: '다마무라', wls: '패', playerId: '1900057' },
+      { name: '모리', wls: '', playerId: '2103788' },
+    ],
+  };
+  const r = extractPitcherDecisions(rd);
+  assert.equal(r.winPitcherCode, '1800028');
+  assert.equal(r.losePitcherCode, '1900057');
+  assert.equal(r.savePitcherCode, '1700010');
+  assert.equal(r.save, '라이델');
+});
+
+test('extractPitcherDecisions - KBO(pitchingResult) 실측: wls가 W/L/S(영문), pCode 필드', () => {
+  const rd = {
+    pitchingResult: [
+      { name: '왕옌청', wls: 'L', pCode: '56719' },
+      { name: '양창섭', wls: 'W', pCode: '68415' },
+    ],
+  };
+  const r = extractPitcherDecisions(rd);
+  assert.equal(r.winPitcherCode, '68415');
+  assert.equal(r.losePitcherCode, '56719');
+  assert.equal(r.savePitcherCode, null); // 이 경기는 세이브 없음(승/패만).
+  assert.equal(r.save, null);
+});
+
+test('extractPitcherDecisions - 홀드 투수는 여전히 이름 목록(pitcherCodeByName 병행 유지)', () => {
+  const rd = {
+    pitchersBoxscore: {
+      home: [{ name: '김택연', wls: '홀', pcode: '54263' }],
+      away: [],
+    },
+  };
+  const r = extractPitcherDecisions(rd);
+  assert.deepEqual(r.holdHome, ['김택연']);
+  assert.deepEqual(r.holdAway, []);
+  assert.equal(r.pitcherCodeByName['김택연'], '54263');
+});
+
+test('extractPitcherDecisions - recordData 필드 자체가 없어도(undefined) 안전하게 빈 결과', () => {
+  const r = extractPitcherDecisions({});
+  assert.equal(r.winPitcherCode, null);
+  assert.equal(r.losePitcherCode, null);
+  assert.equal(r.savePitcherCode, null);
+  assert.equal(r.save, null);
+  assert.deepEqual(r.holdHome, []);
+  assert.deepEqual(r.holdAway, []);
 });
