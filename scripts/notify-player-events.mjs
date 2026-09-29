@@ -7,7 +7,10 @@
 // 1차: 축구 골(scorers[].n)/어시(scorers[].a)/카드(cards[].n). 2차(2026-09-28): 야구
 // 하이라이트(highlights[].player — 홈런/도루/2루타/3루타/실책/병살타/결승타 등, how 필드
 // 그대로 라벨로 사용 — 종류가 많아 축구처럼 kind별 하드코딩 대신 icon/label을 push 시점에
-// 직접 계산).
+// 직접 계산). 3차(2026-09-29, "투수즐겨찾기했는데 선발투수 등록되면은 알람주는거추가해줘"):
+// 경기 전 선발투수 발표(homePitcher/awayPitcher, KBO는 전날 밤~당일 확정) — 다른 이벤트와
+// 달리 "경기가 이미 일어남"이 아니라 "앞으로 나올 예정"이라 스코어/득점 라인 대신
+// 상대팀+경기 일시를 body에 넣음(아래 sendPreGame 분기).
 //
 // 서버는 누가 그 선수를 즐겨찾기했는지 모름 — 구독자 0인 토픽에 발송해도 FCM에서 무해한
 // no-op이라, 매 경기의 모든 스코어러에 대해 그냥 다 발송한다(팀 리마인더와 동일 설계).
@@ -48,7 +51,7 @@ async function main() {
 
   const pending = [];
   for (const g of games) {
-    if (!g.gameId || (!g.scorers && !g.cards && !g.highlights)) continue;
+    if (!g.gameId || (!g.scorers && !g.cards && !g.highlights && !g.homePitcher && !g.awayPitcher)) continue;
     const sides = [
       { key: 'home', team: g.home },
       { key: 'away', team: g.away },
@@ -104,14 +107,27 @@ async function main() {
         }
       }
     }
+    // 선발투수 발표 알림(2026-09-29) — homePitcher/awayPitcher는 배열이 아니라 경기당 값 1개뿐이라
+    // 인덱스 없이 side만으로 dedup(발표 후 변경되는 경우는 드물고, 바뀌어도 재알림보단 안전 우선).
+    // 아직 pid 미지원(homePitcher/awayPitcher는 국적/pid enrichment 대상이 아님) — 이름으로만 매칭.
+    for (const { key, team, opp } of [
+      { key: 'home', team: g.home, opp: g.away },
+      { key: 'away', team: g.away, opp: g.home },
+    ]) {
+      const name = key === 'home' ? g.homePitcher : g.awayPitcher;
+      if (!name) continue;
+      const dedupKey = `${g.gameId}:${key}:startingPitcher`;
+      if (!sent[dedupKey]) pending.push({ dedupKey, name, pid: undefined, game: g, team, opp, icon: '⚾', label: '선발 등판', preGame: true });
+    }
   }
 
   let sentCount = 0;
   for (const item of pending) {
-    const { dedupKey, name, pid, game: g, team, icon, label, minute } = item;
+    const { dedupKey, name, pid, game: g, team, opp, icon, label, minute, preGame } = item;
     const minuteLabel = typeof minute === 'number' ? ` (${minute}분)` : '';
     const title = `${icon} ${name} ${label}!`;
-    const body = `${team}${scoreLine(g)}${minuteLabel}`;
+    // 경기 전 알림(선발투수 발표)은 스코어가 아직 없어 대신 상대팀+일시를 보여줌.
+    const body = preGame ? `${team} vs ${opp} · ${g.date} ${g.time}` : `${team}${scoreLine(g)}${minuteLabel}`;
     // 동명이인 구분용 고유ID가 있으면 그 ID 전용 토픽으로도 보냄(정확한 매칭) — 이름 토픽도
     // 항상 같이 보내서 이 기능이 ID 도입 전부터 "이름"으로 즐겨찾기해둔 기존 구독이 계속
     // 작동하게 함(2026-09-28, 무마이그레이션 하위호환). ID가 없으면(아직 못 붙인 소스) 기존과

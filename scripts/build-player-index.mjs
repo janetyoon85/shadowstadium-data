@@ -83,7 +83,7 @@ async function main() {
   const sortedGames = [...games].sort((a, b) => (a.date ?? '').localeCompare(b.date ?? ''));
 
   for (const g of sortedGames) {
-    if (!g.scorers && !g.cards && !g.highlights && !g.winPitcher && !g.losePitcher && !g.savePitcher && !g.holds) continue;
+    if (!g.scorers && !g.cards && !g.highlights && !g.winPitcher && !g.losePitcher && !g.savePitcher && !g.holds && !g.homePitcher && !g.awayPitcher) continue;
     const sides = [
       { key: 'home', team: g.home },
       { key: 'away', team: g.away },
@@ -142,6 +142,12 @@ async function main() {
     // 홈/원정 구분이 없는 문자열이라(win/losePitcherName) team을 알 수 없어 ''(미상)로 인덱싱 —
     // 국기·이름 검색엔 지장 없고, 소속팀 표시만 생략됨. 홀드는 이미 팀별로 갈라져 있어(g.holds.
     // {home,away}) 정확한 team 부착 가능.
+    // 선발투수(경기 전 예고, 2026-09-29 — "투수즐겨찾기했는데 선발투수 등록되면은 알람주는거
+    // 추가해줘") — win/lose와 달리 homePitcher/awayPitcher는 애초에 홈/원정으로 갈라져 있어
+    // team 정확히 부착 가능. 아직 결정(승/패/세)이 안 붙은, 즉 데뷔 직후라 win/losePitcher로도
+    // 안 걸리는 신인 투수까지 검색/즐겨찾기 가능하게 함(같은 계열의 검색 갭 재발 방지).
+    if (g.homePitcher) upsertPlayer(map, g.homePitcher, 'baseball', g.date, { team: g.home, league: g.league }, undefined);
+    if (g.awayPitcher) upsertPlayer(map, g.awayPitcher, 'baseball', g.date, { team: g.away, league: g.league }, undefined);
     if (g.winPitcher) upsertPlayer(map, g.winPitcher, 'baseball', g.date, { team: '', league: g.league, nat: g.winPitcherNat }, g.winPitcherPid);
     if (g.losePitcher) upsertPlayer(map, g.losePitcher, 'baseball', g.date, { team: '', league: g.league, nat: g.losePitcherNat }, g.losePitcherPid);
     if (g.savePitcher) upsertPlayer(map, g.savePitcher, 'baseball', g.date, { team: '', league: g.league, nat: g.savePitcherNat }, g.savePitcherPid);
