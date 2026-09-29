@@ -33,6 +33,11 @@ export function parseBaseballHighlightsFromBoxscore(rd) {
       const meta = {};
       if (p.birth) meta.birth = p.birth;
       if (p.backnum) meta.backnum = p.backnum;
+      // NPB 선수 정보 카드용(2026-09-29, "가져올수있는정보 최대한많이 가져와야지") — Naver의
+      // playerId가 야후재팬 스포츠 선수ID와 그대로 일치함(실측 확인). MLB는 이 필드를 안 씀
+      // (statsapi.mlb.com 공식 personId와 별개 체계라 birth 대조 매칭을 따로 함) — 호출부
+      // (fetch-schedule.mjs)가 리그별로 걸러서 NPB만 pid로 승격시킴.
+      if (p.playerId) meta.playerId = String(p.playerId);
       if (p.hr > 0) out.push({ how: '홈런', text: p.hr === 1 ? name : `${name} ${p.hr}개`, player: name, ...meta });
       if (p.sb > 0) out.push({ how: '도루', text: p.sb === 1 ? name : `${name} ${p.sb}개`, player: name, ...meta });
     }
@@ -55,6 +60,16 @@ export const PLAYER_TOKEN_RE = /([가-힣A-Za-z]+)(?:\d+호?)?\(([^)]*)\)/g;
 export function parseBaseballHighlights(rd) {
   const etcRecords = rd?.etcRecords;
   if (!Array.isArray(etcRecords)) return parseBaseballHighlightsFromBoxscore(rd);
+  // 이름→KBO 공식 playerCode/pcode 맵(2026-09-29, 선수 정보 카드용 — "가져올수있는정보
+  // 최대한많이 가져와야지") — battersBoxscore는 playerCode, pitchersBoxscore는 pcode 필드명이
+  // 서로 다름(실측 확인) — koreabaseball.com의 pcode 파라미터와 정확히 같은 값(실측 검증됨).
+  const codeByName = new Map();
+  for (const p of [...(rd?.battersBoxscore?.home || []), ...(rd?.battersBoxscore?.away || [])]) {
+    if (p?.name && p?.playerCode) codeByName.set(p.name.trim(), String(p.playerCode));
+  }
+  for (const p of [...(rd?.pitchersBoxscore?.home || []), ...(rd?.pitchersBoxscore?.away || [])]) {
+    if (p?.name && p?.pcode) codeByName.set(p.name.trim(), String(p.pcode));
+  }
   const homeNames = new Set([
     ...(rd?.battersBoxscore?.home || []).map((p) => p?.name).filter(Boolean),
     ...(rd?.pitchersBoxscore?.home || []).map((p) => p?.name).filter(Boolean),
@@ -79,6 +94,8 @@ export function parseBaseballHighlights(rd) {
       // 즐겨찾기 선수 알림 2차(야구, 2026-09-28) — 이름은 이미 파싱 중 추출되니 구조화된
       // 필드로도 남김(기존 text 자유문자열은 그대로 유지, 표시 코드 변경 없음).
       const entry = { how: e.how, text: m[0], player: m[1] };
+      const code = codeByName.get(m[1]);
+      if (code) entry.playerCode = code;
       if (side === 'home') home.push(entry);
       else away.push(entry); // 로스터 매칭 실패(외국인 표기차 등)도 정보 유실 방지로 away 폴백.
     }

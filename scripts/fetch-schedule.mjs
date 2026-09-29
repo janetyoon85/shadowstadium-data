@@ -496,14 +496,26 @@ async function fetchGameRecord(gameId) {
   // awayPitcher(원래도 팀분리, wls '홀')를 씀. KBO의 pitchingResult는 팀분리가 없어 홀드용으론 부적합.
   const holdHome = [];
   const holdAway = [];
+  // 투수 이름→코드 맵(2026-09-29, 선수 정보 카드용 — "가져올수있는정보 최대한많이 가져와야지").
+  // 승/패/세/홀드 전부 같은 배열(pitchersBoxscore 또는 homePitcher/awayPitcher)에 wls로만
+  // 구분돼 같이 들어있어 여기서 한 번에 이름→코드로 뽑아두면 호출부가 승/패/세/홀드 이름으로
+  // 바로 조회 가능(KBO는 pcode, MLB/NPB는 playerId 필드명 — MLB는 호출부가 리그로 걸러서
+  // 이 값을 안 씀, statsapi.mlb.com 공식 personId와 별개 체계라 birth 대조 매칭을 따로 함).
+  const pitcherCodeByName = {};
   if (rd.pitchersBoxscore) {
     for (const p of rd.pitchersBoxscore.home || []) if (p && p.wls === '홀') { const n = (p.name || '').trim(); if (n) holdHome.push(n); }
     for (const p of rd.pitchersBoxscore.away || []) if (p && p.wls === '홀') { const n = (p.name || '').trim(); if (n) holdAway.push(n); }
+    for (const p of [...(rd.pitchersBoxscore.home || []), ...(rd.pitchersBoxscore.away || [])]) {
+      if (p?.name && p?.pcode) pitcherCodeByName[p.name.trim()] = String(p.pcode);
+    }
   } else {
     for (const p of rd.homePitcher || []) if (p && p.wls === '홀') { const n = (p.name || '').trim(); if (n) holdHome.push(n); }
     for (const p of rd.awayPitcher || []) if (p && p.wls === '홀') { const n = (p.name || '').trim(); if (n) holdAway.push(n); }
+    for (const p of [...(rd.homePitcher || []), ...(rd.awayPitcher || [])]) {
+      if (p?.name && p?.playerId) pitcherCodeByName[p.name.trim()] = String(p.playerId);
+    }
   }
-  return { save, holdHome, holdAway, highlights: parseBaseballHighlights(rd) };
+  return { save, holdHome, holdAway, pitcherCodeByName, highlights: parseBaseballHighlights(rd) };
 }
 // 하이라이트(홈런 등)는 새 필드라 옛 캐시(saves.json, 지금까지는 savePitcher 문자열만 저장)엔
 // 당연히 없음 — 처음엔 사용자 지시대로 최근 3일치만 재조회했으나("백필할필요없고 백필은
@@ -637,6 +649,22 @@ async function enrichSaves(allGames) {
             }
             rec.mlbNatChecked = true; // "이미 시도함" 기록 — birth 삭제로 사라지는 신호를 대체.
             rec.mlbPidChecked = true; // pid 마이그레이션도 이번에 같이 처리됨 — 재트리거 방지.
+          } else if (g.league === 'KBO' || g.league === 'NPB') {
+            // KBO/NPB 타자 하이라이트 pid(2026-09-29, "가져올수있는정보 최대한많이 가져와야지") —
+            // 국적 API는 없지만 koreabaseball.com/야후재팬 선수ID와 실측 검증된 코드가 파싱
+            // 단계(baseball-highlight-parse.mjs)에서 이미 h.playerCode(KBO)/h.playerId(NPB)로
+            // 붙어옴 — 여기서 pid로 승격하고 임시 필드는 정리.
+            const prefix = g.league === 'KBO' ? 'kbo:b:' : 'npb:';
+            for (const side of ['home', 'away']) {
+              for (const h of g.highlights[side] || []) {
+                const code = h.playerCode || h.playerId;
+                if (code) h.pid = `${prefix}${code}`;
+                delete h.playerCode;
+                delete h.playerId;
+                delete h.birth;
+                delete h.backnum;
+              }
+            }
           }
         }
       }
@@ -675,6 +703,18 @@ async function enrichSaves(allGames) {
       if (rec.winPitcherPid) g.winPitcherPid = rec.winPitcherPid;
       if (rec.losePitcherPid) g.losePitcherPid = rec.losePitcherPid;
       if (rec.savePitcherPid) g.savePitcherPid = rec.savePitcherPid;
+      // KBO/NPB 선수 정보 카드용 pid(2026-09-29, "가져올수있는정보 최대한많이 가져와야지") —
+      // MLB처럼 국적은 없지만(공식 국적 API 자체가 없음), pitcherCodeByName은 같은 /record
+      // 응답에서 추가 fetch 없이 이미 나옴 — koreabaseball.com pcode/야후재팬 선수ID와 실측
+      // 검증된 값이라 그대로 pid로 승격.
+      if (!g.winPitcherPid && rec.pitcherCodeByName) {
+        const prefix = g.league === 'KBO' ? 'kbo:p:' : g.league === 'NPB' ? 'npb:' : null;
+        if (prefix) {
+          if (g.winPitcher && rec.pitcherCodeByName[g.winPitcher]) g.winPitcherPid = `${prefix}${rec.pitcherCodeByName[g.winPitcher]}`;
+          if (g.losePitcher && rec.pitcherCodeByName[g.losePitcher]) g.losePitcherPid = `${prefix}${rec.pitcherCodeByName[g.losePitcher]}`;
+          if (g.savePitcher && rec.pitcherCodeByName[g.savePitcher]) g.savePitcherPid = `${prefix}${rec.pitcherCodeByName[g.savePitcher]}`;
+        }
+      }
     }
     // 홀드 투수 국적(MLB만, 2026-09-29) — decisions 엔드포인트와 달리 "누가 홀드인지"를 단일 역할
     // 필드로 안 줘서 boxscore의 팀별 투수 등장 순서로 골라낸 뒤 이름 배열(rec.holdHome/holdAway,
@@ -697,10 +737,12 @@ async function enrichSaves(allGames) {
       }
     }
     if (rec && typeof rec === 'object' && ((rec.holdHome && rec.holdHome.length) || (rec.holdAway && rec.holdAway.length))) {
+      const holdPidPrefix = g.league === 'KBO' ? 'kbo:p:' : g.league === 'NPB' ? 'npb:' : null;
       const zip = (names, nats, ids) => (names || []).map((n, i) => {
         const entry = { n };
         if (nats && nats[i]) entry.nat = nats[i];
         if (ids && ids[i] != null) entry.pid = `mlb:${ids[i]}`;
+        else if (holdPidPrefix && rec.pitcherCodeByName?.[n]) entry.pid = `${holdPidPrefix}${rec.pitcherCodeByName[n]}`;
         return entry;
       });
       g.holds = { home: zip(rec.holdHome, rec.holdHomeNats, rec.holdHomeIds), away: zip(rec.holdAway, rec.holdAwayNats, rec.holdAwayIds) };
