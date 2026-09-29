@@ -591,7 +591,14 @@ async function enrichSaves(allGames) {
     // 없어서(undefined) 재조회 안 하면 영원히 안 채워짐(같은 계열의 반복 패턴). 배열 존재 여부로
     // 판단 — 홀드가 0명이었던 정상 케이스는 빈 배열([])로 저장되니 undefined와 구분됨.
     const needsHoldBackfill = isNewFormat && !Array.isArray(cached.holdHome);
-    const needsHighlightRefetch = recentHighlightIds.has(g.gameId) && (!isSplitHighlightFormat || needsMlbNatBackfill || needsMlbPidBackfill || needsHoldBackfill);
+    // KBO/NPB pid 백필(2026-09-29, "01a0ec0b인데 ota또못받아오는듯?" 리포트로 발견 — OTA는
+    // 정상 수신됐는데 실제로는 이미 캐시된 KBO/NPB 경기 전부(8,747+2,090건)에 pid가 하나도
+    // 없었음. 오늘 pitcherCodeByName을 새로 추가했는데 기존 캐시엔 이 필드 자체가 없어서
+    // 재조회 트리거가 없으면 영원히 안 채워짐 — MLB pid 백필과 동일한 패턴, 같은 날 세 번째
+    // 재발). 이 필드는 fetchGameRecord가 항상 반환(빈 객체 {}라도)하므로 존재 여부 자체가
+    // "이미 재조회함" 신호 — 별도 Checked 플래그 불필요, 한 번 재조회되면 자동으로 안정됨.
+    const needsKboNpbPidBackfill = (g.league === 'KBO' || g.league === 'NPB') && isNewFormat && !cached.pitcherCodeByName;
+    const needsHighlightRefetch = recentHighlightIds.has(g.gameId) && (!isSplitHighlightFormat || needsMlbNatBackfill || needsMlbPidBackfill || needsHoldBackfill || needsKboNpbPidBackfill);
     const needsSavesFetch = cached === undefined || needsHighlightRefetch;
     if (needsSavesFetch && savesFetchUsed < SAVES_FETCH_BUDGET) {
       savesFetchUsed++;
