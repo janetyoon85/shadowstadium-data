@@ -1492,7 +1492,7 @@ async function enrichEuroAssists(allGames) {
           // completed 인데 이벤트 자체를 못 찾으면(ESPN 미중계 등) 영구 불가로 보고 확정 캐시 —
           // live 는 다음 run 에 스코어보드가 갱신될 수 있어 재시도 유지(캐시 안 함).
           if (g.status === 'completed') {
-            cache[g.gameId] = { homeAssists: [], awayAssists: [], homeNats: [], awayNats: [], homeANats: [], awayANats: [], final: true };
+            cache[g.gameId] = { homeAssists: [], awayAssists: [], homeNats: [], awayNats: [], homeANats: [], awayANats: [], homePids: [], awayPids: [], homeAPids: [], awayAPids: [], final: true };
             // 카드 캐시도 같이 확정 스텁 처리 — 안 그러면 needsCardBackfill이 영원히 true로 남아
             // ESPN 미중계 경기(군소리그에 흔함)가 매 실행마다 예산을 계속 잡아먹어 다른(특히
             // 신규 38개국) 리그의 백필이 굶는 문제 발생(2026-09-26 실측 발견 — 신규 확장 리그들
@@ -1523,7 +1523,7 @@ async function enrichEuroAssists(allGames) {
             // completed 인데 골 개수가 계속 안 맞으면(팀명 매칭 실패 등 구조적 문제) 매 10분 재시도해도
             // 안 맞을 확률이 높음 — 확정 캐시로 고정해 무한 재시도 방지(live 는 계속 재시도).
             if (g.status === 'completed') {
-              cache[g.gameId] = { homeAssists: [], awayAssists: [], homeNats: [], awayNats: [], homeANats: [], awayANats: [], final: true };
+              cache[g.gameId] = { homeAssists: [], awayAssists: [], homeNats: [], awayNats: [], homeANats: [], awayANats: [], homePids: [], awayPids: [], homeAPids: [], awayAPids: [], final: true };
             }
             if (!cached) continue;
           } else {
