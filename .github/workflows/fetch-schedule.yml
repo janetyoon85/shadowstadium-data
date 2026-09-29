@@ -69,7 +69,7 @@ jobs:
       - name: Check for changes
         id: changes
         run: |
-          if [[ -n "$(git status --porcelain games.json games_2026.json saves.json scorers.json assists.json euro_assists.json euro_shootout.json players.json player-name-auto.json)" ]]; then
+          if [[ -n "$(git status --porcelain games.json games_2026.json saves.json scorers.json assists.json euro_assists.json euro_shootout.json players.json player-codes.json player-name-auto.json)" ]]; then
             echo "changed=true" >> $GITHUB_OUTPUT
           else
             echo "changed=false" >> $GITHUB_OUTPUT
@@ -80,7 +80,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add games.json games_2026.json saves.json scorers.json assists.json euro_assists.json cards.json euro_cards.json euro_shootout.json players.json player-name-auto.json
+          git add games.json games_2026.json saves.json scorers.json assists.json euro_assists.json cards.json euro_cards.json euro_shootout.json players.json player-codes.json player-name-auto.json
           git commit -m "chore(data): daily schedule sync ($(date +'%Y-%m-%d'))"
           # FCM Reminders(15분 간격) + WBSC/아시안게임 야구·축구 크롤러들(5분 간격, 2026-09
           # 추가)까지 같은 브랜치에 동시에 push할 수 있어 non-fast-forward 거부가 잦아짐 —

@@ -23,6 +23,11 @@ const LINEUP_API = (gameId) => `${API_BASE}/${gameId}/lineup`;
 // 세이브 투수 캐시 — schedule API 엔 세이브 필드가 없어 게임당 /record 1요청이 필요.
 // 종료 경기는 결과가 불변이라 gameId→savePitcher(없으면 null)로 캐시 후 신규 종료분만 fetch.
 const SAVES_PATH = path.join(REPO_ROOT, 'saves.json');
+// 선발투수(경기 전) pid 조회용 이름→pid 누적 레지스트리(2026-09-29, 사용자: "위키정보말고
+// 다른선수들처럼 키몸무게 이런정보를가져와야지" — 스케줄 API 자체엔 선발투수 ID가 없어서,
+// /record에서 학습한 이름→코드를 영구 저장해뒀다가 재사용). 시즌 지나도 안 지움(과거 선수도
+// 재등판 가능, 파일 작아서 무한증식 걱정 없음).
+const PLAYER_CODE_REGISTRY_PATH = path.join(REPO_ROOT, 'player-codes.json');
 // 축구 득점자 캐시 — schedule API 엔 득점자 없어 게임당 /relay 1요청.
 // gameId→{home:[{m,n,pk?}],away:[...]} (0-0 면 빈 배열) 캐시 후 신규 종료분만 fetch.
 const SCORERS_PATH = path.join(REPO_ROOT, 'scorers.json');
@@ -534,6 +539,13 @@ async function enrichSaves(allGames) {
     if (e.code !== 'ENOENT') throw e;
     console.log('[saves] no saves.json yet — backfilling from scratch');
   }
+  let playerCodeRegistry = {};
+  try {
+    playerCodeRegistry = JSON.parse(await fs.readFile(PLAYER_CODE_REGISTRY_PATH, 'utf-8'));
+  } catch (e) {
+    if (e.code !== 'ENOENT') throw e;
+    console.log('[playerCodes] no player-codes.json yet — starting fresh');
+  }
 
   const targets = allGames.filter(
     (g) => BASEBALL_LEAGUES.has(g.league) && g.status === 'completed' && g.gameId,
@@ -722,6 +734,17 @@ async function enrichSaves(allGames) {
           if (g.savePitcher && rec.pitcherCodeByName[g.savePitcher]) g.savePitcherPid = `${prefix}${rec.pitcherCodeByName[g.savePitcher]}`;
         }
       }
+      // 선발투수(경기 전) pid 레지스트리 갱신 — 승/패/세 여부와 무관하게 이 경기 박스스코어에
+      // 나온 투수는 전부 등록(그 경기에서 선발이었든 아니든, 다음에 "다른" 경기의 선발투수로
+      // 다시 나올 수 있으니 최대한 넓게 학습).
+      if (rec.pitcherCodeByName) {
+        const prefix = g.league === 'KBO' ? 'kbo:p:' : g.league === 'NPB' ? 'npb:' : null;
+        if (prefix) {
+          for (const [name, code] of Object.entries(rec.pitcherCodeByName)) {
+            playerCodeRegistry[name] = `${prefix}${code}`;
+          }
+        }
+      }
     }
     // 홀드 투수 국적(MLB만, 2026-09-29) — decisions 엔드포인트와 달리 "누가 홀드인지"를 단일 역할
     // 필드로 안 줘서 boxscore의 팀별 투수 등장 순서로 골라낸 뒤 이름 배열(rec.holdHome/holdAway,
@@ -764,10 +787,21 @@ async function enrichSaves(allGames) {
   }
   await fs.writeFile(SAVES_PATH, JSON.stringify(pruned, null, 2) + '\n', 'utf-8');
 
+  // 선발투수(경기 전, 예정/진행중/종료 상관없이 전부) pid — 레지스트리에 이름이 있으면 그대로
+  // 붙임. targets(완료 경기만)가 아니라 allGames 전체를 돌아야 "아직 안 열린" 예정 경기의
+  // 선발투수도 커버됨(2026-09-29, "위키정보말고 다른선수들처럼 키몸무게 이런정보를가져와야지").
+  let starterPidAttached = 0;
+  for (const g of allGames) {
+    if (!BASEBALL_LEAGUES.has(g.league)) continue;
+    if (g.homePitcher && playerCodeRegistry[g.homePitcher]) { g.homePitcherPid = playerCodeRegistry[g.homePitcher]; starterPidAttached++; }
+    if (g.awayPitcher && playerCodeRegistry[g.awayPitcher]) { g.awayPitcherPid = playerCodeRegistry[g.awayPitcher]; starterPidAttached++; }
+  }
+  await fs.writeFile(PLAYER_CODE_REGISTRY_PATH, JSON.stringify(playerCodeRegistry, null, 2) + '\n', 'utf-8');
+
   const withSave = targets.filter((g) => g.savePitcher).length;
   const withHighlights = targets.filter((g) => g.highlights).length;
   console.log(
-    `[saves] completedBaseball=${targets.length} cached=${fromCache} fetched=${fetched} failed=${failed} withSave=${withSave} withHighlights=${withHighlights} mlbPitcherNatUsed=${mlbPitcherNatUsed}/${MLB_PITCHER_NAT_BUDGET}`,
+    `[saves] completedBaseball=${targets.length} cached=${fromCache} fetched=${fetched} failed=${failed} withSave=${withSave} withHighlights=${withHighlights} starterPidAttached=${starterPidAttached} registrySize=${Object.keys(playerCodeRegistry).length} mlbPitcherNatUsed=${mlbPitcherNatUsed}/${MLB_PITCHER_NAT_BUDGET}`,
   );
 }
 
@@ -1573,6 +1607,9 @@ function serializeGame(g) {
   if (g.doubleheaderNum) out.doubleheaderNum = g.doubleheaderNum;
   if (g.awayPitcher) out.awayPitcher = g.awayPitcher;
   if (g.homePitcher) out.homePitcher = g.homePitcher;
+  // 선발투수(경기 전) pid(2026-09-29, 선수 정보 카드용) — player-codes.json 레지스트리 매칭 성공시만.
+  if (g.awayPitcherPid) out.awayPitcherPid = g.awayPitcherPid;
+  if (g.homePitcherPid) out.homePitcherPid = g.homePitcherPid;
   // 0 도 유효 점수라 typeof 가드 (falsy 체크 금지).
   if (typeof g.awayScore === 'number') out.awayScore = g.awayScore;
   if (typeof g.homeScore === 'number') out.homeScore = g.homeScore;
