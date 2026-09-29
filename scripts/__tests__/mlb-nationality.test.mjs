@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { addDaysYmd, getMlbPitcherDecisionNats, getMlbHoldNats } from '../mlb-nationality.mjs';
+import { addDaysYmd, getMlbPitcherDecisionNats, getMlbHoldNats, getMlbProbableStarterPid } from '../mlb-nationality.mjs';
 
 // mlb-nationality.mjs는 캐시를 모듈 스코프 Map에 담아 재사용하는데(loadScheduleForDate 등),
 // 이게 테스트 간에 새지 않게 매 테스트 실행마다 최소한 서로 다른 날짜/gamePk 조합을 써서
@@ -113,4 +113,79 @@ test('getMlbHoldNats - 국적 조회 실패한 투수는 undefined로 자리만 
   assert.equal(result.found, true);
   assert.deepEqual(result.home, ['Japan', undefined]);
   assert.deepEqual(result.homeIds, [10, 11]);
+});
+
+// 실사례 재현(2026-09-30, "위키조회안되면 기본정보라도" 리포트 — MLB 데뷔 첫 선발이라
+// player-codes.json 레지스트리에 이름이 아직 없던 Payton Tolle/Cam Schlittler, BOS@NYY).
+// 예정경기라 스코어 검증이 불가능한 대신 실제 킥오프 시각(gameDate)까지 대조해서 매칭.
+test('getMlbProbableStarterPid - 이름 매칭 없이 팀+시각으로 양쪽 선발 personId를 직접 찾음', async (t) => {
+  const origFetch = globalThis.fetch;
+  t.after(() => { globalThis.fetch = origFetch; });
+  globalThis.fetch = mockFetch([
+    [/schedule\?sportId=1&date=2026-09-29.*probablePitcher/, {
+      dates: [{
+        games: [{
+          gameDate: '2026-09-29T23:05:00Z', // KST 09-30 08:05 근처 — 09:00 킥오프와 ±4시간 이내.
+          teams: {
+            home: { team: { id: 147 }, probablePitcher: { id: 693645 } },
+            away: { team: { id: 111 }, probablePitcher: { id: 801139 } },
+          },
+        }],
+      }],
+    }],
+  ]);
+  const kickoffMs = Date.parse('2026-09-30T09:00:00+09:00');
+  const result = await getMlbProbableStarterPid('뉴욕양키스', '보스턴', '2026-09-30', kickoffMs);
+  assert.equal(result.found, true);
+  assert.equal(result.homePersonId, 693645);
+  assert.equal(result.awayPersonId, 801139);
+});
+
+// 같은 두 팀이 연전 중이면 날짜만으론 다른 날 경기가 걸릴 수 있어(스코어 검증이 안 되는
+// 예정경기라 이게 유일한 안전장치) 킥오프 시각이 window(±4시간) 밖이면 거부해야 함.
+test('getMlbProbableStarterPid - 매치업은 있어도 시각이 window 밖이면 found:false(다른 날 경기로 오매칭 방지)', async (t) => {
+  const origFetch = globalThis.fetch;
+  t.after(() => { globalThis.fetch = origFetch; });
+  globalThis.fetch = mockFetch([
+    [/schedule\?sportId=1&date=2026-08-19.*probablePitcher/, {
+      dates: [{
+        games: [{
+          gameDate: '2026-08-21T00:00:00Z', // 예상 킥오프(아래)와 하루 넘게 차이남 — 다른 날 경기.
+          teams: {
+            home: { team: { id: 147 }, probablePitcher: { id: 1 } },
+            away: { team: { id: 111 }, probablePitcher: { id: 2 } },
+          },
+        }],
+      }],
+    }],
+    [/schedule\?sportId=1&date=2026-08-20.*probablePitcher/, { dates: [] }],
+  ]);
+  const kickoffMs = Date.parse('2026-08-20T09:00:00+09:00');
+  const result = await getMlbProbableStarterPid('뉴욕양키스', '보스턴', '2026-08-20', kickoffMs);
+  assert.deepEqual(result, { found: false });
+});
+
+test('getMlbProbableStarterPid - MLB가 아직 선발 발표 전이면 found:true여도 personId는 undefined(추측 안 함)', async (t) => {
+  const origFetch = globalThis.fetch;
+  t.after(() => { globalThis.fetch = origFetch; });
+  globalThis.fetch = mockFetch([
+    [/schedule\?sportId=1&date=2026-05-09.*probablePitcher/, {
+      dates: [{
+        games: [{
+          gameDate: '2026-05-10T00:00:00Z',
+          teams: { home: { team: { id: 147 } }, away: { team: { id: 111 } } }, // probablePitcher 필드 자체가 없음.
+        }],
+      }],
+    }],
+  ]);
+  const kickoffMs = Date.parse('2026-05-10T09:00:00+09:00');
+  const result = await getMlbProbableStarterPid('뉴욕양키스', '보스턴', '2026-05-10', kickoffMs);
+  assert.equal(result.found, true);
+  assert.equal(result.homePersonId, undefined);
+  assert.equal(result.awayPersonId, undefined);
+});
+
+test('getMlbProbableStarterPid - 팀명이 MLB_TEAM_ID에 없으면 found:false', async () => {
+  const result = await getMlbProbableStarterPid('없는팀', '보스턴', '2026-09-30', Date.now());
+  assert.deepEqual(result, { found: false });
 });

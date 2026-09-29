@@ -232,3 +232,64 @@ export async function getMlbHoldNats(homeTeamKo, awayTeamKo, dateYmd, homeScore,
   }
   return out;
 }
+
+// 선발투수(경기 전) pid — 데뷔 첫 선발이라 player-codes.json 레지스트리에 아직 이름이 없는
+// 신인은 "정보를 찾을 수 없어요"만 뜨던 문제(2026-09-30, "위키조회안되면 기본정보라도
+// 보여주면될듯" 리포트 — 실사례: MLB 데뷔 첫 선발인 Payton Tolle/Cam Schlittler). 네이버가
+// 주는 선발투수는 이름 문자열뿐이라 player-codes.json처럼 "이전에 완료된 경기에서 배운 이름"만
+// 커버되는데, 데뷔전은 그 학습 자체가 아직 없어 원천적으로 못 채워짐. 대신 이 조회는 이름
+// 매칭이 전혀 필요없음 — MLB 공식 스케줄 API가 팀+날짜로 예상 선발투수(probablePitcher)를
+// personId까지 직접 줌.
+//
+// findGamePk/getMlbPitcherDecisionNats와 스케줄 캐시를 공유하지 않는 이유: hydrate=
+// probablePitcher가 붙어 응답 스키마가 다르고(개별 게임의 gameDate 전체 타임스탬프까지 필요),
+// 예정경기라 스코어 검증(verifyScoreMatch)이 원천적으로 불가능함 — 그 대신 같은 두 팀이
+// 연전 중일 때 날짜 하루 오차로 엉뚱한 날의 경기가 걸리는 사고([[project_mlb_pitcher_wrong_game_bug]]
+// 와 동일 위험군)를 막기 위해 실제 킥오프 시각(±4시간 이내, 더블헤더도 갈릴 만큼 좁게)까지
+// 대조. found=false는 "그 매치업 자체를 그 시각 근처에서 못 찾음"(재시도 가치 있음),
+// found=true인데 homePersonId/awayPersonId가 없는 건 MLB가 그 팀 선발을 아직 공식 발표
+// 안 한 정상 상태(추측 안 함, 다음 run 재시도 자연스럽게 이어짐).
+const probableScheduleCache = new Map(); // dateYmd -> Promise<{homeId,awayId,gameDateMs,homeProbableId?,awayProbableId?}[]>
+async function loadProbableScheduleForDate(dateYmd) {
+  if (probableScheduleCache.has(dateYmd)) return probableScheduleCache.get(dateYmd);
+  const promise = (async () => {
+    const list = [];
+    try {
+      const res = await fetch(`https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=${dateYmd}&hydrate=probablePitcher`);
+      if (!res.ok) return list;
+      const j = await res.json();
+      for (const d of j.dates || []) {
+        for (const g of d.games || []) {
+          const homeId = g.teams?.home?.team?.id;
+          const awayId = g.teams?.away?.team?.id;
+          if (!homeId || !awayId || !g.gameDate) continue;
+          list.push({
+            homeId,
+            awayId,
+            gameDateMs: Date.parse(g.gameDate),
+            homeProbableId: g.teams?.home?.probablePitcher?.id,
+            awayProbableId: g.teams?.away?.probablePitcher?.id,
+          });
+        }
+      }
+    } catch {
+      // 네트워크 실패 — 빈 배열, 다음 run 재시도(ESPN 패턴과 동일).
+    }
+    return list;
+  })();
+  probableScheduleCache.set(dateYmd, promise);
+  return promise;
+}
+
+export async function getMlbProbableStarterPid(homeTeamKo, awayTeamKo, dateYmd, expectedKickoffMs) {
+  const homeId = MLB_TEAM_ID[homeTeamKo];
+  const awayId = MLB_TEAM_ID[awayTeamKo];
+  if (!homeId || !awayId) return { found: false };
+  const TIME_WINDOW_MS = 4 * 60 * 60 * 1000; // ±4시간 — 같은 날 더블헤더도 이 폭이면 갈림.
+  for (const candidate of [addDaysYmd(dateYmd, -1), dateYmd]) {
+    const games = await loadProbableScheduleForDate(candidate);
+    const match = games.find((g) => g.homeId === homeId && g.awayId === awayId && Math.abs(g.gameDateMs - expectedKickoffMs) <= TIME_WINDOW_MS);
+    if (match) return { found: true, homePersonId: match.homeProbableId ?? undefined, awayPersonId: match.awayProbableId ?? undefined };
+  }
+  return { found: false };
+}

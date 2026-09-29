@@ -6,7 +6,7 @@ import { validateDataset } from './validators.mjs';
 import { getAthleteNationality, getAthleteDisplayName } from './espn-nationality.mjs';
 import { parseBaseballHighlights, parseKboRelayHighlights, parseMlbNpbRelayHighlights, extractPitcherDecisions } from './baseball-highlight-parse.mjs';
 import { selectUniqueScoreMatch } from './espn-match-select.mjs';
-import { getMlbNationality, getMlbPitcherDecisionNats, getMlbHoldNats } from './mlb-nationality.mjs';
+import { getMlbNationality, getMlbPitcherDecisionNats, getMlbHoldNats, getMlbProbableStarterPid } from './mlb-nationality.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -838,10 +838,39 @@ async function enrichSaves(allGames) {
   // 붙임. targets(완료 경기만)가 아니라 allGames 전체를 돌아야 "아직 안 열린" 예정 경기의
   // 선발투수도 커버됨(2026-09-29, "위키정보말고 다른선수들처럼 키몸무게 이런정보를가져와야지").
   let starterPidAttached = 0;
+  // MLB 데뷔 첫 선발(2026-09-30, "위키조회안되면 기본정보라도" 리포트 — 실사례: Payton Tolle/
+  // Cam Schlittler) — player-codes.json은 "이전에 완료된 경기 박스스코어에서 학습한 이름"만
+  // 커버해서, 그 선수의 첫 MLB 선발 등판은 원천적으로 이름이 등록돼 있을 리 없음. 대신 이름
+  // 매칭이 필요없는 MLB 공식 스케줄 API(팀+시각, getMlbProbableStarterPid)로 직접 조회 —
+  // 성공하면 personId뿐 아니라 네이버가 준 한글 이름도 함께 레지스트리에 학습시켜서, 그 선수의
+  // 다음 등판부터는 이 API 호출 없이 기존 레지스트리로 바로 해결됨(예정경기는 수가 적어 작은
+  // 예산으로 충분, 매 실행 무제한 조회 방지).
+  const MLB_STARTER_PID_BUDGET = 30;
+  let mlbStarterPidUsed = 0;
   for (const g of allGames) {
     if (!BASEBALL_LEAGUES.has(g.league)) continue;
     if (g.homePitcher && playerCodeRegistry[g.homePitcher]) { g.homePitcherPid = playerCodeRegistry[g.homePitcher]; starterPidAttached++; }
     if (g.awayPitcher && playerCodeRegistry[g.awayPitcher]) { g.awayPitcherPid = playerCodeRegistry[g.awayPitcher]; starterPidAttached++; }
+    if (g.league === 'MLB' && (!g.homePitcherPid || !g.awayPitcherPid) && mlbStarterPidUsed < MLB_STARTER_PID_BUDGET) {
+      mlbStarterPidUsed++;
+      try {
+        const res = await getMlbProbableStarterPid(g.home, g.away, g.date, naverKickoffUtcMs(g));
+        if (res.found) {
+          if (!g.homePitcherPid && g.homePitcher && res.homePersonId != null) {
+            g.homePitcherPid = `mlb:${res.homePersonId}`;
+            playerCodeRegistry[g.homePitcher] = g.homePitcherPid;
+            starterPidAttached++;
+          }
+          if (!g.awayPitcherPid && g.awayPitcher && res.awayPersonId != null) {
+            g.awayPitcherPid = `mlb:${res.awayPersonId}`;
+            playerCodeRegistry[g.awayPitcher] = g.awayPitcherPid;
+            starterPidAttached++;
+          }
+        }
+      } catch (e) {
+        console.warn(`[saves] MLB probable starter pid failed ${g.gameId}: ${e.message}`);
+      }
+    }
   }
   await fs.writeFile(PLAYER_CODE_REGISTRY_PATH, JSON.stringify(playerCodeRegistry, null, 2) + '\n', 'utf-8');
 
