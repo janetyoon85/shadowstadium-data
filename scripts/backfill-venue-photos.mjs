@@ -40,6 +40,14 @@ const AMBIGUOUS_CITY_TEAM_OVERRIDES = {
   '필라델피아': { Baseball: 'Philadelphia Phillies', Soccer: 'Philadelphia Union' },
 };
 
+// 남자팀/여자팀 이름 겹침(2026-09-30, "이건맞아?" 리포트로 발견 — "Alaves" 검색이 여자팀
+// (Alavés Gloriosas) 1건만 반환해 strGender 필터를 걸면 아예 못 찾음) — 정식 구단명으로 검색하면
+// 남자팀이 정확히 찾아짐을 실측 확인. 위 도시명 겹침과 원인이 달라 별도 맵으로 관리(발견되는
+// 대로 추가, 지금은 알라베스 1건만 확인됨).
+const TEAM_SEARCH_NAME_OVERRIDES = {
+  '알라베스': 'Deportivo Alaves',
+};
+
 async function fetchVenuePhoto(englishTeamName, sportLabel) {
   try {
     const res = await fetch(`https://www.thesportsdb.com/api/v1/json/3/searchteams.php?t=${encodeURIComponent(englishTeamName)}`);
@@ -52,7 +60,12 @@ async function fetchVenuePhoto(englishTeamName, sportLabel) {
     // 붙어있었음): "Houston" 검색이 TheSportsDB에서 야구팀 없이 미식축구팀 딱 1건만 반환하는
     // 경우가 실측 확인됨 — 이전엔 스포츠 불일치여도 teams[0]로 폴백해서 엉뚱한 스포츠의 구장이
     // 그대로 붙었음. 잘못된 사진보단 "사진 없음"이 안전(다른 배필들과 동일 철학) — 폴백 제거.
-    const team = teams.find((t) => t.strSport === sportLabel);
+    // 추가 버그(2026-09-30, "이건맞아?" 리포트 — 멘디소로차(알라베스 라리가 남자팀 홈구장)에
+    // 알라베스 여자팀(Alavés Gloriosas) 훈련장 사진이 붙어있었음): "Alaves" 검색이 스포츠는
+    // 맞지만(Soccer) 여자팀 1건만 반환하는 경우가 실측 확인됨 — 우리 데이터는 전부 남자
+    // 클럽/대표팀이라 strGender==='Female'인 결과는 제외(성별 필드 자체가 없는 국가대표 등은
+    // 그대로 허용 — 명시적으로 여자팀이라고 확인된 것만 배제).
+    const team = teams.find((t) => t.strSport === sportLabel && t.strGender !== 'Female');
     if (!team?.idVenue) return null;
     await sleep(REQUEST_DELAY_MS);
     const vres = await fetch(`https://www.thesportsdb.com/api/v1/json/3/lookupvenue.php?id=${team.idVenue}`);
@@ -85,7 +98,9 @@ async function main() {
     if (v.id in cache) continue;
     const firstTeam = (v.teams || '').split('·')[0]?.trim();
     const sport = sportLabel[v.sport] || 'Soccer';
-    const englishName = firstTeam ? (AMBIGUOUS_CITY_TEAM_OVERRIDES[firstTeam]?.[sport] || teamNameEn[firstTeam]) : undefined;
+    const englishName = firstTeam
+      ? (AMBIGUOUS_CITY_TEAM_OVERRIDES[firstTeam]?.[sport] || TEAM_SEARCH_NAME_OVERRIDES[firstTeam] || teamNameEn[firstTeam])
+      : undefined;
     if (!englishName) {
       noEnglishName++;
       continue;

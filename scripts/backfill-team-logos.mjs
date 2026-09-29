@@ -50,6 +50,12 @@ function isBaseballLeague(league) {
 // 없음"으로 통일) 한쪽 스포츠에 다른 쪽 배지가 잘못 붙는 걸 막음(오귀속보단 유실이 안전).
 const AMBIGUOUS_TEAM_KO_NAMES = new Set(['휴스턴', '시애틀', '마이애미', '토론토', '신시내티', '콜로라도', '미네소타', '필라델피아', '세인트루이스']);
 
+// 남자팀/여자팀 이름 겹침(2026-09-30, "이건맞아?" 리포트 — backfill-venue-photos.mjs와 동일 발견,
+// 자세한 사유는 그쪽 주석 참고). 발견되는 대로 추가.
+const TEAM_SEARCH_NAME_OVERRIDES = {
+  '알라베스': 'Deportivo Alaves',
+};
+
 async function fetchTeamBadge(englishName, sportLabel) {
   try {
     const res = await fetch(`https://www.thesportsdb.com/api/v1/json/3/searchteams.php?t=${encodeURIComponent(englishName)}`);
@@ -57,7 +63,9 @@ async function fetchTeamBadge(englishName, sportLabel) {
     const j = await res.json();
     const teams = j.teams || [];
     // sportLabel 필터 — 못 찾으면 잘못된 스포츠 배지보단 "없음"이 안전(구장사진 백필과 동일 철학).
-    const team = teams.find((t) => t.strSport === sportLabel);
+    // strGender 필터(2026-09-30, "이건맞아?" 리포트로 구장사진 백필에서 발견한 동일 버그 클래스 —
+    // "Alaves" 검색이 여자팀(Alavés Gloriosas) 1건만 반환) — 우리 데이터는 전부 남자 클럽/대표팀.
+    const team = teams.find((t) => t.strSport === sportLabel && t.strGender !== 'Female');
     return team?.strBadge || null;
   } catch {
     return null;
@@ -91,7 +99,7 @@ async function main() {
   for (const koName of koTeamNames) {
     if (koName in cache) continue; // 이미 시도함(null도 캐시 — "찾아봤지만 없음"과 "아직 안 찾아봄" 구분).
     if (AMBIGUOUS_TEAM_KO_NAMES.has(koName)) continue; // 위 주석 참고 — 캐싱 자체를 건너뜀.
-    const englishName = teamNameEn[koName];
+    const englishName = TEAM_SEARCH_NAME_OVERRIDES[koName] || teamNameEn[koName];
     if (!englishName) {
       noEnglishName++;
       continue; // TEAM_NAME_EN에 없는 팀(신생 팀 등) — 다음에 그 딕셔너리 갱신되면 자동으로 잡힘.
