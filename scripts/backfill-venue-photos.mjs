@@ -11,15 +11,27 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { fetchVenuePhotoFromWikipedia, WIKI_REQUEST_DELAY_MS } from './venue-photo-wiki.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
 const VENUES_META_PATH = path.join(REPO_ROOT, 'venues-meta.json');
 const TEAM_NAME_EN_PATH = path.join(REPO_ROOT, 'team-name-en.json');
+const VENUE_NAME_EN_PATH = path.join(REPO_ROOT, 'venue-name-en.json');
 const VENUE_PHOTOS_PATH = path.join(REPO_ROOT, 'venue-photos.json');
 const REQUEST_DELAY_MS = 2200; // team-logos와 동일 이유(무료 공유키 분당 30회 한도).
 const BUDGET = 150; // 팀 검색 1회 + venue lookup 1회 = 구장당 최대 2호출, 여유 있게.
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+// 위키피디아 폴백(2026-09-30, 사용자: "근데어짜피국대경기도클럽구장에서 시합하거든" — 소속팀이
+// 없는(국가대표 친선/컵대회 결승 등) 경기도 실제로는 어느 클럽의 진짜 구장에서 열리는 경우가
+// 대부분이라, "팀이 없다"가 "구장 자체를 못 찾는다"는 뜻은 아니라는 지적). App.tsx의
+// VENUE_NAME_EN(구장 id→영문 정식명+도시, 1회 추출해 venue-name-en.json으로 커밋)을 그대로
+// 검색어로 써서 위키피디아에서 그 구장 자체를 직접 찾음 — 팀 소속 여부와 완전히 무관해서
+// team-name-en.json에 없는 641개 구장 대부분(1,491개 중 629개가 영문명 확보됨)을 커버 가능.
+// 실제 fetch 로직(fetchVenuePhotoFromWikipedia)은 venue-photo-wiki.mjs로 분리(테스트 자동화용,
+// baseball-highlight-parse.mjs와 동일 이유).
+const WIKI_BUDGET = 80; // 검색 1회 + 요약 1회 = 구장당 최대 2호출.
 
 // MLB/MLS 도시명 겹침 9곳(2026-09-30, "mlb인데축구장사진이있네" 리포트 조사 중 발견 —
 // team-name-en.json은 이 9곳을 구단 접미사 없는 "지명만"으로 등록해둠, [[project_i18n_japanese]]
@@ -81,6 +93,13 @@ async function fetchVenuePhoto(englishTeamName, sportLabel) {
 async function main() {
   const venuesMeta = JSON.parse(await fs.readFile(VENUES_META_PATH, 'utf-8'));
   const teamNameEn = JSON.parse(await fs.readFile(TEAM_NAME_EN_PATH, 'utf-8'));
+  let venueNameEn = {};
+  try {
+    venueNameEn = JSON.parse(await fs.readFile(VENUE_NAME_EN_PATH, 'utf-8'));
+  } catch (e) {
+    if (e.code !== 'ENOENT') throw e;
+    console.log('[venue-photos] no venue-name-en.json — 위키 폴백 비활성');
+  }
 
   let cache = {};
   try {
@@ -93,6 +112,8 @@ async function main() {
   let used = 0;
   let found = 0;
   let noEnglishName = 0;
+  let wikiUsed = 0;
+  let wikiFound = 0;
   const sportLabel = { baseball: 'Baseball', football: 'Soccer' };
   for (const v of venuesMeta) {
     if (v.id in cache) continue;
@@ -101,20 +122,36 @@ async function main() {
     const englishName = firstTeam
       ? (AMBIGUOUS_CITY_TEAM_OVERRIDES[firstTeam]?.[sport] || TEAM_SEARCH_NAME_OVERRIDES[firstTeam] || teamNameEn[firstTeam])
       : undefined;
-    if (!englishName) {
-      noEnglishName++;
+    if (!englishName) noEnglishName++;
+    const venueEn = venueNameEn[v.id];
+
+    const canTrySportsDb = !!englishName && used < BUDGET;
+    const canTryWiki = !!venueEn?.name && wikiUsed < WIKI_BUDGET;
+    if (!canTrySportsDb && !canTryWiki) {
+      // 이번 실행에서 시도할 방법이 아예 없음 — 팀/영문 구장명 둘 다 없으면(재시도해도 의미
+      // 없음) null로 확정, 예산만 소진된 경우면 그냥 건너뛰어 다음 실행에 재시도.
+      if (!englishName && !venueEn?.name) cache[v.id] = null;
       continue;
     }
-    if (used >= BUDGET) break;
-    used++;
-    await sleep(REQUEST_DELAY_MS);
-    const photo = await fetchVenuePhoto(englishName, sport);
+
+    let photo = null;
+    if (canTrySportsDb) {
+      used++;
+      await sleep(REQUEST_DELAY_MS);
+      photo = await fetchVenuePhoto(englishName, sport);
+      if (photo) found++;
+    }
+    if (!photo && canTryWiki) {
+      wikiUsed++;
+      await sleep(WIKI_REQUEST_DELAY_MS);
+      photo = await fetchVenuePhotoFromWikipedia(venueEn.name);
+      if (photo) wikiFound++;
+    }
     cache[v.id] = photo;
-    if (photo) found++;
   }
 
   await fs.writeFile(VENUE_PHOTOS_PATH, JSON.stringify(cache, null, 2) + '\n', 'utf-8');
-  console.log(`[venue-photos] totalVenues=${venuesMeta.length} cached=${Object.keys(cache).length} thisRunUsed=${used} thisRunFound=${found} noEnglishName=${noEnglishName}`);
+  console.log(`[venue-photos] totalVenues=${venuesMeta.length} cached=${Object.keys(cache).length} thisRunUsed=${used} thisRunFound=${found} wikiUsed=${wikiUsed} wikiFound=${wikiFound} noEnglishName=${noEnglishName}`);
 }
 
 main().catch((e) => {
