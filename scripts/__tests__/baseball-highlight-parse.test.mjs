@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { classifyHighlightSide, parseBaseballHighlights, parseBaseballHighlightsFromBoxscore, parseKboRelayHighlights, extractPitcherDecisions } from '../baseball-highlight-parse.mjs';
+import { classifyHighlightSide, parseBaseballHighlights, parseBaseballHighlightsFromBoxscore, parseKboRelayHighlights, parseMlbNpbRelayHighlights, extractPitcherDecisions } from '../baseball-highlight-parse.mjs';
 
 test('classifyHighlightSide - home/away/unknown', () => {
   const home = new Set(['강백호']);
@@ -195,4 +195,56 @@ test('extractPitcherDecisions - recordData 필드 자체가 없어도(undefined)
   assert.equal(r.save, null);
   assert.deepEqual(r.holdHome, []);
   assert.deepEqual(r.holdAway, []);
+});
+
+// 2026-09-30 실측(MLB 20260930PHAT0 /relay) 구조 그대로 축약한 픽스처 — "mlb도 경기중에
+// 이벤트발생하면 추가해줘야지 모든야구경기 다마찬가지임" 리포트로 발견: MLB/NPB도 KBO와 동일하게
+// etcRecords가 경기 막판에야 채워져 진행 중엔 하이라이트가 하나도 안 붙던 공백이 있었음.
+// KBO와 달리 스키마가 평면(title+text, homeOrAway 필드 직접 존재)이라 별도 파서로 대응.
+test('parseMlbNpbRelayHighlights - homeOrAway 필드로 직접 팀 판정 + 콜론 있는 줄만 파싱(병살타 포착, 안타/아웃은 스코프 밖)', () => {
+  const textRelayData = {
+    textRelays: [
+      { no: 442, inn: 9, homeOrAway: '0', titleStyle: '8', title: '7번타자 스탯', text: '1구 스트라이크<br/>2구 헛스윙<br/>3구 볼<br/>4구 타격<br/>스탓 : 좌익수 플라이 아웃' },
+      { no: 437, inn: 9, homeOrAway: '0', titleStyle: '8', title: '6번타자 데 라 크루즈', text: '1구 볼<br/>2구 타격<br/>데 라 크루즈 : 유격수 병살타 아웃<br/>1루주자 마쉬 : 아웃' },
+      { no: 434, inn: 9, homeOrAway: '0', titleStyle: '8', title: '5번타자 마쉬', text: '1구 타격<br/>마쉬 : 우중간 안타' },
+      { no: 429, inn: 9, homeOrAway: '0', titleStyle: '0', title: '9회초 필라델피아공격', text: '' },
+    ],
+  };
+  const { home, away, maxSeqno } = parseMlbNpbRelayHighlights(textRelayData);
+  assert.equal(home.length, 0);
+  assert.equal(away.length, 1); // 안타/플라이아웃은 스코프 밖(KBO와 동일 기준) — 병살타만 포착.
+  assert.equal(away[0].how, '병살타');
+  assert.equal(away[0].player, '데 라 크루즈');
+  assert.equal(maxSeqno, 442);
+});
+
+test('parseMlbNpbRelayHighlights - homeOrAway="1"이면 home으로 분류', () => {
+  const textRelayData = {
+    textRelays: [
+      { no: 100, inn: 3, homeOrAway: '1', titleStyle: '8', title: '4번타자 오타니', text: '1구 타격<br/>오타니 : 좌월 홈런' },
+    ],
+  };
+  const { home, away } = parseMlbNpbRelayHighlights(textRelayData);
+  assert.equal(home.length, 1);
+  assert.equal(away.length, 0);
+  assert.equal(home[0].how, '홈런');
+  assert.equal(home[0].player, '오타니');
+});
+
+test('parseMlbNpbRelayHighlights - 콜론 없는 주자 진루 줄("2루주자 이름 3루까지 진루")은 오귀속 방지로 스킵', () => {
+  const textRelayData = {
+    textRelays: [
+      { no: 200, inn: 5, homeOrAway: '0', titleStyle: '8', title: '4번타자 오타 료', text: '1구 타격<br/>오타 료 유격수 앞 땅볼 아웃<br/>2루주자 와타나베 하루토 3루까지 진루' },
+    ],
+  };
+  const { home, away } = parseMlbNpbRelayHighlights(textRelayData);
+  assert.equal(home.length, 0);
+  assert.equal(away.length, 0);
+});
+
+test('parseMlbNpbRelayHighlights - textRelays 자체가 없어도(undefined) 안전하게 빈 결과', () => {
+  const r = parseMlbNpbRelayHighlights({});
+  assert.deepEqual(r.home, []);
+  assert.deepEqual(r.away, []);
+  assert.equal(r.maxSeqno, 0);
 });

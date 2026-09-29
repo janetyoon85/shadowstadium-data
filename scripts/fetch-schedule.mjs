@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { execSync } from 'node:child_process';
 import { validateDataset } from './validators.mjs';
 import { getAthleteNationality, getAthleteDisplayName } from './espn-nationality.mjs';
-import { parseBaseballHighlights, parseKboRelayHighlights, extractPitcherDecisions } from './baseball-highlight-parse.mjs';
+import { parseBaseballHighlights, parseKboRelayHighlights, parseMlbNpbRelayHighlights, extractPitcherDecisions } from './baseball-highlight-parse.mjs';
 import { selectUniqueScoreMatch } from './espn-match-select.mjs';
 import { getMlbNationality, getMlbPitcherDecisionNats, getMlbHoldNats } from './mlb-nationality.mjs';
 
@@ -612,18 +612,23 @@ async function enrichSaves(allGames) {
     } else if (!needsSavesFetch) {
       fromCache++;
     }
-    // KBO 라이브 하이라이트 — 별도 엔드포인트(/relay)라 위 SAVES_FETCH_BUDGET/예산 로직과
-    // 무관하게 처리(어차피 live는 매 실행 무조건 시도, 신규/백필 예산 경합 없음). 새 크론 주기를
-    // 만들지 않고 기존 5분 주기 실행 안에 그대로 얹음(사용자 요청: "차단 안되게" — 호출 빈도를
-    // 전혀 늘리지 않는 쪽으로 설계). 하프이닝 하나를 통째로 놓칠 아주 작은 위험은 있지만, 경기
+    // 라이브 하이라이트 — 별도 엔드포인트(/relay)라 위 SAVES_FETCH_BUDGET/예산 로직과 무관하게
+    // 처리(어차피 live는 매 실행 무조건 시도, 신규/백필 예산 경합 없음). 새 크론 주기를 만들지
+    // 않고 기존 5분 주기 실행 안에 그대로 얹음(사용자 요청: "차단 안되게" — 호출 빈도를 전혀
+    // 늘리지 않는 쪽으로 설계). 하프이닝/타석 하나를 통째로 놓칠 아주 작은 위험은 있지만, 경기
     // 종료 시점에 etcRecords 기반 최종본이 어차피 덮어써서 데이터 유실은 없음(지연만 발생).
-    if (g.league === 'KBO' && g.status === 'live' && cache[g.gameId] && typeof cache[g.gameId] === 'object') {
+    // 처음엔 KBO만 지원했다가(2026-09-29), "mlb도 경기중에이벤트발생하면 추가해줘야지 모든야구
+    // 경기 다마찬가지임" 리포트로 MLB/NPB도 etcRecords가 경기 막판에야 채워지는 동일 공백이
+    // 있음을 확인(실측: 7회말 진행중 MLB경기 하이라이트 0건) — 같은 /relay 엔드포인트가 MLB/NPB도
+    // 커버함을 실측 확인(fetchKboRelay는 이름과 달리 이미 범용, RELAY_API도 리그 무관 동일 URL
+    // 패턴), 스키마만 달라 파서를 리그별로 분기.
+    if ((g.league === 'KBO' || g.league === 'MLB' || g.league === 'NPB') && g.status === 'live' && cache[g.gameId] && typeof cache[g.gameId] === 'object') {
       try {
         await sleep(REQUEST_DELAY_MS);
         const trd = await fetchKboRelay(g.gameId);
         if (trd) {
           const rc = cache[g.gameId];
-          const parsed = parseKboRelayHighlights(trd, g.home, g.away);
+          const parsed = g.league === 'KBO' ? parseKboRelayHighlights(trd, g.home, g.away) : parseMlbNpbRelayHighlights(trd);
           const prevMax = rc.relayMaxSeqno || 0;
           if (!rc.relayHighlights) rc.relayHighlights = { home: [], away: [] };
           for (const side of ['home', 'away']) {
@@ -634,7 +639,7 @@ async function enrichSaves(allGames) {
           rc.relayMaxSeqno = Math.max(prevMax, parsed.maxSeqno);
         }
       } catch (e) {
-        console.warn(`[saves] KBO relay fetch failed ${g.gameId}: ${e.message}`);
+        console.warn(`[saves] relay fetch failed ${g.gameId}: ${e.message}`);
       }
     }
     // needsSavesFetch인데 예산 초과로 이번엔 재조회 못 한 경우 — 예전엔 여기서 continue로 루프를
@@ -699,7 +704,7 @@ async function enrichSaves(allGames) {
             }
           }
         } else if (
-          g.league === 'KBO' && g.status === 'live' && rec.relayHighlights &&
+          (g.league === 'KBO' || g.league === 'MLB' || g.league === 'NPB') && g.status === 'live' && rec.relayHighlights &&
           ((rec.relayHighlights.home && rec.relayHighlights.home.length) || (rec.relayHighlights.away && rec.relayHighlights.away.length))
         ) {
           // etcRecords가 아직 비어있는(경기 진행 중) 동안엔 /relay 기반 누적 하이라이트로 대체

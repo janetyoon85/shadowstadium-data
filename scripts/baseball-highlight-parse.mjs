@@ -196,6 +196,39 @@ function classifyRelayHow(desc) {
   return null;
 }
 
+// MLB/NPB 경기중(live) 하이라이트(2026-09-30, "mlb도 경기중에이벤트발생하면 추가해줘야지
+// 모든야구경기 다마찬가지임" — KBO만 /relay 실시간화가 돼있고 MLB/NPB는 여전히 etcRecords
+// 기반이라 경기 막판까지 하이라이트가 하나도 안 붙던 동일 공백이 남아있었음, 실측(7회말 3:2
+// 진행중 MLB경기 하이라이트 0건)으로 확인). MLB/NPB의 /relay 응답은 KBO와 스키마가 달라
+// textOptions 중첩 없이 title(타석 헤더)+text(<br/>로 이어붙인 투구/결과 로그)가 평면으로 내려오고,
+// 각 항목에 homeOrAway 필드가 직접 있어(실측 확인) KBO처럼 하프이닝 헤더 타이틀을 팀명으로
+// 매칭할 필요가 없음(그 방식의 "타이틀 매칭 전엔 유실" 함정 자체가 없음). 단, 주자 진루 로그는
+// "2루주자 이름 3루까지 진루"처럼 콜론(:) 없이 내려오는 경우가 있어(실측 확인) 이름 경계가
+// 모호함 — 콜론 있는 "이름 : 설명" 줄만 파싱하고 콜론 없는 줄은 오귀속 방지로 그냥 건너뜀
+// (KBO와 동일 철학: 오귀속보단 유실이 안전).
+export function parseMlbNpbRelayHighlights(textRelayData) {
+  const relays = [...(textRelayData?.textRelays || [])].sort((a, b) => a.no - b.no);
+  const home = [];
+  const away = [];
+  let maxSeqno = 0;
+  for (const r of relays) {
+    if (typeof r.no === 'number') maxSeqno = Math.max(maxSeqno, r.no);
+    if (Number(r.titleStyle) !== 8) continue;
+    const lines = (r.text || '').split('<br/>').map((s) => s.trim()).filter(Boolean);
+    for (const line of lines) {
+      const m = /^(?:\d루주자\s+)?(.+?)\s*:\s*(.+)$/.exec(line);
+      if (!m) continue;
+      const [, name, desc] = m;
+      const how = classifyRelayHow(desc);
+      if (!how) continue;
+      const entry = { how, text: `${name.trim()} ${desc.trim()}`, player: name.trim(), seqno: r.no };
+      if (String(r.homeOrAway) === '1') home.push(entry);
+      else if (String(r.homeOrAway) === '0') away.push(entry);
+    }
+  }
+  return { home, away, maxSeqno };
+}
+
 export function parseKboRelayHighlights(textRelayData, homeTeamName, awayTeamName) {
   const relays = [...(textRelayData?.textRelays || [])].sort((a, b) => a.no - b.no);
   const home = [];
