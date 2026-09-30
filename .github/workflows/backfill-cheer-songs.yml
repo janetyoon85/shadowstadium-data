@@ -1,0 +1,68 @@
+name: Cheer Songs Backfill
+
+on:
+  schedule:
+    # YouTube Data API 무료 쿼터(하루 10,000유닛, search 100유닛 → ~100건)가 태평양시 자정(07:00 UTC)에
+    # 리셋되므로 그 직후 하루 1회.
+    - cron: '20 7 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: backfill-cheer-songs
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run cheer songs backfill
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: node scripts/backfill-cheer-songs.mjs
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if [[ -n "$(git status --porcelain cheer-songs.json)" ]]; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "changed=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add cheer-songs.json
+          git commit -m "chore(data): 선수 응원가 백필 ($(date +'%Y-%m-%d %H:%M'))"
+          for i in $(seq 1 20); do
+            if git push; then
+              exit 0
+            fi
+            echo "push rejected, rebasing onto origin/main and retrying ($i/20)"
+            git pull --rebase --autostash -X theirs origin main || { git rebase --abort 2>/dev/null || true; echo "rebase failed, retrying"; }
+            sleep $((RANDOM % 30 + 1))
+          done
+          echo "push failed after 20 retries"
+          exit 1
+
+      - name: Discord 알림 (실패 시)
+        if: failure()
+        run: |
+          curl -H "Content-Type: application/json" \
+            -d "{\"content\":\"🔴 ShadeSide 응원가 백필 크롤러 실패\n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}\"}" \
+            "${{ secrets.DISCORD_WEBHOOK_URL }}"
