@@ -13,6 +13,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execSync } from 'node:child_process';
 import { ASIA_TEAMS, normalizeTeamName } from './espn-asia-soccer-teams.mjs';
+import { fillDetailsFromSummary } from './espn-summary-details.mjs';
 import { getAthleteNationality } from './espn-nationality.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -150,6 +151,7 @@ async function fetchEspnLeagueRange(code, slug, dayYmd, unknownTeams, unknownVen
       const as = away.score != null ? parseInt(away.score, 10) : NaN;
       if (!Number.isNaN(hs)) out.homeScore = hs;
       if (!Number.isNaN(as)) out.awayScore = as;
+      await fillDetailsFromSummary(comp, slug, e.id, out.homeScore, out.awayScore);
       const scorers = await extractScorers(comp, home.team?.id, away.team?.id, slug);
       if (scorers) out.scorers = scorers;
       const cards = await extractCards(comp, home.team?.id, away.team?.id, slug);
