@@ -48,7 +48,21 @@ function isBaseballLeague(league) {
 // 스포츠 구분이 없어서). 리그별로 따로 캐싱하려면 App.tsx의 TEAM_LOGOS 조회 쪽도 함께 바꿔야
 // 하는 스키마 변경이 필요해 지금 스코프 밖 — 안전하게 이 9곳은 아예 캐싱을 건너뛰어("배지
 // 없음"으로 통일) 한쪽 스포츠에 다른 쪽 배지가 잘못 붙는 걸 막음(오귀속보단 유실이 안전).
+// 2026-09-30 후속("필라델피아도로고수집안되고있음"): 스킵하면 영구히 로고가 없어서, 캐시 키를
+// "한글명|스포츠"(예: "필라델피아|Baseball")로 나눠 저장하도록 변경 — App.tsx 조회도 같은 규칙.
+// 규칙: league==='MLB' 이면 Baseball, 그 외는 Soccer (겹치는 건 MLB/MLS 뿐).
 const AMBIGUOUS_TEAM_KO_NAMES = new Set(['휴스턴', '시애틀', '마이애미', '토론토', '신시내티', '콜로라도', '미네소타', '필라델피아', '세인트루이스']);
+const AMBIGUOUS_CITY_TEAM_OVERRIDES = {
+  '휴스턴': { Baseball: 'Houston Astros', Soccer: 'Houston Dynamo' },
+  '시애틀': { Baseball: 'Seattle Mariners', Soccer: 'Seattle Sounders' },
+  '마이애미': { Baseball: 'Miami Marlins', Soccer: 'Inter Miami' },
+  '토론토': { Baseball: 'Toronto Blue Jays', Soccer: 'Toronto FC' },
+  '신시내티': { Baseball: 'Cincinnati Reds', Soccer: 'FC Cincinnati' },
+  '콜로라도': { Baseball: 'Colorado Rockies', Soccer: 'Colorado Rapids' },
+  '미네소타': { Baseball: 'Minnesota Twins', Soccer: 'Minnesota United' },
+  '필라델피아': { Baseball: 'Philadelphia Phillies', Soccer: 'Philadelphia Union' },
+  '세인트루이스': { Baseball: 'St. Louis Cardinals', Soccer: 'St. Louis City SC' },
+};
 
 // 남자팀/여자팀 이름 겹침(2026-09-30, "이건맞아?" 리포트 — backfill-venue-photos.mjs와 동일 발견,
 // 자세한 사유는 그쪽 주석 참고). 발견되는 대로 추가.
@@ -77,12 +91,22 @@ async function main() {
   const teamNameEn = JSON.parse(await fs.readFile(TEAM_NAME_EN_PATH, 'utf-8'));
   // 팀명→스포츠 맵(sportLabel 필터용). AMBIGUOUS_TEAM_KO_NAMES 9곳은 실제로 여러 스포츠에
   // 걸치지만(위 주석 참고) 그 목록에서 아예 건너뛰므로 여기선 "첫 관측 스포츠 고정"이 안전.
-  const koTeamSport = new Map();
-  for (const g of games) {
-    const sportLabel = isBaseballLeague(g.league) ? 'Baseball' : 'Soccer';
-    if (g.home && !koTeamSport.has(g.home)) koTeamSport.set(g.home, sportLabel);
-    if (g.away && !koTeamSport.has(g.away)) koTeamSport.set(g.away, sportLabel);
-  }
+  const koTeamSport = new Map(); // cacheKey → sportLabel
+  const keyToKo = new Map(); // cacheKey → 한글 팀명
+  const addTeam = (ko, league) => {
+    if (!ko) return;
+    if (AMBIGUOUS_TEAM_KO_NAMES.has(ko)) {
+      const sport = league === 'MLB' ? 'Baseball' : 'Soccer';
+      const key = `${ko}|${sport}`;
+      if (!koTeamSport.has(key)) { koTeamSport.set(key, sport); keyToKo.set(key, ko); }
+      return;
+    }
+    if (!koTeamSport.has(ko)) {
+      koTeamSport.set(ko, isBaseballLeague(league) ? 'Baseball' : 'Soccer');
+      keyToKo.set(ko, ko);
+    }
+  };
+  for (const g of games) { addTeam(g.home, g.league); addTeam(g.away, g.league); }
   const koTeamNames = new Set(koTeamSport.keys());
 
   let cache = {};
@@ -96,10 +120,11 @@ async function main() {
   let used = 0;
   let found = 0;
   let noEnglishName = 0;
-  for (const koName of koTeamNames) {
-    if (koName in cache) continue; // 이미 시도함(null도 캐시 — "찾아봤지만 없음"과 "아직 안 찾아봄" 구분).
-    if (AMBIGUOUS_TEAM_KO_NAMES.has(koName)) continue; // 위 주석 참고 — 캐싱 자체를 건너뜀.
-    const englishName = TEAM_SEARCH_NAME_OVERRIDES[koName] || teamNameEn[koName];
+  for (const cacheKey of koTeamNames) {
+    if (cacheKey in cache) continue; // 이미 시도함(null도 캐시 — "찾아봤지만 없음"과 "아직 안 찾아봄" 구분).
+    const koName = keyToKo.get(cacheKey);
+    const sport = koTeamSport.get(cacheKey);
+    const englishName = AMBIGUOUS_CITY_TEAM_OVERRIDES[koName]?.[sport] || TEAM_SEARCH_NAME_OVERRIDES[koName] || teamNameEn[koName];
     if (!englishName) {
       noEnglishName++;
       continue; // TEAM_NAME_EN에 없는 팀(신생 팀 등) — 다음에 그 딕셔너리 갱신되면 자동으로 잡힘.
@@ -107,8 +132,8 @@ async function main() {
     if (used >= BUDGET) break;
     used++;
     await sleep(REQUEST_DELAY_MS);
-    const badge = await fetchTeamBadge(englishName, koTeamSport.get(koName));
-    cache[koName] = badge;
+    const badge = await fetchTeamBadge(englishName, sport);
+    cache[cacheKey] = badge;
     if (badge) found++;
   }
 
