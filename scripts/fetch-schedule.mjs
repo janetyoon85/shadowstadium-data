@@ -16,8 +16,8 @@ const SEASON_END = '2026-11-30';
 const PAGE_SIZE = 200;
 const REQUEST_DELAY_MS = 1100;
 // 카테고리 사이 대기(65개 × 1.1초 ≈ 72초가 실행시간의 1/3이었음, 2026-09-30 실측). 페이지 간 대기는 그대로 유지.
-const CATEGORY_DELAY_MS = 400;
-const PAGE_DELAY_MS = 800; // 카테고리 다중 페이지 조회 전용(enrich의 ESPN 요청 대기는 REQUEST_DELAY_MS 유지)
+const CATEGORY_DELAY_MS = 300;
+const PAGE_DELAY_MS = 500; // 카테고리 다중 페이지 조회 전용(enrich의 ESPN 요청 대기는 REQUEST_DELAY_MS 유지)
 // 전역 fetch 타임아웃(2026-09-30) — 개별 호출에 AbortController가 없어 요청 하나가 멎으면 잡 전체가 정지했음.
 const __origFetch = globalThis.fetch;
 globalThis.fetch = (url, opts = {}) => (opts.signal ? __origFetch(url, opts) : __origFetch(url, { ...opts, signal: AbortSignal.timeout(20000) }));
