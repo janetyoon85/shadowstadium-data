@@ -29048,38 +29048,6 @@
   {
     "date": "2026-03-04",
     "time": "19:00",
-    "league": "ACL2",
-    "venueId": "panasonic_stadium_suita",
-    "home": "감바 오사카",
-    "away": "라차부리",
-    "stadium": "파나소닉 스타디움 스이타",
-    "timeTbd": false,
-    "gameId": "vMQl5HEfnRYLMzO",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 1,
-    "scorers": {
-      "home": [
-        {
-          "n": "나와타",
-          "m": 84
-        }
-      ],
-      "away": [
-        {
-          "n": "다니엘 팅",
-          "m": 18
-        }
-      ]
-    },
-    "phaseCode": "T8",
-    "leg": 1,
-    "homeAggregateScore": 3,
-    "awayAggregateScore": 2
-  },
-  {
-    "date": "2026-03-04",
-    "time": "19:00",
     "league": "ACL",
     "venueId": "seoulwc",
     "home": "서울",
@@ -29146,6 +29114,38 @@
     "leg": 1,
     "homeAggregateScore": 1,
     "awayAggregateScore": 3
+  },
+  {
+    "date": "2026-03-04",
+    "time": "19:00",
+    "league": "ACL2",
+    "venueId": "panasonic_stadium_suita",
+    "home": "감바 오사카",
+    "away": "라차부리",
+    "stadium": "파나소닉 스타디움 스이타",
+    "timeTbd": false,
+    "gameId": "vMQl5HEfnRYLMzO",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "나와타",
+          "m": 84
+        }
+      ],
+      "away": [
+        {
+          "n": "다니엘 팅",
+          "m": 18
+        }
+      ]
+    },
+    "phaseCode": "T8",
+    "leg": 1,
+    "homeAggregateScore": 3,
+    "awayAggregateScore": 2
   },
   {
     "date": "2026-03-04",
@@ -40399,20 +40399,20 @@
         {
           "n": "사카모토",
           "m": 17,
-          "nat": "Japan",
-          "pid": "espn:302002"
+          "pid": "espn:302002",
+          "nat": "Japan"
         },
         {
           "n": "토마스-아산테",
           "m": 34,
-          "nat": "Ghana",
-          "pid": "espn:240495"
+          "pid": "espn:240495",
+          "nat": "Ghana"
         },
         {
           "n": "그라임스",
           "m": 50,
-          "nat": "England",
-          "pid": "espn:191337"
+          "pid": "espn:191337",
+          "nat": "England"
         }
       ],
       "away": []
@@ -40662,28 +40662,28 @@
         {
           "n": "가브리엘 펙",
           "m": 6,
+          "pid": "espn:295005",
           "a": "Mauricio Cuevas",
           "nat": "Brazil",
           "aNat": "USA",
-          "pid": "espn:295005",
           "apid": "espn:287252"
         },
         {
           "n": "가브리엘 펙",
           "m": 89,
+          "pid": "espn:295005",
           "a": "Miki Yamane",
           "nat": "Brazil",
           "aNat": "Japan",
-          "pid": "espn:295005",
           "apid": "espn:238050"
         },
         {
           "n": "가브리엘 펙",
           "m": 90,
+          "pid": "espn:295005",
           "a": "João Klauss",
           "nat": "Brazil",
           "aNat": "Brazil",
-          "pid": "espn:295005",
           "apid": "espn:150409"
         }
       ],
@@ -40753,28 +40753,28 @@
         {
           "n": "바즈퀘즈",
           "m": 32,
+          "pid": "espn:365854",
           "a": "Amahl Pellegrino",
           "nat": "USA",
           "aNat": "Tanzania",
-          "pid": "espn:365854",
           "apid": "espn:207638"
         },
         {
           "n": "바즈퀘즈",
           "m": 46,
+          "pid": "espn:365854",
           "a": "Luca Bombino",
           "nat": "USA",
           "aNat": "USA",
-          "pid": "espn:365854",
           "apid": "espn:381072"
         },
         {
           "n": "드레이어",
           "m": 53,
+          "pid": "espn:250454",
           "a": "Luca Bombino",
           "nat": "Denmark",
           "aNat": "USA",
-          "pid": "espn:250454",
           "apid": "espn:381072"
         }
       ],
@@ -40782,8 +40782,8 @@
         {
           "n": "가야르도",
           "m": 16,
-          "nat": "Mexico",
-          "pid": "espn:132098"
+          "pid": "espn:132098",
+          "nat": "Mexico"
         },
         {
           "n": "헬리뇨",
@@ -41480,19 +41480,19 @@
         {
           "n": "패럿",
           "m": 29,
+          "pid": "espn:279790",
           "a": "Ro-Zangelo Daal",
           "nat": "Republic of Ireland",
           "aNat": "Netherlands",
-          "pid": "espn:279790",
           "apid": "espn:338775"
         },
         {
           "n": "패럿",
           "m": 87,
+          "pid": "espn:279790",
           "a": "Ro-Zangelo Daal",
           "nat": "Republic of Ireland",
           "aNat": "Netherlands",
-          "pid": "espn:279790",
           "apid": "espn:338775"
         }
       ],
@@ -41500,10 +41500,10 @@
         {
           "n": "보이타",
           "m": 50,
+          "pid": "espn:385849",
           "a": "Andy Irving",
           "nat": "Czechia",
           "aNat": "Scotland",
-          "pid": "espn:385849",
           "apid": "espn:239253"
         }
       ]
@@ -41564,7 +41564,8 @@
       "home": [
         {
           "n": "이샤크",
-          "m": 70
+          "m": 70,
+          "pid": "naver:ivPTYpig"
         }
       ],
       "away": [
@@ -41574,7 +41575,8 @@
         },
         {
           "n": "네우에르통",
-          "m": 48
+          "m": 48,
+          "pid": "naver:dOvQp1Jf"
         },
         {
           "n": "이사크",
@@ -41604,21 +41606,25 @@
       "home": [
         {
           "n": "무안딜마지",
-          "m": 21
+          "m": 21,
+          "pid": "naver:GhwawJo3"
         }
       ],
       "away": [
         {
           "n": "알레마오",
-          "m": 15
+          "m": 15,
+          "pid": "naver:3008lfdN"
         },
         {
           "n": "알바로 가르시아",
-          "m": 40
+          "m": 40,
+          "pid": "naver:345111"
         },
         {
           "n": "알레마오",
-          "m": 78
+          "m": 78,
+          "pid": "naver:3008lfdN"
         }
       ]
     },
@@ -41645,10 +41651,10 @@
         {
           "n": "마이스토로비치",
           "m": 76,
+          "pid": "espn:240346",
           "a": "Tiago Dantas",
           "nat": "Croatia",
           "aNat": "Portugal",
-          "pid": "espn:240346",
           "apid": "espn:288894"
         }
       ],
@@ -41656,10 +41662,10 @@
         {
           "n": "파니첼리",
           "m": 2,
+          "pid": "espn:350961",
           "a": "Sebastian Nanasi",
           "nat": "Argentina",
           "aNat": "Sweden",
-          "pid": "espn:350961",
           "apid": "espn:303787"
         },
         {
@@ -41734,8 +41740,8 @@
         {
           "n": "타보르다",
           "m": 88,
-          "nat": "Argentina",
-          "pid": "espn:324043"
+          "pid": "espn:324043",
+          "nat": "Argentina"
         }
       ],
       "away": []
@@ -41818,10 +41824,10 @@
         {
           "n": "베르나르데스치",
           "m": 50,
+          "pid": "espn:180956",
           "a": "Jonathan Rowe",
           "nat": "Italy",
           "aNat": "England",
-          "pid": "espn:180956",
           "apid": "espn:118279"
         }
       ],
@@ -41898,27 +41904,27 @@
         {
           "n": "운다브",
           "m": 40,
-          "nat": "Germany",
-          "pid": "espn:273300"
+          "pid": "espn:273300",
+          "nat": "Germany"
         }
       ],
       "away": [
         {
           "n": "모피",
           "m": 21,
+          "pid": "espn:289769",
           "a": "Borja Sainz",
           "nat": "Nigeria",
           "aNat": "Spain",
-          "pid": "espn:289769",
           "apid": "espn:292268"
         },
         {
           "n": "로드리고 모라",
           "m": 27,
+          "pid": "espn:387204",
           "a": "Zaidu Sanusi",
           "nat": "Portugal",
           "aNat": "Nigeria",
-          "pid": "espn:387204",
           "apid": "espn:289513"
         }
       ]
@@ -41995,10 +42001,10 @@
         {
           "n": "왓킨스",
           "m": 61,
+          "pid": "espn:198825",
           "a": "Emiliano Buendía",
           "nat": "England",
           "aNat": "Argentina",
-          "pid": "espn:198825",
           "apid": "espn:214375"
         }
       ]
@@ -42319,32 +42325,32 @@
         {
           "n": "바르가",
           "m": 3,
+          "pid": "espn:246666",
           "a": "Razvan Marin",
           "nat": "Hungary",
           "aNat": "Romania",
-          "pid": "espn:246666",
           "apid": "espn:239738"
         },
         {
           "n": "코이타",
           "m": 33,
+          "pid": "espn:260026",
           "a": "Luka Jovic",
           "nat": "Mauritania",
           "aNat": "Serbia",
-          "pid": "espn:260026",
           "apid": "espn:221332"
         },
         {
           "n": "가치노비치",
           "m": 36,
-          "nat": "Serbia",
-          "pid": "espn:192943"
+          "pid": "espn:192943",
+          "nat": "Serbia"
         },
         {
           "n": "무쿠디",
           "m": 49,
-          "nat": "Cameroon",
-          "pid": "espn:218951"
+          "pid": "espn:218951",
+          "nat": "Cameroon"
         }
       ]
     },
@@ -42405,10 +42411,10 @@
         {
           "n": "은두르",
           "m": 62,
+          "pid": "espn:360061",
           "a": "Rolando Mandragora",
           "nat": "Italy",
           "aNat": "Italy",
-          "pid": "espn:360061",
           "apid": "espn:210392"
         },
         {
@@ -42422,10 +42428,10 @@
         {
           "n": "브라우트 브루네스",
           "m": 60,
+          "pid": "espn:312933",
           "a": "Patryk Makuch",
           "nat": "Norway",
           "aNat": "Poland",
-          "pid": "espn:312933",
           "apid": "espn:405762"
         }
       ]
@@ -42519,10 +42525,10 @@
         {
           "n": "하비 루에다",
           "m": 25,
+          "pid": "espn:331586",
           "a": "Williot Swedberg",
           "nat": "Spain",
           "aNat": "Sweden",
-          "pid": "espn:331586",
           "apid": "espn:322652"
         }
       ],
@@ -42530,9 +42536,9 @@
         {
           "n": "엔드릭",
           "m": 87,
+          "pid": "espn:346612",
           "a": "Clinton Mata",
           "aNat": "Angola",
-          "pid": "espn:346612",
           "apid": "espn:214649"
         }
       ]
@@ -42607,10 +42613,10 @@
         {
           "n": "엘 우아디",
           "m": 24,
+          "pid": "espn:325024",
           "a": "Bryan Heynen",
           "nat": "Morocco",
           "aNat": "Belgium",
-          "pid": "espn:325024",
           "apid": "espn:223337"
         }
       ],
@@ -42659,9 +42665,9 @@
         {
           "n": "카니초프스키",
           "m": 32,
+          "pid": "espn:299111",
           "a": "Lenny Joseph",
           "aNat": "Haiti",
-          "pid": "espn:299111",
           "apid": "espn:301093"
         },
         {
@@ -42769,28 +42775,28 @@
         {
           "n": "케뱅 뎅케이",
           "m": 6,
+          "pid": "espn:251694",
           "a": "Ender Echenique",
           "nat": "Togo",
           "aNat": "Venezuela",
-          "pid": "espn:251694",
           "apid": "espn:361138"
         },
         {
           "n": "발로우",
           "m": 53,
+          "pid": "espn:249926",
           "a": "Kévin Denkey",
           "nat": "USA",
           "aNat": "Togo",
-          "pid": "espn:249926",
           "apid": "espn:251694"
         },
         {
           "n": "케뱅 뎅케이",
           "m": 83,
+          "pid": "espn:251694",
           "a": "Gerardo Valenzuela",
           "nat": "Togo",
           "aNat": "USA",
-          "pid": "espn:251694",
           "apid": "espn:362895"
         }
       ],
@@ -42861,17 +42867,17 @@
         {
           "n": "아리올라",
           "m": 45,
+          "pid": "espn:159491",
           "a": "Jesús Ferreira",
           "nat": "USA",
           "aNat": "USA",
-          "pid": "espn:159491",
           "apid": "espn:251571"
         },
         {
           "n": "아리올라",
           "m": 58,
-          "nat": "USA",
-          "pid": "espn:159491"
+          "pid": "espn:159491",
+          "nat": "USA"
         },
         {
           "n": "로스록",
@@ -43457,20 +43463,20 @@
         {
           "n": "그레베",
           "m": 9,
-          "nat": "Denmark",
-          "pid": "espn:218706"
+          "pid": "espn:218706",
+          "nat": "Denmark"
         },
         {
           "n": "캐디",
           "m": 12,
-          "nat": "Madagascar",
-          "pid": "espn:218527"
+          "pid": "espn:218527",
+          "nat": "Madagascar"
         },
         {
           "n": "마흠두",
           "m": 79,
-          "nat": "France",
-          "pid": "espn:304214"
+          "pid": "espn:304214",
+          "nat": "France"
         }
       ]
     },
@@ -43519,17 +43525,17 @@
         {
           "n": "코스톤스",
           "m": 82,
-          "nat": "Netherlands",
-          "pid": "espn:241527"
+          "pid": "espn:241527",
+          "nat": "Netherlands"
         }
       ],
       "away": [
         {
           "n": "반 베르헨",
           "m": 84,
+          "pid": "espn:351290",
           "a": "Younes Taha",
           "nat": "Netherlands",
-          "pid": "espn:351290",
           "apid": "espn:324583"
         }
       ]
@@ -43787,8 +43793,8 @@
         {
           "n": "슈퇴거",
           "m": 37,
-          "nat": "Austria",
-          "pid": "espn:175006"
+          "pid": "espn:175006",
+          "nat": "Austria"
         },
         {
           "n": "오노라",
@@ -43918,21 +43924,21 @@
         {
           "n": "시메오네",
           "m": 3,
-          "nat": "Argentina",
-          "pid": "espn:189974"
+          "pid": "espn:189974",
+          "nat": "Argentina"
         },
         {
           "n": "일칸",
           "m": 54,
-          "nat": "Türkiye",
-          "pid": "espn:330707"
+          "pid": "espn:330707",
+          "nat": "Türkiye"
         },
         {
           "n": "만델라 케이타",
           "m": 56,
           "og": true,
-          "nat": "Belgium",
-          "pid": "espn:316609"
+          "pid": "espn:316609",
+          "nat": "Belgium"
         },
         {
           "n": "사파타",
@@ -43948,8 +43954,8 @@
         {
           "n": "펠레그리노",
           "m": 20,
-          "a": "Gabriel Strefezza",
           "pid": "espn:312757",
+          "a": "Gabriel Strefezza",
           "apid": "espn:255247"
         }
       ]
@@ -44006,10 +44012,10 @@
         {
           "n": "브로드헤드",
           "m": 25,
+          "pid": "espn:243334",
           "a": "Callum Doyle",
           "nat": "Wales",
           "aNat": "England",
-          "pid": "espn:243334",
           "apid": "espn:310598"
         },
         {
@@ -44066,10 +44072,10 @@
         {
           "n": "페페",
           "m": 90,
+          "pid": "espn:210397",
           "a": "Santi Comesaña",
           "nat": "Ivory Coast",
           "aNat": "Spain",
-          "pid": "espn:210397",
           "apid": "espn:240623"
         }
       ]
@@ -45337,16 +45343,16 @@
         {
           "n": "다운스",
           "m": 48,
-          "nat": "England",
-          "pid": "espn:255916"
+          "pid": "espn:255916",
+          "nat": "England"
         },
         {
           "n": "마츠키",
           "m": 85,
+          "pid": "espn:333631",
           "a": "James Bree",
           "nat": "Japan",
           "aNat": "England",
-          "pid": "espn:333631",
           "apid": "espn:204286"
         }
       ]
@@ -45409,7 +45415,8 @@
       "home": [
         {
           "n": "브래너건",
-          "m": 57
+          "m": 57,
+          "pid": "naver:NCAiVhKS"
         }
       ],
       "away": [
@@ -45443,7 +45450,8 @@
       "away": [
         {
           "n": "랜델",
-          "m": 90
+          "m": 90,
+          "pid": "naver:kJU6Mlfw"
         }
       ]
     }
@@ -45466,19 +45474,19 @@
         {
           "n": "링콘",
           "m": 4,
+          "pid": "espn:362572",
           "a": "Viktor Tsygankov",
           "nat": "Spain",
           "aNat": "Ukraine",
-          "pid": "espn:362572",
           "apid": "espn:212231"
         },
         {
           "n": "우나히",
           "m": 77,
+          "pid": "espn:291552",
           "a": "Claudio Echeverri",
           "nat": "Morocco",
           "aNat": "Argentina",
-          "pid": "espn:291552",
           "apid": "espn:361355"
         },
         {
@@ -45531,10 +45539,10 @@
         {
           "n": "에스포지토",
           "m": 26,
+          "pid": "espn:362674",
           "a": "Nicolò Barella",
           "nat": "Italy",
           "aNat": "Italy",
-          "pid": "espn:362674",
           "apid": "espn:204441"
         }
       ],
@@ -45599,7 +45607,8 @@
       "home": [
         {
           "n": "알레이스 가르시아",
-          "m": 6
+          "m": 6,
+          "pid": "naver:569524"
         }
       ],
       "away": [
@@ -45628,9 +45637,9 @@
         {
           "n": "칼리뮈앙도",
           "m": 53,
+          "pid": "espn:296321",
           "a": "Robin Koch",
           "aNat": "Germany",
-          "pid": "espn:296321",
           "apid": "espn:208285"
         }
       ],
@@ -45700,7 +45709,8 @@
       "away": [
         {
           "n": "쿨리에라키스",
-          "m": 64
+          "m": 64,
+          "pid": "naver:4SrPke12"
         }
       ]
     }
@@ -45728,10 +45738,10 @@
         {
           "n": "레지아니",
           "m": 59,
+          "pid": "espn:413817",
           "a": "Julian Ryerson",
           "nat": "Italy",
           "aNat": "Norway",
-          "pid": "espn:413817",
           "apid": "espn:222991"
         }
       ],
@@ -45756,18 +45766,18 @@
         {
           "n": "둑쉬",
           "m": 25,
-          "nat": "Germany",
-          "pid": "espn:159150"
+          "pid": "espn:159150",
+          "nat": "Germany"
         }
       ],
       "away": [
         {
           "n": "뱀포드",
           "m": 45,
+          "pid": "espn:167114",
           "a": "Harrison Burrows",
           "nat": "England",
           "aNat": "England",
-          "pid": "espn:167114",
           "apid": "espn:263132"
         }
       ]
@@ -45854,8 +45864,8 @@
         {
           "n": "클라크",
           "m": 83,
-          "nat": "England",
-          "pid": "espn:269343"
+          "pid": "espn:269343",
+          "nat": "England"
         }
       ]
     },
@@ -45912,10 +45922,10 @@
         {
           "n": "제임스",
           "m": 14,
+          "pid": "espn:97867",
           "a": "Ben Nelson",
           "nat": "Wales",
           "aNat": "England",
-          "pid": "espn:97867",
           "apid": "espn:307110"
         }
       ],
@@ -45923,26 +45933,26 @@
         {
           "n": "베일",
           "m": 43,
+          "pid": "espn:306532",
           "a": "Ronnie Edwards",
           "nat": "England",
           "aNat": "England",
-          "pid": "espn:306532",
           "apid": "espn:300966"
         },
         {
           "n": "넬슨",
           "m": 50,
           "og": true,
-          "nat": "England",
-          "pid": "espn:307110"
+          "pid": "espn:307110",
+          "nat": "England"
         },
         {
           "n": "에드워즈",
           "m": 58,
+          "pid": "espn:300966",
           "a": "Harvey Vale",
           "nat": "England",
           "aNat": "England",
-          "pid": "espn:300966",
           "apid": "espn:306532"
         }
       ]
@@ -46065,8 +46075,8 @@
         {
           "n": "아메드",
           "m": 17,
-          "nat": "Canada",
-          "pid": "espn:340228"
+          "pid": "espn:340228",
+          "nat": "Canada"
         },
         {
           "n": "매클린",
@@ -46116,16 +46126,16 @@
         {
           "n": "마누프",
           "m": 28,
+          "pid": "espn:305628",
           "a": "Milan Smit",
           "nat": "Netherlands",
-          "pid": "espn:305628",
           "apid": "espn:338861"
         },
         {
           "n": "마누프",
           "m": 77,
-          "nat": "Netherlands",
-          "pid": "espn:305628"
+          "pid": "espn:305628",
+          "nat": "Netherlands"
         },
         {
           "n": "갤러거",
@@ -46209,24 +46219,24 @@
         {
           "n": "마자",
           "m": 24,
-          "a": "Jed Wallace",
           "pid": "espn:243514",
+          "a": "Jed Wallace",
           "apid": "espn:169337"
         },
         {
           "n": "헤게뵈",
           "m": 67,
+          "pid": "espn:272749",
           "a": "Jamaldeen Jimoh-Aloba",
           "nat": "Norway",
-          "pid": "espn:272749",
           "apid": "espn:377820"
         },
         {
           "n": "프라이스",
           "m": 90,
+          "pid": "espn:317857",
           "a": "Danny Imray",
           "nat": "Northern Ireland",
-          "pid": "espn:317857",
           "apid": "espn:326250"
         }
       ],
@@ -46326,8 +46336,8 @@
         {
           "n": "민테",
           "m": 58,
-          "nat": "Gambia",
-          "pid": "espn:348787"
+          "pid": "espn:348787",
+          "nat": "Gambia"
         }
       ]
     },
@@ -46377,8 +46387,8 @@
         {
           "n": "양현준",
           "m": 38,
-          "nat": "South Korea",
-          "pid": "espn:350711"
+          "pid": "espn:350711",
+          "nat": "South Korea"
         },
         {
           "n": "치반차라",
@@ -46388,8 +46398,8 @@
         {
           "n": "양현준",
           "m": 79,
-          "nat": "South Korea",
-          "pid": "espn:350711"
+          "pid": "espn:350711",
+          "nat": "South Korea"
         }
       ],
       "away": [
@@ -46511,8 +46521,8 @@
         {
           "n": "니스벳",
           "m": 73,
-          "nat": "Scotland",
-          "pid": "espn:223369"
+          "pid": "espn:223369",
+          "nat": "Scotland"
         }
       ],
       "away": [
@@ -46642,17 +46652,17 @@
         {
           "n": "글라돈",
           "m": 19,
+          "pid": "espn:156838",
           "a": "Mohamed Ihattaren",
           "aNat": "Netherlands",
-          "pid": "espn:156838",
           "apid": "espn:284701"
         },
         {
           "n": "림니오스",
           "m": 43,
+          "pid": "espn:223161",
           "a": "Mohamed Ihattaren",
           "aNat": "Netherlands",
-          "pid": "espn:223161",
           "apid": "espn:284701"
         }
       ]
@@ -46719,9 +46729,9 @@
         {
           "n": "에두아르",
           "m": 48,
+          "pid": "espn:222180",
           "a": "Mamadou Sangaré",
           "nat": "France",
-          "pid": "espn:222180",
           "apid": "espn:228547"
         }
       ]
@@ -46785,10 +46795,10 @@
         {
           "n": "설로이",
           "m": 43,
+          "pid": "espn:233050",
           "a": "Djordje Mihailovic",
           "nat": "Hungary",
           "aNat": "USA",
-          "pid": "espn:233050",
           "apid": "espn:252351"
         }
       ],
@@ -46847,27 +46857,27 @@
         {
           "n": "호일룬",
           "m": 46,
+          "pid": "espn:309273",
           "a": "Matteo Politano",
           "nat": "Denmark",
           "aNat": "Italy",
-          "pid": "espn:309273",
           "apid": "espn:188306"
         },
         {
           "n": "폴리타노",
           "m": 67,
-          "nat": "Italy",
-          "pid": "espn:188306"
+          "pid": "espn:188306",
+          "nat": "Italy"
         }
       ],
       "away": [
         {
           "n": "지버트",
           "m": 3,
+          "pid": "espn:307391",
           "a": "Antonino Gallo",
           "nat": "Germany",
           "aNat": "Italy",
-          "pid": "espn:307391",
           "apid": "espn:277441"
         }
       ]
@@ -46903,9 +46913,9 @@
         {
           "n": "파비우 비에이라",
           "m": 39,
+          "pid": "espn:88865",
           "a": "William Mikelbrencis",
           "nat": "Portugal",
-          "pid": "espn:88865",
           "apid": "espn:313897"
         }
       ],
@@ -46913,10 +46923,10 @@
         {
           "n": "엘 말라",
           "m": 45,
+          "pid": "espn:380795",
           "a": "Rav van den Berg",
           "nat": "Germany",
           "aNat": "Netherlands",
-          "pid": "espn:380795",
           "apid": "espn:306161"
         }
       ]
@@ -47023,9 +47033,9 @@
         {
           "n": "고든",
           "m": 18,
+          "pid": "espn:268782",
           "a": "Joe Willock",
           "aNat": "England",
-          "pid": "espn:268782",
           "apid": "espn:259517"
         }
       ]
@@ -47082,10 +47092,10 @@
         {
           "n": "다비드 코스타스",
           "m": 30,
+          "pid": "espn:192796",
           "a": "Thiago Fernández",
           "nat": "Spain",
           "aNat": "Paraguay",
-          "pid": "espn:192796",
           "apid": "espn:339195"
         }
       ],
@@ -176009,46 +176019,6 @@
     "time": "16:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
-    "home": "대한민국",
-    "away": "필리핀",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
-    "timeTbd": false,
-    "gameId": "INfbBvjkK2ARSQU",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 5,
-    "scorers": {
-      "home": [
-        {
-          "n": "백서영",
-          "m": 6
-        },
-        {
-          "n": "백서영",
-          "m": 14
-        },
-        {
-          "n": "백서영",
-          "m": 34
-        },
-        {
-          "n": "백서영",
-          "m": 55
-        },
-        {
-          "n": "김희나",
-          "m": 67
-        }
-      ],
-      "away": []
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-02",
-    "time": "16:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
     "home": "일본",
     "away": "레바논",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
@@ -176111,6 +176081,46 @@
         {
           "n": "나나미",
           "m": 80
+        }
+      ],
+      "away": []
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-02",
+    "time": "16:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
+    "home": "대한민국",
+    "away": "필리핀",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
+    "timeTbd": false,
+    "gameId": "INfbBvjkK2ARSQU",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 5,
+    "scorers": {
+      "home": [
+        {
+          "n": "백서영",
+          "m": 6
+        },
+        {
+          "n": "백서영",
+          "m": 14
+        },
+        {
+          "n": "백서영",
+          "m": 34
+        },
+        {
+          "n": "백서영",
+          "m": 55
+        },
+        {
+          "n": "김희나",
+          "m": 67
         }
       ],
       "away": []
@@ -177448,6 +177458,35 @@
     "time": "20:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
+    "home": "호주",
+    "away": "인도",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
+    "timeTbd": false,
+    "gameId": "fS1J3kxSwziVvHl",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "무이티스",
+          "m": 25
+        },
+        {
+          "n": "바스넷",
+          "m": 59,
+          "og": true
+        }
+      ],
+      "away": []
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-02",
+    "time": "20:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
     "home": "북한",
     "away": "차이니스 타이베이",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
@@ -177497,35 +177536,6 @@
         {
           "n": "유종향",
           "m": 90
-        }
-      ],
-      "away": []
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-02",
-    "time": "20:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
-    "home": "호주",
-    "away": "인도",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
-    "timeTbd": false,
-    "gameId": "fS1J3kxSwziVvHl",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "무이티스",
-          "m": 25
-        },
-        {
-          "n": "바스넷",
-          "m": 59,
-          "og": true
         }
       ],
       "away": []
@@ -189493,38 +189503,6 @@
     "time": "20:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
-    "home": "인도",
-    "away": "일본",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
-    "timeTbd": false,
-    "gameId": "SyGtvWeiJaOs0ZA",
-    "status": "completed",
-    "awayScore": 3,
-    "homeScore": 0,
-    "scorers": {
-      "home": [],
-      "away": [
-        {
-          "n": "하야시",
-          "m": 59
-        },
-        {
-          "n": "이케다",
-          "m": 76
-        },
-        {
-          "n": "이케다",
-          "m": 81
-        }
-      ]
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-05",
-    "time": "20:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
     "home": "필리핀",
     "away": "북한",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
@@ -189567,6 +189545,38 @@
         {
           "n": "송원용",
           "m": 85
+        }
+      ]
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-05",
+    "time": "20:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
+    "home": "인도",
+    "away": "일본",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
+    "timeTbd": false,
+    "gameId": "SyGtvWeiJaOs0ZA",
+    "status": "completed",
+    "awayScore": 3,
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "하야시",
+          "m": 59
+        },
+        {
+          "n": "이케다",
+          "m": 76
+        },
+        {
+          "n": "이케다",
+          "m": 81
         }
       ]
     },
@@ -195583,6 +195593,21 @@
     "time": "20:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
+    "home": "필리핀",
+    "away": "차이니스 타이베이",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
+    "timeTbd": false,
+    "gameId": "iI57xIcnv4pTYV5",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 0,
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-08",
+    "time": "20:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
     "home": "북한",
     "away": "대한민국",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
@@ -195608,21 +195633,6 @@
       ],
       "away": []
     },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-08",
-    "time": "20:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
-    "home": "필리핀",
-    "away": "차이니스 타이베이",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
-    "timeTbd": false,
-    "gameId": "iI57xIcnv4pTYV5",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 0,
     "phaseCode": "GROUP"
   },
   {
@@ -209451,6 +209461,34 @@
     "time": "01:00",
     "league": "U17ASIANCUP",
     "venueId": "king_abdullah_sports_city",
+    "home": "중국",
+    "away": "카타르",
+    "stadium": "킹 압둘라 스포츠 시티 피치 퓨처 C",
+    "timeTbd": false,
+    "gameId": "OW7BBRLBR5Yg9Mi",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "하시판",
+          "m": 14
+        },
+        {
+          "n": "장 보린",
+          "m": 71
+        }
+      ],
+      "away": []
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-13",
+    "time": "01:00",
+    "league": "U17ASIANCUP",
+    "venueId": "king_abdullah_sports_city",
     "home": "일본",
     "away": "인도네시아",
     "stadium": "킹 압둘라 스포츠 시티 피치 스타스 A",
@@ -209480,34 +209518,6 @@
           "m": 70
         }
       ]
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-13",
-    "time": "01:00",
-    "league": "U17ASIANCUP",
-    "venueId": "king_abdullah_sports_city",
-    "home": "중국",
-    "away": "카타르",
-    "stadium": "킹 압둘라 스포츠 시티 피치 퓨처 C",
-    "timeTbd": false,
-    "gameId": "OW7BBRLBR5Yg9Mi",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "하시판",
-          "m": 14
-        },
-        {
-          "n": "장 보린",
-          "m": 71
-        }
-      ],
-      "away": []
     },
     "phaseCode": "GROUP"
   },
@@ -528865,6 +528875,161 @@
   {
     "date": "2026-09-09",
     "time": "03:45",
+    "league": "EFL",
+    "venueId": "southampton_st_marys",
+    "home": "사우샘프턴",
+    "away": "스완지",
+    "stadium": "세인트 메리스 스타디움",
+    "timeTbd": false,
+    "gameId": "YEzthB2I7ULBOnY",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "아자즈",
+          "m": 9,
+          "pid": "espn:251631",
+          "a": "Flynn Downes",
+          "nat": "Republic of Ireland",
+          "aNat": "England",
+          "apid": "espn:255916"
+        },
+        {
+          "n": "래린",
+          "m": 33,
+          "pid": "espn:205024",
+          "a": "James Bree",
+          "nat": "Canada",
+          "aNat": "England",
+          "apid": "espn:204286"
+        },
+        {
+          "n": "레오 시엔자",
+          "m": 78,
+          "pid": "espn:343995",
+          "a": "Kuryu Matsuki",
+          "nat": "Brazil",
+          "aNat": "Japan",
+          "apid": "espn:333631"
+        }
+      ],
+      "away": [
+        {
+          "n": "비포트니크",
+          "m": 52,
+          "pid": "espn:322158",
+          "nat": "Slovenia"
+        }
+      ]
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Ronald",
+          "type": "Y",
+          "m": 54,
+          "pid": "espn:319788",
+          "nat": "Brazil"
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-09",
+    "time": "03:45",
+    "league": "EFL",
+    "venueId": "watford_vicarage_road",
+    "home": "왓퍼드",
+    "away": "프레스턴",
+    "stadium": "비커리지 로드",
+    "timeTbd": false,
+    "gameId": "2n8KOshcekINj3A",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "에도 카옘베",
+          "m": 69,
+          "pid": "espn:268986",
+          "nat": "Congo DR"
+        },
+        {
+          "n": "둠비아",
+          "m": 76,
+          "pid": "espn:137393",
+          "a": "Iker Bravo",
+          "nat": "Mali",
+          "aNat": "Spain",
+          "apid": "espn:330242"
+        }
+      ],
+      "away": [
+        {
+          "n": "랭",
+          "m": 5,
+          "pid": "espn:240158",
+          "nat": "England"
+        }
+      ]
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Andrija Vukcevic",
+          "type": "Y",
+          "m": 62,
+          "pid": "espn:221307",
+          "nat": "Montenegro"
+        },
+        {
+          "n": "Lewis Gibson",
+          "type": "Y",
+          "m": 67,
+          "pid": "espn:261431",
+          "nat": "England"
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-09",
+    "time": "03:45",
+    "league": "EFL",
+    "venueId": "wrexham_racecourse_ground",
+    "home": "렉섬",
+    "away": "번리",
+    "stadium": "레이스코스 그라운드",
+    "timeTbd": false,
+    "gameId": "8059agG5ekMqb6q",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "에코미에",
+          "m": 55,
+          "pid": "naver:LA4xGNSc"
+        }
+      ],
+      "away": [
+        {
+          "n": "암두니",
+          "m": 26,
+          "pid": "naver:zgV2CMA2"
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-09",
+    "time": "03:45",
     "league": "EFLCUP",
     "venueId": "bournemouth_dean_court",
     "home": "본머스",
@@ -529176,161 +529341,6 @@
       ]
     },
     "phaseCode": "T32"
-  },
-  {
-    "date": "2026-09-09",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "southampton_st_marys",
-    "home": "사우샘프턴",
-    "away": "스완지",
-    "stadium": "세인트 메리스 스타디움",
-    "timeTbd": false,
-    "gameId": "YEzthB2I7ULBOnY",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 3,
-    "scorers": {
-      "home": [
-        {
-          "n": "아자즈",
-          "m": 9,
-          "pid": "espn:251631",
-          "a": "Flynn Downes",
-          "nat": "Republic of Ireland",
-          "aNat": "England",
-          "apid": "espn:255916"
-        },
-        {
-          "n": "래린",
-          "m": 33,
-          "pid": "espn:205024",
-          "a": "James Bree",
-          "nat": "Canada",
-          "aNat": "England",
-          "apid": "espn:204286"
-        },
-        {
-          "n": "레오 시엔자",
-          "m": 78,
-          "pid": "espn:343995",
-          "a": "Kuryu Matsuki",
-          "nat": "Brazil",
-          "aNat": "Japan",
-          "apid": "espn:333631"
-        }
-      ],
-      "away": [
-        {
-          "n": "비포트니크",
-          "m": 52,
-          "pid": "espn:322158",
-          "nat": "Slovenia"
-        }
-      ]
-    },
-    "cards": {
-      "home": [],
-      "away": [
-        {
-          "n": "Ronald",
-          "type": "Y",
-          "m": 54,
-          "pid": "espn:319788",
-          "nat": "Brazil"
-        }
-      ]
-    }
-  },
-  {
-    "date": "2026-09-09",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "watford_vicarage_road",
-    "home": "왓퍼드",
-    "away": "프레스턴",
-    "stadium": "비커리지 로드",
-    "timeTbd": false,
-    "gameId": "2n8KOshcekINj3A",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "에도 카옘베",
-          "m": 69,
-          "pid": "espn:268986",
-          "nat": "Congo DR"
-        },
-        {
-          "n": "둠비아",
-          "m": 76,
-          "pid": "espn:137393",
-          "a": "Iker Bravo",
-          "nat": "Mali",
-          "aNat": "Spain",
-          "apid": "espn:330242"
-        }
-      ],
-      "away": [
-        {
-          "n": "랭",
-          "m": 5,
-          "pid": "espn:240158",
-          "nat": "England"
-        }
-      ]
-    },
-    "cards": {
-      "home": [],
-      "away": [
-        {
-          "n": "Andrija Vukcevic",
-          "type": "Y",
-          "m": 62,
-          "pid": "espn:221307",
-          "nat": "Montenegro"
-        },
-        {
-          "n": "Lewis Gibson",
-          "type": "Y",
-          "m": 67,
-          "pid": "espn:261431",
-          "nat": "England"
-        }
-      ]
-    }
-  },
-  {
-    "date": "2026-09-09",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "wrexham_racecourse_ground",
-    "home": "렉섬",
-    "away": "번리",
-    "stadium": "레이스코스 그라운드",
-    "timeTbd": false,
-    "gameId": "8059agG5ekMqb6q",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 1,
-    "scorers": {
-      "home": [
-        {
-          "n": "에코미에",
-          "m": 55,
-          "pid": "naver:LA4xGNSc"
-        }
-      ],
-      "away": [
-        {
-          "n": "암두니",
-          "m": 26,
-          "pid": "naver:zgV2CMA2"
-        }
-      ]
-    }
   },
   {
     "date": "2026-09-09",
@@ -567348,6 +567358,77 @@
   {
     "date": "2026-09-16",
     "time": "03:45",
+    "league": "EFL",
+    "venueId": "middlesbrough_riverside",
+    "home": "미들즈브러",
+    "away": "밀월",
+    "stadium": "리버사이드 스타디움",
+    "timeTbd": false,
+    "gameId": "YK3SlqCpysSMqvp",
+    "status": "completed",
+    "awayScore": 2,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "코지어-뒤베리",
+          "m": 50,
+          "pid": "espn:327170",
+          "nat": "England"
+        },
+        {
+          "n": "랭크셔",
+          "m": 61,
+          "pid": "espn:349181",
+          "a": "Luke Ayling",
+          "nat": "England",
+          "aNat": "England",
+          "apid": "espn:136380"
+        }
+      ],
+      "away": [
+        {
+          "n": "아르콘테",
+          "m": 11,
+          "pid": "espn:315189",
+          "a": "Camiel Neghli",
+          "nat": "Guadeloupe",
+          "aNat": "Algeria",
+          "apid": "espn:310173"
+        },
+        {
+          "n": "다이크스",
+          "m": 36,
+          "pid": "espn:207538",
+          "a": "Caleb Taylor",
+          "nat": "Scotland",
+          "aNat": "England",
+          "apid": "espn:308572"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Riley McGree",
+          "type": "Y",
+          "m": 66,
+          "pid": "espn:235096"
+        }
+      ],
+      "away": [
+        {
+          "n": "Derek Mazou-Sacko",
+          "type": "Y",
+          "m": 59,
+          "pid": "espn:324659"
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-16",
+    "time": "03:45",
     "league": "EFLCUP",
     "venueId": "westham_london_stadium",
     "home": "웨스트햄",
@@ -567418,77 +567499,6 @@
       ]
     },
     "phaseCode": "T32"
-  },
-  {
-    "date": "2026-09-16",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "middlesbrough_riverside",
-    "home": "미들즈브러",
-    "away": "밀월",
-    "stadium": "리버사이드 스타디움",
-    "timeTbd": false,
-    "gameId": "YK3SlqCpysSMqvp",
-    "status": "completed",
-    "awayScore": 2,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "코지어-뒤베리",
-          "m": 50,
-          "pid": "espn:327170",
-          "nat": "England"
-        },
-        {
-          "n": "랭크셔",
-          "m": 61,
-          "pid": "espn:349181",
-          "a": "Luke Ayling",
-          "nat": "England",
-          "aNat": "England",
-          "apid": "espn:136380"
-        }
-      ],
-      "away": [
-        {
-          "n": "아르콘테",
-          "m": 11,
-          "pid": "espn:315189",
-          "a": "Camiel Neghli",
-          "nat": "Guadeloupe",
-          "aNat": "Algeria",
-          "apid": "espn:310173"
-        },
-        {
-          "n": "다이크스",
-          "m": 36,
-          "pid": "espn:207538",
-          "a": "Caleb Taylor",
-          "nat": "Scotland",
-          "aNat": "England",
-          "apid": "espn:308572"
-        }
-      ]
-    },
-    "cards": {
-      "home": [
-        {
-          "n": "Riley McGree",
-          "type": "Y",
-          "m": 66,
-          "pid": "espn:235096"
-        }
-      ],
-      "away": [
-        {
-          "n": "Derek Mazou-Sacko",
-          "type": "Y",
-          "m": 59,
-          "pid": "espn:324659"
-        }
-      ]
-    }
   },
   {
     "date": "2026-09-16",
@@ -569961,30 +569971,6 @@
   {
     "date": "2026-09-16",
     "time": "19:00",
-    "league": "ACL2",
-    "venueId": "seoulwc",
-    "home": "서울",
-    "away": "반둥",
-    "stadium": "서울월드컵경기장",
-    "timeTbd": false,
-    "gameId": "2idpicTW6SmPYVP",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 0,
-    "scorers": {
-      "home": [],
-      "away": [
-        {
-          "n": "훌리오 세자르",
-          "m": 5
-        }
-      ]
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-09-16",
-    "time": "19:00",
     "league": "ACL",
     "venueId": "jeonju",
     "home": "전북",
@@ -570058,6 +570044,30 @@
   {
     "date": "2026-09-16",
     "time": "19:00",
+    "league": "ACL2",
+    "venueId": "seoulwc",
+    "home": "서울",
+    "away": "반둥",
+    "stadium": "서울월드컵경기장",
+    "timeTbd": false,
+    "gameId": "2idpicTW6SmPYVP",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "훌리오 세자르",
+          "m": 5
+        }
+      ]
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-09-16",
+    "time": "19:00",
     "league": "ASIANGAMESFOOTBALL",
     "venueId": "wave_stadium_kariya",
     "home": "중국 (남자)",
@@ -570082,35 +570092,6 @@
     "status": "completed",
     "homeScore": 2,
     "awayScore": 0
-  },
-  {
-    "date": "2026-09-16",
-    "time": "21:15",
-    "league": "ACL2",
-    "venueId": "cahn_hang_day",
-    "home": "비에트텔",
-    "away": "멜버른 FC",
-    "stadium": "선번동 항더이 (항더이 스타디움)",
-    "timeTbd": false,
-    "gameId": "gqA22tVR2bUJFof",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 1,
-    "scorers": {
-      "home": [
-        {
-          "n": "리바마르",
-          "m": 62
-        }
-      ],
-      "away": [
-        {
-          "n": "클라리스마리우 호드리게스",
-          "m": 58
-        }
-      ]
-    },
-    "phaseCode": "GROUP"
   },
   {
     "date": "2026-09-16",
@@ -570183,6 +570164,35 @@
           "type": "Y",
           "m": 73,
           "pid": "espn:143697"
+        }
+      ]
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-09-16",
+    "time": "21:15",
+    "league": "ACL2",
+    "venueId": "cahn_hang_day",
+    "home": "비에트텔",
+    "away": "멜버른 FC",
+    "stadium": "선번동 항더이 (항더이 스타디움)",
+    "timeTbd": false,
+    "gameId": "gqA22tVR2bUJFof",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "리바마르",
+          "m": 62
+        }
+      ],
+      "away": [
+        {
+          "n": "클라리스마리우 호드리게스",
+          "m": 58
         }
       ]
     },
@@ -629043,19 +629053,6 @@
   {
     "date": "2026-10-14",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "al_seeb_stadium",
-    "home": "알 시브",
-    "away": "알 후세인",
-    "stadium": "알-시브 스타디움",
-    "timeTbd": false,
-    "gameId": "OQsSGAzKGbKHXDT",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-14",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "al_sadd_jassim_bin_hamad",
     "home": "알 사드",
@@ -629063,6 +629060,19 @@
     "stadium": "자심 빈 하마드 스타디움",
     "timeTbd": false,
     "gameId": "zcfrVKksVO8hhNi",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-14",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "al_seeb_stadium",
+    "home": "알 시브",
+    "away": "알 후세인",
+    "stadium": "알-시브 스타디움",
+    "timeTbd": false,
+    "gameId": "OQsSGAzKGbKHXDT",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -640568,19 +640578,6 @@
   {
     "date": "2026-10-28",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "al_seeb_stadium",
-    "home": "알 시브",
-    "away": "이스트 벵갈",
-    "stadium": "알-시브 스타디움",
-    "timeTbd": false,
-    "gameId": "AW3p0efTl1zL9Jt",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-28",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "shabab_alahli_al_rashid",
     "home": "샤바브 알 아흘리",
@@ -640588,6 +640585,19 @@
     "stadium": "알라시드 스타디움",
     "timeTbd": false,
     "gameId": "uVJg9XVeZVSJFpb",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-28",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "al_seeb_stadium",
+    "home": "알 시브",
+    "away": "이스트 벵갈",
+    "stadium": "알-시브 스타디움",
+    "timeTbd": false,
+    "gameId": "AW3p0efTl1zL9Jt",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -640778,19 +640788,6 @@
   {
     "date": "2026-10-28",
     "time": "03:15",
-    "league": "ACL2",
-    "venueId": "al_zawraa_stadium",
-    "home": "알 쇼르타",
-    "away": "알 후세인",
-    "stadium": "알-자우라 스타디움",
-    "timeTbd": false,
-    "gameId": "HCihM9DqxKOXBbt",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-28",
-    "time": "03:15",
     "league": "ACL",
     "venueId": "al_shamal_al_bayt",
     "home": "알샤말",
@@ -640798,6 +640795,19 @@
     "stadium": "알베이트 스타디움",
     "timeTbd": false,
     "gameId": "3aZWRb5fy3Nyk9x",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-28",
+    "time": "03:15",
+    "league": "ACL2",
+    "venueId": "al_zawraa_stadium",
+    "home": "알 쇼르타",
+    "away": "알 후세인",
+    "stadium": "알-자우라 스타디움",
+    "timeTbd": false,
+    "gameId": "HCihM9DqxKOXBbt",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -644446,19 +644456,6 @@
   {
     "date": "2026-11-04",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "amman_international_stadium",
-    "home": "알 후세인",
-    "away": "알 쇼르타",
-    "stadium": "암만 인터내셔널 스태디엄",
-    "timeTbd": false,
-    "gameId": "87Yzcj2B505kzbh",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-11-04",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "basra_international",
     "home": "에스테그랄",
@@ -644466,6 +644463,19 @@
     "stadium": "바스라 인터내셔널 스타디움",
     "timeTbd": false,
     "gameId": "CbaeNHtf2qOthye",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-11-04",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "amman_international_stadium",
+    "home": "알 후세인",
+    "away": "알 쇼르타",
+    "stadium": "암만 인터내셔널 스태디엄",
+    "timeTbd": false,
+    "gameId": "87Yzcj2B505kzbh",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -644723,19 +644733,6 @@
   {
     "date": "2026-11-04",
     "time": "19:00",
-    "league": "ACL2",
-    "venueId": "seoulwc",
-    "home": "서울",
-    "away": "비에트텔",
-    "stadium": "서울월드컵경기장",
-    "timeTbd": false,
-    "gameId": "lZapB69mvTiiYds",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-11-04",
-    "time": "19:00",
     "league": "ACL",
     "venueId": "pohang",
     "home": "포항",
@@ -644743,6 +644740,19 @@
     "stadium": "포항스틸야드",
     "timeTbd": false,
     "gameId": "pmIB9z9UAQ4XPV2",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-11-04",
+    "time": "19:00",
+    "league": "ACL2",
+    "venueId": "seoulwc",
+    "home": "서울",
+    "away": "비에트텔",
+    "stadium": "서울월드컵경기장",
+    "timeTbd": false,
+    "gameId": "lZapB69mvTiiYds",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -650083,19 +650093,6 @@
   {
     "date": "2026-11-25",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "al_seeb_stadium",
-    "home": "알 시브",
-    "away": "알 쇼르타",
-    "stadium": "알-시브 스타디움",
-    "timeTbd": false,
-    "gameId": "zVJrrC6Kzu5rPRu",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-11-25",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "shabab_alahli_al_rashid",
     "home": "샤바브 알 아흘리",
@@ -650103,6 +650100,19 @@
     "stadium": "알라시드 스타디움",
     "timeTbd": false,
     "gameId": "Rsba5lmQWhdIFqs",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-11-25",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "al_seeb_stadium",
+    "home": "알 시브",
+    "away": "알 쇼르타",
+    "stadium": "알-시브 스타디움",
+    "timeTbd": false,
+    "gameId": "zVJrrC6Kzu5rPRu",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
