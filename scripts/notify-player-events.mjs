@@ -120,7 +120,7 @@ async function main() {
           const h = list[i];
           if (!h.player) continue;
           const dedupKey = `${g.gameId}:${key}:highlight:${i}`;
-          { const nm = h.player; if (!isSent(dedupKey, nm)) pending.push({ dedupKey: `${dedupKey}:${nm}`, name: nm, pid: h.pid, game: g, team, icon: '⚾', label: h.how }); }
+          { const nm = h.player; if (!isSent(dedupKey, nm)) pending.push({ dedupKey: `${dedupKey}:${nm}`, name: nm, pid: h.pid, game: g, team, icon: '⚾', label: h.how, detail: h.text }); }
         }
       }
     }
@@ -140,11 +140,14 @@ async function main() {
 
   let sentCount = 0;
   for (const item of pending) {
-    const { dedupKey, name, pid, game: g, team, opp, icon, label, minute, preGame } = item;
+    const { dedupKey, name, pid, game: g, team, opp, icon, label, minute, preGame, detail } = item;
     const minuteLabel = typeof minute === 'number' ? ` (${minute}분)` : '';
     const title = `${icon} ${name} ${label}!`;
     // 경기 전 알림(선발투수 발표)은 스코어가 아직 없어 대신 상대팀+일시를 보여줌.
-    const body = preGame ? `${team} vs ${opp} · ${g.date} ${g.time}` : `${team}${scoreLine(g)}${minuteLabel}`;
+    const ctx = [g.league, g.inningInfo].filter(Boolean).join(' · ');
+    const body = preGame
+      ? `${team} vs ${opp} · ${g.date} ${g.time}${g.league ? ' · ' + g.league : ''}`
+      : [`${team}${minuteLabel}${ctx ? ' · ' + ctx : ''}`, scoreLine(g).replace(/^ · /, ''), detail].filter(Boolean).join('\n');
     // 동명이인 구분용 고유ID가 있으면 그 ID 전용 토픽으로도 보냄(정확한 매칭) — 이름 토픽도
     // 항상 같이 보내서 이 기능이 ID 도입 전부터 "이름"으로 즐겨찾기해둔 기존 구독이 계속
     // 작동하게 함(2026-09-28, 무마이그레이션 하위호환). ID가 없으면(아직 못 붙인 소스) 기존과
