@@ -607,7 +607,13 @@ async function enrichSaves(allGames) {
       if (g.status !== 'live') savesFetchUsed++;
       try {
         await sleep(REQUEST_DELAY_MS);
+        const prevRec = cache[g.gameId];
         cache[g.gameId] = await fetchGameRecord(g.gameId);
+        // /relay는 현재 이닝만 주므로 누적본을 재조회로 덮어쓰면 지난 이닝 하이라이트가 사라짐(2026-09-30).
+        if (g.status === 'live' && prevRec && typeof prevRec === 'object' && prevRec.relayHighlights && cache[g.gameId] && typeof cache[g.gameId] === 'object') {
+          cache[g.gameId].relayHighlights = prevRec.relayHighlights;
+          cache[g.gameId].relayMaxSeqno = prevRec.relayMaxSeqno;
+        }
         fetched++;
       } catch (e) {
         failed++;
