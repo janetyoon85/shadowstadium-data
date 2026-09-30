@@ -551,6 +551,8 @@ async function enrichSaves(allGames) {
   // 위 주석대로 "팀당 최근 5경기"가 의도였는데 enrichEuroAssists와 동일하게 n 인자가 누락돼
   // Infinity가 적용돼있었음(2026-09-29, 같은 백필현황 점검 중 발견) — n=5 복원.
   const recentHighlightIds = buildRecentCompletedGameIds(allGames, BASEBALL_LEAGUES, 5);
+  // KBO/NPB 투수 코드 백필은 팀당 최근 40경기까지(2026-10-01, 옛 경기 투수 이벤트 선수정보 공백 대응).
+  const pidBackfillIds = buildRecentCompletedGameIds(allGames, new Set(['KBO', 'NPB']), 40);
   // 팀당 5경기 캡을 없애면서(2026-09-27) 대상이 143→3966으로 커져 한 실행이 1시간+ 로 늘어나
   // 5분 주기 외부 트리거와 계속 겹치는 문제 실측(동시성 큐잉만으론 실행 자체가 안 끝나 무의미) —
   // enrichEuroAssists의 BACKFILL_BUDGET과 동일 패턴으로 실행당 예산을 두고 나머지는 다음
@@ -604,7 +606,7 @@ async function enrichSaves(allGames) {
     // 캐시된 경기는 winPitcherCode 자체가 없어서(undefined) 재조회 안 하면 영원히 안 채워짐
     // (같은 계열의 반복 패턴, [[feedback_final_cache_stale_snapshot_bug]]).
     const needsPitcherCodeMigration = (g.league === 'KBO' || g.league === 'NPB') && isNewFormat && !('winPitcherCode' in cached);
-    const needsHighlightRefetch = recentHighlightIds.has(g.gameId) && (!isSplitHighlightFormat || needsMlbNatBackfill || needsMlbPidBackfill || needsHoldBackfill || needsKboNpbPidBackfill || needsPitcherCodeMigration);
+    const needsHighlightRefetch = (recentHighlightIds.has(g.gameId) && (!isSplitHighlightFormat || needsMlbNatBackfill || needsMlbPidBackfill || needsHoldBackfill)) || (pidBackfillIds.has(g.gameId) && (needsKboNpbPidBackfill || needsPitcherCodeMigration));
     // live는 스코어/이닝이 계속 바뀌므로 캐시·예산과 무관하게 매 실행 무조건 재조회(축구 enrichScorers/
     // enrichEuroAssists와 동일 패턴) — 완전신규/백필만 SAVES_FETCH_BUDGET으로 제한.
     const needsSavesFetch = g.status === 'live' || cached === undefined || needsHighlightRefetch;
