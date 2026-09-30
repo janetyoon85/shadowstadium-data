@@ -622297,6 +622297,13 @@
           "m": 56,
           "pid": "espn:288618",
           "nat": "Peru"
+        },
+        {
+          "n": "Kevin Becerra",
+          "type": "Y",
+          "m": 69,
+          "pid": "espn:271249",
+          "nat": "Ecuador"
         }
       ],
       "away": [
@@ -622339,7 +622346,9 @@
     "stadium": "Estadio Juan Francisco Barraza",
     "timeTbd": false,
     "gameId": "ELSALVADOR_ESPN_401899667",
-    "status": "scheduled"
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-10-01",
@@ -622357,55 +622366,20 @@
     "awayPitcherPid": "mlb:680732",
     "homePitcherPid": "mlb:686613",
     "awayScore": 4,
-    "homeScore": 0,
+    "homeScore": 1,
     "inningInfo": "1회말",
     "highlights": {
       "home": [
         {
           "how": "홈런",
-          "text": "페냐 좌월 홈런(비거리:129 M)",
+          "text": "페냐",
           "player": "페냐",
+          "playerId": "11768",
+          "nat": "Dominican Republic",
           "pid": "mlb:665161"
         }
       ],
-      "away": [
-        {
-          "how": "2루타",
-          "text": "안토나치 좌전 2루타",
-          "player": "안토나치",
-          "pid": "mlb:803011"
-        },
-        {
-          "how": "실책",
-          "text": "바가스 3루수 실책으로 진루",
-          "player": "바가스",
-          "pid": "mlb:678246"
-        },
-        {
-          "how": "실책",
-          "text": "베닌텐디 중견수 실책으로2루까지 진루",
-          "player": "베닌텐디",
-          "pid": "mlb:643217"
-        },
-        {
-          "how": "실책",
-          "text": "바가스 중견수 실책으로 홈인",
-          "player": "바가스",
-          "pid": "mlb:678246"
-        },
-        {
-          "how": "폭투",
-          "text": "메이드로스 폭투로 2루까지 진루",
-          "player": "메이드로스",
-          "pid": "mlb:805367"
-        },
-        {
-          "how": "폭투",
-          "text": "피터스 폭투로 3루까지 진루",
-          "player": "피터스",
-          "pid": "mlb:671976"
-        }
-      ]
+      "away": []
     }
   },
   {
