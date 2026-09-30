@@ -91,5 +91,8 @@ export async function fetchVenuePhotoFromWikipedia(venueName) {
   if (!pres.ok) return undefined;
   const pj = await pres.json();
   if (!isPlausibleStadiumDescription(pj.description)) return null; // 동명이인/동명장소 방지.
-  return pj.thumbnail?.source || pj.originalimage?.source || null; // 문서는 맞는데 사진이 없음 — 확정.
+  const cand = pj.thumbnail?.source || pj.originalimage?.source || null;
+  // 로고/치수도/배치도/svg 렌더는 사진이 아님(2026-10-01, 마쓰다 스타디움 치수도가 사진으로 뜸).
+  if (cand && /\.svg|dimen[st]?i?on|diagram|layout|seating|logo|locator|schematic|flag_of|coat_of_arms/i.test(decodeURIComponent(cand.split('/').pop() || ''))) return null;
+  return cand; // 문서는 맞는데 사진이 없음 — 확정.
 }
