@@ -10,6 +10,10 @@ permissions:
   contents: write   # commit + push
   issues: write     # 실패 시 issue 생성
 
+concurrency:
+  group: fetch-espn-world-soccer-leagues
+  cancel-in-progress: false
+
 jobs:
   fetch:
     runs-on: ubuntu-latest
