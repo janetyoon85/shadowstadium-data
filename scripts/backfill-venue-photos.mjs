@@ -12,6 +12,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { fetchVenuePhotoFromWikipedia, WIKI_REQUEST_DELAY_MS } from './venue-photo-wiki.mjs';
+import { fetchVenuePhotoFromCommons } from './venue-photo-commons.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -19,6 +20,8 @@ const VENUES_META_PATH = path.join(REPO_ROOT, 'venues-meta.json');
 const TEAM_NAME_EN_PATH = path.join(REPO_ROOT, 'team-name-en.json');
 const VENUE_NAME_EN_PATH = path.join(REPO_ROOT, 'venue-name-en.json');
 const VENUE_PHOTOS_PATH = path.join(REPO_ROOT, 'venue-photos.json');
+const COMMONS_TRIED_PATH = path.join(REPO_ROOT, 'venue-photos-commons-tried.json');
+const COMMONS_BUDGET = 150;
 const REQUEST_DELAY_MS = 2200; // team-logos와 동일 이유(무료 공유키 분당 30회 한도).
 const BUDGET = 150; // 팀 검색 1회 + venue lookup 1회 = 구장당 최대 2호출, 여유 있게.
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -181,6 +184,27 @@ async function main() {
     }
     cache[v.id] = photos;
   }
+
+  // Commons 2차 폴백(2026-09-30): TheSportsDB/영문 위키에서 못 찾아 null로 굳은 구장을 구장당 1회 재시도.
+  let commonsTried = {};
+  try { commonsTried = JSON.parse(await fs.readFile(COMMONS_TRIED_PATH, 'utf-8')); } catch (e) { if (e.code !== 'ENOENT') throw e; }
+  let commonsUsed = 0;
+  let commonsFound = 0;
+  for (const v of venuesMeta) {
+    if (commonsUsed >= COMMONS_BUDGET) break;
+    const cur = cache[v.id];
+    if (!(v.id in cache) || (cur && cur.length) || commonsTried[v.id]) continue;
+    const venueEn = venueNameEn[v.id];
+    if (!venueEn?.name) continue;
+    commonsUsed++;
+    await sleep(WIKI_REQUEST_DELAY_MS);
+    const photo = await fetchVenuePhotoFromCommons(venueEn.name, venueEn.city);
+    if (photo === undefined) continue;
+    commonsTried[v.id] = true;
+    if (photo) { cache[v.id] = [photo]; commonsFound++; }
+  }
+  await fs.writeFile(COMMONS_TRIED_PATH, JSON.stringify(commonsTried, null, 2) + '\n', 'utf-8');
+  console.log('[venue-photos] commonsUsed=' + commonsUsed + ' commonsFound=' + commonsFound);
 
   await fs.writeFile(VENUE_PHOTOS_PATH, JSON.stringify(cache, null, 2) + '\n', 'utf-8');
   console.log(`[venue-photos] totalVenues=${venuesMeta.length} cached=${Object.keys(cache).length} thisRunUsed=${used} thisRunFound=${found} wikiUsed=${wikiUsed} wikiFound=${wikiFound} noEnglishName=${noEnglishName}`);
