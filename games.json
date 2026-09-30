@@ -26083,38 +26083,6 @@
   {
     "date": "2026-03-04",
     "time": "19:00",
-    "league": "ACL2",
-    "venueId": "panasonic_stadium_suita",
-    "home": "감바 오사카",
-    "away": "라차부리",
-    "stadium": "파나소닉 스타디움 스이타",
-    "timeTbd": false,
-    "gameId": "vMQl5HEfnRYLMzO",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 1,
-    "scorers": {
-      "home": [
-        {
-          "n": "나와타",
-          "m": 84
-        }
-      ],
-      "away": [
-        {
-          "n": "다니엘 팅",
-          "m": 18
-        }
-      ]
-    },
-    "phaseCode": "T8",
-    "leg": 1,
-    "homeAggregateScore": 3,
-    "awayAggregateScore": 2
-  },
-  {
-    "date": "2026-03-04",
-    "time": "19:00",
     "league": "ACL",
     "venueId": "seoulwc",
     "home": "서울",
@@ -26170,6 +26138,38 @@
     "leg": 1,
     "homeAggregateScore": 1,
     "awayAggregateScore": 3
+  },
+  {
+    "date": "2026-03-04",
+    "time": "19:00",
+    "league": "ACL2",
+    "venueId": "panasonic_stadium_suita",
+    "home": "감바 오사카",
+    "away": "라차부리",
+    "stadium": "파나소닉 스타디움 스이타",
+    "timeTbd": false,
+    "gameId": "vMQl5HEfnRYLMzO",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "나와타",
+          "m": 84
+        }
+      ],
+      "away": [
+        {
+          "n": "다니엘 팅",
+          "m": 18
+        }
+      ]
+    },
+    "phaseCode": "T8",
+    "leg": 1,
+    "homeAggregateScore": 3,
+    "awayAggregateScore": 2
   },
   {
     "date": "2026-03-04",
@@ -32608,25 +32608,92 @@
       "home": [
         {
           "n": "드 라 로사",
-          "m": 35
+          "m": 35,
+          "a": "Carlos Salcedo",
+          "nat": "Mexico",
+          "pid": "espn:261137",
+          "aNat": "Mexico",
+          "apid": "espn:184299"
         },
         {
           "n": "드 라 로사",
-          "m": 40
+          "m": 40,
+          "a": "Luis Reyes",
+          "nat": "Mexico",
+          "pid": "espn:261137",
+          "aNat": "Mexico",
+          "apid": "espn:215559"
         }
       ],
       "away": [
         {
           "n": "리라",
-          "m": 25
+          "m": 25,
+          "nat": "Mexico",
+          "pid": "espn:276942"
         },
         {
           "n": "피오비",
-          "m": 84
+          "m": 84,
+          "nat": "Argentina",
+          "pid": "espn:192166"
         },
         {
           "n": "이바녜스",
-          "m": 90
+          "m": 90,
+          "a": "Omar Campos",
+          "nat": "Argentina",
+          "pid": "espn:207549",
+          "aNat": "Mexico",
+          "apid": "espn:136124"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Jorge Rodríguez",
+          "type": "Y",
+          "m": 19,
+          "pid": "espn:79608",
+          "nat": "Argentina"
+        },
+        {
+          "n": "Santiago Mele",
+          "type": "Y",
+          "m": 61,
+          "pid": "espn:203067",
+          "nat": "Uruguay"
+        },
+        {
+          "n": "Santiago Mele",
+          "type": "R",
+          "m": 80,
+          "pid": "espn:203067",
+          "nat": "Uruguay"
+        },
+        {
+          "n": "Luis Reyes",
+          "type": "Y",
+          "m": 88,
+          "pid": "espn:215559",
+          "nat": "Mexico"
+        }
+      ],
+      "away": [
+        {
+          "n": "Ángel Márquez",
+          "type": "Y",
+          "m": 41,
+          "pid": "espn:285862",
+          "nat": "Mexico"
+        },
+        {
+          "n": "Gonzalo Piovi",
+          "type": "Y",
+          "m": 52,
+          "pid": "espn:192166",
+          "nat": "Argentina"
         }
       ]
     },
@@ -32666,13 +32733,39 @@
       "home": [
         {
           "n": "부앙가",
-          "m": 56
+          "m": 56,
+          "a": "Son Heung-Min",
+          "nat": "Gabon",
+          "pid": "espn:213304",
+          "aNat": "South Korea",
+          "apid": "espn:149945"
         }
       ],
       "away": [
         {
           "n": "브란",
-          "m": 44
+          "m": 44,
+          "nat": "Costa Rica",
+          "pid": "espn:325359"
+        }
+      ]
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Alejandro Bran",
+          "type": "Y",
+          "m": 88,
+          "pid": "espn:325359",
+          "nat": "Costa Rica"
+        },
+        {
+          "n": "Santiago van der Putten",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:317947",
+          "nat": "Costa Rica"
         }
       ]
     },
@@ -33228,18 +33321,74 @@
       "home": [
         {
           "n": "가브리엘 펙",
-          "m": 6
+          "m": 6,
+          "a": "Mauricio Cuevas",
+          "nat": "Brazil",
+          "pid": "espn:295005",
+          "aNat": "USA",
+          "apid": "espn:287252"
         },
         {
           "n": "가브리엘 펙",
-          "m": 89
+          "m": 89,
+          "a": "Miki Yamane",
+          "nat": "Brazil",
+          "pid": "espn:295005",
+          "aNat": "Japan",
+          "apid": "espn:238050"
         },
         {
           "n": "가브리엘 펙",
-          "m": 90
+          "m": 90,
+          "a": "João Klauss",
+          "nat": "Brazil",
+          "pid": "espn:295005",
+          "aNat": "Brazil",
+          "apid": "espn:150409"
         }
       ],
       "away": []
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "John Nelson",
+          "type": "Y",
+          "m": 26,
+          "pid": "espn:225615",
+          "nat": "USA"
+        },
+        {
+          "n": "João Klauss",
+          "type": "Y",
+          "m": 53,
+          "pid": "espn:150409",
+          "nat": "Brazil"
+        },
+        {
+          "n": "Elijah Wynder",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:287568",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "n": "Demario Phillips",
+          "type": "Y",
+          "m": 36,
+          "pid": "espn:348270",
+          "nat": "Jamaica"
+        },
+        {
+          "n": "Tafari Chambers",
+          "type": "Y",
+          "m": 64,
+          "pid": "espn:403556",
+          "nat": "Jamaica"
+        }
+      ]
     },
     "phaseCode": "T16",
     "leg": 1,
@@ -42729,17 +42878,77 @@
       "home": [
         {
           "n": "반데르푸텐",
-          "m": 4
+          "m": 4,
+          "nat": "Costa Rica",
+          "pid": "espn:317947"
         }
       ],
       "away": [
         {
           "n": "오르다스",
-          "m": 51
+          "m": 51,
+          "a": "Mark Delgado",
+          "nat": "El Salvador",
+          "pid": "espn:340613",
+          "aNat": "USA",
+          "apid": "espn:193171"
         },
         {
           "n": "마르티네스",
-          "m": 90
+          "m": 90,
+          "a": "Mark Delgado",
+          "nat": "Venezuela",
+          "pid": "espn:115713",
+          "aNat": "USA",
+          "apid": "espn:193171"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Guillermo Villalobos",
+          "type": "Y",
+          "m": 17,
+          "pid": "espn:362923",
+          "nat": "Costa Rica"
+        },
+        {
+          "n": "Creichel Pérez",
+          "type": "Y",
+          "m": 33,
+          "pid": "espn:360069",
+          "nat": "Costa Rica"
+        },
+        {
+          "n": "Aarón Salazar",
+          "type": "Y",
+          "m": 50,
+          "pid": "espn:291007",
+          "nat": "Costa Rica"
+        }
+      ],
+      "away": [
+        {
+          "n": "Eddie Segura",
+          "type": "Y",
+          "m": 32,
+          "pid": "espn:199904",
+          "nat": "Colombia"
+        },
+        {
+          "n": "Denis Bouanga",
+          "type": "Y",
+          "m": 45,
+          "pid": "espn:213304",
+          "nat": "Gabon"
+        },
+        {
+          "n": "Son Heung-Min",
+          "type": "Y",
+          "m": 50,
+          "pid": "espn:149945",
+          "nat": "South Korea"
         }
       ]
     },
@@ -42765,13 +42974,71 @@
       "home": [
         {
           "n": "파라델라",
-          "m": 46
+          "m": 46,
+          "a": "Omar Campos",
+          "nat": "Argentina",
+          "pid": "espn:277270",
+          "aNat": "Mexico",
+          "apid": "espn:136124"
         }
       ],
       "away": [
         {
           "n": "로드리게스",
-          "m": 8
+          "m": 8,
+          "a": "Roberto de la Rosa",
+          "nat": "Argentina",
+          "pid": "espn:79608",
+          "aNat": "Mexico",
+          "apid": "espn:261137"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Gonzalo Piovi",
+          "type": "Y",
+          "m": 37,
+          "pid": "espn:192166",
+          "nat": "Argentina"
+        },
+        {
+          "n": "Jorge Rodarte",
+          "type": "Y",
+          "m": 51,
+          "pid": "espn:407543",
+          "nat": "Mexico"
+        }
+      ],
+      "away": [
+        {
+          "n": "Carlos Frayde",
+          "type": "Y",
+          "m": 29,
+          "pid": "espn:413678",
+          "nat": "Mexico"
+        },
+        {
+          "n": "Víctor Guzmán",
+          "type": "Y",
+          "m": 45,
+          "pid": "espn:290348",
+          "nat": "Mexico"
+        },
+        {
+          "n": "Carlos Salcedo",
+          "type": "Y",
+          "m": 57,
+          "pid": "espn:184299",
+          "nat": "Mexico"
+        },
+        {
+          "n": "Jorge Rodríguez",
+          "type": "Y",
+          "m": 59,
+          "pid": "espn:79608",
+          "nat": "Argentina"
         }
       ]
     },
@@ -43299,13 +43566,40 @@
       "home": [
         {
           "n": "호드리고 두라도",
-          "m": 6
+          "m": 6,
+          "a": "Raphael Veiga",
+          "nat": "Brazil",
+          "pid": "espn:170506",
+          "aNat": "Brazil",
+          "apid": "espn:236321"
         }
       ],
       "away": [
         {
           "n": "부에노",
-          "m": 49
+          "m": 49,
+          "nat": "Venezuela",
+          "pid": "espn:271536"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Sebastián Cáceres",
+          "type": "Y",
+          "m": 29,
+          "pid": "espn:285756",
+          "nat": "Uruguay"
+        }
+      ],
+      "away": [
+        {
+          "n": "Philippe Ndinga Ossibadjouo",
+          "type": "Y",
+          "m": 83,
+          "pid": "espn:378634",
+          "nat": "Congo"
         }
       ]
     },
@@ -60368,8 +60662,8 @@
           "m": 67,
           "a": "Sidny Cabral",
           "nat": "Cape Verde Islands",
-          "pid": "espn:378479",
           "aNat": "Cape Verde Islands",
+          "pid": "espn:378479",
           "apid": "espn:332394"
         }
       ],
@@ -60378,8 +60672,8 @@
           "n": "스퀴타",
           "m": 45,
           "a": "Leo Walta",
-          "pid": "espn:275574",
           "aNat": "Finland",
+          "pid": "espn:275574",
           "apid": "espn:323176"
         }
       ]
@@ -82302,8 +82596,8 @@
           "m": 30,
           "a": "Mathieu Choinière",
           "nat": "South Korea",
-          "pid": "espn:149945",
           "aNat": "Canada",
+          "pid": "espn:149945",
           "apid": "espn:274296"
         },
         {
@@ -82311,8 +82605,8 @@
           "m": 39,
           "a": "Mathieu Choinière",
           "nat": "Venezuela",
-          "pid": "espn:115713",
           "aNat": "Canada",
+          "pid": "espn:115713",
           "apid": "espn:274296"
         },
         {
@@ -82320,8 +82614,8 @@
           "m": 58,
           "a": "Son Heung-Min",
           "nat": "Venezuela",
-          "pid": "espn:115713",
           "aNat": "South Korea",
+          "pid": "espn:115713",
           "apid": "espn:149945"
         }
       ],
@@ -84557,8 +84851,8 @@
           "m": 51,
           "a": "Fernando Gorriarán",
           "nat": "Mexico",
-          "pid": "espn:319255",
           "aNat": "Uruguay",
+          "pid": "espn:319255",
           "apid": "espn:200636"
         },
         {
@@ -84672,8 +84966,8 @@
           "m": 12,
           "a": "Federico Pereira",
           "nat": "Argentina",
-          "pid": "espn:57149",
           "aNat": "Uruguay",
+          "pid": "espn:57149",
           "apid": "espn:288735"
         },
         {
@@ -84681,8 +84975,8 @@
           "m": 43,
           "a": "Jesús Angulo",
           "nat": "Portugal",
-          "pid": "espn:189480",
           "aNat": "Mexico",
+          "pid": "espn:189480",
           "apid": "espn:282615"
         },
         {
@@ -84704,8 +84998,8 @@
           "m": 66,
           "a": "Marco Reus",
           "nat": "Brazil",
-          "pid": "espn:295005",
           "aNat": "Germany",
+          "pid": "espn:295005",
           "apid": "espn:122356"
         },
         {
@@ -84713,8 +85007,8 @@
           "m": 77,
           "a": "Julián Aude",
           "nat": "Germany",
-          "pid": "espn:122356",
           "aNat": "Argentina",
+          "pid": "espn:122356",
           "apid": "espn:297050"
         }
       ]
@@ -99655,8 +99949,8 @@
           "m": 51,
           "a": "Cristian Espinoza",
           "nat": "Germany",
-          "pid": "espn:174548",
           "aNat": "Argentina",
+          "pid": "espn:174548",
           "apid": "espn:73200"
         }
       ]
@@ -101461,8 +101755,8 @@
           "m": 10,
           "a": "Franco Romero",
           "nat": "Mexico",
-          "pid": "espn:132098",
           "aNat": "Argentina",
+          "pid": "espn:132098",
           "apid": "espn:128422"
         },
         {
@@ -101470,8 +101764,8 @@
           "m": 58,
           "a": "Helinho",
           "nat": "Portugal",
-          "pid": "espn:189480",
           "aNat": "Brazil",
+          "pid": "espn:189480",
           "apid": "espn:266679"
         },
         {
@@ -101479,8 +101773,8 @@
           "m": 64,
           "a": "Nicolás Castro",
           "nat": "Portugal",
-          "pid": "espn:189480",
           "aNat": "Argentina",
+          "pid": "espn:189480",
           "apid": "espn:57149"
         }
       ]
@@ -101765,8 +102059,8 @@
           "m": 11,
           "a": "Cristian Roldan",
           "nat": "Slovakia",
-          "pid": "espn:171573",
           "aNat": "USA",
+          "pid": "espn:171573",
           "apid": "espn:216617"
         },
         {
@@ -101774,8 +102068,8 @@
           "m": 48,
           "a": "Jordan Morris",
           "nat": "USA",
-          "pid": "espn:256450",
           "aNat": "USA",
+          "pid": "espn:256450",
           "apid": "espn:210252"
         },
         {
@@ -101783,8 +102077,8 @@
           "m": 82,
           "a": "Cristian Roldan",
           "nat": "Slovakia",
-          "pid": "espn:171573",
           "aNat": "USA",
+          "pid": "espn:171573",
           "apid": "espn:216617"
         }
       ],
@@ -101794,8 +102088,8 @@
           "m": 31,
           "a": "Juan Brunetta",
           "nat": "Brazil",
-          "pid": "espn:319520",
           "aNat": "Argentina",
+          "pid": "espn:319520",
           "apid": "espn:245771"
         }
       ]
@@ -137099,8 +137393,8 @@
           "m": 51,
           "a": "Son Heung-Min",
           "nat": "USA",
-          "pid": "espn:231192",
           "aNat": "South Korea",
+          "pid": "espn:231192",
           "apid": "espn:149945"
         },
         {
@@ -137108,8 +137402,8 @@
           "m": 90,
           "a": "Son Heung-Min",
           "nat": "USA",
-          "pid": "espn:283453",
           "aNat": "South Korea",
+          "pid": "espn:283453",
           "apid": "espn:149945"
         }
       ],
@@ -137119,8 +137413,8 @@
           "m": 73,
           "a": "Paulinho",
           "nat": "Mexico",
-          "pid": "espn:282615",
           "aNat": "Portugal",
+          "pid": "espn:282615",
           "apid": "espn:189480"
         }
       ]
@@ -141800,21 +142094,6 @@
     "time": "16:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
-    "home": "대한민국",
-    "away": "필리핀",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
-    "timeTbd": false,
-    "gameId": "INfbBvjkK2ARSQU",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 5,
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-02",
-    "time": "16:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
     "home": "일본",
     "away": "레바논",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
@@ -141881,6 +142160,21 @@
       ],
       "away": []
     },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-02",
+    "time": "16:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
+    "home": "대한민국",
+    "away": "필리핀",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
+    "timeTbd": false,
+    "gameId": "INfbBvjkK2ARSQU",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 5,
     "phaseCode": "GROUP"
   },
   {
@@ -142853,6 +143147,21 @@
     "time": "20:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
+    "home": "호주",
+    "away": "인도",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
+    "timeTbd": false,
+    "gameId": "fS1J3kxSwziVvHl",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 2,
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-02",
+    "time": "20:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
     "home": "북한",
     "away": "차이니스 타이베이",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
@@ -142906,21 +143215,6 @@
       ],
       "away": []
     },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-02",
-    "time": "20:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
-    "home": "호주",
-    "away": "인도",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
-    "timeTbd": false,
-    "gameId": "fS1J3kxSwziVvHl",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 2,
     "phaseCode": "GROUP"
   },
   {
@@ -152058,13 +152352,13 @@
     "time": "20:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
-    "home": "인도",
-    "away": "일본",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
+    "home": "필리핀",
+    "away": "북한",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
     "timeTbd": false,
-    "gameId": "SyGtvWeiJaOs0ZA",
+    "gameId": "GL60R919H16s8H0",
     "status": "completed",
-    "awayScore": 3,
+    "awayScore": 8,
     "homeScore": 0,
     "phaseCode": "GROUP"
   },
@@ -152073,13 +152367,13 @@
     "time": "20:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
-    "home": "필리핀",
-    "away": "북한",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
+    "home": "인도",
+    "away": "일본",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
     "timeTbd": false,
-    "gameId": "GL60R919H16s8H0",
+    "gameId": "SyGtvWeiJaOs0ZA",
     "status": "completed",
-    "awayScore": 8,
+    "awayScore": 3,
     "homeScore": 0,
     "phaseCode": "GROUP"
   },
@@ -153044,8 +153338,8 @@
           "m": 68,
           "a": "Ángel Correa",
           "nat": "Argentina",
-          "pid": "espn:245771",
           "aNat": "Argentina",
+          "pid": "espn:245771",
           "apid": "espn:195681"
         }
       ],
@@ -155305,8 +155599,8 @@
           "m": 90,
           "a": "Pável Pérez",
           "nat": "Portugal",
-          "pid": "espn:189480",
           "aNat": "Mexico",
+          "pid": "espn:189480",
           "apid": "espn:324719"
         },
         {
@@ -155314,8 +155608,8 @@
           "m": 90,
           "a": "Pável Pérez",
           "nat": "Portugal",
-          "pid": "espn:189480",
           "aNat": "Mexico",
+          "pid": "espn:189480",
           "apid": "espn:324719"
         }
       ],
@@ -157776,21 +158070,6 @@
     "time": "20:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
-    "home": "북한",
-    "away": "대한민국",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
-    "timeTbd": false,
-    "gameId": "YhSbZX9A9wuMTQV",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 3,
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-08",
-    "time": "20:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
     "home": "필리핀",
     "away": "차이니스 타이베이",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
@@ -157799,6 +158078,21 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 0,
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-08",
+    "time": "20:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
+    "home": "북한",
+    "away": "대한민국",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
+    "timeTbd": false,
+    "gameId": "YhSbZX9A9wuMTQV",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 3,
     "phaseCode": "GROUP"
   },
   {
@@ -168714,21 +169008,6 @@
     "time": "01:00",
     "league": "U17ASIANCUP",
     "venueId": "king_abdullah_sports_city",
-    "home": "일본",
-    "away": "인도네시아",
-    "stadium": "킹 압둘라 스포츠 시티 피치 스타스 A",
-    "timeTbd": false,
-    "gameId": "sHwLLJ3ysMllgVD",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 3,
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-13",
-    "time": "01:00",
-    "league": "U17ASIANCUP",
-    "venueId": "king_abdullah_sports_city",
     "home": "중국",
     "away": "카타르",
     "stadium": "킹 압둘라 스포츠 시티 피치 퓨처 C",
@@ -168737,6 +169016,21 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 2,
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-13",
+    "time": "01:00",
+    "league": "U17ASIANCUP",
+    "venueId": "king_abdullah_sports_city",
+    "home": "일본",
+    "away": "인도네시아",
+    "stadium": "킹 압둘라 스포츠 시티 피치 스타스 A",
+    "timeTbd": false,
+    "gameId": "sHwLLJ3ysMllgVD",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 3,
     "phaseCode": "GROUP"
   },
   {
@@ -209942,8 +210236,8 @@
           "m": 104,
           "a": "Fernando Arce",
           "nat": "Mexico",
-          "pid": "espn:269177",
           "aNat": "USA",
+          "pid": "espn:269177",
           "apid": "espn:202164"
         }
       ],
@@ -209953,8 +210247,8 @@
           "m": 114,
           "a": "Juan Brunetta",
           "nat": "Brazil",
-          "pid": "espn:319520",
           "aNat": "Argentina",
+          "pid": "espn:319520",
           "apid": "espn:245771"
         }
       ]
@@ -210149,8 +210443,8 @@
           "m": 65,
           "a": "Lee Dong-Gyeong",
           "nat": "South Korea",
-          "pid": "espn:303464",
           "aNat": "South Korea",
+          "pid": "espn:303464",
           "apid": "espn:271702"
         },
         {
@@ -210164,8 +210458,8 @@
           "m": 77,
           "a": "Seol Young-Woo",
           "nat": "South Korea",
-          "pid": "espn:303464",
           "aNat": "South Korea",
+          "pid": "espn:303464",
           "apid": "espn:302793"
         }
       ],
@@ -222529,8 +222823,8 @@
           "m": 16,
           "a": "Louicius Deedson",
           "nat": "Haiti",
-          "pid": "espn:265915",
           "aNat": "Haiti",
+          "pid": "espn:265915",
           "apid": "espn:291608"
         }
       ],
@@ -350349,6 +350643,23 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "후지모토",
+          "m": 35
+        },
+        {
+          "n": "츠지오카",
+          "m": 43
+        },
+        {
+          "n": "베릭 포포",
+          "m": 74
+        }
+      ],
+      "away": []
+    },
     "cards": {
       "home": [
         {
@@ -350414,7 +350725,29 @@
     "gameId": "fFFQosXJNHtYNCq",
     "status": "completed",
     "awayScore": 2,
-    "homeScore": 2
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "오사코",
+          "m": 40
+        },
+        {
+          "n": "무토",
+          "m": 90
+        }
+      ],
+      "away": [
+        {
+          "n": "나가쿠라",
+          "m": 35
+        },
+        {
+          "n": "나가쿠라",
+          "m": 69
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-15",
@@ -350990,6 +351323,44 @@
     "status": "completed",
     "awayScore": 2,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "아이데일",
+          "m": 83,
+          "pid": "naver:20250193"
+        }
+      ],
+      "away": [
+        {
+          "n": "트란지스카",
+          "m": 37,
+          "pid": "naver:20260021"
+        },
+        {
+          "n": "완델손",
+          "m": 96,
+          "pid": "naver:20150253"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "신창무",
+          "type": "Y",
+          "m": 81,
+          "pid": "naver:20140134"
+        },
+        {
+          "n": "리영직",
+          "type": "Y",
+          "m": 52,
+          "pid": "naver:20240236"
+        }
+      ],
+      "away": []
+    },
     "assists": {
       "home": [
         {
@@ -351022,6 +351393,57 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "신상은",
+          "m": 45,
+          "pid": "naver:20210123"
+        },
+        {
+          "n": "유인수",
+          "m": 50,
+          "pid": "naver:20200103"
+        }
+      ],
+      "away": []
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "정운",
+          "type": "Y",
+          "m": 35,
+          "pid": "naver:20120108"
+        },
+        {
+          "n": "박창준",
+          "type": "Y",
+          "m": 93,
+          "pid": "naver:20180104"
+        },
+        {
+          "n": "네게바",
+          "type": "Y",
+          "m": 70,
+          "pid": "naver:20260228"
+        },
+        {
+          "n": "세레스틴",
+          "type": "Y",
+          "m": 68,
+          "pid": "naver:20260221"
+        }
+      ],
+      "away": [
+        {
+          "n": "이창용",
+          "type": "Y",
+          "m": 86,
+          "pid": "naver:20130191"
+        }
+      ]
+    },
     "assists": {
       "home": [
         {
@@ -351045,6 +351467,85 @@
     "status": "completed",
     "awayScore": 2,
     "homeScore": 4,
+    "scorers": {
+      "home": [
+        {
+          "n": "클리말라",
+          "m": 47,
+          "pid": "naver:20250331"
+        },
+        {
+          "n": "송민규",
+          "m": 80,
+          "pid": "naver:20180034"
+        },
+        {
+          "n": "송민규",
+          "m": 82,
+          "pid": "naver:20180034"
+        },
+        {
+          "n": "정승원",
+          "m": 92,
+          "pid": "naver:20160099"
+        }
+      ],
+      "away": [
+        {
+          "n": "주민규",
+          "m": 37,
+          "pid": "naver:20130248"
+        },
+        {
+          "n": "김진수",
+          "m": 61,
+          "og": true,
+          "pid": "naver:20170185"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "야잔",
+          "type": "Y",
+          "m": 50,
+          "pid": "naver:20240324"
+        },
+        {
+          "n": "정승원",
+          "type": "Y",
+          "m": 41,
+          "pid": "naver:20160099"
+        },
+        {
+          "n": "클리말라",
+          "type": "Y",
+          "m": 93,
+          "pid": "naver:20250331"
+        },
+        {
+          "n": "문선민",
+          "type": "Y",
+          "m": 88,
+          "pid": "naver:20170229"
+        }
+      ],
+      "away": [
+        {
+          "n": "강윤성",
+          "type": "Y",
+          "m": 40,
+          "pid": "naver:20160037"
+        },
+        {
+          "n": "서진수",
+          "type": "Y",
+          "m": 65,
+          "pid": "naver:20190130"
+        }
+      ]
+    },
     "assists": {
       "home": [
         {
@@ -351076,7 +351577,31 @@
     "gameId": "202608150639172",
     "status": "completed",
     "awayScore": 0,
-    "homeScore": 0
+    "homeScore": 0,
+    "cards": {
+      "home": [
+        {
+          "n": "손휘",
+          "type": "Y",
+          "m": 40,
+          "pid": "naver:20230124"
+        },
+        {
+          "n": "김찬",
+          "type": "Y",
+          "m": 58,
+          "pid": "naver:20190115"
+        }
+      ],
+      "away": [
+        {
+          "n": "제갈재민",
+          "type": "Y",
+          "m": 22,
+          "pid": "naver:20210131"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-15",
@@ -351091,6 +351616,45 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "가르시아",
+          "m": 84,
+          "pid": "naver:20260194"
+        },
+        {
+          "n": "민지훈",
+          "m": 98,
+          "pk": true,
+          "pid": "naver:20240149"
+        }
+      ],
+      "away": [
+        {
+          "n": "추상훈",
+          "m": 99,
+          "pid": "naver:20210306"
+        }
+      ]
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "조영광",
+          "type": "Y",
+          "m": 34,
+          "pid": "naver:20230087"
+        },
+        {
+          "n": "최봉진",
+          "type": "Y",
+          "m": 94,
+          "pid": "naver:20150015"
+        }
+      ]
+    },
     "assists": {
       "home": [
         {
@@ -351252,6 +351816,24 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "달비",
+          "m": 14
+        },
+        {
+          "n": "게일",
+          "m": 25
+        }
+      ],
+      "away": [
+        {
+          "n": "에라비",
+          "m": 86
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -351346,7 +351928,29 @@
     "gameId": "NPVIhFbCUgEvUOE",
     "status": "completed",
     "awayScore": 1,
-    "homeScore": 3
+    "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "로저스",
+          "m": 11
+        },
+        {
+          "n": "주앙 페드로",
+          "m": 47
+        },
+        {
+          "n": "주앙 페드로",
+          "m": 77
+        }
+      ],
+      "away": [
+        {
+          "n": "아람부루",
+          "m": 45
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-15",
@@ -351389,6 +351993,28 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "디아스",
+          "m": 13
+        },
+        {
+          "n": "브라운",
+          "m": 57
+        },
+        {
+          "n": "무시알라",
+          "m": 81
+        }
+      ],
+      "away": [
+        {
+          "n": "그루다",
+          "m": 52
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -351493,7 +352119,24 @@
     "gameId": "FIgF3kzUWDYT2ch",
     "status": "completed",
     "awayScore": 0,
-    "homeScore": 3
+    "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "히샬리송",
+          "m": 35
+        },
+        {
+          "n": "무어",
+          "m": 59
+        },
+        {
+          "n": "무어",
+          "m": 79
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-08-15",
@@ -351508,6 +352151,19 @@
     "status": "completed",
     "awayScore": 2,
     "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "코번",
+          "m": 41
+        },
+        {
+          "n": "코번",
+          "m": 50
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -351555,7 +352211,25 @@
     "gameId": "O6heXxMVVh8qARn",
     "status": "completed",
     "awayScore": 1,
-    "homeScore": 2
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "존스",
+          "m": 61
+        },
+        {
+          "n": "캠벨",
+          "m": 80
+        }
+      ],
+      "away": [
+        {
+          "n": "스즈모딕스",
+          "m": 23
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-15",
@@ -351569,7 +352243,25 @@
     "gameId": "Ek9NKshAGoZRrNB",
     "status": "completed",
     "awayScore": 1,
-    "homeScore": 2
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "랭크셔",
+          "m": 62
+        },
+        {
+          "n": "랭크셔",
+          "m": 90
+        }
+      ],
+      "away": [
+        {
+          "n": "리치",
+          "m": 12
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-15",
@@ -351583,7 +352275,25 @@
     "gameId": "0pTUo9Gaxn9gW3j",
     "status": "completed",
     "awayScore": 2,
-    "homeScore": 1
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "크비스트가르덴",
+          "m": 90
+        }
+      ],
+      "away": [
+        {
+          "n": "헤게뵈",
+          "m": 75
+        },
+        {
+          "n": "모건",
+          "m": 87
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-15",
@@ -351598,6 +352308,28 @@
     "status": "completed",
     "awayScore": 3,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "데블린",
+          "m": 15
+        }
+      ],
+      "away": [
+        {
+          "n": "체어",
+          "m": 33
+        },
+        {
+          "n": "사이토",
+          "m": 40
+        },
+        {
+          "n": "체어",
+          "m": 45
+        }
+      ]
+    },
     "cards": {
       "home": [],
       "away": [
@@ -351623,7 +352355,25 @@
     "gameId": "PfLQNXnPzce9syy",
     "status": "completed",
     "awayScore": 2,
-    "homeScore": 1
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "보캣",
+          "m": 10
+        }
+      ],
+      "away": [
+        {
+          "n": "오포쿠",
+          "m": 22
+        },
+        {
+          "n": "아이다",
+          "m": 66
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-15",
@@ -351638,6 +352388,32 @@
     "status": "completed",
     "awayScore": 4,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "베르헤이트",
+          "m": 77
+        }
+      ],
+      "away": [
+        {
+          "n": "타하우이",
+          "m": 45
+        },
+        {
+          "n": "체리",
+          "m": 54
+        },
+        {
+          "n": "린선",
+          "m": 64
+        },
+        {
+          "n": "시에르하위스",
+          "m": 67
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -351664,6 +352440,36 @@
     "status": "completed",
     "awayScore": 4,
     "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "매과이어",
+          "m": 2
+        },
+        {
+          "n": "도르구",
+          "m": 51
+        }
+      ],
+      "away": [
+        {
+          "n": "추쿠에제",
+          "m": 37
+        },
+        {
+          "n": "시세",
+          "m": 57
+        },
+        {
+          "n": "곤살루 하무스",
+          "m": 68
+        },
+        {
+          "n": "로프투스-치크",
+          "m": 71
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -351697,7 +352503,29 @@
     "gameId": "oMyvxyCdx5j5pTT",
     "status": "completed",
     "awayScore": 2,
-    "homeScore": 2
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "뤼에르손",
+          "m": 12
+        },
+        {
+          "n": "기라시",
+          "m": 28
+        }
+      ],
+      "away": [
+        {
+          "n": "디발라",
+          "m": 4
+        },
+        {
+          "n": "크리스탄테",
+          "m": 9
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-16",
@@ -351774,6 +352602,32 @@
     "status": "completed",
     "awayScore": 4,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "스테파노프",
+          "m": 62
+        }
+      ],
+      "away": [
+        {
+          "n": "쿱마이너스",
+          "m": 45
+        },
+        {
+          "n": "웨슬리 파타티",
+          "m": 47
+        },
+        {
+          "n": "미어딩크",
+          "m": 49
+        },
+        {
+          "n": "우프키르",
+          "m": 84
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -351885,6 +352739,15 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "스톤스",
+          "m": 82
+        }
+      ],
+      "away": []
+    },
     "cards": {
       "home": [
         {
@@ -351919,6 +352782,23 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "테나글리아",
+          "m": 73
+        },
+        {
+          "n": "마리아노 디아스",
+          "m": 90
+        },
+        {
+          "n": "미켈 로드리게스",
+          "m": 90
+        }
+      ],
+      "away": []
+    },
     "cards": {
       "home": [
         {
@@ -351995,6 +352875,24 @@
     "status": "completed",
     "awayScore": 2,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "위델",
+          "m": 54
+        }
+      ],
+      "away": [
+        {
+          "n": "반 봄멜",
+          "m": 5
+        },
+        {
+          "n": "페피",
+          "m": 56
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -352035,6 +352933,23 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "안젤루",
+          "m": 37
+        },
+        {
+          "n": "주앙 펠릭스",
+          "m": 40
+        },
+        {
+          "n": "사무 코스타",
+          "m": 73
+        }
+      ],
+      "away": []
+    },
     "cards": {
       "home": [
         {
@@ -352069,6 +352984,20 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "엔-네시리",
+          "m": 43
+        }
+      ],
+      "away": [
+        {
+          "n": "도밍게스",
+          "m": 52
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -352182,6 +353111,28 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "브리타인",
+          "m": 6
+        },
+        {
+          "n": "제푸이크",
+          "m": 15
+        },
+        {
+          "n": "트 잔드",
+          "m": 90
+        }
+      ],
+      "away": [
+        {
+          "n": "엘 아르기우이",
+          "m": 22
+        }
+      ]
+    },
     "cards": {
       "home": [],
       "away": [
@@ -352264,6 +353215,24 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "존 구리디",
+          "m": 52
+        },
+        {
+          "n": "페꾸에 페르난데스",
+          "m": 90
+        }
+      ],
+      "away": [
+        {
+          "n": "알바로 가르시아",
+          "m": 4
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -353074,6 +354043,28 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "브로니코",
+          "m": 1
+        },
+        {
+          "n": "아바다",
+          "m": 9
+        },
+        {
+          "n": "펩 비엘",
+          "m": 73
+        }
+      ],
+      "away": [
+        {
+          "n": "아담스",
+          "m": 41
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -353115,6 +354106,25 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "샌즈",
+          "m": 43,
+          "og": true
+        },
+        {
+          "n": "도어쉬",
+          "m": 45
+        }
+      ],
+      "away": [
+        {
+          "n": "해리스",
+          "m": 90
+        }
+      ]
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -353130,6 +354140,20 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "스파이서",
+          "m": 48
+        }
+      ],
+      "away": [
+        {
+          "n": "부하",
+          "m": 23
+        }
+      ]
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -353145,6 +354169,24 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "무윰바",
+          "m": 69
+        },
+        {
+          "n": "피코",
+          "m": 82
+        }
+      ],
+      "away": [
+        {
+          "n": "포르스베리",
+          "m": 6
+        }
+      ]
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -353160,6 +354202,20 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "오우수",
+          "m": 50
+        }
+      ],
+      "away": [
+        {
+          "n": "바리보",
+          "m": 66
+        }
+      ]
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -353217,6 +354273,32 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 4,
+    "scorers": {
+      "home": [
+        {
+          "n": "나자르",
+          "m": 17
+        },
+        {
+          "n": "무크타르",
+          "m": 49
+        },
+        {
+          "n": "서리지",
+          "m": 56
+        },
+        {
+          "n": "무크타르",
+          "m": 63
+        }
+      ],
+      "away": [
+        {
+          "n": "세고비아",
+          "m": 45
+        }
+      ]
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -353232,6 +354314,15 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "기엘르미",
+          "m": 21
+        }
+      ],
+      "away": []
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -353275,6 +354366,20 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "세르지 솔란스",
+          "m": 82
+        }
+      ],
+      "away": [
+        {
+          "n": "페레이라",
+          "m": 89
+        }
+      ]
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -353290,6 +354395,19 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "캐논",
+          "m": 65
+        },
+        {
+          "n": "라파엘 나바로",
+          "m": 90
+        }
+      ],
+      "away": []
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -353428,6 +354546,15 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "드레이어",
+          "m": 89
+        }
+      ]
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -353443,6 +354570,28 @@
     "status": "completed",
     "awayScore": 3,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "르루",
+          "m": 47
+        }
+      ],
+      "away": [
+        {
+          "n": "에델만",
+          "m": 8
+        },
+        {
+          "n": "베처",
+          "m": 27
+        },
+        {
+          "n": "베처",
+          "m": 55
+        }
+      ]
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -354009,6 +355158,32 @@
     "status": "completed",
     "awayScore": 4,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "에두아르도",
+          "m": 55
+        }
+      ],
+      "away": [
+        {
+          "n": "반 베르헨",
+          "m": 15
+        },
+        {
+          "n": "윌룸손",
+          "m": 30
+        },
+        {
+          "n": "판 데르 베르프",
+          "m": 45
+        },
+        {
+          "n": "에겐스",
+          "m": 81
+        }
+      ]
+    },
     "cards": {
       "home": [],
       "away": [
@@ -354063,6 +355238,79 @@
     "status": "completed",
     "awayScore": 2,
     "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "성예건",
+          "m": 8,
+          "pid": "naver:20260341"
+        },
+        {
+          "n": "김종우",
+          "m": 13,
+          "pid": "naver:20150097"
+        },
+        {
+          "n": "갈레고",
+          "m": 54,
+          "pid": "naver:20220353"
+        }
+      ],
+      "away": [
+        {
+          "n": "최우진",
+          "m": 58,
+          "pid": "naver:20230029"
+        },
+        {
+          "n": "박지수",
+          "m": 78,
+          "pid": "naver:20130142"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "김현엽",
+          "type": "Y",
+          "m": 43,
+          "pid": "naver:20230139"
+        },
+        {
+          "n": "홍성욱",
+          "type": "Y",
+          "m": 98,
+          "pid": "naver:20210174"
+        },
+        {
+          "n": "패트릭",
+          "type": "Y",
+          "m": 82,
+          "pid": "naver:20260109"
+        },
+        {
+          "n": "갈레고",
+          "type": "Y",
+          "m": 57,
+          "pid": "naver:20220353"
+        }
+      ],
+      "away": [
+        {
+          "n": "김영빈",
+          "type": "Y",
+          "m": 0,
+          "pid": "naver:20140143"
+        },
+        {
+          "n": "이영재",
+          "type": "Y",
+          "m": 93,
+          "pid": "naver:20150104"
+        }
+      ]
+    },
     "assists": {
       "home": [
         {
@@ -354099,6 +355347,58 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "무고사",
+          "m": 65,
+          "pid": "naver:20180196"
+        }
+      ],
+      "away": [
+        {
+          "n": "박세진",
+          "m": 86,
+          "pid": "naver:20230049"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "이주용",
+          "type": "Y",
+          "m": 37,
+          "pid": "naver:20140059"
+        },
+        {
+          "n": "무고사",
+          "type": "Y",
+          "m": 78,
+          "pid": "naver:20180196"
+        }
+      ],
+      "away": [
+        {
+          "n": "이강현",
+          "type": "Y",
+          "m": 39,
+          "pid": "naver:20210136"
+        },
+        {
+          "n": "박태준",
+          "type": "Y",
+          "m": 15,
+          "pid": "naver:20180096"
+        },
+        {
+          "n": "이정택",
+          "type": "Y",
+          "m": 95,
+          "pid": "naver:20230198"
+        }
+      ]
+    },
     "assists": {
       "home": [
         {
@@ -354127,6 +355427,62 @@
     "status": "completed",
     "awayScore": 3,
     "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "김영권",
+          "m": 14,
+          "pid": "naver:20220188"
+        },
+        {
+          "n": "정승현",
+          "m": 54,
+          "pid": "naver:20150109"
+        }
+      ],
+      "away": [
+        {
+          "n": "제시",
+          "m": 33,
+          "pid": "naver:20260348"
+        },
+        {
+          "n": "김영권",
+          "m": 42,
+          "og": true,
+          "pid": "naver:20220188"
+        },
+        {
+          "n": "김동현",
+          "m": 81,
+          "pid": "naver:20180235"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "이희균",
+          "type": "Y",
+          "m": 88,
+          "pid": "naver:20190171"
+        },
+        {
+          "n": "야고",
+          "type": "Y",
+          "m": 83,
+          "pid": "naver:20230315"
+        }
+      ],
+      "away": [
+        {
+          "n": "강투지",
+          "type": "Y",
+          "m": 96,
+          "pid": "naver:20230308"
+        }
+      ]
+    },
     "assists": {
       "home": [
         {
@@ -354159,6 +355515,45 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "세라핌",
+          "m": 61,
+          "pid": "naver:20250222"
+        },
+        {
+          "n": "세라핌",
+          "m": 74,
+          "pid": "naver:20250222"
+        }
+      ],
+      "away": []
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "김대우",
+          "type": "Y",
+          "m": 37,
+          "pid": "naver:20210115"
+        }
+      ],
+      "away": [
+        {
+          "n": "은고이",
+          "type": "Y",
+          "m": 45,
+          "pid": "naver:20250356"
+        },
+        {
+          "n": "장준영",
+          "type": "Y",
+          "m": 18,
+          "pid": "naver:20160033"
+        }
+      ]
+    },
     "assists": {
       "home": [
         {
@@ -354186,6 +355581,39 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "김성준",
+          "m": 25,
+          "pid": "naver:20090125"
+        }
+      ],
+      "away": [
+        {
+          "n": "툰가라",
+          "m": 38,
+          "pid": "naver:20240245"
+        }
+      ]
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "이상용",
+          "type": "Y",
+          "m": 34,
+          "pid": "naver:20170190"
+        },
+        {
+          "n": "툰가라",
+          "type": "Y",
+          "m": 68,
+          "pid": "naver:20240245"
+        }
+      ]
+    },
     "assists": {
       "home": [
         {
@@ -354274,6 +355702,44 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "에울레르",
+          "m": 13,
+          "pid": "naver:20250192"
+        },
+        {
+          "n": "에울레르",
+          "m": 58,
+          "pid": "naver:20250192"
+        },
+        {
+          "n": "에울레르",
+          "m": 66,
+          "pk": true,
+          "pid": "naver:20250192"
+        }
+      ],
+      "away": [
+        {
+          "n": "마촙",
+          "m": 5,
+          "pid": "naver:20260170"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "박창환",
+          "type": "Y",
+          "m": 70,
+          "pid": "naver:20210138"
+        }
+      ],
+      "away": []
+    },
     "assists": {
       "home": [
         {
@@ -354301,7 +355767,29 @@
     "gameId": "SbEVLmzJYRNPP1g",
     "status": "completed",
     "awayScore": 2,
-    "homeScore": 2
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "데이비스",
+          "m": 20
+        },
+        {
+          "n": "윌리엄스-바넷",
+          "m": 45
+        }
+      ],
+      "away": [
+        {
+          "n": "흘로제크",
+          "m": 16
+        },
+        {
+          "n": "장드레",
+          "m": 55
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-16",
@@ -354372,6 +355860,25 @@
     "status": "completed",
     "awayScore": 2,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "모로",
+          "m": 3,
+          "og": true
+        }
+      ],
+      "away": [
+        {
+          "n": "우오루",
+          "m": 38
+        },
+        {
+          "n": "커르케가르드",
+          "m": 65
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -354398,6 +355905,15 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "이브라힘 아델",
+          "m": 80
+        }
+      ],
+      "away": []
+    },
     "cards": {
       "home": [
         {
@@ -354459,6 +355975,24 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "이케르 브라보",
+          "m": 12
+        },
+        {
+          "n": "나비자다",
+          "m": 29
+        }
+      ],
+      "away": [
+        {
+          "n": "래린",
+          "m": 56
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -354541,7 +356075,29 @@
     "gameId": "063wFGAm2h8hHNj",
     "status": "completed",
     "awayScore": 2,
-    "homeScore": 2
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "제키엘",
+          "m": 32
+        },
+        {
+          "n": "우에다",
+          "m": 38
+        }
+      ],
+      "away": [
+        {
+          "n": "텡스테트",
+          "m": 63
+        },
+        {
+          "n": "시구르다르손",
+          "m": 80
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-16",
@@ -354555,7 +356111,30 @@
     "gameId": "oBo4I8fVZHFhuWx",
     "status": "completed",
     "awayScore": 1,
-    "homeScore": 3
+    "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "바이드만",
+          "m": 38
+        },
+        {
+          "n": "음바요",
+          "m": 59,
+          "og": true
+        },
+        {
+          "n": "로츠",
+          "m": 69
+        }
+      ],
+      "away": [
+        {
+          "n": "쇠렌센",
+          "m": 21
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-16",
@@ -354602,6 +356181,23 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "칼라피오리",
+          "m": 1
+        },
+        {
+          "n": "하베르츠",
+          "m": 28
+        },
+        {
+          "n": "외데고르",
+          "m": 48
+        }
+      ],
+      "away": []
+    },
     "phaseCode": "T2"
   },
   {
@@ -354617,6 +356213,20 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "프라울로",
+          "m": 59
+        }
+      ],
+      "away": [
+        {
+          "n": "이헤아나초",
+          "m": 50
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -354816,6 +356426,29 @@
     "status": "completed",
     "awayScore": 2,
     "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "클라베르부르",
+          "m": 7,
+          "og": true
+        },
+        {
+          "n": "우아잔",
+          "m": 33
+        }
+      ],
+      "away": [
+        {
+          "n": "트렌스코",
+          "m": 45
+        },
+        {
+          "n": "리베라",
+          "m": 82
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -354925,6 +356558,28 @@
     "status": "completed",
     "awayScore": 2,
     "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "플레밍",
+          "m": 83
+        },
+        {
+          "n": "플레밍",
+          "m": 90
+        }
+      ],
+      "away": [
+        {
+          "n": "킬먼",
+          "m": 10
+        },
+        {
+          "n": "솔로몬",
+          "m": 72
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -354978,6 +356633,28 @@
     "status": "completed",
     "awayScore": 2,
     "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "안드레스 마르틴",
+          "m": 21
+        },
+        {
+          "n": "세르히오 마르티네스",
+          "m": 34
+        }
+      ],
+      "away": [
+        {
+          "n": "파페 게예",
+          "m": 45
+        },
+        {
+          "n": "페페",
+          "m": 45
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -355039,6 +356716,27 @@
     "status": "completed",
     "awayScore": 4,
     "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "멜링",
+          "m": 2
+        },
+        {
+          "n": "멜링",
+          "m": 14
+        },
+        {
+          "n": "에밀 매드슨",
+          "m": 45
+        },
+        {
+          "n": "로페스",
+          "m": 77
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -355106,6 +356804,19 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "학포",
+          "m": 23
+        },
+        {
+          "n": "자케",
+          "m": 44
+        }
+      ],
+      "away": []
+    },
     "cards": {
       "home": [
         {
@@ -355147,6 +356858,23 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "로베르토 페르난데스",
+          "m": 5
+        },
+        {
+          "n": "로베르토 페르난데스",
+          "m": 40
+        },
+        {
+          "n": "돌란",
+          "m": 80
+        }
+      ],
+      "away": []
+    },
     "cards": {
       "home": [
         {
@@ -355886,6 +357614,15 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "토빈",
+          "m": 32
+        }
+      ],
+      "away": []
+    },
     "cards": {
       "home": [
         {
@@ -356292,6 +358029,24 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "로드",
+          "m": 9
+        },
+        {
+          "n": "다빌라",
+          "m": 14
+        }
+      ],
+      "away": [
+        {
+          "n": "서먼",
+          "m": 85
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -356341,6 +358096,32 @@
     "status": "completed",
     "awayScore": 3,
     "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "트라오레",
+          "m": 4
+        },
+        {
+          "n": "루이기 헨리",
+          "m": 45
+        }
+      ],
+      "away": [
+        {
+          "n": "장 자크",
+          "m": 48
+        },
+        {
+          "n": "다미아니",
+          "m": 69
+        },
+        {
+          "n": "다미아니",
+          "m": 75
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -356527,6 +358308,24 @@
     "status": "completed",
     "awayScore": 2,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "토레스",
+          "m": 57
+        }
+      ],
+      "away": [
+        {
+          "n": "아부바카르",
+          "m": 45
+        },
+        {
+          "n": "무사",
+          "m": 73
+        }
+      ]
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -356556,6 +358355,19 @@
     "status": "completed",
     "awayScore": 2,
     "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "엘루미",
+          "m": 77
+        },
+        {
+          "n": "뮐러",
+          "m": 82
+        }
+      ]
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -356571,6 +358383,32 @@
     "status": "completed",
     "awayScore": 2,
     "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "프뢰키에르-옌센",
+          "m": 18
+        },
+        {
+          "n": "프뢰키에르-옌센",
+          "m": 30
+        },
+        {
+          "n": "히세니",
+          "m": 45
+        }
+      ],
+      "away": [
+        {
+          "n": "탐베두",
+          "m": 58
+        },
+        {
+          "n": "하이다라",
+          "m": 64
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -356680,6 +358518,20 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "콜윌",
+          "m": 90
+        }
+      ],
+      "away": [
+        {
+          "n": "무어",
+          "m": 3
+        }
+      ]
+    },
     "cards": {
       "home": [],
       "away": [
@@ -356713,6 +358565,20 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "오바메양",
+          "m": 21
+        }
+      ],
+      "away": [
+        {
+          "n": "마르크 아구아도",
+          "m": 76
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -360254,6 +362120,24 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "김영찬",
+          "m": 49
+        },
+        {
+          "n": "이진용",
+          "m": 68
+        }
+      ],
+      "away": [
+        {
+          "n": "최병욱",
+          "m": 31
+        }
+      ]
+    },
     "phaseCode": "T16"
   },
   {
@@ -360629,6 +362513,19 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "이강인",
+          "m": 70
+        },
+        {
+          "n": "알렉스 바에나",
+          "m": 85
+        }
+      ],
+      "away": []
+    },
     "cards": {
       "home": [
         {
@@ -361199,6 +363096,23 @@
     "status": "completed",
     "awayScore": 3,
     "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "유수프",
+          "m": 23
+        },
+        {
+          "n": "유수프",
+          "m": 45
+        },
+        {
+          "n": "유수프",
+          "m": 66
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -361241,6 +363155,36 @@
     "status": "completed",
     "awayScore": 3,
     "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "시머맨식",
+          "m": 13
+        },
+        {
+          "n": "설로이",
+          "m": 76
+        },
+        {
+          "n": "도어쉬",
+          "m": 90
+        }
+      ],
+      "away": [
+        {
+          "n": "알로코",
+          "m": 8
+        },
+        {
+          "n": "지오르노",
+          "m": 20
+        },
+        {
+          "n": "케슬러",
+          "m": 58
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -361275,6 +363219,24 @@
     "status": "completed",
     "awayScore": 2,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "브레칼로",
+          "m": 52
+        }
+      ],
+      "away": [
+        {
+          "n": "디테하네",
+          "m": 4
+        },
+        {
+          "n": "레반도프스키",
+          "m": 69
+        }
+      ]
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -361290,6 +363252,25 @@
     "status": "completed",
     "awayScore": 2,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "질리에",
+          "m": 20,
+          "og": true
+        }
+      ],
+      "away": [
+        {
+          "n": "오우수",
+          "m": 5
+        },
+        {
+          "n": "슈트라이트",
+          "m": 78
+        }
+      ]
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -361305,6 +363286,15 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "올레지",
+          "m": 90
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -361347,6 +363337,28 @@
     "status": "completed",
     "awayScore": 2,
     "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "바실레프",
+          "m": 11
+        },
+        {
+          "n": "피에르",
+          "m": 58
+        }
+      ],
+      "away": [
+        {
+          "n": "핀테르",
+          "m": 21
+        },
+        {
+          "n": "메시",
+          "m": 26
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -361424,6 +363436,24 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "음보마 뎀",
+          "m": 11
+        },
+        {
+          "n": "에반데르",
+          "m": 90
+        }
+      ],
+      "away": [
+        {
+          "n": "루이기 헨리",
+          "m": 21
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -361651,6 +363681,20 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "해리스",
+          "m": 55
+        }
+      ],
+      "away": [
+        {
+          "n": "뢰벤",
+          "m": 45
+        }
+      ]
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -361797,6 +363841,24 @@
     "status": "completed",
     "awayScore": 2,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "매르카니치",
+          "m": 58
+        }
+      ],
+      "away": [
+        {
+          "n": "자콥",
+          "m": 37
+        },
+        {
+          "n": "무윰바",
+          "m": 78
+        }
+      ]
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -361904,6 +363966,40 @@
     "status": "completed",
     "awayScore": 4,
     "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "세르지 솔란스",
+          "m": 38
+        },
+        {
+          "n": "길라보기",
+          "m": 50
+        },
+        {
+          "n": "루나",
+          "m": 64
+        }
+      ],
+      "away": [
+        {
+          "n": "발리엔테",
+          "m": 16
+        },
+        {
+          "n": "무사",
+          "m": 20
+        },
+        {
+          "n": "무사",
+          "m": 45
+        },
+        {
+          "n": "비냐민",
+          "m": 90
+        }
+      ]
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -361919,6 +364015,16 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "에보비세",
+          "m": 22,
+          "og": true
+        }
+      ],
+      "away": []
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -361934,6 +364040,24 @@
     "status": "completed",
     "awayScore": 2,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "호킨스",
+          "m": 90
+        }
+      ],
+      "away": [
+        {
+          "n": "토레스",
+          "m": 66
+        },
+        {
+          "n": "길례르미 비로",
+          "m": 87
+        }
+      ]
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -361963,6 +364087,15 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "네그리",
+          "m": 34
+        }
+      ]
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -361978,6 +364111,15 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "페인트실",
+          "m": 79
+        }
+      ],
+      "away": []
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -361993,6 +364135,28 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "벨데",
+          "m": 29
+        },
+        {
+          "n": "라시터",
+          "m": 51
+        },
+        {
+          "n": "다비드 페레이라 다 코스타",
+          "m": 68
+        }
+      ],
+      "away": [
+        {
+          "n": "가브리엘 피라니",
+          "m": 45
+        }
+      ]
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -363018,6 +365182,23 @@
     "status": "completed",
     "awayScore": 3,
     "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "밀린코비치-사비치",
+          "m": 31
+        },
+        {
+          "n": "술탄 만다시",
+          "m": 46
+        },
+        {
+          "n": "나세르 알 다우사리",
+          "m": 88
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -363234,6 +365415,20 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "세르히오 카메요",
+          "m": 48
+        }
+      ],
+      "away": [
+        {
+          "n": "마리아노 디아스",
+          "m": 84
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -363833,6 +366028,38 @@
     "status": "completed",
     "awayScore": 2,
     "homeScore": 4,
+    "scorers": {
+      "home": [
+        {
+          "n": "오미나미",
+          "m": 6,
+          "og": true
+        },
+        {
+          "n": "고이즈미",
+          "m": 63
+        },
+        {
+          "n": "세가와",
+          "m": 77
+        },
+        {
+          "n": "세키구치",
+          "m": 83,
+          "og": true
+        }
+      ],
+      "away": [
+        {
+          "n": "마츠모토",
+          "m": 51
+        },
+        {
+          "n": "이와사키",
+          "m": 56
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -364286,6 +366513,19 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "코",
+          "m": 72
+        },
+        {
+          "n": "안자이",
+          "m": 85
+        }
+      ],
+      "away": []
+    },
     "cards": {
       "home": [
         {
@@ -364311,7 +366551,28 @@
     "gameId": "TdEJ60MmJy4r9Jr",
     "status": "completed",
     "awayScore": 4,
-    "homeScore": 0
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "압둘레라 알 암리",
+          "m": 18
+        },
+        {
+          "n": "안젤루",
+          "m": 45
+        },
+        {
+          "n": "주앙 펠릭스",
+          "m": 58
+        },
+        {
+          "n": "크리스티아누 호날두",
+          "m": 83
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-22",
@@ -364326,6 +366587,15 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "압둘라 알 말키",
+          "m": 3
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -364381,6 +366651,19 @@
     "status": "completed",
     "awayScore": 2,
     "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "라카제테",
+          "m": 51
+        },
+        {
+          "n": "라카제테",
+          "m": 60
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -364414,6 +366697,15 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "일레니케나",
+          "m": 45
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -364535,6 +366827,23 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "하베르츠",
+          "m": 15
+        },
+        {
+          "n": "사카",
+          "m": 23
+        },
+        {
+          "n": "외데고르",
+          "m": 49
+        }
+      ],
+      "away": []
+    },
     "cards": {
       "home": [
         {
@@ -364569,6 +366878,15 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "로드리고 리켈메",
+          "m": 63
+        }
+      ],
+      "away": []
+    },
     "cards": {
       "home": [
         {
@@ -365854,6 +368172,34 @@
     "status": "completed",
     "awayScore": 2,
     "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "나라",
+          "m": 31,
+          "og": true
+        },
+        {
+          "n": "레오 세아라",
+          "m": 60
+        },
+        {
+          "n": "차브리치",
+          "m": 64
+        }
+      ],
+      "away": [
+        {
+          "n": "모로오카",
+          "m": 43
+        },
+        {
+          "n": "레오 세아라",
+          "m": 76,
+          "og": true
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -366072,7 +368418,29 @@
     "gameId": "q34Q9ctOmIBdsWR",
     "status": "completed",
     "awayScore": 3,
-    "homeScore": 1
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "나카노",
+          "m": 82
+        }
+      ],
+      "away": [
+        {
+          "n": "마세",
+          "m": 17
+        },
+        {
+          "n": "키모토",
+          "m": 31
+        },
+        {
+          "n": "가토",
+          "m": 68
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-22",
@@ -366087,6 +368455,28 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "키무라",
+          "m": 7
+        },
+        {
+          "n": "아사노",
+          "m": 83
+        },
+        {
+          "n": "오노",
+          "m": 90
+        }
+      ],
+      "away": [
+        {
+          "n": "메시노",
+          "m": 11
+        }
+      ]
+    },
     "cards": {
       "home": [],
       "away": [
@@ -366127,6 +368517,15 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "티아구 안드라데",
+          "m": 62
+        }
+      ],
+      "away": []
+    },
     "cards": {
       "home": [
         {
@@ -366354,6 +368753,20 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "가토",
+          "m": 28
+        }
+      ],
+      "away": [
+        {
+          "n": "야마모토",
+          "m": 58
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -366423,6 +368836,15 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "미데라",
+          "m": 8
+        }
+      ],
+      "away": []
+    },
     "cards": {
       "home": [
         {
@@ -366485,6 +368907,82 @@
     "status": "completed",
     "awayScore": 7,
     "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "문선민",
+          "m": 6,
+          "pid": "naver:20170229"
+        },
+        {
+          "n": "바베츠",
+          "m": 12,
+          "pid": "naver:20260045"
+        },
+        {
+          "n": "문선민",
+          "m": 30,
+          "pid": "naver:20170229"
+        },
+        {
+          "n": "클리말라",
+          "m": 34,
+          "pid": "naver:20250331"
+        },
+        {
+          "n": "안데르손",
+          "m": 43,
+          "pid": "naver:20240179"
+        },
+        {
+          "n": "정승원",
+          "m": 52,
+          "pid": "naver:20160099"
+        },
+        {
+          "n": "이승모",
+          "m": 57,
+          "pid": "naver:20170052"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "이진용",
+          "type": "Y",
+          "m": 90,
+          "pid": "naver:20200084"
+        },
+        {
+          "n": "최건주",
+          "type": "Y",
+          "m": 70,
+          "pid": "naver:20200170"
+        }
+      ],
+      "away": [
+        {
+          "n": "정승원",
+          "type": "Y",
+          "m": 8,
+          "pid": "naver:20160099"
+        },
+        {
+          "n": "김진수",
+          "type": "Y",
+          "m": 91,
+          "pid": "naver:20170185"
+        },
+        {
+          "n": "송민규",
+          "type": "Y",
+          "m": 90,
+          "pid": "naver:20180034"
+        }
+      ]
+    },
     "assists": {
       "home": [],
       "away": [
@@ -366520,6 +369018,50 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "갈레고",
+          "m": 15,
+          "pid": "naver:20220353"
+        },
+        {
+          "n": "가브리엘",
+          "m": 31,
+          "pid": "naver:20230333"
+        },
+        {
+          "n": "김상준",
+          "m": 88,
+          "pid": "naver:20190194"
+        }
+      ],
+      "away": []
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "성예건",
+          "type": "Y",
+          "m": 84,
+          "pid": "naver:20260341"
+        }
+      ],
+      "away": [
+        {
+          "n": "조르지",
+          "type": "Y",
+          "m": 81,
+          "pid": "naver:20230225"
+        },
+        {
+          "n": "전민광",
+          "type": "Y",
+          "m": 64,
+          "pid": "naver:20150067"
+        }
+      ]
+    },
     "assists": {
       "home": [
         {
@@ -366550,7 +369092,55 @@
     "gameId": "202608220435142",
     "status": "completed",
     "awayScore": 0,
-    "homeScore": 0
+    "homeScore": 0,
+    "cards": {
+      "home": [
+        {
+          "n": "네게바",
+          "type": "Y",
+          "m": 46,
+          "pid": "naver:20260228"
+        },
+        {
+          "n": "최병욱",
+          "type": "Y",
+          "m": 96,
+          "pid": "naver:20250094"
+        },
+        {
+          "n": "아이아스",
+          "type": "Y",
+          "m": 70,
+          "pid": "naver:20260359"
+        }
+      ],
+      "away": [
+        {
+          "n": "박철우",
+          "type": "Y",
+          "m": 43,
+          "pid": "naver:20220139"
+        },
+        {
+          "n": "백종범",
+          "type": "Y",
+          "m": 98,
+          "pid": "naver:20190154"
+        },
+        {
+          "n": "김이석",
+          "type": "Y",
+          "m": 96,
+          "pid": "naver:20210227"
+        },
+        {
+          "n": "박태준",
+          "type": "Y",
+          "m": 84,
+          "pid": "naver:20180096"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-22",
@@ -366565,6 +369155,64 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "모따",
+          "m": 54,
+          "pid": "naver:20230224"
+        }
+      ],
+      "away": []
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "최우진",
+          "type": "Y",
+          "m": 27,
+          "pid": "naver:20230029"
+        },
+        {
+          "n": "김영빈",
+          "type": "Y",
+          "m": 100,
+          "pid": "naver:20140143"
+        },
+        {
+          "n": "이승우",
+          "type": "Y",
+          "m": 73,
+          "pid": "naver:20220042"
+        },
+        {
+          "n": "모따",
+          "type": "Y",
+          "m": 56,
+          "pid": "naver:20230224"
+        }
+      ],
+      "away": [
+        {
+          "n": "서명관",
+          "type": "Y",
+          "m": 95,
+          "pid": "naver:20230140"
+        },
+        {
+          "n": "정승현",
+          "type": "Y",
+          "m": 58,
+          "pid": "naver:20150109"
+        },
+        {
+          "n": "심상민",
+          "type": "Y",
+          "m": 50,
+          "pid": "naver:20140066"
+        }
+      ]
+    },
     "assists": {
       "home": [
         {
@@ -366813,6 +369461,29 @@
     "status": "completed",
     "awayScore": 2,
     "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "티클",
+          "m": 42,
+          "og": true
+        },
+        {
+          "n": "그레이",
+          "m": 90
+        }
+      ],
+      "away": [
+        {
+          "n": "트와인",
+          "m": 33
+        },
+        {
+          "n": "발라르드",
+          "m": 85
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -366854,6 +369525,28 @@
     "status": "completed",
     "awayScore": 3,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "해킷 페어차일드",
+          "m": 32
+        }
+      ],
+      "away": [
+        {
+          "n": "카부마-맥퀸",
+          "m": 7
+        },
+        {
+          "n": "세게치치",
+          "m": 16
+        },
+        {
+          "n": "아담스",
+          "m": 69
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -366902,6 +369595,23 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "아르콘테",
+          "m": 18
+        },
+        {
+          "n": "아르콘테",
+          "m": 58
+        },
+        {
+          "n": "컨들",
+          "m": 84
+        }
+      ],
+      "away": []
+    },
     "cards": {
       "home": [
         {
@@ -366950,6 +369660,19 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "아자이",
+          "m": 17
+        },
+        {
+          "n": "멘디",
+          "m": 38
+        }
+      ],
+      "away": []
+    },
     "cards": {
       "home": [
         {
@@ -367049,6 +369772,24 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "그뷔드욘센",
+          "m": 49
+        },
+        {
+          "n": "캔트웰",
+          "m": 55
+        }
+      ],
+      "away": [
+        {
+          "n": "사르미엔토",
+          "m": 12
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -367104,6 +369845,28 @@
     "status": "completed",
     "awayScore": 2,
     "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "모리스",
+          "m": 26
+        },
+        {
+          "n": "클라크",
+          "m": 49
+        }
+      ],
+      "away": [
+        {
+          "n": "애쉬포드",
+          "m": 19
+        },
+        {
+          "n": "살레흐",
+          "m": 39
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -367166,6 +369929,28 @@
     "status": "completed",
     "awayScore": 3,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "톰슨",
+          "m": 90
+        }
+      ],
+      "away": [
+        {
+          "n": "페르 로페스",
+          "m": 8
+        },
+        {
+          "n": "암스트롱",
+          "m": 71
+        },
+        {
+          "n": "페르 로페스",
+          "m": 82
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -367235,6 +370020,28 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "래린",
+          "m": 8
+        },
+        {
+          "n": "무바마",
+          "m": 89
+        },
+        {
+          "n": "매닝",
+          "m": 90
+        }
+      ],
+      "away": [
+        {
+          "n": "갈브레이스",
+          "m": 26
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -367325,6 +370132,24 @@
     "status": "completed",
     "awayScore": 2,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "피로에",
+          "m": 74
+        }
+      ],
+      "away": [
+        {
+          "n": "존스",
+          "m": 7
+        },
+        {
+          "n": "캠벨",
+          "m": 56
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -367380,6 +370205,20 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "아임레이",
+          "m": 22
+        }
+      ],
+      "away": [
+        {
+          "n": "셰룸고르",
+          "m": 14
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -367413,6 +370252,19 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "듀스버리-홀",
+          "m": 42
+        },
+        {
+          "n": "바리",
+          "m": 53
+        }
+      ],
+      "away": []
+    },
     "cards": {
       "home": [],
       "away": [
@@ -367439,6 +370291,24 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "에메르손",
+          "m": 24
+        },
+        {
+          "n": "클라크",
+          "m": 90
+        }
+      ],
+      "away": [
+        {
+          "n": "앙굴로",
+          "m": 39
+        }
+      ]
+    },
     "cards": {
       "home": [],
       "away": [
@@ -367585,6 +370455,28 @@
     "status": "completed",
     "awayScore": 3,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "아이토르 파레데스",
+          "m": 70
+        }
+      ],
+      "away": [
+        {
+          "n": "오소",
+          "m": 15
+        },
+        {
+          "n": "에주케",
+          "m": 50
+        },
+        {
+          "n": "이삭 로메로",
+          "m": 57
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -367761,7 +370653,16 @@
     "gameId": "ZZ3DnVqYR6Fwvqj",
     "status": "completed",
     "awayScore": 1,
-    "homeScore": 0
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "헨드리",
+          "m": 78
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-23",
@@ -367776,6 +370677,32 @@
     "status": "completed",
     "awayScore": 2,
     "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "우트쿠스",
+          "m": 21
+        },
+        {
+          "n": "이케르 코르타자레나",
+          "m": 30
+        },
+        {
+          "n": "피나스",
+          "m": 45
+        }
+      ],
+      "away": [
+        {
+          "n": "하메드-알라흐",
+          "m": 52
+        },
+        {
+          "n": "하메드-알라흐",
+          "m": 90
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -367823,6 +370750,23 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "루이스-포터",
+          "m": 12
+        },
+        {
+          "n": "야넬트",
+          "m": 33
+        },
+        {
+          "n": "카요데",
+          "m": 49
+        }
+      ],
+      "away": []
+    },
     "cards": {
       "home": [
         {
@@ -368306,6 +371250,27 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 4,
+    "scorers": {
+      "home": [
+        {
+          "n": "토니",
+          "m": 5
+        },
+        {
+          "n": "토니",
+          "m": 13
+        },
+        {
+          "n": "트린캉",
+          "m": 51
+        },
+        {
+          "n": "토니",
+          "m": 57
+        }
+      ],
+      "away": []
+    },
     "cards": {
       "home": [
         {
@@ -368442,6 +371407,24 @@
     "status": "completed",
     "awayScore": 2,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "파비우 실바",
+          "m": 75
+        }
+      ],
+      "away": [
+        {
+          "n": "브라운",
+          "m": 28
+        },
+        {
+          "n": "올리세",
+          "m": 45
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -368815,6 +371798,24 @@
     "status": "completed",
     "awayScore": 2,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "칼라",
+          "m": 30
+        }
+      ],
+      "away": [
+        {
+          "n": "벨링엄",
+          "m": 9
+        },
+        {
+          "n": "카를로스 에스피",
+          "m": 90
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -369661,6 +372662,28 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "슈네그",
+          "m": 64
+        },
+        {
+          "n": "클리어리",
+          "m": 66
+        },
+        {
+          "n": "펩 비엘",
+          "m": 77
+        }
+      ],
+      "away": [
+        {
+          "n": "먼티누",
+          "m": 55
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -369717,6 +372740,24 @@
     "status": "completed",
     "awayScore": 2,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "메시",
+          "m": 82
+        }
+      ],
+      "away": [
+        {
+          "n": "사전트",
+          "m": 59
+        },
+        {
+          "n": "에티엔",
+          "m": 62
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -369759,6 +372800,24 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "그리에즈만",
+          "m": 53
+        },
+        {
+          "n": "그리에즈만",
+          "m": 81
+        }
+      ],
+      "away": [
+        {
+          "n": "마르추크",
+          "m": 36
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -369808,6 +372867,20 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "하퍼",
+          "m": 85
+        }
+      ],
+      "away": [
+        {
+          "n": "하일레-셀라시에",
+          "m": 38
+        }
+      ]
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -369823,6 +372896,28 @@
     "status": "completed",
     "awayScore": 2,
     "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "리오스",
+          "m": 16
+        },
+        {
+          "n": "오우수",
+          "m": 79
+        }
+      ],
+      "away": [
+        {
+          "n": "라모스",
+          "m": 19
+        },
+        {
+          "n": "요시다",
+          "m": 48
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -369865,6 +372960,20 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "에반데르",
+          "m": 24
+        }
+      ],
+      "away": [
+        {
+          "n": "코사-리엔치",
+          "m": 83
+        }
+      ]
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -370056,6 +373165,24 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "베처",
+          "m": 23
+        },
+        {
+          "n": "폴바라",
+          "m": 85
+        }
+      ],
+      "away": [
+        {
+          "n": "알리유",
+          "m": 75
+        }
+      ]
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -370071,6 +373198,32 @@
     "status": "completed",
     "awayScore": 2,
     "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "무크타르",
+          "m": 27
+        },
+        {
+          "n": "베이커-화이팅",
+          "m": 90
+        },
+        {
+          "n": "나자르",
+          "m": 90
+        }
+      ],
+      "away": [
+        {
+          "n": "파르시",
+          "m": 58
+        },
+        {
+          "n": "고메스",
+          "m": 68
+        }
+      ]
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -370205,6 +373358,20 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "하인스-이케",
+          "m": 21
+        }
+      ],
+      "away": [
+        {
+          "n": "설리반",
+          "m": 18
+        }
+      ]
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -370220,6 +373387,31 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 5,
+    "scorers": {
+      "home": [
+        {
+          "n": "사비",
+          "m": 11
+        },
+        {
+          "n": "화이트",
+          "m": 23
+        },
+        {
+          "n": "화이트",
+          "m": 37
+        },
+        {
+          "n": "오캄포",
+          "m": 45
+        },
+        {
+          "n": "카이세도",
+          "m": 68
+        }
+      ],
+      "away": []
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -370249,6 +373441,20 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "부앙가",
+          "m": 79
+        }
+      ],
+      "away": [
+        {
+          "n": "다비드 페레이라 다 코스타",
+          "m": 4
+        }
+      ]
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -370264,6 +373470,36 @@
     "status": "completed",
     "awayScore": 5,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "베르너",
+          "m": 4
+        }
+      ],
+      "away": [
+        {
+          "n": "페레이라",
+          "m": 10
+        },
+        {
+          "n": "예보아",
+          "m": 40
+        },
+        {
+          "n": "예보아",
+          "m": 44
+        },
+        {
+          "n": "칼데이라",
+          "m": 65
+        },
+        {
+          "n": "곤살레스",
+          "m": 86
+        }
+      ]
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -370279,6 +373515,23 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "발라카리",
+          "m": 27
+        },
+        {
+          "n": "아슈리",
+          "m": 35
+        },
+        {
+          "n": "가브리엘 피라니",
+          "m": 71
+        }
+      ],
+      "away": []
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -371104,6 +374357,28 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "나카무라",
+          "m": 8
+        },
+        {
+          "n": "니시무라",
+          "m": 54
+        },
+        {
+          "n": "라비",
+          "m": 60
+        }
+      ],
+      "away": [
+        {
+          "n": "와타나베",
+          "m": 45
+        }
+      ]
+    },
     "cards": {
       "home": [],
       "away": [
@@ -371130,6 +374405,44 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "루빅손",
+          "m": 46,
+          "pid": "naver:20230105"
+        },
+        {
+          "n": "주민규",
+          "m": 55,
+          "pid": "naver:20130248"
+        },
+        {
+          "n": "정재희",
+          "m": 65,
+          "pid": "naver:20160178"
+        }
+      ],
+      "away": []
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "이순민",
+          "type": "Y",
+          "m": 43,
+          "pid": "naver:20170097"
+        }
+      ],
+      "away": [
+        {
+          "n": "서민우",
+          "type": "R",
+          "m": 41,
+          "pid": "naver:20200077"
+        }
+      ]
+    },
     "assists": {
       "home": [
         {
@@ -371160,7 +374473,42 @@
     "gameId": "202608232218144",
     "status": "completed",
     "awayScore": 1,
-    "homeScore": 0
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "무고사",
+          "m": 94,
+          "pk": true,
+          "pid": "naver:20180196"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "주앙 페드로",
+          "type": "Y",
+          "m": 21,
+          "pid": "naver:20260352"
+        },
+        {
+          "n": "권성윤",
+          "type": "Y",
+          "m": 77,
+          "pid": "naver:20200029"
+        }
+      ],
+      "away": [
+        {
+          "n": "김성민",
+          "type": "Y",
+          "m": 53,
+          "pid": "naver:20220113"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-23",
@@ -371508,6 +374856,29 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "휘트웰",
+          "m": 18
+        },
+        {
+          "n": "프라이스",
+          "m": 46
+        },
+        {
+          "n": "프라이스",
+          "m": 65
+        }
+      ],
+      "away": [
+        {
+          "n": "스타일스",
+          "m": 8,
+          "og": true
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -371847,6 +375218,28 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 4,
+    "scorers": {
+      "home": [
+        {
+          "n": "린델뢰프",
+          "m": 8,
+          "og": true
+        },
+        {
+          "n": "더 카위퍼르",
+          "m": 18
+        },
+        {
+          "n": "하인셀우드",
+          "m": 30
+        },
+        {
+          "n": "하인셀우드",
+          "m": 31
+        }
+      ],
+      "away": []
+    },
     "cards": {
       "home": [
         {
@@ -371909,6 +375302,24 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "게히",
+          "m": 84
+        },
+        {
+          "n": "그바르디올",
+          "m": 90
+        }
+      ],
+      "away": [
+        {
+          "n": "태버니어",
+          "m": 26
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -372245,6 +375656,28 @@
     "status": "completed",
     "awayScore": 2,
     "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "마르크 푸빌",
+          "m": 59
+        },
+        {
+          "n": "시메오네",
+          "m": 85
+        }
+      ],
+      "away": [
+        {
+          "n": "제라르 모레노",
+          "m": 66
+        },
+        {
+          "n": "미카우타제",
+          "m": 78
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -372374,6 +375807,28 @@
     "status": "completed",
     "awayScore": 2,
     "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "엘랑가",
+          "m": 5
+        },
+        {
+          "n": "윌록",
+          "m": 57
+        }
+      ],
+      "away": [
+        {
+          "n": "학포",
+          "m": 55
+        },
+        {
+          "n": "소보슬러이",
+          "m": 90
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -372706,6 +376161,15 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "위날",
+          "m": 81
+        }
+      ],
+      "away": []
+    },
     "cards": {
       "home": [
         {
@@ -373378,6 +376842,28 @@
     "status": "completed",
     "awayScore": 2,
     "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "스지만스키",
+          "m": 9
+        },
+        {
+          "n": "르폴",
+          "m": 38
+        }
+      ],
+      "away": [
+        {
+          "n": "페란 토레스",
+          "m": 71
+        },
+        {
+          "n": "페란 토레스",
+          "m": 82
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -373647,6 +377133,31 @@
     "status": "completed",
     "awayScore": 5,
     "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "하피냐",
+          "m": 14
+        },
+        {
+          "n": "아데예미",
+          "m": 45
+        },
+        {
+          "n": "하피냐",
+          "m": 67
+        },
+        {
+          "n": "페르민 로페스",
+          "m": 71
+        },
+        {
+          "n": "페르민 로페스",
+          "m": 79
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -373931,6 +377442,20 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "트거만",
+          "m": 36
+        }
+      ],
+      "away": [
+        {
+          "n": "샌즈",
+          "m": 45
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -373980,6 +377505,24 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "자콥",
+          "m": 13
+        },
+        {
+          "n": "피코",
+          "m": 24
+        }
+      ],
+      "away": [
+        {
+          "n": "아프리파",
+          "m": 70
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -374583,6 +378126,32 @@
     "status": "completed",
     "awayScore": 3,
     "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "킹",
+          "m": 23
+        },
+        {
+          "n": "곤살로 가르시아",
+          "m": 54
+        }
+      ],
+      "away": [
+        {
+          "n": "주앙 페드로",
+          "m": 1
+        },
+        {
+          "n": "로저스",
+          "m": 41
+        },
+        {
+          "n": "파머",
+          "m": 49
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -374638,6 +378207,20 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "추페",
+          "m": 34
+        }
+      ],
+      "away": [
+        {
+          "n": "오바메양",
+          "m": 21
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -375863,7 +379446,31 @@
     "gameId": "202608253505146",
     "status": "completed",
     "awayScore": 0,
-    "homeScore": 0
+    "homeScore": 0,
+    "cards": {
+      "home": [
+        {
+          "n": "김태환",
+          "type": "Y",
+          "m": 74,
+          "pid": "naver:20180324"
+        }
+      ],
+      "away": [
+        {
+          "n": "강상윤",
+          "type": "Y",
+          "m": 92,
+          "pid": "naver:20220276"
+        },
+        {
+          "n": "김태현",
+          "type": "Y",
+          "m": 90,
+          "pid": "naver:20180185"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-25",
@@ -375878,6 +379485,44 @@
     "status": "completed",
     "awayScore": 2,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "세레스틴",
+          "m": 91,
+          "pid": "naver:20260221"
+        }
+      ],
+      "away": [
+        {
+          "n": "원기종",
+          "m": 14,
+          "pid": "naver:20180204"
+        },
+        {
+          "n": "니시야 켄토",
+          "m": 48,
+          "pid": "naver:20260024"
+        }
+      ]
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "조상혁",
+          "type": "Y",
+          "m": 43,
+          "pid": "naver:20250022"
+        },
+        {
+          "n": "주닝요",
+          "type": "Y",
+          "m": 80,
+          "pid": "naver:20230148"
+        }
+      ]
+    },
     "assists": {
       "home": [
         {
@@ -375909,7 +379554,59 @@
     "gameId": "202608250926145",
     "status": "completed",
     "awayScore": 0,
-    "homeScore": 1
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "클리말라",
+          "m": 48,
+          "pid": "naver:20250331"
+        }
+      ],
+      "away": []
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "야잔",
+          "type": "Y",
+          "m": 8,
+          "pid": "naver:20240324"
+        },
+        {
+          "n": "황도윤",
+          "type": "Y",
+          "m": 89,
+          "pid": "naver:20230093"
+        },
+        {
+          "n": "바베츠",
+          "type": "Y",
+          "m": 61,
+          "pid": "naver:20260045"
+        }
+      ],
+      "away": [
+        {
+          "n": "성예건",
+          "type": "Y",
+          "m": 34,
+          "pid": "naver:20260341"
+        },
+        {
+          "n": "바사니",
+          "type": "Y",
+          "m": 83,
+          "pid": "naver:20230104"
+        },
+        {
+          "n": "카즈",
+          "type": "Y",
+          "m": 64,
+          "pid": "naver:20230141"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-26",
@@ -376177,6 +379874,15 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "파블로 가르시아",
+          "m": 83
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -377964,6 +381670,82 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "마테우스",
+          "m": 45,
+          "pk": true,
+          "pid": "naver:20240078"
+        },
+        {
+          "n": "마테우스",
+          "m": 84,
+          "pid": "naver:20240078"
+        }
+      ],
+      "away": [
+        {
+          "n": "이동률",
+          "m": 39,
+          "pid": "naver:20190131"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "한가람",
+          "type": "Y",
+          "m": 29,
+          "pid": "naver:20240080"
+        },
+        {
+          "n": "이창용",
+          "type": "Y",
+          "m": 89,
+          "pid": "naver:20130191"
+        },
+        {
+          "n": "채현우",
+          "type": "Y",
+          "m": 85,
+          "pid": "naver:20240243"
+        }
+      ],
+      "away": [
+        {
+          "n": "이민혁",
+          "type": "Y",
+          "m": 17,
+          "pid": "naver:20230071"
+        },
+        {
+          "n": "서재민",
+          "type": "Y",
+          "m": 88,
+          "pid": "naver:20220279"
+        },
+        {
+          "n": "이명주",
+          "type": "Y",
+          "m": 86,
+          "pid": "naver:20120127"
+        },
+        {
+          "n": "후안 이비자",
+          "type": "Y",
+          "m": 82,
+          "pid": "naver:20260160"
+        },
+        {
+          "n": "후안 이비자",
+          "type": "Y",
+          "m": 56,
+          "pid": "naver:20260160"
+        }
+      ]
+    },
     "assists": {
       "home": [],
       "away": [
@@ -377987,6 +381769,57 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "정재희",
+          "m": 93,
+          "pid": "naver:20160178"
+        },
+        {
+          "n": "루빅손",
+          "m": 96,
+          "pid": "naver:20230105"
+        }
+      ],
+      "away": [
+        {
+          "n": "이진현",
+          "m": 48,
+          "pid": "naver:20180296"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "김봉수",
+          "type": "Y",
+          "m": 83,
+          "pid": "naver:20210176"
+        },
+        {
+          "n": "주민규",
+          "type": "Y",
+          "m": 50,
+          "pid": "naver:20130248"
+        }
+      ],
+      "away": [
+        {
+          "n": "조현우",
+          "type": "Y",
+          "m": 64,
+          "pid": "naver:20130156"
+        },
+        {
+          "n": "토마스",
+          "type": "Y",
+          "m": 46,
+          "pid": "naver:20250087"
+        }
+      ]
+    },
     "assists": {
       "home": [
         {
@@ -378010,6 +381843,57 @@
     "status": "completed",
     "awayScore": 2,
     "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "강투지",
+          "m": 87,
+          "pid": "naver:20230308"
+        },
+        {
+          "n": "김동현",
+          "m": 88,
+          "pid": "naver:20180235"
+        }
+      ],
+      "away": [
+        {
+          "n": "문민서",
+          "m": 4,
+          "pid": "naver:20240210"
+        },
+        {
+          "n": "문민서",
+          "m": 44,
+          "pk": true,
+          "pid": "naver:20240210"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "모재현",
+          "type": "Y",
+          "m": 80,
+          "pid": "naver:20170164"
+        },
+        {
+          "n": "홍철",
+          "type": "R",
+          "m": 67,
+          "pid": "naver:20100014"
+        }
+      ],
+      "away": [
+        {
+          "n": "김우진",
+          "type": "Y",
+          "m": 65,
+          "pid": "naver:20260343"
+        }
+      ]
+    },
     "assists": {
       "home": [
         {
@@ -378324,6 +382208,32 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 4,
+    "scorers": {
+      "home": [
+        {
+          "n": "음바페",
+          "m": 40
+        },
+        {
+          "n": "음바페",
+          "m": 60
+        },
+        {
+          "n": "비니시우스",
+          "m": 68
+        },
+        {
+          "n": "음바페",
+          "m": 80
+        }
+      ],
+      "away": [
+        {
+          "n": "루카 수치치",
+          "m": 44
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -380350,6 +384260,24 @@
     "status": "completed",
     "awayScore": 2,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "이아고 아스파스",
+          "m": 14
+        }
+      ],
+      "away": [
+        {
+          "n": "키케 바르하",
+          "m": 54
+        },
+        {
+          "n": "부디미르",
+          "m": 64
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -382240,6 +386168,24 @@
     "status": "completed",
     "awayScore": 2,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "도일",
+          "m": 54
+        }
+      ],
+      "away": [
+        {
+          "n": "노이만",
+          "m": 13
+        },
+        {
+          "n": "노이만",
+          "m": 63
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -382281,6 +386227,33 @@
     "status": "completed",
     "awayScore": 4,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "돈나룸마",
+          "m": 56,
+          "og": true
+        }
+      ],
+      "away": [
+        {
+          "n": "홀란",
+          "m": 17
+        },
+        {
+          "n": "셰르키",
+          "m": 54
+        },
+        {
+          "n": "셰르키",
+          "m": 59
+        },
+        {
+          "n": "홀란",
+          "m": 84
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -385057,6 +389030,23 @@
     "status": "completed",
     "awayScore": 3,
     "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "오포쿠",
+          "m": 2
+        },
+        {
+          "n": "엄지성",
+          "m": 44
+        },
+        {
+          "n": "로날드",
+          "m": 90
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -385112,6 +389102,28 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "랭크셔",
+          "m": 48
+        },
+        {
+          "n": "랭크셔",
+          "m": 73
+        },
+        {
+          "n": "존스",
+          "m": 87
+        }
+      ],
+      "away": [
+        {
+          "n": "모건",
+          "m": 65
+        }
+      ]
+    },
     "cards": {
       "home": [],
       "away": [
@@ -385138,6 +389150,32 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 4,
+    "scorers": {
+      "home": [
+        {
+          "n": "호드리구 고메스",
+          "m": 19
+        },
+        {
+          "n": "호드리구 고메스",
+          "m": 22
+        },
+        {
+          "n": "라울 히메네스",
+          "m": 55
+        },
+        {
+          "n": "제임스",
+          "m": 84
+        }
+      ],
+      "away": [
+        {
+          "n": "갤러거",
+          "m": 2
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -385671,6 +389709,24 @@
     "status": "completed",
     "awayScore": 2,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "모리시타",
+          "m": 49
+        }
+      ],
+      "away": [
+        {
+          "n": "스미스",
+          "m": 51
+        },
+        {
+          "n": "던",
+          "m": 74
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -385726,6 +389782,15 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "하우스",
+          "m": 66
+        }
+      ]
+    },
     "cards": {
       "home": [],
       "away": [
@@ -385836,6 +389901,28 @@
     "status": "completed",
     "awayScore": 2,
     "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "모이란",
+          "m": 2
+        },
+        {
+          "n": "애쉬포드",
+          "m": 38
+        }
+      ],
+      "away": [
+        {
+          "n": "캐넌",
+          "m": 4
+        },
+        {
+          "n": "오헤어",
+          "m": 7
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -385883,6 +389970,15 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "어헌-그랜트",
+          "m": 56
+        }
+      ],
+      "away": []
+    },
     "cards": {
       "home": [
         {
@@ -385917,6 +390013,32 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 4,
+    "scorers": {
+      "home": [
+        {
+          "n": "투레",
+          "m": 2
+        },
+        {
+          "n": "브룩스",
+          "m": 5
+        },
+        {
+          "n": "투레",
+          "m": 21
+        },
+        {
+          "n": "브룩스",
+          "m": 67
+        }
+      ],
+      "away": [
+        {
+          "n": "로랑",
+          "m": 27
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -385985,6 +390107,36 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 5,
+    "scorers": {
+      "home": [
+        {
+          "n": "래린",
+          "m": 25
+        },
+        {
+          "n": "아자즈",
+          "m": 38
+        },
+        {
+          "n": "레오 시엔자",
+          "m": 55
+        },
+        {
+          "n": "래린",
+          "m": 62
+        },
+        {
+          "n": "펠로우즈",
+          "m": 86
+        }
+      ],
+      "away": [
+        {
+          "n": "사이크스",
+          "m": 15
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -386026,6 +390178,21 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "나비자다",
+          "m": 19
+        }
+      ],
+      "away": [
+        {
+          "n": "폴락",
+          "m": 27,
+          "og": true
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -388633,6 +392800,28 @@
     "status": "completed",
     "awayScore": 2,
     "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "조벨리치",
+          "m": 12
+        },
+        {
+          "n": "조벨리치",
+          "m": 48
+        }
+      ],
+      "away": [
+        {
+          "n": "하일레-셀라시에",
+          "m": 38
+        },
+        {
+          "n": "레반도프스키",
+          "m": 81
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -388993,6 +393182,20 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "설로이",
+          "m": 70
+        }
+      ],
+      "away": [
+        {
+          "n": "페르난데스",
+          "m": 29
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -389056,6 +393259,44 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 7,
+    "scorers": {
+      "home": [
+        {
+          "n": "카세미루",
+          "m": 20
+        },
+        {
+          "n": "메시",
+          "m": 40
+        },
+        {
+          "n": "메시",
+          "m": 52
+        },
+        {
+          "n": "수아레스",
+          "m": 80
+        },
+        {
+          "n": "메시",
+          "m": 83
+        },
+        {
+          "n": "숀",
+          "m": 89
+        },
+        {
+          "n": "메시",
+          "m": 90
+        }
+      ],
+      "away": [
+        {
+          "n": "헤르베스",
+          "m": 37
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -389098,6 +393339,19 @@
     "status": "completed",
     "awayScore": 2,
     "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "지오르노",
+          "m": 22
+        },
+        {
+          "n": "아바다",
+          "m": 48
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -389245,6 +393499,36 @@
     "status": "completed",
     "awayScore": 3,
     "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "칼데이라",
+          "m": 71
+        },
+        {
+          "n": "매르카니치",
+          "m": 74
+        },
+        {
+          "n": "예보아",
+          "m": 75
+        }
+      ],
+      "away": [
+        {
+          "n": "다이크",
+          "m": 28
+        },
+        {
+          "n": "그리에즈만",
+          "m": 64
+        },
+        {
+          "n": "스파이서",
+          "m": 90
+        }
+      ]
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -389464,6 +393748,15 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "캐논",
+          "m": 58
+        }
+      ],
+      "away": []
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -389708,6 +394001,24 @@
     "status": "completed",
     "awayScore": 2,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "안토니",
+          "m": 89
+        }
+      ],
+      "away": [
+        {
+          "n": "토레스",
+          "m": 25
+        },
+        {
+          "n": "스바토크",
+          "m": 90
+        }
+      ]
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -389723,6 +394034,28 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "아슈리",
+          "m": 11
+        },
+        {
+          "n": "사전트",
+          "m": 48
+        },
+        {
+          "n": "펠레그리노",
+          "m": 70
+        }
+      ],
+      "away": [
+        {
+          "n": "로사노",
+          "m": 55
+        }
+      ]
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -390411,7 +394744,25 @@
     "gameId": "202608302103156",
     "status": "completed",
     "awayScore": 0,
-    "homeScore": 0
+    "homeScore": 0,
+    "cards": {
+      "home": [
+        {
+          "n": "아부달라",
+          "type": "Y",
+          "m": 84,
+          "pid": "naver:20260043"
+        }
+      ],
+      "away": [
+        {
+          "n": "완델손",
+          "type": "Y",
+          "m": 35,
+          "pid": "naver:20150253"
+        }
+      ]
+    }
   },
   {
     "date": "2026-08-30",
@@ -390531,6 +394882,64 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "제르소",
+          "m": 87,
+          "pid": "naver:20210223"
+        }
+      ],
+      "away": [
+        {
+          "n": "이승우",
+          "m": 82,
+          "pid": "naver:20220042"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "이명주",
+          "type": "Y",
+          "m": 23,
+          "pid": "naver:20120127"
+        },
+        {
+          "n": "김명순",
+          "type": "Y",
+          "m": 3,
+          "pid": "naver:20210305"
+        },
+        {
+          "n": "서재민",
+          "type": "Y",
+          "m": 90,
+          "pid": "naver:20220279"
+        }
+      ],
+      "away": [
+        {
+          "n": "김태환",
+          "type": "Y",
+          "m": 23,
+          "pid": "naver:20100052"
+        },
+        {
+          "n": "김영빈",
+          "type": "Y",
+          "m": 1,
+          "pid": "naver:20140143"
+        },
+        {
+          "n": "최우진",
+          "type": "Y",
+          "m": 95,
+          "pid": "naver:20230029"
+        }
+      ]
+    },
     "assists": {
       "home": [],
       "away": [
@@ -393820,6 +398229,28 @@
     "status": "completed",
     "awayScore": 3,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "브라이스 멘데스",
+          "m": 8
+        }
+      ],
+      "away": [
+        {
+          "n": "폴스터",
+          "m": 32
+        },
+        {
+          "n": "트거만",
+          "m": 41
+        },
+        {
+          "n": "카를레스 힐",
+          "m": 79
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -394369,6 +398800,15 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "사카",
+          "m": 59
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -409259,6 +413699,20 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "추쿠",
+          "m": 52
+        }
+      ],
+      "away": [
+        {
+          "n": "몰트비",
+          "m": 89
+        }
+      ]
+    },
     "phaseCode": "GROUP"
   },
   {
@@ -416299,6 +420753,20 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "트라오레",
+          "m": 36
+        }
+      ],
+      "away": [
+        {
+          "n": "조혜영",
+          "m": 12
+        }
+      ]
+    },
     "phaseCode": "GROUP"
   },
   {
@@ -417753,6 +422221,24 @@
     "status": "completed",
     "awayScore": 2,
     "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "존슨",
+          "m": 18
+        }
+      ],
+      "away": [
+        {
+          "n": "파다",
+          "m": 40
+        },
+        {
+          "n": "치모",
+          "m": 59
+        }
+      ]
+    },
     "phaseCode": "GROUP"
   },
   {
@@ -420945,6 +425431,19 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "강류미",
+          "m": 25
+        },
+        {
+          "n": "강류미",
+          "m": 50
+        }
+      ],
+      "away": []
+    },
     "phaseCode": "GROUP"
   },
   {
@@ -424455,6 +428954,159 @@
   {
     "date": "2026-09-09",
     "time": "03:45",
+    "league": "EFL",
+    "venueId": "southampton_st_marys",
+    "home": "사우샘프턴",
+    "away": "스완지",
+    "stadium": "세인트 메리스 스타디움",
+    "timeTbd": false,
+    "gameId": "YEzthB2I7ULBOnY",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "아자즈",
+          "m": 9,
+          "a": "Flynn Downes",
+          "nat": "Republic of Ireland",
+          "aNat": "England",
+          "pid": "espn:251631",
+          "apid": "espn:255916"
+        },
+        {
+          "n": "래린",
+          "m": 33,
+          "a": "James Bree",
+          "nat": "Canada",
+          "aNat": "England",
+          "pid": "espn:205024",
+          "apid": "espn:204286"
+        },
+        {
+          "n": "레오 시엔자",
+          "m": 78,
+          "a": "Kuryu Matsuki",
+          "nat": "Brazil",
+          "aNat": "Japan",
+          "pid": "espn:343995",
+          "apid": "espn:333631"
+        }
+      ],
+      "away": [
+        {
+          "n": "비포트니크",
+          "m": 52,
+          "nat": "Slovenia",
+          "pid": "espn:322158"
+        }
+      ]
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Ronald",
+          "type": "Y",
+          "m": 54,
+          "pid": "espn:319788",
+          "nat": "Brazil"
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-09",
+    "time": "03:45",
+    "league": "EFL",
+    "venueId": "watford_vicarage_road",
+    "home": "왓퍼드",
+    "away": "프레스턴",
+    "stadium": "비커리지 로드",
+    "timeTbd": false,
+    "gameId": "2n8KOshcekINj3A",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "에도 카옘베",
+          "m": 69,
+          "nat": "Congo DR",
+          "pid": "espn:268986"
+        },
+        {
+          "n": "둠비아",
+          "m": 76,
+          "a": "Iker Bravo",
+          "nat": "Mali",
+          "aNat": "Spain",
+          "pid": "espn:137393",
+          "apid": "espn:330242"
+        }
+      ],
+      "away": [
+        {
+          "n": "랭",
+          "m": 5,
+          "nat": "England",
+          "pid": "espn:240158"
+        }
+      ]
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Andrija Vukcevic",
+          "type": "Y",
+          "m": 62,
+          "pid": "espn:221307",
+          "nat": "Montenegro"
+        },
+        {
+          "n": "Lewis Gibson",
+          "type": "Y",
+          "m": 67,
+          "pid": "espn:261431",
+          "nat": "England"
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-09",
+    "time": "03:45",
+    "league": "EFL",
+    "venueId": "wrexham_racecourse_ground",
+    "home": "렉섬",
+    "away": "번리",
+    "stadium": "레이스코스 그라운드",
+    "timeTbd": false,
+    "gameId": "8059agG5ekMqb6q",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "에코미에",
+          "m": 55
+        }
+      ],
+      "away": [
+        {
+          "n": "암두니",
+          "m": 26
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-09",
+    "time": "03:45",
     "league": "EFLCUP",
     "venueId": "bournemouth_dean_court",
     "home": "본머스",
@@ -424766,159 +429418,6 @@
       ]
     },
     "phaseCode": "T32"
-  },
-  {
-    "date": "2026-09-09",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "southampton_st_marys",
-    "home": "사우샘프턴",
-    "away": "스완지",
-    "stadium": "세인트 메리스 스타디움",
-    "timeTbd": false,
-    "gameId": "YEzthB2I7ULBOnY",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 3,
-    "scorers": {
-      "home": [
-        {
-          "n": "아자즈",
-          "m": 9,
-          "a": "Flynn Downes",
-          "nat": "Republic of Ireland",
-          "aNat": "England",
-          "pid": "espn:251631",
-          "apid": "espn:255916"
-        },
-        {
-          "n": "래린",
-          "m": 33,
-          "a": "James Bree",
-          "nat": "Canada",
-          "aNat": "England",
-          "pid": "espn:205024",
-          "apid": "espn:204286"
-        },
-        {
-          "n": "레오 시엔자",
-          "m": 78,
-          "a": "Kuryu Matsuki",
-          "nat": "Brazil",
-          "aNat": "Japan",
-          "pid": "espn:343995",
-          "apid": "espn:333631"
-        }
-      ],
-      "away": [
-        {
-          "n": "비포트니크",
-          "m": 52,
-          "nat": "Slovenia",
-          "pid": "espn:322158"
-        }
-      ]
-    },
-    "cards": {
-      "home": [],
-      "away": [
-        {
-          "n": "Ronald",
-          "type": "Y",
-          "m": 54,
-          "pid": "espn:319788",
-          "nat": "Brazil"
-        }
-      ]
-    }
-  },
-  {
-    "date": "2026-09-09",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "watford_vicarage_road",
-    "home": "왓퍼드",
-    "away": "프레스턴",
-    "stadium": "비커리지 로드",
-    "timeTbd": false,
-    "gameId": "2n8KOshcekINj3A",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "에도 카옘베",
-          "m": 69,
-          "nat": "Congo DR",
-          "pid": "espn:268986"
-        },
-        {
-          "n": "둠비아",
-          "m": 76,
-          "a": "Iker Bravo",
-          "nat": "Mali",
-          "aNat": "Spain",
-          "pid": "espn:137393",
-          "apid": "espn:330242"
-        }
-      ],
-      "away": [
-        {
-          "n": "랭",
-          "m": 5,
-          "nat": "England",
-          "pid": "espn:240158"
-        }
-      ]
-    },
-    "cards": {
-      "home": [],
-      "away": [
-        {
-          "n": "Andrija Vukcevic",
-          "type": "Y",
-          "m": 62,
-          "pid": "espn:221307",
-          "nat": "Montenegro"
-        },
-        {
-          "n": "Lewis Gibson",
-          "type": "Y",
-          "m": 67,
-          "pid": "espn:261431",
-          "nat": "England"
-        }
-      ]
-    }
-  },
-  {
-    "date": "2026-09-09",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "wrexham_racecourse_ground",
-    "home": "렉섬",
-    "away": "번리",
-    "stadium": "레이스코스 그라운드",
-    "timeTbd": false,
-    "gameId": "8059agG5ekMqb6q",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 1,
-    "scorers": {
-      "home": [
-        {
-          "n": "에코미에",
-          "m": 55
-        }
-      ],
-      "away": [
-        {
-          "n": "암두니",
-          "m": 26
-        }
-      ]
-    }
   },
   {
     "date": "2026-09-09",
@@ -455637,6 +460136,77 @@
   {
     "date": "2026-09-16",
     "time": "03:45",
+    "league": "EFL",
+    "venueId": "middlesbrough_riverside",
+    "home": "미들즈브러",
+    "away": "밀월",
+    "stadium": "리버사이드 스타디움",
+    "timeTbd": false,
+    "gameId": "YK3SlqCpysSMqvp",
+    "status": "completed",
+    "awayScore": 2,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "코지어-뒤베리",
+          "m": 50,
+          "nat": "England",
+          "pid": "espn:327170"
+        },
+        {
+          "n": "랭크셔",
+          "m": 61,
+          "a": "Luke Ayling",
+          "nat": "England",
+          "aNat": "England",
+          "pid": "espn:349181",
+          "apid": "espn:136380"
+        }
+      ],
+      "away": [
+        {
+          "n": "아르콘테",
+          "m": 11,
+          "a": "Camiel Neghli",
+          "nat": "Guadeloupe",
+          "aNat": "Algeria",
+          "pid": "espn:315189",
+          "apid": "espn:310173"
+        },
+        {
+          "n": "다이크스",
+          "m": 36,
+          "a": "Caleb Taylor",
+          "nat": "Scotland",
+          "aNat": "England",
+          "pid": "espn:207538",
+          "apid": "espn:308572"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Riley McGree",
+          "type": "Y",
+          "m": 66,
+          "pid": "espn:235096"
+        }
+      ],
+      "away": [
+        {
+          "n": "Derek Mazou-Sacko",
+          "type": "Y",
+          "m": 59,
+          "pid": "espn:324659"
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-16",
+    "time": "03:45",
     "league": "EFLCUP",
     "venueId": "westham_london_stadium",
     "home": "웨스트햄",
@@ -455707,77 +460277,6 @@
       ]
     },
     "phaseCode": "T32"
-  },
-  {
-    "date": "2026-09-16",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "middlesbrough_riverside",
-    "home": "미들즈브러",
-    "away": "밀월",
-    "stadium": "리버사이드 스타디움",
-    "timeTbd": false,
-    "gameId": "YK3SlqCpysSMqvp",
-    "status": "completed",
-    "awayScore": 2,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "코지어-뒤베리",
-          "m": 50,
-          "nat": "England",
-          "pid": "espn:327170"
-        },
-        {
-          "n": "랭크셔",
-          "m": 61,
-          "a": "Luke Ayling",
-          "nat": "England",
-          "aNat": "England",
-          "pid": "espn:349181",
-          "apid": "espn:136380"
-        }
-      ],
-      "away": [
-        {
-          "n": "아르콘테",
-          "m": 11,
-          "a": "Camiel Neghli",
-          "nat": "Guadeloupe",
-          "aNat": "Algeria",
-          "pid": "espn:315189",
-          "apid": "espn:310173"
-        },
-        {
-          "n": "다이크스",
-          "m": 36,
-          "a": "Caleb Taylor",
-          "nat": "Scotland",
-          "aNat": "England",
-          "pid": "espn:207538",
-          "apid": "espn:308572"
-        }
-      ]
-    },
-    "cards": {
-      "home": [
-        {
-          "n": "Riley McGree",
-          "type": "Y",
-          "m": 66,
-          "pid": "espn:235096"
-        }
-      ],
-      "away": [
-        {
-          "n": "Derek Mazou-Sacko",
-          "type": "Y",
-          "m": 59,
-          "pid": "espn:324659"
-        }
-      ]
-    }
   },
   {
     "date": "2026-09-16",
@@ -457936,30 +462435,6 @@
   {
     "date": "2026-09-16",
     "time": "19:00",
-    "league": "ACL2",
-    "venueId": "seoulwc",
-    "home": "서울",
-    "away": "반둥",
-    "stadium": "서울월드컵경기장",
-    "timeTbd": false,
-    "gameId": "2idpicTW6SmPYVP",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 0,
-    "scorers": {
-      "home": [],
-      "away": [
-        {
-          "n": "훌리오 세자르",
-          "m": 5
-        }
-      ]
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-09-16",
-    "time": "19:00",
     "league": "ACL",
     "venueId": "jeonju",
     "home": "전북",
@@ -458033,6 +462508,30 @@
   {
     "date": "2026-09-16",
     "time": "19:00",
+    "league": "ACL2",
+    "venueId": "seoulwc",
+    "home": "서울",
+    "away": "반둥",
+    "stadium": "서울월드컵경기장",
+    "timeTbd": false,
+    "gameId": "2idpicTW6SmPYVP",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "훌리오 세자르",
+          "m": 5
+        }
+      ]
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-09-16",
+    "time": "19:00",
     "league": "ASIANGAMESFOOTBALL",
     "venueId": "wave_stadium_kariya",
     "home": "중국 (남자)",
@@ -458057,35 +462556,6 @@
     "status": "completed",
     "homeScore": 2,
     "awayScore": 0
-  },
-  {
-    "date": "2026-09-16",
-    "time": "21:15",
-    "league": "ACL2",
-    "venueId": "cahn_hang_day",
-    "home": "비에트텔",
-    "away": "멜버른 FC",
-    "stadium": "선번동 항더이 (항더이 스타디움)",
-    "timeTbd": false,
-    "gameId": "gqA22tVR2bUJFof",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 1,
-    "scorers": {
-      "home": [
-        {
-          "n": "리바마르",
-          "m": 62
-        }
-      ],
-      "away": [
-        {
-          "n": "클라리스마리우 호드리게스",
-          "m": 58
-        }
-      ]
-    },
-    "phaseCode": "GROUP"
   },
   {
     "date": "2026-09-16",
@@ -458158,6 +462628,35 @@
           "type": "Y",
           "m": 73,
           "pid": "espn:143697"
+        }
+      ]
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-09-16",
+    "time": "21:15",
+    "league": "ACL2",
+    "venueId": "cahn_hang_day",
+    "home": "비에트텔",
+    "away": "멜버른 FC",
+    "stadium": "선번동 항더이 (항더이 스타디움)",
+    "timeTbd": false,
+    "gameId": "gqA22tVR2bUJFof",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "리바마르",
+          "m": 62
+        }
+      ],
+      "away": [
+        {
+          "n": "클라리스마리우 호드리게스",
+          "m": 58
         }
       ]
     },
@@ -506186,7 +510685,7 @@
     "awayPitcherPid": "mlb:571510",
     "homePitcherPid": "mlb:650633",
     "awayScore": 0,
-    "homeScore": 4,
+    "homeScore": 7,
     "inningInfo": "5회말",
     "highlights": {
       "home": [
@@ -512926,19 +517425,6 @@
   {
     "date": "2026-10-14",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "al_seeb_stadium",
-    "home": "알 시브",
-    "away": "알 후세인",
-    "stadium": "알-시브 스타디움",
-    "timeTbd": false,
-    "gameId": "OQsSGAzKGbKHXDT",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-14",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "al_sadd_jassim_bin_hamad",
     "home": "알 사드",
@@ -512946,6 +517432,19 @@
     "stadium": "자심 빈 하마드 스타디움",
     "timeTbd": false,
     "gameId": "zcfrVKksVO8hhNi",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-14",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "al_seeb_stadium",
+    "home": "알 시브",
+    "away": "알 후세인",
+    "stadium": "알-시브 스타디움",
+    "timeTbd": false,
+    "gameId": "OQsSGAzKGbKHXDT",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -524451,19 +528950,6 @@
   {
     "date": "2026-10-28",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "al_seeb_stadium",
-    "home": "알 시브",
-    "away": "이스트 벵갈",
-    "stadium": "알-시브 스타디움",
-    "timeTbd": false,
-    "gameId": "AW3p0efTl1zL9Jt",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-28",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "shabab_alahli_al_rashid",
     "home": "샤바브 알 아흘리",
@@ -524471,6 +528957,19 @@
     "stadium": "알라시드 스타디움",
     "timeTbd": false,
     "gameId": "uVJg9XVeZVSJFpb",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-28",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "al_seeb_stadium",
+    "home": "알 시브",
+    "away": "이스트 벵갈",
+    "stadium": "알-시브 스타디움",
+    "timeTbd": false,
+    "gameId": "AW3p0efTl1zL9Jt",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -524661,19 +529160,6 @@
   {
     "date": "2026-10-28",
     "time": "03:15",
-    "league": "ACL2",
-    "venueId": "al_zawraa_stadium",
-    "home": "알 쇼르타",
-    "away": "알 후세인",
-    "stadium": "알-자우라 스타디움",
-    "timeTbd": false,
-    "gameId": "HCihM9DqxKOXBbt",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-28",
-    "time": "03:15",
     "league": "ACL",
     "venueId": "al_shamal_al_bayt",
     "home": "알샤말",
@@ -524681,6 +529167,19 @@
     "stadium": "알베이트 스타디움",
     "timeTbd": false,
     "gameId": "3aZWRb5fy3Nyk9x",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-28",
+    "time": "03:15",
+    "league": "ACL2",
+    "venueId": "al_zawraa_stadium",
+    "home": "알 쇼르타",
+    "away": "알 후세인",
+    "stadium": "알-자우라 스타디움",
+    "timeTbd": false,
+    "gameId": "HCihM9DqxKOXBbt",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -528329,19 +532828,6 @@
   {
     "date": "2026-11-04",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "amman_international_stadium",
-    "home": "알 후세인",
-    "away": "알 쇼르타",
-    "stadium": "암만 인터내셔널 스태디엄",
-    "timeTbd": false,
-    "gameId": "87Yzcj2B505kzbh",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-11-04",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "basra_international",
     "home": "에스테그랄",
@@ -528349,6 +532835,19 @@
     "stadium": "바스라 인터내셔널 스타디움",
     "timeTbd": false,
     "gameId": "CbaeNHtf2qOthye",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-11-04",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "amman_international_stadium",
+    "home": "알 후세인",
+    "away": "알 쇼르타",
+    "stadium": "암만 인터내셔널 스태디엄",
+    "timeTbd": false,
+    "gameId": "87Yzcj2B505kzbh",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -528606,19 +533105,6 @@
   {
     "date": "2026-11-04",
     "time": "19:00",
-    "league": "ACL2",
-    "venueId": "seoulwc",
-    "home": "서울",
-    "away": "비에트텔",
-    "stadium": "서울월드컵경기장",
-    "timeTbd": false,
-    "gameId": "lZapB69mvTiiYds",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-11-04",
-    "time": "19:00",
     "league": "ACL",
     "venueId": "pohang",
     "home": "포항",
@@ -528626,6 +533112,19 @@
     "stadium": "포항스틸야드",
     "timeTbd": false,
     "gameId": "pmIB9z9UAQ4XPV2",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-11-04",
+    "time": "19:00",
+    "league": "ACL2",
+    "venueId": "seoulwc",
+    "home": "서울",
+    "away": "비에트텔",
+    "stadium": "서울월드컵경기장",
+    "timeTbd": false,
+    "gameId": "lZapB69mvTiiYds",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -533966,19 +538465,6 @@
   {
     "date": "2026-11-25",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "al_seeb_stadium",
-    "home": "알 시브",
-    "away": "알 쇼르타",
-    "stadium": "알-시브 스타디움",
-    "timeTbd": false,
-    "gameId": "zVJrrC6Kzu5rPRu",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-11-25",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "shabab_alahli_al_rashid",
     "home": "샤바브 알 아흘리",
@@ -533986,6 +538472,19 @@
     "stadium": "알라시드 스타디움",
     "timeTbd": false,
     "gameId": "Rsba5lmQWhdIFqs",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-11-25",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "al_seeb_stadium",
+    "home": "알 시브",
+    "away": "알 쇼르타",
+    "stadium": "알-시브 스타디움",
+    "timeTbd": false,
+    "gameId": "zVJrrC6Kzu5rPRu",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
