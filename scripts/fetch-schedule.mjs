@@ -1398,11 +1398,11 @@ async function enrichAssists(allGames) {
   const isNaverPidFallback = (g) => {
     // 카드 pid 보완(2026-09-30) — 국가대표 7개 외 리그도 네이버 소스 경기(_ESPN_ 아님)에서 카드에 pid가
     // 없으면 같은 경로로 부착(SAUDI 등). 신규 fetch는 아래 FALLBACK_FETCH_BUDGET 상한이 그대로 적용.
-    const cardNoPid = [...(g.cards?.home || []), ...(g.cards?.away || [])].some((x) => !x.pid) && !String(g.gameId).includes('_ESPN_');
+    const cardNoPid = hasNoPid(g) && !String(g.gameId).includes('_ESPN_'); // 득점자·카드 어느 쪽이든 pid 없으면(2026-10-01 득점자까지 확대)
     if (g.status !== 'completed' || !(NAVER_PID_FALLBACK_LEAGUES.has(g.league) || cardNoPid) || (!hasNoPid(g) && !cache[g.gameId])) return false; // 이미 캐시된 경기는 유지(캐시 pruning 방지).
     if (!ESPN_LEAGUE_SLUG[g.league]) return true; // ESPN 시도 자체가 없는 리그.
     const ec = euroCache[g.gameId]; // ESPN 시도가 확정 실패(pid 없는 최종 스텁)한 경기만.
-    return !!ec && ec.final === true && !(ec.homePids || []).some(Boolean) && !(ec.awayPids || []).some(Boolean);
+    return !!ec && ec.final === true && (NAVER_PID_FALLBACK_LEAGUES.has(g.league) ? !(ec.homePids || []).some(Boolean) && !(ec.awayPids || []).some(Boolean) : true); // 그 외 리그는 ESPN 확정 후에도 남은 pid 없는 항목만 네이버로 보완(tagSide가 기존 pid는 안 덮어씀).
   };
   const targets = allGames.filter(
     (g) => g.gameId && ((SOCCER_LEAGUES.has(g.league) && (g.status === 'completed' || g.status === 'live')) || isNaverPidFallback(g)),
