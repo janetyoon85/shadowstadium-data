@@ -1220,7 +1220,16 @@ async function enrichScorers(allGames) {
   // 고정폭이 안 맞아 폐기). 버그 발견(2026-09-29, "무슨버그가계속나오냐" 계기로 한 패턴 전수
   // 점검 중 발견): enrichEuroAssists/enrichSaves와 동일하게 n(5) 인자가 누락돼 있었음 — 여기도
   // n=5 복원.
-  const recentSoccerIds = buildRecentCompletedGameIds(allGames, new Set([...SOCCER_LEAGUES, ...STRUCTURED_SCORER_LEAGUES]), 5);
+  //
+  // 5경기 캡 제거(2026-09-30, "버밍엄 아까 예전 기록 수집하는것도 백필있지않어?" 리포트 — 팀
+  // 상세 과거 EFL 경기가 최근 5경기 빼고는 득점자 자체가 아예 없던 원인이 이 캡이었음, 구장사진/
+  // 축구 pid에서 이미 적용한 것과 동일 조치). enrichEuroAssists와 달리 여기는 애초에 "영구 방치"
+  // 위험이 낮음 — ESPN 등 외부 API와 날짜/스코어로 교차매칭하는 게 아니라 우리 자체 gameId로
+  // Naver 엔드포인트를 직접 조회(fetchStructuredScorers/fetchScorersAndCards)하므로 크로스매칭
+  // 실패 자체가 없음(성공 아니면 예외뿐, 예외는 캐시 안 해 자연 재시도). targets가 여전히
+  // 최신순 정렬이라 신규 경기가 항상 먼저 처리되고, 남는 예산만 과거 경기로 흘러감 — 예산/속도
+  // 변화 없음.
+  const recentSoccerIds = buildRecentCompletedGameIds(allGames, new Set([...SOCCER_LEAGUES, ...STRUCTURED_SCORER_LEAGUES]), Infinity);
   const targets = allGames.filter(
     (g) =>
       (SOCCER_LEAGUES.has(g.league) || STRUCTURED_SCORER_LEAGUES.has(g.league)) &&
