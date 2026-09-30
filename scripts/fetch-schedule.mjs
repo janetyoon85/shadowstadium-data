@@ -15,6 +15,9 @@ const SEASON_START = '2026-03-01';
 const SEASON_END = '2026-11-30';
 const PAGE_SIZE = 200;
 const REQUEST_DELAY_MS = 1100;
+// 빠른 모드(2026-10-01): 매시 첫 10분 구간(전체 모드) 외 실행은 백필 예산을 0으로 두고 라이브/신규만 처리해 실행시간 단축.
+const FULL_RUN = new Date().getUTCMinutes() < 10 || process.env.FULL_RUN === '1';
+const bud = (n) => (FULL_RUN ? n : 0);
 // 카테고리 사이 대기(65개 × 1.1초 ≈ 72초가 실행시간의 1/3이었음, 2026-09-30 실측). 페이지 간 대기는 그대로 유지.
 const CATEGORY_DELAY_MS = 300;
 const PAGE_DELAY_MS = 500; // 카테고리 다중 페이지 조회 전용(enrich의 ESPN 요청 대기는 REQUEST_DELAY_MS 유지)
@@ -557,14 +560,14 @@ async function enrichSaves(allGames) {
   // 5분 주기 외부 트리거와 계속 겹치는 문제 실측(동시성 큐잉만으론 실행 자체가 안 끝나 무의미) —
   // enrichEuroAssists의 BACKFILL_BUDGET과 동일 패턴으로 실행당 예산을 두고 나머지는 다음
   // 실행들로 자연 분산.
-  const SAVES_FETCH_BUDGET = 200;
+  const SAVES_FETCH_BUDGET = bud(200);
   let savesFetchUsed = 0;
   // MLB 투수(승/패/세/홀드) 국적 조회 예산(2026-09-29 추가, 이 기능이 처음부터 예산 없이 배포돼
   // 809개 밀린 게임을 한 실행에서 전부 처리하려다 실제로 이 워크플로가 평소보다 훨씬 오래
   // 걸리는 걸 실측(cron-job.org 5분 트리거가 계속 큐잉되는 이전 사고와 동일 증상 재현 위험) —
   // SAVES_FETCH_BUDGET과 별도 예산으로 캡, 나머지는 자연스럽게 다음 실행들로 분산(found=false
   // 아니면 플래그가 세팅 안 돼 재시도되므로 예산 초과로 건너뛴 건도 안전하게 다음 run에 재시도).
-  const MLB_PITCHER_NAT_BUDGET = 80;
+  const MLB_PITCHER_NAT_BUDGET = bud(80);
   let mlbPitcherNatUsed = 0;
 
   for (const g of targets) {
@@ -1336,16 +1339,16 @@ async function enrichScorers(allGames) {
   // cards.json은 신설 캐시라 이미 scorers.json에 final:true로 캐시된 옛 완료 경기는 needsFetch가
   // false가 돼서 카드가 영영 안 붙는 문제 발생(실측 확인, 2026-09-26) — homeNats 백필과 동일한
   // 패턴으로 카드만 별도 예산 내에서 재조회해 채움(K리그만 대상).
-  const CARD_BACKFILL_BUDGET = 60;
+  const CARD_BACKFILL_BUDGET = bud(60);
   let cardBackfillUsed = 0;
   // 팀당 5경기 캡 제거(2026-09-27)로 대상이 1742→3358로 커져 이 루프도 한 실행에서 끝없이
   // 길어지는 문제 발견 — 완전 신규(캐시 자체가 없는) fetch도 별도 예산으로 나눠 다음 실행들로
   // 분산(enrichSaves/enrichEuroAssists와 동일 패턴).
-  const SCORERS_FETCH_BUDGET = 200;
+  const SCORERS_FETCH_BUDGET = bud(200);
   let scorersFetchUsed = 0;
   // 사후 정정 재확인 전용 예산(위 needsPostGameRevalidation 참고) — 킥오프 24시간 이내 경기만
   // 대상이라 보통 소수라 작게 잡음, 다른 백필 우선순위를 밀어내지 않게 분리.
-  const REVALIDATE_BUDGET = 60;
+  const REVALIDATE_BUDGET = bud(60);
   let revalidateUsed = 0;
 
   for (const g of targets) {
@@ -1450,14 +1453,14 @@ async function enrichAssists(allGames) {
     (g) => g.gameId && ((SOCCER_LEAGUES.has(g.league) && (g.status === 'completed' || g.status === 'live')) || isNaverPidFallback(g)),
   );
   targets.sort((a, b) => (b.date + b.time).localeCompare(a.date + a.time)); // 최신 경기 우선.
-  const FALLBACK_FETCH_BUDGET = 60; // 실행당 신규 fetch 상한 — 나머지는 다음 실행들로 분산.
+  const FALLBACK_FETCH_BUDGET = bud(60); // 실행당 신규 fetch 상한 — 나머지는 다음 실행들로 분산.
   let fallbackFetchUsed = 0;
   let fromCache = 0;
   let fetched = 0;
   let failed = 0;
   // 이 필드 추가 전(2026-09-28) 캐시된 완료 경기는 pids가 없어서, 없으면 예산 내에서 강제
   // 재조회 — cards 백필(CARD_BACKFILL_BUDGET)과 동일 패턴.
-  const PID_BACKFILL_BUDGET = 60;
+  const PID_BACKFILL_BUDGET = bud(60);
   let pidBackfillUsed = 0;
 
   for (const g of targets) {
@@ -1619,7 +1622,7 @@ async function enrichEuroAssists(allGames) {
   // and push" 단계가 최근 3회 중 2회 실패(GitHub Actions API로 직접 확인). 날짜 후보 3개 재시도가
   // 미매칭 게임마다 요청을 최대 3배로 늘린 게 원인 — 예산을 절반으로 낮춰 실행시간을 다시
   // 안전권으로 되돌림(백필 속도는 느려지지만 안정성 우선).
-  const BACKFILL_BUDGET = 20;
+  const BACKFILL_BUDGET = bud(20);
   let backfillUsed = 0;
 
   for (const g of targets) {

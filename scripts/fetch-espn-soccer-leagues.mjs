@@ -234,8 +234,10 @@ async function main() {
     const noPid = (g) => [...(g.cards?.home || []), ...(g.cards?.away || []), ...(g.scorers?.home || []), ...(g.scorers?.away || [])].some((x) => !x.pid);
     if (cur.some((g) => lg.has(g.league) && String(g.gameId).includes('_ESPN_') && g.status === 'completed' && g.date >= cutoff && noPid(g))) lookbackDays = 45;
   } catch {}
-  const start = new Date(now.getTime() - lookbackDays * 86400000);
-  const end = new Date(now.getTime() + 30 * 86400000);
+  // 빠른 모드(2026-10-01): 매시 첫 10분 구간(전체 갱신) 외엔 어제~내일만 조회해 실행시간 단축.
+  const fullRun = now.getUTCMinutes() < 10 || process.env.FULL_RUN === '1';
+  const start = new Date(now.getTime() - (fullRun ? lookbackDays : 1) * 86400000);
+  const end = new Date(now.getTime() + (fullRun ? 30 : 1) * 86400000);
   const startDate = ymd(start);
   const endDate = ymd(end);
 
