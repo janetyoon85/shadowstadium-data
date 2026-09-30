@@ -185,6 +185,11 @@ function buildRecentCompletedGameIds(allGames, leagueSet, n = Infinity) {
 const BASEBALL_LEAGUES = new Set(['KBO', 'MLB', 'NPB', 'PREMIER12']);
 // 득점자를 다른 엔드포인트(/schedule/games/{id}?fields=all의 game.scorers, 이미 구조화된 JSON)로
 // 가져오는 리그. K리그(SOCCER_LEAGUES)는 /relay HTML 파싱 방식이라 별도 — 서로 다른 스키마.
+// ESPN 선수ID(enrichEuroAssists)로 pid를 못 채우는 국가대표/유소년/여자 대회 — 네이버 /lineup 의
+// playerId 로 보완(enrichAssists 참고, 2026-09-30). ESPN 미중계(스텁)이거나 애초에 ESPN 슬러그가 없는 리그만.
+const NAVER_PID_FALLBACK_LEAGUES = new Set([
+  'AMATCHFRIENDLY', 'U20WOMENWORLDCUP', 'U17WOMENASIANCUP', 'WOMENASIANCUP', 'AFFCUP', 'U17ASIANCUP', 'U20WOMENASIANCUP',
+]);
 const STRUCTURED_SCORER_LEAGUES = new Set([
   'EPL', 'EFL', 'LALIGA', 'BUNDESLIGA', 'SERIEA', 'LIGUE1', 'EREDIVISIE', 'MLS', 'SAUDI', 'J1', 'SCOTLAND', 'DENMARK', 'UCL', 'UEL', 'ACL', 'ACL2',
   'FACUP', 'DFBPOKAL', 'COUPEDEFRANCE', 'COPADELREY', 'COPPAITALIA',
@@ -1002,10 +1007,20 @@ async function fetchScorersAndCards(gameId) {
   return { scorers: { home: markPk(home), away: markPk(away) }, cards };
 }
 
+// /lineup 선수 배열 평탄화 — K리그는 players가 포지션별 중첩배열([[..],[..]]) 그대로인데, 국가대표
+// 친선/여자·유소년 대회(2026-09-30 실측: 일본-우루과이, 폴란드-아르헨티나 U20 여자월드컵)는
+// players가 {lineup:[[..]], row:N} 객체라 기존 (arr||[]).flat()으로는 처리 불가(예외/누락).
+// 배열이면 그대로, 객체면 .lineup 을 펼침(선발만 — 이 스키마엔 substitution 필드 없음).
+function flattenLineupPlayers(playersNested) {
+  if (Array.isArray(playersNested)) return playersNested.flat();
+  if (playersNested && Array.isArray(playersNested.lineup)) return playersNested.lineup.flat();
+  return [];
+}
+
 // K리그 어시스트 — /lineup 의 home/away.players(선발 포지션별 배열의 배열)를 평탄화해
 // assists>0 인 선수만 [{n,count}]로 추출. 특정 골에 귀속은 못 함(누적치만 제공하는 스키마).
 function extractAssists(playersNested) {
-  const flat = (playersNested || []).flat();
+  const flat = flattenLineupPlayers(playersNested);
   return flat
     .filter((p) => p && typeof p.assists === 'number' && p.assists > 0 && (p.name || '').trim())
     .map((p) => ({ n: p.name.trim(), count: p.assists }));
@@ -1018,7 +1033,7 @@ function extractAssists(playersNested) {
 // 둘 다 20220242)라 이름 대신 이걸로 매칭하면 동명이인이 안 섞임. name→playerId 맵만 만들어서
 // 반환 — 어시스트 카운트(extractAssists)와는 별개로 scorers/cards 항목에 나중에 붙임.
 function extractPlayerIds(playersNested) {
-  const flat = (playersNested || []).flat();
+  const flat = flattenLineupPlayers(playersNested);
   const map = {};
   for (const p of flat) {
     const name = (p?.name || '').trim();
@@ -1040,8 +1055,8 @@ async function fetchLineupAssists(gameId) {
   // 평평한 배열(중첩 아님)이라 players(중첩배열)와 나란히 넣어도 flat() 한 번으로 둘 다
   // 올바르게 펼쳐짐.
   const substitution = json?.result?.lineUpData?.substitution;
-  const allHome = [...(lineup.home?.players || []), ...(substitution?.home || [])];
-  const allAway = [...(lineup.away?.players || []), ...(substitution?.away || [])];
+  const allHome = [...flattenLineupPlayers(lineup.home?.players), ...(Array.isArray(substitution?.home) ? substitution.home : [])];
+  const allAway = [...flattenLineupPlayers(lineup.away?.players), ...(Array.isArray(substitution?.away) ? substitution.away : [])];
   return {
     home: extractAssists(allHome),
     away: extractAssists(allAway),
@@ -1368,9 +1383,30 @@ async function enrichAssists(allGames) {
     console.log('[assists] no assists.json yet — backfilling from scratch');
   }
 
+  // 국가대표 친선 등 pid 보완 대상(2026-09-30, "AMATCHFRIENDLY 득점자 185명 pid 없음" 조사) — 원인:
+  // ESPN이 군소 친선(카자흐스탄-나미비아 등)은 keyEvents/rosters 가 비어 있어(실측) enrichEuroAssists
+  // 가 골 개수 불일치로 pid 없는 확정 스텁만 남김. 그런 경기에 한해 네이버 /lineup playerId 를
+  // 같은 경기 같은 팀 선발 로스터 이름 매칭으로만 부착(교체 출전자·라인업 미제공 경기는 그대로 미부착).
+  let euroCache = {};
+  try {
+    euroCache = JSON.parse(await fs.readFile(EURO_ASSISTS_PATH, 'utf-8'));
+  } catch (e) {
+    if (e.code !== 'ENOENT') throw e;
+  }
+  const hasNoPid = (g) =>
+    [...(g.scorers?.home || []), ...(g.scorers?.away || []), ...(g.cards?.home || []), ...(g.cards?.away || [])].some((x) => !x.pid);
+  const isNaverPidFallback = (g) => {
+    if (!NAVER_PID_FALLBACK_LEAGUES.has(g.league) || g.status !== 'completed' || (!hasNoPid(g) && !cache[g.gameId])) return false; // 이미 캐시된 경기는 유지(캐시 pruning 방지).
+    if (!ESPN_LEAGUE_SLUG[g.league]) return true; // ESPN 시도 자체가 없는 리그.
+    const ec = euroCache[g.gameId]; // ESPN 시도가 확정 실패(pid 없는 최종 스텁)한 경기만.
+    return !!ec && ec.final === true && !(ec.homePids || []).some(Boolean) && !(ec.awayPids || []).some(Boolean);
+  };
   const targets = allGames.filter(
-    (g) => SOCCER_LEAGUES.has(g.league) && (g.status === 'completed' || g.status === 'live') && g.gameId,
+    (g) => g.gameId && ((SOCCER_LEAGUES.has(g.league) && (g.status === 'completed' || g.status === 'live')) || isNaverPidFallback(g)),
   );
+  targets.sort((a, b) => (b.date + b.time).localeCompare(a.date + a.time)); // 최신 경기 우선.
+  const FALLBACK_FETCH_BUDGET = 60; // 실행당 신규 fetch 상한 — 나머지는 다음 실행들로 분산.
+  let fallbackFetchUsed = 0;
   let fromCache = 0;
   let fetched = 0;
   let failed = 0;
@@ -1384,10 +1420,12 @@ async function enrichAssists(allGames) {
     const isPidBackfillOnly = cached && cached.final !== false && g.status !== 'live' && !cached.pids;
     // enrichEuroAssists와 동일 버그(2026-09-29): 예산 소진 시 통째로 continue하면 이미 캐시된
     // 어시스트(assists)까지도 재적용이 스킵됨 — "새로 fetch할지"만 예산으로 막아야 함.
-    const pidBudgetExhausted = isPidBackfillOnly && pidBackfillUsed >= PID_BACKFILL_BUDGET;
+    const isFallback = !SOCCER_LEAGUES.has(g.league);
+    const pidBudgetExhausted = isFallback ? !cached && fallbackFetchUsed >= FALLBACK_FETCH_BUDGET : isPidBackfillOnly && pidBackfillUsed >= PID_BACKFILL_BUDGET;
     const needsFetch = !pidBudgetExhausted && (!cached || g.status === 'live' || (g.status === 'completed' && cached.final === false) || isPidBackfillOnly);
     if (pidBudgetExhausted && !cached) continue; // 재적용할 캐시 자체가 없는 완전 신규만 다음 실행으로 미룸.
     if (isPidBackfillOnly && !pidBudgetExhausted) pidBackfillUsed++;
+    if (isFallback && !cached && !pidBudgetExhausted) fallbackFetchUsed++;
     if (needsFetch) {
       try {
         await sleep(REQUEST_DELAY_MS);
@@ -1403,7 +1441,7 @@ async function enrichAssists(allGames) {
       fromCache++;
     }
     const as = cache[g.gameId];
-    if (as && ((as.home && as.home.length) || (as.away && as.away.length))) {
+    if (!isFallback && as && ((as.home && as.home.length) || (as.away && as.away.length))) {
       g.assists = { home: as.home, away: as.away };
     }
     // 동명이인 구분용 Naver playerId 부착(2026-09-28) — enrichScorers가 먼저 실행돼 g.scorers/
@@ -1416,6 +1454,7 @@ async function enrichAssists(allGames) {
       const tagSide = (arr, ownPidMap, oppPidMap) => {
         if (!Array.isArray(arr)) return;
         for (const item of arr) {
+          if (isFallback && item.pid) continue; // 보완 경로는 이미 있는 pid(ESPN 등)를 덮어쓰지 않음.
           const pid = item.og ? oppPidMap[item.n] : ownPidMap[item.n];
           if (pid) item.pid = `naver:${pid}`;
         }
