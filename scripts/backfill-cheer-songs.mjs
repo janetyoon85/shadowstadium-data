@@ -19,6 +19,15 @@ const API_KEY = process.env.YOUTUBE_API_KEY;
 
 const tierOf = (id) => (id.startsWith('kbo:') || id.startsWith('naver:') ? 0 : id.startsWith('mlb:') ? 1 : id.startsWith('espn:') ? 2 : 9);
 
+// 인기도 근사(무료 API에 인기 지표가 없어 리그 급으로 대체): 빅리그/국제대회 우선, 한국 국적 선수는 최우선.
+const TOP_LEAGUES = ['EPL', 'LALIGA', 'SERIEA', 'BUNDESLIGA', 'LIGUE1', 'UCL', 'WORLDCUP', 'UEL', 'AMATCHFRIENDLY', 'WCQUEFA', 'ACL', 'EREDIVISIE', 'MLS', 'SAUDI', 'J1', 'UECL'];
+function popularityRank(p) {
+  const apps = p.appearances || [];
+  if (apps.some((a) => /korea/i.test(a.nat || ''))) return 0;
+  const best = Math.min(...apps.map((a) => { const i = TOP_LEAGUES.indexOf(a.league); return i < 0 ? 99 : i; }), 99);
+  return 1 + best;
+}
+
 async function fetchMlbFullNames(personIds) {
   const out = {};
   if (personIds.length === 0) return out;
@@ -53,7 +62,7 @@ async function main() {
 
   const targets = players
     .filter((p) => p.id && tierOf(p.id) < 9 && !(p.id in cache))
-    .sort((a, b) => tierOf(a.id) - tierOf(b.id) || (b.lastSeenDate || '').localeCompare(a.lastSeenDate || ''))
+    .sort((a, b) => tierOf(a.id) - tierOf(b.id) || (tierOf(a.id) === 2 ? popularityRank(a) - popularityRank(b) : 0) || (b.lastSeenDate || '').localeCompare(a.lastSeenDate || ''))
     .slice(0, BUDGET);
   const mlbNames = await fetchMlbFullNames(targets.filter((p) => p.id.startsWith('mlb:')).map((p) => p.id.slice(4)));
 
