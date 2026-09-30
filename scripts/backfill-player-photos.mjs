@@ -27,7 +27,7 @@ const PHOTOS_PATH = path.join(REPO_ROOT, 'player-photos.json');
 const USER_AGENT = 'shadowstadium-crawler/1.0 (+https://github.com/janetyoon85/shadowstadium-data)';
 const SPORTSDB_DELAY_MS = 2200; // TheSportsDB 무료 공유키(분당 30회) 보호 — team-logos와 동일.
 const OWN_SOURCE_DELAY_MS = 600; // KBO/NPB/K리그/ESPN 자체 API — 공유 한도 아니라 짧게.
-const BUDGET = 300; // 3시간마다 실행(SportsDB 경로 최악 ~11분, 타임아웃 25분).
+const BUDGET = 300; // 1시간마다 실행(SportsDB 경로 최악 ~11분, 타임아웃 25분).
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 async function searchTheSportsDb(name, sportLabel) {
