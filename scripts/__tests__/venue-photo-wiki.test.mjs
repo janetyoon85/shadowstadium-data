@@ -26,6 +26,26 @@ test('fetchVenuePhotoFromWikipedia - 구장 문서를 정확히 찾으면 썸네
   assert.equal(result, 'https://example.com/thumb.jpg');
 });
 
+// 회귀 방지(2026-09-30) — 실측 확인: 완전히 동일한 검색어("Energizer Park")로 코드 변경 없이
+// 반복 호출해도 위키 검색 백엔드가 1위 결과로 "Energizer Park"(정답)와 "City Park, Saint
+// Louis"(엉뚱한 오답)를 실행마다 다르게 반환하는 걸 확인(백엔드 복제본 간 랭킹 불일치로 추정).
+// srlimit=1로 1위만 받으면 이 불안정에 그대로 노출되므로, 상위 5개 중 검색어와 제목이 정확히
+// 일치하는 후보가 있으면 그걸 우선 써야 함 — 순위가 몇 위든 상관없이 항상 같은 결과가 나옴.
+test('fetchVenuePhotoFromWikipedia - 검색 랭킹이 불안정해도 제목이 정확히 일치하는 후보를 우선 선택', async (t) => {
+  const origFetch = globalThis.fetch;
+  t.after(() => { globalThis.fetch = origFetch; });
+  globalThis.fetch = mockFetch([
+    [/list=search&srsearch=Energizer%20Park/, { query: { search: [
+      { title: 'City Park, Saint Louis' }, // 1위(오답, fuzzy 매치)여도 무시해야 함.
+      { title: 'Energizer Park' }, // 정확히 일치 — 순위와 무관하게 이걸 써야 함.
+    ] } }],
+    ['/page/summary/Energizer_Park', { description: 'Soccer stadium in St. Louis, United States', thumbnail: { source: 'https://example.com/energizer.jpg' } }],
+    ['/page/summary/City_Park', { description: 'Park in St. Louis, Missouri', thumbnail: { source: 'https://example.com/wrong.jpg' } }],
+  ]);
+  const result = await fetchVenuePhotoFromWikipedia('Energizer Park');
+  assert.equal(result, 'https://example.com/energizer.jpg');
+});
+
 // 실사례(2026-09-30): "Field of Dreams" 검색이 실제 구장 대신 1989년 영화 문서로 감(동명이인/
 // 동명장소) — description에 구장 관련 키워드가 없으면 폐기해야 함(틀린 사진보단 없는 게 낫다).
 test('fetchVenuePhotoFromWikipedia - 검색 결과가 동명의 다른 대상(영화 등)이면 폐기', async (t) => {
@@ -63,6 +83,13 @@ test('isPlausibleStadiumDescription - park/field/venue 등은 스포츠 맥락 �
   assert.equal(isPlausibleStadiumDescription('Sports venue in Kenya'), true);
   assert.equal(isPlausibleStadiumDescription('Park in St. Louis, Missouri'), false);
   assert.equal(isPlausibleStadiumDescription('1989 film by Phil Alden Robinson'), false);
+});
+
+// 회귀 방지(2026-09-30, 재검증 배치 중 발견한 가양성) — Icahn Stadium(뉴욕 실제 육상경기장)이
+// description "Track and field facility in Manhattan, New York"에 어떤 컨텍스트 단어도 안 걸려
+// 잘못 탈락했음 — "track" 추가로 다시 통과해야 함.
+test('isPlausibleStadiumDescription - 육상(track and field) 시설도 인정(회귀 방지: Icahn Stadium)', () => {
+  assert.equal(isPlausibleStadiumDescription('Track and field facility in Manhattan, New York'), true);
 });
 
 test('fetchVenuePhotoFromWikipedia - 검색 결과 자체가 없으면 null', async (t) => {

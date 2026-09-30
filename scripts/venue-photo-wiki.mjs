@@ -26,7 +26,10 @@ export const WIKI_UA = 'ShadeSideCrawler/1.0 (+https://github.com/janetyoon85/sh
 // park in Metro Atlanta, Georgia"처럼 항상 스포츠 단어와 붙어 나옴).
 export const STRONG_STADIUM_KEYWORDS = ['stadium', 'arena', 'ballpark', 'coliseum', 'colosseum', 'estadio', 'stade', 'sportanlage'];
 export const WEAK_STADIUM_KEYWORDS = ['park', 'field', 'ground', 'venue', 'dome'];
-export const SPORT_CONTEXT_WORDS = ['baseball', 'football', 'soccer', 'sports', 'sport', 'multi-purpose', 'multipurpose', 'athletic', 'rugby', 'cricket', 'hockey'];
+// "track" 추가(2026-09-30, 재검증 중 발견) — Icahn Stadium(뉴욕 실제 육상경기장) 재검증에서
+// description이 "Track and field facility in Manhattan, New York"라 어떤 컨텍스트 단어에도
+// 안 걸려 잘못 탈락(가양성)했음 — 육상(track and field)도 흔한 스포츠 시설 유형이라 추가.
+export const SPORT_CONTEXT_WORDS = ['baseball', 'football', 'soccer', 'sports', 'sport', 'multi-purpose', 'multipurpose', 'athletic', 'rugby', 'cricket', 'hockey', 'track'];
 export function isPlausibleStadiumDescription(desc) {
   const d = (desc || '').toLowerCase();
   if (STRONG_STADIUM_KEYWORDS.some((k) => d.includes(k))) return true;
@@ -58,16 +61,25 @@ async function fetchWithTimeout(url, options) {
 // 스테일 스냅샷" 버그와 동일 클래스). 이제 string(찾음) | null(확인했지만 진짜 없음 — 동명이인/
 // 검색결과 자체 없음/썸네일 없는 문서) | undefined(일시적 실패, 다음 실행에 재시도해야 함)로
 // 명확히 구분 — 호출부가 undefined는 캐시하지 않고 넘어가게 함.
+// 검색 결과 순위 불안정(2026-09-30, "이거" 후속 재조사 중 발견) — 같은 검색어("Energizer Park")를
+// 완전히 동일한 코드로 여러 번 호출했는데 결과가 "Energizer Park"(정답)와 "City Park, Saint
+// Louis"(오답, "energizer"란 단어와 무관한 fuzzy 매치)로 실행마다 갈리는 걸 실측 확인 — 코드
+// 문제가 아니라 위키 검색 백엔드가 여러 복제본에 분산돼있어 어느 복제본이 응답하냐에 따라 랭킹이
+// 달라지는 것으로 추정. srlimit=1(1위만) 대신 상위 5개를 받아서, 검색어와 제목이 정확히 일치하는
+// 후보가 있으면 그걸 우선 사용 — 백엔드 랭킹이 흔들려도 "정확히 이 이름인 문서"는 항상 같은
+// 결과를 주므로 안정적.
 export async function fetchVenuePhotoFromWikipedia(venueName) {
   let sres;
   try {
-    sres = await fetchWithTimeout(`https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(venueName)}&format=json&srlimit=1`, { headers: { 'User-Agent': WIKI_UA } });
+    sres = await fetchWithTimeout(`https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(venueName)}&format=json&srlimit=5`, { headers: { 'User-Agent': WIKI_UA } });
   } catch {
     return undefined; // 타임아웃/네트워크 오류 — 재시도 대상.
   }
   if (!sres.ok) return undefined; // 429/5xx 등 일시적 응답으로 간주 — 재시도 대상.
   const sj = await sres.json();
-  const title = sj.query?.search?.[0]?.title;
+  const results = sj.query?.search || [];
+  const exactMatch = results.find((r) => r.title?.toLowerCase() === venueName.toLowerCase());
+  const title = exactMatch?.title ?? results[0]?.title;
   if (!title) return null; // 검색 결과 자체가 없음 — 이 이름으론 확정적으로 없음.
   await sleep(WIKI_REQUEST_DELAY_MS);
   let pres;
