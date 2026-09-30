@@ -1826,9 +1826,11 @@ async function main() {
   const categoryCounts = {};
 
   for (const cat of CATEGORIES) {
+    const tc = Date.now();
     const raw = await fetchCategory(cat);
     const converted = raw.map((g) => convertGame(g, cat, stadiumMap, mapFailures)).filter(Boolean);
     categoryCounts[cat.league] = converted.length;
+    console.log(`[timing] category ${cat.categoryId} ${((Date.now() - tc) / 1000).toFixed(1)}s`);
     allGames.push(...converted);
     await sleep(REQUEST_DELAY_MS);
   }
