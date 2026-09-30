@@ -206,7 +206,16 @@ async function notifyFetchFailures(failed) {
 
 async function main() {
   const now = new Date();
-  const start = new Date(now.getTime() - 7 * 86400000);
+  // 카드/득점자 pid 소급 — pid 없는 완료 경기가 남아있으면 조회창을 45일로 넓혀 한 번에 채움(world 크롤러와 동일).
+  let lookbackDays = 7;
+  try {
+    const cur = JSON.parse(await fs.readFile(path.join(REPO_ROOT, 'games.json'), 'utf-8'));
+    const cutoff = ymd(new Date(now.getTime() - 45 * 86400000));
+    const lg = new Set(LEAGUES.map((l) => l.code));
+    const noPid = (g) => [...(g.cards?.home || []), ...(g.cards?.away || [])].some((x) => !x.pid);
+    if (cur.some((g) => lg.has(g.league) && String(g.gameId).includes('_ESPN_') && g.status === 'completed' && g.date >= cutoff && noPid(g))) lookbackDays = 45;
+  } catch {}
+  const start = new Date(now.getTime() - lookbackDays * 86400000);
   const end = new Date(now.getTime() + 30 * 86400000);
   const startDate = ymd(start);
   const endDate = ymd(end);
