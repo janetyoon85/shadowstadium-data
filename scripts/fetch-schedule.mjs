@@ -875,6 +875,39 @@ async function enrichSaves(allGames) {
     }
   }
   console.log(`[saves] liveHighlightPidAttached=${liveHlPidAttached}`);
+  // 종료 경기 하이라이트 pid 보강(2026-10-01, "최민석 선수정보 안나옴") — 폭투/보크/실책 등 투수·수비
+  // 항목은 파싱 단계에서 선수코드가 안 붙어 pid가 없었음. 같은 리그·팀·이름이 다른 경기에서 단 하나의
+  // pid로만 나온 경우(동명이인 위험 없음)에만 이름으로 붙임. 선발투수 pid도 학습 소스.
+  {
+    const learn = new Map();
+    const note = (lg, team, name, pid) => {
+      if (!name || !pid || !/^(kbo:|npb:)/.test(pid)) return;
+      const k = `${lg}|${team}|${name}`;
+      const set = learn.get(k) ?? new Set();
+      set.add(pid); learn.set(k, set);
+    };
+    for (const g of allGames) {
+      if (g.league !== 'KBO' && g.league !== 'NPB') continue;
+      note(g.league, g.home, g.homePitcher, g.homePitcherPid);
+      note(g.league, g.away, g.awayPitcher, g.awayPitcherPid);
+      for (const side of ['home', 'away']) {
+        for (const h of g.highlights?.[side] || []) note(g.league, side === 'home' ? g.home : g.away, h.player, h.pid);
+      }
+    }
+    let attached = 0;
+    for (const g of allGames) {
+      if ((g.league !== 'KBO' && g.league !== 'NPB') || !g.highlights) continue;
+      for (const side of ['home', 'away']) {
+        const team = side === 'home' ? g.home : g.away;
+        for (const h of g.highlights[side] || []) {
+          if (h.pid || !h.player) continue;
+          const set = learn.get(`${g.league}|${team}|${h.player}`);
+          if (set && set.size === 1) { h.pid = [...set][0]; attached++; }
+        }
+      }
+    }
+    console.log(`[saves] completedHighlightPidAttached=${attached}`);
+  }
   // MLB 데뷔 첫 선발(2026-09-30, "위키조회안되면 기본정보라도" 리포트 — 실사례: Payton Tolle/
   // Cam Schlittler) — player-codes.json은 "이전에 완료된 경기 박스스코어에서 학습한 이름"만
   // 커버해서, 그 선수의 첫 MLB 선발 등판은 원천적으로 이름이 등록돼 있을 리 없음. 대신 이름
