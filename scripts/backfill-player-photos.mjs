@@ -150,7 +150,8 @@ async function main() {
   let found = 0;
   // ESPN(5천+명)이 예산을 독식하지 않도록 KBO/NPB/K리그(자체 소스)를 앞에 둔다.
   const srcRank = (id) => (/^espn:/.test(id) ? 1 : 0);
-  const ordered = [...players].sort((x, y) => srcRank(x.id || '') - srcRank(y.id || ''));
+  // 같은 소스끼리는 최근 등장·다경기 선수 우선(유명 선수 사진이 뒤로 밀리지 않게).
+  const ordered = [...players].sort((x, y) => srcRank(x.id || '') - srcRank(y.id || '') || (y.lastSeenDate || '').localeCompare(x.lastSeenDate || '') || (y.appearances?.length || 0) - (x.appearances?.length || 0));
   for (const p of ordered) {
     if (!p.id || p.id.startsWith('mlb:')) continue; // 위에서 이미 처리.
     if (p.id in cache) continue;
