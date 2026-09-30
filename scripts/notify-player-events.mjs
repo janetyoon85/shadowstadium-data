@@ -50,7 +50,12 @@ async function main() {
   }
 
   const pending = [];
+  // 2026-09-30: 14일 정리로 sent 키가 지워진 옛 경기가 매번 미발송으로 재집계돼 수천 건을 순차 발송하다
+  // 10분 타임아웃에 걸려 상태 저장 전에 취소되던 사고 — 최근 경기(KST 기준 3일 이내)만 대상으로 한정.
+  const recentCutoff = Date.now() - 3 * 24 * 3600000;
   for (const g of games) {
+    const gMs = Date.parse(`${g.date}T00:00:00+09:00`);
+    if (!Number.isNaN(gMs) && gMs < recentCutoff) continue;
     if (!g.gameId || (!g.scorers && !g.cards && !g.highlights && !g.homePitcher && !g.awayPitcher)) continue;
     const sides = [
       { key: 'home', team: g.home },
@@ -145,6 +150,7 @@ async function main() {
     if (anyOk) {
       sent[dedupKey] = new Date().toISOString();
       sentCount++;
+      if (sentCount % 20 === 0) await fs.writeFile(SENT_FILE, JSON.stringify(sent, null, 2) + '\n', 'utf8');
     }
   }
 
