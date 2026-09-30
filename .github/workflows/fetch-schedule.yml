@@ -33,7 +33,13 @@ concurrency:
 jobs:
   fetch:
     runs-on: ubuntu-latest
-    steps:      
+    # 잡 레벨 타임아웃(2026-09-30 긴급 추가) — 실측 확인: 한 실행이 "in_progress" 상태로 20분+
+    # 멈춰있는 걸 GitHub Actions API로 직접 발견(스크립트 안 fetch 호출들에 타임아웃/
+    # AbortController가 전혀 없어서 하나만 멎어도 잡 전체가 GH Actions 기본값인 6시간까지
+    # 무한 대기 가능 — cancel-in-progress:false라 그동안 뒤 트리거들도 전부 큐에 쌓여 파이프라인
+    # 전체가 멈춤). 정상 실행은 5~6분대라 10분이면 충분히 여유 있고, 진짜 멎은 경우만 잘라냄.
+    timeout-minutes: 10
+    steps:
       - name: Checkout
         uses: actions/checkout@v4
 
