@@ -844,6 +844,26 @@ async function enrichSaves(allGames) {
   // 붙임. targets(완료 경기만)가 아니라 allGames 전체를 돌아야 "아직 안 열린" 예정 경기의
   // 선발투수도 커버됨(2026-09-29, "위키정보말고 다른선수들처럼 키몸무게 이런정보를가져와야지").
   let starterPidAttached = 0;
+  // 라이브 /relay 하이라이트 pid(2026-09-30, "김도영 경기중엔 선수정보없다고나옴") — relay엔 선수코드가
+  // 없어 카드가 안 열렸음. 완료 경기 하이라이트의 이름→pid를 레지스트리에 학습해 이름으로 붙임.
+  let liveHlPidAttached = 0;
+  for (const g of allGames) {
+    if (!g.highlights) continue;
+    for (const side of ['home', 'away']) {
+      for (const h of g.highlights[side] || []) {
+        if (h.player && h.pid && /^(kbo:b:|npb:|mlb:)/.test(h.pid)) playerCodeRegistry[h.player] = h.pid;
+      }
+    }
+  }
+  for (const g of allGames) {
+    if (g.status !== 'live' || !g.highlights) continue;
+    for (const side of ['home', 'away']) {
+      for (const h of g.highlights[side] || []) {
+        if (h.player && !h.pid && playerCodeRegistry[h.player]) { h.pid = playerCodeRegistry[h.player]; liveHlPidAttached++; }
+      }
+    }
+  }
+  console.log(`[saves] liveHighlightPidAttached=${liveHlPidAttached}`);
   // MLB 데뷔 첫 선발(2026-09-30, "위키조회안되면 기본정보라도" 리포트 — 실사례: Payton Tolle/
   // Cam Schlittler) — player-codes.json은 "이전에 완료된 경기 박스스코어에서 학습한 이름"만
   // 커버해서, 그 선수의 첫 MLB 선발 등판은 원천적으로 이름이 등록돼 있을 리 없음. 대신 이름
