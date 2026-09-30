@@ -1,0 +1,26 @@
+name: FCM Player Alert Test
+
+# 즐겨찾기 선수 알림 수신 테스트(수동). Actions 탭에서 Run workflow → 선수 이름 입력 → 해당 선수 토픽 구독 기기에 테스트 푸시.
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: '즐겨찾기한 선수 이름 (예: 김도영)'
+        required: true
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - name: Send test
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          PLAYER_NAME: ${{ inputs.name }}
+        run: node scripts/send-test-player-alert.mjs
