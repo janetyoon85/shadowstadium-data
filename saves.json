@@ -10,6 +10,7 @@
       "브라운": "12141",
       "블루바흐": "13279",
       "램버트": "310467",
+      "어브레유": "11208",
       "버크": "12418",
       "브라조반": "12658",
       "케이": "310538"
@@ -44,11 +45,27 @@
       "away": [
         {
           "how": "도루",
-          "text": "아쿠냐",
+          "text": "아쿠냐 2개",
           "player": "아쿠냐",
           "playerId": "11878",
           "nat": "Venezuela",
           "pid": "mlb:682668"
+        },
+        {
+          "how": "도루",
+          "text": "피터스",
+          "player": "피터스",
+          "playerId": "13331",
+          "nat": "Canada",
+          "pid": "mlb:671976"
+        },
+        {
+          "how": "홈런",
+          "text": "메이드로스",
+          "player": "메이드로스",
+          "playerId": "13162",
+          "nat": "USA",
+          "pid": "mlb:805367"
         }
       ]
     },
@@ -119,8 +136,8 @@
   },
   "20260930HHSS02026": {
     "save": null,
-    "winPitcherCode": null,
-    "losePitcherCode": null,
+    "winPitcherCode": "53375",
+    "losePitcherCode": "56724",
     "savePitcherCode": null,
     "holdHome": [],
     "holdAway": [],
@@ -134,21 +151,48 @@
       "김종수": "63765"
     },
     "highlights": {
-      "home": [],
-      "away": []
-    },
-    "relayHighlights": {
-      "home": [],
+      "home": [
+        {
+          "how": "결승타",
+          "text": "디아즈(1회 2사 2루서 중전 안타)",
+          "player": "디아즈",
+          "pid": "kbo:b:54400"
+        },
+        {
+          "how": "홈런",
+          "text": "이재현16호(2회2점 화이트)",
+          "player": "이재현",
+          "pid": "kbo:b:52415"
+        },
+        {
+          "how": "홈런",
+          "text": "최형우18호(5회3점 화이트)",
+          "player": "최형우",
+          "pid": "kbo:b:72443"
+        },
+        {
+          "how": "2루타",
+          "text": "구자욱(1회)",
+          "player": "구자욱",
+          "pid": "kbo:b:62404"
+        }
+      ],
       "away": [
         {
-          "how": "도루",
-          "text": "한지윤 무관심도루로 2루까지 진루",
-          "player": "한지윤",
-          "seqno": 437
+          "how": "홈런",
+          "text": "심우준7호(3회2점 후라도)",
+          "player": "심우준",
+          "pid": "kbo:b:64006"
+        },
+        {
+          "how": "주루사",
+          "text": "최인호(1회)",
+          "player": "최인호",
+          "pid": "kbo:b:50707"
         }
       ]
     },
-    "relayMaxSeqno": 446
+    "hlRetries": 1
   },
   "20260930KTHT02026": {
     "save": "박영현",
@@ -220,11 +264,14 @@
   },
   "20260930LGSK02026": {
     "save": null,
-    "winPitcherCode": null,
-    "losePitcherCode": null,
+    "winPitcherCode": "68856",
+    "losePitcherCode": "67143",
     "savePitcherCode": null,
     "holdHome": [],
-    "holdAway": [],
+    "holdAway": [
+      "케네디",
+      "고우석"
+    ],
     "pitcherCodeByName": {
       "김건우": "51867",
       "전영준": "52809",
@@ -237,27 +284,48 @@
       "손주영": "67143"
     },
     "highlights": {
-      "home": [],
-      "away": []
-    },
-    "relayHighlights": {
       "home": [
         {
-          "how": "폭투",
-          "text": "오태곤 폭투로 2루까지 진루",
-          "player": "오태곤",
-          "seqno": 471
+          "how": "결승타",
+          "text": "정준재(9회 2사 1,2루서 좌중간 안타)",
+          "player": "정준재",
+          "pid": "kbo:b:54812"
+        },
+        {
+          "how": "2루타",
+          "text": "박성한(3회)",
+          "player": "박성한",
+          "pid": "kbo:b:67893"
+        },
+        {
+          "how": "병살타",
+          "text": "에레디아(8회)",
+          "player": "에레디아",
+          "pid": "kbo:b:53827"
         },
         {
           "how": "폭투",
-          "text": "최지훈 폭투로 홈인",
-          "player": "최지훈",
-          "seqno": 472
+          "text": "전영준(6회)",
+          "player": "전영준",
+          "pid": "kbo:b:52809"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "how": "도루자",
+          "text": "박해민(7회)",
+          "player": "박해민",
+          "pid": "kbo:b:62415"
+        },
+        {
+          "how": "폭투",
+          "text": "손주영(9회)",
+          "player": "손주영",
+          "pid": "kbo:b:67143"
+        }
+      ]
     },
-    "relayMaxSeqno": 489
+    "hlRetries": 1
   },
   "20260930NCOB02026": {
     "save": null,
@@ -469,10 +537,10 @@
     }
   },
   "20260930JLRT0": {
-    "save": null,
-    "winPitcherCode": null,
-    "losePitcherCode": null,
-    "savePitcherCode": null,
+    "save": "후지히라",
+    "winPitcherCode": "2106793",
+    "losePitcherCode": "1860063",
+    "savePitcherCode": "1600092",
     "holdHome": [],
     "holdAway": [],
     "pitcherCodeByName": {
@@ -485,6 +553,7 @@
       "home": [],
       "away": []
     },
+    "hlRetries": 1,
     "relayHighlights": {
       "home": [],
       "away": []
