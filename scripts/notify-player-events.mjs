@@ -120,7 +120,7 @@ async function main() {
           const h = list[i];
           if (!h.player) continue;
           const dedupKey = `${g.gameId}:${key}:highlight:${i}`;
-          { const nm = h.player; if (!isSent(dedupKey, nm)) pending.push({ dedupKey: `${dedupKey}:${nm}`, name: nm, pid: h.pid, game: g, team, icon: '⚾', label: h.how, detail: h.text }); }
+          { const nm = h.player; if (!isSent(dedupKey, nm)) pending.push({ dedupKey: `${dedupKey}:${nm}`, name: nm, pid: h.pid, game: g, team, icon: '⚾', label: h.how === '도루자' ? '도루 실패' : h.how, detail: h.text }); }
         }
       }
     }
