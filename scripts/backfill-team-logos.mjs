@@ -27,6 +27,8 @@ const LOGOS_PATH = path.join(REPO_ROOT, 'team-logos.json');
 // 있게(하루 1회 실행 기준 REQUEST_DELAY_MS로 이미 분당 한도 안쪽, BUDGET은 실행시간 제한용).
 const REQUEST_DELAY_MS = 2200; // 분당 약 27회 — 30회 한도 안쪽으로 여유.
 const BUDGET = 200; // 팀 수가 유한(수백 개)이라 며칠 안에 전체 백필 완료, 이후엔 매일 0건.
+const WIKI_TRIED_PATH = path.join(REPO_ROOT, 'team-logos-wiki-tried.json');
+const WIKI_BUDGET = 250;
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 // 야구 리그 판정(2026-09-30, "mlb인데축구장사진이있네" 리포트로 구장사진 백필에서 발견한 동일
@@ -89,6 +91,34 @@ async function fetchTeamBadge(englishName, sportLabel) {
   }
 }
 
+// 위키백과 폴백(2026-09-30, "정체된거 개선" — 로고 null 115개 + 영문명 없어 아예 시도 못한 108팀).
+// 한국어 위키에서 팀 문서를 찾아 (1) 영문 문서 제목(TheSportsDB 재검색용) (2) 인포박스 대표 이미지를 로고로 사용.
+// 오귀속 방지: 문서 소개문에 팀/구단 단어가 있고, 이미지 파일명이 logo/crest/emblem류일 때만 채택.
+const TEAM_WORD_RE = /축구|야구|구단|클럽|프로팀|football|baseball|soccer|club|team/i;
+const LOGO_FILE_RE = /logo|crest|badge|emblem|symbol|escudo|wappen|blason|logotipo|shield/i;
+async function wikiTeamLookup(koName, sport) {
+  const q = koName + (sport === 'Baseball' ? ' 야구' : ' 축구');
+  const url = 'https://ko.wikipedia.org/w/api.php?' + new URLSearchParams({
+    action: 'query', format: 'json', generator: 'search', gsrsearch: q, gsrlimit: '1',
+    prop: 'langlinks|pageimages|extracts', lllang: 'en', piprop: 'thumbnail', pithumbsize: '200',
+    exintro: '1', explaintext: '1', exchars: '300', origin: '*',
+  });
+  try {
+    const res = await fetch(url);
+    if (!res.ok) return undefined;
+    const pages = Object.values((await res.json()).query?.pages || {});
+    const p = pages[0];
+    if (!p || !TEAM_WORD_RE.test(p.extract || '')) return { en: null, logo: null };
+    const en = p.langlinks?.[0]?.['*'] || null;
+    const thumb = p.thumbnail?.source || null;
+    let fileName = '';
+    try { fileName = thumb ? decodeURIComponent(thumb) : ''; } catch {}
+    return { en, logo: thumb && LOGO_FILE_RE.test(fileName) ? thumb : null };
+  } catch {
+    return undefined;
+  }
+}
+
 async function main() {
   const games = JSON.parse(await fs.readFile(GAMES_PATH, 'utf-8'));
   const teamNameEn = JSON.parse(await fs.readFile(TEAM_NAME_EN_PATH, 'utf-8'));
@@ -139,6 +169,33 @@ async function main() {
     cache[cacheKey] = badge;
     if (badge) found++;
   }
+
+  // 위키 폴백: TheSportsDB에서 못 찾은(null) 팀 + 영문명 없는 팀, 팀당 1회만 시도(tried 파일로 기록).
+  let wikiTried = {};
+  try { wikiTried = JSON.parse(await fs.readFile(WIKI_TRIED_PATH, 'utf-8')); } catch (e) { if (e.code !== 'ENOENT') throw e; }
+  let wikiUsed = 0;
+  let wikiFound = 0;
+  for (const cacheKey of koTeamNames) {
+    if (wikiUsed >= WIKI_BUDGET) break;
+    if (wikiTried[cacheKey]) continue;
+    if (cache[cacheKey]) continue;
+    const koName = keyToKo.get(cacheKey);
+    const sport = koTeamSport.get(cacheKey);
+    wikiUsed++;
+    await sleep(300);
+    const w = await wikiTeamLookup(koName, sport);
+    if (w === undefined) continue;
+    wikiTried[cacheKey] = true;
+    let badge = null;
+    if (w.en && !(AMBIGUOUS_CITY_TEAM_OVERRIDES[koName] || TEAM_SEARCH_NAME_OVERRIDES[koName] || teamNameEn[koName])) {
+      await sleep(REQUEST_DELAY_MS);
+      badge = await fetchTeamBadge(w.en, sport);
+    }
+    // 위키 이미지 직접 사용은 오귀속(세인트루이스→MLB 리그 로고) 실측으로 제외 — 영문명→TheSportsDB 경로만 사용.
+    if (badge) { cache[cacheKey] = badge; wikiFound++; }
+  }
+  await fs.writeFile(WIKI_TRIED_PATH, JSON.stringify(wikiTried, null, 2) + '\n', 'utf-8');
+  console.log('[team-logos] wikiUsed=' + wikiUsed + ' wikiFound=' + wikiFound);
 
   await fs.writeFile(LOGOS_PATH, JSON.stringify(cache, null, 2) + '\n', 'utf-8');
   console.log(`[team-logos] totalTeams=${koTeamNames.size} cached=${Object.keys(cache).length} thisRunUsed=${used} thisRunFound=${found} noEnglishName=${noEnglishName}`);
