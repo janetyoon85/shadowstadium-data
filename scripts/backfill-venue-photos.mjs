@@ -75,34 +75,50 @@ async function fetchWithTimeout(url, options) {
   }
 }
 
+// 반환값 3가지 상태(2026-09-30, "아직부족해 100프로백필다채워야지" 요청으로 재조사 중 발견한
+// 버그 수정 — venue-photo-wiki.mjs의 fetchVenuePhotoFromWikipedia와 동일 계약) — 타임아웃/
+// 일시적 응답 실패까지 null로 뭉뚱그려 캐시해버리면 그 실패가 영구 고정됨(같은 세션에서 여러
+// 번 고친 "final:true 스테일 스냅샷" 버그와 동일 클래스). string(찾음) | null(확인했지만 진짜
+// 없음) | undefined(일시적 실패, 재시도 대상)로 명확히 구분.
 async function fetchVenuePhoto(englishTeamName, sportLabel) {
+  let res;
   try {
-    const res = await fetchWithTimeout(`https://www.thesportsdb.com/api/v1/json/3/searchteams.php?t=${encodeURIComponent(englishTeamName)}`);
-    if (!res.ok) return null;
-    const j = await res.json();
-    const teams = j.teams || [];
-    // 검색어가 fuzzy match라 다른 스포츠 동명 팀이 섞일 수 있어(예: 같은 도시명 축구/야구단)
-    // sportLabel로 걸러냄. 버그 수정(2026-09-30, "mlb인데축구장사진이있네" 리포트로 발견 —
-    // 다이킨 파크(휴스턴 애스트로스 MLB 구장)에 휴스턴 쿠거스(미식축구) TDECU 스타디움 사진이
-    // 붙어있었음): "Houston" 검색이 TheSportsDB에서 야구팀 없이 미식축구팀 딱 1건만 반환하는
-    // 경우가 실측 확인됨 — 이전엔 스포츠 불일치여도 teams[0]로 폴백해서 엉뚱한 스포츠의 구장이
-    // 그대로 붙었음. 잘못된 사진보단 "사진 없음"이 안전(다른 배필들과 동일 철학) — 폴백 제거.
-    // 추가 버그(2026-09-30, "이건맞아?" 리포트 — 멘디소로차(알라베스 라리가 남자팀 홈구장)에
-    // 알라베스 여자팀(Alavés Gloriosas) 훈련장 사진이 붙어있었음): "Alaves" 검색이 스포츠는
-    // 맞지만(Soccer) 여자팀 1건만 반환하는 경우가 실측 확인됨 — 우리 데이터는 전부 남자
-    // 클럽/대표팀이라 strGender==='Female'인 결과는 제외(성별 필드 자체가 없는 국가대표 등은
-    // 그대로 허용 — 명시적으로 여자팀이라고 확인된 것만 배제).
-    const team = teams.find((t) => t.strSport === sportLabel && t.strGender !== 'Female');
-    if (!team?.idVenue) return null;
-    await sleep(REQUEST_DELAY_MS);
-    const vres = await fetchWithTimeout(`https://www.thesportsdb.com/api/v1/json/3/lookupvenue.php?id=${team.idVenue}`);
-    if (!vres.ok) return null;
-    const vj = await vres.json();
-    const venue = (vj.venues || [])[0];
-    return venue?.strThumb || venue?.strFanart1 || null;
+    res = await fetchWithTimeout(`https://www.thesportsdb.com/api/v1/json/3/searchteams.php?t=${encodeURIComponent(englishTeamName)}`);
   } catch {
-    return null;
+    return undefined;
   }
+  if (!res.ok) return undefined;
+  const j = await res.json();
+  const teams = j.teams || [];
+  // 검색어가 fuzzy match라 다른 스포츠 동명 팀이 섞일 수 있어(예: 같은 도시명 축구/야구단)
+  // sportLabel로 걸러냄. 버그 수정(2026-09-30, "mlb인데축구장사진이있네" 리포트로 발견 —
+  // 다이킨 파크(휴스턴 애스트로스 MLB 구장)에 휴스턴 쿠거스(미식축구) TDECU 스타디움 사진이
+  // 붙어있었음): "Houston" 검색이 TheSportsDB에서 야구팀 없이 미식축구팀 딱 1건만 반환하는
+  // 경우가 실측 확인됨 — 이전엔 스포츠 불일치여도 teams[0]로 폴백해서 엉뚱한 스포츠의 구장이
+  // 그대로 붙었음. 잘못된 사진보단 "사진 없음"이 안전(다른 배필들과 동일 철학) — 폴백 제거.
+  // 추가 버그(2026-09-30, "이건맞아?" 리포트 — 멘디소로차(알라베스 라리가 남자팀 홈구장)에
+  // 알라베스 여자팀(Alavés Gloriosas) 훈련장 사진이 붙어있었음): "Alaves" 검색이 스포츠는
+  // 맞지만(Soccer) 여자팀 1건만 반환하는 경우가 실측 확인됨 — 우리 데이터는 전부 남자
+  // 클럽/대표팀이라 strGender==='Female'인 결과는 제외(성별 필드 자체가 없는 국가대표 등은
+  // 그대로 허용 — 명시적으로 여자팀이라고 확인된 것만 배제).
+  const team = teams.find((t) => t.strSport === sportLabel && t.strGender !== 'Female');
+  if (!team?.idVenue) return null; // 검색 결과 자체가 없거나 스포츠/성별 안 맞음 — 확정적으로 없음.
+  await sleep(REQUEST_DELAY_MS);
+  let vres;
+  try {
+    vres = await fetchWithTimeout(`https://www.thesportsdb.com/api/v1/json/3/lookupvenue.php?id=${team.idVenue}`);
+  } catch {
+    return undefined;
+  }
+  if (!vres.ok) return undefined;
+  const vj = await vres.json();
+  const venue = (vj.venues || [])[0];
+  if (!venue) return null;
+  // 사진 여러 장(2026-09-30, "구장사진 한장이잖어 여러장은 못가져오나" 요청) — TheSportsDB
+  // venue lookup은 strThumb(대표) 외에 strFanart1~4(추가 사진)도 같이 줌(실측 확인: 레알
+  // 마드리드 홈구장은 5장 전부 있음). 예전엔 strThumb 하나만 쓰고 나머지를 버렸음.
+  const photos = [venue.strThumb, venue.strFanart1, venue.strFanart2, venue.strFanart3, venue.strFanart4].filter(Boolean);
+  return photos.length > 0 ? photos : null;
 }
 
 async function main() {
@@ -149,20 +165,21 @@ async function main() {
       continue;
     }
 
-    let photo = null;
+    let photos = null;
     if (canTrySportsDb) {
       used++;
       await sleep(REQUEST_DELAY_MS);
-      photo = await fetchVenuePhoto(englishName, sport);
-      if (photo) found++;
+      photos = await fetchVenuePhoto(englishName, sport);
+      if (photos) found++;
     }
-    if (!photo && canTryWiki) {
+    if (!photos && canTryWiki) {
       wikiUsed++;
       await sleep(WIKI_REQUEST_DELAY_MS);
-      photo = await fetchVenuePhotoFromWikipedia(venueEn.name);
-      if (photo) wikiFound++;
+      const wikiPhoto = await fetchVenuePhotoFromWikipedia(venueEn.name);
+      if (wikiPhoto) { photos = [wikiPhoto]; wikiFound++; }
+      else photos = wikiPhoto; // null 또는 undefined 그대로 전달(재시도 계약 유지).
     }
-    cache[v.id] = photo;
+    cache[v.id] = photos;
   }
 
   await fs.writeFile(VENUE_PHOTOS_PATH, JSON.stringify(cache, null, 2) + '\n', 'utf-8');
