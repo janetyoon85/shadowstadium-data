@@ -121,6 +121,13 @@ async function fetchAsianGamesFootballDay(dateStr, unknownTeams, unknownVenues) 
       if (Number.isFinite(hs)) out.homeScore = hs;
       if (Number.isFinite(as)) out.awayScore = as;
     }
+    // Bornan은 승부차기 스코어를 RESULT_INFO/PSOResult로 내려줌(2026-09-30 실측). 무승부일 때만 채택.
+    if (status === 'completed' && out.homeScore === out.awayScore) {
+      const pso = (side) => Number(side?.Extensions?.find((e) => e.Code === 'PSOResult')?.Value);
+      const hp = pso(g.Home);
+      const ap = pso(g.Away);
+      if (Number.isFinite(hp) && Number.isFinite(ap) && hp !== ap) { out.homePkScore = hp; out.awayPkScore = ap; }
+    }
     games.push(out);
   }
   return games;
@@ -186,7 +193,7 @@ async function main() {
       const idx = games.findIndex((x) => x.gameId === key);
       if (idx >= 0) {
         const prev = games[idx];
-        if (prev.status !== g.status || prev.homeScore !== g.homeScore || prev.awayScore !== g.awayScore || prev.phaseCode !== g.phaseCode) {
+        if (prev.status !== g.status || prev.homeScore !== g.homeScore || prev.awayScore !== g.awayScore || prev.phaseCode !== g.phaseCode || prev.homePkScore !== g.homePkScore || prev.awayPkScore !== g.awayPkScore) {
           games[idx] = { ...prev, ...g };
           updated++;
         }
