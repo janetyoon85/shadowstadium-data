@@ -148,7 +148,10 @@ async function main() {
 
   let used = 0;
   let found = 0;
-  for (const p of players) {
+  // ESPN(5천+명)이 예산을 독식하지 않도록 KBO/NPB/K리그(자체 소스)를 앞에 둔다.
+  const srcRank = (id) => (/^espn:/.test(id) ? 1 : 0);
+  const ordered = [...players].sort((x, y) => srcRank(x.id || '') - srcRank(y.id || ''));
+  for (const p of ordered) {
     if (!p.id || p.id.startsWith('mlb:')) continue; // 위에서 이미 처리.
     if (p.id in cache) continue;
     if (used >= BUDGET) break;
