@@ -14,6 +14,7 @@
 // 영문("Samsung","Jeonbuk")도 TheSportsDB 검색이 fuzzy match라 정상 매칭됨(실측 확인).
 
 import fs from 'node:fs/promises';
+import { fetchLogoByEnTitle } from './team-logo-wikipedia.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execSync } from 'node:child_process';
@@ -29,6 +30,8 @@ const REQUEST_DELAY_MS = 2200; // 분당 약 27회 — 30회 한도 안쪽으로
 const BUDGET = 200; // 팀 수가 유한(수백 개)이라 며칠 안에 전체 백필 완료, 이후엔 매일 0건.
 const WIKI_TRIED_PATH = path.join(REPO_ROOT, 'team-logos-wiki-tried.json');
 const WIKI_BUDGET = 250;
+const TITLES_PATH = path.join(REPO_ROOT, 'team-logo-wiki-titles.json');
+const TITLES_TRIED_PATH = path.join(REPO_ROOT, 'team-logos-titles-tried.json');
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 // 야구 리그 판정(2026-09-30, "mlb인데축구장사진이있네" 리포트로 구장사진 백필에서 발견한 동일
@@ -196,6 +199,27 @@ async function main() {
   }
   await fs.writeFile(WIKI_TRIED_PATH, JSON.stringify(wikiTried, null, 2) + '\n', 'utf-8');
   console.log('[team-logos] wikiUsed=' + wikiUsed + ' wikiFound=' + wikiFound);
+
+  // 3차: 수동 매핑한 영문 위키백과 제목 → 인포박스 로고/Wikidata P154. 팀당 1회(tried 파일).
+  let titles = {};
+  try { titles = JSON.parse(await fs.readFile(TITLES_PATH, 'utf-8')); } catch (e) { if (e.code !== 'ENOENT') throw e; }
+  let titlesTried = {};
+  try { titlesTried = JSON.parse(await fs.readFile(TITLES_TRIED_PATH, 'utf-8')); } catch (e) { if (e.code !== 'ENOENT') throw e; }
+  let tUsed = 0;
+  let tFound = 0;
+  for (const cacheKey of koTeamNames) {
+    if (cache[cacheKey] || titlesTried[cacheKey]) continue;
+    const title = titles[keyToKo.get(cacheKey)];
+    if (!title) continue;
+    tUsed++;
+    await sleep(300);
+    const logo = await fetchLogoByEnTitle(title);
+    if (logo === undefined) continue;
+    titlesTried[cacheKey] = true;
+    if (logo) { cache[cacheKey] = logo; tFound++; }
+  }
+  await fs.writeFile(TITLES_TRIED_PATH, JSON.stringify(titlesTried, null, 2) + '\n', 'utf-8');
+  console.log('[team-logos] titlesUsed=' + tUsed + ' titlesFound=' + tFound);
 
   await fs.writeFile(LOGOS_PATH, JSON.stringify(cache, null, 2) + '\n', 'utf-8');
   console.log(`[team-logos] totalTeams=${koTeamNames.size} cached=${Object.keys(cache).length} thisRunUsed=${used} thisRunFound=${found} noEnglishName=${noEnglishName}`);
