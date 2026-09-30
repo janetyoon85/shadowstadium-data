@@ -15,6 +15,9 @@ const SEASON_START = '2026-03-01';
 const SEASON_END = '2026-11-30';
 const PAGE_SIZE = 200;
 const REQUEST_DELAY_MS = 1100;
+// 전역 fetch 타임아웃(2026-09-30) — 개별 호출에 AbortController가 없어 요청 하나가 멎으면 잡 전체가 정지했음.
+const __origFetch = globalThis.fetch;
+globalThis.fetch = (url, opts = {}) => (opts.signal ? __origFetch(url, opts) : __origFetch(url, { ...opts, signal: AbortSignal.timeout(20000) }));
 const USER_AGENT = 'shadowstadium-crawler/1.0 (+https://github.com/janetyoon85/shadowstadium-data)';
 const API_BASE = 'https://api-gw.sports.naver.com/schedule/games';
 const RECORD_API = (gameId) => `${API_BASE}/${gameId}/record`;
@@ -1503,7 +1506,7 @@ async function enrichEuroAssists(allGames) {
   // and push" 단계가 최근 3회 중 2회 실패(GitHub Actions API로 직접 확인). 날짜 후보 3개 재시도가
   // 미매칭 게임마다 요청을 최대 3배로 늘린 게 원인 — 예산을 절반으로 낮춰 실행시간을 다시
   // 안전권으로 되돌림(백필 속도는 느려지지만 안정성 우선).
-  const BACKFILL_BUDGET = 40;
+  const BACKFILL_BUDGET = 20;
   let backfillUsed = 0;
 
   for (const g of targets) {

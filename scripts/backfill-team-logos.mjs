@@ -68,6 +68,9 @@ const AMBIGUOUS_CITY_TEAM_OVERRIDES = {
 // 자세한 사유는 그쪽 주석 참고). 발견되는 대로 추가.
 const TEAM_SEARCH_NAME_OVERRIDES = {
   '알라베스': 'Deportivo Alaves',
+  '닛폰햄': 'Nippon Ham Fighters',
+  '드로게다': 'Drogheda United',
+  '트라브존': 'Trabzonspor',
 };
 
 async function fetchTeamBadge(englishName, sportLabel) {
