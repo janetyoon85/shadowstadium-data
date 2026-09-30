@@ -16,7 +16,22 @@ export const WIKI_REQUEST_DELAY_MS = 1200; // 실측(2026-09-30): 빠르게 연�
 // making too many requests" 429류 응답 — 1.2초 간격이면 안전(공식 rate limit 문서화 안 돼있어
 // 보수적으로 설정).
 export const WIKI_UA = 'ShadeSideCrawler/1.0 (+https://github.com/janetyoon85/shadowstadium-data)';
-export const STADIUM_KEYWORDS = ['stadium', 'arena', 'ballpark', 'park', 'field', 'ground', 'dome', 'coliseum', 'colosseum', 'estadio', 'venue', 'sportanlage', 'stade'];
+// 버그 수정(2026-09-30, "이거" 리포트 — 에너자이저 파크(세인트루이스 시티 SC 구장)에 전혀
+// 무관한 "City Park, Saint Louis"(그냥 일반 공원) 사진이 붙어있었음) — "park"/"field"/"ground"/
+// "venue"/"dome"은 스포츠 시설이 아닌 것도 흔히 이렇게 불려서(실측: 문제의 문서 설명이 그냥
+// "Park in St. Louis, Missouri" — 스포츠 관련 단어가 전혀 없었음) 이 단어들만으로는 동명이인
+// 방지가 안 됨. "stadium"/"arena"/"ballpark" 등은 그 자체로 스포츠 시설임이 명확해 단독으로도
+// 안전(STRONG). "park"/"field"/"ground"/"venue"/"dome"은 스포츠 맥락 단어(baseball/football/
+// soccer/sports 등)와 같이 나올 때만 인정(WEAK — 실측: 정상 매칭 Truist Park의 설명은 "Baseball
+// park in Metro Atlanta, Georgia"처럼 항상 스포츠 단어와 붙어 나옴).
+export const STRONG_STADIUM_KEYWORDS = ['stadium', 'arena', 'ballpark', 'coliseum', 'colosseum', 'estadio', 'stade', 'sportanlage'];
+export const WEAK_STADIUM_KEYWORDS = ['park', 'field', 'ground', 'venue', 'dome'];
+export const SPORT_CONTEXT_WORDS = ['baseball', 'football', 'soccer', 'sports', 'sport', 'multi-purpose', 'multipurpose', 'athletic', 'rugby', 'cricket', 'hockey'];
+export function isPlausibleStadiumDescription(desc) {
+  const d = (desc || '').toLowerCase();
+  if (STRONG_STADIUM_KEYWORDS.some((k) => d.includes(k))) return true;
+  return WEAK_STADIUM_KEYWORDS.some((k) => d.includes(k)) && SPORT_CONTEXT_WORDS.some((k) => d.includes(k));
+}
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 // fetch 타임아웃(2026-09-30, 실측 발견) — 위키 요청 하나가 응답도 에러도 없이 무한 대기하면서
@@ -35,21 +50,34 @@ async function fetchWithTimeout(url, options) {
   }
 }
 
+// 반환값 3가지 상태(2026-09-30, "아직부족해 100프로백필다채워야지" 요청으로 재조사 중 발견한
+// 버그 수정) — 예전엔 네트워크 타임아웃/일시적 429/API 장애까지 전부 그냥 null로 뭉뚱그려서
+// 호출부가 그걸 "확인해봤지만 사진 없음(영구)"으로 캐시해버렸음. 실측 확인: Groupama Arena/
+// MCH Arena/Old Peter Mokaba Stadium처럼 지금 다시 조회하면 멀쩡히 찾아지는 유명 구장들이
+// 이전 실행의 일시적 실패 때문에 영구 null로 굳어있었음(같은 세션에서 여러 번 고친 "final:true
+// 스테일 스냅샷" 버그와 동일 클래스). 이제 string(찾음) | null(확인했지만 진짜 없음 — 동명이인/
+// 검색결과 자체 없음/썸네일 없는 문서) | undefined(일시적 실패, 다음 실행에 재시도해야 함)로
+// 명확히 구분 — 호출부가 undefined는 캐시하지 않고 넘어가게 함.
 export async function fetchVenuePhotoFromWikipedia(venueName) {
+  let sres;
   try {
-    const sres = await fetchWithTimeout(`https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(venueName)}&format=json&srlimit=1`, { headers: { 'User-Agent': WIKI_UA } });
-    if (!sres.ok) return null;
-    const sj = await sres.json();
-    const title = sj.query?.search?.[0]?.title;
-    if (!title) return null;
-    await sleep(WIKI_REQUEST_DELAY_MS);
-    const pres = await fetchWithTimeout(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title.replace(/ /g, '_'))}`, { headers: { 'User-Agent': WIKI_UA } });
-    if (!pres.ok) return null;
-    const pj = await pres.json();
-    const desc = (pj.description || '').toLowerCase();
-    if (!STADIUM_KEYWORDS.some((k) => desc.includes(k))) return null; // 동명이인/동명장소 방지.
-    return pj.thumbnail?.source || pj.originalimage?.source || null;
+    sres = await fetchWithTimeout(`https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(venueName)}&format=json&srlimit=1`, { headers: { 'User-Agent': WIKI_UA } });
   } catch {
-    return null;
+    return undefined; // 타임아웃/네트워크 오류 — 재시도 대상.
   }
+  if (!sres.ok) return undefined; // 429/5xx 등 일시적 응답으로 간주 — 재시도 대상.
+  const sj = await sres.json();
+  const title = sj.query?.search?.[0]?.title;
+  if (!title) return null; // 검색 결과 자체가 없음 — 이 이름으론 확정적으로 없음.
+  await sleep(WIKI_REQUEST_DELAY_MS);
+  let pres;
+  try {
+    pres = await fetchWithTimeout(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title.replace(/ /g, '_'))}`, { headers: { 'User-Agent': WIKI_UA } });
+  } catch {
+    return undefined;
+  }
+  if (!pres.ok) return undefined;
+  const pj = await pres.json();
+  if (!isPlausibleStadiumDescription(pj.description)) return null; // 동명이인/동명장소 방지.
+  return pj.thumbnail?.source || pj.originalimage?.source || null; // 문서는 맞는데 사진이 없음 — 확정.
 }
