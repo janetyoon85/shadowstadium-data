@@ -606,7 +606,9 @@ async function enrichSaves(allGames) {
     // 캐시된 경기는 winPitcherCode 자체가 없어서(undefined) 재조회 안 하면 영원히 안 채워짐
     // (같은 계열의 반복 패턴, [[feedback_final_cache_stale_snapshot_bug]]).
     const needsPitcherCodeMigration = (g.league === 'KBO' || g.league === 'NPB') && isNewFormat && !('winPitcherCode' in cached);
-    const needsHighlightRefetch = (recentHighlightIds.has(g.gameId) && (!isSplitHighlightFormat || needsMlbNatBackfill || needsMlbPidBackfill || needsHoldBackfill)) || (pidBackfillIds.has(g.gameId) && (needsKboNpbPidBackfill || needsPitcherCodeMigration));
+    // 종료 직후 etcRecords가 비어있을 때 조회된 채로 굳는 문제(2026-10-01, LG-SSG 9/30 하이라이트 없음) — relay 누적본만 있고 최종 하이라이트가 비면 최대 3회 재조회.
+    const needsEmptyHlRetry = g.status === 'completed' && recentHighlightIds.has(g.gameId) && cached && typeof cached === 'object' && cached.relayHighlights && !((cached.highlights?.home?.length) || (cached.highlights?.away?.length)) && (cached.hlRetries || 0) < 3;
+    const needsHighlightRefetch = needsEmptyHlRetry || (recentHighlightIds.has(g.gameId) && (!isSplitHighlightFormat || needsMlbNatBackfill || needsMlbPidBackfill || needsHoldBackfill)) || (pidBackfillIds.has(g.gameId) && (needsKboNpbPidBackfill || needsPitcherCodeMigration));
     // live는 스코어/이닝이 계속 바뀌므로 캐시·예산과 무관하게 매 실행 무조건 재조회(축구 enrichScorers/
     // enrichEuroAssists와 동일 패턴) — 완전신규/백필만 SAVES_FETCH_BUDGET으로 제한.
     const needsSavesFetch = g.status === 'live' || cached === undefined || needsHighlightRefetch;
@@ -616,6 +618,11 @@ async function enrichSaves(allGames) {
         await sleep(REQUEST_DELAY_MS);
         const prevRec = cache[g.gameId];
         cache[g.gameId] = await fetchGameRecord(g.gameId);
+        if (prevRec && typeof prevRec === 'object' && prevRec.relayHighlights && g.status === 'completed' && cache[g.gameId] && typeof cache[g.gameId] === 'object') {
+          cache[g.gameId].hlRetries = (prevRec.hlRetries || 0) + 1;
+          cache[g.gameId].relayHighlights = prevRec.relayHighlights;
+          cache[g.gameId].relayMaxSeqno = prevRec.relayMaxSeqno;
+        }
         // /relay는 현재 이닝만 주므로 누적본을 재조회로 덮어쓰면 지난 이닝 하이라이트가 사라짐(2026-09-30).
         if (g.status === 'live' && prevRec && typeof prevRec === 'object' && prevRec.relayHighlights && cache[g.gameId] && typeof cache[g.gameId] === 'object') {
           cache[g.gameId].relayHighlights = prevRec.relayHighlights;
@@ -723,7 +730,7 @@ async function enrichSaves(allGames) {
             }
           }
         } else if (
-          (g.league === 'KBO' || g.league === 'MLB' || g.league === 'NPB') && g.status === 'live' && rec.relayHighlights &&
+          (g.league === 'KBO' || g.league === 'MLB' || g.league === 'NPB') && rec.relayHighlights &&
           ((rec.relayHighlights.home && rec.relayHighlights.home.length) || (rec.relayHighlights.away && rec.relayHighlights.away.length))
         ) {
           // etcRecords가 아직 비어있는(경기 진행 중) 동안엔 /relay 기반 누적 하이라이트로 대체
