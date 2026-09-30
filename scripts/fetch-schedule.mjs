@@ -1521,17 +1521,29 @@ async function enrichEuroAssists(allGames) {
       try {
         const slug = ESPN_LEAGUE_SLUG[g.league];
         const kickoffMs = naverKickoffUtcMs(g);
-        const yyyymmdd = new Date(kickoffMs).toISOString().slice(0, 10).replace(/-/g, '');
-        const sbKey = `${slug}:${yyyymmdd}`;
-        let events = scoreboardCache.get(sbKey);
-        if (!events) {
-          await sleep(REQUEST_DELAY_MS);
-          events = await fetchEspnScoreboard(slug, yyyymmdd);
-          scoreboardCache.set(sbKey, events);
+        // 날짜 후보 3개(2026-09-30, "구스만"/"버홀터" 리포트로 발견 — MLB KST/ET 시차 버그와 동일
+        // 클래스) — 예전엔 킥오프 UTC 날짜 딱 하나만 ESPN에 조회했는데, 특히 미주 지역에서 열리는
+        // 친선/MLS 경기는 현지 저녁 킥오프가 ESPN 쪽 "dates=" 그룹핑 기준(현지/ET 날짜로 추정)과
+        // UTC 날짜가 어긋나는 경우가 흔함(실측: 페루 vs 멕시코 KST 9/30 10:00 킥오프가 ESPN에선
+        // "20260929"로 잡혀있음) — 이 어긋남이 noMatch로 영구 확정돼버려 실제로 ESPN에 있는
+        // 경기도 하나도 못 찾고 있었음(252경기 실측 확인, 득점자 있는데 pid 영구실패). 하루 전/
+        // 당일/하루 후 3개 후보를 순서대로 시도해 유일 매치가 나오는 첫 후보를 사용.
+        let match;
+        for (const dayOffset of [0, -1, 1]) {
+          const candDate = new Date(kickoffMs + dayOffset * 86400000);
+          const yyyymmdd = candDate.toISOString().slice(0, 10).replace(/-/g, '');
+          const sbKey = `${slug}:${yyyymmdd}`;
+          let events = scoreboardCache.get(sbKey);
+          if (!events) {
+            await sleep(REQUEST_DELAY_MS);
+            events = await fetchEspnScoreboard(slug, yyyymmdd);
+            scoreboardCache.set(sbKey, events);
+          }
+          // 동시킥오프+동일스코어 오매칭 방지 로직 — espn-match-select.mjs 참고(2026-09-28,
+          // backfill-player-name-auto.mjs와 공유하도록 분리됨).
+          match = selectUniqueScoreMatch(events, kickoffMs, g.homeScore, g.awayScore);
+          if (match) break;
         }
-        // 동시킥오프+동일스코어 오매칭 방지 로직 — espn-match-select.mjs 참고(2026-09-28,
-        // backfill-player-name-auto.mjs와 공유하도록 분리됨).
-        const match = selectUniqueScoreMatch(events, kickoffMs, g.homeScore, g.awayScore);
         if (!match) {
           noMatch++;
           // completed 인데 이벤트 자체를 못 찾으면(ESPN 미중계 등) 영구 불가로 보고 확정 캐시 —
