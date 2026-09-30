@@ -1833,6 +1833,7 @@ async function main() {
     await sleep(REQUEST_DELAY_MS);
   }
 
+  console.log(`[timing] categories ${((Date.now() - startMs) / 1000).toFixed(1)}s`);
   const uniqueFails = Array.from(
     new Map(mapFailures.map((f) => [`${f.categoryId}::${f.stadium}`, f])).values(),
   );
@@ -1877,13 +1878,29 @@ async function main() {
   }
 
   // 세이브 투수 부착 (종료 KBO만, /record 캐시). 네트워크 단계라 sort/serialize 전에 1회.
-  await enrichSaves(allGames);
+  {
+    const t0 = Date.now();
+    await enrichSaves(allGames);
+    console.log(`[timing] enrichSaves ${((Date.now() - t0) / 1000).toFixed(1)}s`);
+  }
   // 축구 득점자 부착 (종료+진행중, /relay 또는 /schedule/games/{id}?fields=all 캐시).
-  await enrichScorers(allGames);
+  {
+    const t0 = Date.now();
+    await enrichScorers(allGames);
+    console.log(`[timing] enrichScorers ${((Date.now() - t0) / 1000).toFixed(1)}s`);
+  }
   // K리그 어시스트 부착 (종료+진행중, /lineup 캐시 — K리그1/2 전용).
-  await enrichAssists(allGames);
+  {
+    const t0 = Date.now();
+    await enrichAssists(allGames);
+    console.log(`[timing] enrichAssists ${((Date.now() - t0) / 1000).toFixed(1)}s`);
+  }
   // 유럽 5대리그 어시스트 부착 (ESPN, 종료+진행중 — 킥오프 시각+골 개수 일치 시에만).
-  await enrichEuroAssists(allGames);
+  {
+    const t0 = Date.now();
+    await enrichEuroAssists(allGames);
+    console.log(`[timing] enrichEuroAssists ${((Date.now() - t0) / 1000).toFixed(1)}s`);
+  }
 
   sortGames(allGames);
 
