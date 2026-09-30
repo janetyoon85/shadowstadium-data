@@ -41,6 +41,17 @@ function scoreLine(g) {
   return ` · ${g.away} ${g.awayScore}-${g.homeScore} ${g.home}`;
 }
 
+// 득점자 정정(이강인→손흥민) 시 새 이름으로 알람이 가도록 dedup 키 끝에 선수명 포함. 구키(이름 없음)는
+// 발송 없이 신키로 이관 후 삭제(중복 알람 방지).
+function makeIsSent(sent) {
+  return (legacy, name) => {
+    const k = `${legacy}:${name}`;
+    if (sent[k]) return true;
+    if (sent[legacy]) { sent[k] = sent[legacy]; delete sent[legacy]; return true; }
+    return false;
+  };
+}
+
 async function main() {
   const games = await loadJson(GAMES_FILE, []);
   const sent = await loadJson(SENT_FILE, {});
@@ -49,10 +60,11 @@ async function main() {
     process.exit(1);
   }
 
+  const isSent = makeIsSent(sent);
   const pending = [];
   // 2026-09-30: 14일 정리로 sent 키가 지워진 옛 경기가 매번 미발송으로 재집계돼 수천 건을 순차 발송하다
-  // 10분 타임아웃에 걸려 상태 저장 전에 취소되던 사고 — 최근 경기(KST 기준 3일 이내)만 대상으로 한정.
-  const recentCutoff = Date.now() - 3 * 24 * 3600000;
+  // 10분 타임아웃에 걸려 상태 저장 전에 취소되던 사고 — 최근 경기(어제~오늘 36시간 이내)만 대상으로 한정.
+  const recentCutoff = Date.now() - 36 * 3600000;
   for (const g of games) {
     const gMs = Date.parse(`${g.date}T00:00:00+09:00`);
     if (!Number.isNaN(gMs) && gMs < recentCutoff) continue;
@@ -73,11 +85,11 @@ async function main() {
           // 동일 정규화 재사용, 두 스크립트가 다른 이름으로 정규화하면 다시 어긋나므로 반드시 동기화).
           if (s.n) {
             const dedupKey = `${g.gameId}:${key}:scorer:${i}`;
-            if (!sent[dedupKey]) pending.push({ dedupKey, name: canonicalPlayerName(s.n), pid: s.pid, game: g, team, icon: '⚽', label: '골', minute: s.m });
+            { const nm = canonicalPlayerName(s.n); if (!isSent(dedupKey, nm)) pending.push({ dedupKey: `${dedupKey}:${nm}`, name: nm, pid: s.pid, game: g, team, icon: '⚽', label: '골', minute: s.m }); }
           }
           if (s.a) {
             const dedupKey = `${g.gameId}:${key}:assist:${i}`;
-            if (!sent[dedupKey]) pending.push({ dedupKey, name: canonicalPlayerName(s.a), pid: s.apid, game: g, team, icon: '🅰️', label: '어시스트', minute: s.m });
+            { const nm = canonicalPlayerName(s.a); if (!isSent(dedupKey, nm)) pending.push({ dedupKey: `${dedupKey}:${nm}`, name: nm, pid: s.apid, game: g, team, icon: '🅰️', label: '어시스트', minute: s.m }); }
           }
         }
       }
@@ -93,7 +105,7 @@ async function main() {
           if (!c.n) continue;
           const dedupKey = `${g.gameId}:${key}:card:${i}`;
           const isRed = c.type === 'R';
-          if (!sent[dedupKey]) pending.push({ dedupKey, name: canonicalPlayerName(c.n), pid: c.pid, game: g, team, icon: isRed ? '🟥' : '🟨', label: isRed ? '퇴장' : '경고', minute: c.m });
+          { const nm = canonicalPlayerName(c.n); if (!isSent(dedupKey, nm)) pending.push({ dedupKey: `${dedupKey}:${nm}`, name: nm, pid: c.pid, game: g, team, icon: isRed ? '🟥' : '🟨', label: isRed ? '퇴장' : '경고', minute: c.m }); }
         }
       }
     }
@@ -108,7 +120,7 @@ async function main() {
           const h = list[i];
           if (!h.player) continue;
           const dedupKey = `${g.gameId}:${key}:highlight:${i}`;
-          if (!sent[dedupKey]) pending.push({ dedupKey, name: h.player, pid: undefined, game: g, team, icon: '⚾', label: h.how });
+          { const nm = h.player; if (!isSent(dedupKey, nm)) pending.push({ dedupKey: `${dedupKey}:${nm}`, name: nm, pid: undefined, game: g, team, icon: '⚾', label: h.how }); }
         }
       }
     }
