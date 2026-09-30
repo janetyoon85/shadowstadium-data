@@ -27,14 +27,19 @@ const PLAYER_NAME_AUTO = loadJsonSafe(path.join(__dirname, '..', 'player-name-au
 const PLAYER_NAME_EN_MANUAL = loadJsonSafe(path.join(__dirname, '..', 'player-name-en.json'));
 const PLAYER_NAME_EN = { ...PLAYER_NAME_AUTO, ...PLAYER_NAME_EN_MANUAL };
 
+// 대소문자 무시(2026-09-30, "이강인 검색안되네" 리포트로 발견) — player-name-en.json에
+// "이강인": "Lee Kang-in"(소문자 in)으로 등록돼있는데 실제 ESPN 원문은 "Lee Kang-In"(대문자
+// In)이라, 대소문자까지 정확히 일치해야 하는 기존 조회가 항상 실패해서 이강인만 한글로 정규화
+// 안 되고 영문 그대로 인덱싱되던 버그. 사람이 1,300여명을 수작업으로 입력한 사전이라 이런
+// 대소문자 오타가 더 있을 수 있어 조회 자체를 대소문자 무시로 바꿈(값은 원래 표기 그대로 유지).
 const byEn = {};
-for (const [ko, en] of Object.entries(PLAYER_NAME_EN)) byEn[en] = ko;
+for (const [ko, en] of Object.entries(PLAYER_NAME_EN)) byEn[en.toLowerCase()] = ko;
 
 const bySurnameSets = {};
 for (const [ko, en] of Object.entries(PLAYER_NAME_EN)) {
   const surname = en.trim().split(/\s+/).pop();
   if (!surname) continue;
-  (bySurnameSets[surname] ??= new Set()).add(ko);
+  (bySurnameSets[surname.toLowerCase()] ??= new Set()).add(ko);
 }
 const bySurname = {};
 for (const [surname, set] of Object.entries(bySurnameSets)) {
@@ -43,8 +48,8 @@ for (const [surname, set] of Object.entries(bySurnameSets)) {
 
 export function canonicalPlayerName(name) {
   if (!name) return name;
-  if (byEn[name]) return byEn[name];
+  if (byEn[name.toLowerCase()]) return byEn[name.toLowerCase()];
   const surname = name.trim().split(/\s+/).pop();
-  if (surname && bySurname[surname]) return bySurname[surname];
+  if (surname && bySurname[surname.toLowerCase()]) return bySurname[surname.toLowerCase()];
   return name;
 }

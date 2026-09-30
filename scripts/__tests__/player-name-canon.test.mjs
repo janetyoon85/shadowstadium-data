@@ -23,3 +23,12 @@ test('canonicalPlayerName - 빈 값/undefined는 그대로 반환(크래시 없�
   assert.equal(canonicalPlayerName(''), '');
   assert.equal(canonicalPlayerName(undefined), undefined);
 });
+
+// 실사례 회귀 방지(2026-09-30, "이강인 검색안되네" 리포트) — 사전엔 "이강인": "Lee Kang-in"
+// (소문자 in)으로 등록돼있는데 ESPN 실제 원문은 "Lee Kang-In"(대문자 In)이라 대소문자까지
+// 정확히 일치해야 하는 조회가 항상 실패, 이강인만 한글로 정규화 안 되고 영문("Lee Kang-In")
+// 그대로 검색 인덱스에 들어가 "이강인"으로 검색해도 안 뜨던 버그.
+test('canonicalPlayerName - 사전 값과 대소문자만 다른 실제 원문도 정규화됨(대소문자 무시 조회)', () => {
+  assert.equal(canonicalPlayerName('Lee Kang-In'), '이강인');
+  assert.equal(canonicalPlayerName('Lee Kang-in'), '이강인');
+});
