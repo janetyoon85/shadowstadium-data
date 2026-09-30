@@ -27,6 +27,14 @@
           "playerId": "9111",
           "nat": "USA",
           "pid": "mlb:592518"
+        },
+        {
+          "how": "홈런",
+          "text": "보가츠",
+          "player": "보가츠",
+          "playerId": "9319",
+          "nat": "Aruba",
+          "pid": "mlb:593428"
         }
       ],
       "away": [
@@ -48,11 +56,14 @@
     "winPitcherCode": null,
     "losePitcherCode": null,
     "savePitcherCode": null,
-    "holdHome": [],
+    "holdHome": [
+      "블랙번"
+    ],
     "holdAway": [],
     "pitcherCodeByName": {
       "슐리틀러": "13314",
       "블랙번": "10756",
+      "슈라이버": "11634",
       "톨리": "13332",
       "밀러": "11815",
       "위저트": "12685",
@@ -74,7 +85,16 @@
       "away": []
     },
     "mlbNatChecked": true,
-    "mlbPidChecked": true
+    "mlbPidChecked": true,
+    "holdHomeNats": [
+      "USA"
+    ],
+    "holdAwayNats": [],
+    "holdHomeIds": [
+      621112
+    ],
+    "holdAwayIds": [],
+    "mlbHoldNatChecked": true
   },
   "20260930CWHO0": {
     "save": null,
