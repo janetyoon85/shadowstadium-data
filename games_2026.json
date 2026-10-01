@@ -635714,12 +635714,14 @@
     "inningInfo": "4회초",
     "liveState": {
       "pitcher": "무라카미",
-      "batter": "오시로",
-      "ball": 2,
-      "strike": 2,
+      "batter": "리차드",
+      "ball": 1,
+      "strike": 1,
       "out": 1,
-      "bases": [],
-      "pitchCount": 51
+      "bases": [
+        2
+      ],
+      "pitchCount": 57
     }
   },
   {
@@ -635782,12 +635784,12 @@
     "inningInfo": "4회초",
     "liveState": {
       "pitcher": "다나카",
-      "batter": "쿠리하라",
+      "batter": "야나기마치",
       "ball": 0,
-      "strike": 0,
-      "out": 1,
+      "strike": 2,
+      "out": 2,
       "bases": [],
-      "pitchCount": 4
+      "pitchCount": 8
     },
     "highlights": {
       "home": [],
@@ -635841,15 +635843,15 @@
     "homePitcherPid": "npb:2101204",
     "awayScore": 1,
     "homeScore": 0,
-    "inningInfo": "4회초",
+    "inningInfo": "4회말",
     "liveState": {
-      "pitcher": "롱",
-      "batter": "야마가타",
-      "ball": 2,
-      "strike": 1,
-      "out": 3,
+      "pitcher": "기타야마",
+      "batter": "후지와라",
+      "ball": 1,
+      "strike": 2,
+      "out": 0,
       "bases": [],
-      "pitchCount": 64
+      "pitchCount": 54
     },
     "highlights": {
       "home": [],
@@ -635888,16 +635890,13 @@
     "homeScore": 0,
     "inningInfo": "2회초",
     "liveState": {
-      "pitcher": "원태인",
-      "batter": "박정현",
+      "pitcher": "황준서",
+      "batter": "강민호",
       "ball": 0,
-      "strike": 2,
-      "out": 2,
-      "bases": [
-        1,
-        3
-      ],
-      "pitchCount": 44
+      "strike": 0,
+      "out": 0,
+      "bases": [],
+      "pitchCount": 19
     },
     "highlights": {
       "home": [
@@ -635914,7 +635913,14 @@
           "pid": "kbo:b:52415"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "how": "도루",
+          "text": "한지윤 도루로 2루까지 진루",
+          "player": "한지윤",
+          "pid": "kbo:b:55767"
+        }
+      ]
     }
   },
   {
@@ -635934,15 +635940,15 @@
     "homePitcherPid": "kbo:b:77637",
     "awayScore": 1,
     "homeScore": 2,
-    "inningInfo": "2회말",
+    "inningInfo": "3회초",
     "liveState": {
-      "pitcher": "소형준",
-      "batter": "김태군",
-      "ball": 2,
-      "strike": 2,
-      "out": 1,
+      "pitcher": "양현종",
+      "batter": "장준원",
+      "ball": 0,
+      "strike": 0,
+      "out": 0,
       "bases": [],
-      "pitchCount": 35
+      "pitchCount": 29
     },
     "highlights": {
       "home": [],
@@ -635976,12 +635982,15 @@
     "inningInfo": "3회초",
     "liveState": {
       "pitcher": "최민석",
-      "batter": "한재환",
-      "ball": 1,
-      "strike": 1,
+      "batter": "김주원",
+      "ball": 0,
+      "strike": 0,
       "out": 0,
-      "bases": [],
-      "pitchCount": 24
+      "bases": [
+        2,
+        3
+      ],
+      "pitchCount": 28
     },
     "highlights": {
       "home": [
@@ -636016,6 +636025,12 @@
           "text": "안중열 유격수 병살타 아웃 (유격수->2루수->1루수 송구아웃)",
           "player": "안중열",
           "pid": "kbo:b:64022"
+        },
+        {
+          "how": "2루타",
+          "text": "오태양 우익수 오른쪽 뒤 2루타",
+          "player": "오태양",
+          "pid": "kbo:b:51996"
         }
       ]
     }
@@ -636040,14 +636055,14 @@
     "inningInfo": "3회초",
     "liveState": {
       "pitcher": "김민준",
-      "batter": "박해민",
-      "ball": 0,
+      "batter": "구본혁",
+      "ball": 1,
       "strike": 1,
-      "out": 1,
+      "out": 2,
       "bases": [
         1
       ],
-      "pitchCount": 38
+      "pitchCount": 43
     },
     "highlights": {
       "home": [
