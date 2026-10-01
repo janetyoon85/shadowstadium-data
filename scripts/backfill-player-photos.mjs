@@ -24,6 +24,8 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
 const PLAYERS_PATH = path.join(REPO_ROOT, 'players.json');
 const PHOTOS_PATH = path.join(REPO_ROOT, 'player-photos.json');
+const TRIED_PATH = path.join(REPO_ROOT, 'player-photos-tried.json');
+const RETRY_NULL_DAYS = Number(process.env.PLAYER_PHOTO_RETRY_DAYS || 7);
 const USER_AGENT = 'shadowstadium-crawler/1.0 (+https://github.com/janetyoon85/shadowstadium-data)';
 const SPORTSDB_DELAY_MS = 2200; // TheSportsDB 무료 공유키(분당 30회) 보호 — team-logos와 동일.
 const OWN_SOURCE_DELAY_MS = 600; // KBO/NPB/K리그/ESPN 자체 API — 공유 한도 아니라 짧게.
@@ -137,6 +139,12 @@ async function main() {
     console.log('[player-photos] no player-photos.json yet — backfilling from scratch');
   }
 
+  let tried = {};
+  try { tried = JSON.parse(await fs.readFile(TRIED_PATH, 'utf-8')); } catch {}
+  const today = Math.floor(Date.now() / 86400000);
+  for (const [id, v] of Object.entries(cache)) if (v === null && !(id in tried)) tried[id] = today;
+  const retryDue = (id) => cache[id] === null && today - (tried[id] ?? today) >= RETRY_NULL_DAYS;
+
   // MLB는 네트워크 호출이 없어 예산과 무관하게 전부 한 번에 처리(2026-09-30 최초 실행 시
   // 1,234명 즉시 완료 확인).
   let mlbDone = 0;
@@ -154,9 +162,10 @@ async function main() {
   const srcRank = (id) => (/^espn:/.test(id) ? 1 : 0);
   // 같은 소스끼리는 최근 등장·다경기 선수 우선(유명 선수 사진이 뒤로 밀리지 않게).
   const ordered = [...players].sort((x, y) => srcRank(x.id || '') - srcRank(y.id || '') || (y.lastSeenDate || '').localeCompare(x.lastSeenDate || '') || (y.appearances?.length || 0) - (x.appearances?.length || 0));
+  ordered.sort((x, y) => (x.id in cache ? 1 : 0) - (y.id in cache ? 1 : 0));
   for (const p of ordered) {
     if (!p.id || p.id.startsWith('mlb:')) continue; // 위에서 이미 처리.
-    if (p.id in cache) continue;
+    if (p.id in cache && !retryDue(p.id)) continue;
     if (used >= BUDGET) break;
 
     let photo;
@@ -182,9 +191,10 @@ async function main() {
       continue; // pid 없는(이름만) 인덱스 항목 — 동명이인 위험 커서 스킵.
     }
     cache[p.id] = photo || null;
-    if (photo) found++;
+    if (photo) { found++; delete tried[p.id]; } else tried[p.id] = today;
   }
 
+  await fs.writeFile(TRIED_PATH, JSON.stringify(tried) + '\n', 'utf-8');
   await fs.writeFile(PHOTOS_PATH, JSON.stringify(cache, null, 2) + '\n', 'utf-8');
   console.log(`[player-photos] totalPlayers=${players.length} cached=${Object.keys(cache).length} mlbDone=${mlbDone} thisRunUsed=${used} thisRunFound=${found}`);
 }

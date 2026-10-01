@@ -259,7 +259,7 @@ async function main() {
   try { meta = JSON.parse(await fs.readFile(path.join(OUT_DIR, '_meta.json'), 'utf8')); } catch {}
   const today = Math.floor(Date.now() / 86400000);
   for (const k of Object.keys(cache)) if (!(k in meta)) meta[k] = today;
-  const REFRESH_DAYS = Number(process.env.TEAM_INFO_REFRESH_DAYS || 30);
+  const REFRESH_DAYS = Number(process.env.TEAM_INFO_REFRESH_DAYS || 7);
   const fresh = Object.keys(names).filter((k) => !(k in cache) && (!only || only.includes(k)));
   const stale = Object.keys(names).filter((k) => k in cache && today - (meta[k] ?? today) >= REFRESH_DAYS && (!only || only.includes(k))).sort((a, b) => meta[a] - meta[b]);
   const todo = [...fresh, ...stale];
