@@ -635710,13 +635710,13 @@
     "liveState": {
       "pitcher": "쿠도",
       "batter": "달벡",
-      "ball": 0,
-      "strike": 2,
-      "out": 1,
+      "ball": 2,
+      "strike": 3,
+      "out": 2,
       "bases": [
         1
       ],
-      "pitchCount": 8
+      "pitchCount": 13
     },
     "highlights": {
       "home": [
@@ -636040,14 +636040,14 @@
     "inningInfo": "9회말",
     "liveState": {
       "pitcher": "김정운",
-      "batter": "하주석",
+      "batter": "김태군",
       "ball": 0,
       "strike": 0,
-      "out": 1,
+      "out": 2,
       "bases": [
         3
       ],
-      "pitchCount": 12
+      "pitchCount": 16
     },
     "highlights": {
       "home": [
@@ -636128,123 +636128,147 @@
     "stadium": "잠실",
     "timeTbd": false,
     "gameId": "20261001NCOB02026",
-    "status": "live",
+    "status": "completed",
     "awayPitcher": "송명기",
     "homePitcher": "최민석",
     "awayPitcherPid": "kbo:p:69962",
     "homePitcherPid": "kbo:b:55268",
     "awayScore": 7,
     "homeScore": 9,
-    "inningInfo": "9회초",
-    "liveState": {
-      "pitcher": "김택연",
-      "batter": "안중열",
-      "ball": 0,
-      "strike": 3,
-      "out": 3,
-      "bases": [],
-      "pitchCount": 14
+    "winPitcher": "타카다",
+    "losePitcher": "배재환",
+    "savePitcher": "김택연",
+    "winPitcherPid": "kbo:p:56212",
+    "losePitcherPid": "kbo:p:64995",
+    "savePitcherPid": "kbo:p:54263",
+    "holds": {
+      "home": [
+        {
+          "n": "김정우",
+          "pid": "kbo:p:68830"
+        },
+        {
+          "n": "이용찬",
+          "pid": "kbo:p:77211"
+        },
+        {
+          "n": "이병헌",
+          "pid": "kbo:p:52204"
+        }
+      ],
+      "away": []
     },
     "highlights": {
       "home": [
         {
+          "how": "결승타",
+          "text": "강승호(7회 1사 만루서 중전 안타)",
+          "player": "강승호",
+          "pid": "kbo:b:63123"
+        },
+        {
           "how": "홈런",
-          "text": "양의지 좌익수 뒤 홈런 (홈런거리:130M)",
+          "text": "양의지22호(1회2점 송명기)",
           "player": "양의지",
           "pid": "kbo:b:76232"
         },
         {
+          "how": "2루타",
+          "text": "정수빈(4회)",
+          "player": "정수빈",
+          "pid": "kbo:b:79231"
+        },
+        {
           "how": "실책",
-          "text": "세베리노 중견수 실책으로 2루까지 진루 (중견수 포구 실책)",
-          "player": "세베리노",
-          "pid": "kbo:b:56236"
+          "text": "박준순(7회)",
+          "player": "박준순",
+          "pid": "kbo:b:55252"
+        },
+        {
+          "how": "실책",
+          "text": "강승호(8회)",
+          "player": "강승호",
+          "pid": "kbo:b:63123"
         },
         {
           "how": "도루",
-          "text": "조수행 도루실패아웃 (포수->유격수 태그아웃)",
+          "text": "정수빈(2회)",
+          "player": "정수빈",
+          "pid": "kbo:b:79231"
+        },
+        {
+          "how": "도루자",
+          "text": "조수행(2회)",
           "player": "조수행",
           "pid": "kbo:b:66209"
         },
         {
-          "how": "도루",
-          "text": "정수빈 도루로 2루까지 진루",
-          "player": "정수빈",
-          "pid": "kbo:b:79231"
+          "how": "병살타",
+          "text": "김민석(6회)",
+          "player": "김민석",
+          "pid": "kbo:b:53554"
         },
         {
-          "how": "2루타",
-          "text": "정수빈 우익수 뒤 2루타",
-          "player": "정수빈",
-          "inn": "4회말",
-          "pid": "kbo:b:79231"
-        },
-        {
-          "how": "실책",
-          "text": "안재석 유격수 실책으로 2루까지 진루 (유격수 포구 실책)",
-          "player": "안재석",
-          "inn": "7회말",
-          "pid": "kbo:b:51203"
-        },
-        {
-          "how": "폭투",
-          "text": "정수빈 폭투로 2루까지 진루",
-          "player": "정수빈",
-          "inn": "8회말",
-          "pid": "kbo:b:79231"
+          "how": "병살타",
+          "text": "세베리노(8회)",
+          "player": "세베리노",
+          "pid": "kbo:b:56236"
         }
       ],
       "away": [
         {
-          "how": "병살타",
-          "text": "안중열 유격수 병살타 아웃 (유격수->2루수->1루수 송구아웃)",
-          "player": "안중열",
-          "pid": "kbo:b:64022"
-        },
-        {
           "how": "2루타",
-          "text": "오태양 우익수 오른쪽 뒤 2루타",
+          "text": "오태양(3회)",
           "player": "오태양",
           "pid": "kbo:b:51996"
         },
         {
-          "how": "도루",
-          "text": "박민우 도루로 2루까지 진루",
-          "player": "박민우",
-          "pid": "kbo:b:62907"
-        },
-        {
-          "how": "도루",
-          "text": "김휘집 도루로 2루까지 진루",
-          "player": "김휘집",
-          "pid": "kbo:b:51344"
-        },
-        {
           "how": "2루타",
-          "text": "한재환 좌익수 왼쪽 2루타",
+          "text": "한재환(5회)",
           "player": "한재환",
-          "inn": "5회초",
           "pid": "kbo:b:50903"
         },
         {
           "how": "실책",
-          "text": "최정원 실책으로 홈인 (2루수 포구 실책)",
-          "player": "최정원",
-          "inn": "7회초",
-          "pid": "kbo:b:69992"
-        },
-        {
-          "how": "도루",
-          "text": "오태양 도루실패아웃 (투수 견제->1루수->2루수 태그아웃)",
-          "player": "오태양",
-          "inn": "7회초",
-          "pid": "kbo:b:51996"
+          "text": "고준휘(1회)",
+          "player": "고준휘",
+          "pid": "kbo:b:56949"
         },
         {
           "how": "실책",
-          "text": "박민우 1루수 땅볼 실책으로 출루 (1루수 포구 실책)",
+          "text": "김주원(7회)",
+          "player": "김주원",
+          "pid": "kbo:b:51907"
+        },
+        {
+          "how": "도루",
+          "text": "김휘집(3회)",
+          "player": "김휘집",
+          "pid": "kbo:b:51344"
+        },
+        {
+          "how": "도루",
+          "text": "박민우(3회)",
           "player": "박민우",
-          "inn": "8회초",
           "pid": "kbo:b:62907"
+        },
+        {
+          "how": "도루자",
+          "text": "오태양(7회)",
+          "player": "오태양",
+          "pid": "kbo:b:51996"
+        },
+        {
+          "how": "병살타",
+          "text": "안중열(2회)",
+          "player": "안중열",
+          "pid": "kbo:b:64022"
+        },
+        {
+          "how": "폭투",
+          "text": "신영우(8회)",
+          "player": "신영우",
+          "pid": "kbo:b:53919"
         }
       ]
     }
