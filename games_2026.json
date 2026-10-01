@@ -635705,11 +635705,12 @@
     "inningInfo": "10회초",
     "liveState": {
       "pitcher": "쿠도",
-      "batter": "마츠모토",
-      "ball": 0,
-      "strike": 0,
-      "out": 0,
-      "bases": []
+      "batter": "이즈구치",
+      "ball": 1,
+      "strike": 1,
+      "out": 1,
+      "bases": [],
+      "pitchCount": 3
     },
     "highlights": {
       "home": [
@@ -635727,6 +635728,12 @@
         },
         {
           "how": "홈런",
+          "text": "오야마",
+          "player": "오야마",
+          "pid": "npb:1600113"
+        },
+        {
+          "how": "도루",
           "text": "오야마",
           "player": "오야마",
           "pid": "npb:1600113"
@@ -636007,12 +636014,14 @@
     "inningInfo": "9회말",
     "liveState": {
       "pitcher": "김정운",
-      "batter": "나성범",
-      "ball": 3,
+      "batter": "김선빈",
+      "ball": 1,
       "strike": 2,
       "out": 0,
-      "bases": [],
-      "pitchCount": 5
+      "bases": [
+        2
+      ],
+      "pitchCount": 9
     },
     "highlights": {
       "home": [
@@ -636036,6 +636045,13 @@
           "player": "김태군",
           "inn": "7회말",
           "pid": "kbo:b:78122"
+        },
+        {
+          "how": "2루타",
+          "text": "나성범 우중간 2루타",
+          "player": "나성범",
+          "inn": "9회말",
+          "pid": "kbo:b:62947"
         }
       ],
       "away": [
