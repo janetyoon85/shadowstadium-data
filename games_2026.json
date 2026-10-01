@@ -635708,12 +635708,12 @@
       "batter": "다카테라",
       "ball": 3,
       "strike": 1,
-      "out": 2,
+      "out": 3,
       "bases": [
         2,
         3
       ],
-      "pitchCount": 23
+      "pitchCount": 28
     },
     "highlights": {
       "home": [
@@ -636008,17 +636008,14 @@
     "homePitcherPid": "kbo:b:77637",
     "awayScore": 7,
     "homeScore": 5,
-    "inningInfo": "9회초",
+    "inningInfo": "9회말",
     "liveState": {
-      "pitcher": "정해영",
-      "batter": "권동진",
-      "ball": 1,
-      "strike": 2,
-      "out": 2,
-      "bases": [
-        1
-      ],
-      "pitchCount": 25
+      "pitcher": "김정운",
+      "batter": "나성범",
+      "ball": 0,
+      "strike": 0,
+      "out": 0,
+      "bases": []
     },
     "highlights": {
       "home": [
@@ -636103,11 +636100,11 @@
     "liveState": {
       "pitcher": "김택연",
       "batter": "블레인",
-      "ball": 0,
-      "strike": 0,
+      "ball": 1,
+      "strike": 1,
       "out": 0,
       "bases": [],
-      "pitchCount": 5
+      "pitchCount": 7
     },
     "highlights": {
       "home": [
@@ -636242,63 +636239,76 @@
       ],
       "pitchCount": 18
     },
+    "savePitcher": "조병현",
+    "savePitcherPid": "kbo:p:51897",
     "highlights": {
       "home": [
         {
+          "how": "결승타",
+          "text": "김재환(2회 2사서 중월 홈런)",
+          "player": "김재환",
+          "pid": "kbo:b:78224"
+        },
+        {
           "how": "홈런",
-          "text": "김재환 중견수 뒤 홈런 (홈런거리:130M)",
+          "text": "김재환24호(2회1점 임찬규)",
           "player": "김재환",
           "pid": "kbo:b:78224"
         },
         {
           "how": "2루타",
-          "text": "한유섬 우중간 2루타",
+          "text": "한유섬(5회)",
           "player": "한유섬",
-          "inn": "5회말",
           "pid": "kbo:b:62895"
         },
         {
           "how": "도루",
-          "text": "안상현 도루로 2루까지 진루",
-          "player": "안상현",
-          "inn": "7회말",
-          "pid": "kbo:b:66864"
-        },
-        {
-          "how": "도루",
-          "text": "홍대인 도루로 2루까지 진루",
+          "text": "홍대인(7회)",
           "player": "홍대인",
-          "inn": "7회말",
           "pid": "kbo:b:55897"
         },
         {
           "how": "도루",
-          "text": "채현우 도루로 2루까지 진루",
+          "text": "안상현(7회)",
+          "player": "안상현",
+          "pid": "kbo:b:66864"
+        },
+        {
+          "how": "도루",
+          "text": "채현우(8회)",
           "player": "채현우",
-          "inn": "8회말",
           "pid": "kbo:b:69804"
+        },
+        {
+          "how": "주루사",
+          "text": "안상현(7회)",
+          "player": "안상현",
+          "pid": "kbo:b:66864"
+        },
+        {
+          "how": "병살타",
+          "text": "최지훈(8회)",
+          "player": "최지훈",
+          "pid": "kbo:b:50854"
         }
       ],
       "away": [
         {
           "how": "홈런",
-          "text": "이재원 중견수 뒤 홈런 (홈런거리:130M)",
+          "text": "이재원7호(5회3점 김민준)",
           "player": "이재원",
-          "inn": "5회초",
           "pid": "kbo:b:68106"
         },
         {
           "how": "홈런",
-          "text": "오지환 우익수 뒤 홈런 (홈런거리:115M)",
+          "text": "오지환14호(6회1점 김민준)",
           "player": "오지환",
-          "inn": "6회초",
           "pid": "kbo:b:79109"
         },
         {
           "how": "도루",
-          "text": "박해민 도루로 2루까지 진루",
+          "text": "박해민(9회)",
           "player": "박해민",
-          "inn": "9회초",
           "pid": "kbo:b:62415"
         }
       ]
