@@ -2034,6 +2034,34 @@ async function main() {
     await enrichEuroAssists(allGames);
     console.log(`[timing] enrichEuroAssists ${((Date.now() - t0) / 1000).toFixed(1)}s`);
   }
+  // 득점자/카드 pid 이름 승계(2026-10-01, "pid 채워야지") — 네이버 lineup/ESPN에 원천이 없는 경기는 같은 팀·이름이
+  // 다른 경기에서 단 하나의 pid로만 확인된 경우에 한해 그 pid를 붙임(동명이인 위험 없음, 자책골은 제외).
+  {
+    const learn = new Map();
+    const lists = (g) => ['scorers', 'cards'].flatMap((f) => ['home', 'away'].map((s) => [g[f]?.[s] || [], s === 'home' ? g.home : g.away]));
+    for (const g of allGames) {
+      for (const [arr, team] of lists(g)) {
+        for (const x of arr) {
+          if (!x.pid || x.og || !x.n) continue;
+          const k = `${team}|${x.n}`;
+          const set = learn.get(k) ?? new Set();
+          set.add(x.pid); learn.set(k, set);
+        }
+      }
+    }
+    let inherited = 0;
+    for (const g of allGames) {
+      if (g.status !== 'completed') continue;
+      for (const [arr, team] of lists(g)) {
+        for (const x of arr) {
+          if (x.pid || x.og || !x.n) continue;
+          const set = learn.get(`${team}|${x.n}`);
+          if (set && set.size === 1) { x.pid = [...set][0]; inherited++; }
+        }
+      }
+    }
+    console.log(`[pid-inherit] attached=${inherited}`);
+  }
 
   sortGames(allGames);
 
