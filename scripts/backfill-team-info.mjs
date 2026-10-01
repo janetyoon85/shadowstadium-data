@@ -153,6 +153,13 @@ async function loadPage(title, summary) {
   for (const w of WIKIS) { const t = ent?.sitelinks?.[`${w}wiki`]?.title; if (t) sl[w] = t; }
 
   const info = { wiki: title };
+  {
+    const al = new Set();
+    for (const l of LANGS) { const v = ent?.labels?.[l]?.value; if (v) al.add(v); }
+    for (const l of Object.keys(ent?.aliases || {})) if (LANGS.includes(l) || l === 'zh' || l === 'ko' || l === 'ja') for (const a of ent.aliases[l].slice(0, 4)) al.add(a.value);
+    for (const v of Object.values(ent?.labels || {})) if (al.size < 30) al.add(v.value);
+    info._al = [...al].filter((x) => x && x.length <= 60).slice(0, 36);
+  }
   if (yr) info.y = Number(yr);
   if (Object.keys(nick).length) info.nick = Object.fromEntries(Object.entries(nick).map(([k, v]) => [k, [...new Set(v)].slice(0, 4)]));
   if (venue.length) info.venue = L(venue);
@@ -242,7 +249,9 @@ async function fetchInfo(ko, en) {
   return loadPage(f.title, f.summary);
 }
 
-async function save(cache, meta) {
+const ALIASES_PATH = path.join(REPO_ROOT, 'team-aliases.json');
+async function save(cache, meta, aliases) {
+  await fs.writeFile(ALIASES_PATH, JSON.stringify(aliases) + '\n', 'utf8');
   await fs.writeFile(path.join(OUT_DIR, '_meta.json'), JSON.stringify(meta) + '\n', 'utf8');
   const shards = Array.from({ length: 16 }, () => ({}));
   for (const [k, v] of Object.entries(cache)) shards[parseInt(shardOf(k), 16)][k] = v;
@@ -256,12 +265,15 @@ async function main() {
   for (let i = 0; i < 16; i++) { try { Object.assign(cache, JSON.parse(await fs.readFile(path.join(OUT_DIR, `${i.toString(16)}.json`), 'utf8'))); } catch {} }
   const only = process.env.TEAM_INFO_ONLY ? process.env.TEAM_INFO_ONLY.split(',') : null;
   let meta = {};
+  let aliases = {};
+  try { aliases = JSON.parse(await fs.readFile(ALIASES_PATH, 'utf8')); } catch {}
+  const takeAl = (k, v) => { if (v && v._al) { aliases[k] = v._al; delete v._al; } };
   try { meta = JSON.parse(await fs.readFile(path.join(OUT_DIR, '_meta.json'), 'utf8')); } catch {}
   const today = Math.floor(Date.now() / 86400000);
   for (const k of Object.keys(cache)) if (!(k in meta)) meta[k] = today;
-  const REFRESH_DAYS = Number(process.env.TEAM_INFO_REFRESH_DAYS || 7);
+  const REFRESH_DAYS = Number(process.env.TEAM_INFO_REFRESH_DAYS || 90);
   const fresh = Object.keys(names).filter((k) => !(k in cache) && (!only || only.includes(k)));
-  const stale = Object.keys(names).filter((k) => k in cache && today - (meta[k] ?? today) >= REFRESH_DAYS && (!only || only.includes(k))).sort((a, b) => meta[a] - meta[b]);
+  const stale = Object.keys(names).filter((k) => k in cache && (today - (meta[k] ?? today) >= REFRESH_DAYS || (cache[k] && !(k in aliases))) && (!only || only.includes(k))).sort((a, b) => meta[a] - meta[b]);
   const todo = [...fresh, ...stale];
   console.log(`[team-info] total=${Object.keys(names).length} cached=${Object.keys(cache).length} todo=${todo.length} (stale=${stale.length}) budget=${BUDGET}`);
   let done = 0, found = 0;
@@ -271,18 +283,19 @@ async function main() {
     const r = await fetchInfo(ko, names[ko]);
     if (r === undefined) continue;
     if (r && r.multi) {
-      for (const [k, v] of Object.entries(r.multi)) { cache[k] = v; meta[k] = today; }
+      for (const [k, v] of Object.entries(r.multi)) { takeAl(k, v); cache[k] = v; meta[k] = today; }
       cache[ko] ??= null;
       meta[ko] = today;
       found++;
     } else {
+      takeAl(ko, r);
       cache[ko] = r;
       meta[ko] = today;
       if (r) found++;
     }
-    if (done % 10 === 0) await save(cache, meta);
+    if (done % 10 === 0) await save(cache, meta, aliases);
   }
-  await save(cache, meta);
+  await save(cache, meta, aliases);
   console.log(`[team-info] processed=${done} found=${found} total_cached=${Object.keys(cache).length}`);
 }
 main().catch((e) => { console.error(e); process.exit(1); });
