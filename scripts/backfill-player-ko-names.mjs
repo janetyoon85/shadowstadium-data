@@ -8,7 +8,8 @@ import { fileURLToPath } from 'node:url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const UA = 'ShadeSideCrawler/1.0 (+https://github.com/janetyoon85/shadowstadium-data)';
 const BUDGET = Number(process.env.KO_BUDGET || 200);
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+const LANGS = ['ko', 'ja', 'es', 'pt', 'fr', 'de', 'it', 'ru', 'ar', 'id', 'th', 'vi', 'zh-hans', 'zh-hant', 'hi', 'tr', 'nl'];
+const sleep =(ms) => new Promise((r) => setTimeout(r, ms));
 const loadJson = async (f, d) => { try { return JSON.parse(await fs.readFile(path.join(ROOT, f), 'utf8')); } catch { return d; } };
 
 async function getJson(url) {
@@ -39,7 +40,7 @@ async function lookup(player) {
     await sleep(250);
   }
   if (!cand.size) return null;
-  const ents = await getJson(`https://www.wikidata.org/w/api.php?action=wbgetentities&ids=${[...cand].join('|')}&props=labels|sitelinks|claims&languages=ko&sitefilter=kowiki&format=json`);
+  const ents = await getJson(`https://www.wikidata.org/w/api.php?action=wbgetentities&ids=${[...cand].join('|')}&props=labels|sitelinks|claims&languages=${LANGS.join('|')}&sitefilter=kowiki&format=json`);
   if (ents === undefined) return undefined;
   const hits = [];
   for (const e of Object.values(ents.entities || {})) {
@@ -47,7 +48,9 @@ async function lookup(player) {
     const born = (e.claims?.P569 || []).map((c) => (c.mainsnak?.datavalue?.value?.time || '').replace(/^\+/, '').slice(0, 10));
     if (!isHuman || !born.includes(dob)) continue;
     const ko = (e.labels?.ko?.value || e.sitelinks?.kowiki?.title || '').replace(/\s*\(.*\)\s*$/, '').trim();
-    if (ko && /[가-힣]/.test(ko)) hits.push(ko);
+    const labels = {};
+    for (const l of LANGS) { const v = e.labels?.[l]?.value; if (v && v !== player.name) labels[l] = v; }
+    hits.push({ ko: /[가-힣]/.test(ko) ? ko : '', labels });
   }
   return hits.length === 1 ? hits[0] : null;
 }
@@ -57,6 +60,7 @@ async function main() {
   const auto = await loadJson('player-name-ko.json', {});
 const autoOther = await loadJson('player-name-auto.json', {});
   const manual = await loadJson('player-name-en.json', {});
+  const i18n = await loadJson('player-name-i18n.json', {});
   const tried = await loadJson('player-ko-tried.json', {});
   const todo = players.filter((p) => p.sport === 'soccer' && p.id?.startsWith('espn:') && !/[가-힣]/.test(p.name) && !(p.id in tried)).sort((a, b) => (b.lastSeenDate || '').localeCompare(a.lastSeenDate || ''));
   console.log(`[ko-names] candidates=${todo.length} budget=${BUDGET}`);
@@ -64,22 +68,25 @@ const autoOther = await loadJson('player-name-auto.json', {});
   const save = async () => {
     await fs.writeFile(path.join(ROOT, 'player-name-ko.json'), JSON.stringify(auto, null, 2) + '\n', 'utf8');
     await fs.writeFile(path.join(ROOT, 'player-ko-tried.json'), JSON.stringify(tried) + '\n', 'utf8');
+    await fs.writeFile(path.join(ROOT, 'player-name-i18n.json'), JSON.stringify(i18n) + '\n', 'utf8');
   };
   for (const p of todo) {
     if (used >= BUDGET) break;
     used++;
     if (used % 25 === 0) await save();
-    const ko = await lookup(p);
+    const r = await lookup(p);
     await sleep(250);
-    if (ko === undefined) continue;
+    if (r === undefined) continue;
+    if (!r) { tried[p.id] = 0; none++; continue; }
+    if (Object.keys(r.labels).length) i18n[p.id] = r.labels;
+    const ko = r.ko;
     if (!ko) { tried[p.id] = 0; none++; continue; }
-    if (ko in auto || ko in autoOther || ko in manual) { tried[p.id] = 'conflict'; conflict++; continue; }
+    if (auto[ko] !== p.name && (ko in auto || ko in autoOther || ko in manual)) { tried[p.id] = 'conflict'; conflict++; continue; }
     auto[ko] = p.name;
     tried[p.id] = ko;
     added++;
   }
-  await fs.writeFile(path.join(ROOT, 'player-name-ko.json'), JSON.stringify(auto, null, 2) + '\n', 'utf8');
-  await fs.writeFile(path.join(ROOT, 'player-ko-tried.json'), JSON.stringify(tried) + '\n', 'utf8');
+  await save();
   console.log(`[ko-names] used=${used} added=${added} none=${none} conflict=${conflict} remaining=${todo.length - used}`);
 }
 main().catch((e) => { console.error(e); process.exit(1); });
