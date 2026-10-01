@@ -76,6 +76,8 @@ const TEAM_SEARCH_NAME_OVERRIDES = {
   '닛폰햄': 'Nippon Ham Fighters',
   '드로게다': 'Drogheda United',
   '트라브존': 'Trabzonspor',
+  '맨유': 'Manchester United',
+  '맨시티': 'Manchester City',
 };
 
 async function fetchTeamBadge(englishName, sportLabel) {
