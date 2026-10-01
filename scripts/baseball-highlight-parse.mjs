@@ -222,6 +222,7 @@ export function parseMlbNpbRelayHighlights(textRelayData) {
       const how = classifyRelayHow(desc);
       if (!how) continue;
       const entry = { how, text: `${name.trim()} ${desc.trim()}`, player: name.trim(), seqno: r.no };
+      if (typeof r.inn === 'number' && r.inn > 0) entry.inn = `${r.inn}회${String(r.homeOrAway) === '0' ? '초' : '말'}`;
       if (String(r.homeOrAway) === '1') home.push(entry);
       else if (String(r.homeOrAway) === '0') away.push(entry);
     }
@@ -254,6 +255,7 @@ export function parseKboRelayHighlights(textRelayData, homeTeamName, awayTeamNam
       const how = classifyRelayHow(desc);
       if (!how) continue;
       const entry = { how, text: `${name.trim()} ${desc.trim()}`, player: name.trim(), seqno: opt.seqno };
+      if (typeof r.inn === 'number' && r.inn > 0) entry.inn = `${r.inn}회${battingSide === 'home' ? '말' : battingSide === 'away' ? '초' : ''}`;
       seenSeqnos.push(opt.seqno);
       if (battingSide === 'home') home.push(entry);
       else if (battingSide === 'away') away.push(entry);
