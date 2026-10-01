@@ -1862,6 +1862,12 @@ function serializeGame(g) {
   // 0 도 유효 점수라 typeof 가드 (falsy 체크 금지).
   if (typeof g.awayScore === 'number') out.awayScore = g.awayScore;
   if (typeof g.homeScore === 'number') out.homeScore = g.homeScore;
+  // 진행중 축구: 득점자 수가 스코어보다 많으면(스코어 소스가 늦은 경우) 스코어를 득점자 수로 보정(2026-10-01, 볼리비아-아르헨티나 0:0 표시)
+  if (g.status === 'live' && g.scorers && typeof out.homeScore === 'number' && typeof out.awayScore === 'number') {
+    const hc = (g.scorers.home || []).length, ac = (g.scorers.away || []).length;
+    if (hc > out.homeScore) out.homeScore = hc;
+    if (ac > out.awayScore) out.awayScore = ac;
+  }
   // 야구 진행중 인닝 정보 ("5회말" 등) — 앱에서 team 이름과 조합해 공격/수비 표시.
   if (g.inningInfo) out.inningInfo = g.inningInfo;
   if (g.matchPeriod) out.matchPeriod = g.matchPeriod;
