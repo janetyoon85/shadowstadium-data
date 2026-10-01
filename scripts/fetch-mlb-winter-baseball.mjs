@@ -13,6 +13,7 @@
 // 유지). 매일 1회 GitHub Actions 자동 실행(.github/workflows/fetch-mlb-winter-baseball.yml).
 
 import fs from 'node:fs/promises';
+import { inningInfoFrom, liveStateFrom, applyLive, liveChanged } from './statsapi-live.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execSync } from 'node:child_process';
@@ -166,7 +167,7 @@ function ymd(d) {
 }
 
 async function fetchMlbWinterLeague(leagueId, code, sportId, startDate, endDate, unknownTeams, unknownVenues) {
-  const url = `https://statsapi.mlb.com/api/v1/schedule?sportId=${sportId}&leagueId=${leagueId}&startDate=${startDate}&endDate=${endDate}`;
+  const url = `https://statsapi.mlb.com/api/v1/schedule?sportId=${sportId}&leagueId=${leagueId}&startDate=${startDate}&endDate=${endDate}&hydrate=linescore`;
   const res = await fetch(url, { headers: { 'User-Agent': USER_AGENT } });
   if (!res.ok) throw new Error(`HTTP ${res.status} ${code}`);
   const j = await res.json();
@@ -197,6 +198,12 @@ async function fetchMlbWinterLeague(leagueId, code, sportId, startDate, endDate,
         const as = g.teams?.away?.score;
         if (typeof hs === 'number') out.homeScore = hs;
         if (typeof as === 'number') out.awayScore = as;
+      }
+      if (status === 'live') {
+        const inningInfo = inningInfoFrom(g.linescore);
+        if (inningInfo) out.inningInfo = inningInfo;
+        const ls = liveStateFrom(g.linescore);
+        if (ls) out.liveState = ls;
       }
       games.push(out);
     }
@@ -263,8 +270,8 @@ async function main() {
       const idx = games.findIndex((x) => x.gameId === key);
       if (idx >= 0) {
         const prev = games[idx];
-        if (prev.status !== g.status || prev.homeScore !== g.homeScore || prev.awayScore !== g.awayScore) {
-          games[idx] = { ...prev, ...g };
+        if (prev.status !== g.status || prev.homeScore !== g.homeScore || prev.awayScore !== g.awayScore || liveChanged(prev, g)) {
+          games[idx] = applyLive(prev, g);
           updated++;
         }
       }

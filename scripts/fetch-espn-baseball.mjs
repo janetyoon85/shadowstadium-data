@@ -11,6 +11,7 @@
 // 분리라 부득이 복사 유지. 새 국가/구장 나오면 양쪽 다 갱신해야 함.
 
 import fs from 'node:fs/promises';
+import { applyLive, liveChanged } from './statsapi-live.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execSync } from 'node:child_process';
@@ -135,6 +136,23 @@ async function fetchEspnBaseballLeague(slug, league, dates, unknownTeams, unknow
         if (typeof home.score !== 'undefined') g.homeScore = Number(home.score);
         if (typeof away.score !== 'undefined') g.awayScore = Number(away.score);
       }
+      if (status === 'live') {
+        const m = /^(Top|Mid|Bot|End)\w*\s+(\d+)/i.exec(e.status?.type?.shortDetail || e.status?.type?.detail || '');
+        if (m) g.inningInfo = `${m[2]}회${/^(top|mid)/i.test(m[1]) ? '초' : '말'}`;
+        const sit = comp.situation;
+        if (sit) {
+          const ls = {};
+          const pn = sit.pitcher?.athlete?.displayName || sit.pitcher?.athlete?.fullName;
+          const bn = sit.batter?.athlete?.displayName || sit.batter?.athlete?.fullName;
+          if (pn) ls.pitcher = pn;
+          if (bn) ls.batter = bn;
+          if (typeof sit.balls === 'number') ls.ball = sit.balls;
+          if (typeof sit.strikes === 'number') ls.strike = sit.strikes;
+          if (typeof sit.outs === 'number') ls.out = sit.outs;
+          ls.bases = [sit.onFirst && 1, sit.onSecond && 2, sit.onThird && 3].filter(Boolean);
+          if (ls.pitcher || ls.batter) g.liveState = ls;
+        }
+      }
       games.push(g);
     }
   }
@@ -194,8 +212,8 @@ async function main() {
       const idx = games.findIndex((x) => x.gameId === key);
       if (idx >= 0) {
         const prev = games[idx];
-        if (prev.status !== g.status || prev.homeScore !== g.homeScore || prev.awayScore !== g.awayScore) {
-          games[idx] = { ...prev, ...g };
+        if (prev.status !== g.status || prev.homeScore !== g.homeScore || prev.awayScore !== g.awayScore || liveChanged(prev, g)) {
+          games[idx] = applyLive(prev, g);
           updated++;
         }
       }

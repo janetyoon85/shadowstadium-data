@@ -6,6 +6,7 @@
 // 매일 1회 GitHub Actions 자동 실행(.github/workflows/fetch-mlb-aaa-baseball.yml).
 
 import fs from 'node:fs/promises';
+import { inningInfoFrom, liveStateFrom, applyLive, liveChanged } from './statsapi-live.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execSync } from 'node:child_process';
@@ -83,13 +84,6 @@ function toKstDateTime(utcIso) {
 // statsapi linescore.inningState: Top/Middle(초 마무리~말 시작 전)/Bottom/End(말 마무리~다음 회 전).
 // 정확한 순간(중/종료)까지 구분하는 라벨이 기존 스키마(^\d+회(초|말)$, 네이버 공용)에 없어
 // Top·Middle -> 초, Bottom·End -> 말로 근사(경기 흐름 파악엔 충분, 기존 방위각 180도 근사와 같은 성격).
-function inningInfoFrom(linescore) {
-  const inning = linescore?.currentInning;
-  const state = linescore?.inningState;
-  if (!inning || !state) return undefined;
-  const half = /^(Top|Middle)$/i.test(state) ? '초' : '말';
-  return `${inning}회${half}`;
-}
 
 function mlbStatusToOurs(g) {
   const abs = g.status?.abstractGameState;
@@ -142,6 +136,8 @@ async function fetchAaaBaseball(startDate, endDate, unknownTeams, unknownVenues)
       if (status === 'live') {
         const inningInfo = inningInfoFrom(g.linescore);
         if (inningInfo) out.inningInfo = inningInfo;
+        const ls = liveStateFrom(g.linescore);
+        if (ls) out.liveState = ls;
       }
       games.push(out);
     }
@@ -203,8 +199,8 @@ async function main() {
       const idx = games.findIndex((x) => x.gameId === key);
       if (idx >= 0) {
         const prev = games[idx];
-        if (prev.status !== g.status || prev.homeScore !== g.homeScore || prev.awayScore !== g.awayScore || prev.inningInfo !== g.inningInfo) {
-          games[idx] = { ...prev, ...g };
+        if (prev.status !== g.status || prev.homeScore !== g.homeScore || prev.awayScore !== g.awayScore || liveChanged(prev, g)) {
+          games[idx] = applyLive(prev, g);
           updated++;
         }
       }
