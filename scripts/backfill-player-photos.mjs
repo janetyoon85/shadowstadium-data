@@ -94,6 +94,8 @@ async function resolveKbo(role, code) {
       if (photoM) ownPhoto = photoM[1].replace(/^\/\//, 'https://');
     }
   } catch {}
+  // 공식 사진 우선(2026-10-01, "화이트 모자부터 다른데 사진바꿔줘") — TheSportsDB 컷아웃은 MLB 시절 등 옛 소속 사진인 경우가 있음.
+  if (ownPhoto && !/noimg/.test(ownPhoto)) return ownPhoto;
   if (!englishName) return ownPhoto;
   await sleep(SPORTSDB_DELAY_MS);
   const candidates = await searchTheSportsDb(englishName, 'Baseball');
