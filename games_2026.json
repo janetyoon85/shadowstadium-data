@@ -635710,8 +635710,8 @@
     "liveState": {
       "pitcher": "이시이",
       "batter": "이즈구치",
-      "ball": 0,
-      "strike": 0,
+      "ball": 2,
+      "strike": 2,
       "out": 2,
       "bases": [],
       "pitchCount": 15
@@ -636037,72 +636037,87 @@
     "homeScore": 5,
     "winPitcher": "오원석",
     "losePitcher": "정해영",
+    "savePitcher": "박영현",
     "winPitcherPid": "kbo:p:50859",
     "losePitcherPid": "kbo:p:50662",
+    "savePitcherPid": "kbo:p:52060",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "김정운",
+          "pid": "kbo:p:53029"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
+          "how": "홈런",
+          "text": "김태군6호(7회3점 손동현)",
+          "player": "김태군",
+          "pid": "kbo:b:78122"
+        },
+        {
           "how": "3루타",
-          "text": "김도영 우중간 3루타",
+          "text": "김도영(6회)",
           "player": "김도영",
-          "inn": "6회말",
           "pid": "kbo:b:52605"
         },
         {
           "how": "2루타",
-          "text": "김선빈 좌익수 왼쪽 2루타",
+          "text": "김선빈(7회)",
           "player": "김선빈",
-          "inn": "7회말",
           "pid": "kbo:b:78603"
         },
         {
-          "how": "홈런",
-          "text": "김태군 좌익수 뒤 홈런 (홈런거리:110M)",
-          "player": "김태군",
-          "inn": "7회말",
-          "pid": "kbo:b:78122"
+          "how": "2루타",
+          "text": "나성범(9회)",
+          "player": "나성범",
+          "pid": "kbo:b:62947"
         },
         {
-          "how": "2루타",
-          "text": "나성범 우중간 2루타",
-          "player": "나성범",
-          "inn": "9회말",
-          "pid": "kbo:b:62947"
+          "how": "병살타",
+          "text": "김선빈(4회)",
+          "player": "김선빈",
+          "pid": "kbo:b:78603"
         }
       ],
       "away": [
         {
-          "how": "2루타",
-          "text": "김현수 중견수 오른쪽 뒤 2루타",
+          "how": "결승타",
+          "text": "김현수(8회 무사 1루서 우월 홈런)",
           "player": "김현수",
           "pid": "kbo:b:76290"
         },
         {
           "how": "홈런",
-          "text": "힐리어드 중견수 뒤 홈런 (홈런거리:125M)",
+          "text": "힐리어드41호(5회1점 황동하)",
           "player": "힐리어드",
-          "inn": "5회초",
           "pid": "kbo:b:56034"
         },
         {
-          "how": "도루",
-          "text": "안현민 도루로 3루까지 진루",
-          "player": "안현민",
-          "inn": "6회초",
-          "pid": "kbo:b:52001"
+          "how": "홈런",
+          "text": "김현수13호(8회2점 정해영)",
+          "player": "김현수",
+          "pid": "kbo:b:76290"
         },
         {
-          "how": "홈런",
-          "text": "김현수 우익수 뒤 홈런 (홈런거리:120M)",
+          "how": "2루타",
+          "text": "김현수(1회)",
           "player": "김현수",
-          "inn": "8회초",
           "pid": "kbo:b:76290"
         },
         {
           "how": "도루",
-          "text": "류현인 도루로 2루까지 진루",
+          "text": "안현민(6회)",
+          "player": "안현민",
+          "pid": "kbo:b:52001"
+        },
+        {
+          "how": "도루",
+          "text": "류현인(9회)",
           "player": "류현인",
-          "inn": "9회초",
           "pid": "kbo:b:53036"
         }
       ]
