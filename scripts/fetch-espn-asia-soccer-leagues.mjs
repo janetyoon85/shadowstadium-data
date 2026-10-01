@@ -154,6 +154,7 @@ async function fetchEspnLeagueRange(code, slug, dayYmd, unknownTeams, unknownVen
       await fillDetailsFromSummary(comp, slug, e.id, out.homeScore, out.awayScore);
       const scorers = await extractScorers(comp, home.team?.id, away.team?.id, slug);
       if (scorers) out.scorers = scorers;
+      if (status === 'live' && scorers) { const hc = (scorers.home || []).length, ac = (scorers.away || []).length; if (hc > (out.homeScore ?? 0)) out.homeScore = hc; if (ac > (out.awayScore ?? 0)) out.awayScore = ac; } // 스코어가 득점자보다 늦은 ESPN 지연 보정(2026-10-01)
       const cards = await extractCards(comp, home.team?.id, away.team?.id, slug);
       if (cards) out.cards = cards;
     }
