@@ -25,7 +25,8 @@ function loadJsonSafe(file) {
 }
 const PLAYER_NAME_AUTO = loadJsonSafe(path.join(__dirname, '..', 'player-name-auto.json'));
 const PLAYER_NAME_EN_MANUAL = loadJsonSafe(path.join(__dirname, '..', 'player-name-en.json'));
-const PLAYER_NAME_EN = { ...PLAYER_NAME_AUTO, ...PLAYER_NAME_EN_MANUAL };
+const PLAYER_NAME_KO = loadJsonSafe(path.join(__dirname, '..', 'player-name-ko.json'));
+const PLAYER_NAME_EN = { ...PLAYER_NAME_KO, ...PLAYER_NAME_AUTO, ...PLAYER_NAME_EN_MANUAL };
 
 // 대소문자 무시(2026-09-30, "이강인 검색안되네" 리포트로 발견) — player-name-en.json에
 // "이강인": "Lee Kang-in"(소문자 in)으로 등록돼있는데 실제 ESPN 원문은 "Lee Kang-In"(대문자

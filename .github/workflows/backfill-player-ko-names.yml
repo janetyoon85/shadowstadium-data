@@ -1,0 +1,79 @@
+name: Player Korean Names Backfill
+
+on:
+  schedule:
+    # 하루 1회·회당 100명이면 후보 ~11,400명 채우는 데 90일 — 3시간마다→1시간마다로 늘림(2026-09-30, 1회 8~13분·concurrency로 겹침 방지). 팀 로고/구장
+    # 사진 크론(하루 1회)과 시각 안 겹치게 오프셋(같은 무료 공유 TheSportsDB 키 사용).
+    - cron: '40 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: backfill-player-ko-names
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run player ko-names backfill
+        run: node scripts/backfill-player-ko-names.mjs
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if [[ -n "$(git status --porcelain player-name-ko.json player-ko-tried.json)" ]]; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "changed=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add player-name-ko.json player-ko-tried.json
+          git commit -m "chore(data): 선수 한글명 백필 ($(date +'%Y-%m-%d %H:%M'))"
+          for i in $(seq 1 20); do
+            if git push; then
+              exit 0
+            fi
+            echo "push rejected, rebasing onto origin/main and retrying ($i/20)"
+            git pull --rebase origin main
+            sleep $((RANDOM % 30 + 1))
+          done
+          echo "push failed after 20 retries"
+          exit 1
+
+      - name: Create issue on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const date = new Date().toISOString().split('T')[0];
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `🚨 Player ko-names backfill failed - ${date}`,
+              body: `Player ko-names backfill crawler failed at ${date}.\n\nWorkflow run: ${context.runId}\nLogs: https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
+              labels: ['bug', 'crawler']
+            });
+      - name: Discord 알림 (실패 시)
+        if: failure()
+        run: |
+          curl -H "Content-Type: application/json" \
+            -d "{\"content\":\"🔴 ShadeSide 선수 한글명 백필 크롤러 실패\n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}\"}" \
+            "${{ secrets.DISCORD_WEBHOOK_URL }}"
