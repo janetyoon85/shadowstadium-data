@@ -43,14 +43,21 @@ function scoreLine(g) {
 
 // 득점자 정정(이강인→손흥민) 시 새 이름으로 알람이 가도록 dedup 키 끝에 선수명 포함. 구키(이름 없음)는
 // 발송 없이 신키로 이관 후 삭제(중복 알람 방지).
+// 2026-10-01: 배열 인덱스 기반 키는 경기 종료 시 scorers/highlights가 재구성·재정렬되면 같은 이벤트가
+// 새 키로 보여 알람이 한 번 더 감(사용자 리포트). 인덱스 대신 "같은 선수의 n번째 이벤트"로 키를 잡고,
+// 구형 키(…:타입:인덱스:이름)는 같은 경기·편·타입·이름의 개수로 이관 판정.
 function makeIsSent(sent) {
-  return (legacy, name) => {
-    const k = `${legacy}:${name}`;
-    if (sent[k]) return true;
-    if (sent[legacy]) { sent[k] = sent[legacy]; delete sent[legacy]; return true; }
-    return false;
+  const oldCount = {};
+  for (const k of Object.keys(sent)) {
+    const m = /^([^:]+):(home|away):(scorer|assist|card|highlight):\d+:(.+)$/.exec(k);
+    if (m) { const kk = `${m[1]}:${m[2]}:${m[3]}:${m[4]}`; oldCount[kk] = (oldCount[kk] || 0) + 1; }
+  }
+  return (gid, side, type, nm, n) => {
+    const k = `${gid}:${side}:${type}:${nm}#${n}`;
+    return { k, sent: !!sent[k] || (oldCount[`${gid}:${side}:${type}:${nm}`] || 0) >= n };
   };
 }
+const nth = (m, nm) => { const n = (m.get(nm) || 0) + 1; m.set(nm, n); return n; };
 
 async function main() {
   const games = await loadJson(GAMES_FILE, []);
@@ -77,6 +84,7 @@ async function main() {
       for (const { key, team } of sides) {
         const list = g.scorers[key];
         if (!Array.isArray(list)) continue;
+        const cntS = new Map(), cntA = new Map();
         for (let i = 0; i < list.length; i++) {
           const s = list[i];
           // 득점자(한글, 네이버원문)/어시스트(영문, ESPN원문)가 같은 선수여도 문자열이 갈라지는
@@ -84,12 +92,10 @@ async function main() {
           // 즐겨찾기한 사람이 어시스트("Son Heung-Min")에도 알림을 받음(build-player-index.mjs와
           // 동일 정규화 재사용, 두 스크립트가 다른 이름으로 정규화하면 다시 어긋나므로 반드시 동기화).
           if (s.n) {
-            const dedupKey = `${g.gameId}:${key}:scorer:${i}`;
-            { const nm = canonicalPlayerName(s.n); if (!isSent(dedupKey, nm)) pending.push({ dedupKey: `${dedupKey}:${nm}`, name: nm, pid: s.pid, game: g, team, icon: '⚽', label: '골', minute: s.m }); }
+            { const nm = canonicalPlayerName(s.n); const r = isSent(g.gameId, key, 'scorer', nm, nth(cntS, nm)); if (!r.sent) pending.push({ dedupKey: r.k, name: nm, pid: s.pid, game: g, team, icon: '⚽', label: '골', minute: s.m }); }
           }
           if (s.a) {
-            const dedupKey = `${g.gameId}:${key}:assist:${i}`;
-            { const nm = canonicalPlayerName(s.a); if (!isSent(dedupKey, nm)) pending.push({ dedupKey: `${dedupKey}:${nm}`, name: nm, pid: s.apid, game: g, team, icon: '🅰️', label: '어시스트', minute: s.m }); }
+            { const nm = canonicalPlayerName(s.a); const r = isSent(g.gameId, key, 'assist', nm, nth(cntA, nm)); if (!r.sent) pending.push({ dedupKey: r.k, name: nm, pid: s.apid, game: g, team, icon: '🅰️', label: '어시스트', minute: s.m }); }
           }
         }
       }
@@ -100,12 +106,12 @@ async function main() {
       for (const { key, team } of sides) {
         const list = g.cards[key];
         if (!Array.isArray(list)) continue;
+        const cntC = new Map();
         for (let i = 0; i < list.length; i++) {
           const c = list[i];
           if (!c.n) continue;
-          const dedupKey = `${g.gameId}:${key}:card:${i}`;
           const isRed = c.type === 'R';
-          { const nm = canonicalPlayerName(c.n); if (!isSent(dedupKey, nm)) pending.push({ dedupKey: `${dedupKey}:${nm}`, name: nm, pid: c.pid, game: g, team, icon: isRed ? '🟥' : '🟨', label: isRed ? '퇴장' : '경고', minute: c.m }); }
+          { const nm = canonicalPlayerName(c.n); const r = isSent(g.gameId, key, 'card', nm, nth(cntC, nm)); if (!r.sent) pending.push({ dedupKey: r.k, name: nm, pid: c.pid, game: g, team, icon: isRed ? '🟥' : '🟨', label: isRed ? '퇴장' : '경고', minute: c.m }); }
         }
       }
     }
@@ -116,11 +122,11 @@ async function main() {
       for (const { key, team } of sides) {
         const list = g.highlights[key];
         if (!Array.isArray(list)) continue;
+        const cntH = new Map();
         for (let i = 0; i < list.length; i++) {
           const h = list[i];
           if (!h.player) continue;
-          const dedupKey = `${g.gameId}:${key}:highlight:${i}`;
-          { const nm = h.player; if (!isSent(dedupKey, nm)) pending.push({ dedupKey: `${dedupKey}:${nm}`, name: nm, pid: h.pid, game: g, team, icon: '⚾', label: h.how === '도루자' ? '도루 실패' : h.how, detail: h.text }); }
+          { const nm = h.player; const r = isSent(g.gameId, key, 'highlight', nm, nth(cntH, nm)); if (!r.sent) pending.push({ dedupKey: r.k, name: nm, pid: h.pid, game: g, team, icon: '⚾', label: h.how === '도루자' ? '도루 실패' : h.how, detail: h.text }); }
         }
       }
     }
