@@ -263,3 +263,48 @@ export function parseKboRelayHighlights(textRelayData, homeTeamName, awayTeamNam
   }
   return { home, away, maxSeqno, seenSeqnos };
 }
+
+// 라이브 현재 투수/타자/카운트(2026-10-01, "던지고있는 투수정보도") — /relay 응답에서 추출. 기록 전용(앱 표시는 추후).
+// KBO: currentGameState의 pcode를 lineup에서 이름으로 역조회. MLB/NPB: baseInfo.ballCount 등에 이름이 직접 있음.
+export function parseLiveState(league, trd, isTopHalf) {
+  try {
+    if (league === 'KBO') {
+      const cg = trd?.currentGameState;
+      if (!cg) return null;
+      const nameOf = (code) => {
+        for (const s of ['homeLineup', 'awayLineup']) for (const r of ['pitcher', 'batter']) for (const p of trd[s]?.[r] || []) if (String(p.pcode) === String(code)) return p.name;
+        return undefined;
+      };
+      const out = {};
+      const p = nameOf(cg.pitcher), b = nameOf(cg.batter);
+      if (p) out.pitcher = p;
+      if (b) out.batter = b;
+      const n = (v) => (v === undefined || v === null || v === '' ? undefined : Number(v));
+      if (n(cg.ball) !== undefined) out.ball = n(cg.ball);
+      if (n(cg.strike) !== undefined) out.strike = n(cg.strike);
+      if (n(cg.out) !== undefined) out.out = n(cg.out);
+      const bases = [1, 2, 3].filter((i) => cg[`base${i}`] && cg[`base${i}`] !== '0');
+      out.bases = bases;
+      const pc = [...(trd.homeLineup?.pitcher || []), ...(trd.awayLineup?.pitcher || [])].find((x) => String(x.pcode) === String(cg.pitcher))?.ballCount;
+      if (typeof pc === 'number' && pc > 0) out.pitchCount = pc;
+      return out.pitcher || out.batter ? out : null;
+    }
+    const bi = trd?.baseInfo;
+    if (!bi) return null;
+    const bc = bi.ballCount || {};
+    // 초=원정 공격 → 투수는 홈 투수, 말=홈 공격 → 투수는 원정 투수.
+    const side = isTopHalf === true ? 'home' : isTopHalf === false ? 'away' : null;
+    const out = {};
+    if (side && bi[`${side}Pitcher`]) out.pitcher = bi[`${side}Pitcher`];
+    if (bc.batter) out.batter = bc.batter;
+    if (typeof bc.b === 'number') out.ball = bc.b;
+    if (typeof bc.s === 'number') out.strike = bc.s;
+    if (typeof bc.o === 'number') out.out = bc.o;
+    out.bases = [1, 2, 3].filter((i) => bc[`base${i}`]);
+    const pc = side ? Number(bi[`${side}PitcherPitchBallCount`]) : NaN;
+    if (pc > 0) out.pitchCount = pc;
+    return out.pitcher || out.batter ? out : null;
+  } catch {
+    return null;
+  }
+}

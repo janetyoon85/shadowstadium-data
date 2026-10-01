@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { execSync } from 'node:child_process';
 import { validateDataset } from './validators.mjs';
 import { getAthleteNationality, getAthleteDisplayName } from './espn-nationality.mjs';
-import { parseBaseballHighlights, parseKboRelayHighlights, parseMlbNpbRelayHighlights, extractPitcherDecisions } from './baseball-highlight-parse.mjs';
+import { parseBaseballHighlights, parseKboRelayHighlights, parseMlbNpbRelayHighlights, extractPitcherDecisions, parseLiveState } from './baseball-highlight-parse.mjs';
 import { selectUniqueScoreMatch } from './espn-match-select.mjs';
 import { getMlbNationality, getMlbPitcherDecisionNats, getMlbHoldNats, getMlbProbableStarterPid } from './mlb-nationality.mjs';
 
@@ -657,6 +657,8 @@ async function enrichSaves(allGames) {
         const trd = await fetchKboRelay(g.gameId);
         if (trd) {
           const rc = cache[g.gameId];
+          const ls = parseLiveState(g.league, trd, g.inningInfo?.endsWith('초') ? true : g.inningInfo?.endsWith('말') ? false : null);
+          if (ls) g.liveState = ls; else delete g.liveState;
           const parsed = g.league === 'KBO' ? parseKboRelayHighlights(trd, g.home, g.away) : parseMlbNpbRelayHighlights(trd);
           const prevMax = rc.relayMaxSeqno || 0;
           if (!rc.relayHighlights) rc.relayHighlights = { home: [], away: [] };
@@ -1870,6 +1872,7 @@ function serializeGame(g) {
   }
   // 야구 진행중 인닝 정보 ("5회말" 등) — 앱에서 team 이름과 조합해 공격/수비 표시.
   if (g.inningInfo) out.inningInfo = g.inningInfo;
+  if (g.status === 'live' && g.liveState) out.liveState = g.liveState;
   if (g.matchPeriod) out.matchPeriod = g.matchPeriod;
   // 종료 경기 승/패/세 투수 (KBO). 있는 것만 — 무승부·세이브 없는 경기는 일부/전부 누락.
   if (g.winPitcher) out.winPitcher = g.winPitcher;
