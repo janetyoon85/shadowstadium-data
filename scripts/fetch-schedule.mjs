@@ -1941,14 +1941,23 @@ async function main() {
   const mapFailures = [];
   const categoryCounts = {};
 
-  for (const cat of CATEGORIES) {
-    const tc = Date.now();
-    const raw = await fetchCategory(cat);
-    const converted = raw.map((g) => convertGame(g, cat, stadiumMap, mapFailures)).filter(Boolean);
+  // 카테고리 조회 4개 병렬(2026-10-01, 순차 65개가 실행시간 대부분) — 결과는 CATEGORIES 순서 유지.
+  const catResults = new Array(CATEGORIES.length);
+  let catIdx = 0;
+  await Promise.all(Array.from({ length: 4 }, async () => {
+    while (catIdx < CATEGORIES.length) {
+      const i = catIdx++;
+      const cat = CATEGORIES[i];
+      const tc = Date.now();
+      const raw = await fetchCategory(cat);
+      catResults[i] = { cat, converted: raw.map((g) => convertGame(g, cat, stadiumMap, mapFailures)).filter(Boolean) };
+      console.log(`[timing] category ${cat.categoryId} ${((Date.now() - tc) / 1000).toFixed(1)}s`);
+      await sleep(CATEGORY_DELAY_MS);
+    }
+  }));
+  for (const { cat, converted } of catResults) {
     categoryCounts[cat.league] = converted.length;
-    console.log(`[timing] category ${cat.categoryId} ${((Date.now() - tc) / 1000).toFixed(1)}s`);
     allGames.push(...converted);
-    await sleep(CATEGORY_DELAY_MS);
   }
 
   console.log(`[timing] categories ${((Date.now() - startMs) / 1000).toFixed(1)}s`);
