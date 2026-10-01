@@ -242,7 +242,8 @@ async function fetchInfo(ko, en) {
   return loadPage(f.title, f.summary);
 }
 
-async function save(cache) {
+async function save(cache, meta) {
+  await fs.writeFile(path.join(OUT_DIR, '_meta.json'), JSON.stringify(meta) + '\n', 'utf8');
   const shards = Array.from({ length: 16 }, () => ({}));
   for (const [k, v] of Object.entries(cache)) shards[parseInt(shardOf(k), 16)][k] = v;
   for (let i = 0; i < 16; i++) await fs.writeFile(path.join(OUT_DIR, `${i.toString(16)}.json`), JSON.stringify(shards[i]) + '\n', 'utf8');
@@ -254,8 +255,15 @@ async function main() {
   await fs.mkdir(OUT_DIR, { recursive: true });
   for (let i = 0; i < 16; i++) { try { Object.assign(cache, JSON.parse(await fs.readFile(path.join(OUT_DIR, `${i.toString(16)}.json`), 'utf8'))); } catch {} }
   const only = process.env.TEAM_INFO_ONLY ? process.env.TEAM_INFO_ONLY.split(',') : null;
-  const todo = Object.keys(names).filter((k) => !(k in cache) && (!only || only.includes(k)));
-  console.log(`[team-info] total=${Object.keys(names).length} cached=${Object.keys(cache).length} todo=${todo.length} budget=${BUDGET}`);
+  let meta = {};
+  try { meta = JSON.parse(await fs.readFile(path.join(OUT_DIR, '_meta.json'), 'utf8')); } catch {}
+  const today = Math.floor(Date.now() / 86400000);
+  for (const k of Object.keys(cache)) if (!(k in meta)) meta[k] = today;
+  const REFRESH_DAYS = Number(process.env.TEAM_INFO_REFRESH_DAYS || 30);
+  const fresh = Object.keys(names).filter((k) => !(k in cache) && (!only || only.includes(k)));
+  const stale = Object.keys(names).filter((k) => k in cache && today - (meta[k] ?? today) >= REFRESH_DAYS && (!only || only.includes(k))).sort((a, b) => meta[a] - meta[b]);
+  const todo = [...fresh, ...stale];
+  console.log(`[team-info] total=${Object.keys(names).length} cached=${Object.keys(cache).length} todo=${todo.length} (stale=${stale.length}) budget=${BUDGET}`);
   let done = 0, found = 0;
   for (const ko of todo) {
     if (done >= BUDGET) break;
@@ -263,16 +271,18 @@ async function main() {
     const r = await fetchInfo(ko, names[ko]);
     if (r === undefined) continue;
     if (r && r.multi) {
-      for (const [k, v] of Object.entries(r.multi)) cache[k] = v;
+      for (const [k, v] of Object.entries(r.multi)) { cache[k] = v; meta[k] = today; }
       cache[ko] ??= null;
+      meta[ko] = today;
       found++;
     } else {
       cache[ko] = r;
+      meta[ko] = today;
       if (r) found++;
     }
-    if (done % 10 === 0) await save(cache);
+    if (done % 10 === 0) await save(cache, meta);
   }
-  await save(cache);
+  await save(cache, meta);
   console.log(`[team-info] processed=${done} found=${found} total_cached=${Object.keys(cache).length}`);
 }
 main().catch((e) => { console.error(e); process.exit(1); });
