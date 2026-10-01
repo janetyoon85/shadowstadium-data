@@ -10,6 +10,10 @@ permissions:
   contents: write
   issues: write
 
+concurrency:
+  group: backfill-team-info
+  cancel-in-progress: false
+
 jobs:
   fetch:
     runs-on: ubuntu-latest
