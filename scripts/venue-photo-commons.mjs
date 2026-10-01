@@ -4,16 +4,18 @@
 // (2) 경기/인물/지도/로고류 파일은 제외. 못 찾으면 null(확정), 일시 오류는 undefined(재시도).
 export const COMMONS_UA = 'ShadeSideCrawler/1.0 (+https://github.com/janetyoon85/shadowstadium-data)';
 const GENERIC = new Set(['stadium', 'stadion', 'stade', 'estadio', 'stadio', 'arena', 'park', 'ballpark', 'field', 'ground', 'grounds', 'sports', 'sport', 'complex', 'center', 'centre', 'city', 'municipal', 'football', 'baseball', 'soccer', 'the', 'de', 'la', 'le', 'del', 'of', 'and', 'club', 'general', 'prefectural', 'athletics', 'athletic', 'town', 'international', 'national']);
-const BAD_FILE_RE = /dimen[st]?i?on|diagram|layout|seating|\.svg|\bvs?\b|\bmatch\b|derby|\bmap\b|logo|flag|crest|poster|ticket|parkplatz|parking|satellite|construction|thumbnail|addressing|enter|yaris|aleppo|stamp|postage|sello|statue|portrait|painting|bust|monument|coin|medal|banknote|mural|bandera|escudo/i; // 악센트 제거한 제목에 적용.
+const BAD_FILE_RE = /dimen[st]?i?on|diagram|layout|seating|\.svg|\bvs?\b|\bmatch\b|derby|\bmap\b|logo|flag|crest|poster|ticket|parkplatz|parking|satellite|construction|thumbnail|addressing|enter|yaris|aleppo|stamp|postage|sello|statue|portrait|painting|bust|\bmonument\b|coin|medal|banknote|mural|bandera|escudo|google art project|art project|oil on|canvas|mexibus|metrobus|\bmetro\b|\bstation\b|estacion del|\bbus\b|\btram\b|subway|\btrain\b|fence|\bom \d{4}\b/i; // 악센트 제거한 제목에 적용.
 export function normalizeForMatch(s) {
   return (s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
 }
 export function distinctiveTokens(name) {
   return normalizeForMatch(name).split(' ').filter((t) => t.length > 1 && !GENERIC.has(t));
 }
+const STADIUM_WORD_RE = /stadium|stadion|stade|stadio|estadio|arena|ballpark|coliseum|cancha|park|field|bowl/;
 export function isPlausibleCommonsFile(title, venueName) {
   const t = normalizeForMatch(title);
   if (BAD_FILE_RE.test(t)) return false;
+  if (!STADIUM_WORD_RE.test(t) && /cropped/.test(t)) return false;
   const tokens = distinctiveTokens(venueName);
   if (tokens.length === 0) return false;
   return tokens.every((tok) => t.includes(tok));
