@@ -153,10 +153,11 @@ async function fetchEspnSchedule(cfg, from, to) {
   const out = [];
   const events = [];
   let okDays = 0;
-  for (let d = Date.parse(from); d <= Date.parse(to); d += 86400e3) {
-    const j = await getJson(`https://site.api.espn.com/apis/site/v2/sports/basketball/${cfg.slug}/scoreboard?dates=${ymd(new Date(d)).replace(/-/g, '')}&limit=300`);
-    await sleep(120);
-    if (j) { okDays++; events.push(...(j.events || [])); }
+  const days = [];
+  for (let d = Date.parse(from); d <= Date.parse(to); d += 86400e3) days.push(d);
+  for (let i = 0; i < days.length; i += 5) {
+    const js = await Promise.all(days.slice(i, i + 5).map((d) => getJson(`https://site.api.espn.com/apis/site/v2/sports/basketball/${cfg.slug}/scoreboard?dates=${ymd(new Date(d)).replace(/-/g, '')}&limit=300`)));
+    for (const j of js) if (j) { okDays++; events.push(...(j.events || [])); }
   }
   if (okDays === 0 && to >= from) return undefined;
   for (const e of events) {
@@ -233,16 +234,12 @@ async function main() {
   const standings = await readJson('standings.json', {});
   let ok = 0, failed = 0;
   const fresh = [];
-  for (const cfg of NAVER) {
-    const r = await fetchNaverSchedule(cfg, from, to);
-    await sleep(300);
-    if (r === undefined) { failed++; console.log('[basketball] naver FAIL', cfg.lg); continue; }
-    ok++; fresh.push(...(r || []));
-  }
-  for (const cfg of ESPN) {
-    const r = await fetchEspnSchedule(cfg, from, to);
-    await sleep(300);
-    if (r === undefined) { failed++; console.log('[basketball] espn FAIL', cfg.lg); continue; }
+  const results = await Promise.all([
+    ...NAVER.map((cfg) => fetchNaverSchedule(cfg, from, to).then((r) => [cfg, r])),
+    ...ESPN.map((cfg) => fetchEspnSchedule(cfg, from, to).then((r) => [cfg, r])),
+  ]);
+  for (const [cfg, r] of results) {
+    if (r === undefined) { failed++; console.log('[basketball] FAIL', cfg.lg); continue; }
     ok++; fresh.push(...(r || []));
   }
   for (const g of fresh) {
@@ -254,21 +251,24 @@ async function main() {
   const box = async (g) => { const f = `box-${g.date.slice(0, 7)}.json`; return (boxFiles[f] ||= (await readJson(f, {}))); };
   let detail = 0;
   const finals = [...byId.values()].filter((g) => g.st === 'final' && !g.boxed && g._cfg).sort((a, b) => b.t - a.t);
-  for (const g of finals) {
-    if (detail >= DETAIL_BUDGET) break;
-    detail++;
-    const d = g.src === 'naver' ? await naverDetail(g) : await espnDetail(g);
-    await sleep(250);
-    if (d === undefined) continue;
-    if (d) { (await box(g))[g.id] = d; }
-    g.boxed = 1; // d===null(상세 없음)도 재시도 안 함
-  }
+  const todo = finals.slice(0, DETAIL_BUDGET);
+  for (const g of todo) await box(g);
+  detail = todo.length;
+  let qi = 0;
+  await Promise.all(Array.from({ length: 4 }, async () => {
+    while (qi < todo.length) {
+      const g = todo[qi++];
+      const d = g.src === 'naver' ? await naverDetail(g) : await espnDetail(g);
+      if (d === undefined) continue;
+      if (d) boxFiles[`box-${g.date.slice(0, 7)}.json`][g.id] = d;
+      g.boxed = 1;
+    }
+  }));
 
-  for (const cfg of ESPN.filter((c) => ['NBA', 'WNBA', 'NBL'].includes(c.lg))) {
+  await Promise.all(ESPN.filter((c) => ['NBA', 'WNBA', 'NBL'].includes(c.lg)).map(async (cfg) => {
     const s = await espnStandings(cfg);
-    await sleep(300);
     if (s) standings[`espn:${cfg.lg}`] = { updated: now, rows: s };
-  }
+  }));
   for (const cfg of NAVER) {
     const sample = [...byId.values()].filter((g) => g.src === 'naver' && g.lg === cfg.lg).sort((a, b) => b.t - a.t)[0];
     if (!sample) continue;
