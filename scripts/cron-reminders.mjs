@@ -30,6 +30,9 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
 const GAMES_FILE = path.join(REPO_ROOT, 'games.json');
 const SENT_FILE = path.join(REPO_ROOT, 'sent-reminders.json');
+const BK_GAMES_FILE = path.join(REPO_ROOT, 'basketball', 'games.json');
+const BK_TEAMS_FILE = path.join(REPO_ROOT, 'basketball', 'teams.json');
+const BK_VENUE_EN_FILE = path.join(REPO_ROOT, 'basketball', 'venue-name-en.json');
 
 const LEAD_HOURS = [1, 3, 6, 12, 24];
 const SPORT_ICON = { KBO: '⚾', 'K리그1': '⚽', 'K리그2': '⚽' };
@@ -108,10 +111,46 @@ async function main() {
     }
   }
 
+  // 농구(2026-10-03): 앱에서 경기 ⭐ 누르면 game_<id>_h6 토픽 구독 — basketball/games.json 의 예정 경기도 같은 방식으로 발송.
+  const bkStart = new Map();
+  try {
+    const bkRaw = await loadJson(BK_GAMES_FILE, {});
+    const bkTeams = await loadJson(BK_TEAMS_FILE, {});
+    const bkVen = await loadJson(BK_VENUE_EN_FILE, {});
+    const tn = (k) => { const tm = bkTeams[k]; return tm?.ko || tm?.en || tm?.name || String(k).split(':').pop(); };
+    for (const g of bkRaw.games || []) {
+      if (!g.id || !g.t) continue;
+      bkStart.set(g.id, g.t);
+      if (g.st !== 'scheduled' || now >= g.t) continue;
+      if (seenGameIds.has(g.id)) continue;
+      seenGameIds.add(g.id);
+      for (const L of LEAD_HOURS) {
+        const key = `${g.id}_h${L}`;
+        if (sent[key]) continue;
+        if (now < g.t - L * 3600000) continue;
+        const kst = new Date(g.t + 9 * 3600 * 1000);
+        const hhmm = `${String(kst.getUTCHours()).padStart(2, '0')}:${String(kst.getUTCMinutes()).padStart(2, '0')}`;
+        const ymd = `${kst.getUTCFullYear()}-${String(kst.getUTCMonth() + 1).padStart(2, '0')}-${String(kst.getUTCDate()).padStart(2, '0')}`;
+        const nowKst = new Date(now + 9 * 3600 * 1000);
+        const sendYmd = `${nowKst.getUTCFullYear()}-${String(nowKst.getUTCMonth() + 1).padStart(2, '0')}-${String(nowKst.getUTCDate()).padStart(2, '0')}`;
+        const dl = ymd !== sendYmd ? `${kst.getUTCMonth() + 1}/${kst.getUTCDate()}(${WEEKDAYS_KO[kst.getUTCDay()]}) ` : '';
+        const venue = g.venue || bkVen[g.vid]?.name;
+        sends.push({
+          g: { gameId: g.id, venueId: g.vid || '', date: ymd },
+          L,
+          key,
+          content: { title: `🏀 ${tn(g.a.k)} vs ${tn(g.h.k)}${venue ? ` · ${venue}` : ''}`, body: `${L}시간 전 · ${dl}${hhmm} 경기` },
+        });
+      }
+    }
+  } catch (e) {
+    console.error(`[reminders] basketball pass failed: ${e?.message ?? e}`);
+  }
+
   // 발송
   let sentCount = 0;
   for (const s of sends) {
-    const { title, body } = buildContent(s.g, s.L);
+    const { title, body } = s.content || buildContent(s.g, s.L);
     try {
       const id = await sendGame(s.g.gameId, s.L, {
         title,
@@ -133,8 +172,13 @@ async function main() {
   const gameById = new Map(games.map((g) => [g.gameId, g]).filter(([k]) => k));
   let cleaned = 0;
   for (const key of Object.keys(sent)) {
-    const gameId = key.split('_h')[0];
+    const gameId = key.slice(0, key.lastIndexOf('_h'));
     const g = gameById.get(gameId);
+    const bkT = bkStart.get(gameId);
+    if (bkT != null) {
+      if (bkT + CLEANUP_AFTER_MS < now) { delete sent[key]; cleaned++; }
+      continue;
+    }
     if (!g || g.timeTbd) continue;
     const S = startMs(g.date, g.time);
     if (Number.isNaN(S)) continue;
