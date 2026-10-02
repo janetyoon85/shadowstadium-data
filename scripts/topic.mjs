@@ -41,3 +41,8 @@ export function fnv1a32(str) {
 export function playerTopic(name) {
   return FCM_PLAYER_TOPIC_PREFIX + fnv1a32(name);
 }
+
+// 언어별 푸시 토픽(2026-10-02): 구독 시 앱 언어 접미사를 붙임. 구버전 앱은 접미사 없는 토픽(한국어 문구) 유지.
+export function playerLangTopic(id, lang) {
+  return playerTopic(id) + '_' + lang;
+}

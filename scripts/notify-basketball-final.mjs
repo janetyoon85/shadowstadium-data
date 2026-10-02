@@ -4,6 +4,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { sendPlayerEvent } from './send-player-alert.mjs';
+import { LANGS, bkStats, localPlayer } from './push-i18n.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SENT_FILE = path.join(ROOT, 'sent-bk-alerts.json');
@@ -32,10 +33,14 @@ for (const g of games) {
     for (const p of box.pl[side] || []) {
       const key = `${g.id}:${p.pid}`;
       if (!p.pid || sent[key] || !(parseInt(p.min) > 0)) continue;
-      const stats = [`${p.pts ?? 0}점`, p.reb ? `${p.reb}리바운드` : '', p.ast ? `${p.ast}어시스트` : '', p.stl >= 3 ? `${p.stl}스틸` : '', p.blk >= 3 ? `${p.blk}블록` : ''].filter(Boolean).join(' ');
       const nm = ko[p.n] || p.n;
+      const byLang = {};
+      for (const lang of LANGS) {
+        const tnL = (k) => (lang === 'ko' ? tn(k) : teams[k]?.en || names['bk:' + k] || tn(k));
+        byLang[lang] = { title: `🏀 ${lang === 'ko' ? nm : localPlayer(lang, p.n, p.pid)} ${bkStats(lang, p)}`, body: `${tnL(g.a.k)} ${g.a.s}-${g.h.s} ${tnL(g.h.k)}${g.lg ? ' · ' + g.lg : ''}` };
+      }
       try {
-        await sendPlayerEvent(p.pid, { title: `🏀 ${nm} ${stats}`, body: `${score}${g.lg ? ' · ' + g.lg : ''}`, gameId: g.id, displayName: nm });
+        await sendPlayerEvent(p.pid, { title: byLang.ko.title, body: byLang.ko.body, gameId: g.id, displayName: nm, byLang });
         sent[key] = new Date().toISOString();
         n++;
       } catch (e) { console.error('[bk-alerts] FAIL', key, e?.message ?? e); }

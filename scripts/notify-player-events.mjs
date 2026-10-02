@@ -20,12 +20,10 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { sendPlayerEvent } from './send-player-alert.mjs';
 import { canonicalPlayerName } from './player-name-canon.mjs';
+import { LANGS, eventLabel, minuteLabel, localTeam, localPlayer, localLeague } from './push-i18n.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
-let LEAGUE_KO = {};
-try { LEAGUE_KO = JSON.parse(await fs.readFile(path.join(REPO_ROOT, 'league-ko.json'), 'utf8')); } catch {}
-const leagueKo = (l) => (l && LEAGUE_KO[l.toLowerCase()]) || l;
 const GAMES_FILE = path.join(REPO_ROOT, 'games.json');
 const SENT_FILE = path.join(REPO_ROOT, 'sent-player-alerts.json');
 
@@ -95,10 +93,10 @@ async function main() {
           // 즐겨찾기한 사람이 어시스트("Son Heung-Min")에도 알림을 받음(build-player-index.mjs와
           // 동일 정규화 재사용, 두 스크립트가 다른 이름으로 정규화하면 다시 어긋나므로 반드시 동기화).
           if (s.n) {
-            { const nm = canonicalPlayerName(s.n); const r = isSent(g.gameId, key, 'scorer', nm, nth(cntS, nm)); if (!r.sent) pending.push({ dedupKey: r.k, name: nm, pid: s.pid, game: g, team, icon: '⚽', label: '골', minute: s.m }); }
+            { const nm = canonicalPlayerName(s.n); const r = isSent(g.gameId, key, 'scorer', nm, nth(cntS, nm)); if (!r.sent) pending.push({ dedupKey: r.k, name: nm, pid: s.pid, game: g, team, icon: '⚽', label: '골', labelKey: 'goal', minute: s.m }); }
           }
           if (s.a) {
-            { const nm = canonicalPlayerName(s.a); const r = isSent(g.gameId, key, 'assist', nm, nth(cntA, nm)); if (!r.sent) pending.push({ dedupKey: r.k, name: nm, pid: s.apid, game: g, team, icon: '🅰️', label: '어시스트', minute: s.m }); }
+            { const nm = canonicalPlayerName(s.a); const r = isSent(g.gameId, key, 'assist', nm, nth(cntA, nm)); if (!r.sent) pending.push({ dedupKey: r.k, name: nm, pid: s.apid, game: g, team, icon: '🅰️', label: '어시스트', labelKey: 'assist', minute: s.m }); }
           }
         }
       }
@@ -114,7 +112,7 @@ async function main() {
           const c = list[i];
           if (!c.n) continue;
           const isRed = c.type === 'R';
-          { const nm = canonicalPlayerName(c.n); const r = isSent(g.gameId, key, 'card', nm, nth(cntC, nm)); if (!r.sent) pending.push({ dedupKey: r.k, name: nm, pid: c.pid, game: g, team, icon: isRed ? '🟥' : '🟨', label: isRed ? '퇴장' : '경고', minute: c.m }); }
+          { const nm = canonicalPlayerName(c.n); const r = isSent(g.gameId, key, 'card', nm, nth(cntC, nm)); if (!r.sent) pending.push({ dedupKey: r.k, name: nm, pid: c.pid, game: g, team, icon: isRed ? '🟥' : '🟨', label: isRed ? '퇴장' : '경고', labelKey: isRed ? 'red' : 'yellow', minute: c.m }); }
         }
       }
     }
@@ -129,7 +127,7 @@ async function main() {
         for (let i = 0; i < list.length; i++) {
           const h = list[i];
           if (!h.player) continue;
-          { const nm = h.player; const r = isSent(g.gameId, key, 'highlight', nm, nth(cntH, nm)); if (!r.sent) pending.push({ dedupKey: r.k, name: nm, pid: h.pid, game: g, team, icon: '⚾', label: h.how === '도루자' ? '도루 실패' : h.how, detail: h.text }); }
+          { const nm = h.player; const r = isSent(g.gameId, key, 'highlight', nm, nth(cntH, nm)); if (!r.sent) pending.push({ dedupKey: r.k, name: nm, pid: h.pid, game: g, team, icon: '⚾', label: h.how === '도루자' ? '도루 실패' : h.how, labelKey: undefined, detail: h.text }); }
         }
       }
     }
@@ -143,21 +141,28 @@ async function main() {
       const name = key === 'home' ? g.homePitcher : g.awayPitcher;
       if (!name) continue;
       const dedupKey = `${g.gameId}:${key}:startingPitcher`;
-      if (!sent[dedupKey]) pending.push({ dedupKey, name, pid: undefined, game: g, team, opp, icon: '⚾', label: '선발 등판', preGame: true });
+      if (!sent[dedupKey]) pending.push({ dedupKey, name, pid: undefined, game: g, team, opp, icon: '⚾', label: '선발 등판', labelKey: 'sp', preGame: true });
     }
   }
 
   let sentCount = 0;
   for (const item of pending) {
-    item.game = { ...item.game, league: leagueKo(item.game.league) };
     const { dedupKey, name, pid, game: g, team, opp, icon, label, minute, preGame, detail } = item;
-    const minuteLabel = typeof minute === 'number' ? ` (${minute}분)` : '';
-    const title = `${icon} ${name} ${label}!`;
-    // 경기 전 알림(선발투수 발표)은 스코어가 아직 없어 대신 상대팀+일시를 보여줌.
-    const ctx = [g.league, g.inningInfo].filter(Boolean).join(' · ');
-    const body = preGame
-      ? `${team} vs ${opp} · ${g.date} ${g.time}${g.league ? ' · ' + g.league : ''}`
-      : [`${team}${minuteLabel}${ctx ? ' · ' + ctx : ''}`, scoreLine(g).replace(/^ · /, ''), detail].filter(Boolean).join('\n');
+    const byLang = {};
+    for (const lang of LANGS) {
+      const nm = localPlayer(lang, name, pid);
+      const lb = item.labelKey ? eventLabel(lang, null, item.labelKey) : eventLabel(lang, label === '도루 실패' ? '도루자' : label);
+      const tm = localTeam(lang, team), op = localTeam(lang, opp), lg = localLeague(lang, g.league);
+      const sc = typeof g.homeScore === 'number' && typeof g.awayScore === 'number' ? `${localTeam(lang, g.away)} ${g.awayScore}-${g.homeScore} ${localTeam(lang, g.home)}` : '';
+      const ctx = [lg, g.inningInfo].filter(Boolean).join(' · ');
+      byLang[lang] = {
+        title: `${icon} ${nm} ${lb}!`,
+        body: preGame
+          ? `${tm} vs ${op} · ${g.date} ${g.time}${lg ? ' · ' + lg : ''}`
+          : [`${tm}${minuteLabel(lang, minute)}${ctx ? ' · ' + ctx : ''}`, sc, lang === 'ko' ? detail : ''].filter(Boolean).join('\n'),
+      };
+    }
+    const { title, body } = byLang.ko;
     // 동명이인 구분용 고유ID가 있으면 그 ID 전용 토픽으로도 보냄(정확한 매칭) — 이름 토픽도
     // 항상 같이 보내서 이 기능이 ID 도입 전부터 "이름"으로 즐겨찾기해둔 기존 구독이 계속
     // 작동하게 함(2026-09-28, 무마이그레이션 하위호환). ID가 없으면(아직 못 붙인 소스) 기존과
@@ -166,7 +171,7 @@ async function main() {
     let anyOk = false;
     for (const target of targets) {
       try {
-        await sendPlayerEvent(target, { title, body, gameId: g.gameId, displayName: name });
+        await sendPlayerEvent(target, { title, body, gameId: g.gameId, displayName: name, byLang });
         anyOk = true;
       } catch (e) {
         console.error(`[player-alerts] FAIL ${dedupKey} (${target}): ${e?.message ?? e}`);
