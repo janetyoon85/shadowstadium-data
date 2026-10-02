@@ -28,6 +28,9 @@ jobs:
       - name: Run basketball crawler
         run: node scripts/fetch-basketball.mjs
 
+      - name: Run basketball stats crawler
+        run: node scripts/fetch-basketball-stats.mjs || echo 'stats failed (non-fatal)'
+
       - name: Check for changes
         id: changes
         run: |
