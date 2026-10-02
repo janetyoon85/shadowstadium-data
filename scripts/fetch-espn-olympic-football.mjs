@@ -69,6 +69,23 @@ function toKstDateTime(utcIso) {
   return { date: `${yyyy}-${mm}-${dd}`, time: `${hh}:${mi}` };
 }
 
+// 라이브 진행 단계(전반/후반/연장전반/연장후반/하프타임/승부차기) — ESPN status.period/type.name. 앱 translateMatchPeriod가 "<단계> <분'>" 형태를 18개 언어로 변환.
+function espnMatchPeriod(st) {
+  if (!st) return undefined;
+  const nm = st.type?.name || '';
+  let p;
+  if (/SHOOTOUT|PENALT/.test(nm)) p = '승부차기';
+  else if (/HALFTIME/.test(nm) && !/EXTRA|_ET/.test(nm)) p = '하프타임';
+  else if (/FIRST_HALF_EXTRA|EXTRA.*FIRST|FIRST_EXTRA/.test(nm)) p = '연장전반';
+  else if (/SECOND_HALF_EXTRA|EXTRA.*SECOND|SECOND_EXTRA/.test(nm)) p = '연장후반';
+  else if (nm === 'STATUS_FIRST_HALF') p = '전반';
+  else if (nm === 'STATUS_SECOND_HALF') p = '후반';
+  else p = { 1: '전반', 2: '후반', 3: '연장전반', 4: '연장후반', 5: '승부차기' }[st.period];
+  if (!p) return undefined;
+  const clk = String(st.displayClock || '').trim();
+  return p === '하프타임' || p === '승부차기' || !/d/.test(clk) ? p : p + ' ' + clk;
+}
+
 function espnStatusToOurs(statusType) {
   const name = statusType?.name || '';
   if (/POSTPONED/i.test(name)) return 'postponed';
@@ -132,6 +149,7 @@ async function fetchRange(slug, gender, stripSuffix, fromYmd, toYmd, unknownTeam
       gameId: `OLYMPICFOOTBALL_ESPN_${e.id}`,
       status,
     };
+    if (status === 'live') { const mp = espnMatchPeriod(comp.status); if (mp) out.matchPeriod = mp; }
     if (status === 'completed' || status === 'live') {
       const hs = home.score != null ? parseInt(home.score, 10) : NaN;
       const as = away.score != null ? parseInt(away.score, 10) : NaN;
@@ -237,7 +255,7 @@ async function main() {
       const idx = games.findIndex((x) => x.gameId === key);
       if (idx >= 0) {
         const prev = games[idx];
-        if (prev.status !== g.status || prev.homeScore !== g.homeScore || prev.awayScore !== g.awayScore || JSON.stringify(prev.scorers) !== JSON.stringify(g.scorers)) {
+        if (prev.status !== g.status || prev.matchPeriod !== g.matchPeriod || prev.homeScore !== g.homeScore || prev.awayScore !== g.awayScore || JSON.stringify(prev.scorers) !== JSON.stringify(g.scorers)) {
           games[idx] = { ...prev, ...g };
           updated++;
         }
