@@ -74,6 +74,18 @@ const autoOther = await loadJson('player-name-auto.json', {});
     await fs.writeFile(path.join(ROOT, 'player-ko-tried.json'), JSON.stringify(tried) + '\n', 'utf8');
     await fs.writeFile(path.join(ROOT, 'player-name-i18n.json'), JSON.stringify(i18n) + '\n', 'utf8');
   };
+  const wd = await loadJson('basketball/player-wd.json', {});
+  let wdAdded = 0;
+  for (const p of players) {
+    const w = wd[p.id];
+    if (!w?.labels || !/^(espnbk|nbk):/.test(p.id)) continue;
+    if (!(p.id in i18n)) i18n[p.id] = { ...w.labels };
+    const ko = (w.labels.ko || '').replace(/s*(.*)s*$/, '').trim();
+    if (!ko || !/[가-힣]/.test(ko) || /[가-힣]/.test(p.name) || tried[p.id]) continue;
+    if (auto[ko] !== p.name && (ko in auto || ko in autoOther || ko in manual)) { tried[p.id] = 'conflict'; continue; }
+    auto[ko] = p.name; tried[p.id] = ko; wdAdded++;
+  }
+  console.log(`[ko-names] wd 농구 반영 ${wdAdded}`);
   for (const p of todo) {
     if (used >= BUDGET) break;
     used++;
