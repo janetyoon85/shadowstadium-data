@@ -151,6 +151,12 @@ function espnStatus(t) {
   if (t?.state === 'in') return 'live';
   return 'scheduled';
 }
+// ESPN NBL은 venue 필드가 없어 홈팀 기준 홈구장으로 대체(좌표는 venue-coords.json에 수동 등록, 사용자 제공)
+const NBL_HOME = {
+  1: ['Adelaide Entertainment Centre', 'Adelaide'], 2: ['Nissan Arena', 'Brisbane'], 3: ['Cairns Convention Centre', 'Cairns'],
+  4: ['WIN Entertainment Centre', 'Wollongong'], 5: ['John Cain Arena', 'Melbourne'], 7: ['RAC Arena', 'Perth'],
+  8: ['South East Melbourne Phoenix home arena', 'Melbourne'], 9: ['Qudos Bank Arena', 'Sydney'], 10: ['MyState Arena', 'Hobart'],
+};
 async function fetchEspnSchedule(cfg, from, to) {
   const out = [];
   const events = [];
@@ -170,8 +176,9 @@ async function fetchEspnSchedule(cfg, from, to) {
     if (!H || !A) continue;
     const tk = (x) => addTeam('espn', cfg.lg, x.team.id, { en: x.team.displayName, abbr: x.team.abbreviation, logo: x.team.logo, color: x.team.color ? '#' + x.team.color : undefined });
     const hk = tk(H), ak = tk(A);
-    const vn = c.venue?.fullName;
-    const vid = addVenue('espn', cfg.lg, vn, c.venue?.address?.city, hk, vn);
+    const nh = cfg.lg === 'NBL' && !c.venue?.fullName ? NBL_HOME[H.team.id] : undefined;
+    const vn = c.venue?.fullName || nh?.[0];
+    const vid = addVenue('espn', cfg.lg, vn, c.venue?.address?.city || nh?.[1], hk, vn);
     const t0 = Date.parse(e.date);
     out.push({
       id: `espn:${cfg.lg}:${e.id}`, src: 'espn', lg: cfg.lg, date: kstDate(t0), t: t0, st: espnStatus(c.status?.type || e.status?.type), per: c.status?.type?.shortDetail || undefined,
