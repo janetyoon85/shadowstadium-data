@@ -251,28 +251,64 @@ function agNiceName(raw) {
   const cap = (w) => w.toLowerCase().replace(/(^|[-'’])([a-z])/g, (_m, a, b) => a + b.toUpperCase());
   return [...giv, ...sur.map(cap)].join(' ');
 }
-async function agDetail(game) {
+async function agPdfLines(game, disc, rc) {
   let pdfjs;
   try { pdfjs = await import('pdfjs-dist/legacy/build/pdf.js'); } catch { return undefined; }
-  const [, disc, ...rest] = game.id.split(':');
-  const rc = rest.join(':');
-  if (disc !== 'BKB') return null;
   const rep = await agFetch(`${disc}/reports/just-unit/${rc}`);
   if (rep === undefined) return undefined;
-  const url = rep?.Reports?.find((x) => /^Results$/i.test(x.Desc))?.URL;
+  const url = rep?.Reports?.find((x) => /^(Game )?Results$/i.test(x.Desc))?.URL;
   if (!url) return Date.now() - game.t > 3 * 86400e3 ? null : undefined;
-  let rows;
+  const rows = {};
   try {
     const r = await fetch(url, { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(30000) });
     if (!r.ok) return undefined;
     const doc = await pdfjs.getDocument({ data: new Uint8Array(await r.arrayBuffer()), verbosity: 0 }).promise;
-    rows = {};
     for (let pn = 1; pn <= doc.numPages; pn++) {
       const tc = await (await doc.getPage(pn)).getTextContent();
       for (const i of tc.items) if (i.str.trim()) (rows[`${pn}:${String(10000 - Math.round(i.transform[5])).padStart(5, '0')}`] ||= []).push({ x: i.transform[4], t: i.str.trim() });
     }
   } catch { return undefined; }
-  const lines = Object.keys(rows).sort().map((k) => rows[k].sort((a, b) => a.x - b.x));
+  return Object.keys(rows).sort().map((k) => rows[k].sort((a, b) => a.x - b.x));
+}
+const AG3_COLS = [['pts', 200], ['reb', 217], ['hgl', 236], ['pv', 255], ['min', 274], ['se', 295], ['p1', 319], ['p2', 342], ['ft', 365], ['kas', 388], ['drv', 406], ['dnk', 422], ['blk', 442], ['bzr', 458], ['oreb', 479], ['dreb', 497], ['to', 515], ['pm', 534]];
+const ag3Col = (x) => AG3_COLS.reduce((b, c) => (Math.abs(c[1] - x) < Math.abs(b[1] - x) ? c : b), AG3_COLS[0])[0];
+async function agDetail3(game, rc) {
+  const lines = await agPdfLines(game, 'BK3', rc);
+  if (!lines) return lines;
+  const teams = [];
+  let cur = null;
+  for (const ln of lines) {
+    const first = ln[0].t;
+    if (/^[A-Z]{3} - \S/.test(first) && ln[0].x < 100) { cur = { pl: [], tot: null }; teams.push(cur); continue; }
+    if (!cur || cur.tot) continue;
+    if (ln.some((c) => c.t === 'Totals')) { const o = {}; for (const c of ln) if (c.x > 190) o[ag3Col(c.x)] = c.t; cur.tot = o; continue; }
+    const noCell = ln.find((c) => c.x < 78), nameCell = ln.find((c) => c.x >= 78 && c.x < 190);
+    if (noCell && nameCell && /^\d+$/.test(noCell.t)) {
+      const o = {};
+      for (const c of ln) if (c.x >= 190) o[ag3Col(c.x)] = c.t;
+      cur.pl.push({ no: noCell.t, n: agNiceName(nameCell.t), o });
+    }
+  }
+  if (teams.length !== 2 || !teams.every((t) => t.tot && t.pl.length)) return undefined;
+  const num = (v) => { const n = parseInt(v); return Number.isFinite(n) ? n : 0; };
+  const ma = (a, b) => { const x = agMA(a), y = agMA(b); return [x[0] + y[0], x[1] + y[1]]; };
+  const mk = (t) => ({
+    pl: t.pl.map((p) => ({ n: p.n, no: p.no, pts: num(p.o.pts), reb: num(p.o.reb), blk: num(p.o.blk), to: num(p.o.to), fg: ma(p.o.p1, p.o.p2), tp: agMA(p.o.p2), ft: agMA(p.o.ft), pm: p.o.pm ? (num(p.o.pm) > 0 ? '+' : '') + num(p.o.pm) : undefined })),
+    tm: { pts: num(t.tot.pts), reb: num(t.tot.reb), blk: num(t.tot.blk), to: num(t.tot.to), fg: ma(t.tot.p1, t.tot.p2), tp: agMA(t.tot.p2), ft: agMA(t.tot.ft) },
+  });
+  const [H, A] = teams.map(mk);
+  const sum = (s) => s.pl.reduce((a, p) => a + p.pts, 0);
+  if (H.tm.pts !== game.h.s || A.tm.pts !== game.a.s || H.tm.pts - sum(H) > 2 || A.tm.pts - sum(A) > 2 || sum(H) > H.tm.pts || sum(A) > A.tm.pts) return undefined;
+  return { fmt: '3x3', ls: { h: [], a: [] }, tm: { h: H.tm, a: A.tm }, pl: { h: H.pl, a: A.pl } };
+}
+async function agDetail(game) {
+  const [, disc, ...rest] = game.id.split(':');
+  const rc = rest.join(':');
+  if (disc === 'BK3') return agDetail3(game, rc);
+  if (disc !== 'BKB') return null;
+  const lines0 = await agPdfLines(game, disc, rc);
+  if (!lines0) return lines0;
+  const lines = lines0;
   const teams = [];
   let cur = null, ls = null;
   for (const ln of lines) {
@@ -296,7 +332,7 @@ async function agDetail(game) {
   if (teams.length !== 2 || !ls || !teams.every((t) => t.tot)) return undefined;
   const num = (v) => { const n = parseInt(v); return Number.isFinite(n) ? n : 0; };
   const mk = (t) => {
-    const pl = t.pl.filter((p) => p.o.min && p.o.min !== 'DNP').map((p) => ({ n: p.n, no: p.no, min: p.o.min, pts: num(p.o.pts), reb: num(p.o.reb), ast: num(p.o.ast), stl: num(p.o.stl), blk: num(p.o.blk), to: num(p.o.to), pf: num(p.o.pf), fg: agMA(p.o.fg), tp: agMA(p.o.tp), ft: agMA(p.o.ft), pm: p.o.pm ? (num(p.o.pm) > 0 ? '+' : '') + num(p.o.pm) : undefined, gs: p.gs }));
+    const pl = t.pl.filter((p) => p.o.min && p.o.min !== 'DNP').map((p) => ({ n: p.n, no: p.no, pts: num(p.o.pts), reb: num(p.o.reb), ast: num(p.o.ast), stl: num(p.o.stl), blk: num(p.o.blk), to: num(p.o.to), pf: num(p.o.pf), fg: agMA(p.o.fg), tp: agMA(p.o.tp), ft: agMA(p.o.ft), pm: p.o.pm ? (num(p.o.pm) > 0 ? '+' : '') + num(p.o.pm) : undefined, gs: p.gs }));
     const x = t.tot;
     return { pl, tm: { pts: num(x.pts), reb: num(x.reb), ast: num(x.ast), stl: num(x.stl), blk: num(x.blk), to: num(x.to), pf: num(x.pf), fg: agMA(x.fg), tp: agMA(x.tp), ft: agMA(x.ft) } };
   };
