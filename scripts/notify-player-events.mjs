@@ -23,6 +23,9 @@ import { canonicalPlayerName } from './player-name-canon.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
+let LEAGUE_KO = {};
+try { LEAGUE_KO = JSON.parse(await fs.readFile(path.join(REPO_ROOT, 'league-ko.json'), 'utf8')); } catch {}
+const leagueKo = (l) => (l && LEAGUE_KO[l.toLowerCase()]) || l;
 const GAMES_FILE = path.join(REPO_ROOT, 'games.json');
 const SENT_FILE = path.join(REPO_ROOT, 'sent-player-alerts.json');
 
@@ -146,6 +149,7 @@ async function main() {
 
   let sentCount = 0;
   for (const item of pending) {
+    item.game = { ...item.game, league: leagueKo(item.game.league) };
     const { dedupKey, name, pid, game: g, team, opp, icon, label, minute, preGame, detail } = item;
     const minuteLabel = typeof minute === 'number' ? ` (${minute}분)` : '';
     const title = `${icon} ${name} ${label}!`;
