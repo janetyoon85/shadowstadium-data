@@ -88,7 +88,7 @@ function addTeam(src, lg, code, o) {
 function addVenue(src, lg, name, city, teamKey, en) {
   if (!name) return undefined;
   const id = `bk_${src}_${slug(en || name) || slug(String(name.length))}`;
-  note(venues, id, { name, city: city || undefined, lg, src, teams: [...new Set([...(venues[id]?.teams || []), teamKey].filter(Boolean))] });
+  note(venues, id, { name, city: city || undefined, lg, src, indoor: true, teams: [...new Set([...(venues[id]?.teams || []), teamKey].filter(Boolean))] });
   const e = en ? [en, city] : KR_VENUE_EN[name];
   if (e) venueEn[id] = { name: e[0], city: e[1] || city || '' };
   return id;
@@ -115,7 +115,7 @@ async function fetchNaverSchedule(cfg, from, to) {
     const t = Date.parse(g.gameDateTime + '+09:00');
     const h = addTeam('naver', cfg.lg, g.homeTeamCode, { ko: g.homeTeamName, logo: g.homeTeamEmblemUrl, abbr: cfg.lg === 'NBA' ? g.homeTeamCode : undefined });
     const a = addTeam('naver', cfg.lg, g.awayTeamCode, { ko: g.awayTeamName, logo: g.awayTeamEmblemUrl, abbr: cfg.lg === 'NBA' ? g.awayTeamCode : undefined });
-    const v = addVenue('naver', cfg.lg, g.stadium, '', h);
+    const v = cfg.lg === 'NBA' ? undefined : addVenue('naver', cfg.lg, g.stadium, '', h); // 네이버 NBA stadium 필드는 KBL 구장명이 섞여 있어 무시(ESPN 쪽이 정확)
     out.push({ id: `nv:${g.gameId}`, src: 'naver', lg: cfg.lg, date: g.gameDate, t, st: naverStatus(g), per: g.statusInfo || undefined, h: { k: h, s: g.homeTeamScore }, a: { k: a, s: g.awayTeamScore }, venue: g.stadium || undefined, vid: v, _cfg: cfg });
   }
   return out;
@@ -230,6 +230,14 @@ async function main() {
   Object.assign(venues, await readJson('venues.json', {}));
   Object.assign(venueEn, await readJson('venue-name-en.json', {}));
   Object.assign(teamEn, await readJson('team-name-en.json', {}));
+  for (const [id, v] of Object.entries(venues)) {
+    v.indoor = true;
+    if (v.src !== 'naver') continue;
+    v.teams = (v.teams || []).filter((t) => !t.startsWith('naver:NBA:'));
+    v.indoor = true;
+    if (!v.teams.length) { delete venues[id]; delete venueEn[id]; }
+  }
+  for (const g of old.games || []) if (g.src === 'naver' && g.lg === 'NBA') { delete g.vid; delete g.venue; }
   for (const p of await readJson('players.json', [])) players[p.id] = p;
   const standings = await readJson('standings.json', {});
   let ok = 0, failed = 0;
