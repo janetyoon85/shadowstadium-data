@@ -311,6 +311,37 @@ async function blFetch(q) {
     return r.ok ? await r.json() : undefined;
   } catch { return undefined; }
 }
+// B.LEAGUE 공식 경기상세 페이지에 종료경기 박스스코어가 _contexts_s3id.data JSON으로 박혀 있음(2026-10-02).
+async function blDetail(game) {
+  let html;
+  try {
+    const r = await fetch(`https://www.bleague.jp/game_detail/?ScheduleKey=${game.id.slice(3)}`, { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(25000) });
+    if (!r.ok) return undefined;
+    html = await r.text();
+  } catch { return undefined; }
+  const i0 = html.indexOf('_contexts_s3id.data = ');
+  if (i0 < 0) return undefined;
+  let i = i0 + 22, depth = 0, inStr = false, esc = false, j = i;
+  for (; j < html.length; j++) {
+    const c = html[j];
+    if (inStr) { if (esc) esc = false; else if (c === '\\') esc = true; else if (c === '"') inStr = false; continue; }
+    if (c === '"') inStr = true; else if (c === '{') depth++; else if (c === '}' && --depth === 0) break;
+  }
+  let o;
+  try { o = JSON.parse(html.slice(i, j + 1)); } catch { return undefined; }
+  if (!o?.Game?.BoxscoreExistsFlg || !o.HomeBoxscores?.length) return Date.now() - game.t > 3 * 86400e3 ? null : undefined;
+  const G = o.Game;
+  const tot = (rows) => rows.filter((r) => r.PeriodCategory === 18);
+  const team = (rows) => { const x = tot(rows).find((r) => r.Category === 3); return x && { pts: x.Point, reb: x.RB_TOT, ast: x.AS, stl: x.ST, blk: x.BS, to: x.TO, pf: x.FOUL, fg: [x.PT2M + x.PT3M, x.PT2A + x.PT3A], tp: [x.PT3M, x.PT3A], ft: [x.FTM, x.FTA] }; };
+  const pl = (rows, side) => tot(rows).filter((r) => r.Category === 1 && r.PlayerID && (r.PlayingFlg === true || parseInt(r.PlayTime) > 0)).map((r) => {
+    const pid = `blbk:${r.PlayerID}`;
+    const name = r.PlayerNameE || r.PlayerNameJ;
+    addPlayer(pid, name, game[side === 'h' ? 'h' : 'a'].k, game.lg, game.date);
+    return { pid, n: name, no: r.PlayerNo, min: r.PlayTime, pts: r.Point, reb: r.RB_TOT, ast: r.AS, stl: r.ST, blk: r.BS, to: r.TO, pf: r.FOUL, fg: [r.PT2M + r.PT3M, r.PT2A + r.PT3A], tp: [r.PT3M, r.PT3A], ft: [r.FTM, r.FTA], pm: r.PLUSMINUS != null ? (r.PLUSMINUS > 0 ? '+' : '') + r.PLUSMINUS : undefined, gs: r.StartingFlg ? 1 : 0 };
+  });
+  const ls = (p) => [1, 2, 3, 4].map((q) => G[`${p}TeamScore0${q}`]).filter((x) => typeof x === 'number');
+  return { ls: { h: ls('Home'), a: ls('Away') }, tm: { h: team(o.HomeBoxscores), a: team(o.AwayBoxscores) }, pl: { h: pl(o.HomeBoxscores, 'h'), a: pl(o.AwayBoxscores, 'a') } };
+}
 async function fetchBleague(now, full) {
   const out = [];
   let any = false;
@@ -407,7 +438,7 @@ async function main() {
   const boxFiles = {};
   const box = async (g) => { const f = `box-${g.date.slice(0, 7)}.json`; return (boxFiles[f] ||= (await readJson(f, {}))); };
   let detail = 0;
-  const finals = [...byId.values()].filter((g) => g.st === 'final' && !g.boxed && g._cfg).sort((a, b) => b.t - a.t);
+  const finals = [...byId.values()].filter((g) => g.st === 'final' && !g.boxed && (g._cfg || g.src === 'bl')).sort((a, b) => b.t - a.t);
   const todo = finals.slice(0, DETAIL_BUDGET);
   for (const g of todo) await box(g);
   detail = todo.length;
@@ -415,7 +446,7 @@ async function main() {
   await Promise.all(Array.from({ length: 4 }, async () => {
     while (qi < todo.length) {
       const g = todo[qi++];
-      const d = g.src === 'naver' ? await naverDetail(g) : await espnDetail(g);
+      const d = g.src === 'naver' ? await naverDetail(g) : g.src === 'bl' ? await blDetail(g) : await espnDetail(g);
       if (d === undefined) continue;
       if (d) boxFiles[`box-${g.date.slice(0, 7)}.json`][g.id] = d;
       g.boxed = 1;
