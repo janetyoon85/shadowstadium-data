@@ -17,7 +17,8 @@ const OUT_PATH = path.join(REPO_ROOT, 'cheer-songs.json');
 const BUDGET = 95;
 const API_KEY = process.env.YOUTUBE_API_KEY;
 
-const tierOf = (id) => (id.startsWith('kbo:') || id.startsWith('naver:') ? 0 : id.startsWith('mlb:') ? 1 : id.startsWith('espn:') ? 2 : 9);
+// 농구: KBL(nbk:kbl, 한글 응원가)은 KBO급 최우선, NBA/WNBA는 축구 다음. NBL/FIBA/기타 코드는 제외.
+const tierOf = (id) => (id.startsWith('kbo:') || id.startsWith('naver:') || id.startsWith('nbk:kbl:') ? 0 : id.startsWith('mlb:') ? 1 : id.startsWith('espn:') || id.startsWith('espnbk:nba:') || id.startsWith('espnbk:wnba:') ? 2 : 9);
 
 // 인기도 근사(무료 API에 인기 지표가 없어 리그 급으로 대체): 빅리그/국제대회 우선, 한국 국적 선수는 최우선.
 const TOP_LEAGUES = ['EPL', 'LALIGA', 'SERIEA', 'BUNDESLIGA', 'LIGUE1', 'UCL', 'WORLDCUP', 'UEL', 'AMATCHFRIENDLY', 'WCQUEFA', 'ACL', 'EREDIVISIE', 'MLS', 'SAUDI', 'J1', 'UECL'];
@@ -57,6 +58,11 @@ async function main() {
   if (!API_KEY) { console.error('[cheer-songs] YOUTUBE_API_KEY missing'); process.exit(1); }
   const players = JSON.parse(await fs.readFile(PLAYERS_PATH, 'utf-8'));
   const teamEn = JSON.parse(await fs.readFile(TEAM_EN_PATH, 'utf-8'));
+  const bkTeams = {};
+  try {
+    players.push(...JSON.parse(await fs.readFile(path.join(REPO_ROOT, 'basketball', 'players.json'), 'utf-8')));
+    Object.assign(bkTeams, JSON.parse(await fs.readFile(path.join(REPO_ROOT, 'basketball', 'teams.json'), 'utf-8')));
+  } catch {}
   let cache = {};
   try { cache = JSON.parse(await fs.readFile(OUT_PATH, 'utf-8')); } catch (e) { if (e.code !== 'ENOENT') throw e; }
 
@@ -70,11 +76,13 @@ async function main() {
   let found = 0;
   let stopped = '';
   for (const p of targets) {
-    const team = p.appearances?.[0]?.team;
-    const teamE = teamEn[team];
+    const rawTeam = p.appearances?.[0]?.team;
+    const bk = bkTeams[rawTeam];
+    const team = bk ? bk.ko || bk.en : rawTeam;
+    const teamE = bk ? bk.en : teamEn[rawTeam];
     let q;
     let spec;
-    if (p.id.startsWith('kbo:') || p.id.startsWith('naver:')) {
+    if (p.id.startsWith('kbo:') || p.id.startsWith('naver:') || p.id.startsWith('nbk:')) {
       q = buildCheerSongQuery(team, p.name);
       spec = { full: p.name, songWords: ['응원가'] };
     } else {
