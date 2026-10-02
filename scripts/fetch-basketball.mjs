@@ -89,7 +89,7 @@ function addTeam(src, lg, code, o) {
 }
 function addVenue(src, lg, name, city, teamKey, en) {
   if (!name) return undefined;
-  const id = `bk_${src}_${slug(en || name) || slug(String(name.length))}`;
+  const id = `bk_${src}_${(en || /^[\x00-\x7f]+$/.test(name) ? slug(en || name) : '') || 'h' + [...name].reduce((h, c) => (h * 31 + c.codePointAt(0)) >>> 0, 7).toString(36)}`;
   note(venues, id, { name, city: city || undefined, lg, src, indoor: true, teams: [...new Set([...(venues[id]?.teams || []), teamKey].filter(Boolean))] });
   const e = en ? [en, city] : KR_VENUE_EN[name];
   if (e) venueEn[id] = { name: e[0], city: e[1] || city || '' };
@@ -268,6 +268,82 @@ async function fetchAsianGames(fromDate, byId) {
   return any ? out : null;
 }
 
+// ---------- 일본 B.League(공식 사이트 일정 JSON — HTML 조각) ----------
+const BL_TABS = [[1, 2, 'BLEAGUE1'], [2, 7, 'BLEAGUE2'], [3, 15, 'BLEAGUE3']];
+const blAbs = (u) => (u.startsWith('/') ? 'https://www.bleague.jp' + u : u);
+function blParse(topics, lg, fixedDate, now) {
+  const out = [];
+  let date = fixedDate;
+  for (const html of topics) {
+    const dm = /class="title">\s*(\d{4})\.(\d{2})\.(\d{2})/.exec(html);
+    if (dm) date = `${dm[1]}-${dm[2]}-${dm[3]}`;
+    for (const li of html.split('<li class="list-item"').slice(1)) {
+      const id = /^\s*id="(\d+)"/.exec(li)?.[1];
+      const side = (c) => {
+        const i0 = li.indexOf(`class="team ${c}">`);
+        const m = i0 < 0 ? '' : li.slice(i0, i0 + 400).split('class="point')[0].split('</div>')[0];
+        const name = /class="team-name">([^<]*)</.exec(m)?.[1]?.trim();
+        const logo = /<img src="([^"]+)"/.exec(m)?.[1];
+        const code = /\/([a-z0-9]+)\.png/.exec(logo || '')?.[1];
+        return { name, logo: logo && blAbs(logo), code };
+      };
+      const h = side('home'), a = side('away');
+      if (!id || !date || !h.code || !a.code) continue;
+      const sc = (c) => new RegExp(`class="number ${c}-score[^"]*"><span>(\\d*)</span>`).exec(li)?.[1];
+      const hs = sc('home'), as = sc('away');
+      const spans = [...(/class="info-arena">([\s\S]*?)<\/div>/.exec(li)?.[1] || '').matchAll(/<span>([^<]+)<\/span>/g)].map((x) => x[1].trim());
+      const time = spans.find((x) => /^\d{1,2}:\d{2}$/.test(x)) || '00:00';
+      const [pref, arena] = (spans.find((x) => x.includes('|')) || '').split('|').map((x) => x.trim());
+      const t = Date.parse(`${date}T${time.padStart(5, '0')}:00+09:00`);
+      const hk = addTeam('bl', lg, h.code, { ja: h.name, logo: h.logo, abbr: h.code.toUpperCase() });
+      const ak = addTeam('bl', lg, a.code, { ja: a.name, logo: a.logo, abbr: a.code.toUpperCase() });
+      const vid = arena ? addVenue('bl', lg, arena, pref, hk) : undefined;
+      const hasScore = !!hs && !!as;
+      const st = !hasScore ? 'scheduled' : now - t > 3.5 * 3600e3 ? 'final' : 'live';
+      out.push({ id: `bl:${id}`, src: 'bl', lg, date, t, st, h: { k: hk, s: hasScore ? Number(hs) : 0 }, a: { k: ak, s: hasScore ? Number(as) : 0 }, venue: arena || undefined, vid });
+    }
+  }
+  return out;
+}
+async function blFetch(q) {
+  try {
+    const r = await fetch(`https://www.bleague.jp/schedule/?data_format=json&${q}`, { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(20000) });
+    return r.ok ? await r.json() : undefined;
+  } catch { return undefined; }
+}
+async function fetchBleague(now, full) {
+  const out = [];
+  let any = false;
+  for (const [tab, ev, lg] of BL_TABS) {
+    if (full) {
+      let index = 0;
+      for (let n = 0; n < 40; n++) {
+        const j = await blFetch(`year=2026&mon=all&day=&event=${ev}&club=&tab=${tab}&ha=&fb=&index=${index}`);
+        if (j === undefined) return undefined;
+        if (!j) break;
+        any = true;
+        out.push(...blParse(j.topics || [], lg, null, now));
+        if (!j.index) break;
+        index = j.index;
+        await sleep(300);
+      }
+    } else {
+      for (const off of [-2, -1, 0, 1]) {
+        const d = kstDate(now + off * 86400e3);
+        const [y, m, dd] = d.split('-');
+        const j = await blFetch(`year=${y}&mon=${m}&day=${dd}&event=1&club=&tab=${tab}&ha=&fb=`);
+        if (j === undefined) return undefined;
+        if (!j) continue;
+        any = true;
+        out.push(...blParse(j.topics || [], lg, d, now));
+        await sleep(300);
+      }
+    }
+  }
+  return any ? out : null;
+}
+
+
 // ---------- 하루 1회: 리그 전체 팀 등록(경기 유무와 무관) + 네이버 시즌 전체 일정 ----------
 async function syncAllTeams(now) {
   const jobs = ESPN.map(async (cfg) => {
@@ -316,6 +392,8 @@ async function main() {
   const agFrom = ymd(new Date(now - KEEP_DAYS * 86400e3));
   const ag = await fetchAsianGames(agFrom, byId);
   if (ag === undefined) { failed++; console.log('[basketball] FAIL ASIAD'); } else if (ag) { ok++; fresh.push(...ag); }
+  const bl = await fetchBleague(now, doSync);
+  if (bl === undefined) { failed++; console.log('[basketball] FAIL BLEAGUE'); } else if (bl) { ok++; fresh.push(...bl); }
   fresh.push(...syncGames);
   for (const [cfg, r] of results) {
     if (r === undefined) { failed++; console.log('[basketball] FAIL', cfg.lg); continue; }
