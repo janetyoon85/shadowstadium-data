@@ -6,6 +6,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isPlausibleStadiumDescription, WIKI_UA, WIKI_REQUEST_DELAY_MS } from './venue-photo-wiki.mjs';
+const NATURAL_GRASS = {"ko":"천연잔디","en":"natural grass","ja":"天然芝","es":"césped natural","pt":"grama natural","fr":"pelouse naturelle","de":"Naturrasen","it":"erba naturale","ru":"натуральный газон","ar":"عشب طبيعي","id":"rumput alami","th":"หญ้าธรรมชาติ","vi":"cỏ tự nhiên","hi":"प्राकृतिक घास","zh-hans":"天然草坪","zh-hant":"天然草皮","tr":"doğal çim","nl":"natuurgras"};
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -67,7 +68,7 @@ async function fetchInfo(name) {
   const labels = ids.size ? await labelsFor(ids) : {};
   if (!labels) return undefined;
   const L = (arr) => arr.map((q) => labels[q]).filter((m) => m && Object.keys(m).length);
-  const info = { wiki: title, y: yr ? Number(yr) : undefined, cap: caps.length ? caps[caps.length - 1] : undefined, own: L(own), op: L(op), arch: L(arch), surf: L(surf) };
+  const info = { wiki: title, y: yr ? Number(yr) : undefined, cap: caps.length ? caps[caps.length - 1] : undefined, own: L(own), op: L(op), arch: L(arch), surf: L(surf).map((m) => (['lawn', 'grass', 'outdoor grass'].includes(m.en) ? NATURAL_GRASS : m)) };
   for (const k of ['own', 'op', 'arch', 'surf']) if (!info[k].length) delete info[k];
   return info.y || info.cap || info.own || info.op || info.arch || info.surf ? info : null;
 }
