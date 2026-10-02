@@ -586,6 +586,14 @@ async function main() {
 
   const cutoff = ymd(new Date(now - Math.max(KEEP_DAYS, BACK) * 86400e3));
   const games = [...byId.values()].filter((g) => g.date >= cutoff).sort((a, b) => a.t - b.t || a.id.localeCompare(b.id)).map(({ _cfg, ...g }) => g);
+  for (const g of games) {
+    if (!g.boxed) continue;
+    const f = `box-${g.date.slice(0, 7)}.json`;
+    const bx = (boxFiles[f] ||= (await readJson(f, {})))[g.id];
+    const top = (arr) => { const p = (arr || []).slice().sort((x, y) => y.pts - x.pts)[0]; return p && p.pts > 0 ? [p.n, p.pts, p.pid || ''] : null; };
+    const h = top(bx?.pl?.h), a = top(bx?.pl?.a);
+    if (h && a) g.ld = { h, a };
+  }
   await writeJson('games.json', { updated: now, games });
   for (const [f, v] of Object.entries(boxFiles)) await writeJson(f, v);
   const NBA_KO_FALLBACK = { DEN: '덴버', CLE: '클리블랜드' };
