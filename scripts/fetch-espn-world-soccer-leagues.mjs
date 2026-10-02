@@ -144,7 +144,7 @@ function espnStatusToOurs(statusType) {
 async function fetchEspnLeagueRange(code, slug, dayYmd, unknownTeams, unknownVenues) {
   const teamMap = BATCH2_TEAMS[code] || {};
   const url = `https://site.api.espn.com/apis/site/v2/sports/soccer/${slug}/scoreboard?dates=${dayYmd}`;
-  const res = await fetch(url, { headers: { 'User-Agent': USER_AGENT } });
+  const res = await fetch(url, { headers: { 'User-Agent': USER_AGENT }, signal: AbortSignal.timeout(20000) });
   if (!res.ok) throw new Error(`HTTP ${res.status} ${code}`);
   const j = await res.json();
   const games = [];
@@ -196,9 +196,12 @@ async function fetchEspnLeague(code, slug, startDate, endDate, unknownTeams, unk
   const start = new Date(`${startDate}T00:00:00Z`);
   const end = new Date(`${endDate}T00:00:00Z`);
   const all = [];
-  for (let cursor = new Date(start); cursor <= end; cursor.setUTCDate(cursor.getUTCDate() + 1)) {
-    const games = await fetchEspnLeagueRange(code, slug, fmtDate(cursor), unknownTeams, unknownVenues);
-    all.push(...games);
+  const days = [];
+  for (let cursor = new Date(start); cursor <= end; cursor.setUTCDate(cursor.getUTCDate() + 1)) days.push(fmtDate(cursor));
+  // 하루 단위 요청 수백 건이 직렬이라 ESPN 응답이 느린 날 200~300초까지 늘어남 → 6개씩 병렬(결과 순서 유지).
+  for (let i = 0; i < days.length; i += 6) {
+    const batch = await Promise.all(days.slice(i, i + 6).map((d) => fetchEspnLeagueRange(code, slug, d, unknownTeams, unknownVenues)));
+    for (const games of batch) all.push(...games);
     await sleep(REQUEST_DELAY_MS);
   }
   return all;
