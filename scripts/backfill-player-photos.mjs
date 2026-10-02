@@ -211,6 +211,11 @@ async function main() {
     if (photo) { found++; delete tried[p.id]; } else tried[p.id] = today;
   }
 
+  try {
+    const wd = JSON.parse(await fs.readFile(path.join(REPO_ROOT, 'basketball', 'player-wd.json'), 'utf-8'));
+    for (const [pid, v] of Object.entries(wd)) if (v?.img && !cache[pid]) { cache[pid] = v.img; found++; delete tried[pid]; }
+  } catch {}
+
   await fs.writeFile(TRIED_PATH, JSON.stringify(tried) + '\n', 'utf-8');
   await fs.writeFile(PHOTOS_PATH, JSON.stringify(cache, null, 2) + '\n', 'utf-8');
   console.log(`[player-photos] totalPlayers=${players.length} cached=${Object.keys(cache).length} mlbDone=${mlbDone} thisRunUsed=${used} thisRunFound=${found}`);

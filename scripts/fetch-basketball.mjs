@@ -296,6 +296,16 @@ async function main() {
   const games = [...byId.values()].filter((g) => g.date >= cutoff).sort((a, b) => a.t - b.t || a.id.localeCompare(b.id)).map(({ _cfg, ...g }) => g);
   await writeJson('games.json', { updated: now, games });
   for (const [f, v] of Object.entries(boxFiles)) await writeJson(f, v);
+  const NBA_KO_FALLBACK = { DEN: '덴버', CLE: '클리블랜드' };
+  const ABBR = { UTAH: 'UTA', PHX: 'PHO', WSH: 'WAS' };
+  const nvNba = Object.values(teams).filter((t) => t.src === 'naver' && t.lg === 'NBA');
+  for (const t of Object.values(teams)) {
+    if (t.src !== 'espn' || t.lg !== 'NBA' || !t.abbr) continue;
+    const nv = nvNba.find((n) => n.code === (ABBR[t.abbr] || t.abbr));
+    if (!nv) { if (!t.ko && NBA_KO_FALLBACK[t.abbr]) t.ko = NBA_KO_FALLBACK[t.abbr]; continue; }
+    if (!t.ko && nv.ko) t.ko = nv.ko;
+    if (!nv.en && t.en) nv.en = t.en;
+  }
   await writeJson('teams.json', teams);
   await writeJson('venues.json', venues);
   await writeJson('venue-name-en.json', venueEn);
