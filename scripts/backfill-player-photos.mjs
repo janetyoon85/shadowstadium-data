@@ -182,15 +182,13 @@ async function main() {
     const kboM = /^kbo:(b|p):(.+)$/.exec(p.id);
     const npbM = /^npb:(.+)$/.exec(p.id);
     const naverM = /^naver:(.+)$/.exec(p.id);
-    const espnBk = /^espnbk:([a-z-]+):(d+)$/.exec(p.id);
-    const naverBk = /^nbk:([a-z]+):(d+)$/.exec(p.id);
+    const espnBk = /^espnbk:([a-z-]+):([0-9]+)$/.exec(p.id);
+    const naverBk = /^nbk:([a-z]+):([0-9]+)$/.exec(p.id);
     if (espnBk) {
-      used++;
-      await sleep(OWN_SOURCE_DELAY_MS);
+      await sleep(200); // 정적 이미지 HEAD — 예산 소모 없음
       photo = await headOk(`https://a.espncdn.com/i/headshots/${espnBk[1]}/players/full/${espnBk[2]}.png`);
     } else if (naverBk) {
-      used++;
-      await sleep(OWN_SOURCE_DELAY_MS);
+      await sleep(200);
       photo = await headOk(`https://sports-phinf.pstatic.net/player/${naverBk[1]}/default/${naverBk[2]}.png`);
     } else if (espnM) {
       used++;
