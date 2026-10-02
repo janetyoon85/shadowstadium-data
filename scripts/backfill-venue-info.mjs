@@ -74,6 +74,7 @@ async function fetchInfo(name) {
 
 async function main() {
   const names = JSON.parse(await fs.readFile(NAMES, 'utf8'));
+  try { Object.assign(names, JSON.parse(await fs.readFile(path.join(REPO_ROOT, 'basketball', 'venue-name-en.json'), 'utf8'))); } catch {}
   let cache = {};
   try { cache = JSON.parse(await fs.readFile(OUT, 'utf8')); } catch {}
   const todo = Object.keys(names).filter((id) => !(id in cache));

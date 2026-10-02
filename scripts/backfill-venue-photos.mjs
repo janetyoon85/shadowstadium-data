@@ -134,6 +134,19 @@ async function main() {
     if (e.code !== 'ENOENT') throw e;
     console.log('[venue-photos] no venue-name-en.json — 위키 폴백 비활성');
   }
+  // 농구 구장(basketball/venues.json, id 'bk_*')도 같은 파이프라인 — 사진은 같은 venue-photos.json에 id로 저장.
+  try {
+    const bkV = JSON.parse(await fs.readFile(path.join(REPO_ROOT, 'basketball', 'venues.json'), 'utf-8'));
+    const bkEn = JSON.parse(await fs.readFile(path.join(REPO_ROOT, 'basketball', 'venue-name-en.json'), 'utf-8'));
+    const bkTeamEn = JSON.parse(await fs.readFile(path.join(REPO_ROOT, 'basketball', 'team-name-en.json'), 'utf-8'));
+    Object.assign(venueNameEn, bkEn);
+    for (const [id, v] of Object.entries(bkV)) {
+      const tk = (v.teams || [])[0];
+      const tn = tk && bkTeamEn['bk:' + tk];
+      if (tn) teamNameEn['bk:' + tk] = tn;
+      venuesMeta.push({ id, name: v.name, teams: tn ? 'bk:' + tk : '', sport: 'basketball' });
+    }
+  } catch {}
 
   let cache = {};
   try {
@@ -148,7 +161,7 @@ async function main() {
   let noEnglishName = 0;
   let wikiUsed = 0;
   let wikiFound = 0;
-  const sportLabel = { baseball: 'Baseball', football: 'Soccer' };
+  const sportLabel = { baseball: 'Baseball', football: 'Soccer', basketball: 'Basketball' };
   for (const v of venuesMeta) {
     if (v.id in cache) continue;
     const firstTeam = (v.teams || '').split('·')[0]?.trim();

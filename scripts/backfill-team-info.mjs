@@ -260,6 +260,7 @@ async function save(cache, meta, aliases) {
 
 async function main() {
   const names = JSON.parse(await fs.readFile(NAMES, 'utf8'));
+  try { Object.assign(names, JSON.parse(await fs.readFile(path.join(REPO_ROOT, 'basketball', 'team-name-en.json'), 'utf8'))); } catch {}
   const cache = {};
   await fs.mkdir(OUT_DIR, { recursive: true });
   for (let i = 0; i < 16; i++) { try { Object.assign(cache, JSON.parse(await fs.readFile(path.join(OUT_DIR, `${i.toString(16)}.json`), 'utf8'))); } catch {} }

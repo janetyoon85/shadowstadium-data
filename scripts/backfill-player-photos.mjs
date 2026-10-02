@@ -129,8 +129,17 @@ async function resolveKleague(playerId) {
   }
 }
 
+// 농구(2026-10-02): ESPN 헤드샷/네이버 선수사진은 URL이 결정적 — HEAD로 존재만 확인.
+async function headOk(url) {
+  try {
+    const r = await fetch(url, { method: 'HEAD', headers: { 'User-Agent': 'Mozilla/5.0' } });
+    return r.ok && /image/.test(r.headers.get('content-type') || '') ? url : undefined;
+  } catch { return undefined; }
+}
+
 async function main() {
   const players = JSON.parse(await fs.readFile(PLAYERS_PATH, 'utf-8'));
+  try { players.push(...JSON.parse(await fs.readFile(path.join(REPO_ROOT, 'basketball', 'players.json'), 'utf-8'))); } catch {}
   let cache = {};
   try {
     cache = JSON.parse(await fs.readFile(PHOTOS_PATH, 'utf-8'));
@@ -159,7 +168,7 @@ async function main() {
   let used = 0;
   let found = 0;
   // ESPN(5천+명)이 예산을 독식하지 않도록 KBO/NPB/K리그(자체 소스)를 앞에 둔다.
-  const srcRank = (id) => (/^espn:/.test(id) ? 1 : 0);
+  const srcRank = (id) => (/^espn:/.test(id) ? 1 : /^(espnbk|nbk):/.test(id) ? 0.5 : 0);
   // 같은 소스끼리는 최근 등장·다경기 선수 우선(유명 선수 사진이 뒤로 밀리지 않게).
   const ordered = [...players].sort((x, y) => srcRank(x.id || '') - srcRank(y.id || '') || (y.lastSeenDate || '').localeCompare(x.lastSeenDate || '') || (y.appearances?.length || 0) - (x.appearances?.length || 0));
   ordered.sort((x, y) => (x.id in cache ? 1 : 0) - (y.id in cache ? 1 : 0));
@@ -173,7 +182,17 @@ async function main() {
     const kboM = /^kbo:(b|p):(.+)$/.exec(p.id);
     const npbM = /^npb:(.+)$/.exec(p.id);
     const naverM = /^naver:(.+)$/.exec(p.id);
-    if (espnM) {
+    const espnBk = /^espnbk:([a-z-]+):(d+)$/.exec(p.id);
+    const naverBk = /^nbk:([a-z]+):(d+)$/.exec(p.id);
+    if (espnBk) {
+      used++;
+      await sleep(OWN_SOURCE_DELAY_MS);
+      photo = await headOk(`https://a.espncdn.com/i/headshots/${espnBk[1]}/players/full/${espnBk[2]}.png`);
+    } else if (naverBk) {
+      used++;
+      await sleep(OWN_SOURCE_DELAY_MS);
+      photo = await headOk(`https://sports-phinf.pstatic.net/player/${naverBk[1]}/default/${naverBk[2]}.png`);
+    } else if (espnM) {
       used++;
       photo = await resolveEspnSoccer(espnM[1]);
     } else if (kboM) {
