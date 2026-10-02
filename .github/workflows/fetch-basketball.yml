@@ -49,7 +49,7 @@ jobs:
               exit 0
             fi
             echo "push rejected, rebasing onto origin/main and retrying ($i/20)"
-            git pull --rebase origin main
+            git pull --rebase -X theirs origin main || git rebase --abort
             sleep $((RANDOM % 30 + 1))
           done
           echo "push failed after 20 retries"
