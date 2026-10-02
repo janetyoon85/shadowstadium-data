@@ -207,14 +207,6 @@ async function loadPage(title, summary) {
   const files = [];
   const img = val((cl.P18 || [])[0]);
   if (typeof img === 'string') files.push(`File:${img}`);
-  const cat = val((cl.P373 || [])[0]);
-  if (typeof cat === 'string') {
-    const m = await get(`https://commons.wikimedia.org/w/api.php?${new URLSearchParams({ action: 'query', format: 'json', list: 'categorymembers', cmtitle: `Category:${cat}`, cmtype: 'file', cmlimit: '40' })}`);
-    await pause();
-    const cand = (m?.query?.categorymembers || []).map((x) => x.title).filter((t) => /\.jpe?g$/i.test(t) && !BAD_FILE_RE.test(normalizeForMatch(t)));
-    const pref = cand.filter((t) => /celebrat|champion|trophy|title|winner|final|parade|cup|squad|team/i.test(t) && !/gear|shop|store|fans?|supporters|kit|merch|bus/i.test(t));
-    files.push(...pref.slice(0, 6));
-  }
   if (files.length) {
     const uniq = [...new Set(files)].slice(0, 6);
     const ii = await get(`https://commons.wikimedia.org/w/api.php?${new URLSearchParams({ action: 'query', format: 'json', titles: uniq.join('|'), prop: 'imageinfo', iiprop: 'url|mime', iiurlwidth: '800' })}`);
