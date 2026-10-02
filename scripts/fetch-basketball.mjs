@@ -304,10 +304,10 @@ function blParse(topics, lg, fixedDate, now) {
       const t = Date.parse(`${date}T${time.padStart(5, '0')}:00+09:00`);
       const hk = addTeam('bl', lg, h.code, { ja: h.name, logo: h.logo, abbr: h.code.toUpperCase() });
       const ak = addTeam('bl', lg, a.code, { ja: a.name, logo: a.logo, abbr: a.code.toUpperCase() });
-      const vid = arena ? addVenue('bl', lg, arena, pref, hk) : undefined;
+      const vid = arena && lg === 'BLEAGUE1' ? addVenue('bl', lg, arena, pref, hk) : undefined; // B2/B3 구장은 불필요(2026-10-03)
       const hasScore = !!hs && !!as;
       const st = !hasScore ? 'scheduled' : now - t > 3.5 * 3600e3 ? 'final' : 'live';
-      out.push({ id: `bl:${id}`, src: 'bl', lg, date, t, st, h: { k: hk, s: hasScore ? Number(hs) : 0 }, a: { k: ak, s: hasScore ? Number(as) : 0 }, venue: arena || undefined, vid });
+      out.push({ id: `bl:${id}`, src: 'bl', lg, date, t, st, h: { k: hk, s: hasScore ? Number(hs) : 0 }, a: { k: ak, s: hasScore ? Number(as) : 0 }, venue: lg === 'BLEAGUE1' ? arena || undefined : undefined, vid });
     }
   }
   return out;
@@ -415,6 +415,8 @@ async function main() {
     if (!v.teams.length) { delete venues[id]; delete venueEn[id]; }
   }
   for (const g of old.games || []) if (g.src === 'naver' && g.lg === 'NBA') { delete g.vid; delete g.venue; }
+  for (const g of old.games || []) if (g.lg === 'BLEAGUE2' || g.lg === 'BLEAGUE3') { delete g.vid; delete g.venue; }
+  for (const [id, v] of Object.entries(venues)) if (v.lg === 'BLEAGUE2' || v.lg === 'BLEAGUE3') { delete venues[id]; delete venueEn[id]; }
   for (const p of await readJson('players.json', [])) players[p.id] = p;
   const standings = await readJson('standings.json', {});
   let ok = 0, failed = 0;
