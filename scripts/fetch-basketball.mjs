@@ -9,6 +9,7 @@
 //   basketball/venues.json     구장(venue-info/venue-photos 크롤러가 같이 처리)
 //   basketball/team-name-en.json 팀 영문명(team-info 크롤러가 같이 처리, 키 'bk:<src>:<lg>:<code>')
 import fs from 'node:fs/promises';
+import zlib from 'node:zlib';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -32,6 +33,7 @@ const ESPN = [
   { lg: 'GLEAGUE', slug: 'nba-development', photo: 'nba-gleague' },
   { lg: 'NBL', slug: 'nbl', photo: 'nbl' },
   { lg: 'FIBA', slug: 'fiba', photo: 'fiba' },
+  { lg: 'EUROLEAGUE', slug: 'euroleague', photo: 'euroleague' },
   { lg: 'OLYMPICS_M', slug: 'mens-olympics-basketball', photo: 'mens-olympics-basketball' },
   { lg: 'OLYMPICS_W', slug: 'womens-olympics-basketball', photo: 'womens-olympics-basketball' },
 ];
@@ -220,6 +222,67 @@ async function espnStandings(cfg) {
   return out.length ? out : null;
 }
 
+// ---------- 아시안게임(Bornan API, 야구/축구 크롤러와 동일 벤더) ----------
+const AG_KO = { KOR: '대한민국', JPN: '일본', CHN: '중국', TPE: '차이니스 타이베이', HKG: '홍콩', PHI: '필리핀', IRI: '이란', IRQ: '이라크', JOR: '요르단', LBN: '레바논', QAT: '카타르', KSA: '사우디아라비아', UAE: '아랍에미리트', KUW: '쿠웨이트', BRN: '바레인', SYR: '시리아', PLE: '팔레스타인', IND: '인도', PAK: '파키스탄', SRI: '스리랑카', BAN: '방글라데시', NEP: '네팔', THA: '태국', VIE: '베트남', INA: '인도네시아', MAS: '말레이시아', SGP: '싱가포르', CAM: '캄보디아', LAO: '라오스', MYA: '미얀마', MGL: '몽골', KAZ: '카자흐스탄', UZB: '우즈베키스탄', KGZ: '키르기스스탄', TJK: '타지키스탄', TKM: '투르크메니스탄', AFG: '아프가니스탄', MAC: '마카오', PRK: '조선민주주의인민공화국', MDV: '몰디브', BRU: '브루나이', TLS: '동티모르', OMA: '오만', YEM: '예멘', BHU: '부탄' };
+const AG_DISCS = [['BKB', 'ASIAD'], ['BK3', 'ASIAD3']];
+async function agFetch(p) {
+  try {
+    const r = await fetch(`https://back.results.asiangames2026.org/s/AG2026/en/${p}`, { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(20000) });
+    if (!r.ok) return r.status === 404 ? null : undefined;
+    const b = Buffer.from(await r.arrayBuffer());
+    return JSON.parse(zlib.inflateSync(Buffer.from(b.toString('utf-8'), 'latin1')).toString('utf-8'));
+  } catch { return undefined; }
+}
+async function fetchAsianGames(fromDate, byId) {
+  const out = [];
+  let any = false;
+  for (const [disc, base] of AG_DISCS) {
+    const days = await agFetch(`${disc}/schedule/days`);
+    if (days === undefined) return undefined;
+    if (!days) continue;
+    any = true;
+    const today = kstDate(Date.now());
+    for (const d of days.map((x) => x.raw).filter((d) => d >= fromDate)) {
+      const prior = [...byId.values()].filter((g) => g.src === 'ag' && g.date === d && g.id.startsWith('ag:' + disc));
+      if (d < today && prior.length && prior.every((g) => g.st === 'final')) continue;
+      const day = await agFetch(`${disc}/schedule/daily/${d}`);
+      if (!day) continue;
+      for (const g of day) {
+        if (!g.Home?.Org || !g.Away?.Org) continue;
+        const lg = `${base}_${(g.Event || '').startsWith('W') ? 'W' : 'M'}`;
+        const tk = (x) => addTeam('ag', lg, x.Org, { en: x.Name, ko: AG_KO[x.Org], abbr: x.Org });
+        const hk = tk(g.Home), ak = tk(g.Away);
+        const t0 = Date.parse(g.DateTimeRaw);
+        const vid = addVenue('ag', lg, g.VenueDesc, '', hk, g.VenueDesc);
+        const status = ['OFFICIAL', 'FINISHED', 'UNOFFICIAL'].includes(g.Status) ? 'final' : ['LIVE', 'RUNNING'].includes(g.Status) ? 'live' : 'scheduled';
+        const att = Number((g.Extensions || []).find((x) => x.Code === 'ATTENDANCE')?.Value);
+        out.push({
+          id: `ag:${disc}:${g.ResCode || g.Key}`, src: 'ag', lg, date: kstDate(t0), t: t0, st: status, per: g.UnitDescS || undefined,
+          h: { k: hk, s: status === 'scheduled' ? 0 : num(g.Home.Result) }, a: { k: ak, s: status === 'scheduled' ? 0 : num(g.Away.Result) },
+          venue: g.VenueDesc || undefined, vid, att: Number.isFinite(att) && att > 0 ? att : undefined, rd: g.UnitDesc || undefined,
+        });
+      }
+      await sleep(300);
+    }
+  }
+  return any ? out : null;
+}
+
+// ---------- 하루 1회: 리그 전체 팀 등록(경기 유무와 무관) + 네이버 시즌 전체 일정 ----------
+async function syncAllTeams(now) {
+  const jobs = ESPN.map(async (cfg) => {
+    const j = await getJson(`https://site.api.espn.com/apis/site/v2/sports/basketball/${cfg.slug}/teams?limit=500`);
+    for (const t of j?.sports?.[0]?.leagues?.[0]?.teams || []) {
+      const x = t.team;
+      if (x?.id) addTeam('espn', cfg.lg, x.id, { en: x.displayName, abbr: x.abbreviation, logo: x.logos?.[0]?.href, color: x.color ? '#' + x.color : undefined });
+    }
+  });
+  await Promise.all(jobs);
+  const from = ymd(new Date(now)), to = ymd(new Date(now + 200 * 86400e3));
+  const res = await Promise.all(NAVER.filter((c) => c.lg !== 'NBA').map((cfg) => fetchNaverSchedule(cfg, from, to)));
+  return res.flatMap((r) => r || []);
+}
+
 async function main() {
   await fs.mkdir(OUT, { recursive: true });
   const now = Date.now();
@@ -246,6 +309,14 @@ async function main() {
     ...NAVER.map((cfg) => fetchNaverSchedule(cfg, from, to).then((r) => [cfg, r])),
     ...ESPN.map((cfg) => fetchEspnSchedule(cfg, from, to).then((r) => [cfg, r])),
   ]);
+  const meta = await readJson('meta.json', {});
+  const doSync = now - (meta.teamSync || 0) > 24 * 3600e3;
+  let syncGames = [];
+  if (doSync) { syncGames = await syncAllTeams(now); meta.teamSync = now; }
+  const agFrom = ymd(new Date(now - KEEP_DAYS * 86400e3));
+  const ag = await fetchAsianGames(agFrom, byId);
+  if (ag === undefined) { failed++; console.log('[basketball] FAIL ASIAD'); } else if (ag) { ok++; fresh.push(...ag); }
+  fresh.push(...syncGames);
   for (const [cfg, r] of results) {
     if (r === undefined) { failed++; console.log('[basketball] FAIL', cfg.lg); continue; }
     ok++; fresh.push(...(r || []));
@@ -306,6 +377,7 @@ async function main() {
     if (!t.ko && nv.ko) t.ko = nv.ko;
     if (!nv.en && t.en) nv.en = t.en;
   }
+  await writeJson('meta.json', meta);
   await writeJson('teams.json', teams);
   await writeJson('venues.json', venues);
   await writeJson('venue-name-en.json', venueEn);
