@@ -275,7 +275,8 @@ async function main() {
   const REFRESH_DAYS = Number(process.env.TEAM_INFO_REFRESH_DAYS || 90);
   const fresh = Object.keys(names).filter((k) => !(k in cache) && (!only || only.includes(k)));
   const stale = Object.keys(names).filter((k) => k in cache && (today - (meta[k] ?? today) >= REFRESH_DAYS || (cache[k] && !(k in aliases))) && (!only || only.includes(k))).sort((a, b) => meta[a] - meta[b]);
-  const todo = [...fresh, ...stale];
+  const bkFirst = (a, b) => (b.startsWith('bk:') ? 1 : 0) - (a.startsWith('bk:') ? 1 : 0);
+  const todo = [...fresh.sort(bkFirst), ...stale];
   console.log(`[team-info] total=${Object.keys(names).length} cached=${Object.keys(cache).length} todo=${todo.length} (stale=${stale.length}) budget=${BUDGET}`);
   let done = 0, found = 0;
   for (const ko of todo) {

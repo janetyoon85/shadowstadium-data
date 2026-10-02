@@ -77,7 +77,7 @@ async function main() {
   try { Object.assign(names, JSON.parse(await fs.readFile(path.join(REPO_ROOT, 'basketball', 'venue-name-en.json'), 'utf8'))); } catch {}
   let cache = {};
   try { cache = JSON.parse(await fs.readFile(OUT, 'utf8')); } catch {}
-  const todo = Object.keys(names).filter((id) => !(id in cache));
+  const todo = Object.keys(names).filter((id) => !(id in cache)).sort((a, b) => (b.startsWith('bk_') ? 1 : 0) - (a.startsWith('bk_') ? 1 : 0));
   console.log(`[venue-info] total=${Object.keys(names).length} cached=${Object.keys(cache).length} todo=${todo.length} budget=${BUDGET}`);
   let done = 0, found = 0;
   for (const id of todo) {
