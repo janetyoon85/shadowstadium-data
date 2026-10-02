@@ -8,6 +8,7 @@ export function buildCheerSongQuery(team, name, suffix = '응원가') {
 
 // spec: { full, songWords[], surname?, teamEn? } — full 이름이 제목에 있으면 채택, 성(surname, 4자 이상)만
 // 있으면 teamEn(영문 팀명)까지 제목에 있을 때만 채택(성만 같은 다른 선수 영상 방지).
+export const CHEER_REJECT = ['야르한', '패러디', '밈', '리믹스', '커버', '개사', '바치는', '19금', 'cover', 'remix', 'parody', 'meme', 'asmr', 'reaction', '리액션', '플레이리스트', '모음'].map(norm);
 export function pickCheerSong(items, spec) {
   const full = norm(spec?.full);
   if (!full) return null;
@@ -19,6 +20,7 @@ export function pickCheerSong(items, spec) {
     const title = it?.snippet?.title || '';
     const t = norm(title);
     if (!id || !words.some((w) => t.includes(w))) continue;
+    if (CHEER_REJECT.some((w) => t.includes(w))) continue;
     const nameOk = t.includes(full) || (surname.length >= 4 && !!team && t.includes(surname) && t.includes(team));
     if (nameOk) return { v: id, t: title };
   }
