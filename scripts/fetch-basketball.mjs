@@ -155,7 +155,7 @@ function espnStatus(t) {
 const NBL_HOME = {
   1: ['Adelaide Entertainment Centre', 'Adelaide'], 2: ['Nissan Arena', 'Brisbane'], 3: ['Cairns Convention Centre', 'Cairns'],
   4: ['WIN Entertainment Centre', 'Wollongong'], 5: ['John Cain Arena', 'Melbourne'], 7: ['RAC Arena', 'Perth'],
-  8: ['Knox Pit', 'Melbourne'], 9: ['Qudos Bank Arena', 'Sydney'], 10: ['MyState Arena', 'Hobart'],
+  8: ['South East Melbourne Phoenix', 'Melbourne'], 9: ['Qudos Bank Arena', 'Sydney'], 10: ['MyState Arena', 'Hobart'],
 };
 async function fetchEspnSchedule(cfg, from, to) {
   const out = [];
