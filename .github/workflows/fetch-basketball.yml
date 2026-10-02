@@ -25,6 +25,9 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Install PDF parser (Asian Games box scores)
+        run: npm i --no-save --no-package-lock pdfjs-dist@3.11.174
+
       - name: Run basketball crawler
         run: node scripts/fetch-basketball.mjs
 

@@ -240,6 +240,73 @@ async function agFetch(p) {
     return JSON.parse(zlib.inflateSync(Buffer.from(b.toString('utf-8'), 'latin1')).toString('utf-8'));
   } catch { return undefined; }
 }
+// 아시안게임 5x5 박스스코어: 공식 결과 사이트가 선수 스탯을 PDF(Results)로만 제공 → pdfjs 좌표 파싱 후 합계 검증(불일치면 폐기).
+const AG_COLS = [['min', 160], ['fg', 183], ['p2', 230], ['tp', 276], ['ft', 321], ['or', 366], ['dr', 384], ['reb', 403], ['ast', 421], ['to', 439], ['stl', 458], ['blk', 476], ['pf', 494], ['pm', 531], ['pts', 551]];
+const agCol = (x) => AG_COLS.reduce((b, c) => (Math.abs(c[1] - x) < Math.abs(b[1] - x) ? c : b), AG_COLS[0])[0];
+const agMA = (s) => { const m = /^(\d+)\/(\d+)$/.exec(s || ''); return m ? [+m[1], +m[2]] : [0, 0]; };
+function agNiceName(raw) {
+  const parts = raw.replace(/\s*\(C\)\s*$/, '').split(/\s+/);
+  const sur = [], giv = [];
+  for (const w of parts) (/^[A-Z][A-Z'’.-]*$/.test(w) && giv.length === 0 ? sur : giv).push(w);
+  const cap = (w) => w.toLowerCase().replace(/(^|[-'’])([a-z])/g, (_m, a, b) => a + b.toUpperCase());
+  return [...giv, ...sur.map(cap)].join(' ');
+}
+async function agDetail(game) {
+  let pdfjs;
+  try { pdfjs = await import('pdfjs-dist/legacy/build/pdf.js'); } catch { return undefined; }
+  const [, disc, ...rest] = game.id.split(':');
+  const rc = rest.join(':');
+  if (disc !== 'BKB') return null;
+  const rep = await agFetch(`${disc}/reports/just-unit/${rc}`);
+  if (rep === undefined) return undefined;
+  const url = rep?.Reports?.find((x) => /^Results$/i.test(x.Desc))?.URL;
+  if (!url) return Date.now() - game.t > 3 * 86400e3 ? null : undefined;
+  let rows;
+  try {
+    const r = await fetch(url, { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(30000) });
+    if (!r.ok) return undefined;
+    const doc = await pdfjs.getDocument({ data: new Uint8Array(await r.arrayBuffer()), verbosity: 0 }).promise;
+    rows = {};
+    for (let pn = 1; pn <= doc.numPages; pn++) {
+      const tc = await (await doc.getPage(pn)).getTextContent();
+      for (const i of tc.items) if (i.str.trim()) (rows[`${pn}:${String(10000 - Math.round(i.transform[5])).padStart(5, '0')}`] ||= []).push({ x: i.transform[4], t: i.str.trim() });
+    }
+  } catch { return undefined; }
+  const lines = Object.keys(rows).sort().map((k) => rows[k].sort((a, b) => a.x - b.x));
+  const teams = [];
+  let cur = null, ls = null;
+  for (const ln of lines) {
+    const first = ln[0].t;
+    const qm = /^\((\d+-\d+(?:, \d+-\d+)*)\)$/.exec(ln[0].t);
+    if (qm) { ls = qm[1].split(', ').map((s) => s.split('-').map(Number)); continue; }
+    if (/^[A-Z]{3} - /.test(first) && ln.some((c) => /Headcoach/.test(c.t))) { cur = { pl: [], tot: null }; teams.push(cur); continue; }
+    if (!cur) continue;
+    const nameCell = ln.find((c) => c.x > 55 && c.x < 150);
+    const noCell = ln.find((c) => c.x < 55);
+    if (/^Totals$/.test(first) || ln.some((c) => c.t === 'Totals')) {
+      const o = {};
+      for (const c of ln) if (c.x > 150) o[agCol(c.x)] = c.t;
+      cur.tot = o;
+    } else if (noCell && nameCell && /^\*?\d+$/.test(noCell.t) && !cur.tot) {
+      const o = {};
+      for (const c of ln) if (c.x >= 150) o[agCol(c.x)] = c.t;
+      cur.pl.push({ no: noCell.t.replace('*', ''), gs: noCell.t.startsWith('*') ? 1 : 0, n: agNiceName(nameCell.t), o });
+    }
+  }
+  if (teams.length !== 2 || !ls || !teams.every((t) => t.tot)) return undefined;
+  const num = (v) => { const n = parseInt(v); return Number.isFinite(n) ? n : 0; };
+  const mk = (t) => {
+    const pl = t.pl.filter((p) => p.o.min && p.o.min !== 'DNP').map((p) => ({ n: p.n, no: p.no, min: p.o.min, pts: num(p.o.pts), reb: num(p.o.reb), ast: num(p.o.ast), stl: num(p.o.stl), blk: num(p.o.blk), to: num(p.o.to), pf: num(p.o.pf), fg: agMA(p.o.fg), tp: agMA(p.o.tp), ft: agMA(p.o.ft), pm: p.o.pm ? (num(p.o.pm) > 0 ? '+' : '') + num(p.o.pm) : undefined, gs: p.gs }));
+    const x = t.tot;
+    return { pl, tm: { pts: num(x.pts), reb: num(x.reb), ast: num(x.ast), stl: num(x.stl), blk: num(x.blk), to: num(x.to), pf: num(x.pf), fg: agMA(x.fg), tp: agMA(x.tp), ft: agMA(x.ft) } };
+  };
+  const [H, A] = teams.map(mk);
+  const sum = (s, k) => s.pl.reduce((a, p) => a + p[k], 0);
+  if (H.tm.pts !== game.h.s || A.tm.pts !== game.a.s || sum(H, 'pts') !== H.tm.pts || sum(A, 'pts') !== A.tm.pts) return undefined;
+  if (!H.pl.length || !A.pl.length) return undefined;
+  return { ls: { h: ls.map((q) => q[0]), a: ls.map((q) => q[1]) }, tm: { h: H.tm, a: A.tm }, pl: { h: H.pl, a: A.pl } };
+}
+
 async function fetchAsianGames(fromDate, byId) {
   const out = [];
   let any = false;
@@ -447,7 +514,7 @@ async function main() {
   const boxFiles = {};
   const box = async (g) => { const f = `box-${g.date.slice(0, 7)}.json`; return (boxFiles[f] ||= (await readJson(f, {}))); };
   let detail = 0;
-  const finals = [...byId.values()].filter((g) => g.st === 'final' && !g.boxed && (g._cfg || g.src === 'bl')).sort((a, b) => b.t - a.t);
+  const finals = [...byId.values()].filter((g) => g.st === 'final' && !g.boxed && (g._cfg || g.src === 'bl' || g.src === 'ag')).sort((a, b) => b.t - a.t);
   const todo = finals.slice(0, DETAIL_BUDGET);
   for (const g of todo) await box(g);
   detail = todo.length;
@@ -455,7 +522,7 @@ async function main() {
   await Promise.all(Array.from({ length: 4 }, async () => {
     while (qi < todo.length) {
       const g = todo[qi++];
-      const d = g.src === 'naver' ? await naverDetail(g) : g.src === 'bl' ? await blDetail(g) : await espnDetail(g);
+      const d = g.src === 'naver' ? await naverDetail(g) : g.src === 'bl' ? await blDetail(g) : g.src === 'ag' ? await agDetail(g) : await espnDetail(g);
       if (d === undefined) continue;
       if (d) boxFiles[`box-${g.date.slice(0, 7)}.json`][g.id] = d;
       g.boxed = 1;
