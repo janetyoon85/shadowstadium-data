@@ -68,5 +68,9 @@ for (const [k, tm] of Object.entries(teams)) {
   n++;
   await sleep(250);
 }
+const KO_BL = JSON.parse(await fs.readFile(new URL('./basketball-ko-bl.json', import.meta.url), 'utf8'));
+for (const [k, tm] of Object.entries(teams)) {
+  if (tm.src === 'bl' && KO_BL[tm.code]) out[k] = { ...(out[k] || {}), ko: KO_BL[tm.code] };
+}
 await fs.writeFile(OUT, JSON.stringify(out));
 console.log('team-i18n', Object.keys(out).length, 'found', Object.values(out).filter(Boolean).length, 'of', Object.keys(teams).length);
