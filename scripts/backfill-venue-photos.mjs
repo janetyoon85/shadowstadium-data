@@ -172,7 +172,7 @@ async function main() {
     if (!englishName) noEnglishName++;
     const venueEn = venueNameEn[v.id];
 
-    const canTrySportsDb = !!englishName && used < BUDGET;
+    const canTrySportsDb = !!englishName && used < BUDGET && v.sport !== 'basketball';
     const canTryWiki = !!venueEn?.name && wikiUsed < WIKI_BUDGET;
     if (!canTrySportsDb && !canTryWiki) {
       // 이번 실행에서 시도할 방법이 아예 없음 — 팀/영문 구장명 둘 다 없으면(재시도해도 의미
