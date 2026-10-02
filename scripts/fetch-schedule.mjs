@@ -2083,6 +2083,43 @@ async function main() {
     console.log(`[pid-inherit] attached=${inherited}`);
   }
 
+  // 비K리그 경기의 naver: pid를 ESPN pid로 통일(2026-10-03, "반 다이크 선수정보") — 같은 이름의 ESPN pid가
+  // 커밋된 games.json에서 정확히 1개이고 그 선수가 같은 팀(클럽/대표팀) 경기에 등장한 적이 있을 때만 교체.
+  {
+    let esp = new Map();
+    try {
+      const prev = JSON.parse(await fs.readFile(path.join(REPO_ROOT, 'games.json'), 'utf-8'));
+      for (const g of Array.isArray(prev) ? prev : prev.games || []) {
+        for (const f of ['scorers', 'cards']) {
+          for (const side of ['home', 'away']) {
+            const team = side === 'home' ? g.home : g.away;
+            for (const x of g[f]?.[side] || []) {
+              if (!x.pid?.startsWith('espn:') || x.og || !x.n) continue;
+              const m = esp.get(x.n) ?? new Map();
+              const ts = m.get(x.pid) ?? new Set();
+              ts.add(team); m.set(x.pid, ts); esp.set(x.n, m);
+            }
+          }
+        }
+      }
+    } catch (e) { console.warn(`[pid-unify] skipped: ${e.message}`); esp = new Map(); }
+    let unified = 0;
+    for (const g of allGames) {
+      if (/^K리그|^KOREACUP$/.test(g.league || '')) continue;
+      for (const f of ['scorers', 'cards']) {
+        for (const side of ['home', 'away']) {
+          const team = side === 'home' ? g.home : g.away;
+          for (const x of g[f]?.[side] || []) {
+            if (!x.pid?.startsWith('naver:') || x.og || !x.n) continue;
+            const hits = [...(esp.get(x.n) ?? new Map())].filter(([, ts]) => ts.has(team));
+            if (hits.length === 1) { x.pid = hits[0][0]; unified++; }
+          }
+        }
+      }
+    }
+    console.log(`[pid-unify] naver->espn=${unified}`);
+  }
+
   sortGames(allGames);
 
   // Save staging artifact (with metadata)
