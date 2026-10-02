@@ -904,6 +904,7 @@ async function enrichSaves(allGames) {
       if (g.league !== 'KBO' && g.league !== 'NPB') continue;
       note(g.league, g.home, g.homePitcher, g.homePitcherPid);
       note(g.league, g.away, g.awayPitcher, g.awayPitcherPid);
+      for (const f of ['win', 'lose', 'save']) note(g.league, '*', g[f + 'Pitcher'], g[f + 'PitcherPid']);
       for (const side of ['home', 'away']) {
         for (const h of g.highlights?.[side] || []) note(g.league, side === 'home' ? g.home : g.away, h.player, h.pid);
       }
@@ -921,6 +922,19 @@ async function enrichSaves(allGames) {
       }
     }
     console.log(`[saves] completedHighlightPidAttached=${attached}`);
+    // 선발/승/패/세이브 투수 pid 보강(2026-10-02, "선발투수 타자 클릭하면 선수정보안나옴") — 같은 리그·팀(승패세는 팀 무관)·이름이 단 하나의 pid로만 나온 경우에만 부착.
+    let pitcherAttached = 0;
+    const uniq = (k) => { const set = learn.get(k); return set && set.size === 1 ? [...set][0] : undefined; };
+    for (const g of allGames) {
+      if (g.league !== 'KBO' && g.league !== 'NPB') continue;
+      for (const [f, team] of [['homePitcher', g.home], ['awayPitcher', g.away]]) {
+        if (g[f] && !g[f + 'Pid']) { const pid = uniq(`${g.league}|${team}|${g[f]}`); if (pid) { g[f + 'Pid'] = pid; pitcherAttached++; } }
+      }
+      for (const f of ['winPitcher', 'losePitcher', 'savePitcher']) {
+        if (g[f] && !g[f + 'Pid']) { const pid = uniq(`${g.league}|*|${g[f]}`); if (pid) { g[f + 'Pid'] = pid; pitcherAttached++; } }
+      }
+    }
+    console.log(`[saves] pitcherPidAttached=${pitcherAttached}`);
   }
   // MLB 데뷔 첫 선발(2026-09-30, "위키조회안되면 기본정보라도" 리포트 — 실사례: Payton Tolle/
   // Cam Schlittler) — player-codes.json은 "이전에 완료된 경기 박스스코어에서 학습한 이름"만
