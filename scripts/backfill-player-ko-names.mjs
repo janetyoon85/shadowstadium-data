@@ -26,8 +26,10 @@ function parseDob(s) {
 }
 
 async function lookup(player) {
-  const id = player.id.replace(/^espn:/, '');
-  const esp = await getJson(`https://site.web.api.espn.com/apis/common/v3/sports/soccer/athletes/${id}`);
+  const bk = /^espnbk:(nba|wnba):(\d+)$/.exec(player.id);
+  const esp = bk
+    ? await getJson(`https://site.web.api.espn.com/apis/common/v3/sports/basketball/${bk[1]}/athletes/${bk[2]}`)
+    : await getJson(`https://site.web.api.espn.com/apis/common/v3/sports/soccer/athletes/${player.id.replace(/^espn:/, '')}`);
   if (esp === undefined) return undefined; // 일시 오류 → 재시도
   const dob = parseDob(esp.athlete?.displayDOB);
   if (!dob) return null;
@@ -62,7 +64,9 @@ const autoOther = await loadJson('player-name-auto.json', {});
   const manual = await loadJson('player-name-en.json', {});
   const i18n = await loadJson('player-name-i18n.json', {});
   const tried = await loadJson('player-ko-tried.json', {});
-  const todo = players.filter((p) => p.sport === 'soccer' && p.id?.startsWith('espn:') && !/[가-힣]/.test(p.name) && !(p.id in tried)).sort((a, b) => (b.lastSeenDate || '').localeCompare(a.lastSeenDate || ''));
+  try { players.push(...(await loadJson('basketball/players.json', []))); } catch {}
+  const isBk = (p) => /^espnbk:(nba|wnba):/.test(p.id || '');
+  const todo = players.filter((p) => ((p.sport === 'soccer' && p.id?.startsWith('espn:')) || isBk(p)) && !/[가-힣]/.test(p.name) && !(p.id in tried)).sort((a, b) => (isBk(b) ? 1 : 0) - (isBk(a) ? 1 : 0) || (b.lastSeenDate || '').localeCompare(a.lastSeenDate || ''));
   console.log(`[ko-names] candidates=${todo.length} budget=${BUDGET}`);
   let used = 0, added = 0, none = 0, conflict = 0;
   const save = async () => {
