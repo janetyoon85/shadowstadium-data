@@ -1,7 +1,7 @@
 // 농구 팀기록/선수기록 → basketball/stats.json
 //   KBL/WKBL 팀기록: Naver statistics API (선수기록은 Naver가 농구엔 미제공)
 //   NBA/WNBA 팀·선수기록: ESPN common v3 byteam/byathlete
-// 6시간 이내 재실행이면 건너뜀(fetch-basketball 크론에 얹혀 돌기 때문).
+// 50분 이내 재실행이면 건너뜀.
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -87,7 +87,7 @@ const file = path.join(DIR, 'stats.json');
 let cur = {};
 try { cur = JSON.parse(await fs.readFile(file, 'utf8')); } catch {}
 const now = Date.now();
-if (!FORCE && now - (cur.updated || 0) < 6 * 3600e3) { console.log('[bk-stats] fresh, skip'); process.exit(0); }
+if (!FORCE && now - (cur.updated || 0) < 50 * 60e3) { console.log('[bk-stats] fresh, skip'); process.exit(0); }
 const leagues = cur.leagues || {};
 for (const cfg of NAVER) {
   const r = await naverTeams(cfg);

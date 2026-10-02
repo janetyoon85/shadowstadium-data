@@ -1,0 +1,32 @@
+name: fetch-basketball-stats
+on:
+  workflow_dispatch:
+concurrency:
+  group: fetch-basketball-stats
+  cancel-in-progress: false
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Run basketball stats crawler
+        run: node scripts/fetch-basketball-stats.mjs
+      - name: Commit and push
+        run: |
+          if [[ -z "$(git status --porcelain basketball/stats.json)" ]]; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add basketball/stats.json
+          git commit -m "chore(data): 농구 팀/선수기록 갱신 ($(date +'%Y-%m-%d %H:%M'))"
+          for i in $(seq 1 20); do
+            if git push; then exit 0; fi
+            git pull --rebase -X theirs origin main || git rebase --abort
+            sleep $((RANDOM % 30 + 1))
+          done
+          exit 1
