@@ -1638,8 +1638,8 @@ async function enrichEuroAssists(allGames) {
     // 끝나던 게 계속 진행중으로 관측됨(실측). live가 아닌 한(실시간 급하지 않음) "완전 신규"도
     // 같은 예산 풀에 넣어서 과거 미완료분처럼 여러 실행에 걸쳐 나눠 처리되게 함.
     // 옛 확정 스텁 재시도(2026-09-30): 날짜후보 3개 로직 도입 전에 noMatch/개수불일치로 빈 스텁이 확정된 경기 중
-    // 득점자가 있는 것(1,600건+)은 pid가 영구히 비어 있었음. sv(스텁 버전) 없는 옛 스텁만 1회 재시도.
-    const isStaleStub = !!cached && !cached.sv && cached.final !== false && !(cached.homePids || []).some(Boolean) && !(cached.awayPids || []).some(Boolean) &&
+    // 득점자가 있는 것(1,600건+)은 pid가 영구히 비어 있었음. sv(스텁 버전) 없는 옛 스텁만 1회 재시도. 2026-10-02: ESPN keyEvents가 경기 직후 비어있다 나중에 채워지는 경우(J1 이나가키 등) — sv<3 스텁 1회 + 36h 후 1회 재시도(r=1이면 종료).
+    const isStaleStub = !!cached && (!cached.sv || cached.sv < 3 || (cached.sv === 3 && !cached.r && Date.now() - (cached.at || 0) > 36 * 3600e3)) && cached.final !== false && !(cached.homePids || []).some(Boolean) && !(cached.awayPids || []).some(Boolean) &&
       ((g.scorers?.home || []).length + (g.scorers?.away || []).length) > 0;
     const isBackfillOnly = g.status !== 'live' && (
       !cached || isStaleStub ||
@@ -1688,7 +1688,7 @@ async function enrichEuroAssists(allGames) {
           // completed 인데 이벤트 자체를 못 찾으면(ESPN 미중계 등) 영구 불가로 보고 확정 캐시 —
           // live 는 다음 run 에 스코어보드가 갱신될 수 있어 재시도 유지(캐시 안 함).
           if (g.status === 'completed') {
-            cache[g.gameId] = { homeAssists: [], awayAssists: [], homeNats: [], awayNats: [], homeANats: [], awayANats: [], homePids: [], awayPids: [], homeAPids: [], awayAPids: [], final: true, sv: 2 };
+            cache[g.gameId] = { homeAssists: [], awayAssists: [], homeNats: [], awayNats: [], homeANats: [], awayANats: [], homePids: [], awayPids: [], homeAPids: [], awayAPids: [], final: true, sv: 3, at: Date.now(), r: cached && cached.sv >= 3 ? 1 : 0 };
             // 카드 캐시도 같이 확정 스텁 처리 — 안 그러면 needsCardBackfill이 영원히 true로 남아
             // ESPN 미중계 경기(군소리그에 흔함)가 매 실행마다 예산을 계속 잡아먹어 다른(특히
             // 신규 38개국) 리그의 백필이 굶는 문제 발생(2026-09-26 실측 발견 — 신규 확장 리그들
@@ -1719,7 +1719,7 @@ async function enrichEuroAssists(allGames) {
             // completed 인데 골 개수가 계속 안 맞으면(팀명 매칭 실패 등 구조적 문제) 매 10분 재시도해도
             // 안 맞을 확률이 높음 — 확정 캐시로 고정해 무한 재시도 방지(live 는 계속 재시도).
             if (g.status === 'completed') {
-              cache[g.gameId] = { homeAssists: [], awayAssists: [], homeNats: [], awayNats: [], homeANats: [], awayANats: [], homePids: [], awayPids: [], homeAPids: [], awayAPids: [], final: true, sv: 2 };
+              cache[g.gameId] = { homeAssists: [], awayAssists: [], homeNats: [], awayNats: [], homeANats: [], awayANats: [], homePids: [], awayPids: [], homeAPids: [], awayAPids: [], final: true, sv: 3, at: Date.now(), r: cached && cached.sv >= 3 ? 1 : 0 };
             }
             if (!cached) continue;
           } else {
@@ -1773,7 +1773,7 @@ async function enrichEuroAssists(allGames) {
               homeAPids: (g.scorers?.home || []).map((s) => s.apid || null),
               awayAPids: (g.scorers?.away || []).map((s) => s.apid || null),
               final: g.status === 'completed',
-              sv: 2,
+              sv: 3, r: 1,
             };
             fetched++;
           }
