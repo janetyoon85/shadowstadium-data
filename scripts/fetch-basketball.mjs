@@ -78,7 +78,7 @@ const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g
 const num = (v) => { const n = Number(v); return Number.isFinite(n) ? n : 0; };
 
 const teams = {}, venues = {}, venueEn = {}, teamEn = {}, players = {};
-const note = (map, k, v) => { map[k] = { ...(map[k] || {}), ...v }; };
+const note = (map, k, v) => { map[k] = { ...(map[k] || {}), ...Object.fromEntries(Object.entries(v).filter(([, x]) => x !== undefined)) }; };
 
 function addTeam(src, lg, code, o) {
   const key = `${src}:${lg}:${code}`;
