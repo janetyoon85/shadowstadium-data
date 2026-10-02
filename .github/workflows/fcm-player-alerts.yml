@@ -37,11 +37,13 @@ jobs:
       - name: Send player alerts
         env:
           FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
-        run: node scripts/notify-player-events.mjs
+        run: |
+          node scripts/notify-player-events.mjs
+          node scripts/notify-basketball-final.mjs
 
       - name: Commit sent state
         run: |
-          git add sent-player-alerts.json
+          git add sent-player-alerts.json sent-bk-alerts.json
           git diff --cached --quiet && exit 0
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
