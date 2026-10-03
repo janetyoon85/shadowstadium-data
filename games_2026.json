@@ -642163,12 +642163,14 @@
     "inningInfo": "6회초",
     "liveState": {
       "pitcher": "에스피노",
-      "batter": "피터스",
+      "batter": "바가스",
       "ball": 1,
-      "strike": 2,
+      "strike": 0,
       "out": 0,
-      "bases": [],
-      "pitchCount": 4
+      "bases": [
+        1
+      ],
+      "pitchCount": 8
     },
     "highlights": {
       "home": [],
@@ -642247,16 +642249,23 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 2,
-    "matchPeriod": "전반 36'",
+    "matchPeriod": "전반 38'",
     "scorers": {
       "home": [
         {
           "n": "샤펠버그",
-          "m": 19
+          "m": 19,
+          "a": "Daniel Jebbison",
+          "nat": "Canada",
+          "pid": "espn:286214",
+          "aNat": "Canada",
+          "apid": "espn:312182"
         },
         {
           "n": "샤펠버그",
-          "m": 35
+          "m": 35,
+          "nat": "Canada",
+          "pid": "espn:286214"
         }
       ],
       "away": []
@@ -642275,7 +642284,24 @@
     "status": "live",
     "matchPeriod": "하프타임",
     "homeScore": 2,
-    "awayScore": 0
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "Hernán Toledo",
+          "m": 37,
+          "nat": "Argentina",
+          "pid": "espn:227038"
+        },
+        {
+          "n": "Tobías Figueroa",
+          "m": 45,
+          "nat": "Argentina",
+          "pid": "espn:195750"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-10-04",
@@ -642289,8 +642315,22 @@
     "gameId": "wnszkaCr09cayud",
     "status": "live",
     "awayScore": 0,
-    "homeScore": 0,
-    "matchPeriod": "전반 5'",
+    "homeScore": 1,
+    "matchPeriod": "전반 7'",
+    "scorers": {
+      "home": [
+        {
+          "n": "라민 야말",
+          "m": 6,
+          "a": "Dani Olmo",
+          "nat": "Spain",
+          "pid": "espn:362150",
+          "aNat": "Spain",
+          "apid": "espn:227765"
+        }
+      ],
+      "away": []
+    },
     "phaseCode": "NLA"
   },
   {
@@ -642303,7 +642343,19 @@
     "stadium": "테르모플란 아레나",
     "timeTbd": false,
     "gameId": "IQamPdO446ZNLt6",
-    "status": "scheduled",
+    "status": "live",
+    "awayScore": 1,
+    "homeScore": 0,
+    "matchPeriod": "전반 8'",
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "비포트니크",
+          "m": 2
+        }
+      ]
+    },
     "phaseCode": "NLB"
   },
   {
@@ -642317,9 +642369,18 @@
     "timeTbd": false,
     "gameId": "OPIIWglMQDb9E8S",
     "status": "live",
-    "awayScore": 0,
+    "awayScore": 1,
     "homeScore": 0,
-    "matchPeriod": "전반 6'",
+    "matchPeriod": "전반 8'",
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "보위",
+          "m": 7
+        }
+      ]
+    },
     "phaseCode": "NLB"
   },
   {
