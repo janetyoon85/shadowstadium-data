@@ -642663,10 +642663,9 @@
     "stadium": "스타드 올림피크 알라산 오와타라",
     "timeTbd": false,
     "gameId": "Tzqe84SSPlEsKWN",
-    "status": "live",
+    "status": "completed",
     "awayScore": 1,
     "homeScore": 0,
-    "matchPeriod": "후반 50'",
     "scorers": {
       "home": [],
       "away": [
@@ -642735,9 +642734,9 @@
     "stadium": "Estadio Cincuentenario",
     "timeTbd": false,
     "gameId": "COLOMBIA_ESPN_401877776",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
-    "homeScore": 1,
+    "homeScore": 2,
     "awayScore": 0,
     "cards": {
       "home": [
@@ -642816,6 +642815,12 @@
           "pk": true,
           "nat": "Colombia",
           "pid": "espn:131197"
+        },
+        {
+          "n": "Eduar Arízalas",
+          "m": 90,
+          "nat": "Colombia",
+          "pid": "espn:399239"
         }
       ],
       "away": []
@@ -642940,12 +642945,14 @@
     "inningInfo": "3회말",
     "liveState": {
       "pitcher": "도드",
-      "batter": "베츠",
+      "batter": "오타니",
       "ball": 1,
-      "strike": 1,
+      "strike": 2,
       "out": 2,
-      "bases": [],
-      "pitchCount": 42
+      "bases": [
+        1
+      ],
+      "pitchCount": 45
     }
   },
   {
