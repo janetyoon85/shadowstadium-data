@@ -642153,23 +642153,15 @@
     "stadium": "프로그레시브 필드",
     "timeTbd": false,
     "gameId": "20261004CWCL0",
-    "status": "live",
+    "status": "completed",
     "awayPitcher": "하겐 스미스",
     "homePitcher": "파커 메식",
     "awayPitcherPid": "mlb:696146",
     "homePitcherPid": "mlb:800048",
     "awayScore": 3,
     "homeScore": 0,
-    "inningInfo": "9회말",
-    "liveState": {
-      "pitcher": "테일러",
-      "batter": "바자나",
-      "ball": 0,
-      "strike": 0,
-      "out": 0,
-      "bases": [],
-      "pitchCount": 42
-    },
+    "winPitcher": "허드슨",
+    "losePitcher": "메식",
     "savePitcher": "테일러",
     "winPitcherNat": "USA",
     "losePitcherNat": "USA",
@@ -642283,7 +642275,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 2,
-    "matchPeriod": "후반 44'",
+    "matchPeriod": "후반 46'",
     "scorers": {
       "home": [
         {
@@ -642305,13 +642297,28 @@
       "away": []
     },
     "cards": {
-      "home": [],
+      "home": [
+        {
+          "n": "Richie Laryea",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:230626",
+          "nat": "Canada"
+        }
+      ],
       "away": [
         {
           "n": "Renzo Garcés",
           "type": "Y",
           "m": 82,
           "pid": "espn:251993",
+          "nat": "Peru"
+        },
+        {
+          "n": "Gianluca Lapadula",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:144668",
           "nat": "Peru"
         }
       ]
@@ -642376,7 +642383,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 2,
-    "matchPeriod": "후반 13'",
+    "matchPeriod": "후반 15'",
     "scorers": {
       "home": [
         {
@@ -642412,7 +642419,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 2,
-    "matchPeriod": "후반 14'",
+    "matchPeriod": "후반 15'",
     "scorers": {
       "home": [
         {
@@ -642472,6 +642479,13 @@
           "m": 29,
           "pid": "espn:277314",
           "nat": "Slovenia"
+        },
+        {
+          "n": "Jaka Bijol",
+          "type": "Y",
+          "m": 58,
+          "pid": "espn:274649",
+          "nat": "Slovenia"
         }
       ]
     },
@@ -642490,7 +642504,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 0,
-    "matchPeriod": "후반 13'",
+    "matchPeriod": "후반 15'",
     "scorers": {
       "home": [],
       "away": [
@@ -642608,15 +642622,12 @@
     "awayScore": 1,
     "inningInfo": "2회초",
     "liveState": {
-      "pitcher": "Briggs McKenzie",
-      "batter": "Nathan Hall",
-      "ball": 2,
-      "strike": 1,
-      "out": 2,
-      "bases": [
-        1,
-        2
-      ]
+      "pitcher": "Jarlin Susana",
+      "batter": "Colby Shelton",
+      "ball": 1,
+      "strike": 0,
+      "out": 3,
+      "bases": []
     }
   },
   {
@@ -642672,7 +642683,22 @@
     "stadium": "Estadio La Arboleda",
     "timeTbd": false,
     "gameId": "PARAGUAY_ESPN_401888660",
-    "status": "scheduled"
+    "status": "live",
+    "matchPeriod": "전반",
+    "homeScore": 0,
+    "awayScore": 0,
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Daniel Meza",
+          "type": "Y",
+          "m": 2,
+          "pid": "espn:382932",
+          "nat": "Argentina"
+        }
+      ]
+    }
   },
   {
     "date": "2026-10-04",
