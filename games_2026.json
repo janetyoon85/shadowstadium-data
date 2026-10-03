@@ -642282,8 +642282,8 @@
           "m": 19,
           "a": "Daniel Jebbison",
           "nat": "Canada",
-          "pid": "espn:286214",
           "aNat": "Canada",
+          "pid": "espn:286214",
           "apid": "espn:312182"
         },
         {
@@ -642382,7 +642382,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 2,
-    "matchPeriod": "후반 19'",
+    "matchPeriod": "후반 21'",
     "scorers": {
       "home": [
         {
@@ -642417,20 +642417,33 @@
     "gameId": "IQamPdO446ZNLt6",
     "status": "live",
     "awayScore": 1,
-    "homeScore": 1,
-    "matchPeriod": "전반 82'",
+    "homeScore": 2,
+    "matchPeriod": "후반 22'",
     "scorers": {
       "home": [
         {
           "n": "얀자",
           "m": 10,
-          "og": true
+          "og": true,
+          "nat": "Slovenia",
+          "pid": "espn:177994"
+        },
+        {
+          "n": "은도이",
+          "m": 38,
+          "nat": "Switzerland",
+          "pid": "espn:275842"
         }
       ],
       "away": [
         {
           "n": "비포트니크",
-          "m": 2
+          "m": 2,
+          "a": "Aljosa Matko",
+          "nat": "Slovenia",
+          "pid": "espn:322158",
+          "aNat": "Slovenia",
+          "apid": "espn:306245"
         }
       ]
     },
@@ -642490,7 +642503,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 0,
-    "matchPeriod": "전반 82'",
+    "matchPeriod": "전반 84'",
     "scorers": {
       "home": [],
       "away": [
@@ -642550,9 +642563,40 @@
     "timeTbd": false,
     "gameId": "Tzqe84SSPlEsKWN",
     "status": "live",
-    "awayScore": 0,
+    "awayScore": 1,
     "homeScore": 0,
-    "matchPeriod": "전반 67'"
+    "matchPeriod": "후반 6'",
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "은송고",
+          "m": 46,
+          "nat": "Cameroon",
+          "pid": "espn:414299"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Ibrahim Sangaré",
+          "type": "Y",
+          "m": 30,
+          "pid": "espn:213718",
+          "nat": "Ivory Coast"
+        }
+      ],
+      "away": [
+        {
+          "n": "David Ningo",
+          "type": "Y",
+          "m": 29,
+          "pid": "espn:323221",
+          "nat": "Cameroon"
+        }
+      ]
+    }
   },
   {
     "date": "2026-10-04",
@@ -642653,11 +642697,25 @@
     "stadium": "다저 스타디움",
     "timeTbd": false,
     "gameId": "20261004ATLA0",
-    "status": "scheduled",
+    "status": "live",
     "awayPitcher": "딜런 도드",
     "homePitcher": "타릭 스쿠발",
     "awayPitcherPid": "mlb:689266",
-    "homePitcherPid": "mlb:669373"
+    "homePitcherPid": "mlb:669373",
+    "awayScore": 0,
+    "homeScore": 0,
+    "inningInfo": "1회초",
+    "liveState": {
+      "pitcher": "스쿠발",
+      "batter": "볼드윈",
+      "ball": 1,
+      "strike": 2,
+      "out": 0,
+      "bases": [
+        1
+      ],
+      "pitchCount": 5
+    }
   },
   {
     "date": "2026-10-04",
