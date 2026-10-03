@@ -72,6 +72,7 @@ const AMBIGUOUS_CITY_TEAM_OVERRIDES = {
 // 남자팀/여자팀 이름 겹침(2026-09-30, "이건맞아?" 리포트 — backfill-venue-photos.mjs와 동일 발견,
 // 자세한 사유는 그쪽 주석 참고). 발견되는 대로 추가.
 const TEAM_SEARCH_NAME_OVERRIDES = {
+  '애틀랜타': 'Atlanta Braves',
   '알라베스': 'Deportivo Alaves',
   '닛폰햄': 'Nippon Ham Fighters',
   '드로게다': 'Drogheda United',
