@@ -416,10 +416,14 @@ function blParse(topics, lg, fixedDate, now) {
   return out;
 }
 async function blFetch(q) {
-  try {
-    const r = await fetch(`https://www.bleague.jp/schedule/?data_format=json&${q}`, { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(20000) });
-    return r.ok ? await r.json() : undefined;
-  } catch { return undefined; }
+  for (let a = 0; a < 3; a++) {
+    try {
+      const r = await fetch(`https://www.bleague.jp/schedule/?data_format=json&${q}`, { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(20000) });
+      if (r.ok) return await r.json();
+    } catch {}
+    await sleep(1500 * (a + 1));
+  }
+  return undefined;
 }
 // B.LEAGUE 공식 경기상세 페이지에 종료경기 박스스코어가 _contexts_s3id.data JSON으로 박혀 있음(2026-10-02).
 async function blDetail(game) {
