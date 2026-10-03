@@ -24,7 +24,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { sendGame } from './send-reminders.mjs';
+import { sendGame, sendGameLang } from './send-reminders.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -33,6 +33,15 @@ const SENT_FILE = path.join(REPO_ROOT, 'sent-reminders.json');
 const BK_GAMES_FILE = path.join(REPO_ROOT, 'basketball', 'games.json');
 const BK_TEAMS_FILE = path.join(REPO_ROOT, 'basketball', 'teams.json');
 const BK_VENUE_EN_FILE = path.join(REPO_ROOT, 'basketball', 'venue-name-en.json');
+const BK_TEAM_I18N_FILE = path.join(REPO_ROOT, 'basketball', 'team-i18n.json');
+const BK_VENUE_I18N_FILE = path.join(REPO_ROOT, 'basketball', 'venue-i18n.json');
+const BK_TEAM_EN_FILE = path.join(REPO_ROOT, 'basketball', 'team-name-en.json');
+const LEAD_PHRASE = {
+  ko: (L) => `${L}시간 전`, en: (L) => `Tip-off in ${L}h`, ja: (L) => `試合${L}時間前`, es: (L) => `Faltan ${L} h`, pt: (L) => `Faltam ${L} h`,
+  fr: (L) => `Dans ${L} h`, de: (L) => `In ${L} Std.`, it: (L) => `Tra ${L} h`, ru: (L) => `Через ${L} ч`, ar: (L) => `بعد ${L} ساعات`,
+  id: (L) => `${L} jam lagi`, th: (L) => `อีก ${L} ชม.`, vi: (L) => `Còn ${L} giờ`, 'zh-Hans': (L) => `${L}小时后开赛`, 'zh-Hant': (L) => `${L}小時後開賽`,
+  hi: (L) => `${L} घंटे बाद`, tr: (L) => `${L} saat sonra`, nl: (L) => `Over ${L} uur`,
+};
 
 const LEAD_HOURS = [1, 3, 6, 12, 24];
 const SPORT_ICON = { KBO: '⚾', 'K리그1': '⚽', 'K리그2': '⚽' };
@@ -116,7 +125,14 @@ async function main() {
   try {
     const bkRaw = await loadJson(BK_GAMES_FILE, {});
     const bkTeams = await loadJson(BK_TEAMS_FILE, {});
+    const bkTm = bkTeams;
     const bkVen = await loadJson(BK_VENUE_EN_FILE, {});
+    const bkTi = await loadJson(BK_TEAM_I18N_FILE, {});
+    const bkVi = await loadJson(BK_VENUE_I18N_FILE, {});
+    const bkTe = await loadJson(BK_TEAM_EN_FILE, {});
+    const lk = (lang) => lang.toLowerCase();
+    const tnL = (lang, k) => (lang === 'ko' ? tn(k) : bkTi[k]?.[lk(lang)] || bkTe['bk:' + k] || bkTm[k]?.en || tn(k));
+    const vnL = (lang, g) => (lang === 'ko' ? g.venue || bkVen[g.vid]?.name : bkVi[g.vid]?.[lk(lang)] || bkVen[g.vid]?.name || g.venue);
     const tn = (k) => { const tm = bkTeams[k]; return tm?.ko || tm?.en || tm?.name || String(k).split(':').pop(); };
     for (const g of bkRaw.games || []) {
       if (!g.id || !g.t) continue;
@@ -140,6 +156,13 @@ async function main() {
           L,
           key,
           content: { title: `🏀 ${tn(g.a.k)} vs ${tn(g.h.k)}${venue ? ` · ${venue}` : ''}`, body: `${L}시간 전 · ${dl}${hhmm} 경기` },
+          byLang: Object.fromEntries(Object.keys(LEAD_PHRASE).map((lang) => {
+            const vn = vnL(lang, g);
+            const dlL = ymd !== sendYmd ? `${kst.getUTCMonth() + 1}/${kst.getUTCDate()} ` : '';
+            return [lang, lang === 'ko'
+              ? { title: `🏀 ${tn(g.a.k)} vs ${tn(g.h.k)}${vn ? ` · ${vn}` : ''}`, body: `${L}시간 전 · ${dl}${hhmm} 경기` }
+              : { title: `🏀 ${tnL(lang, g.a.k)} vs ${tnL(lang, g.h.k)}${vn ? ` · ${vn}` : ''}`, body: `${LEAD_PHRASE[lang](L)} · ${dlL}${hhmm} KST` }];
+          })),
         });
       }
     }
@@ -159,6 +182,11 @@ async function main() {
         date: s.g.date,
         doubleheaderNum: s.g.doubleheaderNum,
       });
+      if (s.byLang) {
+        for (const [lang, c] of Object.entries(s.byLang)) {
+          try { await sendGameLang(s.g.gameId, s.L, lang, { title: c.title, body: c.body, venueId: s.g.venueId, date: s.g.date }); } catch (e) { console.error(`[reminders] lang ${lang} FAIL ${s.key}: ${e?.message ?? e}`); }
+        }
+      }
       sent[s.key] = new Date().toISOString();
       sentCount++;
       console.log(`[reminders] sent ${s.key} → ${id}`);

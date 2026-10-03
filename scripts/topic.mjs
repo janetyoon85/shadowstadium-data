@@ -21,6 +21,11 @@ export function gameTopic(gameId, leadHours) {
   return FCM_GAME_TOPIC_PREFIX + sanitizeTopicSegment(gameId) + '_h' + leadHours;
 }
 
+// 농구 경기 리마인더 다국어(2026-10-03): 앱 언어 접미사 토픽. 접미사 없는 구토픽은 구버전 앱(한국어 문구)용.
+export function gameLangTopic(gameId, leadHours, lang) {
+  return gameTopic(gameId, leadHours) + '_' + lang;
+}
+
 // 선수명(한글/여러 스크립트 혼재)은 FCM 토픽 문자셋([a-zA-Z0-9-_.~%])을 못 지키므로
 // 이름 문자열의 UTF-8 바이트에 FNV-1a 32비트 해시를 적용해 ASCII-safe 토픽으로 변환.
 // 트랜스리터레이션 대신 해시를 쓰는 이유: 언어별 표기 규칙 없이도 양쪽(App.tsx/.mjs)에서

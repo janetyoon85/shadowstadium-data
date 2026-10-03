@@ -11,7 +11,7 @@
 // android.notification.channelId = 'game-alerts' — App.tsx NOTIF_CHANNEL_ID 와 일치 (HIGH importance 채널).
 
 import admin from 'firebase-admin';
-import { gameTopic } from './topic.mjs';
+import { gameTopic, gameLangTopic } from './topic.mjs';
 
 const NOTIF_CHANNEL_ID = 'game-alerts';
 
@@ -19,6 +19,15 @@ const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });
+
+export async function sendGameLang(gameId, leadHours, lang, { title, body, venueId, date }) {
+  return admin.messaging().send({
+    topic: gameLangTopic(gameId, leadHours, lang),
+    notification: { title, body },
+    data: { gameId: String(gameId), venueId: String(venueId), date: String(date), doubleheaderNum: '' },
+    android: { priority: 'high', notification: { channelId: NOTIF_CHANNEL_ID } },
+  });
+}
 
 export async function sendGame(gameId, leadHours, { title, body, venueId, date, doubleheaderNum }) {
   return admin.messaging().send({
