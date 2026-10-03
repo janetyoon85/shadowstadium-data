@@ -642900,6 +642900,13 @@
           "m": 37,
           "pid": "espn:264821",
           "nat": "Argentina"
+        },
+        {
+          "n": "Nicolás De Martini",
+          "type": "Y",
+          "m": 71,
+          "pid": "espn:262496",
+          "nat": "Argentina"
         }
       ]
     }
@@ -642951,12 +642958,14 @@
     "inningInfo": "5회말",
     "liveState": {
       "pitcher": "스미스-샤버",
-      "batter": "베츠",
-      "ball": 4,
-      "strike": 0,
-      "out": 1,
-      "bases": [],
-      "pitchCount": 16
+      "batter": "스미스",
+      "ball": 1,
+      "strike": 1,
+      "out": 2,
+      "bases": [
+        1
+      ],
+      "pitchCount": 20
     },
     "highlights": {
       "home": [
@@ -643149,7 +643158,10 @@
     "stadium": "Arena MRV",
     "timeTbd": false,
     "gameId": "BRASILEIRAO_ESPN_401841168",
-    "status": "scheduled"
+    "status": "live",
+    "matchPeriod": "전반",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-10-04",
