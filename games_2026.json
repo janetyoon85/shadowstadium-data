@@ -643301,7 +643301,7 @@
     "timeTbd": false,
     "gameId": "PARAGUAY_ESPN_401888661",
     "status": "live",
-    "matchPeriod": "전반",
+    "matchPeriod": "하프타임",
     "homeScore": 1,
     "awayScore": 1,
     "scorers": {
@@ -643332,7 +643332,15 @@
           "nat": "Paraguay"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Robert Rojas",
+          "type": "Y",
+          "m": 45,
+          "pid": "espn:238451",
+          "nat": "Paraguay"
+        }
+      ]
     }
   },
   {
@@ -643351,12 +643359,12 @@
     "inningInfo": "3회초",
     "liveState": {
       "pitcher": "Marcus Johnson",
-      "batter": "Aidan Miller",
+      "batter": "Dante Nori",
       "pitcherPid": "mlb:687189",
-      "batterPid": "mlb:805795",
-      "ball": 3,
+      "batterPid": "mlb:807276",
+      "ball": 0,
       "strike": 0,
-      "out": 0,
+      "out": 2,
       "bases": []
     }
   },
@@ -643380,14 +643388,16 @@
     "inningInfo": "2회말",
     "liveState": {
       "pitcher": "콜",
-      "batter": "팔라시오스",
-      "ball": 0,
-      "strike": 1,
+      "batter": "월스",
+      "ball": 2,
+      "strike": 2,
       "out": 2,
-      "bases": [],
-      "pitchCount": 30,
+      "bases": [
+        2
+      ],
+      "pitchCount": 35,
       "pitcherPid": "mlb:669743",
-      "batterPid": "mlb:680700"
+      "batterPid": "mlb:670764"
     },
     "highlights": {
       "home": [],
