@@ -51,3 +51,10 @@ export function playerTopic(name) {
 export function playerLangTopic(id, lang) {
   return playerTopic(id) + '_' + lang;
 }
+
+// 즐겨찾기 팀 경기 종료 알림(2026-10-03): 팀 키(축구/야구=팀명, 야구 국가대표=⚾:국가명, 농구=팀 key)의 FNV 해시 + 앱 언어.
+// MIRROR: shadowstadium/App.tsx teamFinalTopic.
+export const FCM_TEAM_FINAL_PREFIX = 'tfinal_';
+export function teamFinalTopic(key, lang) {
+  return FCM_TEAM_FINAL_PREFIX + fnv1a32(key) + '_' + lang;
+}
