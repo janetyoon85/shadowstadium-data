@@ -44,6 +44,39 @@ async function naverTeams(cfg) {
   return null;
 }
 
+// 네이버는 농구 선수기록 API가 없어 박스스코어(box-*.json)를 직접 집계(2026-10-03). 시즌 초반엔 표본이 적다.
+async function naverPlayersFromBox(lg) {
+  const games = JSON.parse(await fs.readFile(path.join(DIR, 'games.json'), 'utf8').catch(() => '{}'));
+  const gm = new Map((games.games || games || []).filter?.((g) => g.lg === lg).map((g) => [g.id, g]) || []);
+  const acc = new Map();
+  const files = (await fs.readdir(DIR)).filter((f) => /^box-\d{4}-\d{2}\.json$/.test(f)).sort();
+  const prefix = `nbk:${lg.toLowerCase()}:`;
+  for (const f of files) {
+    const b = JSON.parse(await fs.readFile(path.join(DIR, f), 'utf8'));
+    for (const [id, box] of Object.entries(b)) {
+      if (!id.startsWith('nv:')) continue;
+      for (const side of ['h', 'a']) {
+        for (const p of box.pl?.[side] || []) {
+          if (!p.pid?.startsWith(prefix)) continue;
+          const [mm, ss] = String(p.min || '0:0').split(':').map(Number);
+          const min = (mm || 0) + (ss || 0) / 60;
+          if (!min && !p.pts) continue;
+          let a = acc.get(p.pid);
+          if (!a) acc.set(p.pid, (a = { id: p.pid, n: p.n, k: gm.get(id)?.[side]?.k, pos: p.pos, gp: 0, min: 0, pts: 0, reb: 0, ast: 0, stl: 0, blk: 0, to: 0, fgm: 0, fga: 0, tpm: 0, tpa: 0 }));
+          a.gp++; a.min += min; for (const k of ['pts', 'reb', 'ast', 'stl', 'blk', 'to']) a[k] += p[k] || 0;
+          a.fgm += p.fg?.[0] || 0; a.fga += p.fg?.[1] || 0; a.tpm += p.tp?.[0] || 0; a.tpa += p.tp?.[1] || 0;
+          if (gm.get(id)?.[side]?.k) a.k = gm.get(id)[side].k;
+        }
+      }
+    }
+  }
+  const rows = [...acc.values()].map((a) => ({
+    id: a.id, n: a.n, k: a.k, pos: a.pos, gp: a.gp, min: r1(a.min / a.gp), pts: r1(a.pts / a.gp), reb: r1(a.reb / a.gp), ast: r1(a.ast / a.gp),
+    stl: r1(a.stl / a.gp), blk: r1(a.blk / a.gp), to: r1(a.to / a.gp), fg: a.fga ? r1((a.fgm / a.fga) * 100) : undefined, tp: a.tpa ? r1((a.tpm / a.tpa) * 100) : undefined,
+  })).sort((x, y) => (y.pts || 0) - (x.pts || 0)).slice(0, 150);
+  return rows;
+}
+
 const ESPN = [{ lg: 'NBA', slug: 'nba' }, { lg: 'WNBA', slug: 'wnba' }];
 async function espnPull(cfg, kind) {
   const base = `https://site.web.api.espn.com/apis/common/v3/sports/basketball/${cfg.slug}/statistics/${kind}?limit=300&seasontype=2`;
@@ -93,6 +126,10 @@ for (const cfg of NAVER) {
   const r = await naverTeams(cfg);
   if (r) leagues[cfg.lg] = { ...(leagues[cfg.lg] || {}), ...r };
   else console.log('[bk-stats] naver miss', cfg.lg);
+  try {
+    const pl = await naverPlayersFromBox(cfg.lg);
+    if (pl.length) leagues[cfg.lg] = { ...(leagues[cfg.lg] || {}), player: pl };
+  } catch (e) { console.log('[bk-stats] naver box agg fail', cfg.lg, e?.message); }
 }
 for (const cfg of ESPN) {
   const r = await espnLeague(cfg);
