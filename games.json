@@ -642859,10 +642859,10 @@
     "stadium": "Monumental Presidente José Fierro",
     "timeTbd": false,
     "gameId": "ARGENTINA_ESPN_401841596",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
-    "homeScore": 1,
-    "awayScore": 2,
+    "homeScore": 2,
+    "awayScore": 3,
     "scorers": {
       "home": [
         {
@@ -642870,6 +642870,12 @@
           "m": 34,
           "nat": "Argentina",
           "pid": "espn:276224"
+        },
+        {
+          "n": "Maxi Villa",
+          "m": 90,
+          "nat": "Uruguay",
+          "pid": "espn:268526"
         }
       ],
       "away": [
@@ -642882,6 +642888,12 @@
         {
           "n": "Nicolás Orsini",
           "m": 75,
+          "nat": "Argentina",
+          "pid": "espn:193531"
+        },
+        {
+          "n": "Nicolás Orsini",
+          "m": 90,
           "nat": "Argentina",
           "pid": "espn:193531"
         }
@@ -642918,6 +642930,13 @@
           "m": 71,
           "pid": "espn:262496",
           "nat": "Argentina"
+        },
+        {
+          "n": "Marcelo Miño",
+          "type": "Y",
+          "m": 87,
+          "pid": "espn:256553",
+          "nat": "Argentina"
         }
       ]
     }
@@ -642932,7 +642951,7 @@
     "stadium": "Marcelo Bielsa",
     "timeTbd": false,
     "gameId": "ARGENTINA_ESPN_401841586",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 0,
     "awayScore": 0,
@@ -643140,7 +643159,7 @@
     "timeTbd": false,
     "gameId": "URUGUAY_ESPN_401923692",
     "status": "live",
-    "matchPeriod": "전반",
+    "matchPeriod": "하프타임",
     "homeScore": 1,
     "awayScore": 0,
     "scorers": {
@@ -643166,7 +643185,7 @@
     "timeTbd": false,
     "gameId": "COLOMBIA_ESPN_401877904",
     "status": "live",
-    "matchPeriod": "전반",
+    "matchPeriod": "하프타임",
     "homeScore": 0,
     "awayScore": 0,
     "cards": {
@@ -643179,7 +643198,15 @@
           "nat": "Colombia"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Jacobo Pimentel",
+          "type": "Y",
+          "m": 45,
+          "pid": "espn:302117",
+          "nat": "Colombia"
+        }
+      ]
     }
   },
   {
@@ -643194,8 +643221,19 @@
     "gameId": "BRASILEIRAO_ESPN_401841168",
     "status": "live",
     "matchPeriod": "전반",
-    "homeScore": 0,
-    "awayScore": 0
+    "homeScore": 1,
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "Bernard",
+          "m": 18,
+          "nat": "Brazil",
+          "pid": "espn:158272"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-10-04",
