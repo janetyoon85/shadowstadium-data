@@ -642382,7 +642382,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 2,
-    "matchPeriod": "후반 33'",
+    "matchPeriod": "후반 35'",
     "scorers": {
       "home": [
         {
@@ -642416,7 +642416,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 2,
-    "matchPeriod": "후반 33'",
+    "matchPeriod": "후반 36'",
     "scorers": {
       "home": [
         {
@@ -642492,7 +642492,7 @@
     "status": "live",
     "awayScore": 2,
     "homeScore": 0,
-    "matchPeriod": "후반 33'",
+    "matchPeriod": "후반 35'",
     "scorers": {
       "home": [],
       "away": [
@@ -642567,7 +642567,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 0,
-    "matchPeriod": "후반 18'",
+    "matchPeriod": "후반 20'",
     "scorers": {
       "home": [],
       "away": [
@@ -642713,7 +642713,19 @@
     "status": "live",
     "matchPeriod": "전반",
     "homeScore": 0,
-    "awayScore": 0
+    "awayScore": 0,
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Lucas Besozzi",
+          "type": "Y",
+          "m": 23,
+          "pid": "espn:309456",
+          "nat": "Argentina"
+        }
+      ]
+    }
   },
   {
     "date": "2026-10-04",
@@ -642735,12 +642747,14 @@
     "inningInfo": "1회말",
     "liveState": {
       "pitcher": "도드",
-      "batter": "오타니",
+      "batter": "프리먼",
       "ball": 1,
-      "strike": 1,
-      "out": 1,
-      "bases": [],
-      "pitchCount": 10
+      "strike": 0,
+      "out": 2,
+      "bases": [
+        1
+      ],
+      "pitchCount": 15
     }
   },
   {
