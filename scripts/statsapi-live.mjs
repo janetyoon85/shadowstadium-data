@@ -14,6 +14,8 @@ export function liveStateFrom(ls) {
   const batter = ls.offense?.batter?.fullName;
   if (pitcher) out.pitcher = pitcher;
   if (batter) out.batter = batter;
+  if (pitcher && ls.defense?.pitcher?.id) out.pitcherPid = `mlb:${ls.defense.pitcher.id}`;
+  if (batter && ls.offense?.batter?.id) out.batterPid = `mlb:${ls.offense.batter.id}`;
   if (typeof ls.balls === 'number') out.ball = ls.balls;
   if (typeof ls.strikes === 'number') out.strike = ls.strikes;
   if (typeof ls.outs === 'number') out.out = ls.outs;

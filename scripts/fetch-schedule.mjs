@@ -658,6 +658,10 @@ async function enrichSaves(allGames) {
         if (trd) {
           const rc = cache[g.gameId];
           const ls = parseLiveState(g.league, trd, g.inningInfo?.endsWith('초') ? true : g.inningInfo?.endsWith('말') ? false : null);
+          if (ls && g.league === 'MLB') {
+            if (ls.pitcher && playerCodeRegistry[ls.pitcher]) ls.pitcherPid = playerCodeRegistry[ls.pitcher];
+            if (ls.batter && playerCodeRegistry[ls.batter]) ls.batterPid = playerCodeRegistry[ls.batter];
+          }
           if (ls) g.liveState = ls; else delete g.liveState;
           const parsed = g.league === 'KBO' ? parseKboRelayHighlights(trd, g.home, g.away) : parseMlbNpbRelayHighlights(trd);
           const prevMax = rc.relayMaxSeqno || 0;

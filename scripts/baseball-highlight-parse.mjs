@@ -279,8 +279,8 @@ export function parseLiveState(league, trd, isTopHalf) {
       };
       const out = {};
       const p = nameOf(cg.pitcher), b = nameOf(cg.batter);
-      if (p) out.pitcher = p;
-      if (b) out.batter = b;
+      if (p) { out.pitcher = p; if (cg.pitcher) out.pitcherPid = `kbo:p:${cg.pitcher}`; }
+      if (b) { out.batter = b; if (cg.batter) out.batterPid = `kbo:b:${cg.batter}`; }
       const n = (v) => (v === undefined || v === null || v === '' ? undefined : Number(v));
       if (n(cg.ball) !== undefined) out.ball = n(cg.ball);
       if (n(cg.strike) !== undefined) out.strike = n(cg.strike);
@@ -299,6 +299,11 @@ export function parseLiveState(league, trd, isTopHalf) {
     const out = {};
     if (side && bi[`${side}Pitcher`]) out.pitcher = bi[`${side}Pitcher`];
     if (bc.batter) out.batter = bc.batter;
+    // NPB는 네이버 ID가 야후재팬 선수ID와 동일(npb: pid). MLB는 네이버 ID≠MLB personId라 호출부에서 이름 레지스트리로 보강.
+    if (league === 'NPB') {
+      if (out.pitcher && bi[`${side}PitcherId`]) out.pitcherPid = `npb:${bi[`${side}PitcherId`]}`;
+      if (out.batter && bc.batterId) out.batterPid = `npb:${bc.batterId}`;
+    }
     if (typeof bc.b === 'number') out.ball = bc.b;
     if (typeof bc.s === 'number') out.strike = bc.s;
     if (typeof bc.o === 'number') out.out = bc.o;
