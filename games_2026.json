@@ -43240,7 +43240,7 @@
     "status": "completed",
     "awayPitcher": "유토",
     "homePitcher": "잭로그",
-    "awayPitcherPid": "kbo:p:56348",
+    "awayPitcherPid": "kbo:b:56348",
     "homePitcherPid": "kbo:p:55239",
     "awayScore": 1,
     "homeScore": 8,
@@ -56715,7 +56715,8 @@
         {
           "how": "폭투",
           "text": "유토(7회)",
-          "player": "유토"
+          "player": "유토",
+          "pid": "kbo:b:56348"
         }
       ]
     }
@@ -201737,7 +201738,8 @@
         {
           "how": "폭투",
           "text": "유토(7회)",
-          "player": "유토"
+          "player": "유토",
+          "pid": "kbo:b:56348"
         }
       ],
       "away": [
@@ -236321,7 +236323,8 @@
         {
           "how": "폭투",
           "text": "유토(9회)",
-          "player": "유토"
+          "player": "유토",
+          "pid": "kbo:b:56348"
         }
       ],
       "away": [
@@ -640731,11 +640734,11 @@
     "liveState": {
       "pitcher": "최우석",
       "batter": "김재환",
-      "ball": 2,
+      "ball": 3,
       "strike": 2,
-      "out": 2,
+      "out": 3,
       "bases": [],
-      "pitchCount": 8
+      "pitchCount": 10
     },
     "highlights": {
       "home": [
@@ -640848,12 +640851,12 @@
     "inningInfo": "8회말",
     "liveState": {
       "pitcher": "윤태호",
-      "batter": "김영웅",
-      "ball": 1,
+      "batter": "이성규",
+      "ball": 2,
       "strike": 2,
-      "out": 0,
+      "out": 1,
       "bases": [],
-      "pitchCount": 3
+      "pitchCount": 9
     },
     "highlights": {
       "home": [
@@ -640962,72 +640965,71 @@
       ],
       "pitchCount": 24
     },
+    "savePitcher": "조영건",
+    "savePitcherPid": "kbo:p:69360",
     "highlights": {
       "home": [
         {
           "how": "2루타",
-          "text": "최인호 우익수 오른쪽 뒤 2루타",
+          "text": "최인호(3회)",
           "player": "최인호",
-          "inn": "3회말",
           "pid": "kbo:b:50707"
         },
         {
           "how": "2루타",
-          "text": "문현빈 좌중간 2루타",
+          "text": "문현빈(6회)",
           "player": "문현빈",
-          "inn": "6회말",
           "pid": "kbo:b:53764"
         },
         {
-          "how": "폭투",
-          "text": "문현빈 폭투로 2루까지 진루",
-          "player": "문현빈",
-          "inn": "8회말",
-          "pid": "kbo:b:53764"
+          "how": "실책",
+          "text": "박정현(4회)",
+          "player": "박정현",
+          "pid": "kbo:b:50709"
         },
         {
-          "how": "폭투",
-          "text": "정은원 폭투로 3루까지 진루",
-          "player": "정은원",
-          "inn": "8회말",
-          "pid": "kbo:b:68743"
-        },
-        {
-          "how": "폭투",
-          "text": "최인호 폭투로 홈인",
-          "player": "최인호",
-          "inn": "8회말",
-          "pid": "kbo:b:50707"
+          "how": "보크",
+          "text": "이상규(2회)",
+          "player": "이상규",
+          "pid": "kbo:b:65117"
         }
       ],
       "away": [
         {
+          "how": "결승타",
+          "text": "임병욱(2회 무사 2,3루서 2루수 땅볼)",
+          "player": "임병욱",
+          "pid": "kbo:b:64346"
+        },
+        {
           "how": "2루타",
-          "text": "박찬혁 좌중간 2루타",
+          "text": "박찬혁(2회)",
           "player": "박찬혁",
-          "inn": "2회초",
           "pid": "kbo:b:52348"
         },
         {
           "how": "2루타",
-          "text": "염승원 우중간 2루타",
+          "text": "염승원(2회)",
           "player": "염승원",
-          "inn": "2회초",
           "pid": "kbo:b:55339"
         },
         {
-          "how": "실책",
-          "text": "김동헌 유격수 땅볼 실책으로 출루 (유격수 포구 실책)",
-          "player": "김동헌",
-          "inn": "4회초",
-          "pid": "kbo:b:53344"
+          "how": "2루타",
+          "text": "데이비슨(4회)",
+          "player": "데이비슨",
+          "pid": "kbo:b:54944"
         },
         {
-          "how": "2루타",
-          "text": "데이비슨 우중간 2루타",
-          "player": "데이비슨",
-          "inn": "4회초",
-          "pid": "kbo:b:54944"
+          "how": "주루사",
+          "text": "추재현(4회)",
+          "player": "추재현",
+          "pid": "kbo:b:68362"
+        },
+        {
+          "how": "폭투",
+          "text": "유토(8회)",
+          "player": "유토",
+          "pid": "kbo:b:56348"
         }
       ]
     }
@@ -641052,14 +641054,15 @@
     "inningInfo": "8회말",
     "liveState": {
       "pitcher": "전상현",
-      "batter": "송찬의",
-      "ball": 0,
-      "strike": 2,
+      "batter": "홍창기",
+      "ball": 1,
+      "strike": 0,
       "out": 1,
       "bases": [
-        1
+        1,
+        3
       ],
-      "pitchCount": 10
+      "pitchCount": 12
     },
     "highlights": {
       "home": [
@@ -641076,6 +641079,13 @@
           "player": "문보경",
           "inn": "6회말",
           "pid": "kbo:b:69102"
+        },
+        {
+          "how": "실책",
+          "text": "문정빈 유격수 실책으로 3루까지 진루 (유격수 포구 실책)",
+          "player": "문정빈",
+          "inn": "8회말",
+          "pid": "kbo:b:52121"
         }
       ],
       "away": [
@@ -641141,56 +641151,56 @@
     "highlights": {
       "home": [
         {
+          "how": "결승타",
+          "text": "안현민(1회 무사 1,3루서 좌익수 희생플라이)",
+          "player": "안현민",
+          "pid": "kbo:b:52001"
+        },
+        {
+          "how": "홈런",
+          "text": "장성우12호(7회1점 이준서)",
+          "player": "장성우",
+          "pid": "kbo:b:78548"
+        },
+        {
           "how": "2루타",
-          "text": "최원준 우익수 오른쪽 2루타",
+          "text": "최원준3(1 4 6회)",
           "player": "최원준",
-          "inn": "1회말",
           "pid": "kbo:b:66606"
         },
         {
-          "how": "실책",
-          "text": "김민혁 투수 희생번트 실책으로 출루 (투수 포구 실책)",
-          "player": "김민혁",
-          "inn": "1회말",
-          "pid": "kbo:b:64004"
+          "how": "2루타",
+          "text": "권동진(2회)",
+          "player": "권동진",
+          "pid": "kbo:b:51003"
         },
         {
           "how": "2루타",
-          "text": "김현수 우익수 오른쪽 뒤 2루타",
+          "text": "김현수(3회)",
           "player": "김현수",
-          "inn": "3회말",
           "pid": "kbo:b:76290"
         },
         {
           "how": "2루타",
-          "text": "최원준 우익수 뒤 2루타",
-          "player": "최원준",
-          "inn": "4회말",
-          "pid": "kbo:b:66606"
-        },
-        {
-          "how": "2루타",
-          "text": "허경민 좌중간 2루타",
+          "text": "허경민(5회)",
           "player": "허경민",
-          "inn": "5회말",
           "pid": "kbo:b:79240"
         },
         {
-          "how": "2루타",
-          "text": "최원준 좌익수 왼쪽 2루타",
+          "how": "주루사",
+          "text": "최원준(4회)",
           "player": "최원준",
-          "inn": "6회말",
           "pid": "kbo:b:66606"
-        },
-        {
-          "how": "홈런",
-          "text": "장성우 좌익수 뒤 홈런 (홈런거리:125M)",
-          "player": "장성우",
-          "inn": "7회말",
-          "pid": "kbo:b:78548"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "how": "실책",
+          "text": "비슬리(1회)",
+          "player": "비슬리",
+          "pid": "kbo:b:56523"
+        }
+      ]
     }
   },
   {
@@ -641213,14 +641223,14 @@
     "inningInfo": "8회말",
     "liveState": {
       "pitcher": "도리스",
-      "batter": "이시하라",
-      "ball": 0,
-      "strike": 1,
-      "out": 0,
+      "batter": "나카무라",
+      "ball": 1,
+      "strike": 0,
+      "out": 1,
       "bases": [
-        1
+        2
       ],
-      "pitchCount": 6
+      "pitchCount": 8
     },
     "highlights": {
       "home": [
