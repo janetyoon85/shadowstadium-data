@@ -40,7 +40,7 @@ for (const g of games) {
         byLang[lang] = { title: `🏀 ${lang === 'ko' ? nm : localPlayer(lang, p.n, p.pid)} ${bkStats(lang, p)}`, body: `${tnL(g.a.k)} ${g.a.s}-${g.h.s} ${tnL(g.h.k)}${g.lg ? ' · ' + g.lg : ''}` };
       }
       try {
-        await sendPlayerEvent(p.pid, { title: byLang.ko.title, body: byLang.ko.body, gameId: g.id, displayName: nm, byLang });
+        await sendPlayerEvent(p.pid, { title: byLang.ko.title, body: byLang.ko.body, gameId: g.id, displayName: nm, byLang, tag: `bkp_${g.id}_${p.pid}`.slice(-60) });
         sent[key] = new Date().toISOString();
         n++;
       } catch (e) { console.error('[bk-alerts] FAIL', key, e?.message ?? e); }

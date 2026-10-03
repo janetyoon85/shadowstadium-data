@@ -19,18 +19,20 @@ if (admin.apps.length === 0) {
   });
 }
 
-const msg = (topic, { title, body }, gameId, displayName, id) => ({
+// tag: 같은 기기가 구토픽+언어토픽 등 여러 토픽으로 같은 알림을 받아도 하나로 합쳐지게(안드로이드 tag / iOS apns-collapse-id).
+const msg = (topic, { title, body }, gameId, displayName, id, tag) => ({
   topic,
   notification: { title, body },
   data: { gameId: String(gameId ?? ''), playerName: String(displayName ?? id) },
-  android: { priority: 'high', notification: { channelId: NOTIF_CHANNEL_ID } },
+  android: { priority: 'high', notification: { channelId: NOTIF_CHANNEL_ID, ...(tag ? { tag } : {}) } },
+  ...(tag ? { apns: { headers: { 'apns-collapse-id': tag.slice(0, 64) } } } : {}),
 });
 
 // byLang: { [lang]: {title, body} } — 언어별 토픽으로 각각 발송. 접미사 없는 토픽은 구버전 앱용(한국어).
-export async function sendPlayerEvent(id, { title, body, gameId, displayName, byLang }) {
-  const jobs = [admin.messaging().send(msg(playerTopic(id), { title, body }, gameId, displayName, id))];
+export async function sendPlayerEvent(id, { title, body, gameId, displayName, byLang, tag }) {
+  const jobs = [admin.messaging().send(msg(playerTopic(id), { title, body }, gameId, displayName, id, tag))];
   for (const [lang, t] of Object.entries(byLang || {})) {
-    jobs.push(admin.messaging().send(msg(playerLangTopic(id, lang), t, gameId, displayName, id)));
+    jobs.push(admin.messaging().send(msg(playerLangTopic(id, lang), t, gameId, displayName, id, tag)));
   }
   const res = await Promise.allSettled(jobs);
   if (res.every((r) => r.status === 'rejected')) throw res[0].reason;

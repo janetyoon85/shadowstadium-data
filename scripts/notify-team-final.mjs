@@ -33,7 +33,7 @@ async function sendAll(keys, byLang, data) {
   const jobs = [];
   for (const key of keys) for (const lang of LANGS) {
     const c = byLang[lang];
-    jobs.push({ topic: teamFinalTopic(key, lang), notification: { title: c.title, body: c.body }, data, android: { priority: 'high', notification: { channelId: 'player-alerts' } } });
+    jobs.push({ topic: teamFinalTopic(key, lang), notification: { title: c.title, body: c.body }, data, android: { priority: 'high', notification: { channelId: 'player-alerts', tag: `tf_${data.gameId}` } }, apns: { headers: { 'apns-collapse-id': `tf_${data.gameId}`.slice(-64) } } });
   }
   let ok = 0;
   for (let i = 0; i < jobs.length; i += 40) {
