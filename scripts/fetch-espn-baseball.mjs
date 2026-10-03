@@ -146,6 +146,8 @@ async function fetchEspnBaseballLeague(slug, league, dates, unknownTeams, unknow
           const bn = sit.batter?.athlete?.displayName || sit.batter?.athlete?.fullName;
           if (pn) ls.pitcher = pn;
           if (bn) ls.batter = bn;
+          if (pn && sit.pitcher?.athlete?.id) ls.pitcherPid = `espn:${sit.pitcher.athlete.id}`;
+          if (bn && sit.batter?.athlete?.id) ls.batterPid = `espn:${sit.batter.athlete.id}`;
           if (typeof sit.balls === 'number') ls.ball = sit.balls;
           if (typeof sit.strikes === 'number') ls.strike = sit.strikes;
           if (typeof sit.outs === 'number') ls.out = sit.outs;
