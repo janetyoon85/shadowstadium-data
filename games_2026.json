@@ -642837,19 +642837,16 @@
     "timeTbd": false,
     "gameId": "AFL_MLBSTATS_867729",
     "status": "live",
-    "homeScore": 0,
+    "homeScore": 1,
     "awayScore": 8,
-    "inningInfo": "7회초",
+    "inningInfo": "8회초",
     "liveState": {
-      "pitcher": "Sam Horn",
-      "batter": "Core Jackson",
-      "ball": 1,
-      "strike": 2,
-      "out": 2,
-      "bases": [
-        1,
-        2
-      ]
+      "pitcher": "Tyler LaPorte",
+      "batter": "Yassel Soler",
+      "ball": 0,
+      "strike": 0,
+      "out": 0,
+      "bases": []
     }
   },
   {
@@ -642862,10 +642859,10 @@
     "stadium": "Monumental Presidente José Fierro",
     "timeTbd": false,
     "gameId": "ARGENTINA_ESPN_401841596",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
-    "homeScore": 1,
-    "awayScore": 2,
+    "homeScore": 2,
+    "awayScore": 3,
     "scorers": {
       "home": [
         {
@@ -642873,6 +642870,12 @@
           "m": 34,
           "nat": "Argentina",
           "pid": "espn:276224"
+        },
+        {
+          "n": "Maxi Villa",
+          "m": 90,
+          "nat": "Uruguay",
+          "pid": "espn:268526"
         }
       ],
       "away": [
@@ -642885,6 +642888,12 @@
         {
           "n": "Nicolás Orsini",
           "m": 75,
+          "nat": "Argentina",
+          "pid": "espn:193531"
+        },
+        {
+          "n": "Nicolás Orsini",
+          "m": 90,
           "nat": "Argentina",
           "pid": "espn:193531"
         }
@@ -642921,6 +642930,13 @@
           "m": 71,
           "pid": "espn:262496",
           "nat": "Argentina"
+        },
+        {
+          "n": "Marcelo Miño",
+          "type": "Y",
+          "m": 87,
+          "pid": "espn:256553",
+          "nat": "Argentina"
         }
       ]
     }
@@ -642935,7 +642951,7 @@
     "stadium": "Marcelo Bielsa",
     "timeTbd": false,
     "gameId": "ARGENTINA_ESPN_401841586",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 0,
     "awayScore": 0,
@@ -642983,17 +642999,15 @@
     "homePitcherPid": "mlb:669373",
     "awayScore": 1,
     "homeScore": 2,
-    "inningInfo": "6회초",
+    "inningInfo": "6회말",
     "liveState": {
-      "pitcher": "스쿠발",
-      "batter": "볼드윈",
+      "pitcher": "스미스-샤버",
+      "batter": "파헤스",
       "ball": 0,
       "strike": 1,
-      "out": 0,
-      "bases": [
-        1
-      ],
-      "pitchCount": 79
+      "out": 1,
+      "bases": [],
+      "pitchCount": 34
     },
     "highlights": {
       "home": [
@@ -643004,6 +643018,14 @@
           "playerId": "10366",
           "nat": "Dominican Republic",
           "pid": "mlb:606192"
+        },
+        {
+          "how": "홈런",
+          "text": "터커",
+          "player": "터커",
+          "playerId": "310480",
+          "nat": "USA",
+          "pid": "mlb:663656"
         },
         {
           "how": "도루",
@@ -643143,7 +643165,7 @@
     "timeTbd": false,
     "gameId": "URUGUAY_ESPN_401923692",
     "status": "live",
-    "matchPeriod": "전반",
+    "matchPeriod": "하프타임",
     "homeScore": 1,
     "awayScore": 0,
     "scorers": {
@@ -643169,7 +643191,7 @@
     "timeTbd": false,
     "gameId": "COLOMBIA_ESPN_401877904",
     "status": "live",
-    "matchPeriod": "전반",
+    "matchPeriod": "하프타임",
     "homeScore": 0,
     "awayScore": 0,
     "cards": {
@@ -643182,7 +643204,15 @@
           "nat": "Colombia"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Jacobo Pimentel",
+          "type": "Y",
+          "m": 45,
+          "pid": "espn:302117",
+          "nat": "Colombia"
+        }
+      ]
     }
   },
   {
@@ -643197,8 +643227,19 @@
     "gameId": "BRASILEIRAO_ESPN_401841168",
     "status": "live",
     "matchPeriod": "전반",
-    "homeScore": 0,
-    "awayScore": 0
+    "homeScore": 1,
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "Bernard",
+          "m": 18,
+          "nat": "Brazil",
+          "pid": "espn:158272"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-10-04",
