@@ -642382,7 +642382,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 2,
-    "matchPeriod": "후반 21'",
+    "matchPeriod": "후반 23'",
     "scorers": {
       "home": [
         {
@@ -642418,7 +642418,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 2,
-    "matchPeriod": "후반 22'",
+    "matchPeriod": "후반 23'",
     "scorers": {
       "home": [
         {
@@ -642503,7 +642503,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 0,
-    "matchPeriod": "전반 84'",
+    "matchPeriod": "후반 23'",
     "scorers": {
       "home": [],
       "away": [
@@ -642565,7 +642565,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 0,
-    "matchPeriod": "후반 6'",
+    "matchPeriod": "후반 8'",
     "scorers": {
       "home": [],
       "away": [
@@ -642670,7 +642670,10 @@
     "stadium": "Monumental Presidente José Fierro",
     "timeTbd": false,
     "gameId": "ARGENTINA_ESPN_401841596",
-    "status": "scheduled"
+    "status": "live",
+    "matchPeriod": "전반",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-10-04",
@@ -642707,14 +642710,14 @@
     "inningInfo": "1회초",
     "liveState": {
       "pitcher": "스쿠발",
-      "batter": "볼드윈",
-      "ball": 1,
+      "batter": "아쿠나",
+      "ball": 2,
       "strike": 2,
-      "out": 0,
+      "out": 1,
       "bases": [
-        1
+        2
       ],
-      "pitchCount": 5
+      "pitchCount": 10
     }
   },
   {
@@ -642729,7 +642732,7 @@
     "gameId": "PARAGUAY_ESPN_401888660",
     "status": "live",
     "matchPeriod": "전반",
-    "homeScore": 0,
+    "homeScore": 1,
     "awayScore": 0,
     "cards": {
       "home": [
@@ -642750,6 +642753,17 @@
           "nat": "Argentina"
         }
       ]
+    },
+    "scorers": {
+      "home": [
+        {
+          "n": "Luis Martinez",
+          "m": 11,
+          "nat": "Paraguay",
+          "pid": "espn:307626"
+        }
+      ],
+      "away": []
     }
   },
   {
