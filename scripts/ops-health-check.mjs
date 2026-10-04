@@ -29,6 +29,8 @@ const venueEn = J('venue-name-en.json', {});
 const issues = new Map();
 const add = (group, key, text, useBaseline = false) => issues.set(`${group}:${key}`, { group, text, useBaseline });
 
+// 표기만 다른 같은 팀(언어별 명칭 차이) — 로고 중복 검사에서 제외
+const ALIAS_SETS = [['USVI','버진 제도'],['샤를루아','샬레로이'],['로센보르','로젠보리'],['안트베르펜','앤트워프'],['미엘뷔 AIF','미얄비'],['괴즈테페','괴체페'],['바이킹','비킹 FK'],['이스트 벵갈','SC 이스트벵골']];
 // 1) 로고 오매칭 의심 — 같은 로고 URL이 영문명이 서로 다른 팀들에 쓰임(5곳 초과는 공용 플레이스홀더로 보고 제외)
 {
   const by = {};
@@ -37,6 +39,7 @@ const add = (group, key, text, useBaseline = false) => issues.set(`${group}:${ke
     if (ks.length < 2 || ks.length > 5) continue;
     const es = new Set(ks.map((k) => (teamEn[k.split('|')[0]] || k).toLowerCase()));
     const nm = ks.map((k) => k.split('|')[0]);
+    if (ALIAS_SETS.some((al) => nm.every((n) => al.includes(n)))) continue;
     if (nm.some((a) => nm.some((b) => a !== b && (a.includes(b) || (a.split(' ')[0].length >= 3 && a.split(' ')[0] === b.split(' ')[0]))))) continue; // 별칭(스탕다르 리에주/스탕다르, 멜버른 FC/멜버른 빅토리)
     if (es.size > 1) add('로고 중복(오매칭 의심)', [...ks].sort().join('/'), ks.join(' = '), true);
   }
