@@ -83,6 +83,7 @@ const ALIAS_SETS = [['USVI','버진 제도'],['샤를루아','샬레로이'],['�
       try {
         const r = await fetch(u, { headers: { 'User-Agent': 'ShadeSideCrawler/1.0 (+https://github.com/janetyoon85/shadowstadium-data)', Referer: 'https://namu.wiki/', Range: 'bytes=0-0' }, signal: AbortSignal.timeout(15000) });
         const ct = r.headers.get('content-type') || '';
+        if (r.status === 403 && u.includes('i.namu.wiki')) continue; // 나무위키는 CI IP를 차단(403 챌린지)해 검증 불가 — 앱(사용자 기기)에선 정상 표시
         if ([403, 404, 410].includes(r.status) || (r.ok && !ct.startsWith('image/'))) add('로고 URL 깨짐', u, `${nameOf(u)} (${r.status} ${ct.split(';')[0]})`);
       } catch { /* 일시적 네트워크 오류는 무시 */ }
     }
