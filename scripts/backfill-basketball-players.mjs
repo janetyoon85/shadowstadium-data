@@ -1,6 +1,6 @@
 // 농구 선수 프로필 백필(2026-10-02, 사용자: "국적표시도") — ESPN athlete API에서 출생국(국적 근사)/생일/신장/체중/
 // 포지션/드래프트 등을 basketball/player-info.json({pid: {...}})에 영구 캐시. 앱 런타임 호출 0회.
-// 대상: espnbk:nba|wnba|fiba (nbl은 ESPN에 프로필 없음, KBL(nbk:)은 네이버에 국적 필드 없음 → 제외).
+// 대상: espnbk:nba|wnba|fiba(ESPN) + nbk:kbl(KBL 공식 API kbl-api.sports2i.com, pcode=네이버 선수ID, Referer 필요). nbl은 프로필 없음.
 // nat은 축구 scorers.nat과 같은 형식(영문 국가명, 예 'USA','Slovenia') — 앱 scorerNationalityFlag 재사용.
 // null=프로필 없음(확정), 일시 오류는 캐시 안 함.
 import fs from 'node:fs/promises';
@@ -50,12 +50,34 @@ async function lookup(slug, id) {
   } catch { return undefined; }
 }
 
+const KO_COUNTRY = { '대한민국': 'South Korea', '미국': 'USA', '이집트': 'Egypt', '필리핀': 'Philippines', '터키': 'Türkiye', '일본': 'Japan', '캐나다': 'Canada', '호주': 'Australia', '영국': 'England', '나이지리아': 'Nigeria', '세르비아': 'Serbia', '크로아티아': 'Croatia', '리투아니아': 'Lithuania', '라트비아': 'Latvia', '슬로베니아': 'Slovenia', '프랑스': 'France', '독일': 'Germany', '스페인': 'Spain', '브라질': 'Brazil', '도미니카공화국': 'Dominican Republic', '자메이카': 'Jamaica', '카메룬': 'Cameroon', '세네갈': 'Senegal', '레바논': 'Lebanon', '뉴질랜드': 'New Zealand', '푸에르토리코': 'Puerto Rico', '우크라이나': 'Ukraine', '러시아': 'Russia', '조지아': 'Georgia' };
+async function lookupKbl(id) {
+  try {
+    const res = await fetch(`https://kbl-api.sports2i.com/api/v1/players/profile/49/${id}`, { headers: { 'User-Agent': 'Mozilla/5.0', Origin: 'https://www.kbl.or.kr', Referer: 'https://www.kbl.or.kr/' }, signal: AbortSignal.timeout(15000) });
+    if (!res.ok) return undefined;
+    const i = (await res.json()).playerInfo?.[0];
+    if (!i) return null;
+    const dob = /^(\d{4})(\d{2})(\d{2})$/.exec(i.birthday || '');
+    const cm = parseFloat(i.pHeight);
+    const inches = cm > 0 ? Math.round(cm / 2.54) : 0;
+    const o = {
+      nat: KO_COUNTRY[i.country] || undefined,
+      dob: dob ? `${dob[1]}-${dob[2]}-${dob[3]}` : undefined,
+      ht: inches ? `${Math.floor(inches / 12)}' ${inches % 12}"` : undefined,
+      pos: ({ GD: 'G', FD: 'F' })[i.pos] || i.pos || undefined,
+      no: i.backNum || undefined,
+      col: i.univSchEng || i.univSch || undefined,
+    };
+    return Object.values(o).some((v) => v) ? o : null;
+  } catch { return undefined; }
+}
+
 async function main() {
   const players = await readJson(path.join(DIR, 'players.json'), []);
   const cache = await readJson(OUT, {});
   for (const v of Object.values(cache)) if (v && v.bp) v.nat = natFromBirthplace(v.bp);
   const todo = players
-    .filter((p) => /^espnbk:(nba|wnba|fiba):\d+$/.test(p.id) && !(p.id in cache))
+    .filter((p) => /^(espnbk:(nba|wnba|fiba)|nbk:kbl):\d+$/.test(p.id) && !(p.id in cache))
     .sort((a, b) => (/^espnbk:fiba/.test(a.id) ? 1 : 0) - (/^espnbk:fiba/.test(b.id) ? 1 : 0) || (b.lastSeenDate || '').localeCompare(a.lastSeenDate || ''));
   console.log(`[bk-info] cached=${Object.keys(cache).length} todo=${todo.length} budget=${BUDGET}`);
   let used = 0, got = 0;
@@ -63,7 +85,7 @@ async function main() {
     if (used >= BUDGET) break;
     used++;
     const [, slug, id] = p.id.split(':');
-    const r = await lookup(slug, id);
+    const r = p.id.startsWith('nbk:kbl:') ? await lookupKbl(id) : await lookup(slug, id);
     await sleep(150);
     if (r === undefined) continue;
     cache[p.id] = r;
