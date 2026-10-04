@@ -95,12 +95,14 @@ const ALIAS_SETS = [['USVI','버진 제도'],['샤를루아','샬레로이'],['�
   const lo = addDays(kstToday, -7), hi = addDays(kstToday, 14);
   const recent = games.filter((g) => g.date && g.date >= lo && g.date <= hi);
   const venueIds = new Set([...(J('venues-meta.json', [])).map((v) => v.id), ...Object.keys(venueEn)]);
+  const venueInfo = J('venue-info.json', {});
   const seen = new Map();
   for (const g of recent) {
     const id = g.gameId || `${g.date}${g.home}${g.away}`;
     const label = `${g.date} ${g.league} ${g.home} vs ${g.away}`;
     if (g.status === 'completed' && (g.homeScore == null || g.awayScore == null)) add('종료 경기 점수 없음', id, label, true);
     if (!g.timeTbd && !/^\d\d:\d\d$/.test(g.time || '')) add('경기 시각 형식 이상', id, `${label} (${g.time ?? '없음'})`, true);
+    if (g.venueId && !CHINA_VENUES.has(g.venueId) && !(g.venueId in venueInfo)) add('구장 상세정보(venue-info) 없음', g.venueId, `${g.venueId} (${g.league})`, true);
     if (g.venueId && !venueIds.has(g.venueId) && !CHINA_VENUES.has(g.venueId)) add('구장 ID 미등록', g.venueId, `${g.venueId} (${g.league})`, true);
     const dk = [g.date, g.time, g.league, g.home, g.away].join('|');
     if (seen.has(dk) && seen.get(dk) !== id) add('경기 중복(같은 일시·팀)', dk, label, true);
@@ -219,6 +221,20 @@ for (const k of Object.keys(st.baseline)) if (!issues.has(k)) delete st.baseline
 console.log(`[ops] issues=${issues.size} baselineSkipped=${[...issues].filter(([k, v]) => v.useBaseline && st.baseline[k]).length} toSend=${toSend.length}${first ? ' (첫 실행: baseline 기록)' : ''}`);
 for (const [g, ks] of Object.entries(current)) console.log(`  ${g}: ${ks.length}`);
 
+const sendDiscord = async (hook, text) => {
+  let ok = true;
+  let buf = '';
+  const flush = async () => {
+    if (!buf.trim()) return;
+    const r = await fetch(hook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ content: buf }) });
+    if (!r.ok) { ok = false; console.error('discord 발송 실패', r.status); }
+    buf = '';
+    await new Promise((x) => setTimeout(x, 800));
+  };
+  for (const l of text.split('\n')) { if (buf.length + l.length + 1 > 1800) await flush(); buf += (buf ? '\n' : '') + l.slice(0, 1500); }
+  await flush();
+  return ok;
+};
 // 누적 미해결(baseline 포함) 요약 — 새 알림에 한 줄 덧붙이고, 하루 한 번(UTC 0시대 실행) 전체 목록을 발송
 const backlog = {};
 for (const [k, v] of issues) if (v.useBaseline && st.baseline[k]) (backlog[v.group] ??= []).push(v.text);
@@ -228,7 +244,7 @@ if (digest && Object.keys(backlog).length) {
   for (const [g, ts] of Object.entries(backlog)) m += `\n**${g}** (${ts.length})\n` + ts.slice(0, 10).map((t) => `• ${t}`).join('\n') + (ts.length > 10 ? `\n… +${ts.length - 10}` : '');
   console.log(m);
   const hook = process.env.DISCORD_WEBHOOK_URL;
-  if (!dry && hook) await fetch(hook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ content: m.slice(0, 1900) }) });
+  if (!dry && hook) await sendDiscord(hook, m);
 }
 
 if (toSend.length && !first) {
@@ -242,9 +258,7 @@ if (toSend.length && !first) {
   console.log(msg);
   const hook = process.env.DISCORD_WEBHOOK_URL;
   if (!dry && hook) {
-    const r = await fetch(hook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ content: msg.slice(0, 1900) }) });
-    if (!r.ok) console.error('discord 발송 실패', r.status);
-    else for (const [k, v] of toSend) { st.alerted[k] = now; if (v.useBaseline) st.baseline[k] = true; } // 누락류는 한 번 알린 뒤엔 일일 요약으로만
+    if (await sendDiscord(hook, msg)) for (const [k, v] of toSend) { st.alerted[k] = now; if (v.useBaseline) st.baseline[k] = true; } // 누락류는 한 번 알린 뒤엔 일일 요약으로만
   }
 }
 if (!dry) fs.writeFileSync(path.join(ROOT, STATE_FILE), JSON.stringify(st, null, 1) + '\n');
