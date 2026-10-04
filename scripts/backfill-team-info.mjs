@@ -92,7 +92,9 @@ function parseHonoursHtml(html) {
     if (!comp || comp.length > 60 || /^(type|competition|titles?)$/i.test(comp)) continue;
     const n = Number(cells[i]);
     if (!n) continue;
-    rows.push([comp, n, (cells[i + 1] || '').slice(0, 70)]);
+    if (/^total/i.test(comp)) continue;
+    const yrs = (cells[i + 1] || '').slice(0, 70);
+    rows.push([comp, n, /(1[89]|20)d{2}/.test(yrs) ? yrs : '']);
   }
   return rows;
 }
