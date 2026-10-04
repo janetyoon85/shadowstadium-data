@@ -645275,7 +645275,7 @@
     "stadium": "Mario Alberto Kempes",
     "timeTbd": false,
     "gameId": "ARGENTINA_ESPN_401841584",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 0,
     "awayScore": 1,
@@ -645359,13 +645359,13 @@
     "inningInfo": "6회말",
     "liveState": {
       "pitcher": "킹",
-      "batter": "추리오",
-      "ball": 0,
-      "strike": 0,
+      "ball": 1,
+      "strike": 1,
       "out": 0,
-      "bases": [],
-      "pitchCount": 70,
-      "batterPid": "mlb:694192"
+      "bases": [
+        1
+      ],
+      "pitchCount": 72
     },
     "highlights": {
       "home": [
@@ -645404,13 +645404,16 @@
     "inningInfo": "5회초",
     "liveState": {
       "pitcher": "Pierce George",
-      "batter": "Jett Williams",
+      "batter": "Zyhir Hope",
       "pitcherPid": "mlb:703670",
-      "batterPid": "mlb:702518",
-      "ball": 1,
+      "batterPid": "mlb:814307",
+      "ball": 0,
       "strike": 0,
-      "out": 1,
-      "bases": []
+      "out": 2,
+      "bases": [
+        1,
+        2
+      ]
     }
   },
   {
@@ -645439,7 +645442,7 @@
     "timeTbd": false,
     "gameId": "COLOMBIA_ESPN_401878066",
     "status": "live",
-    "matchPeriod": "전반",
+    "matchPeriod": "하프타임",
     "homeScore": 3,
     "awayScore": 0,
     "scorers": {
@@ -645480,6 +645483,13 @@
           "type": "Y",
           "m": 32,
           "pid": "espn:180487",
+          "nat": "Colombia"
+        },
+        {
+          "n": "Dayan Pérez",
+          "type": "Y",
+          "m": 45,
+          "pid": "espn:416627",
           "nat": "Colombia"
         }
       ],
@@ -645526,7 +645536,7 @@
     "timeTbd": false,
     "gameId": "COLOMBIA_ESPN_401877909",
     "status": "live",
-    "matchPeriod": "전반",
+    "matchPeriod": "하프타임",
     "homeScore": 1,
     "awayScore": 1,
     "scorers": {
