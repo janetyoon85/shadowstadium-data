@@ -643312,59 +643312,6 @@
   },
   {
     "date": "2026-10-04",
-    "time": "07:15",
-    "league": "PARAGUAY",
-    "venueId": "estadio_salinas_tanasio",
-    "home": "데포르티보 레콜레타",
-    "away": "리베르타드",
-    "stadium": "Estadio Ricardo Gregor",
-    "timeTbd": false,
-    "gameId": "PARAGUAY_ESPN_401888661",
-    "status": "scheduled",
-    "matchPeriod": "하프타임",
-    "homeScore": 1,
-    "awayScore": 1,
-    "scorers": {
-      "home": [
-        {
-          "n": "González",
-          "m": 18,
-          "nat": "Paraguay",
-          "pid": "espn:333775"
-        }
-      ],
-      "away": [
-        {
-          "n": "Elvio Vera",
-          "m": 3,
-          "nat": "Paraguay",
-          "pid": "espn:333711"
-        }
-      ]
-    },
-    "cards": {
-      "home": [
-        {
-          "n": "Wilfrido Báez",
-          "type": "Y",
-          "m": 12,
-          "pid": "espn:208060",
-          "nat": "Paraguay"
-        }
-      ],
-      "away": [
-        {
-          "n": "Robert Rojas",
-          "type": "Y",
-          "m": 45,
-          "pid": "espn:238451",
-          "nat": "Paraguay"
-        }
-      ]
-    }
-  },
-  {
-    "date": "2026-10-04",
     "time": "07:30",
     "league": "AFL",
     "venueId": "scottsdale_stadium",
@@ -644215,13 +644162,13 @@
     "liveState": {
       "pitcher": "배제성",
       "pitcherPid": "kbo:p:65516",
-      "batter": "고승민",
-      "batterPid": "kbo:b:69517",
+      "batter": "전민재",
+      "batterPid": "kbo:b:68205",
       "ball": 1,
-      "strike": 0,
-      "out": 1,
+      "strike": 1,
+      "out": 2,
       "bases": [],
-      "pitchCount": 48
+      "pitchCount": 52
     },
     "highlights": {
       "home": [],
@@ -644253,10 +644200,24 @@
     "stadium": "메이지 진구 구장",
     "timeTbd": false,
     "gameId": "20261004HIYA0",
-    "status": "scheduled",
+    "status": "live",
     "awayPitcher": "쿠리바야시",
     "homePitcher": "요시무라",
-    "awayPitcherPid": "npb:2000060"
+    "awayPitcherPid": "npb:2000060",
+    "awayScore": 0,
+    "homeScore": 0,
+    "inningInfo": "1회초",
+    "liveState": {
+      "pitcher": "요시무라",
+      "batter": "나카무라",
+      "pitcherPid": "npb:2103794",
+      "batterPid": "npb:1700068",
+      "ball": 0,
+      "strike": 2,
+      "out": 1,
+      "bases": [],
+      "pitchCount": 3
+    }
   },
   {
     "date": "2026-10-04",
@@ -644268,10 +644229,24 @@
     "stadium": "요코하마 스타디움",
     "timeTbd": false,
     "gameId": "20261004HSYK0",
-    "status": "scheduled",
+    "status": "live",
     "awayPitcher": "이토",
     "homePitcher": "타이라",
-    "awayPitcherPid": "npb:2000079"
+    "awayPitcherPid": "npb:2000079",
+    "awayScore": 0,
+    "homeScore": 0,
+    "inningInfo": "1회초",
+    "liveState": {
+      "pitcher": "타이라",
+      "batter": "나카노",
+      "pitcherPid": "npb:1300031",
+      "batterPid": "npb:2000056",
+      "ball": 0,
+      "strike": 1,
+      "out": 2,
+      "bases": [],
+      "pitchCount": 4
+    }
   },
   {
     "date": "2026-10-04",
@@ -644283,11 +644258,24 @@
     "stadium": "ZOZO 마린 스타디움",
     "timeTbd": false,
     "gameId": "20261004RTJL0",
-    "status": "scheduled",
+    "status": "live",
     "awayPitcher": "하야카와",
     "homePitcher": "오지마",
     "awayPitcherPid": "npb:2000121",
-    "homePitcherPid": "npb:1800052"
+    "homePitcherPid": "npb:1800052",
+    "awayScore": 0,
+    "homeScore": 0,
+    "inningInfo": "1회초",
+    "liveState": {
+      "pitcher": "오지마",
+      "batter": "나카지마",
+      "pitcherPid": "npb:1800052",
+      "batterPid": "npb:1950278",
+      "ball": 3,
+      "strike": 2,
+      "out": 0,
+      "bases": []
+    }
   },
   {
     "date": "2026-10-04",
@@ -644810,6 +644798,59 @@
     "timeTbd": false,
     "gameId": "20261005SEJL0",
     "status": "scheduled"
+  },
+  {
+    "date": "2026-10-05",
+    "time": "22:00",
+    "league": "PARAGUAY",
+    "venueId": "estadio_salinas_tanasio",
+    "home": "데포르티보 레콜레타",
+    "away": "리베르타드",
+    "stadium": "Estadio Ricardo Gregor",
+    "timeTbd": false,
+    "gameId": "PARAGUAY_ESPN_401888661",
+    "status": "scheduled",
+    "matchPeriod": "하프타임",
+    "homeScore": 1,
+    "awayScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "González",
+          "m": 18,
+          "nat": "Paraguay",
+          "pid": "espn:333775"
+        }
+      ],
+      "away": [
+        {
+          "n": "Elvio Vera",
+          "m": 3,
+          "nat": "Paraguay",
+          "pid": "espn:333711"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Wilfrido Báez",
+          "type": "Y",
+          "m": 12,
+          "pid": "espn:208060",
+          "nat": "Paraguay"
+        }
+      ],
+      "away": [
+        {
+          "n": "Robert Rojas",
+          "type": "Y",
+          "m": 45,
+          "pid": "espn:238451",
+          "nat": "Paraguay"
+        }
+      ]
+    }
   },
   {
     "date": "2026-10-06",
