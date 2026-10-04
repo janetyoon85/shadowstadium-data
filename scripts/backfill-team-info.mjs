@@ -8,6 +8,7 @@ import { fileURLToPath } from 'node:url';
 import { WIKI_UA, WIKI_REQUEST_DELAY_MS } from './venue-photo-wiki.mjs';
 import { BAD_FILE_RE, normalizeForMatch } from './venue-photo-commons.mjs';
 import { fnv1a32 } from './topic.mjs';
+import { parseWinnerLists } from './team-honours-parse.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -194,6 +195,7 @@ async function loadPage(title, summary) {
     await pause();
     const html = p?.parse?.text?.['*'] || '';
     let rows = parseHonoursHtml(html);
+    if (!rows.length) rows = parseWinnerLists(html);
     if (!rows.length) rows = [...html.matchAll(/<li[^>]*>([\s\S]*?)<\/li>/g)].map((m) => m[1].replace(/<sup[\s\S]*?<\/sup>/g, '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim()).filter((x) => x.length > 3 && x.length < 120 && !/^runners?-?up/i.test(x)).slice(0, 8);
     if (rows.length) info.honours = rows.slice(0, 14);
   }
