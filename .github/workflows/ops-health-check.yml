@@ -1,0 +1,46 @@
+name: Ops Health Check
+
+# 운영 점검(2026-10-04) — 로고/구장/영문명 누락, 정체 경기, 리그 경기 수 급감, 워크플로 연속실패·정체,
+# ScraperAPI 예산을 6시간마다 점검해 이상이 있을 때만 Discord 알림. 첫 실행은 baseline만 기록.
+
+on:
+  schedule:
+    - cron: '47 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write   # ops-health-state.json commit
+  actions: read
+
+concurrency:
+  group: ops-health-check
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run health check
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/ops-health-check.mjs
+
+      - name: Commit state
+        run: |
+          git add ops-health-state.json
+          git diff --cached --quiet && exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore(ops): update health state [skip ci]"
+          for i in $(seq 1 20); do
+            git pull --rebase --autostash origin main && git push origin main && exit 0 || sleep $((RANDOM % 30 + 1))
+          done
+          exit 1
