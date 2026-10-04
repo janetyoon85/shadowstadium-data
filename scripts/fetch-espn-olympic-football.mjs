@@ -13,6 +13,7 @@
 //
 // 원본 로직은 앱 저장소 scripts/fetchEspnOlympicFootball.mjs 와 동일(저장소 분리라 부득이 복사 유지).
 
+import { alertWebhook } from './alert-throttle.mjs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -189,7 +190,7 @@ export async function fetchOlympicFootball(startDate, endDate, unknownTeams, unk
 }
 
 async function notifyUnknowns(unknownTeams, unknownVenues) {
-  const webhook = process.env.DISCORD_WEBHOOK_URL;
+  const webhook = alertWebhook();
   if (!webhook || (unknownTeams.size === 0 && unknownVenues.size === 0)) return;
   const lines = [];
   if (unknownTeams.size) lines.push(`**미확인 팀명(TEAM_KO에 추가 필요)**\n${[...unknownTeams].map((x) => `• ${x}`).join('\n')}`);
@@ -204,7 +205,7 @@ async function notifyUnknowns(unknownTeams, unknownVenues) {
 
 async function notifyFetchFailures(failed) {
   if (failed.length === 0) return;
-  const webhook = process.env.DISCORD_WEBHOOK_URL;
+  const webhook = alertWebhook();
   if (!webhook) return;
   const lines = failed.map(({ gender, range, error }) => `• ${gender} ${range}: ${error}`);
   const content = `🔴 ShadeSide — 올림픽 축구(ESPN) 일부 구간 조회 실패(워크플로는 success로 표시되지만 데이터 갱신 안 됨)\n${lines.join('\n')}`;

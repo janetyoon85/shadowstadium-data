@@ -15,6 +15,7 @@
 // 지정(생략 시 www.wbsc.org). Super Round처럼 아직 팀 미확정인 경기는 "1st Place After Super
 // Round" 같은 플레이스홀더가 오므로 TEAM_KO 미확인(unknown team) 경고 없이 조용히 스킵.
 
+import { alertWebhook } from './alert-throttle.mjs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -389,7 +390,7 @@ async function fetchWbscBaseballTournament(tournamentkey, league, unknownTeams, 
 }
 
 async function notifyUnknowns(unknownTeams, unknownVenues) {
-  const webhook = process.env.DISCORD_WEBHOOK_URL;
+  const webhook = alertWebhook();
   if (!webhook || (unknownTeams.size === 0 && unknownVenues.size === 0)) return;
   const lines = [];
   if (unknownTeams.size) lines.push(`**미확인 팀명(TEAM_KO에 추가 필요)**\n${[...unknownTeams].map((x) => `• ${x}`).join('\n')}`);
@@ -412,7 +413,7 @@ const ALERT_STATE_PATH = path.join(REPO_ROOT, '.wbsc-alert-state.json');
 const ALERT_COOLDOWN_MS = 6 * 3600 * 1000;
 async function notifyFetchFailures(failed) {
   if (failed.length === 0) return;
-  const webhook = process.env.DISCORD_WEBHOOK_URL;
+  const webhook = alertWebhook();
   let state = {};
   try {
     state = JSON.parse(await fs.readFile(ALERT_STATE_PATH, 'utf-8'));

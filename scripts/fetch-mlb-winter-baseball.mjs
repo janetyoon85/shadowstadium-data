@@ -12,6 +12,7 @@
 // 원본 로직은 앱 저장소 scripts/fetchMlbWinterBaseball.mjs 와 동일(저장소 분리라 부득이 복사
 // 유지). 매일 1회 GitHub Actions 자동 실행(.github/workflows/fetch-mlb-winter-baseball.yml).
 
+import { alertWebhook } from './alert-throttle.mjs';
 import fs from 'node:fs/promises';
 import { inningInfoFrom, liveStateFrom, applyLive, liveChanged } from './statsapi-live.mjs';
 import path from 'node:path';
@@ -212,7 +213,7 @@ async function fetchMlbWinterLeague(leagueId, code, sportId, startDate, endDate,
 }
 
 async function notifyUnknowns(unknownTeams, unknownVenues) {
-  const webhook = process.env.DISCORD_WEBHOOK_URL;
+  const webhook = alertWebhook();
   if (!webhook || (unknownTeams.size === 0 && unknownVenues.size === 0)) return;
   const lines = [];
   if (unknownTeams.size) lines.push(`**미확인 팀명(TEAM_KO에 추가 필요)**\n${[...unknownTeams].map((x) => `• ${x}`).join('\n')}`);

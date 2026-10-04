@@ -20,6 +20,7 @@
 // 유지). 완료 경기 스코어 필드(Home/Away.Result) 포맷은 대회 시작 전이라 미검증 — 숫자 파싱
 // 가능하면 사용.
 
+import { alertWebhook } from './alert-throttle.mjs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -131,7 +132,7 @@ async function fetchAsianGamesBaseballDay(dateStr, unknownTeams, unknownVenues) 
 }
 
 async function notifyUnknowns(unknownTeams, unknownVenues) {
-  const webhook = process.env.DISCORD_WEBHOOK_URL;
+  const webhook = alertWebhook();
   if (!webhook || (unknownTeams.size === 0 && unknownVenues.size === 0)) return;
   const lines = [];
   if (unknownTeams.size) lines.push(`**미확인 팀 코드(TEAM_KO에 추가 필요)**\n${[...unknownTeams].map((x) => `• ${x}`).join('\n')}`);

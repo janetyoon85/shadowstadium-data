@@ -10,6 +10,7 @@
 // TEAM_KO, 구장 매핑 VENUE_MAP) — 앱 저장소는 한 번 확보한 히스토리 백필용, 이 파일은 저장소
 // 분리라 부득이 복사 유지. 새 국가/구장 나오면 양쪽 다 갱신해야 함.
 
+import { alertWebhook } from './alert-throttle.mjs';
 import fs from 'node:fs/promises';
 import { applyLive, liveChanged } from './statsapi-live.mjs';
 import path from 'node:path';
@@ -162,7 +163,7 @@ async function fetchEspnBaseballLeague(slug, league, dates, unknownTeams, unknow
 }
 
 async function notifyUnknowns(unknownTeams, unknownVenues) {
-  const webhook = process.env.DISCORD_WEBHOOK_URL;
+  const webhook = alertWebhook();
   if (!webhook || (unknownTeams.size === 0 && unknownVenues.size === 0)) return;
   const lines = [];
   if (unknownTeams.size) lines.push(`**미확인 팀명(TEAM_KO에 추가 필요)**\n${[...unknownTeams].map((x) => `• ${x}`).join('\n')}`);

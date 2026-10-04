@@ -6,6 +6,7 @@
 // 유지). 매일 1회 GitHub Actions 자동 실행(.github/workflows/fetch-asiangames-football.yml),
 // 대회 진행 기간(9/14~10/3)엔 cron-job.org로 10분 주기 트리거 권장.
 
+import { alertWebhook } from './alert-throttle.mjs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -134,7 +135,7 @@ async function fetchAsianGamesFootballDay(dateStr, unknownTeams, unknownVenues) 
 }
 
 async function notifyUnknowns(unknownTeams, unknownVenues) {
-  const webhook = process.env.DISCORD_WEBHOOK_URL;
+  const webhook = alertWebhook();
   if (!webhook || (unknownTeams.size === 0 && unknownVenues.size === 0)) return;
   const lines = [];
   if (unknownTeams.size) lines.push(`**미확인 팀 코드(TEAM_KO에 추가 필요)**\n${[...unknownTeams].map((x) => `• ${x}`).join('\n')}`);

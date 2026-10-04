@@ -8,6 +8,7 @@
 // 원본 로직은 앱 저장소 scripts/fetchEspnAsiaSoccerLeagues.mjs 와 동일(저장소 분리라 부득이 복사
 // 유지). 매일 1회 GitHub Actions 자동 실행(.github/workflows/fetch-espn-asia-soccer-leagues.yml).
 
+import { alertWebhook } from './alert-throttle.mjs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -199,7 +200,7 @@ async function fetchEspnLeague(code, slug, startDate, endDate, unknownTeams, unk
 }
 
 async function notifyUnknowns(unknownTeams, unknownVenues) {
-  const webhook = process.env.DISCORD_WEBHOOK_URL;
+  const webhook = alertWebhook();
   if (!webhook || (unknownTeams.size === 0 && unknownVenues.size === 0)) return;
   const lines = [];
   if (unknownTeams.size) lines.push(`**미확인 팀명(espn-asia-soccer-teams.mjs에 추가 필요)**\n${[...unknownTeams].map((x) => `• ${x}`).join('\n')}`);
@@ -216,7 +217,7 @@ async function notifyUnknowns(unknownTeams, unknownVenues) {
 // 못 알아챔(fetch-wbsc-baseball.mjs 등과 같은 문제 클래스) — 실패한 리그 목록을 모아 별도 Discord 알림.
 async function notifyFetchFailures(failed) {
   if (failed.length === 0) return;
-  const webhook = process.env.DISCORD_WEBHOOK_URL;
+  const webhook = alertWebhook();
   if (!webhook) return;
   const lines = failed.map(({ code, slug, error }) => `• ${code} (${slug}): ${error}`);
   const content = `🔴 ShadeSide — 아시아축구 3개리그(ESPN) 일부 리그 조회 실패(워크플로는 success로 표시되지만 데이터 갱신 안 됨)\n${lines.join('\n')}`;
