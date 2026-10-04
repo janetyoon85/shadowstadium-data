@@ -23,7 +23,7 @@ if (admin.apps.length === 0) {
 const msg = (topic, { title, body }, gameId, displayName, id, tag) => ({
   topic,
   notification: { title, body },
-  data: { gameId: String(gameId ?? ''), playerName: String(displayName ?? id) },
+  data: { gameId: String(gameId ?? ''), playerName: String(displayName ?? id), playerId: String(id) },
   android: { priority: 'high', notification: { channelId: NOTIF_CHANNEL_ID, ...(tag ? { tag } : {}) } },
   ...(tag ? { apns: { headers: { 'apns-collapse-id': tag.slice(0, 64) } } } : {}),
 });
