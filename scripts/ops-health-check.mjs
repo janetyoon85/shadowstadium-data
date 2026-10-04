@@ -53,7 +53,6 @@ const add = (group, key, text, useBaseline = false) => issues.set(`${group}:${ke
   }
   for (const [n, lg] of teams) {
     const base = n.replace(/\s*\((남자|여자)\)$/, '');
-    if ([n, base, `${base}|Baseball`, `${base}|Soccer`].some((k) => k in logos && logos[k] === null)) continue; // 의도적 null(로고 없음 확인됨)
     const hasLogo = logos[n] || logos[base] || logos[`${base}|Baseball`] || logos[`${base}|Soccer`];
     if (!hasLogo) add('팀 로고 없음', n, `${n} (${lg})`, true);
     if (!teamEn[n] && !teamEn[base]) add('팀 영문명 없음', n, `${n} (${lg})`, true);
@@ -156,11 +155,26 @@ for (const k of Object.keys(st.baseline)) if (!issues.has(k)) delete st.baseline
 console.log(`[ops] issues=${issues.size} baselineSkipped=${[...issues].filter(([k, v]) => v.useBaseline && st.baseline[k]).length} toSend=${toSend.length}${first ? ' (첫 실행: baseline 기록)' : ''}`);
 for (const [g, ks] of Object.entries(current)) console.log(`  ${g}: ${ks.length}`);
 
+// 누적 미해결(baseline 포함) 요약 — 새 알림에 한 줄 덧붙이고, 하루 한 번(UTC 0시대 실행) 전체 목록을 발송
+const backlog = {};
+for (const [k, v] of issues) if (v.useBaseline && st.baseline[k]) (backlog[v.group] ??= []).push(v.text);
+const digest = new Date().getUTCHours() === 0 && !first && !process.argv.includes('--no-digest');
+if (digest && Object.keys(backlog).length) {
+  let m = '📋 ShadeSide 미해결 누적 현황 (자동 수집 실패분)\n';
+  for (const [g, ts] of Object.entries(backlog)) m += `\n**${g}** (${ts.length})\n` + ts.slice(0, 10).map((t) => `• ${t}`).join('\n') + (ts.length > 10 ? `\n… +${ts.length - 10}` : '');
+  console.log(m);
+  const hook = process.env.DISCORD_WEBHOOK_URL;
+  if (!dry && hook) await fetch(hook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ content: m.slice(0, 1900) }) });
+}
+
 if (toSend.length && !first) {
   const byGroup = {};
   for (const [, v] of toSend) (byGroup[v.group] ??= []).push(v.text);
   let msg = `🟠 ShadeSide 운영 점검 — 이상 ${toSend.length}건\n`;
   for (const [g, ts] of Object.entries(byGroup)) msg += `\n**${g}** (${ts.length})\n` + ts.slice(0, 8).map((t) => `• ${t}`).join('\n') + (ts.length > 8 ? `\n… +${ts.length - 8}` : '');
+  msg += `
+
+누적 미해결: ${Object.entries(backlog).map(([g, ts]) => `${g} ${ts.length}`).join(' · ') || '없음'}`;
   console.log(msg);
   const hook = process.env.DISCORD_WEBHOOK_URL;
   if (!dry && hook) {
