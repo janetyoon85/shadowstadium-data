@@ -460,6 +460,8 @@ async function main() {
 
   const staleLo = new Date(Date.now() - 400 * 86400e3).toISOString().slice(0, 10);
   const staleLeagues = new Set(existingGamesForFilter.filter((g) => g.date < todayStr && g.date >= staleLo && (g.status === 'scheduled' || g.status === 'live')).map((g) => g.league));
+  // 실제 ScraperAPI 계정은 결제주기(달력월 아님) 기준: 2026-10-04 확인 시 1,663/1,000 소진, 15일 뒤 갱신 → 그 전까진 호출해도 전부 실패
+  if (Date.now() < Date.parse('2026-10-19T00:00:00Z')) { console.log('[wbsc-baseball] ScraperAPI 크레딧 소진(10/19 갱신 예정) — 전부 스킵'); return; }
   const budget = await loadBudgetState();
   const nowMs = Date.now();
   if (budget.requestsUsed >= SCRAPERAPI_MONTHLY_BUDGET) {
