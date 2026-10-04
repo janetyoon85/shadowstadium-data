@@ -458,6 +458,8 @@ async function main() {
       .map((g) => g.league),
   );
 
+  const staleLo = new Date(Date.now() - 14 * 86400e3).toISOString().slice(0, 10);
+  const staleLeagues = new Set(existingGamesForFilter.filter((g) => g.date < todayStr && g.date >= staleLo && (g.status === 'scheduled' || g.status === 'live')).map((g) => g.league));
   const budget = await loadBudgetState();
   const nowMs = Date.now();
   if (budget.requestsUsed >= SCRAPERAPI_MONTHLY_BUDGET) {
@@ -472,7 +474,8 @@ async function main() {
   for (const { tournamentkey, league, domain, locale } of TOURNAMENTS) {
     const lastFetchAt = budget.lastFetch[tournamentkey] ? new Date(budget.lastFetch[tournamentkey]).getTime() : 0;
     const neverFetched = !budget.lastFetch[tournamentkey];
-    const isActive = activeLeagues.has(league);
+    // 날짜 지난 채 예정/진행중으로 남은 경기가 있는 대회는 결과 반영을 위해 12시간마다 재조회(대회 종료 후 최종결과가 영영 안 들어오던 정체 방지, 2026-10-04)
+    const isActive = activeLeagues.has(league) || (staleLeagues.has(league) && nowMs - lastFetchAt >= 12 * 3600e3);
     const throttleOk = nowMs - lastFetchAt >= MIN_REFETCH_INTERVAL_MS;
     // 대회 기간이 아니면(오늘 경기도 진행중 경기도 없음) 요청 자체를 건너뜀 — 신규 대회(한 번도
     // 안 가져와본 것)는 최소 한 번은 잡아서 일정을 파악해야 하니 예외로 허용.

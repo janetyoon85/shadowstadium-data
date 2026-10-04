@@ -66,7 +66,7 @@ async function lookupKbl(id) {
       ht: inches ? `${Math.floor(inches / 12)}' ${inches % 12}"` : undefined,
       pos: ({ GD: 'G', FD: 'F' })[i.pos] || i.pos || undefined,
       no: i.backNum || undefined,
-      col: i.univSchEng || i.univSch || undefined,
+      col: [i.univSchEng, i.univSch].find((x) => x && x !== '0') || undefined,
     };
     return Object.values(o).some((v) => v) ? o : null;
   } catch { return undefined; }
