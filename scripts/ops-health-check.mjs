@@ -36,6 +36,8 @@ const add = (group, key, text, useBaseline = false) => issues.set(`${group}:${ke
   for (const [u, ks] of Object.entries(by)) {
     if (ks.length < 2 || ks.length > 5) continue;
     const es = new Set(ks.map((k) => (teamEn[k.split('|')[0]] || k).toLowerCase()));
+    const nm = ks.map((k) => k.split('|')[0]);
+    if (nm.some((a) => nm.some((b) => a !== b && a.includes(b)))) continue; // 별칭(스탕다르 리에주/스탕다르)
     if (es.size > 1) add('로고 중복(오매칭 의심)', [...ks].sort().join('/'), ks.join(' = '), true);
   }
 }
@@ -51,6 +53,7 @@ const add = (group, key, text, useBaseline = false) => issues.set(`${group}:${ke
   }
   for (const [n, lg] of teams) {
     const base = n.replace(/\s*\((남자|여자)\)$/, '');
+    if ([n, base, `${base}|Baseball`, `${base}|Soccer`].some((k) => k in logos && logos[k] === null)) continue; // 의도적 null(로고 없음 확인됨)
     const hasLogo = logos[n] || logos[base] || logos[`${base}|Baseball`] || logos[`${base}|Soccer`];
     if (!hasLogo) add('팀 로고 없음', n, `${n} (${lg})`, true);
     if (!teamEn[n] && !teamEn[base]) add('팀 영문명 없음', n, `${n} (${lg})`, true);
