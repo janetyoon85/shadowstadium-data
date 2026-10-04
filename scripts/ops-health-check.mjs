@@ -135,7 +135,7 @@ const ALIAS_SETS = [['USVI','버진 제도'],['샤를루아','샬레로이'],['�
     if (prev && cur < prev * 0.98) add('선수 데이터 건수 급감', k, `${k}: ${prev} → ${cur}`);
     st.dataCounts[k] = cur;
   }
-  const ph = Object.entries(J('player-photos.json', {})).filter(([, u]) => typeof u === 'string' && u.startsWith('http') && !u.includes('mlbstatic.com'));
+  const ph = Object.entries(J('player-photos.json', {})).filter(([, u]) => typeof u === 'string' && u.startsWith('http') && !u.includes('mlbstatic.com') && !u.includes('/headshots/soccer/')); // ESPN 축구는 "있으면 표시" 폴백(404 정상)이라 제외
   const slot = Math.floor(now / (6 * 3600e3)) % Math.max(1, Math.ceil(ph.length / 60));
   const part = ph.slice(slot * 60, slot * 60 + 60);
   let i = 0;
@@ -241,7 +241,7 @@ for (const [k, v] of issues) if (v.useBaseline && st.baseline[k]) (backlog[v.gro
 const digest = new Date().getUTCHours() === 0 && !first && !process.argv.includes('--no-digest');
 if (digest && Object.keys(backlog).length) {
   let m = '📋 ShadeSide 미해결 누적 현황 (자동 수집 실패분)\n';
-  for (const [g, ts] of Object.entries(backlog)) m += `\n**${g}** (${ts.length})\n` + ts.slice(0, 10).map((t) => `• ${t}`).join('\n') + (ts.length > 10 ? `\n… +${ts.length - 10}` : '');
+  for (const [g, ts] of Object.entries(backlog)) m += `\n**${g}** (${ts.length})\n` + ts.map((t) => `• ${t}`).join('\n');
   console.log(m);
   const hook = process.env.DISCORD_WEBHOOK_URL;
   if (!dry && hook) await sendDiscord(hook, m);
@@ -251,7 +251,7 @@ if (toSend.length && !first) {
   const byGroup = {};
   for (const [, v] of toSend) (byGroup[v.group] ??= []).push(v.text);
   let msg = `🟠 ShadeSide 운영 점검 — 이상 ${toSend.length}건\n`;
-  for (const [g, ts] of Object.entries(byGroup)) msg += `\n**${g}** (${ts.length})\n` + ts.slice(0, 8).map((t) => `• ${t}`).join('\n') + (ts.length > 8 ? `\n… +${ts.length - 8}` : '');
+  for (const [g, ts] of Object.entries(byGroup)) msg += `\n**${g}** (${ts.length})\n` + ts.map((t) => `• ${t}`).join('\n');
   msg += `
 
 누적 미해결: ${Object.entries(backlog).map(([g, ts]) => `${g} ${ts.length}`).join(' · ') || '없음'}`;
