@@ -151,6 +151,17 @@ const ALIAS_SETS = [['USVI','버진 제도'],['샤를루아','샬레로이'],['�
   await Promise.all(Array.from({ length: 6 }, worker));
 }
 
+// 13) KBL 선수 프로필 — 선수 모달 "정보를 찾을 수 없어요" 방지(KBL 공식 API 백필 대상 전원 점검)
+{
+  const info = J('basketball/player-info.json', {});
+  for (const p of J('basketball/players.json', [])) {
+    if (!p.id?.startsWith('nbk:kbl:')) continue;
+    const v = info[p.id];
+    if (!v) add('KBL 선수 프로필 없음', p.id, `${p.name} (${p.id})`, true);
+    else if (!v.nat) add('KBL 선수 국적 없음', p.id, `${p.name} (${p.id})`, true);
+  }
+}
+
 // 5) 정체 경기 — 어제 이전 날짜인데 예정/진행중
 {
   const cut = addDays(kstToday, -1);
