@@ -591,6 +591,8 @@ async function main() {
   const cutoff = ymd(new Date(now - Math.max(KEEP_DAYS, BACK) * 86400e3));
   const games = [...byId.values()].filter((g) => g.date >= cutoff).sort((a, b) => a.t - b.t || a.id.localeCompare(b.id)).map(({ _cfg, ...g }) => g);
   // ESPN은 팁오프 후에도 수 분~수십 분 pre로 남는 경우가 많아, 시작시각이 지난 예정 경기는 진행중으로 간주(최대 4시간)
+  // 소스가 종료 처리를 안 해 live로 박제된 경기(ESPN 일부 프리시즌 등)는 8시간 뒤 종료로 확정
+  for (const g of games) if (g.st === 'live' && now > g.t + 8 * 3600e3) g.st = 'final';
   for (const g of games) if (g.src === 'espn' && g.st === 'scheduled' && now >= g.t + 120e3 && now < g.t + 4 * 3600e3) g.st = 'live';
   for (const g of games) {
     if (!g.boxed) continue;
