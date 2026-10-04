@@ -645359,13 +645359,15 @@
     "inningInfo": "9회말",
     "liveState": {
       "pitcher": "밀러",
-      "batter": "옐리치",
-      "ball": 3,
+      "batter": "프렐릭",
+      "ball": 1,
       "strike": 1,
       "out": 1,
-      "bases": [],
-      "pitchCount": 18,
-      "batterPid": "mlb:592885"
+      "bases": [
+        2
+      ],
+      "pitchCount": 20,
+      "batterPid": "mlb:686217"
     },
     "holds": {
       "home": [],
@@ -645385,6 +645387,13 @@
           "text": "옐리치 우전 2루타",
           "player": "옐리치",
           "inn": "5회말",
+          "pid": "mlb:592885"
+        },
+        {
+          "how": "도루",
+          "text": "옐리치 도루로 2루까지 진루",
+          "player": "옐리치",
+          "inn": "9회말",
           "pid": "mlb:592885"
         }
       ],
@@ -645727,7 +645736,10 @@
     "stadium": "Estadio Alfonso López",
     "timeTbd": false,
     "gameId": "COLOMBIA_ESPN_401877900",
-    "status": "scheduled"
+    "status": "live",
+    "matchPeriod": "전반",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-10-05",
