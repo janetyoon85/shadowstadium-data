@@ -643568,8 +643568,8 @@
     "liveState": {
       "pitcher": "홀",
       "batter": "보가츠",
-      "ball": 0,
-      "strike": 0,
+      "ball": 1,
+      "strike": 1,
       "out": 0,
       "bases": [],
       "pitchCount": 4,
@@ -643696,8 +643696,8 @@
     "gameId": "JlQ3mTt3xO9MnCC",
     "status": "live",
     "awayScore": 0,
-    "homeScore": 1,
-    "matchPeriod": "후반 16'",
+    "homeScore": 2,
+    "matchPeriod": "후반 18'",
     "scorers": {
       "home": [
         {
@@ -643705,12 +643705,26 @@
           "m": 28,
           "nat": "USA",
           "pid": "espn:288041"
+        },
+        {
+          "n": "설리반",
+          "m": 62,
+          "nat": "USA",
+          "pid": "espn:384397"
         }
       ],
       "away": []
     },
     "cards": {
-      "home": [],
+      "home": [
+        {
+          "n": "Tyler Adams",
+          "type": "Y",
+          "m": 62,
+          "pid": "espn:222776",
+          "nat": "USA"
+        }
+      ],
       "away": [
         {
           "n": "Luis Romo",
