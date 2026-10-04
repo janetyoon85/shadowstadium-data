@@ -645340,19 +645340,17 @@
     "gameId": "AFL_MLBSTATS_867730",
     "status": "live",
     "homeScore": 2,
-    "awayScore": 4,
+    "awayScore": 5,
     "inningInfo": "9회초",
     "liveState": {
-      "pitcher": "Jonathan Clark",
-      "batter": "Eric Bitonti",
-      "pitcherPid": "mlb:702165",
-      "batterPid": "mlb:800724",
-      "ball": 0,
-      "strike": 0,
-      "out": 0,
-      "bases": [
-        1
-      ]
+      "pitcher": "Andy Rodriguez",
+      "batter": "Wyatt Sanford",
+      "pitcherPid": "mlb:703142",
+      "batterPid": "mlb:815608",
+      "ball": 1,
+      "strike": 3,
+      "out": 3,
+      "bases": []
     }
   },
   {
@@ -645587,7 +645585,7 @@
     "status": "live",
     "matchPeriod": "후반",
     "homeScore": 2,
-    "awayScore": 0,
+    "awayScore": 1,
     "scorers": {
       "home": [
         {
@@ -645603,7 +645601,14 @@
           "pid": "espn:270364"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Jerónimo Domina",
+          "m": 57,
+          "nat": "Argentina",
+          "pid": "espn:339007"
+        }
+      ]
     }
   },
   {
@@ -645661,7 +645666,7 @@
     "status": "live",
     "matchPeriod": "전반",
     "homeScore": 1,
-    "awayScore": 0,
+    "awayScore": 1,
     "scorers": {
       "home": [
         {
@@ -645670,6 +645675,26 @@
           "og": true,
           "nat": "Colombia",
           "pid": "espn:204833"
+        }
+      ],
+      "away": [
+        {
+          "n": "Luis Muriel",
+          "m": 25,
+          "pk": true,
+          "nat": "Colombia",
+          "pid": "espn:151510"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "José Daniel García",
+          "type": "R",
+          "m": 22,
+          "pid": "espn:117451",
+          "nat": "Colombia"
         }
       ],
       "away": []
