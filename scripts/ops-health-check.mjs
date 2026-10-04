@@ -1,5 +1,5 @@
 // 운영 점검(2026-10-04) — 조용히 비는/멈추는 데이터를 찾아 Discord로 알림. 이상이 있을 때만 발송.
-//  1 로고 오매칭 의심  2 신규 팀/구장 로고·사진 누락  4 신규 팀/구장 영문명 누락
+//  1 로고 오매칭 의심  3 로고 URL 깨짐  2 신규 팀/구장 로고·사진 누락  4 신규 팀/구장 영문명 누락
 //  5 날짜 지난 예정/진행중 경기(정체)  6 리그 경기 수 급감  8 워크플로 연속실패/정체(푸시 포함)  9 ScraperAPI 예산
 // 첫 실행은 현재 상태를 baseline으로 기록만 하고 알리지 않음 → 이후 "새로 생긴" 문제만 알림.
 // 실행: node scripts/ops-health-check.mjs [--dry]   (DISCORD_WEBHOOK_URL, GITHUB_TOKEN, GITHUB_REPOSITORY 환경변수)
@@ -37,7 +37,7 @@ const add = (group, key, text, useBaseline = false) => issues.set(`${group}:${ke
     if (ks.length < 2 || ks.length > 5) continue;
     const es = new Set(ks.map((k) => (teamEn[k.split('|')[0]] || k).toLowerCase()));
     const nm = ks.map((k) => k.split('|')[0]);
-    if (nm.some((a) => nm.some((b) => a !== b && a.includes(b)))) continue; // 별칭(스탕다르 리에주/스탕다르)
+    if (nm.some((a) => nm.some((b) => a !== b && (a.includes(b) || (a.split(' ')[0].length >= 3 && a.split(' ')[0] === b.split(' ')[0]))))) continue; // 별칭(스탕다르 리에주/스탕다르, 멜버른 FC/멜버른 빅토리)
     if (es.size > 1) add('로고 중복(오매칭 의심)', [...ks].sort().join('/'), ks.join(' = '), true);
   }
 }
@@ -62,6 +62,28 @@ const add = (group, key, text, useBaseline = false) => issues.set(`${group}:${ke
     if (!venuePhotos[id]) add('구장 사진 없음', id, `${nm} [${id}]`, true);
     if (!venueEn[id]) add('구장 영문명 없음', id, `${nm} [${id}]`, true);
   }
+}
+
+// 3) 로고 URL 생존 — 외부 호스트(나무위키/위키미디어/raw)는 매번 전수, TheSportsDB는 실행마다 60개씩 순환 검사
+{
+  const urls = [...new Set(Object.values(logos).filter(Boolean))];
+  const ext = urls.filter((u) => !u.includes('r2.thesportsdb.com'));
+  const tsdb = urls.filter((u) => u.includes('r2.thesportsdb.com'));
+  const slot = Math.floor(now / (6 * 3600e3)) % Math.max(1, Math.ceil(tsdb.length / 60));
+  const targets = [...ext, ...tsdb.slice(slot * 60, slot * 60 + 60)];
+  const nameOf = (u) => Object.entries(logos).filter(([, v]) => v === u).map(([k]) => k.split('|')[0]).join('/');
+  let i = 0;
+  const worker = async () => {
+    while (i < targets.length) {
+      const u = targets[i++];
+      try {
+        const r = await fetch(u, { headers: { 'User-Agent': 'ShadeSideCrawler/1.0 (+https://github.com/janetyoon85/shadowstadium-data)', Referer: 'https://namu.wiki/', Range: 'bytes=0-0' }, signal: AbortSignal.timeout(15000) });
+        const ct = r.headers.get('content-type') || '';
+        if ([403, 404, 410].includes(r.status) || (r.ok && !ct.startsWith('image/'))) add('로고 URL 깨짐', u, `${nameOf(u)} (${r.status} ${ct.split(';')[0]})`);
+      } catch { /* 일시적 네트워크 오류는 무시 */ }
+    }
+  };
+  await Promise.all(Array.from({ length: 6 }, worker));
 }
 
 // 5) 정체 경기 — 어제 이전 날짜인데 예정/진행중
