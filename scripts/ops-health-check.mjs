@@ -88,6 +88,65 @@ const ALIAS_SETS = [['USVI','버진 제도'],['샤를루아','샬레로이'],['�
   await Promise.all(Array.from({ length: 6 }, worker));
 }
 
+// 10) 경기 데이터 정합성(오늘 -7일 ~ +14일) — 종료인데 점수 없음/중복/시각 형식/구장ID 미등록/한 팀 다중 표기
+{
+  const lo = addDays(kstToday, -7), hi = addDays(kstToday, 14);
+  const recent = games.filter((g) => g.date && g.date >= lo && g.date <= hi);
+  const venueIds = new Set([...(J('venues-meta.json', [])).map((v) => v.id), ...Object.keys(venueEn)]);
+  const seen = new Map();
+  for (const g of recent) {
+    const id = g.gameId || `${g.date}${g.home}${g.away}`;
+    const label = `${g.date} ${g.league} ${g.home} vs ${g.away}`;
+    if (g.status === 'completed' && (g.homeScore == null || g.awayScore == null)) add('종료 경기 점수 없음', id, label, true);
+    if (!g.timeTbd && !/^\d\d:\d\d$/.test(g.time || '')) add('경기 시각 형식 이상', id, `${label} (${g.time ?? '없음'})`, true);
+    if (g.venueId && !venueIds.has(g.venueId)) add('구장 ID 미등록', g.venueId, `${g.venueId} (${g.league})`, true);
+    const dk = [g.date, g.time, g.league, g.home, g.away].join('|');
+    if (seen.has(dk) && seen.get(dk) !== id) add('경기 중복(같은 일시·팀)', dk, label, true);
+    seen.set(dk, id);
+  }
+  // 같은 리그에서 영문명이 같은 서로 다른 한글 표기가 둘 다 쓰이면 한 팀이 둘로 나뉜 것일 수 있음
+  const byLeagueEn = {};
+  for (const g of recent) for (const n of [g.home, g.away]) {
+    const e = teamEn[n]; if (!e) continue;
+    ((byLeagueEn[`${g.league}|${e.toLowerCase()}`] ??= new Set())).add(n);
+  }
+  for (const [k, set] of Object.entries(byLeagueEn)) if (set.size > 1) add('한 팀 다중 표기', k, `${k.split('|')[0]}: ${[...set].join(' / ')}`, true);
+}
+
+// 11) 18개 언어 리그명 키 누락(league-i18n)
+{
+  const li = J('league-i18n.json', {});
+  const koKeys = Object.keys(li.ko || {});
+  for (const [lang, o] of Object.entries(li)) {
+    const miss = koKeys.filter((k) => !(k in o));
+    if (miss.length) add('리그명 번역 누락', lang, `${lang}: ${miss.length}개 (${miss.slice(0, 4).join(', ')}${miss.length > 4 ? '…' : ''})`, true);
+  }
+}
+
+// 12) 선수 데이터 — 한글명·사진 건수 급감, 사진 URL 순환 생존 검사(MLB 기본 이미지 제외)
+{
+  const cnt = { koNames: Object.keys(J('player-name-ko.json', {})).length, photos: Object.keys(J('player-photos.json', {})).length };
+  for (const [k, cur] of Object.entries(cnt)) {
+    const prev = (st.dataCounts ||= {})[k];
+    if (prev && cur < prev * 0.98) add('선수 데이터 건수 급감', k, `${k}: ${prev} → ${cur}`);
+    st.dataCounts[k] = cur;
+  }
+  const ph = Object.entries(J('player-photos.json', {})).filter(([, u]) => typeof u === 'string' && u.startsWith('http') && !u.includes('mlbstatic.com'));
+  const slot = Math.floor(now / (6 * 3600e3)) % Math.max(1, Math.ceil(ph.length / 60));
+  const part = ph.slice(slot * 60, slot * 60 + 60);
+  let i = 0;
+  const worker = async () => {
+    while (i < part.length) {
+      const [pid, u] = part[i++];
+      try {
+        const r = await fetch(u, { headers: { 'User-Agent': 'ShadeSideCrawler/1.0', Range: 'bytes=0-0' }, signal: AbortSignal.timeout(15000) });
+        if ([403, 404, 410].includes(r.status)) add('선수 사진 URL 깨짐', pid, `${pid} (${r.status})`, true);
+      } catch { /* 일시 오류 무시 */ }
+    }
+  };
+  await Promise.all(Array.from({ length: 6 }, worker));
+}
+
 // 5) 정체 경기 — 어제 이전 날짜인데 예정/진행중
 {
   const cut = addDays(kstToday, -1);
@@ -183,7 +242,7 @@ if (toSend.length && !first) {
   if (!dry && hook) {
     const r = await fetch(hook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ content: msg.slice(0, 1900) }) });
     if (!r.ok) console.error('discord 발송 실패', r.status);
-    else for (const [k] of toSend) st.alerted[k] = now;
+    else for (const [k, v] of toSend) { st.alerted[k] = now; if (v.useBaseline) st.baseline[k] = true; } // 누락류는 한 번 알린 뒤엔 일일 요약으로만
   }
 }
 if (!dry) fs.writeFileSync(path.join(ROOT, STATE_FILE), JSON.stringify(st, null, 1) + '\n');
