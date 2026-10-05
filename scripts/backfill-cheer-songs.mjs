@@ -14,7 +14,7 @@ const REPO_ROOT = path.resolve(__dirname, '..');
 const PLAYERS_PATH = path.join(REPO_ROOT, 'players.json');
 const TEAM_EN_PATH = path.join(REPO_ROOT, 'team-name-en.json');
 const OUT_PATH = path.join(REPO_ROOT, 'cheer-songs.json');
-const BUDGET = 95;
+const BUDGET = 30; // 하이라이트 검색(highlights-search.json, 65건/일)이 우선, 응원가는 남는 몫
 const API_KEY = process.env.YOUTUBE_API_KEY;
 
 // 농구: KBL(nbk:kbl, 한글 응원가)은 KBO급 최우선, NBA/WNBA는 축구 다음. NBL/FIBA/기타 코드는 제외.

@@ -98,6 +98,54 @@ async function listVideos(ch) {
   return viaApi(ch, 1);
 }
 
+// 채널 업로드로 못 찾은 종료 경기를 search.list(100유닛)로 보강. 하이라이트 우선 — 하루 상한(SEARCH_DAILY)까지만 쓰고 나머지는 응원가 몫.
+const SEARCH_F = path.join(ROOT, 'highlights-search.json');
+const SEARCH_DAILY = Number(process.env.HL_SEARCH_DAILY || 65);
+const SEARCH_RUN = Number(process.env.HL_SEARCH_RUN || 6);
+const HL_WORD = /highlight|하이라이트|ハイライト|resumen|resumo|resume|résumé|samenvatting|özet|sintesi|zusammenfassung|melhores momentos|all goals|goles|gols|\btore\b|\bbuts\b/i;
+const HL_NOT = /shorts|preview|prediction|predict|reaction|efootball|fifa \d|pes \d|simulation|gameplay|live stream|watchalong|press conference|interview/i;
+
+async function searchFallback({ out, games, bk, bkTeams, teamEn, tAl, aliasG, aliasS, aliasBk }) {
+  const st = await readJson(SEARCH_F, { day: '', used: 0, tried: {} });
+  const day = new Date(Date.now() - 7 * 3600e3).toISOString().slice(0, 10);
+  if (st.day !== day) { st.day = day; st.used = 0; }
+  const now = Date.now();
+  const covered = new Set(CHANNELS.flatMap((c) => c.leagues));
+  const names = (nm, lg) => [...new Set([...aliasG(lg, nm), ...aliasS(nm, 'latin'), ...aliasS(nm, 'ko')])];
+  const cands = [
+    ...games.filter((g) => g.status === 'completed').map((g) => ({ id: g.gameId, lg: g.league, ts: Date.parse(`${g.date}T${g.time && /^\d\d:\d\d$/.test(g.time) ? g.time : '12:00'}:00Z`) - KST, hn: g.home, an: g.away, h: names(g.home, g.league), a: names(g.away, g.league), qh: teamEn[g.home] || g.home, qa: teamEn[g.away] || g.away })),
+    ...bk.filter((g) => g.st === 'final').map((g) => { const h = bkTeams[g.h.k] || {}, a = bkTeams[g.a.k] || {}; return { id: g.id, lg: g.lg, ts: g.t, h: aliasBk(g.h.k), a: aliasBk(g.a.k), qh: h.en || h.ko || '', qa: a.en || a.ko || '' }; }),
+  ].filter((c) => !out[c.id] && c.qh && c.qa && c.ts >= now - 3 * 86400e3 && c.ts <= now - (covered.has(c.lg) ? 12 : 3) * 3600e3)
+    .filter((c) => { const t = st.tried[c.id]; return !t || (t.n < 3 && now - t.t >= 12 * 3600e3); })
+    .sort((x, y) => (covered.has(x.lg) - covered.has(y.lg)) || y.ts - x.ts);
+  let added = 0, runN = 0;
+  for (const c of cands) {
+    if (st.used >= SEARCH_DAILY * 100 || runN >= SEARCH_RUN) break;
+    st.used += 100; runN++;
+    const u = 'https://www.googleapis.com/youtube/v3/search?' + new URLSearchParams({ part: 'snippet', type: 'video', maxResults: '8', q: `${c.qh} vs ${c.qa} highlights`, publishedAfter: new Date(c.ts - 3600e3).toISOString(), key: API_KEY });
+    let items;
+    try {
+      const r = await fetch(u, { signal: AbortSignal.timeout(20000) });
+      if (r.status === 403) { st.used = SEARCH_DAILY * 100; console.error('[hl] search quota'); break; }
+      if (!r.ok) continue;
+      items = (await r.json()).items || [];
+    } catch { continue; }
+    const t = st.tried[c.id] || { n: 0 };
+    st.tried[c.id] = { n: t.n + 1, t: now };
+    const hit = items.find((it) => {
+      const title = norm(it.snippet?.title || '');
+      const p = Date.parse(it.snippet?.publishedAt || '');
+      return p - c.ts < 4 * 86400e3 && HL_WORD.test(title) && !HL_NOT.test(title) && c.h.some((x) => has(title, x)) && c.a.some((x) => has(title, x));
+    });
+    if (hit) { out[c.id] = { v: hit.id.videoId, t: (hit.snippet.title || '').replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/&quot;/g, '"') }; added++; console.log(`[hl] search hit ${c.lg} ${c.qh} vs ${c.qa}`); }
+    await new Promise((r) => setTimeout(r, 200));
+  }
+  for (const [k, v] of Object.entries(st.tried)) if (now - v.t > 7 * 86400e3) delete st.tried[k];
+  await fs.writeFile(SEARCH_F, JSON.stringify(st) + '\n');
+  console.log(`[hl] search used=${runN} dayUnits=${st.used} candidates=${cands.length}`);
+  return added;
+}
+
 async function main() {
   const out = await readJson(OUT, {});
   const games = await readJson(path.join(ROOT, 'games.json'), []);
@@ -139,6 +187,7 @@ async function main() {
     console.log(`[hl] ${ch.name} videos=${vids.length}`);
   }
   if (API_KEY && DEEP) writeFileSync(DEEP_F, JSON.stringify({ t: NOW.getTime() }) + '\n');
+  if (API_KEY) added += await searchFallback({ out, games, bk, bkTeams, teamEn, tAl, aliasG, aliasS, aliasBk });
   const sorted = Object.fromEntries(Object.entries(out).sort(([a], [b]) => (a < b ? -1 : 1)));
   await fs.writeFile(OUT, JSON.stringify(sorted, null, 1) + '\n');
   console.log(`[hl] added=${added} total=${Object.keys(sorted).length}`);
