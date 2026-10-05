@@ -80,6 +80,17 @@ const has = (title, a) => {
   if (!x || (/^[\x00-\x7f]+$/.test(x) && x.length < 3)) return false;
   return /^[\x00-\x7f]+$/.test(x) ? new RegExp(`(^|[^a-z0-9])${x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}($|[^a-z0-9])`).test(title) : title.includes(x);
 };
+const SA_LEAGUES = new Set(['ARGENTINA', 'URUGUAY', 'PARAGUAY', 'ELSALVADOR', 'COLOMBIA', 'CHILE', 'PERU', 'VENEZUELA', 'BOLIVIA', 'ECUADOR', 'COSTARICA']);
+const LEAD_GENERIC = /^(cd|ca|cf|fc|sc|ac|as|sd|ud|cs|csd|club|deportivo)\s+/i;
+const TRAIL_GENERIC = /\s+(fc|cf|club|juniors|jrs|sc)$/i;
+function nameVariants(n) {
+  const noParen = String(n).trim().replace(/\s*\([^)]*\)/g, '').trim();
+  const l = noParen.replace(LEAD_GENERIC, '').trim();
+  const t = noParen.replace(TRAIL_GENERIC, '').trim();
+  const lt = l.replace(TRAIL_GENERIC, '').trim();
+  const dc = noParen.replace(/\s+de\s+[^\s]+$/i, '').trim();
+  return [...new Set([n, noParen, l, t, lt, dc])].filter((x) => x && x.length >= 4);
+}
 const KST = 9 * 3600e3;
 
 const NOW = new Date();
@@ -183,9 +194,9 @@ async function main() {
     if (lg === 'J1') return [...(J_EXTRA[name] || []), ...(tAl[name] || []).filter((a) => /[぀-ヿ]/.test(a) || /^[一-鿿]{2,}/.test(a))];
     return [name, teamEn[name]].filter(Boolean);
   };
-  const aliasS = (name, script) => {
+  const aliasS = (name, script, lg) => {
     const ok = (a) => script === 'ko' ? /[가-힣]/.test(a) : /^[ -~À-ɏ]+$/.test(a);
-    return [...new Set([name.replace(/\s*\((남자|여자)\)$/, ''), teamEn[name], ...(tAl[name] || [])].filter(Boolean).map(norm))].filter((a) => ok(a) && a.length >= (script === 'ko' ? 2 : 4) && !GENERIC.has(a));
+    return [...new Set([name.replace(/\s*\((남자|여자)\)$/, ''), teamEn[name], ...(tAl[name] || [])].filter(Boolean).flatMap(nameVariants).map(norm))].filter((a) => ok(a) && a.length >= (script === 'ko' ? 2 : SA_LEAGUES.has(lg) ? 3 : 4) && (SA_LEAGUES.has(lg) || !GENERIC.has(a)));
   };
   const prep = (t, ch) => (ch.script === 'latin' ? t.replace(/\butd\b\.?/g, 'united').replace(/\bman\b/g, 'manchester') : t);
   const aliasBk = (k) => { const t = bkTeams[k]; if (!t) return []; const w = (t.en || '').split(' '); if (t.lg === 'KBL' && t.ko) return [t.ko, t.ko.split(' ').slice(-1)[0]]; return [t.en, w.slice(-1)[0], w.slice(-2).join(' '), t.ko, t.ja].filter(Boolean); };
@@ -197,7 +208,7 @@ async function main() {
     vids = vids.filter((v) => v.v && v.p && ch.must.test(norm(v.t).normalize('NFC')) && !(ch.not && ch.not.test(norm(v.t).normalize('NFC')))).sort((a, b) => a.p - b.p);
     const pool = ch.src === 'bk'
       ? bk.filter((g) => ch.leagues.includes(g.lg) && g.st === 'final').map((g) => ({ id: g.id, ts: g.t, h: aliasBk(g.h.k), a: aliasBk(g.a.k) }))
-      : games.filter((g) => ch.leagues.includes(g.league) && g.status === 'completed').map((g) => ({ id: g.gameId, ts: Date.parse(`${g.date}T${g.time && /^\d\d:\d\d$/.test(g.time) ? g.time : '12:00'}:00Z`) - KST, h: ch.script ? aliasS(g.home, ch.script) : aliasG(g.league, g.home), a: ch.script ? aliasS(g.away, ch.script) : aliasG(g.league, g.away) }));
+      : games.filter((g) => ch.leagues.includes(g.league) && g.status === 'completed').map((g) => ({ id: g.gameId, ts: Date.parse(`${g.date}T${g.time && /^\d\d:\d\d$/.test(g.time) ? g.time : '12:00'}:00Z`) - KST, h: ch.script ? aliasS(g.home, ch.script, g.league) : aliasG(g.league, g.home), a: ch.script ? aliasS(g.away, ch.script, g.league) : aliasG(g.league, g.away) }));
     for (const v of vids) {
       const title = prep(norm(v.t), ch);
       const cands = pool.filter((g) => g.ts <= v.p + 3600e3 && v.p - g.ts < 4 * 86400e3 && g.h.some((x) => has(title, x)) && g.a.some((x) => has(title, x)) && !out[g.id]);
