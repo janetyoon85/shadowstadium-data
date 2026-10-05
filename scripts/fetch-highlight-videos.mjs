@@ -158,7 +158,7 @@ async function searchFallback({ out, games, bk, bkTeams, teamEn, tAl, aliasG, al
     const hit = items.find((it) => {
       const title = norm(it.snippet?.title || '');
       const p = Date.parse(it.snippet?.publishedAt || '');
-      return p - c.ts < 4 * 86400e3 && HL_WORD.test(title) && !HL_NOT.test(title) && c.h.some((x) => has(title, x)) && c.a.some((x) => has(title, x));
+      return p - c.ts < 4 * 86400e3 && HL_WORD.test(title.normalize('NFC')) && !HL_NOT.test(title.normalize('NFC')) && c.h.some((x) => has(title, x)) && c.a.some((x) => has(title, x));
     });
     if (hit) { out[c.id] = { v: hit.id.videoId, t: (hit.snippet.title || '').replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/&quot;/g, '"') }; added++; console.log(`[hl] search hit ${c.lg} ${c.qh} vs ${c.qa}`); }
     await new Promise((r) => setTimeout(r, 200));
@@ -194,7 +194,7 @@ async function main() {
   for (const ch of CHANNELS) {
     let vids = [];
     try { vids = await listVideos(ch); } catch (e) { console.error(`[hl] ${ch.name} fail`, e.message); continue; }
-    vids = vids.filter((v) => v.v && v.p && ch.must.test(norm(v.t)) && !(ch.not && ch.not.test(norm(v.t)))).sort((a, b) => a.p - b.p);
+    vids = vids.filter((v) => v.v && v.p && ch.must.test(norm(v.t).normalize('NFC')) && !(ch.not && ch.not.test(norm(v.t).normalize('NFC')))).sort((a, b) => a.p - b.p);
     const pool = ch.src === 'bk'
       ? bk.filter((g) => ch.leagues.includes(g.lg) && g.st === 'final').map((g) => ({ id: g.id, ts: g.t, h: aliasBk(g.h.k), a: aliasBk(g.a.k) }))
       : games.filter((g) => ch.leagues.includes(g.league) && g.status === 'completed').map((g) => ({ id: g.gameId, ts: Date.parse(`${g.date}T${g.time && /^\d\d:\d\d$/.test(g.time) ? g.time : '12:00'}:00Z`) - KST, h: ch.script ? aliasS(g.home, ch.script) : aliasG(g.league, g.home), a: ch.script ? aliasS(g.away, ch.script) : aliasG(g.league, g.away) }));
