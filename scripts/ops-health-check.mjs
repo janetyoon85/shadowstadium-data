@@ -163,11 +163,11 @@ const ALIAS_SETS = [['USVI','버진 제도'],['샤를루아','샬레로이'],['�
   }
 }
 
-// 5) 정체 경기 — 어제 이전 날짜인데 예정/진행중
+// 5) 정체 경기 — 어제 이전 날짜인데 예정/진행중(7일 넘은 건 소스 미제공으로 보고 앱이 숨기므로 제외)
 {
   const cut = addDays(kstToday, -1);
   for (const g of games) {
-    if (g.date && g.date < cut && (g.status === 'scheduled' || g.status === 'live')) {
+    if (g.date && g.date < cut && g.date >= addDays(kstToday, -7) && (g.status === 'scheduled' || g.status === 'live')) {
       add('정체 경기(날짜 지남)', g.gameId || `${g.date}${g.home}${g.away}`, `${g.date} ${g.league} ${g.home} vs ${g.away} (${g.status})`, true);
     }
   }
