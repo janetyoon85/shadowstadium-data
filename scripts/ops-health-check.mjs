@@ -196,7 +196,7 @@ const WF = {
   const headers = { Accept: 'application/vnd.github+json', ...(process.env.GITHUB_TOKEN ? { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` } : {}) };
   for (const [wf, maxMin] of Object.entries(WF)) {
     try {
-      const r = await fetch(`https://api.github.com/repos/${repo}/actions/workflows/${wf}.yml/runs?per_page=10&status=completed`, { headers });
+      const r = await fetch(`https://api.github.com/repos/${repo}/actions/workflows/${wf}.yml/runs?per_page=50&status=completed`, { headers });
       if (!r.ok) { add('워크플로 조회 실패', wf, `${wf}: HTTP ${r.status}`); continue; }
       const runs = (await r.json()).workflow_runs.filter((x) => x.conclusion !== 'cancelled' && x.conclusion !== 'skipped');
       if (runs.length >= 3 && runs.slice(0, 3).every((x) => x.conclusion === 'failure')) add('워크플로 연속 실패', wf, `${wf}: 최근 3회 연속 실패`);
