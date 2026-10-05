@@ -65,11 +65,11 @@ let lastDeep = 0;
 try { lastDeep = JSON.parse(readFileSync(DEEP_F, 'utf8')).t || 0; } catch {}
 const DEEP = process.env.HL_DEEP === '1' || NOW.getTime() - lastDeep >= 6 * 3600e3;
 
-async function listVideos(ch) {
-  if (API_KEY && DEEP) {
+async function viaApi(ch, pages) {
+  {
     const out = [];
     let token = '';
-    for (let i = 0; i < PAGES; i++) {
+    for (let i = 0; i < pages; i++) {
       const u = 'https://www.googleapis.com/youtube/v3/playlistItems?' + new URLSearchParams({ part: 'snippet', maxResults: '50', playlistId: 'UU' + ch.id.slice(2), key: API_KEY, ...(token ? { pageToken: token } : {}) });
       const r = await fetch(u, { signal: AbortSignal.timeout(20000) });
       if (!r.ok) { console.error(`[hl] ${ch.name} api ${r.status}`); break; }
@@ -78,12 +78,24 @@ async function listVideos(ch) {
       token = j.nextPageToken;
       if (!token) break;
     }
-    if (out.length) return out;
+    return out;
   }
-  const r = await fetch('https://www.youtube.com/feeds/videos.xml?channel_id=' + ch.id, { signal: AbortSignal.timeout(20000) });
-  if (!r.ok) return [];
-  const x = await r.text();
-  return x.split('<entry>').slice(1).map((e) => ({ v: (e.match(/<yt:videoId>([^<]*)/) || [])[1], t: (e.match(/<title>([^<]*)/) || [])[1] || '', p: Date.parse((e.match(/<published>([^<]*)/) || [])[1] || '') }));
+}
+
+async function viaRss(ch) {
+  try {
+    const r = await fetch('https://www.youtube.com/feeds/videos.xml?channel_id=' + ch.id, { signal: AbortSignal.timeout(20000) });
+    if (!r.ok) return [];
+    const x = await r.text();
+    return x.split('<entry>').slice(1).map((e) => ({ v: (e.match(/<yt:videoId>([^<]*)/) || [])[1], t: (e.match(/<title>([^<]*)/) || [])[1] || '', p: Date.parse((e.match(/<published>([^<]*)/) || [])[1] || '') }));
+  } catch { return []; }
+}
+
+async function listVideos(ch) {
+  if (API_KEY && DEEP) { const o = await viaApi(ch, PAGES); if (o.length) return o; }
+  const o = await viaRss(ch);
+  if (o.length || !API_KEY) return o;
+  return viaApi(ch, 1);
 }
 
 async function main() {
