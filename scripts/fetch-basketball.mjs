@@ -103,6 +103,25 @@ function addPlayer(id, name, team, lg, date) {
 }
 
 // ---------- 네이버 ----------
+// 포스트시즌 라운드 코드(rd) — 네이버 roundCode(kbl_ps_6_po 등)와 ESPN notes 헤드라인("East Semifinals - Game 3")을 공통 코드로.
+function naverRound(code) {
+  const m = /_ps_(\w+)$/.exec(code || '');
+  if (!m) return undefined;
+  return { '6_po': '6po', '4_po': '4po', po: 'po', cp: 'cp' }[m[1]] || 'ps';
+}
+function espnRound(e, c) {
+  const hl = c.notes?.find((n) => n.headline)?.headline || '';
+  const rn = /Game (\d+)/i.exec(hl)?.[1];
+  const conf = /^(East|West)/i.exec(hl)?.[1]?.[0].toLowerCase();
+  let rd;
+  if (/play-?in/i.test(hl) || e.season?.type === 5) rd = 'pi';
+  else if (/1st Round|First Round/i.test(hl)) rd = 'r1';
+  else if (/2nd Round|Semifinals/i.test(hl)) rd = 'sf';
+  else if (/Finals/i.test(hl)) rd = conf ? 'cf' : 'f';
+  else if (e.season?.type === 3) rd = 'ps';
+  if (!rd) return undefined;
+  return { rd: (conf && rd !== 'pi' && rd !== 'ps' ? conf + '_' : '') + rd, ...(rn ? { rn: Number(rn) } : {}) };
+}
 function naverStatus(g) {
   if (g.cancel) return 'cancelled';
   if (g.statusCode === 'RESULT') return 'final';
@@ -118,7 +137,7 @@ async function fetchNaverSchedule(cfg, from, to) {
     const h = addTeam('naver', cfg.lg, g.homeTeamCode, { ko: g.homeTeamName, logo: g.homeTeamEmblemUrl, abbr: cfg.lg === 'NBA' ? g.homeTeamCode : undefined });
     const a = addTeam('naver', cfg.lg, g.awayTeamCode, { ko: g.awayTeamName, logo: g.awayTeamEmblemUrl, abbr: cfg.lg === 'NBA' ? g.awayTeamCode : undefined });
     const v = cfg.lg === 'NBA' ? undefined : addVenue('naver', cfg.lg, g.stadium, '', h); // 네이버 NBA stadium 필드는 KBL 구장명이 섞여 있어 무시(ESPN 쪽이 정확)
-    out.push({ id: `nv:${g.gameId}`, src: 'naver', lg: cfg.lg, date: g.gameDate, t, st: naverStatus(g), per: g.statusInfo || undefined, h: { k: h, s: g.homeTeamScore }, a: { k: a, s: g.awayTeamScore }, venue: g.stadium || undefined, vid: v, _cfg: cfg });
+    out.push({ id: `nv:${g.gameId}`, src: 'naver', lg: cfg.lg, date: g.gameDate, t, st: naverStatus(g), per: g.statusInfo || undefined, h: { k: h, s: g.homeTeamScore }, a: { k: a, s: g.awayTeamScore }, venue: g.stadium || undefined, vid: v, rd: naverRound(g.roundCode), _cfg: cfg });
   }
   return out;
 }
@@ -183,7 +202,7 @@ async function fetchEspnSchedule(cfg, from, to) {
     out.push({
       id: `espn:${cfg.lg}:${e.id}`, src: 'espn', lg: cfg.lg, date: kstDate(t0), t: t0, st: espnStatus(c.status?.type || e.status?.type), per: c.status?.type?.shortDetail || undefined,
       h: { k: hk, s: num(H.score), ls: (H.linescores || []).map((x) => x.value) }, a: { k: ak, s: num(A.score), ls: (A.linescores || []).map((x) => x.value) },
-      venue: vn, vid, att: c.attendance || undefined, tv: (c.broadcasts || []).flatMap((b) => b.names || []).slice(0, 3), _cfg: cfg,
+      venue: vn, vid, ...espnRound(e, c), att: c.attendance || undefined, tv: (c.broadcasts || []).flatMap((b) => b.names || []).slice(0, 3), _cfg: cfg,
     });
   }
   return out;
@@ -589,6 +608,16 @@ async function main() {
   }
 
   const cutoff = ymd(new Date(now - Math.max(KEEP_DAYS, BACK) * 86400e3));
+  {
+    const grp = new Map();
+    for (const g of byId.values()) {
+      if (!g.rd || g.rn || g.src !== 'naver' || g.st === 'cancelled') continue;
+      const key = `${g.lg}|${g.rd}|${[g.h.k, g.a.k].sort().join('|')}`;
+      if (!grp.has(key)) grp.set(key, []);
+      grp.get(key).push(g);
+    }
+    for (const a of grp.values()) a.sort((x, y) => x.t - y.t).forEach((g, i) => { g.rn = i + 1; });
+  }
   const games = [...byId.values()].filter((g) => g.date >= cutoff).sort((a, b) => a.t - b.t || a.id.localeCompare(b.id)).map(({ _cfg, ...g }) => g);
   // ESPN은 팁오프 후에도 수 분~수십 분 pre로 남는 경우가 많아, 시작시각이 지난 예정 경기는 진행중으로 간주(최대 4시간)
   // 소스가 종료 처리를 안 해 live로 박제된 경기(ESPN 일부 프리시즌 등)는 8시간 뒤 종료로 확정
