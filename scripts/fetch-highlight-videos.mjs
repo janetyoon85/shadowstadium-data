@@ -21,7 +21,8 @@ const MLB_NICK = {
 };
 
 const KBO_NICK = { '한화': ['이글스'], 'KIA': ['타이거즈'], '두산': ['베어스'], 'NC': ['다이노스'], '롯데': ['자이언츠'], 'SSG': ['랜더스'], 'KT': ['위즈'], '삼성': ['라이온즈'], 'LG': ['트윈스'], '키움': ['히어로즈'] };
-const NPB_JA = { '소프트뱅크': ['ソフトバンク'], '오릭스': ['オリックス'], '지바롯데': ['ロッテ'], '라쿠텐': ['楽天'], '세이부': ['西武'], '닛폰햄': ['日本ハム'] };
+const NPB_JA = { '소프트뱅크': ['ソフトバンク'], '오릭스': ['オリックス'], '지바롯데': ['ロッテ'], '라쿠텐': ['楽天'], '세이부': ['西武'], '닛폰햄': ['日本ハム'], '한신': ['阪神'], '요미우리': ['巨人', '読売'], '야쿠르트': ['ヤクルト'], '히로시마': ['広島'], '주니치': ['中日'], '요코하마': ['DeNA', '横浜'] };
+const GENERIC = new Set(['united', 'city', 'real', 'sporting', 'athletic', 'manchester', 'atletico', 'inter', 'club', 'sport', 'town', 'rovers', 'wanderers', 'olympique', 'borussia', 'racing', 'deportivo', 'national', 'fenerbahce fc']);
 const J_EXTRA = { '가와사키': ['川崎フロンターレ', '川崎F'], '나가사키': ['V・ファーレン長崎', '長崎'] };
 
 // 채널: ids = 게임 리그 코드(games.json league 또는 basketball lg). must = 하이라이트 판정, 둘 다 팀 이름 필요.
@@ -34,10 +35,22 @@ export const CHANNELS = [
   { name: 'J.League', id: 'UCyzs0YrgWiL2wdROpajnO1Q', src: 'g', leagues: ['J1'], must: /ハイライト/, not: /プレーまとめ|shorts/ },
   { name: 'B.LEAGUE', id: 'UC4NpGzqd6nnntf8ehYC50-A', src: 'bk', leagues: ['BLEAGUE1', 'BLEAGUE2', 'BLEAGUE3'], must: /ハイライト/, not: /プレーまとめ/ },
   { name: 'WNBA', id: 'UCO9a_ryN_l7DIDS-VIt-zmw', src: 'bk', leagues: ['WNBA'], must: /full game highlights/i },
+  { name: 'Coupang Play', id: 'UCnBht7BrOx-A328KFXgysqQ', src: 'g', leagues: ['EPL', 'LALIGA', 'BUNDESLIGA', 'ACL'], must: /highlights|하이라이트/i, not: /shorts|women|femenil/i, script: 'latin' },
+  { name: 'SPOTV', id: 'UCtm_QoN2SIxwCE-59shX7Qg', src: 'g', leagues: ['UCL', 'UEL', 'UECL', 'SERIEA', 'UNL'], must: /하이라이트/, not: /shorts|mlb|kbo|nba/i, script: 'ko' },
+  { name: 'Serie A', id: 'UCBJeMCIeLQos7wacox4hmLQ', src: 'g', leagues: ['SERIEA'], must: /highlights/i, not: /classic|full match|shorts/i, script: 'latin' },
+  { name: 'Bundesliga', id: 'UC6UL29enLNe4mqwTfAyeNuw', src: 'g', leagues: ['BUNDESLIGA'], must: /highlights/i, not: /shorts/i, script: 'latin' },
+  { name: 'beIN Turkiye', id: 'UCPe9vNjHF1kEExT5kHwc7aw', src: 'g', leagues: ['TURKEY'], must: /highlights|özet/i, not: /shorts/i, script: 'latin' },
+  { name: 'ESPN Nederland', id: 'UCXnPiEv1DoUCDAqDUXT9shQ', src: 'g', leagues: ['EREDIVISIE'], must: /samenvatting/i, script: 'latin' },
+  { name: 'AFA', id: 'UCJmCVoUfCBQb9lcfXIS8nXQ', src: 'g', leagues: ['ARGENTINA'], must: /resumen/i, script: 'latin' },
+  { name: 'ge tv', id: 'UCgCKagVhzGnZcuP9bSMgMCg', src: 'g', leagues: ['BRASILEIRAO'], must: /highlights/i, not: /femin|women/i, script: 'latin' },
+  { name: 'TUDN Mexico', id: 'UCTIyEyDNHPrwVFPhpi5dm0A', src: 'g', leagues: ['LIGAMX'], must: /highlights/i, not: /femenil|shorts/i, script: 'latin' },
+  { name: 'sport tv', id: 'UCINrlkmrXi4a-kOl6unb51A', src: 'g', leagues: ['PORTUGAL'], must: /resumo/i, script: 'latin' },
+  { name: 'TVING KBL', id: 'UC8JtQf77wqhVpOQ8Cze8JjA', src: 'bk', leagues: ['KBL'], must: /프로농구.*하이라이트/ },
+  { name: 'DAZN Baseball', id: 'UCyeDNNizMGbVsn_8Ttc3FIw', src: 'g', leagues: ['NPB'], must: /ハイライト/, not: /プレーまとめ/ },
   { name: 'MLS', id: 'UCSZbXT5TLLW_i-5W8FZpFsg', src: 'g', leagues: ['MLS'], must: /highlights/i, not: /shorts/i },
 ];
 
-const norm = (s) => String(s).normalize('NFKC').toLowerCase().replace(/&amp;/g, '&').replace(/&#39;|&apos;/g, "'").replace(/&quot;/g, '"').replace(/[’‘]/g, "'");
+const norm = (s) => String(s).normalize('NFKC').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/&amp;/g, '&').replace(/&#39;|&apos;/g, "'").replace(/&quot;/g, '"').replace(/[’‘]/g, "'");
 const has = (title, a) => {
   const x = norm(a);
   if (!x || (/^[\x00-\x7f]+$/.test(x) && x.length < 3)) return false;
@@ -80,7 +93,12 @@ async function main() {
     if (lg === 'J1') return [...(J_EXTRA[name] || []), ...(tAl[name] || []).filter((a) => /[぀-ヿ]/.test(a) || /^[一-鿿]{2,}/.test(a))];
     return [name, teamEn[name]].filter(Boolean);
   };
-  const aliasBk = (k) => { const t = bkTeams[k]; if (!t) return []; const w = (t.en || '').split(' '); return [t.en, w.slice(-1)[0], w.slice(-2).join(' '), t.ko, t.ja].filter(Boolean); };
+  const aliasS = (name, script) => {
+    const ok = (a) => script === 'ko' ? /[가-힣]/.test(a) : /^[ -~À-ɏ]+$/.test(a);
+    return [...new Set([name, teamEn[name], ...(tAl[name] || [])].filter(Boolean).map(norm))].filter((a) => ok(a) && a.length >= (script === 'ko' ? 2 : 4) && !GENERIC.has(a));
+  };
+  const prep = (t, ch) => (ch.script === 'latin' ? t.replace(/\butd\b\.?/g, 'united').replace(/\bman\b/g, 'manchester') : t);
+  const aliasBk = (k) => { const t = bkTeams[k]; if (!t) return []; const w = (t.en || '').split(' '); if (t.lg === 'KBL' && t.ko) return [t.ko, t.ko.split(' ').slice(-1)[0]]; return [t.en, w.slice(-1)[0], w.slice(-2).join(' '), t.ko, t.ja].filter(Boolean); };
 
   let added = 0;
   for (const ch of CHANNELS) {
@@ -89,9 +107,9 @@ async function main() {
     vids = vids.filter((v) => v.v && v.p && ch.must.test(norm(v.t)) && !(ch.not && ch.not.test(norm(v.t)))).sort((a, b) => a.p - b.p);
     const pool = ch.src === 'bk'
       ? bk.filter((g) => ch.leagues.includes(g.lg) && g.st === 'final').map((g) => ({ id: g.id, ts: g.t, h: aliasBk(g.h.k), a: aliasBk(g.a.k) }))
-      : games.filter((g) => ch.leagues.includes(g.league) && g.status === 'completed').map((g) => ({ id: g.gameId, ts: Date.parse(`${g.date}T${g.time && /^\d\d:\d\d$/.test(g.time) ? g.time : '12:00'}:00Z`) - KST, h: aliasG(g.league, g.home), a: aliasG(g.league, g.away) }));
+      : games.filter((g) => ch.leagues.includes(g.league) && g.status === 'completed').map((g) => ({ id: g.gameId, ts: Date.parse(`${g.date}T${g.time && /^\d\d:\d\d$/.test(g.time) ? g.time : '12:00'}:00Z`) - KST, h: ch.script ? aliasS(g.home, ch.script) : aliasG(g.league, g.home), a: ch.script ? aliasS(g.away, ch.script) : aliasG(g.league, g.away) }));
     for (const v of vids) {
-      const title = norm(v.t);
+      const title = prep(norm(v.t), ch);
       const cands = pool.filter((g) => g.ts <= v.p + 3600e3 && v.p - g.ts < 4 * 86400e3 && g.h.some((x) => has(title, x)) && g.a.some((x) => has(title, x)) && !out[g.id]);
       cands.sort((x, y) => y.ts - x.ts);
       const g = cands[0];
