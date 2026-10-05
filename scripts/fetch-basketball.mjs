@@ -573,6 +573,10 @@ async function main() {
   const boxFiles = {};
   const box = async (g) => { const f = `box-${g.date.slice(0, 7)}.json`; return (boxFiles[f] ||= (await readJson(f, {}))); };
   let detail = 0;
+  for (const g of byId.values()) {
+    if (g.st !== 'final' || g.boxed) continue;
+    if ((await box(g))[g.id]) g.boxed = 1;
+  }
   const finals = [...byId.values()].filter((g) => g.st === 'final' && !g.boxed && (g._cfg || g.src === 'bl' || g.src === 'ag')).sort((a, b) => b.t - a.t);
   const todo = finals.slice(0, DETAIL_BUDGET);
   for (const g of todo) await box(g);
