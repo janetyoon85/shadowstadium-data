@@ -646172,11 +646172,25 @@
     "stadium": "창원",
     "timeTbd": false,
     "gameId": "20261005SKNC02026",
-    "status": "scheduled",
+    "status": "live",
     "awayPitcher": "아빌라",
     "homePitcher": "토다",
     "awayPitcherPid": "kbo:b:56801",
-    "homePitcherPid": "kbo:b:56911"
+    "homePitcherPid": "kbo:b:56911",
+    "awayScore": 0,
+    "homeScore": 0,
+    "inningInfo": "1회초",
+    "liveState": {
+      "pitcher": "토다",
+      "pitcherPid": "kbo:p:56911",
+      "batter": "김재환",
+      "batterPid": "kbo:b:78224",
+      "ball": 0,
+      "strike": 0,
+      "out": 1,
+      "bases": [],
+      "pitchCount": 6
+    }
   },
   {
     "date": "2026-10-05",
@@ -646199,15 +646213,15 @@
     "liveState": {
       "pitcher": "후라도",
       "pitcherPid": "kbo:p:53375",
-      "batter": "안재석",
-      "batterPid": "kbo:b:51203",
+      "batter": "양의지",
+      "batterPid": "kbo:b:76232",
       "ball": 0,
       "strike": 0,
-      "out": 0,
+      "out": 1,
       "bases": [
-        2
+        1
       ],
-      "pitchCount": 4
+      "pitchCount": 8
     },
     "highlights": {
       "home": [],
@@ -646237,19 +646251,31 @@
     "homePitcher": "강건우",
     "awayPitcherPid": "kbo:b:54362",
     "homePitcherPid": "kbo:p:56769",
-    "awayScore": 0,
+    "awayScore": 1,
     "homeScore": 0,
     "inningInfo": "1회초",
     "liveState": {
       "pitcher": "강건우",
       "pitcherPid": "kbo:p:56769",
-      "batter": "데이비슨",
-      "batterPid": "kbo:b:54944",
+      "batter": "박찬혁",
+      "batterPid": "kbo:b:52348",
       "ball": 0,
       "strike": 0,
-      "out": 1,
+      "out": 2,
       "bases": [],
-      "pitchCount": 4
+      "pitchCount": 12
+    },
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "데이비슨 우중간 뒤 홈런 (홈런거리:130M)",
+          "player": "데이비슨",
+          "inn": "1회초",
+          "pid": "kbo:b:54944"
+        }
+      ]
     }
   },
   {
@@ -646273,13 +646299,13 @@
     "liveState": {
       "pitcher": "톨허스트",
       "pitcherPid": "kbo:p:55130",
-      "batter": "박재현",
-      "batterPid": "kbo:b:55636",
-      "ball": 1,
-      "strike": 2,
-      "out": 0,
+      "batter": "김선빈",
+      "batterPid": "kbo:b:78603",
+      "ball": 0,
+      "strike": 0,
+      "out": 1,
       "bases": [],
-      "pitchCount": 4
+      "pitchCount": 9
     }
   },
   {
@@ -646303,13 +646329,15 @@
     "liveState": {
       "pitcher": "로건",
       "pitcherPid": "kbo:p:55912",
-      "batter": "나승엽",
-      "batterPid": "kbo:b:51551",
+      "batter": "한동희",
+      "batterPid": "kbo:b:68525",
       "ball": 0,
-      "strike": 1,
-      "out": 1,
-      "bases": [],
-      "pitchCount": 3
+      "strike": 0,
+      "out": 2,
+      "bases": [
+        1
+      ],
+      "pitchCount": 7
     }
   },
   {
