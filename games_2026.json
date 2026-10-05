@@ -278263,7 +278263,8 @@
         },
         {
           "n": "보르헤",
-          "m": 49
+          "m": 49,
+          "pid": "espn:316640"
         },
         {
           "n": "발라리노",
@@ -647037,10 +647038,9 @@
     "stadium": "라인파크 스타디온",
     "timeTbd": false,
     "gameId": "V9C1N2H2eEZTJJQ",
-    "status": "live",
-    "awayScore": 1,
+    "status": "completed",
+    "awayScore": 2,
     "homeScore": 0,
-    "matchPeriod": "전반 44'",
     "scorers": {
       "home": [],
       "away": [
@@ -647049,6 +647049,12 @@
           "m": 20,
           "nat": "Gibraltar",
           "pid": "espn:214567"
+        },
+        {
+          "n": "보르헤",
+          "m": 57,
+          "nat": "Gibraltar",
+          "pid": "espn:316640"
         }
       ]
     }
@@ -647063,16 +647069,17 @@
     "stadium": "아레나 나치오날러",
     "timeTbd": false,
     "gameId": "swBWRzQHgqT7hZT",
-    "status": "live",
+    "status": "completed",
     "awayScore": 1,
     "homeScore": 0,
-    "matchPeriod": "전반 33'",
     "scorers": {
       "home": [],
       "away": [
         {
           "n": "요케레스",
-          "m": 13
+          "m": 13,
+          "nat": "Sweden",
+          "pid": "espn:258906"
         }
       ]
     },
@@ -647084,9 +647091,45 @@
           "m": 5,
           "pid": "espn:239813",
           "nat": "Romania"
+        },
+        {
+          "n": "Razvan Marin",
+          "type": "Y",
+          "m": 48,
+          "pid": "espn:239738",
+          "nat": "Romania"
+        },
+        {
+          "n": "Valentin Mihaila",
+          "type": "Y",
+          "m": 82,
+          "pid": "espn:267008",
+          "nat": "Romania"
+        },
+        {
+          "n": "Catalin Cirjan",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:307171",
+          "nat": "Romania"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Felix Beijmo",
+          "type": "Y",
+          "m": 53,
+          "pid": "espn:255253",
+          "nat": "Sweden"
+        },
+        {
+          "n": "Alexander Bernhardsson",
+          "type": "Y",
+          "m": 62,
+          "pid": "espn:301370",
+          "nat": "Sweden"
+        }
+      ]
     },
     "phaseCode": "NLB"
   },
@@ -647100,10 +647143,28 @@
     "stadium": "CITY ARENA 안톤 말라틴스키 스타디온",
     "timeTbd": false,
     "gameId": "4QMkP31Hs118qKx",
-    "status": "live",
-    "awayScore": 0,
-    "homeScore": 0,
-    "matchPeriod": "전반 32'",
+    "status": "completed",
+    "awayScore": 2,
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "야렘추크",
+          "m": 83,
+          "pid": "espn:219543"
+        }
+      ],
+      "away": [
+        {
+          "n": "토스",
+          "m": 52
+        },
+        {
+          "n": "친저르",
+          "m": 85
+        }
+      ]
+    },
     "phaseCode": "NLB"
   },
   {
@@ -647116,10 +647177,9 @@
     "stadium": "스타디오 레나토 달아라",
     "timeTbd": false,
     "gameId": "aPSmM6RKjyib2IG",
-    "status": "live",
-    "awayScore": 0,
-    "homeScore": 1,
-    "matchPeriod": "전반 33'",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 3,
     "scorers": {
       "home": [
         {
@@ -647127,9 +647187,71 @@
           "m": 26,
           "nat": "Italy",
           "pid": "espn:233140"
+        },
+        {
+          "n": "칼라피오리",
+          "m": 64,
+          "a": "Nicolò Barella",
+          "nat": "Italy",
+          "pid": "espn:298329",
+          "aNat": "Italy",
+          "apid": "espn:204441"
+        },
+        {
+          "n": "에스포지토",
+          "m": 87,
+          "a": "Alessandro Romano",
+          "nat": "Italy",
+          "pid": "espn:362674",
+          "aNat": "Switzerland",
+          "apid": "espn:6729"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "심시르",
+          "m": 61,
+          "a": "Eren Elmali",
+          "nat": "Türkiye",
+          "pid": "espn:303000",
+          "aNat": "Türkiye",
+          "apid": "espn:287678"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Gianluca Scamacca",
+          "type": "Y",
+          "m": 42,
+          "pid": "espn:233140",
+          "nat": "Italy"
+        },
+        {
+          "n": "Matteo Ruggeri",
+          "type": "Y",
+          "m": 47,
+          "pid": "espn:297229",
+          "nat": "Italy"
+        }
+      ],
+      "away": [
+        {
+          "n": "Zeki Çelik",
+          "type": "Y",
+          "m": 55,
+          "pid": "espn:271873",
+          "nat": "Türkiye"
+        },
+        {
+          "n": "Eren Elmali",
+          "type": "Y",
+          "m": 81,
+          "pid": "espn:287678",
+          "nat": "Türkiye"
+        }
+      ]
     },
     "phaseCode": "NLA"
   },
@@ -647143,10 +647265,38 @@
     "stadium": "스타드 드 프랑스",
     "timeTbd": false,
     "gameId": "2LIItIDsUQaFvv3",
-    "status": "live",
-    "awayScore": 0,
-    "homeScore": 0,
-    "matchPeriod": "전반 33'",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 4,
+    "scorers": {
+      "home": [
+        {
+          "n": "두에",
+          "m": 77,
+          "pid": "espn:336388"
+        },
+        {
+          "n": "셰르키",
+          "m": 81,
+          "pid": "espn:298008"
+        },
+        {
+          "n": "올리세",
+          "m": 88
+        },
+        {
+          "n": "올리세",
+          "m": 90
+        }
+      ],
+      "away": [
+        {
+          "n": "루케바키오",
+          "m": 35,
+          "pid": "espn:229443"
+        }
+      ]
+    },
     "phaseCode": "NLA"
   },
   {
@@ -647159,10 +647309,18 @@
     "stadium": "스타디온 빌리노 폴제",
     "timeTbd": false,
     "gameId": "NT0emewgXpFOZ9R",
-    "status": "live",
+    "status": "completed",
     "awayScore": 0,
-    "homeScore": 0,
-    "matchPeriod": "전반 33'",
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "바시치",
+          "m": 84
+        }
+      ],
+      "away": []
+    },
     "phaseCode": "NLB"
   },
   {
@@ -647175,10 +647333,9 @@
     "stadium": "스타디온 포드 고리콤",
     "timeTbd": false,
     "gameId": "5uP2d2eVT1muifr",
-    "status": "live",
+    "status": "completed",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 33'",
     "phaseCode": "NLC"
   },
   {
@@ -647191,10 +647348,9 @@
     "stadium": "윈저 파크",
     "timeTbd": false,
     "gameId": "2puvcppp1oADy7a",
-    "status": "live",
+    "status": "completed",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 33'",
     "phaseCode": "NLB"
   },
   {
@@ -647207,7 +647363,62 @@
     "stadium": "Guillermo Laza",
     "timeTbd": false,
     "gameId": "ARGENTINA_ESPN_401841592",
-    "status": "scheduled"
+    "status": "live",
+    "matchPeriod": "후반",
+    "homeScore": 1,
+    "awayScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "Milton Céliz",
+          "m": 3,
+          "nat": "Argentina",
+          "pid": "espn:195672"
+        }
+      ],
+      "away": [
+        {
+          "n": "Michael Santos",
+          "m": 38,
+          "nat": "Uruguay",
+          "pid": "espn:131758"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Nicolás Sansotre",
+          "type": "Y",
+          "m": 5,
+          "pid": "espn:233726",
+          "nat": "Argentina"
+        }
+      ],
+      "away": [
+        {
+          "n": "Felipe Aguilar",
+          "type": "Y",
+          "m": 1,
+          "pid": "espn:181496",
+          "nat": "Colombia"
+        },
+        {
+          "n": "Marco Iacobellis",
+          "type": "Y",
+          "m": 51,
+          "pid": "espn:292018",
+          "nat": "Argentina"
+        },
+        {
+          "n": "Alejandro Maciel",
+          "type": "Y",
+          "m": 66,
+          "pid": "espn:262493",
+          "nat": "Argentina"
+        }
+      ]
+    }
   },
   {
     "date": "2026-10-06",
@@ -647219,7 +647430,68 @@
     "stadium": "Estadio Luis Alfonso Giagni",
     "timeTbd": false,
     "gameId": "PARAGUAY_ESPN_401888659",
-    "status": "scheduled"
+    "status": "live",
+    "matchPeriod": "후반",
+    "homeScore": 2,
+    "awayScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "Tomás Rayer",
+          "m": 5,
+          "nat": "Argentina",
+          "pid": "espn:379094"
+        },
+        {
+          "n": "Néstor Camacho",
+          "m": 45,
+          "pk": true,
+          "nat": "Paraguay",
+          "pid": "espn:95633"
+        }
+      ],
+      "away": [
+        {
+          "n": "Iván Maggi",
+          "m": 43,
+          "nat": "Argentina",
+          "pid": "espn:295851"
+        },
+        {
+          "n": "Iván Maggi",
+          "m": 63,
+          "nat": "Argentina",
+          "pid": "espn:295851"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Nelson Gauto",
+          "type": "Y",
+          "m": 61,
+          "pid": "espn:353457",
+          "nat": "Paraguay"
+        },
+        {
+          "n": "Tomás Rayer",
+          "type": "Y",
+          "m": 65,
+          "pid": "espn:379094",
+          "nat": "Argentina"
+        }
+      ],
+      "away": [
+        {
+          "n": "Alexis Cantero",
+          "type": "Y",
+          "m": 12,
+          "pid": "espn:336402",
+          "nat": "Paraguay"
+        }
+      ]
+    }
   },
   {
     "date": "2026-10-06",
@@ -647231,7 +647503,22 @@
     "stadium": "Salt River Fields at Talking Stick",
     "timeTbd": false,
     "gameId": "AFL_MLBSTATS_867727",
-    "status": "scheduled"
+    "status": "live",
+    "homeScore": 1,
+    "awayScore": 0,
+    "inningInfo": "4회초",
+    "liveState": {
+      "pitcher": "Cesar Lares",
+      "batter": "Yerlin Confidan",
+      "pitcherPid": "mlb:800544",
+      "batterPid": "mlb:691398",
+      "ball": 1,
+      "strike": 1,
+      "out": 1,
+      "bases": [
+        2
+      ]
+    }
   },
   {
     "date": "2026-10-06",
@@ -647243,11 +647530,39 @@
     "stadium": "프로그레시브 필드",
     "timeTbd": false,
     "gameId": "20261006CWCL0",
-    "status": "scheduled",
+    "status": "live",
     "awayPitcher": "앤소니 케이",
     "homePitcher": "개빈 윌리엄스",
     "awayPitcherPid": "mlb:641743",
     "homePitcherPid": "mlb:668909",
+    "awayScore": 0,
+    "homeScore": 2,
+    "inningInfo": "1회말",
+    "liveState": {
+      "pitcher": "뉴컴",
+      "batter": "바자나",
+      "ball": 1,
+      "strike": 1,
+      "out": 2,
+      "bases": [
+        1,
+        3
+      ],
+      "pitchCount": 7,
+      "batterPid": "mlb:683953"
+    },
+    "highlights": {
+      "home": [
+        {
+          "how": "실책",
+          "text": "로우 투수 실책으로 진루",
+          "player": "로우",
+          "inn": "1회말",
+          "pid": "mlb:664040"
+        }
+      ],
+      "away": []
+    },
     "round": "ps_alds",
     "rn": 2
   },
