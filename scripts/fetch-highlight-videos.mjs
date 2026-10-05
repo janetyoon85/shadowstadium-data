@@ -37,8 +37,8 @@ export const CHANNELS = [
   { name: 'B.LEAGUE', id: 'UC4NpGzqd6nnntf8ehYC50-A', src: 'bk', leagues: ['BLEAGUE1', 'BLEAGUE2', 'BLEAGUE3'], must: /ハイライト/, not: /プレーまとめ/ },
   { name: 'WNBA', id: 'UCO9a_ryN_l7DIDS-VIt-zmw', src: 'bk', leagues: ['WNBA'], must: /full game highlights/i },
   { name: 'Coupang Play', id: 'UCnBht7BrOx-A328KFXgysqQ', src: 'g', leagues: ['EPL', 'LALIGA', 'BUNDESLIGA', 'ACL'], must: /highlights|하이라이트/i, not: /shorts|women|femenil/i, script: 'latin' },
-  { name: 'SPOTV', id: 'UCtm_QoN2SIxwCE-59shX7Qg', src: 'g', leagues: ['UCL', 'UEL', 'UECL', 'SERIEA', 'UNL'], must: /하이라이트/, not: /shorts|mlb|kbo|nba/i, script: 'ko' },
-  { name: 'Serie A', id: 'UCBJeMCIeLQos7wacox4hmLQ', src: 'g', leagues: ['SERIEA'], must: /highlights/i, not: /classic|full match|shorts/i, script: 'latin' },
+  { name: 'SPOTV', id: 'UCtm_QoN2SIxwCE-59shX7Qg', src: 'g', leagues: ['UCL', 'UEL', 'UECL', 'SERIEA', 'UNL', 'ASIANGAMESFOOTBALL'], must: /하이라이트/, not: /shorts|mlb|kbo|nba/i, script: 'ko' },
+  { name: 'Serie A', id: 'UCBJeMCIeLQos7wacox4hmLQ', src: 'g', leagues: ['SERIEA', 'COPPAITALIA'], must: /highlights/i, not: /classic|full match|shorts/i, script: 'latin' },
   { name: 'Bundesliga', id: 'UC6UL29enLNe4mqwTfAyeNuw', src: 'g', leagues: ['BUNDESLIGA'], must: /highlights/i, not: /shorts/i, script: 'latin' },
   { name: 'beIN Turkiye', id: 'UCPe9vNjHF1kEExT5kHwc7aw', src: 'g', leagues: ['TURKEY'], must: /highlights|özet/i, not: /shorts/i, script: 'latin' },
   { name: 'ESPN Nederland', id: 'UCXnPiEv1DoUCDAqDUXT9shQ', src: 'g', leagues: ['EREDIVISIE'], must: /samenvatting/i, script: 'latin' },
@@ -48,6 +48,29 @@ export const CHANNELS = [
   { name: 'sport tv', id: 'UCINrlkmrXi4a-kOl6unb51A', src: 'g', leagues: ['PORTUGAL'], must: /resumo/i, script: 'latin' },
   { name: 'TVING KBL', id: 'UC8JtQf77wqhVpOQ8Cze8JjA', src: 'bk', leagues: ['KBL'], must: /프로농구.*하이라이트/ },
   { name: 'DAZN Baseball', id: 'UCyeDNNizMGbVsn_8Ttc3FIw', src: 'g', leagues: ['NPB'], must: /ハイライト/, not: /プレーまとめ/ },
+  { name: 'Win Sports', id: 'UCZjpA3YBPXvJv3pg4SPEjfw', src: 'g', leagues: ["COLOMBIA"], must: /resumen y goles/i, not: /#shorts|femenin|golazo|atajada|#laligaxwin/i, script: 'latin' },
+  { name: 'AUFTV', id: 'UC0jQd1_qQAT4an-dDaG1Sww', src: 'g', leagues: ["URUGUAY"], must: /\| (resumen|hl largo) \|/i, not: /sub-\d|juveniles|femenin|segunda profesional/i, script: 'latin' },
+  { name: 'Tigo Sports PY', id: 'UCDnZ8zbVWLaVfuDmNuWq7rw', src: 'g', leagues: ["PARAGUAY"], must: /\d+-\d+ .*(clausura|apertura|fecha)/i, not: /femenino|intermedia|copa efe|copa paraguay/i, script: 'latin' },
+  { name: 'TNT Sports Chile', id: 'UChCovZlgNh2x6Z57MJ5fhFw', src: 'g', leagues: ["CHILE"], must: /compacto top .*liga de primera/i, not: /ascenso|replay|copa/i, script: 'latin' },
+  { name: 'Liga1 Perú', id: 'UCRwbNkNPqxA7M5EAu9cnAKg', src: 'g', leagues: ["PERU"], must: /resumen del partido/i, not: /femenin/i, script: 'latin' },
+  { name: 'L1MAX', id: 'UCGVHVLD7Nzw0zdIwbVhE3vw', src: 'g', leagues: ["PERU"], must: /resumen/i, not: /entrevista|conferencia|analiza|pablo guede/i, script: 'latin' },
+  { name: 'Liga FUTVE', id: 'UCQc3SSO8WacZt3L0IQe08Pg', src: 'g', leagues: ["VENEZUELA"], must: /^resumen/i, not: /rueda de prensa|modo futve|femenin/i, script: 'latin' },
+  { name: 'ESBN Bolivia', id: 'UCz9SQCLCddsUZOPCtZN5fpA', src: 'g', leagues: ["BOLIVIA"], must: /\| (resumen|highlights|summary)$/i, not: /femenin|sub-?\d+/i, script: 'latin' },
+  { name: 'Deportes Canal 4', id: 'UCV-6dbHTGsSR-7DdwlrjosA', src: 'g', leagues: ["ELSALVADOR"], must: /resumen/i, not: /previa|habla|femenin|conferencia/i, script: 'latin' },
+  { name: 'FUTVCR', id: 'UCAb1ZnVRP06U1iNEgN4POXw', src: 'g', leagues: ["AMATCHFRIENDLY"], must: /(amistoso|friendly)/i, not: /femenin|u-?\d\d|futsal/i, script: 'latin' },
+  { name: 'Ligue 1 McDonalds', id: 'UCQsH5XtIc9hONE1BQjucM0g', src: 'g', leagues: ["LIGUE1"], must: /\(\d+ ?- ?\d+\).*week \d+/i, not: /all goals|top skills|highlights week/i, script: 'latin' },
+  { name: 'Roshn Saudi League', id: 'UCqXAWrjSgLb0EPa_icPt-pw', src: 'g', leagues: ["SAUDI"], must: /powered by toyota/i, not: /club guide|fantasy|goal of the|top \d/i, script: 'latin' },
+  { name: 'KFATV Live', id: 'UCxKEldsuGD4SmJvDO_UT8kQ', src: 'g', leagues: ["KOREACUP"], must: /korea cup.*\bHL\b/i, not: /k3|k4|league/i, script: 'latin' },
+  { name: 'Real Federación Española de Fútbol', id: 'UCQBxzdEPXjy05MtpfbdtMxQ', src: 'g', leagues: ["COPADELREY"], must: /resumen.*copadelrey/i, not: /femenin|supercopa/i, script: 'latin' },
+  { name: 'The Emirates FA Cup', id: 'UCChcWqwYXCEs657MQ00qVWA', src: 'g', leagues: ["FACUP"], must: /(highlights|key moments)/i, not: /crazy|goals$|best of|shorts/i, script: 'latin' },
+  { name: 'EFL', id: 'UCCmo_NIuQR5eU4AvBa6sEQQ', src: 'g', leagues: ["EFL","EFLCUP"], must: /extended highlights/i, not: /women|goal hero|shorts|black history/i, script: 'latin' },
+  { name: 'SPFL', id: 'UCakRszbIjjGYtFrDPeg5Ieg', src: 'g', leagues: ["SCOTLAND"], must: /\| highlights \|/i, not: /round-up|women/i, script: 'latin' },
+  { name: 'TV 2 Sport', id: 'UC9QZZRUajPEoo1Q-V3MfvnQ', src: 'g', leagues: ["NORWAY"], must: /høydepunkter|\d+ - \d+/i, not: /intervju|reaksjon/i, script: 'latin' },
+  { name: 'Pro League', id: 'UCZYeLruZnUvYvO6QRTiy88Q', src: 'g', leagues: ["BELGIUM"], must: /^samenvatting \|/i, not: /lwpl|doelpunten/i, script: 'latin' },
+  { name: 'The AFC Hub', id: 'UCnj0TjaM0wyxkAWW_nz8_1g', src: 'g', leagues: ["ACL2"], must: /vs.*highlights.*acl two/i, not: /all highlights|top saves|top headers/i, script: 'latin' },
+  { name: 'NBL Australia', id: 'UCQOt5-Mc5m03JCO_W9SWySA', src: 'bk', leagues: ["NBL"], must: /game highlights/i, not: /press conference|top 10|moments that mattered|full highlights/i },
+  { name: 'FIBA Basketball', id: 'UCtInrnU3QbWqFGsdKT1GZtg', src: 'bk', leagues: ["FIBA"], must: /(extended )?highlights/i, not: /full basketball game|full game|3x3/i },
+  { name: 'FIFA', id: 'UCpcTrCXblq78GZrTUTLWeBw', src: 'g', leagues: ["U20WOMENWORLDCUP","INTERCONTINENTALCUP"], must: /highlights/i, not: /world cup (19|20)\d\d.*(goals|volley)|1-min|throwback|sixty|60 seconds/i, script: 'latin' },
   { name: 'MLS', id: 'UCSZbXT5TLLW_i-5W8FZpFsg', src: 'g', leagues: ['MLS'], must: /highlights/i, not: /shorts/i },
 ];
 
@@ -162,7 +185,7 @@ async function main() {
   };
   const aliasS = (name, script) => {
     const ok = (a) => script === 'ko' ? /[가-힣]/.test(a) : /^[ -~À-ɏ]+$/.test(a);
-    return [...new Set([name, teamEn[name], ...(tAl[name] || [])].filter(Boolean).map(norm))].filter((a) => ok(a) && a.length >= (script === 'ko' ? 2 : 4) && !GENERIC.has(a));
+    return [...new Set([name.replace(/\s*\((남자|여자)\)$/, ''), teamEn[name], ...(tAl[name] || [])].filter(Boolean).map(norm))].filter((a) => ok(a) && a.length >= (script === 'ko' ? 2 : 4) && !GENERIC.has(a));
   };
   const prep = (t, ch) => (ch.script === 'latin' ? t.replace(/\butd\b\.?/g, 'united').replace(/\bman\b/g, 'manchester') : t);
   const aliasBk = (k) => { const t = bkTeams[k]; if (!t) return []; const w = (t.en || '').split(' '); if (t.lg === 'KBL' && t.ko) return [t.ko, t.ko.split(' ').slice(-1)[0]]; return [t.en, w.slice(-1)[0], w.slice(-2).join(' '), t.ko, t.ja].filter(Boolean); };
