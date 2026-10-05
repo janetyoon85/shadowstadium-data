@@ -647659,18 +647659,16 @@
     "status": "live",
     "homeScore": 10,
     "awayScore": 5,
-    "inningInfo": "8회말",
+    "inningInfo": "9회초",
     "liveState": {
-      "pitcher": "Cody Adcock",
-      "batter": "Jared Thomas",
-      "pitcherPid": "mlb:694832",
-      "batterPid": "mlb:703606",
-      "ball": 2,
-      "strike": 0,
-      "out": 2,
-      "bases": [
-        2
-      ]
+      "pitcher": "Noah Dean",
+      "batter": "Sammy Hernandez",
+      "pitcherPid": "mlb:688629",
+      "batterPid": "mlb:803679",
+      "ball": 1,
+      "strike": 2,
+      "out": 0,
+      "bases": []
     }
   },
   {
@@ -647688,20 +647686,20 @@
     "homePitcher": "개빈 윌리엄스",
     "awayPitcherPid": "mlb:641743",
     "homePitcherPid": "mlb:668909",
-    "awayScore": 1,
+    "awayScore": 3,
     "homeScore": 2,
     "inningInfo": "6회초",
     "liveState": {
       "pitcher": "사브로스키",
-      "batter": "팸",
-      "ball": 3,
-      "strike": 1,
-      "out": 1,
+      "batter": "메이드로스",
+      "ball": 0,
+      "strike": 0,
+      "out": 2,
       "bases": [
-        2,
-        3
+        2
       ],
-      "pitchCount": 9
+      "pitchCount": 11,
+      "batterPid": "mlb:805367"
     },
     "highlights": {
       "home": [
@@ -647713,7 +647711,15 @@
           "pid": "mlb:664040"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "how": "2루타",
+          "text": "몽고메리 우익선상 2루타",
+          "player": "몽고메리",
+          "inn": "6회초",
+          "pid": "mlb:695657"
+        }
+      ]
     },
     "round": "ps_alds",
     "rn": 2
@@ -647741,6 +647747,13 @@
           "m": 41,
           "pid": "espn:342002",
           "nat": "Argentina"
+        },
+        {
+          "n": "Luciano Paredes",
+          "type": "Y",
+          "m": 52,
+          "pid": "espn:339037",
+          "nat": "Argentina"
         }
       ]
     }
@@ -647756,7 +647769,7 @@
     "timeTbd": false,
     "gameId": "ARGENTINA_ESPN_401841585",
     "status": "live",
-    "matchPeriod": "하프타임",
+    "matchPeriod": "후반",
     "homeScore": 1,
     "awayScore": 1,
     "scorers": {
