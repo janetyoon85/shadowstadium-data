@@ -126,8 +126,7 @@ async function main() {
     }
     console.log(`[hl] ${ch.name} videos=${vids.length}`);
   }
-  if (API_KEY && DEEP) writeFileSync(DEEP_F, JSON.stringify({ t: NOW.getTime() }) + '
-');
+  if (API_KEY && DEEP) writeFileSync(DEEP_F, JSON.stringify({ t: NOW.getTime() }) + '\n');
   const sorted = Object.fromEntries(Object.entries(out).sort(([a], [b]) => (a < b ? -1 : 1)));
   await fs.writeFile(OUT, JSON.stringify(sorted, null, 1) + '\n');
   console.log(`[hl] added=${added} total=${Object.keys(sorted).length}`);
