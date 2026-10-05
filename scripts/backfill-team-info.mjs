@@ -218,6 +218,13 @@ async function loadPage(title, summary) {
     const extra = (cm?.query?.categorymembers || []).map((m) => m.title).filter((t) => /\.jpe?g$/i.test(t) && !/^File:\d{4}[ _.-]\d/.test(t) && !/logo|crest|badge|flag|map|kit|shirt|jersey|ticket|stamp|poster|coat|emblem/i.test(t));
     for (const t of extra) { if (files.length >= 5) break; if (!files.includes(t)) files.push(t); }
   }
+  const home = cur('P115', 1)[0];
+  if (home && files.length < 3) {
+    const he = await get(`https://www.wikidata.org/wiki/Special:EntityData/${home}.json`);
+    await pause();
+    const himg = (he?.entities?.[home]?.claims?.P18 || []).map(val).find((x) => typeof x === 'string');
+    if (himg && !files.includes(`File:${himg}`)) files.push(`File:${himg}`);
+  }
   info.pc = 1;
   if (files.length) {
     const uniq = [...new Set(files)].slice(0, 6);
@@ -278,7 +285,7 @@ async function main() {
   for (const k of Object.keys(cache)) if (!(k in meta)) meta[k] = today;
   const REFRESH_DAYS = Number(process.env.TEAM_INFO_REFRESH_DAYS || 90);
   const fresh = Object.keys(names).filter((k) => !(k in cache) && (!only || only.includes(k)));
-  const stale = Object.keys(names).filter((k) => k in cache && (today - (meta[k] ?? today) >= REFRESH_DAYS || (cache[k] && !(k in aliases)) || (cache[k] && cache[k].photos && !cache[k].pc)) && (!only || only.includes(k))).sort((a, b) => meta[a] - meta[b]);
+  const stale = Object.keys(names).filter((k) => k in cache && (today - (meta[k] ?? today) >= REFRESH_DAYS || (cache[k] && !(k in aliases)) || (cache[k] && !cache[k].pc)) && (!only || only.includes(k))).sort((a, b) => meta[a] - meta[b]);
   const bkFirst = (a, b) => (b.startsWith('bk:') ? 1 : 0) - (a.startsWith('bk:') ? 1 : 0);
   const todo = [...fresh.sort(bkFirst), ...stale];
   console.log(`[team-info] total=${Object.keys(names).length} cached=${Object.keys(cache).length} todo=${todo.length} (stale=${stale.length}) budget=${BUDGET}`);
