@@ -647193,8 +647193,8 @@
           "m": 64,
           "a": "Nicolò Barella",
           "nat": "Italy",
-          "pid": "espn:298329",
           "aNat": "Italy",
+          "pid": "espn:298329",
           "apid": "espn:204441"
         },
         {
@@ -647202,8 +647202,8 @@
           "m": 87,
           "a": "Alessandro Romano",
           "nat": "Italy",
-          "pid": "espn:362674",
           "aNat": "Switzerland",
+          "pid": "espn:362674",
           "apid": "espn:6729"
         }
       ],
@@ -647213,8 +647213,8 @@
           "m": 61,
           "a": "Eren Elmali",
           "nat": "Türkiye",
-          "pid": "espn:303000",
           "aNat": "Türkiye",
+          "pid": "espn:303000",
           "apid": "espn:287678"
         }
       ]
@@ -647431,9 +647431,9 @@
     "timeTbd": false,
     "gameId": "PARAGUAY_ESPN_401888659",
     "status": "live",
-    "matchPeriod": "전반",
-    "homeScore": 1,
-    "awayScore": 0,
+    "matchPeriod": "후반",
+    "homeScore": 2,
+    "awayScore": 2,
     "scorers": {
       "home": [
         {
@@ -647441,18 +647441,60 @@
           "m": 5,
           "nat": "Argentina",
           "pid": "espn:379094"
+        },
+        {
+          "n": "Néstor Camacho",
+          "m": 45,
+          "pk": true,
+          "nat": "Paraguay",
+          "pid": "espn:95633"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Iván Maggi",
+          "m": 43,
+          "nat": "Argentina",
+          "pid": "espn:295851"
+        },
+        {
+          "n": "Iván Maggi",
+          "m": 63,
+          "nat": "Argentina",
+          "pid": "espn:295851"
+        }
+      ]
     },
     "cards": {
-      "home": [],
+      "home": [
+        {
+          "n": "Nelson Gauto",
+          "type": "Y",
+          "m": 61,
+          "pid": "espn:353457",
+          "nat": "Paraguay"
+        },
+        {
+          "n": "Tomás Rayer",
+          "type": "Y",
+          "m": 65,
+          "pid": "espn:379094",
+          "nat": "Argentina"
+        }
+      ],
       "away": [
         {
           "n": "Alexis Cantero",
           "type": "Y",
           "m": 12,
           "pid": "espn:336402",
+          "nat": "Paraguay"
+        },
+        {
+          "n": "Aldo Maíz",
+          "type": "Y",
+          "m": 69,
+          "pid": "espn:270663",
           "nat": "Paraguay"
         }
       ]
@@ -647470,17 +647512,18 @@
     "gameId": "AFL_MLBSTATS_867727",
     "status": "live",
     "homeScore": 1,
-    "awayScore": 0,
+    "awayScore": 1,
     "inningInfo": "4회초",
     "liveState": {
-      "pitcher": "Cesar Lares",
-      "batter": "Yerlin Confidan",
-      "pitcherPid": "mlb:800544",
-      "batterPid": "mlb:691398",
-      "ball": 1,
-      "strike": 1,
+      "pitcher": "Joe Ariola",
+      "batter": "Brandon Butterworth",
+      "pitcherPid": "mlb:813409",
+      "batterPid": "mlb:822578",
+      "ball": 0,
+      "strike": 2,
       "out": 1,
       "bases": [
+        1,
         2
       ]
     }
@@ -647502,15 +647545,16 @@
     "homePitcherPid": "mlb:668909",
     "awayScore": 0,
     "homeScore": 2,
-    "inningInfo": "1회말",
+    "inningInfo": "2회초",
     "liveState": {
-      "pitcher": "뉴컴",
+      "pitcher": "윌리엄스",
       "batter": "베닌텐디",
       "ball": 0,
       "strike": 0,
       "out": 0,
       "bases": [],
-      "pitchCount": 14,
+      "pitchCount": 15,
+      "pitcherPid": "mlb:675961",
       "batterPid": "mlb:643217"
     },
     "highlights": {
