@@ -439,12 +439,30 @@ function convertGame(n, cat, stadiumMap, mapFailures) {
   // 리그전(KBO 등)에는 필드 자체가 없음. leg 는 1/2(다전제 토너먼트 1차전/2차전)만 저장 —
   // leg:0(단판)은 표시할 게 없어 생략. 합계 스코어는 leg 있는 경기에만 의미 있어 같이 조건.
   if (n.phaseCode) game.phaseCode = n.phaseCode;
+  // 야구 포스트시즌(와일드카드/준PO/PO/한국시리즈/일본시리즈/월드시리즈 등) — roundCode 가 kbo_ps_ks, npb_js, mlb_ps_ws 형태(실측 2025).
+  const rc = /^(?:kbo|npb|mlb)_(ps_\w+|js)$/.exec(n.roundCode || '');
+  if (rc && BASEBALL_LEAGUES.has(cat.league)) game.round = rc[1];
   if (n.leg === 1 || n.leg === 2) {
     game.leg = n.leg;
     if (typeof n.homeAggregateScore === 'number') game.homeAggregateScore = n.homeAggregateScore;
     if (typeof n.awayAggregateScore === 'number') game.awayAggregateScore = n.awayAggregateScore;
   }
   return game;
+}
+
+// 포스트시즌 N차전 — 같은 라운드+같은 두 팀의 경기를 날짜/시각순으로 번호 매김.
+function assignSeriesNum(games) {
+  const groups = new Map();
+  for (const g of games) {
+    if (!g.round || g.status === 'cancelled') continue;
+    const key = `${g.league}|${g.round}|${[g.home, g.away].sort().join('|')}`;
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(g);
+  }
+  for (const grp of groups.values()) {
+    grp.sort((a, b) => (a.date + a.time).localeCompare(b.date + b.time));
+    grp.forEach((g, i) => { g.rn = i + 1; });
+  }
 }
 
 function assignDoubleheaderNum(games) {
@@ -1923,6 +1941,8 @@ function serializeGame(g) {
   if (g.assists) out.assists = g.assists;
   // 토너먼트 라운드/차전 — 있는 리그(국가대표·클럽컵 등)만, 리그전은 필드 자체 없음.
   if (g.phaseCode) out.phaseCode = g.phaseCode;
+  if (g.round) out.round = g.round;
+  if (g.rn) out.rn = g.rn;
   if (g.leg) out.leg = g.leg;
   if (typeof g.homeAggregateScore === 'number') out.homeAggregateScore = g.homeAggregateScore;
   if (typeof g.awayAggregateScore === 'number') out.awayAggregateScore = g.awayAggregateScore;
@@ -2006,6 +2026,7 @@ async function main() {
     console.log(`\n[mapping] all stadium texts mapped successfully`);
   }
 
+  assignSeriesNum(allGames);
   const dh = assignDoubleheaderNum(allGames);
   console.log(`\n[doubleheader] ${dh.count} groups detected`);
   for (const s of dh.samples) console.log(`  ${s.key} → ${s.times.join(', ')}`);
