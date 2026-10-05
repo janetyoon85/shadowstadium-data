@@ -211,6 +211,14 @@ async function loadPage(title, summary) {
   const files = [];
   const img = val((cl.P18 || [])[0]);
   if (typeof img === 'string') files.push(`File:${img}`);
+  const cat = val((cl.P373 || [])[0]);
+  if (typeof cat === 'string') {
+    const cm = await get(`https://commons.wikimedia.org/w/api.php?${new URLSearchParams({ action: 'query', format: 'json', list: 'categorymembers', cmtitle: `Category:${cat}`, cmtype: 'file', cmlimit: '40' })}`);
+    await pause();
+    const extra = (cm?.query?.categorymembers || []).map((m) => m.title).filter((t) => /\.jpe?g$/i.test(t) && !/^File:\d{4}[ _.-]\d/.test(t) && !/logo|crest|badge|flag|map|kit|shirt|jersey|ticket|stamp|poster|coat|emblem/i.test(t));
+    for (const t of extra) { if (files.length >= 5) break; if (!files.includes(t)) files.push(t); }
+  }
+  info.pc = 1;
   if (files.length) {
     const uniq = [...new Set(files)].slice(0, 6);
     const ii = await get(`https://commons.wikimedia.org/w/api.php?${new URLSearchParams({ action: 'query', format: 'json', titles: uniq.join('|'), prop: 'imageinfo', iiprop: 'url|mime', iiurlwidth: '800' })}`);
@@ -270,7 +278,7 @@ async function main() {
   for (const k of Object.keys(cache)) if (!(k in meta)) meta[k] = today;
   const REFRESH_DAYS = Number(process.env.TEAM_INFO_REFRESH_DAYS || 90);
   const fresh = Object.keys(names).filter((k) => !(k in cache) && (!only || only.includes(k)));
-  const stale = Object.keys(names).filter((k) => k in cache && (today - (meta[k] ?? today) >= REFRESH_DAYS || (cache[k] && !(k in aliases))) && (!only || only.includes(k))).sort((a, b) => meta[a] - meta[b]);
+  const stale = Object.keys(names).filter((k) => k in cache && (today - (meta[k] ?? today) >= REFRESH_DAYS || (cache[k] && !(k in aliases)) || (cache[k] && cache[k].photos && !cache[k].pc)) && (!only || only.includes(k))).sort((a, b) => meta[a] - meta[b]);
   const bkFirst = (a, b) => (b.startsWith('bk:') ? 1 : 0) - (a.startsWith('bk:') ? 1 : 0);
   const todo = [...fresh.sort(bkFirst), ...stale];
   console.log(`[team-info] total=${Object.keys(names).length} cached=${Object.keys(cache).length} todo=${todo.length} (stale=${stale.length}) budget=${BUDGET}`);
