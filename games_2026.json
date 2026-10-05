@@ -646185,7 +646185,7 @@
       "pitcherPid": "kbo:p:56967",
       "batter": "고명준",
       "batterPid": "kbo:b:51868",
-      "ball": 0,
+      "ball": 1,
       "strike": 0,
       "out": 0,
       "bases": [],
@@ -646297,13 +646297,14 @@
       "pitcherPid": "kbo:p:54263",
       "batter": "최형우",
       "batterPid": "kbo:b:72443",
-      "ball": 0,
+      "ball": 1,
       "strike": 0,
       "out": 2,
       "bases": [
         1,
         2
-      ]
+      ],
+      "pitchCount": 1
     },
     "highlights": {
       "home": [
@@ -646398,13 +646399,13 @@
       "pitcherPid": "kbo:p:69645",
       "batter": "히우라",
       "batterPid": "kbo:b:56305",
-      "ball": 1,
+      "ball": 2,
       "strike": 2,
       "out": 1,
       "bases": [
         1
       ],
-      "pitchCount": 7
+      "pitchCount": 9
     },
     "highlights": {
       "home": [
@@ -646492,13 +646493,13 @@
       "pitcherPid": "kbo:p:61145",
       "batter": "김호령",
       "batterPid": "kbo:b:65653",
-      "ball": 1,
-      "strike": 1,
+      "ball": 2,
+      "strike": 2,
       "out": 2,
       "bases": [
-        1
+        2
       ],
-      "pitchCount": 11
+      "pitchCount": 13
     },
     "highlights": {
       "home": [
@@ -646538,6 +646539,13 @@
           "player": "김호령",
           "inn": "4회초",
           "pid": "kbo:b:65653"
+        },
+        {
+          "how": "폭투",
+          "text": "김규성 폭투로 2루까지 진루",
+          "player": "김규성",
+          "inn": "6회초",
+          "pid": "kbo:b:66614"
         }
       ]
     }
@@ -646563,13 +646571,15 @@
     "liveState": {
       "pitcher": "구승민",
       "pitcherPid": "kbo:p:63543",
-      "batter": "장성우",
-      "batterPid": "kbo:b:78548",
+      "batter": "류현인",
+      "batterPid": "kbo:b:53036",
       "ball": 0,
       "strike": 0,
       "out": 1,
-      "bases": [],
-      "pitchCount": 10
+      "bases": [
+        2
+      ],
+      "pitchCount": 13
     },
     "highlights": {
       "home": [
@@ -646621,6 +646631,13 @@
           "player": "안현민",
           "inn": "7회말",
           "pid": "kbo:b:52001"
+        },
+        {
+          "how": "2루타",
+          "text": "장성우 좌중간 2루타",
+          "player": "장성우",
+          "inn": "7회말",
+          "pid": "kbo:b:78548"
         }
       ],
       "away": []
@@ -663540,114 +663557,6 @@
   {
     "date": "2026-10-28",
     "time": "03:00",
-    "league": "PERU",
-    "venueId": "complejo_juan_pablo_ii",
-    "home": "후안 파블로 세군도",
-    "away": "스포르트 우앙카요",
-    "stadium": "Estadio Municipal de la Juventud",
-    "timeTbd": true,
-    "gameId": "PERU_ESPN_401886153",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-10-28",
-    "time": "03:00",
-    "league": "PERU",
-    "venueId": "estadio_heroes_san_ramon",
-    "home": "FC 카하마르카",
-    "away": "UTC",
-    "stadium": "Estadio Héroes de San Ramón",
-    "timeTbd": true,
-    "gameId": "PERU_ESPN_401886154",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-10-28",
-    "time": "03:00",
-    "league": "PERU",
-    "venueId": "estadio_inca_garcilaso",
-    "home": "시엔시아노 델 쿠스코",
-    "away": "아틀레티코 그라우",
-    "stadium": "Estadio Inca Garcilaso de la Vega",
-    "timeTbd": true,
-    "gameId": "PERU_ESPN_401886152",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-10-28",
-    "time": "03:00",
-    "league": "PERU",
-    "venueId": "estadio_los_chankas",
-    "home": "로스 창카스",
-    "away": "쿠스코 FC",
-    "stadium": "Estadio Los Chankas",
-    "timeTbd": true,
-    "gameId": "PERU_ESPN_401886155",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-10-28",
-    "time": "03:00",
-    "league": "PERU",
-    "venueId": "estadio_mansiche",
-    "home": "알리안사 아틀레티코",
-    "away": "데포르티보 가르실라소",
-    "stadium": "Estadio Campeones del '36",
-    "timeTbd": true,
-    "gameId": "PERU_ESPN_401886130",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-10-28",
-    "time": "03:00",
-    "league": "PERU",
-    "venueId": "estadio_monumental_lima",
-    "home": "우니베르시타리오",
-    "away": "스포르트 보이스",
-    "stadium": "Estadio Monumental de Lima",
-    "timeTbd": true,
-    "gameId": "PERU_ESPN_401886151",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-10-28",
-    "time": "03:00",
-    "league": "PERU",
-    "venueId": "estadio_monumental_unsa",
-    "home": "멜가르",
-    "away": "코메르시안테스 우니도스",
-    "stadium": "Estadio Monumental de la UNSA",
-    "timeTbd": true,
-    "gameId": "PERU_ESPN_401886150",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-10-28",
-    "time": "03:00",
-    "league": "PERU",
-    "venueId": "estadio_nacional_lima",
-    "home": "스포르팅 크리스탈",
-    "away": "알리안사 리마",
-    "stadium": "Estadio Alberto Gallardo",
-    "timeTbd": true,
-    "gameId": "PERU_ESPN_401886131",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-10-28",
-    "time": "03:00",
-    "league": "PERU",
-    "venueId": "estadio_union_tarma",
-    "home": "ADT",
-    "away": "데포르티보 모케과",
-    "stadium": "Estadio Unión Tarma",
-    "timeTbd": true,
-    "gameId": "PERU_ESPN_401886129",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-10-28",
-    "time": "03:00",
     "league": "SWEDEN",
     "venueId": "friends_arena_solna",
     "home": "AIK",
@@ -663784,6 +663693,18 @@
     "gameId": "sfS8PQb5Vrnn42L",
     "status": "scheduled",
     "phaseCode": "T16"
+  },
+  {
+    "date": "2026-10-28",
+    "time": "05:00",
+    "league": "PERU",
+    "venueId": "complejo_juan_pablo_ii",
+    "home": "후안 파블로 세군도",
+    "away": "스포르트 우앙카요",
+    "stadium": "Complejo Deportivo Juan Pablo II",
+    "timeTbd": false,
+    "gameId": "PERU_ESPN_401886153",
+    "status": "scheduled"
   },
   {
     "date": "2026-10-28",
@@ -664095,6 +664016,18 @@
   },
   {
     "date": "2026-10-29",
+    "time": "01:00",
+    "league": "PERU",
+    "venueId": "estadio_union_tarma",
+    "home": "ADT",
+    "away": "데포르티보 모케과",
+    "stadium": "Estadio Unión Tarma",
+    "timeTbd": false,
+    "gameId": "PERU_ESPN_401886129",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-29",
     "time": "02:00",
     "league": "DFBPOKAL",
     "venueId": "europa_park_stadion",
@@ -664254,6 +664187,18 @@
     "gameId": "K1dutuf3p8qJkth",
     "status": "scheduled",
     "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-29",
+    "time": "03:15",
+    "league": "PERU",
+    "venueId": "estadio_heroes_san_ramon",
+    "home": "FC 카하마르카",
+    "away": "UTC",
+    "stadium": "Estadio Héroes de San Ramón",
+    "timeTbd": false,
+    "gameId": "PERU_ESPN_401886154",
+    "status": "scheduled"
   },
   {
     "date": "2026-10-29",
@@ -664494,6 +664439,18 @@
   },
   {
     "date": "2026-10-29",
+    "time": "05:30",
+    "league": "PERU",
+    "venueId": "estadio_mansiche",
+    "home": "알리안사 아틀레티코",
+    "away": "데포르티보 가르실라소",
+    "stadium": "Estadio Campeones del '36",
+    "timeTbd": false,
+    "gameId": "PERU_ESPN_401886130",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-29",
     "time": "07:30",
     "league": "BRASILEIRAO",
     "venueId": "estadio_nabi_abi_chedid_braganca",
@@ -664688,6 +664645,18 @@
     "gameId": "nphxn3gMsvvL5UW",
     "status": "scheduled",
     "phaseCode": "LEAGUE"
+  },
+  {
+    "date": "2026-10-29",
+    "time": "09:00",
+    "league": "PERU",
+    "venueId": "estadio_inca_garcilaso",
+    "home": "시엔시아노 델 쿠스코",
+    "away": "아틀레티코 그라우",
+    "stadium": "Estadio Inca Garcilaso de la Vega",
+    "timeTbd": false,
+    "gameId": "PERU_ESPN_401886152",
+    "status": "scheduled"
   },
   {
     "date": "2026-10-29",
@@ -665115,6 +665084,18 @@
   {
     "date": "2026-10-30",
     "time": "03:00",
+    "league": "PERU",
+    "venueId": "estadio_los_chankas",
+    "home": "로스 창카스",
+    "away": "쿠스코 FC",
+    "stadium": "Estadio Los Chankas",
+    "timeTbd": false,
+    "gameId": "PERU_ESPN_401886155",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-30",
+    "time": "03:00",
     "league": "SAUDI",
     "venueId": "al_awwal_park",
     "home": "알 나스르",
@@ -665195,6 +665176,18 @@
     "stadium": "Camelback Ranch",
     "timeTbd": false,
     "gameId": "AFL_MLBSTATS_867668",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-30",
+    "time": "05:30",
+    "league": "PERU",
+    "venueId": "estadio_nacional_lima",
+    "home": "스포르팅 크리스탈",
+    "away": "알리안사 리마",
+    "stadium": "Estadio Alberto Gallardo",
+    "timeTbd": false,
+    "gameId": "PERU_ESPN_401886131",
     "status": "scheduled"
   },
   {
@@ -665303,6 +665296,18 @@
     "stadium": "Arena do Grêmio",
     "timeTbd": false,
     "gameId": "BRASILEIRAO_ESPN_401841290",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-30",
+    "time": "09:30",
+    "league": "PERU",
+    "venueId": "estadio_monumental_unsa",
+    "home": "멜가르",
+    "away": "코메르시안테스 우니도스",
+    "stadium": "Estadio Monumental de la UNSA",
+    "timeTbd": false,
+    "gameId": "PERU_ESPN_401886150",
     "status": "scheduled"
   },
   {
@@ -666776,114 +666781,6 @@
   {
     "date": "2026-11-01",
     "time": "03:00",
-    "league": "PERU",
-    "venueId": "estadio_alejandro_villanueva",
-    "home": "알리안사 리마",
-    "away": "시엔시아노 델 쿠스코",
-    "stadium": "Estadio Alejandro Villanueva",
-    "timeTbd": true,
-    "gameId": "PERU_ESPN_401886148",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-11-01",
-    "time": "03:00",
-    "league": "PERU",
-    "venueId": "estadio_campeones_del_36",
-    "home": "아틀레티코 그라우",
-    "away": "우니베르시타리오",
-    "stadium": "Estadio Campeones del '36",
-    "timeTbd": true,
-    "gameId": "PERU_ESPN_401886126",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-11-01",
-    "time": "03:00",
-    "league": "PERU",
-    "venueId": "estadio_german_contreras",
-    "home": "UTC",
-    "away": "데포르티보 가르실라소",
-    "stadium": "Estadio Germán Contreras",
-    "timeTbd": true,
-    "gameId": "PERU_ESPN_401886147",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-11-01",
-    "time": "03:00",
-    "league": "PERU",
-    "venueId": "estadio_huancayo",
-    "home": "스포르트 우앙카요",
-    "away": "멜가르",
-    "stadium": "Estadio Huancayo",
-    "timeTbd": true,
-    "gameId": "PERU_ESPN_401886127",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-11-01",
-    "time": "03:00",
-    "league": "PERU",
-    "venueId": "estadio_inca_garcilaso",
-    "home": "쿠스코 FC",
-    "away": "스포르트 보이스",
-    "stadium": "Estadio Inca Garcilaso de la Vega",
-    "timeTbd": true,
-    "gameId": "PERU_ESPN_401886146",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-11-01",
-    "time": "03:00",
-    "league": "PERU",
-    "venueId": "estadio_ivan_elias_moreno",
-    "home": "데포르티보 모케과",
-    "away": "로스 창카스",
-    "stadium": "Estadio 25 de Noviembre",
-    "timeTbd": true,
-    "gameId": "PERU_ESPN_401886124",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-11-01",
-    "time": "03:00",
-    "league": "PERU",
-    "venueId": "estadio_juan_maldonado_gamarra",
-    "home": "코메르시안테스 우니도스",
-    "away": "ADT",
-    "stadium": "Juan Maldonado Gamarra",
-    "timeTbd": true,
-    "gameId": "PERU_ESPN_401886128",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-11-01",
-    "time": "03:00",
-    "league": "PERU",
-    "venueId": "estadio_mansiche",
-    "home": "알리안사 아틀레티코",
-    "away": "후안 파블로 세군도",
-    "stadium": "Estadio Campeones del '36",
-    "timeTbd": true,
-    "gameId": "PERU_ESPN_401886149",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-11-01",
-    "time": "03:00",
-    "league": "PERU",
-    "venueId": "estadio_nacional_lima",
-    "home": "스포르팅 크리스탈",
-    "away": "FC 카하마르카",
-    "stadium": "Estadio Alberto Gallardo",
-    "timeTbd": true,
-    "gameId": "PERU_ESPN_401886125",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-11-01",
-    "time": "03:00",
     "league": "SAUDI",
     "venueId": "kingdom_arena",
     "home": "알 힐랄",
@@ -667073,6 +666970,18 @@
     "stadium": "캄 노우",
     "timeTbd": false,
     "gameId": "ACU3Dymq7I1Zcnw",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-01",
+    "time": "05:30",
+    "league": "PERU",
+    "venueId": "estadio_mansiche",
+    "home": "알리안사 아틀레티코",
+    "away": "후안 파블로 세군도",
+    "stadium": "Estadio Campeones del '36",
+    "timeTbd": false,
+    "gameId": "PERU_ESPN_401886149",
     "status": "scheduled"
   },
   {
@@ -668017,6 +667926,18 @@
   {
     "date": "2026-11-02",
     "time": "01:00",
+    "league": "PERU",
+    "venueId": "estadio_ivan_elias_moreno",
+    "home": "데포르티보 모케과",
+    "away": "로스 창카스",
+    "stadium": "Estadio 25 de Noviembre",
+    "timeTbd": false,
+    "gameId": "PERU_ESPN_401886124",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-02",
+    "time": "01:00",
     "league": "SOUTHAFRICA",
     "venueId": "richards_bay_stadium",
     "home": "밀포드 FC",
@@ -668264,6 +668185,18 @@
     "stadium": "Intility Arena",
     "timeTbd": false,
     "gameId": "NORWAY_ESPN_401843469",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-02",
+    "time": "03:15",
+    "league": "PERU",
+    "venueId": "estadio_inca_garcilaso",
+    "home": "쿠스코 FC",
+    "away": "스포르트 보이스",
+    "stadium": "Estadio Inca Garcilaso de la Vega",
+    "timeTbd": false,
+    "gameId": "PERU_ESPN_401886146",
     "status": "scheduled"
   },
   {
@@ -668689,6 +668622,18 @@
   {
     "date": "2026-11-02",
     "time": "05:30",
+    "league": "PERU",
+    "venueId": "estadio_campeones_del_36",
+    "home": "아틀레티코 그라우",
+    "away": "우니베르시타리오",
+    "stadium": "Estadio Manische",
+    "timeTbd": false,
+    "gameId": "PERU_ESPN_401886126",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-02",
+    "time": "05:30",
     "league": "PORTUGAL",
     "venueId": "braga_municipal",
     "home": "브라가",
@@ -668962,6 +668907,18 @@
   },
   {
     "date": "2026-11-03",
+    "time": "01:00",
+    "league": "PERU",
+    "venueId": "estadio_huancayo",
+    "home": "스포르트 우앙카요",
+    "away": "멜가르",
+    "stadium": "Estadio Huancayo",
+    "timeTbd": false,
+    "gameId": "PERU_ESPN_401886127",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-03",
     "time": "02:00",
     "league": "TURKEY",
     "venueId": "eryaman_stadyumu_ankara",
@@ -669060,6 +669017,18 @@
   },
   {
     "date": "2026-11-03",
+    "time": "03:15",
+    "league": "PERU",
+    "venueId": "estadio_german_contreras",
+    "home": "UTC",
+    "away": "데포르티보 가르실라소",
+    "stadium": "Estadio Héroes de San Ramón",
+    "timeTbd": false,
+    "gameId": "PERU_ESPN_401886147",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-03",
     "time": "04:45",
     "league": "SERIEA",
     "venueId": "gewiss_stadium",
@@ -669140,6 +669109,18 @@
     "stadium": "Sloan Park",
     "timeTbd": false,
     "gameId": "AFL_MLBSTATS_867664",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-03",
+    "time": "05:30",
+    "league": "PERU",
+    "venueId": "estadio_nacional_lima",
+    "home": "스포르팅 크리스탈",
+    "away": "FC 카하마르카",
+    "stadium": "Estadio Alberto Gallardo",
+    "timeTbd": false,
+    "gameId": "PERU_ESPN_401886125",
     "status": "scheduled"
   },
   {
@@ -669553,6 +669534,18 @@
   {
     "date": "2026-11-04",
     "time": "05:00",
+    "league": "PERU",
+    "venueId": "estadio_juan_maldonado_gamarra",
+    "home": "코메르시안테스 우니도스",
+    "away": "ADT",
+    "stadium": "Juan Maldonado Gamarra",
+    "timeTbd": false,
+    "gameId": "PERU_ESPN_401886128",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-04",
+    "time": "05:00",
     "league": "UCL",
     "venueId": "bodo_glimt_aspmyra",
     "home": "보되 / 글림트",
@@ -669759,6 +669752,18 @@
     "stadium": "Estadio Beira-Rio",
     "timeTbd": false,
     "gameId": "BRASILEIRAO_ESPN_401841301",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-04",
+    "time": "10:00",
+    "league": "PERU",
+    "venueId": "estadio_alejandro_villanueva",
+    "home": "알리안사 리마",
+    "away": "시엔시아노 델 쿠스코",
+    "stadium": "Estadio Alejandro Villanueva",
+    "timeTbd": false,
+    "gameId": "PERU_ESPN_401886148",
     "status": "scheduled"
   },
   {
@@ -670462,6 +670467,18 @@
     "stadium": "Scottsdale Stadium",
     "timeTbd": false,
     "gameId": "AFL_MLBSTATS_867655",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-05",
+    "time": "10:30",
+    "league": "PERU",
+    "venueId": "estadio_monumental_lima",
+    "home": "우니베르시타리오",
+    "away": "스포르트 보이스",
+    "stadium": "Estadio Monumental de Lima",
+    "timeTbd": false,
+    "gameId": "PERU_ESPN_401886151",
     "status": "scheduled"
   },
   {
