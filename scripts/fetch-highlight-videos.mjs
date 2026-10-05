@@ -1,7 +1,8 @@
 // 경기 하이라이트 영상(YouTube) 매칭(2026-10-05, 사용자: "경기 유튜브 하이라이트 먼저 하고 매일 남는양으로 선수 응원가").
 // 공식 리그 채널의 업로드 목록에서 "양 팀 이름이 제목에 들어간 하이라이트 영상"을 종료된 경기에 연결 → highlights-video.json.
 // 앱은 이 JSON만 읽음(런타임 YouTube 호출 0회). 출력: { [gameId]: { v: 영상ID, t: 제목 } } (농구는 basketball 경기 id).
-// 소스: 평시 무료 RSS(최근 15개, 쿼터 0). 하루 4회(UTC 0/6/12/18시 정각대)만 uploads 플레이리스트(playlistItems.list 페이지당 1유닛)로 깊게 훑음(≈250유닛/일). HL_DEEP=1이면 강제.
+// 소스: 평시 무료 RSS(최근 15개, 쿼터 0). 마지막 딥스캔 후 6시간 지난 실행에서만(하루 4회, highlights-deep.json에 기록) uploads 플레이리스트(playlistItems.list 페이지당 1유닛)로 깊게 훑음(≈250유닛/일). HL_DEEP=1이면 강제.
+import { readFileSync, writeFileSync } from 'node:fs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -59,7 +60,10 @@ const has = (title, a) => {
 const KST = 9 * 3600e3;
 
 const NOW = new Date();
-const DEEP = process.env.HL_DEEP === '1' || (NOW.getUTCHours() % 6 === 0 && NOW.getUTCMinutes() < 20);
+const DEEP_F = new URL('../highlights-deep.json', import.meta.url);
+let lastDeep = 0;
+try { lastDeep = JSON.parse(readFileSync(DEEP_F, 'utf8')).t || 0; } catch {}
+const DEEP = process.env.HL_DEEP === '1' || NOW.getTime() - lastDeep >= 6 * 3600e3;
 
 async function listVideos(ch) {
   if (API_KEY && DEEP) {
@@ -122,6 +126,8 @@ async function main() {
     }
     console.log(`[hl] ${ch.name} videos=${vids.length}`);
   }
+  if (API_KEY && DEEP) writeFileSync(DEEP_F, JSON.stringify({ t: NOW.getTime() }) + '
+');
   const sorted = Object.fromEntries(Object.entries(out).sort(([a], [b]) => (a < b ? -1 : 1)));
   await fs.writeFile(OUT, JSON.stringify(sorted, null, 1) + '\n');
   console.log(`[hl] added=${added} total=${Object.keys(sorted).length}`);
