@@ -20,15 +20,24 @@ const MLB_NICK = {
   '콜로라도': ['rockies'], '클리블랜드': ['guardians'], '미네소타': ['twins'], '피츠버그': ['pirates'], 'LA에인절스': ['angels'], '애슬레틱스': ['athletics', "a's"], '탬파베이': ['rays'],
 };
 
+const KBO_NICK = { '한화': ['이글스'], 'KIA': ['타이거즈'], '두산': ['베어스'], 'NC': ['다이노스'], '롯데': ['자이언츠'], 'SSG': ['랜더스'], 'KT': ['위즈'], '삼성': ['라이온즈'], 'LG': ['트윈스'], '키움': ['히어로즈'] };
+const NPB_JA = { '소프트뱅크': ['ソフトバンク'], '오릭스': ['オリックス'], '지바롯데': ['ロッテ'], '라쿠텐': ['楽天'], '세이부': ['西武'], '닛폰햄': ['日本ハム'] };
+const J_EXTRA = { '가와사키': ['川崎フロンターレ', '川崎F'], '나가사키': ['V・ファーレン長崎', '長崎'] };
+
 // 채널: ids = 게임 리그 코드(games.json league 또는 basketball lg). must = 하이라이트 판정, 둘 다 팀 이름 필요.
 export const CHANNELS = [
   { name: 'K LEAGUE', id: 'UCYVxbD_KLbC39PPW9iTBcmQ', src: 'g', leagues: ['K리그1', 'K리그2'], must: /하이라이트|highlights/i, lang: 'ko' },
   { name: 'MLB', id: 'UCoLrcjPV5PbUrUyXq5mjc_A', src: 'g', leagues: ['MLB'], must: /full game( \d+)? highlights|game \d+ highlights|\bhighlights\b.*\(/i, not: /full inning|every play|walk-off|shorts/i },
   { name: 'NBA', id: 'UCWJ2lWNubArHWmf3FIHbfcQ', src: 'bk', leagues: ['NBA'], must: /full game highlights/i },
+  { name: 'KBO', id: 'UCoVz66yWHzVsXAFG8WhJK9g', src: 'g', leagues: ['KBO'], must: /야구 하이라이트/ },
+  { name: 'NPB Pacific', id: 'UC0v-pxTo1XamIDE-f__Ad0Q', src: 'g', leagues: ['NPB'], must: /試合ハイライト/ },
+  { name: 'J.League', id: 'UCyzs0YrgWiL2wdROpajnO1Q', src: 'g', leagues: ['J1'], must: /ハイライト/, not: /プレーまとめ|shorts/ },
+  { name: 'B.LEAGUE', id: 'UC4NpGzqd6nnntf8ehYC50-A', src: 'bk', leagues: ['BLEAGUE1', 'BLEAGUE2', 'BLEAGUE3'], must: /ハイライト/, not: /プレーまとめ/ },
+  { name: 'WNBA', id: 'UCO9a_ryN_l7DIDS-VIt-zmw', src: 'bk', leagues: ['WNBA'], must: /full game highlights/i },
   { name: 'MLS', id: 'UCSZbXT5TLLW_i-5W8FZpFsg', src: 'g', leagues: ['MLS'], must: /highlights/i, not: /shorts/i },
 ];
 
-const norm = (s) => String(s).toLowerCase().replace(/&amp;/g, '&').replace(/&#39;|&apos;/g, "'").replace(/&quot;/g, '"').replace(/[’‘]/g, "'");
+const norm = (s) => String(s).normalize('NFKC').toLowerCase().replace(/&amp;/g, '&').replace(/&#39;|&apos;/g, "'").replace(/&quot;/g, '"').replace(/[’‘]/g, "'");
 const has = (title, a) => {
   const x = norm(a);
   if (!x || (/^[\x00-\x7f]+$/.test(x) && x.length < 3)) return false;
@@ -63,8 +72,15 @@ async function main() {
   const bk = (await readJson(path.join(ROOT, 'basketball', 'games.json'), { games: [] })).games || [];
   const bkTeams = await readJson(path.join(ROOT, 'basketball', 'teams.json'), {});
   const teamEn = await readJson(path.join(ROOT, 'team-name-en.json'), {});
-  const aliasG = (lg, name) => (lg === 'MLB' ? MLB_NICK[name] || [] : [name, teamEn[name]].filter(Boolean));
-  const aliasBk = (k) => { const t = bkTeams[k]; if (!t) return []; const w = (t.en || '').split(' '); return [t.en, w.slice(-1)[0], w.slice(-2).join(' '), t.ko].filter(Boolean); };
+  const tAl = await readJson(path.join(ROOT, 'team-aliases.json'), {});
+  const aliasG = (lg, name) => {
+    if (lg === 'MLB') return MLB_NICK[name] || [];
+    if (lg === 'KBO') return KBO_NICK[name] || [];
+    if (lg === 'NPB') return NPB_JA[name] || [];
+    if (lg === 'J1') return [...(J_EXTRA[name] || []), ...(tAl[name] || []).filter((a) => /[぀-ヿ]/.test(a) || /^[一-鿿]{2,}/.test(a))];
+    return [name, teamEn[name]].filter(Boolean);
+  };
+  const aliasBk = (k) => { const t = bkTeams[k]; if (!t) return []; const w = (t.en || '').split(' '); return [t.en, w.slice(-1)[0], w.slice(-2).join(' '), t.ko, t.ja].filter(Boolean); };
 
   let added = 0;
   for (const ch of CHANNELS) {
