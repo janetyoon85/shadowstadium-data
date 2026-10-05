@@ -15,6 +15,7 @@ import { execSync } from 'node:child_process';
 import { TEAMS, normalizeTeamName } from './espn-soccer-teams.mjs';
 import { fillDetailsFromSummary } from './espn-summary-details.mjs';
 import { getAthleteNationality } from './espn-nationality.mjs';
+import { espnStage } from './espn-stage.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -180,6 +181,7 @@ async function fetchEspnLeagueRange(code, slug, dayYmd, unknownTeams, unknownVen
       gameId: `${code}_ESPN_${e.id}`,
       status,
     };
+    Object.assign(out, espnStage(e, comp));
     if (status === 'live') { const mp = espnMatchPeriod(comp.status); if (mp) out.matchPeriod = mp; }
     if (status === 'completed' || status === 'live') {
       const hs = home.score != null ? parseInt(home.score, 10) : NaN;
@@ -306,7 +308,7 @@ async function main() {
         // 변화 없음) 이 조건에 전혀 안 걸려 매 실행 때마다 새로 계산한 정확한 date/time을 그냥
         // 버리고 예전 값을 영구히 유지하는 버그였음(사용자 리포트: "3시경기는왜경기중이아니지?" —
         // 실제 ESPN 킥오프는 08:00인데 games.json엔 예전 03:00이 그대로 남아있어서 발생).
-        if (prev.status !== g.status || prev.matchPeriod !== g.matchPeriod || prev.homeScore !== g.homeScore || prev.awayScore !== g.awayScore || prev.date !== g.date || prev.time !== g.time || prev.timeTbd !== g.timeTbd || prev.venueId !== g.venueId || prev.stadium !== g.stadium || JSON.stringify(prev.scorers) !== JSON.stringify(g.scorers) || JSON.stringify(prev.cards) !== JSON.stringify(g.cards)) {
+        if (prev.status !== g.status || prev.matchPeriod !== g.matchPeriod || prev.phaseCode !== g.phaseCode || prev.leg !== g.leg || prev.homeScore !== g.homeScore || prev.awayScore !== g.awayScore || prev.date !== g.date || prev.time !== g.time || prev.timeTbd !== g.timeTbd || prev.venueId !== g.venueId || prev.stadium !== g.stadium || JSON.stringify(prev.scorers) !== JSON.stringify(g.scorers) || JSON.stringify(prev.cards) !== JSON.stringify(g.cards)) {
           games[idx] = { ...prev, ...g };
           updated++;
         }

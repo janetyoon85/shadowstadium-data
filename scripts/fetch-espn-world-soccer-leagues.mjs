@@ -18,6 +18,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execSync } from 'node:child_process';
 import { normalizeTeamName } from './espn-soccer-teams.mjs';
+import { espnStage } from './espn-stage.mjs';
 import { BATCH2_TEAMS } from './espn-world-soccer-teams.mjs';
 import { fillDetailsFromSummary } from './espn-summary-details.mjs';
 import { getAthleteNationality } from './espn-nationality.mjs';
@@ -190,6 +191,7 @@ async function fetchEspnLeagueRange(code, slug, dayYmd, unknownTeams, unknownVen
       gameId: `${code}_ESPN_${e.id}`,
       status,
     };
+    Object.assign(out, espnStage(e, comp));
     if (status === 'live') { const mp = espnMatchPeriod(comp.status); if (mp) out.matchPeriod = mp; }
     if (status === 'completed' || status === 'live') {
       const hs = home.score != null ? parseInt(home.score, 10) : NaN;
@@ -317,7 +319,7 @@ async function main() {
         const prev = games[idx];
         // 킥오프 시각/구장 변경 감지 추가(2026-09-29) — fetch-espn-soccer-leagues.mjs와 동일 버그
         // (시각만 바뀐 경기는 이 비교에 안 걸려 예전 시각이 영구 고정되던 문제) 수정.
-        if (prev.status !== g.status || prev.matchPeriod !== g.matchPeriod || prev.homeScore !== g.homeScore || prev.awayScore !== g.awayScore || prev.date !== g.date || prev.time !== g.time || prev.timeTbd !== g.timeTbd || prev.venueId !== g.venueId || prev.stadium !== g.stadium || JSON.stringify(prev.scorers) !== JSON.stringify(g.scorers) || JSON.stringify(prev.cards) !== JSON.stringify(g.cards)) {
+        if (prev.status !== g.status || prev.matchPeriod !== g.matchPeriod || prev.phaseCode !== g.phaseCode || prev.leg !== g.leg || prev.homeScore !== g.homeScore || prev.awayScore !== g.awayScore || prev.date !== g.date || prev.time !== g.time || prev.timeTbd !== g.timeTbd || prev.venueId !== g.venueId || prev.stadium !== g.stadium || JSON.stringify(prev.scorers) !== JSON.stringify(g.scorers) || JSON.stringify(prev.cards) !== JSON.stringify(g.cards)) {
           games[idx] = { ...prev, ...g };
           updated++;
         }
