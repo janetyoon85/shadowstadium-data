@@ -95861,7 +95861,7 @@
     "stadium": "프로그레시브 필드",
     "timeTbd": false,
     "gameId": "20260405CCCL0",
-    "status": "scheduled",
+    "status": "cancelled",
     "awayPitcher": "이마나가 쇼타",
     "homePitcher": "슬레이드 체코니",
     "awayPitcherPid": "mlb:684007",
@@ -162286,7 +162286,7 @@
     "stadium": "시티 필드",
     "timeTbd": false,
     "gameId": "20260426CONM0",
-    "status": "scheduled",
+    "status": "cancelled",
     "awayPitcher": "호세 퀸타나",
     "homePitcher": "센가 고다이",
     "awayPitcherPid": "mlb:500779",
@@ -173478,7 +173478,7 @@
     "stadium": "오리올 파크 앳 캠든 야즈",
     "timeTbd": false,
     "gameId": "20260430HOBA0",
-    "status": "scheduled",
+    "status": "cancelled",
     "awayPitcher": "피터 램버트",
     "homePitcher": "크리스 배싯",
     "awayPitcherPid": "mlb:663567",
@@ -193918,7 +193918,7 @@
     "stadium": "부시 스타디움",
     "timeTbd": false,
     "gameId": "20260506MISL0",
-    "status": "scheduled",
+    "status": "cancelled",
     "awayPitcher": "브랜든 스프롯",
     "homePitcher": "안드레 팔란테",
     "awayPitcherPid": "mlb:687075",
@@ -194002,7 +194002,7 @@
     "stadium": "쿠어스 필드",
     "timeTbd": false,
     "gameId": "20260506NMCO0",
-    "status": "scheduled",
+    "status": "cancelled",
     "awayPitcher": "프레디 페랄타",
     "homePitcher": "마이클 로렌젠",
     "awayPitcherPid": "mlb:642547",
@@ -242943,7 +242943,7 @@
     "stadium": "그레이트 아메리칸 볼 파크",
     "timeTbd": false,
     "gameId": "20260523SLCI0",
-    "status": "scheduled",
+    "status": "cancelled",
     "awayPitcher": "카일 레이히",
     "homePitcher": "크리스 페덱",
     "awayPitcherPid": "mlb:681517",
@@ -245224,7 +245224,7 @@
     "stadium": "양키 스타디움",
     "timeTbd": false,
     "gameId": "20260524TBNY0",
-    "status": "scheduled",
+    "status": "cancelled",
     "awayPitcher": "드류 라스무센",
     "homePitcher": "라이언 웨더스",
     "awayPitcherPid": "mlb:656876",
@@ -246110,7 +246110,7 @@
     "stadium": "오리올 파크 앳 캠든 야즈",
     "timeTbd": false,
     "gameId": "20260524DEBA0",
-    "status": "scheduled",
+    "status": "cancelled",
     "awayPitcher": "프람버 발데스",
     "homePitcher": "브랜든 영",
     "awayPitcherPid": "mlb:664285",
@@ -646183,13 +646183,15 @@
     "liveState": {
       "pitcher": "김태경",
       "pitcherPid": "kbo:p:50992",
-      "batter": "조형우",
-      "batterPid": "kbo:b:51865",
-      "ball": 0,
-      "strike": 2,
+      "batter": "최지훈",
+      "batterPid": "kbo:b:50854",
+      "ball": 2,
+      "strike": 1,
       "out": 1,
-      "bases": [],
-      "pitchCount": 4
+      "bases": [
+        1
+      ],
+      "pitchCount": 8
     },
     "highlights": {
       "home": [
@@ -646243,6 +646245,13 @@
           "player": "에레디아",
           "inn": "5회초",
           "pid": "kbo:b:53827"
+        },
+        {
+          "how": "실책",
+          "text": "조형우 3루수 땅볼 실책으로 출루 (3루수 송구 실책->1루수)",
+          "player": "조형우",
+          "inn": "6회초",
+          "pid": "kbo:b:51865"
         }
       ]
     }
@@ -646271,7 +646280,7 @@
       "batter": "디아즈",
       "batterPid": "kbo:b:54400",
       "ball": 0,
-      "strike": 0,
+      "strike": 1,
       "out": 0,
       "bases": [],
       "pitchCount": 60
@@ -646355,15 +646364,15 @@
       "pitcherPid": "kbo:p:54362",
       "batter": "유민",
       "batterPid": "kbo:b:52765",
-      "ball": 0,
-      "strike": 0,
+      "ball": 1,
+      "strike": 2,
       "out": 1,
       "bases": [
         1,
         2,
         3
       ],
-      "pitchCount": 88
+      "pitchCount": 92
     },
     "highlights": {
       "home": [
@@ -646451,11 +646460,11 @@
       "pitcherPid": "kbo:p:55130",
       "batter": "박재현",
       "batterPid": "kbo:b:55636",
-      "ball": 0,
-      "strike": 0,
+      "ball": 2,
+      "strike": 2,
       "out": 0,
       "bases": [],
-      "pitchCount": 80
+      "pitchCount": 84
     },
     "highlights": {
       "home": [
@@ -646522,13 +646531,13 @@
       "pitcherPid": "kbo:p:55912",
       "batter": "한동희",
       "batterPid": "kbo:b:68525",
-      "ball": 0,
-      "strike": 0,
+      "ball": 1,
+      "strike": 2,
       "out": 1,
       "bases": [
         1
       ],
-      "pitchCount": 68
+      "pitchCount": 71
     },
     "highlights": {
       "home": [
