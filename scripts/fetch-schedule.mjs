@@ -970,8 +970,12 @@ async function enrichSaves(allGames) {
   let mlbStarterPidUsed = 0;
   for (const g of allGames) {
     if (!BASEBALL_LEAGUES.has(g.league)) continue;
-    if (g.homePitcher && playerCodeRegistry[g.homePitcher]) { g.homePitcherPid = playerCodeRegistry[g.homePitcher]; starterPidAttached++; }
-    if (g.awayPitcher && playerCodeRegistry[g.awayPitcher]) { g.awayPitcherPid = playerCodeRegistry[g.awayPitcher]; starterPidAttached++; }
+    // 선발은 투수 — 타자 pid(kbo:b:)가 붙어 있으면(동명이인 박시원 사례) 제거, 레지스트리도 타자 pid는 불채택.
+    for (const f of ['homePitcher', 'awayPitcher']) {
+      if (/^kbo:b:/.test(g[f + 'Pid'] || '')) delete g[f + 'Pid'];
+      const rp = g[f] && playerCodeRegistry[g[f]];
+      if (rp && !/^kbo:b:/.test(rp) && !g[f + 'Pid']) { g[f + 'Pid'] = rp; starterPidAttached++; }
+    }
     if (g.league === 'MLB' && (!g.homePitcherPid || !g.awayPitcherPid) && mlbStarterPidUsed < MLB_STARTER_PID_BUDGET) {
       mlbStarterPidUsed++;
       try {
