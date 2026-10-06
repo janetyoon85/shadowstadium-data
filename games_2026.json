@@ -647670,25 +647670,15 @@
     "stadium": "프로그레시브 필드",
     "timeTbd": false,
     "gameId": "20261006CWCL0",
-    "status": "live",
+    "status": "completed",
     "awayPitcher": "앤소니 케이",
     "homePitcher": "개빈 윌리엄스",
     "awayPitcherPid": "mlb:641743",
     "homePitcherPid": "mlb:668909",
     "awayScore": 4,
     "homeScore": 3,
-    "inningInfo": "9회말",
-    "liveState": {
-      "pitcher": "테일러",
-      "batter": "베일리",
-      "ball": 0,
-      "strike": 0,
-      "out": 0,
-      "bases": [],
-      "pitchCount": 7,
-      "pitcherPid": "mlb:669392",
-      "batterPid": "mlb:672275"
-    },
+    "winPitcher": "버크",
+    "losePitcher": "사브로스키",
     "savePitcher": "테일러",
     "highlights": {
       "home": [
@@ -647696,8 +647686,7 @@
           "how": "실책",
           "text": "로우 투수 실책으로 진루",
           "player": "로우",
-          "inn": "1회말",
-          "pid": "mlb:664040"
+          "inn": "1회말"
         }
       ],
       "away": [
@@ -647705,15 +647694,13 @@
           "how": "2루타",
           "text": "몽고메리 우익선상 2루타",
           "player": "몽고메리",
-          "inn": "6회초",
-          "pid": "mlb:695657"
+          "inn": "6회초"
         },
         {
           "how": "실책",
           "text": "메이드로스 견제실책으로 2루까지 진루",
           "player": "메이드로스",
-          "inn": "6회초",
-          "pid": "mlb:805367"
+          "inn": "6회초"
         }
       ]
     },
@@ -647982,12 +647969,27 @@
     "inningInfo": "1회말",
     "liveState": {
       "pitcher": "슐리틀러",
-      "batter": "디아즈",
+      "batter": "아란다",
       "ball": 0,
       "strike": 0,
       "out": 0,
-      "bases": [],
-      "batterPid": "mlb:553869"
+      "bases": [
+        1
+      ],
+      "pitchCount": 2,
+      "batterPid": "mlb:666018"
+    },
+    "highlights": {
+      "home": [
+        {
+          "how": "실책",
+          "text": "디아즈 3루수 실책으로 진루",
+          "player": "디아즈",
+          "inn": "1회말",
+          "pid": "mlb:553869"
+        }
+      ],
+      "away": []
     },
     "round": "ps_alds",
     "rn": 2
