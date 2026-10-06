@@ -144,10 +144,10 @@ async function main() {
       if (!sent[dedupKey]) pending.push({ dedupKey, name, pid: undefined, game: g, team, opp, icon: '⚾', label: '선발 등판', labelKey: 'sp', preGame: true });
     }
     // 구원 등판(2026-10-07): 진행중 경기 liveState.pitcher가 수비팀 선발이 아닌 새 투수로 바뀌면 1회 알림.
-    // 1회는 KBO만 허용(MLB/NPB는 선발 표기 불일치 오탐 방지로 제외). 선발과 이름/pid가 같으면 제외.
+    // 1회 MLB/NPB는 첫 관측 투수를 선발로 기록해 교체만 감지. 선발과 이름/pid가 같으면 제외.
     if (g.status === 'live' && g.liveState?.pitcher && typeof g.inningInfo === 'string') {
       const m = /^(\d+)회(초|말)$/.exec(g.inningInfo);
-      if (m && (Number(m[1]) > 1 || g.league === 'KBO')) {
+      if (m) {
         const defSide = m[2] === '초' ? 'home' : 'away';
         const team = defSide === 'home' ? g.home : g.away, opp = defSide === 'home' ? g.away : g.home;
         const starter = defSide === 'home' ? g.homePitcher : g.awayPitcher;
@@ -155,7 +155,15 @@ async function main() {
         const starterPid = defSide === 'home' ? g.homePitcherPid : g.awayPitcherPid;
         const same = (starter && (starter === nm || starter.includes(nm) || nm.includes(starter))) || (starterPid && starterPid === g.liveState.pitcherPid);
         const dedupKey = `${g.gameId}:${defSide}:relief:${nm}`;
-        if (!same && !sent[dedupKey]) pending.push({ dedupKey, name: nm, pid: g.liveState.pitcherPid, game: g, team, opp, icon: '⚾', label: '구원 등판', labelKey: 'rp' });
+        let skip = false;
+        if (Number(m[1]) === 1 && g.league !== 'KBO') {
+          // 1회 MLB/NPB: 선발 표기 불일치 오탐 방지 — 처음 본 투수는 선발로 기록만 하고, 이후 다른 투수가 보이면 교체로 판단.
+          const p0 = `${g.gameId}:${defSide}:p0:`;
+          const first = Object.keys(sent).find((k) => k.startsWith(p0));
+          if (!first) { sent[p0 + nm] = new Date().toISOString(); skip = true; }
+          else if (first === p0 + nm) skip = true;
+        }
+        if (!skip && !same && !sent[dedupKey]) pending.push({ dedupKey, name: nm, pid: g.liveState.pitcherPid, game: g, team, opp, icon: '⚾', label: '구원 등판', labelKey: 'rp' });
       }
     }
   }
