@@ -647682,10 +647682,10 @@
       "pitcher": "테일러",
       "batter": "마르티네스",
       "ball": 0,
-      "strike": 0,
-      "out": 0,
+      "strike": 1,
+      "out": 1,
       "bases": [],
-      "pitchCount": 2,
+      "pitchCount": 3,
       "pitcherPid": "mlb:669392",
       "batterPid": "mlb:682657"
     },
@@ -647866,7 +647866,7 @@
     "stadium": "Estadio ueno La Nueva Olla",
     "timeTbd": false,
     "gameId": "PARAGUAY_ESPN_401888664",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 0,
     "awayScore": 2,
@@ -647925,8 +647925,8 @@
     "timeTbd": false,
     "gameId": "URUGUAY_ESPN_401923690",
     "status": "live",
-    "matchPeriod": "하프타임",
-    "homeScore": 1,
+    "matchPeriod": "후반",
+    "homeScore": 2,
     "awayScore": 0,
     "scorers": {
       "home": [
@@ -647935,6 +647935,12 @@
           "m": 11,
           "nat": "Uruguay",
           "pid": "espn:381348"
+        },
+        {
+          "n": "Maxi Gómez",
+          "m": 47,
+          "nat": "Uruguay",
+          "pid": "espn:67183"
         }
       ],
       "away": []
@@ -651162,7 +651168,7 @@
   },
   {
     "date": "2026-10-11",
-    "time": "12:00",
+    "time": "12:10",
     "league": "LIGAMX",
     "venueId": "estadio_banorte_mexico",
     "home": "아메리카",
