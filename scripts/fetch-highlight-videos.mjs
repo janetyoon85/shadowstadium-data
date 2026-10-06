@@ -145,13 +145,15 @@ async function searchFallback({ out, games, bk, bkTeams, teamEn, tAl, aliasG, al
   if (st.day !== day) { st.day = day; st.used = 0; }
   const now = Date.now();
   const covered = new Set(CHANNELS.flatMap((c) => c.leagues));
+  // 2026-10-07 "모든경기 하이라이트, A매치·UNL 다 포함" — 국가대표 경기는 단일 공식채널이 없어 검색 보강을 최우선으로(6시간 후부터).
+  const NAT = new Set(['UNL', 'AMATCHFRIENDLY', 'ASIANGAMESFOOTBALL', 'U20WOMENWORLDCUP']);
   const names = (nm, lg) => [...new Set([...aliasG(lg, nm), ...aliasS(nm, 'latin'), ...aliasS(nm, 'ko')])];
   const cands = [
     ...games.filter((g) => g.status === 'completed').map((g) => ({ id: g.gameId, lg: g.league, ts: Date.parse(`${g.date}T${g.time && /^\d\d:\d\d$/.test(g.time) ? g.time : '12:00'}:00Z`) - KST, hn: g.home, an: g.away, h: names(g.home, g.league), a: names(g.away, g.league), qh: teamEn[g.home] || g.home, qa: teamEn[g.away] || g.away })),
     ...bk.filter((g) => g.st === 'final').map((g) => { const h = bkTeams[g.h.k] || {}, a = bkTeams[g.a.k] || {}; return { id: g.id, lg: g.lg, ts: g.t, h: aliasBk(g.h.k), a: aliasBk(g.a.k), qh: h.en || h.ko || '', qa: a.en || a.ko || '' }; }),
-  ].filter((c) => !out[c.id] && c.qh && c.qa && c.ts >= now - 3 * 86400e3 && c.ts <= now - (covered.has(c.lg) ? 12 : 3) * 3600e3)
+  ].filter((c) => !out[c.id] && c.qh && c.qa && c.ts >= now - 3 * 86400e3 && c.ts <= now - (NAT.has(c.lg) ? 6 : covered.has(c.lg) ? 12 : 3) * 3600e3)
     .filter((c) => { const t = st.tried[c.id]; return !t || (t.n < 3 && now - t.t >= 12 * 3600e3); })
-    .sort((x, y) => (covered.has(x.lg) - covered.has(y.lg)) || y.ts - x.ts);
+    .sort((x, y) => (NAT.has(y.lg) - NAT.has(x.lg)) || (covered.has(x.lg) - covered.has(y.lg)) || y.ts - x.ts);
   let added = 0, runN = 0;
   for (const c of cands) {
     if (st.used >= SEARCH_DAILY * 100 || runN >= SEARCH_RUN) break;
