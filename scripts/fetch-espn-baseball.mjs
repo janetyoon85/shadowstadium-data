@@ -153,6 +153,7 @@ async function fetchEspnBaseballLeague(slug, league, dates, unknownTeams, unknow
           if (typeof sit.strikes === 'number') ls.strike = sit.strikes;
           if (typeof sit.outs === 'number') ls.out = sit.outs;
           ls.bases = [sit.onFirst && 1, sit.onSecond && 2, sit.onThird && 3].filter(Boolean);
+          if (/^(mid|end)/i.test(m?.[1] || '')) ls.inningBreak = true;
           if (ls.pitcher || ls.batter) g.liveState = ls;
         }
       }

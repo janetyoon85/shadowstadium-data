@@ -145,7 +145,7 @@ async function main() {
     }
     // 구원 등판(2026-10-07): 진행중 경기 liveState.pitcher가 수비팀 선발이 아닌 새 투수로 바뀌면 1회 알림.
     // 1회 MLB/NPB는 첫 관측 투수를 선발로 기록해 교체만 감지. 선발과 이름/pid가 같으면 제외.
-    if (g.status === 'live' && g.liveState?.pitcher && typeof g.inningInfo === 'string') {
+    if (g.status === 'live' && g.liveState?.pitcher && !g.liveState.inningBreak && typeof g.inningInfo === 'string') {
       const m = /^(\d+)회(초|말)$/.exec(g.inningInfo);
       if (m) {
         const defSide = m[2] === '초' ? 'home' : 'away';
