@@ -227,7 +227,8 @@ async function loadPage(title, summary) {
   }
   info.pc = 1;
   if (files.length) {
-    const uniq = [...new Set(files)].slice(0, 6);
+    const VENUE_OK = /stadium|stadion|stadio|estadio|estádio|arena|ballpark|ball_park|park|_park|field|ground|dome|coliseum|campo|stade[_ .-]/i, PHOTO_BAD = /match|game|vs|_v_|final|celebrat|protest|fora_|player|goal|fans|ultras|portrait|statue|signed|ball|camera|trophy|cup|banner|bus|train|president|coach|manager|cheer|first.?pitch|singer|actor/i;
+    const uniq = [...new Set(files)].filter((t) => VENUE_OK.test(t.replace(/ /g, "_")) && !PHOTO_BAD.test(t)).slice(0, 6);
     const ii = await get(`https://commons.wikimedia.org/w/api.php?${new URLSearchParams({ action: 'query', format: 'json', titles: uniq.join('|'), prop: 'imageinfo', iiprop: 'url|mime', iiurlwidth: '800' })}`);
     await pause();
     const pages = Object.values(ii?.query?.pages || {});
