@@ -925,8 +925,6 @@ async function enrichSaves(allGames) {
     };
     for (const g of allGames) {
       if (g.league !== 'KBO' && g.league !== 'NPB') continue;
-      note(g.league, g.home, g.homePitcher, g.homePitcherPid);
-      note(g.league, g.away, g.awayPitcher, g.awayPitcherPid);
       for (const f of ['win', 'lose', 'save']) note(g.league, '*', g[f + 'Pitcher'], g[f + 'PitcherPid']);
       for (const side of ['home', 'away']) {
         for (const h of g.highlights?.[side] || []) note(g.league, side === 'home' ? g.home : g.away, h.player, h.pid);
@@ -951,7 +949,7 @@ async function enrichSaves(allGames) {
     for (const g of allGames) {
       if (g.league !== 'KBO' && g.league !== 'NPB') continue;
       for (const [f, team] of [['homePitcher', g.home], ['awayPitcher', g.away]]) {
-        if (g[f] && !g[f + 'Pid']) { const pid = uniq(`${g.league}|${team}|${g[f]}`); if (pid) { g[f + 'Pid'] = pid; pitcherAttached++; } }
+        if (g[f]) { const pid = uniq(`${g.league}|${team}|${g[f]}`); if (pid && g[f + 'Pid'] !== pid) { g[f + 'Pid'] = pid; pitcherAttached++; } }
       }
       for (const f of ['winPitcher', 'losePitcher', 'savePitcher']) {
         if (g[f] && !g[f + 'Pid']) { const pid = uniq(`${g.league}|*|${g[f]}`); if (pid) { g[f + 'Pid'] = pid; pitcherAttached++; } }
@@ -970,12 +968,9 @@ async function enrichSaves(allGames) {
   let mlbStarterPidUsed = 0;
   for (const g of allGames) {
     if (!BASEBALL_LEAGUES.has(g.league)) continue;
-    // 선발은 투수 — 타자 pid(kbo:b:)가 붙어 있으면(동명이인 박시원 사례) 제거, 레지스트리도 타자 pid는 불채택.
-    for (const f of ['homePitcher', 'awayPitcher']) {
-      if (/^kbo:b:/.test(g[f + 'Pid'] || '')) delete g[f + 'Pid'];
-      const rp = g[f] && playerCodeRegistry[g[f]];
-      if (rp && !/^kbo:b:/.test(rp) && !g[f + 'Pid']) { g[f + 'Pid'] = rp; starterPidAttached++; }
-    }
+    // 이름 단독 레지스트리는 폴백만(동명이인 박시원: 팀 기준 학습값이 우선) — 위 uniq 단계에서 이미 붙었으면 덮지 않음.
+    if (g.homePitcher && playerCodeRegistry[g.homePitcher] && !g.homePitcherPid) { g.homePitcherPid = playerCodeRegistry[g.homePitcher]; starterPidAttached++; }
+    if (g.awayPitcher && playerCodeRegistry[g.awayPitcher] && !g.awayPitcherPid) { g.awayPitcherPid = playerCodeRegistry[g.awayPitcher]; starterPidAttached++; }
     if (g.league === 'MLB' && (!g.homePitcherPid || !g.awayPitcherPid) && mlbStarterPidUsed < MLB_STARTER_PID_BUDGET) {
       mlbStarterPidUsed++;
       try {
