@@ -14,12 +14,6 @@ const MAX_GAMES_PER_RUN = 40;
 
 const FINAL = { ko: '경기 종료', en: 'Full time', ja: '試合終了', es: 'Final del partido', pt: 'Fim de jogo', fr: 'Match terminé', de: 'Spielende', it: 'Partita finita', ru: 'Матч окончен', ar: 'انتهت المباراة', id: 'Pertandingan selesai', th: 'จบการแข่งขัน', vi: 'Kết thúc trận', 'zh-Hans': '比赛结束', 'zh-Hant': '比賽結束', hi: 'मैच समाप्त', tr: 'Maç sona erdi', nl: 'Einde wedstrijd' };
 
-const WIN = { ko: '{t} 승', en: '{t} win', ja: '{t}の勝利', es: 'Gana {t}', pt: 'Vitória do {t}', fr: 'Victoire de {t}', de: 'Sieg {t}', it: 'Vince {t}', ru: 'Победа: {t}', ar: 'فوز {t}', id: 'Kemenangan {t}', th: '{t} ชนะ', vi: '{t} thắng', 'zh-Hans': '{t}获胜', 'zh-Hant': '{t}獲勝', hi: '{t} की जीत', tr: '{t} kazandı', nl: 'Winst {t}' };
-const DRAW = { ko: '무승부', en: 'Draw', ja: '引き分け', es: 'Empate', pt: 'Empate', fr: 'Match nul', de: 'Unentschieden', it: 'Pareggio', ru: 'Ничья', ar: 'تعادل', id: 'Seri', th: 'เสมอ', vi: 'Hòa', 'zh-Hans': '平局', 'zh-Hant': '平手', hi: 'ड्रॉ', tr: 'Berabere', nl: 'Gelijkspel' };
-const resultLine = (lang, hs, as, home, away, lg) => {
-  const r = hs === as ? '🤝 ' + DRAW[lang] : '🏆 ' + WIN[lang].replace('{t}', hs > as ? home : away);
-  return r + (lg ? ' · ' + lg : '');
-};
 const EXTRA_BASEBALL = new Set(['WBC', 'CARIBBEANSERIES', 'LIDOM', 'LMP', 'LVBP', 'LMB', 'PWL', 'ABL', 'AFL', 'AAA', 'PREMIER12']);
 const isBaseball = (lg) => lg === 'KBO' || lg === 'MLB' || lg === 'NPB' || EXTRA_BASEBALL.has(lg) || /BASEBALL/.test(lg || '');
 const BASEBALL_NATIONAL_FAV_PREFIX = '⚾:';
@@ -67,7 +61,7 @@ for (const g of Array.isArray(games) ? games : []) {
     data: { gameId: String(g.gameId), venueId: String(g.venueId || ''), date: String(g.date), doubleheaderNum: '' },
     text: (lang) => ({
       title: `🏁 ${localTeam(lang, g.away)} ${g.awayScore}-${g.homeScore} ${localTeam(lang, g.home)}`,
-      body: resultLine(lang, g.homeScore, g.awayScore, localTeam(lang, g.home), localTeam(lang, g.away), g.league ? localLeague(lang, g.league) : ''),
+      body: `${FINAL[lang]}${g.league ? ' · ' + localLeague(lang, g.league) : ''}`,
     }),
   });
 }
@@ -94,7 +88,7 @@ for (const g of bk) {
     data: { gameId: String(g.id), venueId: String(g.vid || ''), date: String(g.date), doubleheaderNum: '' },
     text: (lang) => {
       const tn = (k) => (lang === 'ko' ? koN(k) : en(k));
-      return { title: `🏁 ${tn(g.a.k)} ${g.a.s}-${g.h.s} ${tn(g.h.k)}`, body: resultLine(lang, g.h.s, g.a.s, tn(g.h.k), tn(g.a.k), g.lg || '') };
+      return { title: `🏁 ${tn(g.a.k)} ${g.a.s}-${g.h.s} ${tn(g.h.k)}`, body: `${FINAL[lang]}${g.lg ? ' · ' + g.lg : ''}` };
     },
   });
 }
