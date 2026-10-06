@@ -127,9 +127,7 @@ async function main() {
         for (let i = 0; i < list.length; i++) {
           const h = list[i];
           if (!h.player) continue;
-          // 홈런인데 득점팀 점수가 0이면 score(일정 API)가 relay 하이라이트보다 늦은 것 — 알림 보류, 다음 틱에 재시도(미발송 상태 유지)
-          if (h.how === '홈런' && g.status === 'live' && (key === 'home' ? g.homeScore : g.awayScore) === 0) continue;
-          { const nm = h.player; const r = isSent(g.gameId, key, 'highlight', nm, nth(cntH, nm)); if (!r.sent) pending.push({ dedupKey: r.k, name: nm, pid: h.pid, game: g, team, icon: '⚾', label: h.how === '도루자' ? '도루 실패' : h.how, labelKey: undefined, detail: h.text }); }
+          { const nm = h.player; const r = isSent(g.gameId, key, 'highlight', nm, nth(cntH, nm)); if (!r.sent) pending.push({ dedupKey: r.k, name: nm, pid: h.pid, game: g, team, staleScore: h.how === '홈런' && g.status === 'live' && (key === 'home' ? g.homeScore : g.awayScore) === 0, icon: '⚾', label: h.how === '도루자' ? '도루 실패' : h.how, labelKey: undefined, detail: h.text }); }
         }
       }
     }
@@ -155,7 +153,7 @@ async function main() {
       const nm = localPlayer(lang, name, pid);
       const lb = item.labelKey ? eventLabel(lang, null, item.labelKey) : eventLabel(lang, label === '도루 실패' ? '도루자' : label);
       const tm = localTeam(lang, team), op = localTeam(lang, opp), lg = localLeague(lang, g.league);
-      const sc = typeof g.homeScore === 'number' && typeof g.awayScore === 'number' ? `${localTeam(lang, g.away)} ${g.awayScore}-${g.homeScore} ${localTeam(lang, g.home)}` : '';
+      const sc = !item.staleScore && typeof g.homeScore === 'number' && typeof g.awayScore === 'number' ? `${localTeam(lang, g.away)} ${g.awayScore}-${g.homeScore} ${localTeam(lang, g.home)}` : '';
       const ctx = [lg, g.inningInfo].filter(Boolean).join(' · ');
       byLang[lang] = {
         title: `${icon} ${nm} ${lb}!`,
