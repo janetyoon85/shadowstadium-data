@@ -76,7 +76,7 @@ async function main() {
   for (const g of games) {
     const gMs = Date.parse(`${g.date}T00:00:00+09:00`);
     if (!Number.isNaN(gMs) && gMs < recentCutoff) continue;
-    if (!g.gameId || (!g.scorers && !g.cards && !g.highlights && !g.homePitcher && !g.awayPitcher)) continue;
+    if (!g.gameId || (!g.scorers && !g.cards && !g.highlights && !g.homePitcher && !g.awayPitcher && !g.liveState)) continue;
     const sides = [
       { key: 'home', team: g.home },
       { key: 'away', team: g.away },
@@ -142,6 +142,20 @@ async function main() {
       if (!name) continue;
       const dedupKey = `${g.gameId}:${key}:startingPitcher`;
       if (!sent[dedupKey]) pending.push({ dedupKey, name, pid: undefined, game: g, team, opp, icon: '⚾', label: '선발 등판', labelKey: 'sp', preGame: true });
+    }
+    // 구원 등판(2026-10-07): 진행중 경기 liveState.pitcher가 수비팀 선발이 아닌 새 투수로 바뀌면 1회 알림.
+    // 1회는 선발 표기 불일치 오탐 방지로 제외, 선발 이름과 같으면(표기 차이 포함) 제외.
+    if (g.status === 'live' && g.liveState?.pitcher && typeof g.inningInfo === 'string') {
+      const m = /^(\d+)회(초|말)$/.exec(g.inningInfo);
+      if (m && Number(m[1]) > 1) {
+        const defSide = m[2] === '초' ? 'home' : 'away';
+        const team = defSide === 'home' ? g.home : g.away, opp = defSide === 'home' ? g.away : g.home;
+        const starter = defSide === 'home' ? g.homePitcher : g.awayPitcher;
+        const nm = g.liveState.pitcher;
+        const same = starter && (starter === nm || starter.includes(nm) || nm.includes(starter));
+        const dedupKey = `${g.gameId}:${defSide}:relief:${nm}`;
+        if (!same && !sent[dedupKey]) pending.push({ dedupKey, name: nm, pid: g.liveState.pitcherPid, game: g, team, opp, icon: '⚾', label: '구원 등판', labelKey: 'rp' });
+      }
     }
   }
 
