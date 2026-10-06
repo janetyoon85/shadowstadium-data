@@ -648251,9 +648251,10 @@
       "pitcherPid": "npb:1300070",
       "batterPid": "npb:2103768",
       "ball": 0,
-      "strike": 2,
-      "out": 0,
-      "bases": []
+      "strike": 0,
+      "out": 1,
+      "bases": [],
+      "pitchCount": 4
     },
     "highlights": {
       "home": [
@@ -648287,14 +648288,16 @@
     "inningInfo": "7회말",
     "liveState": {
       "pitcher": "야마다",
-      "batter": "마쓰가와",
+      "batter": "이케다",
       "pitcherPid": "npb:2103133",
-      "batterPid": "npb:2100346",
-      "ball": 2,
-      "strike": 2,
+      "batterPid": "npb:2103693",
+      "ball": 1,
+      "strike": 1,
       "out": 1,
-      "bases": [],
-      "pitchCount": 2
+      "bases": [
+        2
+      ],
+      "pitchCount": 9
     },
     "highlights": {
       "home": [],
@@ -648324,14 +648327,14 @@
     "awayPitcherPid": "kbo:p:51867",
     "homePitcherPid": "kbo:b:56724",
     "awayScore": 2,
-    "homeScore": 4,
+    "homeScore": 5,
     "inningInfo": "5회말",
     "liveState": {
       "pitcher": "김건우",
       "pitcherPid": "kbo:p:51867",
-      "batter": "강백호",
-      "batterPid": "kbo:b:68050",
-      "ball": 2,
+      "batter": "노시환",
+      "batterPid": "kbo:b:69737",
+      "ball": 0,
       "strike": 0,
       "out": 1,
       "bases": [
@@ -648339,7 +648342,7 @@
         2,
         3
       ],
-      "pitchCount": 87
+      "pitchCount": 88
     },
     "highlights": {
       "home": [
@@ -648393,17 +648396,17 @@
     "homePitcherPid": "kbo:b:56318",
     "awayScore": 5,
     "homeScore": 1,
-    "inningInfo": "5회말",
+    "inningInfo": "6회초",
     "liveState": {
-      "pitcher": "대니엘",
-      "pitcherPid": "kbo:p:56002",
-      "batter": "추재현",
-      "batterPid": "kbo:b:68362",
+      "pitcher": "김선기",
+      "pitcherPid": "kbo:p:66018",
+      "batter": "장준원",
+      "batterPid": "kbo:b:64115",
       "ball": 0,
       "strike": 0,
-      "out": 1,
+      "out": 0,
       "bases": [],
-      "pitchCount": 78
+      "pitchCount": 20
     },
     "highlights": {
       "home": [],
@@ -648463,7 +648466,7 @@
     "homePitcherPid": "kbo:b:55610",
     "awayScore": 2,
     "homeScore": 4,
-    "inningInfo": "5회말",
+    "inningInfo": "6회초",
     "liveState": {
       "pitcher": "이의리",
       "pitcherPid": "kbo:p:51648",
@@ -648540,13 +648543,13 @@
       "pitcherPid": "kbo:p:55121",
       "batter": "오태양",
       "batterPid": "kbo:b:51996",
-      "ball": 1,
-      "strike": 0,
+      "ball": 3,
+      "strike": 2,
       "out": 1,
       "bases": [
         1
       ],
-      "pitchCount": 67
+      "pitchCount": 71
     },
     "highlights": {
       "home": [
@@ -648621,6 +648624,13 @@
           "player": "블레인",
           "inn": "4회초",
           "pid": "kbo:b:56950"
+        },
+        {
+          "how": "병살타",
+          "text": "오태양 유격수 병살타 아웃 (유격수->2루수->1루수 송구아웃)",
+          "player": "오태양",
+          "inn": "5회초",
+          "pid": "kbo:b:51996"
         }
       ]
     }
@@ -648694,8 +648704,19 @@
     "gameId": "Zv0gLGDQTlIJxf1",
     "status": "live",
     "awayScore": 0,
-    "homeScore": 0,
-    "matchPeriod": "전반 5'"
+    "homeScore": 1,
+    "matchPeriod": "전반 8'",
+    "scorers": {
+      "home": [
+        {
+          "n": "손흥민",
+          "m": 6,
+          "nat": "South Korea",
+          "pid": "espn:149945"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-10-06",
