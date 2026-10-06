@@ -123,11 +123,21 @@ async function main() {
       for (const { key, team } of sides) {
         const list = g.highlights[key];
         if (!Array.isArray(list)) continue;
-        const cntH = new Map();
+        // 2026-10-07: 키를 (선수, 종류)별 n번째로 — 이름만으로 세면 경기 종료 후 최종본(결승타+홈런 순)이 라이브
+        // 누적본(홈런)과 순서가 달라 같은 홈런이 한 번 더 알림("오스틴 홈런" 경기 끝나고 재발송). 구형 키(이름#n)는
+        // 이름 기준 개수로 이관 판정(구키가 있는 옛 경기만 해당).
+        const cntH = new Map(), cntOld = new Map();
+        const hrOf = new Set(list.filter((x) => x.how === '홈런' && x.player).map((x) => x.player));
         for (let i = 0; i < list.length; i++) {
           const h = list[i];
           if (!h.player) continue;
-          { const nm = h.player; const r = isSent(g.gameId, key, 'highlight', nm, nth(cntH, nm)); if (!r.sent) pending.push({ dedupKey: r.k, name: nm, pid: h.pid, game: g, team, icon: '⚾', label: h.how === '도루자' ? '도루 실패' : h.how, labelKey: undefined, detail: h.text }); }
+          const nm = h.player;
+          const oldN = nth(cntOld, nm);
+          // 결승타가 홈런이면 같은 타구의 홈런 항목과 중복 — 홈런 알림만.
+          if (h.how === '결승타' && /홈런/.test(h.text || '') && hrOf.has(nm)) continue;
+          const r = isSent(g.gameId, key, 'highlight', `${nm}|${h.how}`, nth(cntH, `${nm}|${h.how}`));
+          const legacy = isSent(g.gameId, key, 'highlight', nm, oldN);
+          if (!r.sent && !legacy.sent) pending.push({ dedupKey: r.k, name: nm, pid: h.pid, game: g, team, icon: '⚾', label: h.how === '도루자' ? '도루 실패' : h.how, labelKey: undefined, detail: h.text });
         }
       }
     }
