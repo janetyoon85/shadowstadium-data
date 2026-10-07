@@ -644540,6 +644540,13 @@
           "m": 90,
           "pid": "espn:237688",
           "nat": "Lithuania"
+        },
+        {
+          "n": "Armandas Kucys",
+          "type": "R",
+          "m": 90,
+          "pid": "espn:330626",
+          "nat": "Lithuania"
         }
       ]
     },
@@ -644605,8 +644612,8 @@
           "m": 70,
           "a": "Edon Zhegrova",
           "nat": "Kosovo",
-          "aNat": "Kosovo",
           "pid": "espn:331057",
+          "aNat": "Kosovo",
           "apid": "espn:260300"
         }
       ],
@@ -644616,8 +644623,8 @@
           "m": 85,
           "a": "Sasa Kalajdzic",
           "nat": "Austria",
-          "aNat": "Austria",
           "pid": "espn:37442",
+          "aNat": "Austria",
           "apid": "espn:259131"
         }
       ]
@@ -644905,6 +644912,7 @@
         {
           "n": "에잘줄리",
           "m": 35,
+          "pk": true,
           "nat": "Morocco",
           "pid": "espn:300912"
         }
@@ -644915,8 +644923,8 @@
           "m": 77,
           "a": "Amadou Dante",
           "nat": "Mali",
-          "aNat": "Mali",
           "pid": "espn:402344",
+          "aNat": "Mali",
           "apid": "espn:287434"
         }
       ]
@@ -644990,6 +644998,7 @@
           "n": "호일룬",
           "m": 75,
           "pid": "espn:309273",
+          "pk": true,
           "nat": "Denmark"
         }
       ]
@@ -645018,7 +645027,15 @@
           "nat": "Wales"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Mads Hermansen",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:281564",
+          "nat": "Denmark"
+        }
+      ]
     },
     "phaseCode": "NLA"
   },
@@ -645242,6 +645259,7 @@
           "n": "패럿",
           "m": 39,
           "pid": "espn:279790",
+          "pk": true,
           "nat": "Republic of Ireland"
         }
       ],
@@ -647206,8 +647224,8 @@
           "m": 83,
           "a": "Oleksandr Pikhalionok",
           "nat": "Ukraine",
-          "aNat": "Ukraine",
           "pid": "espn:219543",
+          "aNat": "Ukraine",
           "apid": "espn:259596"
         }
       ],
@@ -647287,8 +647305,8 @@
           "m": 64,
           "a": "Nicolò Barella",
           "nat": "Italy",
-          "aNat": "Italy",
           "pid": "espn:298329",
+          "aNat": "Italy",
           "apid": "espn:204441"
         },
         {
@@ -647296,8 +647314,8 @@
           "m": 87,
           "a": "Alessandro Romano",
           "nat": "Italy",
-          "aNat": "Switzerland",
           "pid": "espn:362674",
+          "aNat": "Switzerland",
           "apid": "espn:6729"
         }
       ],
@@ -647339,10 +647357,10 @@
           "nat": "Türkiye"
         },
         {
-          "n": "Eren Elmali",
+          "n": "Abdülkerim Bardakçi",
           "type": "Y",
           "m": 81,
-          "pid": "espn:287678",
+          "pid": "espn:193149",
           "nat": "Türkiye"
         }
       ]
@@ -647369,8 +647387,8 @@
           "m": 77,
           "a": "Lucas da Cunha",
           "nat": "France",
-          "pid": "espn:336388",
           "aNat": "France",
+          "pid": "espn:336388",
           "apid": "espn:291285"
         },
         {
@@ -647378,8 +647396,8 @@
           "m": 81,
           "a": "Michael Olise",
           "nat": "France",
-          "pid": "espn:298008",
           "aNat": "France",
+          "pid": "espn:298008",
           "apid": "espn:286831"
         },
         {
@@ -647387,8 +647405,8 @@
           "m": 88,
           "a": "Désiré Doué",
           "nat": "France",
-          "pid": "espn:286831",
           "aNat": "France",
+          "pid": "espn:286831",
           "apid": "espn:336388"
         },
         {
@@ -647396,8 +647414,8 @@
           "m": 90,
           "a": "Désiré Doué",
           "nat": "France",
-          "pid": "espn:286831",
           "aNat": "France",
+          "pid": "espn:286831",
           "apid": "espn:336388"
         }
       ],
@@ -647461,6 +647479,7 @@
           "n": "바시치",
           "m": 84,
           "pid": "espn:306256",
+          "pk": true,
           "nat": "Bosnia and Herzegovina"
         }
       ],
@@ -648880,8 +648899,8 @@
           "n": "오세훈",
           "m": 60,
           "a": "Song Min-Kyu",
-          "pid": "espn:228529",
           "aNat": "South Korea",
+          "pid": "espn:228529",
           "apid": "espn:316511"
         }
       ],
@@ -649019,17 +649038,17 @@
         {
           "n": "누녜스",
           "m": 11,
-          "pk": true,
           "nat": "Uruguay",
-          "pid": "espn:271788"
+          "pid": "espn:271788",
+          "pk": true
         },
         {
           "n": "막시 아라우호",
           "m": 28,
           "a": "Nahitan Nández",
           "nat": "Uruguay",
-          "pid": "espn:287025",
           "aNat": "Uruguay",
+          "pid": "espn:287025",
           "apid": "espn:213056"
         },
         {
@@ -649037,8 +649056,8 @@
           "m": 53,
           "a": "Darwin Núñez",
           "nat": "Uruguay",
-          "pid": "espn:287494",
           "aNat": "Uruguay",
+          "pid": "espn:287494",
           "apid": "espn:271788"
         },
         {
@@ -649046,8 +649065,8 @@
           "m": 59,
           "a": "Federico Viñas",
           "nat": "Uruguay",
-          "pid": "espn:287025",
           "aNat": "Uruguay",
+          "pid": "espn:287025",
           "apid": "espn:295847"
         },
         {
@@ -649061,8 +649080,8 @@
           "m": 86,
           "a": "Facundo Pellistri",
           "nat": "Uruguay",
-          "pid": "espn:159042",
           "aNat": "Uruguay",
+          "pid": "espn:159042",
           "apid": "espn:290538"
         }
       ]
@@ -649192,8 +649211,8 @@
           "m": 30,
           "a": "Matvey Kislyak",
           "nat": "Russia",
-          "pid": "espn:283896",
           "aNat": "Russia",
+          "pid": "espn:283896",
           "apid": "espn:359659"
         },
         {
@@ -649207,8 +649226,8 @@
           "m": 54,
           "a": "Aleksandr Sobolev",
           "nat": "Russia",
-          "pid": "espn:185897",
           "aNat": "Russia",
+          "pid": "espn:185897",
           "apid": "espn:194048"
         }
       ],
@@ -649218,8 +649237,8 @@
           "m": 10,
           "a": "Abdullahi Bewene",
           "nat": "Nigeria",
-          "pid": "espn:39902",
           "aNat": "Nigeria",
+          "pid": "espn:39902",
           "apid": "espn:406242"
         },
         {
@@ -649232,8 +649251,8 @@
           "m": 90,
           "a": "Umar Abubakar",
           "nat": "Nigeria",
-          "pid": "espn:288472",
           "aNat": "Nigeria",
+          "pid": "espn:288472",
           "apid": "espn:407398"
         }
       ]
@@ -649322,9 +649341,9 @@
         {
           "n": "벤세바이니",
           "m": 72,
-          "pk": true,
           "nat": "Algeria",
-          "pid": "espn:220703"
+          "pid": "espn:220703",
+          "pk": true
         }
       ],
       "away": [
@@ -649410,8 +649429,8 @@
           "n": "아슬라니",
           "m": 90,
           "pid": "espn:308881",
-          "pk": true,
-          "nat": "Albania"
+          "nat": "Albania",
+          "pk": true
         }
       ],
       "away": [
@@ -649420,8 +649439,8 @@
           "m": 66,
           "a": "Lorenzo Capicchioni",
           "nat": "San Marino",
-          "pid": "espn:338300",
           "aNat": "San Marino",
+          "pid": "espn:338300",
           "apid": "espn:199564"
         }
       ]
@@ -650206,8 +650225,8 @@
           "m": 48,
           "a": "Lionel Messi",
           "nat": "Argentina",
-          "pid": "espn:119289",
           "aNat": "Argentina",
+          "pid": "espn:119289",
           "apid": "espn:45843"
         },
         {
@@ -650215,16 +650234,16 @@
           "m": 61,
           "a": "Lionel Messi",
           "nat": "Argentina",
-          "pid": "espn:337970",
           "aNat": "Argentina",
+          "pid": "espn:337970",
           "apid": "espn:45843"
         },
         {
           "n": "메시",
           "m": 71,
-          "pk": true,
           "nat": "Argentina",
-          "pid": "espn:45843"
+          "pid": "espn:45843",
+          "pk": true
         }
       ],
       "away": []
@@ -650276,8 +650295,8 @@
           "m": 90,
           "a": "Juan Rengifo",
           "nat": "Colombia",
-          "pid": "espn:317509",
           "aNat": "Colombia",
+          "pid": "espn:317509",
           "apid": "espn:345363"
         }
       ],
@@ -650323,8 +650342,8 @@
           "m": 29,
           "a": "Alex Freeman",
           "nat": "USA",
-          "pid": "espn:403425",
           "aNat": "USA",
+          "pid": "espn:403425",
           "apid": "espn:248276"
         }
       ],
@@ -650561,8 +650580,8 @@
           "m": 54,
           "a": "Gonzalo Tapia",
           "nat": "Argentina",
-          "pid": "espn:208650",
           "aNat": "Chile",
+          "pid": "espn:208650",
           "apid": "espn:297128"
         },
         {
@@ -650570,8 +650589,8 @@
           "m": 65,
           "a": "Darío Osorio",
           "nat": "Chile",
-          "pid": "espn:289076",
           "aNat": "Chile",
+          "pid": "espn:289076",
           "apid": "espn:315668"
         }
       ]
