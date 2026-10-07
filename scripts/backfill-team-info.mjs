@@ -99,6 +99,13 @@ function parseHonoursHtml(html) {
   return rows;
 }
 
+// 선수 기록표(최다출장 등)·상대팀 표가 우승 이력으로 잘못 잡히는 것 방지 — 라벨 대부분이 대회명 단어 없는 사람/팀 이름이면 거부.
+const COMP_WORD = /cup|copa|coupe|coppa|taça|liga|league|lig|serie|série|división|division|divisi|primera|segunda|tercera|categor|campeon|champion|trophy|title|olympic|games|shield|super|medal|bowl|tournament|ligue|bundesliga|eredivisie|premier|torneo|torneio|play-?off|winners|runners|1st|2nd|3rd|first|second|third|series|pennant|promotion|d/i;
+function looksLikeRecordTable(rows) {
+  const nameLike = rows.filter((r) => Array.isArray(r) && typeof r[0] === 'string' && !COMP_WORD.test(r[0]) && /^S+( S+){1,3}( (list))?$/.test(r[0].trim()));
+  return nameLike.length >= Math.max(2, Math.ceil(rows.length / 2));
+}
+
 function parseInfoboxTitles(html) {
   const out = [];
   const box = /<table[^>]*class="[^"]*infobox[^"]*"[\s\S]*?<\/table>/.exec(html)?.[0] || '';
@@ -199,7 +206,7 @@ async function loadPage(title, summary) {
     let rows = parseHonoursHtml(html);
     if (!rows.length) rows = parseWinnerLists(html);
     if (!rows.length) rows = [...html.matchAll(/<li[^>]*>([\s\S]*?)<\/li>/g)].map((m) => m[1].replace(/<sup[\s\S]*?<\/sup>/g, '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim()).filter((x) => x.length > 3 && x.length < 120 && !/^runners?-?up/i.test(x)).slice(0, 8);
-    if (rows.length) info.honours = rows.slice(0, 14);
+    if (rows.length && !looksLikeRecordTable(rows)) info.honours = rows.slice(0, 14);
   }
   if (!info.honours) {
     const p = await wp('en', { action: 'parse', page: title, prop: 'text', section: '0' });
