@@ -16,7 +16,7 @@ const HONOUR_RE = /^(.+?)\s+(Winners|Champions|Runners-up|Runner-up|Third place|
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const readJson = async (f, d) => { try { return JSON.parse(await fs.readFile(f, 'utf8')); } catch { return d; } };
 
-let used = 0, blocked = false;
+let used = 0, blocked = false, strikes = 0;
 async function gtx(text, tl) {
   if (blocked) return null;
   used++;
@@ -24,7 +24,7 @@ async function gtx(text, tl) {
   for (let a = 0; a < 2; a++) {
     try {
       const res = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${tl}&dt=t&q=${encodeURIComponent(cut)}`, { headers: { 'User-Agent': 'Mozilla/5.0' }, signal: AbortSignal.timeout(20000) });
-      if (res.status === 429) { blocked = true; return null; }
+      if (res.status === 429) { if (++strikes >= 3) { blocked = true; return null; } await sleep(30000 * strikes); a--; continue; }
       if (!res.ok) { await sleep(1000); continue; }
       const j = await res.json();
       const out = Array.isArray(j?.[0]) ? j[0].map((x) => String(x?.[0] ?? '')).join('').trim() : '';
