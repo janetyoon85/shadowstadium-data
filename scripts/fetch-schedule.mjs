@@ -1207,7 +1207,7 @@ function extractEspnGoalsBySide(summaryJson, homeTeamName, awayTeamName) {
     // 무도움골은 participants가 1명뿐이라 자연히 undefined.
     const assistAthleteId = isOwnGoal ? undefined : e.participants?.[1]?.athlete?.id;
     const entry = {
-      a: assist, m: Number.isFinite(clockNum) ? clockNum : null,
+      a: assist, m: Number.isFinite(clockNum) ? clockNum : null, pk: !isOwnGoal && /penalty/i.test(typeText),
       teamId: e.team?.id, athleteId: scorerAthleteId, assistAthleteId, og: isOwnGoal,
     };
     (side === 'home' ? home : away).push(entry);
@@ -1681,7 +1681,7 @@ async function enrichEuroAssists(allGames) {
       !cached || isStaleStub ||
       (cached.final !== false &&
         ((!('homeNats' in cached) || !('awayNats' in cached) || !('homeANats' in cached) || !('awayANats' in cached) ||
-          !('homePids' in cached) || !('awayPids' in cached)) || needsCardBackfill || needsShootoutBackfill))
+          !('homePids' in cached) || !('awayPids' in cached) || (!('homePks' in cached) && ((g.scorers?.home || []).length + (g.scorers?.away || []).length) > 0)) || needsCardBackfill || needsShootoutBackfill))
     );
     // 버그(2026-09-29 발견, 사용자 요청 "선수정보안나온경우 찾아줘 원인파악도"로 조사): 예산 소진 시
     // 이 게임을 통째로 continue해버려서, homePids 등 신규 키만 없을 뿐 homeNats(국적)는 이미 잘
@@ -1774,6 +1774,7 @@ async function enrichEuroAssists(allGames) {
                 const s = naverSorted[i];
                 const espnEntry = espnSorted[i];
                 if (espnEntry?.a) s.a = espnEntry.a;
+                if (espnEntry?.pk) s.pk = true;
                 const scorerTeamId = espnEntry?.og ? oppTeamId : espnEntry?.teamId;
                 if (scorerTeamId && espnEntry?.athleteId) {
                   const nat = await getAthleteNationality('soccer', slug, scorerTeamId, espnEntry.athleteId);
@@ -1810,6 +1811,8 @@ async function enrichEuroAssists(allGames) {
               homePids: (g.scorers?.home || []).map((s) => s.pid || null),
               awayPids: (g.scorers?.away || []).map((s) => s.pid || null),
               homeAPids: (g.scorers?.home || []).map((s) => s.apid || null),
+              homePks: (g.scorers?.home || []).map((s) => !!s.pk),
+              awayPks: (g.scorers?.away || []).map((s) => !!s.pk),
               awayAPids: (g.scorers?.away || []).map((s) => s.apid || null),
               final: g.status === 'completed',
               sv: 4, r: 1,
@@ -1834,6 +1837,7 @@ async function enrichEuroAssists(allGames) {
         if (c.homeANats?.[i]) s.aNat = c.homeANats[i];
         if (c.homePids?.[i]) s.pid = c.homePids[i];
         if (c.homeAPids?.[i]) s.apid = c.homeAPids[i];
+        if (c.homePks?.[i]) s.pk = true;
       });
       (g.scorers?.away || []).forEach((s, i) => {
         if (c.awayAssists?.[i]) s.a = c.awayAssists[i];
@@ -1841,6 +1845,7 @@ async function enrichEuroAssists(allGames) {
         if (c.awayANats?.[i]) s.aNat = c.awayANats[i];
         if (c.awayPids?.[i]) s.pid = c.awayPids[i];
         if (c.awayAPids?.[i]) s.apid = c.awayAPids[i];
+        if (c.awayPks?.[i]) s.pk = true;
       });
     }
     const cd = cardCache[g.gameId];
