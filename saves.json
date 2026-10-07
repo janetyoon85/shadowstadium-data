@@ -19,7 +19,8 @@
       "정해영": "50662",
       "곽도규": "53609",
       "조상우": "63342",
-      "황동하": "52641"
+      "황동하": "52641",
+      "김범수": "65769"
     },
     "highlights": {
       "home": [],
@@ -108,7 +109,7 @@
         }
       ]
     },
-    "relayMaxSeqno": 596
+    "relayMaxSeqno": 605
   },
   "20261007SSKT02026": {
     "save": null,
@@ -218,14 +219,18 @@
         }
       ]
     },
-    "relayMaxSeqno": 619
+    "relayMaxSeqno": 623
   },
   "20261007HHWO02026": {
-    "save": null,
-    "winPitcherCode": null,
-    "losePitcherCode": null,
-    "savePitcherCode": null,
-    "holdHome": [],
+    "save": "조영건",
+    "winPitcherCode": "51301",
+    "losePitcherCode": "65707",
+    "savePitcherCode": "69360",
+    "holdHome": [
+      "박정훈",
+      "박진형",
+      "박지성"
+    ],
     "holdAway": [],
     "pitcherCodeByName": {
       "김성진": "51301",
@@ -240,135 +245,111 @@
       "김서현": "53754"
     },
     "highlights": {
-      "home": [],
-      "away": []
-    },
-    "relayHighlights": {
       "home": [
         {
-          "how": "도루",
-          "text": "추재현 도루로 2루까지 진루",
-          "player": "추재현",
-          "seqno": 37,
-          "inn": "1회말"
-        },
-        {
-          "how": "실책",
-          "text": "추재현 포수 실책으로 3루까지 진루 (포수 송구 실책->2루수)",
-          "player": "추재현",
-          "seqno": 38,
-          "inn": "1회말"
-        },
-        {
-          "how": "2루타",
-          "text": "염승원 2루수 오른쪽 2루타",
-          "player": "염승원",
-          "seqno": 104,
-          "inn": "2회말"
-        },
-        {
-          "how": "홈런",
-          "text": "데이비슨 중견수 뒤 홈런 (홈런거리:130M)",
-          "player": "데이비슨",
-          "seqno": 146,
-          "inn": "3회말"
-        },
-        {
-          "how": "홈런",
-          "text": "박찬혁 좌익수 뒤 홈런 (홈런거리:115M)",
-          "player": "박찬혁",
-          "seqno": 202,
-          "inn": "4회말"
-        },
-        {
-          "how": "2루타",
-          "text": "염승원 좌익수 왼쪽 앞 2루타",
-          "player": "염승원",
-          "seqno": 212,
-          "inn": "4회말"
-        },
-        {
-          "how": "홈런",
-          "text": "히우라 좌익수 뒤 홈런 (홈런거리:120M)",
+          "how": "결승타",
+          "text": "히우라(5회 무사 1루서 좌월 홈런)",
           "player": "히우라",
-          "seqno": 269,
-          "inn": "5회말"
+          "pid": "kbo:b:56305"
         },
         {
           "how": "홈런",
-          "text": "김재현 좌익수 뒤 홈런 (홈런거리:115M)",
+          "text": "데이비슨28호(3회1점 정우주)",
+          "player": "데이비슨",
+          "pid": "kbo:b:54944"
+        },
+        {
+          "how": "홈런",
+          "text": "박찬혁12호(4회1점 정우주)",
+          "player": "박찬혁",
+          "pid": "kbo:b:52348"
+        },
+        {
+          "how": "홈런",
+          "text": "히우라13호(5회2점 주현상)",
+          "player": "히우라",
+          "pid": "kbo:b:56305"
+        },
+        {
+          "how": "홈런",
+          "text": "김재현2호(8회1점 김서현)",
           "player": "김재현",
-          "seqno": 426,
-          "inn": "8회말"
+          "pid": "kbo:b:62332"
+        },
+        {
+          "how": "2루타",
+          "text": "염승원2(2 4회)",
+          "player": "염승원",
+          "pid": "kbo:b:55339"
         },
         {
           "how": "도루",
-          "text": "박찬혁 도루실패아웃 (포수->유격수 태그아웃)",
+          "text": "추재현(1회)",
+          "player": "추재현",
+          "pid": "kbo:b:68362"
+        },
+        {
+          "how": "도루자",
+          "text": "박찬혁(8회)",
           "player": "박찬혁",
-          "seqno": 448,
-          "inn": "8회말"
+          "pid": "kbo:b:52348"
         },
         {
-          "how": "폭투",
-          "text": "권혁빈 폭투로 2루까지 진루",
+          "how": "병살타",
+          "text": "권혁빈(6회)",
           "player": "권혁빈",
-          "seqno": 465,
-          "inn": "8회말"
-        },
-        {
-          "how": "폭투",
-          "text": "염승원 폭투로 3루까지 진루",
-          "player": "염승원",
-          "seqno": 466,
-          "inn": "8회말"
+          "pid": "kbo:b:55371"
         }
       ],
       "away": [
         {
-          "how": "병살타",
-          "text": "강백호 유격수 병살타 아웃 (유격수->1루수 송구아웃)",
+          "how": "홈런",
+          "text": "강백호34호(4회1점 김성진)",
           "player": "강백호",
-          "seqno": 20,
-          "inn": "1회초"
+          "pid": "kbo:b:68050"
         },
         {
           "how": "홈런",
-          "text": "강백호 우익수 뒤 홈런 (홈런거리:135M)",
-          "player": "강백호",
-          "seqno": 174,
-          "inn": "4회초"
-        },
-        {
-          "how": "홈런",
-          "text": "노시환 우익수 뒤 홈런 (홈런거리:110M)",
+          "text": "노시환29호(4회1점 김성진)",
           "player": "노시환",
-          "seqno": 180,
-          "inn": "4회초"
+          "pid": "kbo:b:69737"
         },
         {
           "how": "2루타",
-          "text": "이도윤 우익수 뒤 2루타",
+          "text": "이도윤(5회)",
           "player": "이도윤",
-          "seqno": 249,
-          "inn": "5회초"
+          "pid": "kbo:b:65703"
+        },
+        {
+          "how": "실책",
+          "text": "허인서(1회)",
+          "player": "허인서",
+          "pid": "kbo:b:52764"
         },
         {
           "how": "병살타",
-          "text": "허인서 1루수 병살타 아웃 (1루수->유격수->1루수 송구아웃)",
-          "player": "허인서",
-          "seqno": 306,
-          "inn": "6회초"
+          "text": "강백호(1회)",
+          "player": "강백호",
+          "pid": "kbo:b:68050"
+        },
+        {
+          "how": "폭투",
+          "text": "김서현(8회)",
+          "player": "김서현",
+          "pid": "kbo:b:53754"
         }
       ]
     },
-    "relayMaxSeqno": 490
+    "hlRetries": 1
   },
   "20261007NCSK02026": {
-    "save": null,
-    "winPitcherCode": null,
-    "losePitcherCode": null,
-    "savePitcherCode": null,
-    "holdHome": [],
+    "save": "조병현",
+    "winPitcherCode": "56840",
+    "losePitcherCode": "69962",
+    "savePitcherCode": "51897",
+    "holdHome": [
+      "문승원"
+    ],
     "holdAway": [],
     "pitcherCodeByName": {
       "김민준": "56840",
@@ -384,121 +365,95 @@
       "이용준": "51948"
     },
     "highlights": {
-      "home": [],
-      "away": []
-    },
-    "relayHighlights": {
       "home": [
         {
-          "how": "2루타",
-          "text": "박성한 중견수 왼쪽 뒤 2루타",
-          "player": "박성한",
-          "seqno": 25,
-          "inn": "1회말"
+          "how": "결승타",
+          "text": "전의산(3회 2사 1,2루서 중월 홈런)",
+          "player": "전의산",
+          "pid": "kbo:b:50820"
         },
         {
           "how": "홈런",
-          "text": "전의산 중견수 뒤 홈런 (홈런거리:125M)",
+          "text": "전의산13호(3회3점 송명기)",
           "player": "전의산",
-          "seqno": 158,
-          "inn": "3회말"
+          "pid": "kbo:b:50820"
         },
         {
           "how": "2루타",
-          "text": "고명준 우익수 오른쪽 뒤 2루타",
-          "player": "고명준",
-          "seqno": 163,
-          "inn": "3회말"
-        },
-        {
-          "how": "폭투",
-          "text": "고명준 폭투로 3루까지 진루",
-          "player": "고명준",
-          "seqno": 167,
-          "inn": "3회말"
-        },
-        {
-          "how": "폭투",
-          "text": "김재환 폭투로 2루까지 진루",
-          "player": "김재환",
-          "seqno": 177,
-          "inn": "3회말"
-        },
-        {
-          "how": "폭투",
-          "text": "고명준 폭투로 홈인",
-          "player": "고명준",
-          "seqno": 178,
-          "inn": "3회말"
+          "text": "박성한(1회)",
+          "player": "박성한",
+          "pid": "kbo:b:67893"
         },
         {
           "how": "2루타",
-          "text": "최지훈 우익수 오른쪽 뒤 2루타",
+          "text": "고명준(3회)",
+          "player": "고명준",
+          "pid": "kbo:b:51868"
+        },
+        {
+          "how": "2루타",
+          "text": "최지훈(4회)",
           "player": "최지훈",
-          "seqno": 231,
-          "inn": "4회말"
-        },
-        {
-          "how": "폭투",
-          "text": "김정민 폭투로 2루까지 진루",
-          "player": "김정민",
-          "seqno": 433,
-          "inn": "7회말"
-        },
-        {
-          "how": "폭투",
-          "text": "조형우 폭투로 3루까지 진루",
-          "player": "조형우",
-          "seqno": 434,
-          "inn": "7회말"
+          "pid": "kbo:b:50854"
         },
         {
           "how": "도루",
-          "text": "안상현 도루로 2루까지 진루",
+          "text": "안상현(8회)",
           "player": "안상현",
-          "seqno": 525,
-          "inn": "8회말"
+          "pid": "kbo:b:66864"
+        },
+        {
+          "how": "폭투",
+          "text": "김민준(7회)",
+          "player": "김민준",
+          "pid": "kbo:b:56840"
         }
       ],
       "away": [
         {
-          "how": "폭투",
-          "text": "최정원 폭투로 2루까지 진루",
-          "player": "최정원",
-          "seqno": 398,
-          "inn": "7회초"
-        },
-        {
-          "how": "2루타",
-          "text": "천재환 우중간 2루타",
-          "player": "천재환",
-          "seqno": 466,
-          "inn": "8회초"
-        },
-        {
           "how": "홈런",
-          "text": "김형준 좌익수 뒤 홈런 (홈런거리:130M)",
+          "text": "김형준17호(8회2점 전영준)",
           "player": "김형준",
-          "seqno": 473,
-          "inn": "8회초"
+          "pid": "kbo:b:68912"
         },
         {
           "how": "2루타",
-          "text": "김주원 우익수 오른쪽 뒤 2루타",
+          "text": "김주원(8회)",
           "player": "김주원",
-          "seqno": 492,
-          "inn": "8회초"
+          "pid": "kbo:b:51907"
+        },
+        {
+          "how": "2루타",
+          "text": "천재환(8회)",
+          "player": "천재환",
+          "pid": "kbo:b:67905"
+        },
+        {
+          "how": "폭투",
+          "text": "신영우2(3회)",
+          "player": "신영우",
+          "pid": "kbo:b:53919"
+        },
+        {
+          "how": "폭투",
+          "text": "배재환(7회)",
+          "player": "배재환",
+          "pid": "kbo:b:64995"
         }
       ]
     },
-    "relayMaxSeqno": 552
+    "hlRetries": 1
   },
   "20261007OBLG02026": {
-    "save": null,
-    "winPitcherCode": null,
-    "losePitcherCode": null,
-    "savePitcherCode": null,
-    "holdHome": [],
+    "save": "손주영",
+    "winPitcherCode": "61101",
+    "losePitcherCode": "55268",
+    "savePitcherCode": "67143",
+    "holdHome": [
+      "김강률",
+      "케네디",
+      "고우석"
+    ],
     "holdAway": [],
     "pitcherCodeByName": {
       "임찬규": "61101",
@@ -513,100 +468,64 @@
       "이영하": "66291"
     },
     "highlights": {
-      "home": [],
-      "away": []
-    },
-    "relayHighlights": {
       "home": [
         {
           "how": "홈런",
-          "text": "이재원 중견수 뒤 홈런 (홈런거리:145M)",
+          "text": "이재원9호(2회3점 최민석)",
           "player": "이재원",
-          "seqno": 78,
-          "inn": "2회말"
+          "pid": "kbo:b:68106"
+        },
+        {
+          "how": "도루",
+          "text": "구본혁(8회)",
+          "player": "구본혁",
+          "pid": "kbo:b:69100"
+        },
+        {
+          "how": "도루자",
+          "text": "구본혁(8회)",
+          "player": "구본혁",
+          "pid": "kbo:b:69100"
         },
         {
           "how": "폭투",
-          "text": "오스틴 폭투로 2루까지 진루",
-          "player": "오스틴",
-          "seqno": 207,
-          "inn": "3회말"
-        },
-        {
-          "how": "폭투",
-          "text": "송찬의 폭투로 3루까지 진루",
-          "player": "송찬의",
-          "seqno": 208,
-          "inn": "3회말"
-        },
-        {
-          "how": "실책",
-          "text": "문보경 실책으로 홈인",
-          "player": "문보경",
-          "seqno": 328,
-          "inn": "5회말"
-        },
-        {
-          "how": "실책",
-          "text": "오스틴 실책으로 홈인 (3루수 송구 실책->1루수)",
-          "player": "오스틴",
-          "seqno": 330,
-          "inn": "5회말"
-        },
-        {
-          "how": "도루",
-          "text": "구본혁 도루로 2루까지 진루",
-          "player": "구본혁",
-          "seqno": 480,
-          "inn": "8회말"
-        },
-        {
-          "how": "도루",
-          "text": "박동원 이중도루 실패시 2루까지 진루",
-          "player": "박동원",
-          "seqno": 493,
-          "inn": "8회말"
-        },
-        {
-          "how": "도루",
-          "text": "구본혁 도루실패아웃 (포수->3루수 태그아웃)",
-          "player": "구본혁",
-          "seqno": 494,
-          "inn": "8회말"
+          "text": "고우석(8회)",
+          "player": "고우석",
+          "pid": "kbo:b:67119"
         }
       ],
       "away": [
         {
-          "how": "도루",
-          "text": "강승호 도루로 2루까지 진루",
-          "player": "강승호",
-          "seqno": 60,
-          "inn": "2회초"
+          "how": "결승타",
+          "text": "없음"
+        },
+        {
+          "how": "실책",
+          "text": "안재석(5회)",
+          "player": "안재석",
+          "pid": "kbo:b:51203"
         },
         {
           "how": "도루",
-          "text": "정수빈 도루로 2루까지 진루",
+          "text": "강승호2(2 3회)",
+          "player": "강승호",
+          "pid": "kbo:b:63123"
+        },
+        {
+          "how": "도루",
+          "text": "정수빈(3회)",
           "player": "정수빈",
-          "seqno": 121,
-          "inn": "3회초"
-        },
-        {
-          "how": "도루",
-          "text": "강승호 도루로 2루까지 진루",
-          "player": "강승호",
-          "seqno": 163,
-          "inn": "3회초"
+          "pid": "kbo:b:79231"
         },
         {
           "how": "폭투",
-          "text": "김민석 폭투로 2루까지 진루",
-          "player": "김민석",
-          "seqno": 462,
-          "inn": "8회초"
+          "text": "최민석(3회)",
+          "player": "최민석",
+          "pid": "kbo:b:55268"
         }
       ]
     },
-    "relayMaxSeqno": 531
+    "hlRetries": 1
   },
   "20261007HIHS0": {
     "save": null,
@@ -1391,7 +1310,7 @@
       "home": [],
       "away": []
     },
-    "hlRetries": 175,
+    "hlRetries": 176,
     "relayHighlights": {
       "home": [
         {
