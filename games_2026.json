@@ -650611,8 +650611,8 @@
       "batter": "스에카네",
       "pitcherPid": "npb:2106233",
       "batterPid": "npb:2103768",
-      "ball": 1,
-      "strike": 0,
+      "ball": 2,
+      "strike": 2,
       "out": 1,
       "bases": [
         1,
@@ -650642,13 +650642,15 @@
     "liveState": {
       "pitcher": "정우주",
       "pitcherPid": "kbo:p:55743",
-      "batter": "여동욱",
-      "batterPid": "kbo:b:55393",
+      "batter": "염승원",
+      "batterPid": "kbo:b:55339",
       "ball": 0,
       "strike": 0,
       "out": 2,
-      "bases": [],
-      "pitchCount": 28
+      "bases": [
+        1
+      ],
+      "pitchCount": 32
     },
     "highlights": {
       "home": [
@@ -650699,13 +650701,15 @@
     "liveState": {
       "pitcher": "임찬규",
       "pitcherPid": "kbo:p:61101",
-      "batter": "정수빈",
-      "batterPid": "kbo:b:79231",
-      "ball": 0,
-      "strike": 1,
+      "batter": "박찬호",
+      "batterPid": "kbo:b:64646",
+      "ball": 1,
+      "strike": 0,
       "out": 1,
-      "bases": [],
-      "pitchCount": 33
+      "bases": [
+        1
+      ],
+      "pitchCount": 36
     },
     "highlights": {
       "home": [
@@ -650745,17 +650749,17 @@
     "homePitcherPid": "kbo:b:56840",
     "awayScore": 0,
     "homeScore": 0,
-    "inningInfo": "2회말",
+    "inningInfo": "3회초",
     "liveState": {
-      "pitcher": "송명기",
-      "pitcherPid": "kbo:p:69962",
-      "batter": "안재연",
-      "batterPid": "kbo:b:56811",
+      "pitcher": "김민준",
+      "pitcherPid": "kbo:p:56840",
+      "batter": "천재환",
+      "batterPid": "kbo:b:67905",
       "ball": 0,
       "strike": 0,
-      "out": 2,
+      "out": 0,
       "bases": [],
-      "pitchCount": 36
+      "pitchCount": 27
     },
     "highlights": {
       "home": [
@@ -650791,19 +650795,27 @@
     "liveState": {
       "pitcher": "양현종",
       "pitcherPid": "kbo:p:77637",
-      "batter": "손성빈",
-      "batterPid": "kbo:b:51528",
+      "batter": "조세진",
+      "batterPid": "kbo:b:52516",
       "ball": 0,
       "strike": 0,
-      "out": 0,
+      "out": 2,
       "bases": [
         1,
-        2
+        3
       ],
-      "pitchCount": 17
+      "pitchCount": 22
     },
     "highlights": {
-      "home": [],
+      "home": [
+        {
+          "how": "병살타",
+          "text": "손성빈 유격수 병살타 아웃 (유격수->2루수->1루수 송구아웃)",
+          "player": "손성빈",
+          "inn": "2회말",
+          "pid": "kbo:b:51528"
+        }
+      ],
       "away": [
         {
           "how": "홈런",
@@ -650836,18 +650848,24 @@
     "liveState": {
       "pitcher": "원태인",
       "pitcherPid": "kbo:p:69446",
-      "batter": "김현수",
-      "batterPid": "kbo:b:76290",
-      "ball": 0,
-      "strike": 0,
-      "out": 0,
-      "bases": [
-        1
-      ],
-      "pitchCount": 24
+      "batter": "류현인",
+      "batterPid": "kbo:b:53036",
+      "ball": 1,
+      "strike": 1,
+      "out": 2,
+      "bases": [],
+      "pitchCount": 29
     },
     "highlights": {
-      "home": [],
+      "home": [
+        {
+          "how": "병살타",
+          "text": "김현수 1루수 병살타 아웃 (1루수 1루 터치아웃)",
+          "player": "김현수",
+          "inn": "2회말",
+          "pid": "kbo:b:76290"
+        }
+      ],
       "away": [
         {
           "how": "도루",
