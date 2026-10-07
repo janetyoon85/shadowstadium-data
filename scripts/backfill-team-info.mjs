@@ -19,7 +19,7 @@ const BUDGET = Number(process.env.TEAM_INFO_BUDGET || 100);
 const LANGS = ['ko', 'en', 'ja', 'es', 'pt', 'fr', 'de', 'it', 'ru', 'ar', 'id', 'th', 'vi', 'zh-hans', 'zh-hant', 'hi', 'tr', 'nl'];
 const WIKIS = ['ko', 'ja', 'es', 'pt', 'fr', 'de', 'it', 'ru', 'ar', 'id', 'th', 'vi', 'zh', 'hi', 'tr', 'nl'];
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-const TEAM_DESC_RE = /\b(club|team|franchise|side|squad|sports organi[sz]ation)\b|national .*(football|soccer|baseball)/i;
+const TEAM_DESC_RE = /\b(club|team|franchise|side|squad|sports organi[sz]ation)\b|national .*(football|soccer|baseball|basketball)/i;
 const COUNTRY_DESC_RE = /\b(country|sovereign state|republic|kingdom|territory|island nation|special administrative)\b/i;
 const NAME_GENERIC = new Set(['fc', 'cf', 'sc', 'ac', 'fk', 'afc', 'club', 'de', 'la', 'le', 'the', 'of', 'and', 'cd', 'cs', 'ca', 'sk', 'if', 'bk', 'sv', 'vfl', 'vfb', 'tsv', 'us', 'as', 'ss']);
 
@@ -239,16 +239,20 @@ async function loadPage(title, summary) {
 }
 
 async function fetchInfo(ko, en) {
-  const f = await findPage(en);
+  const isBk = ko.startsWith('bk:');
+  const BKFIX = { 'Islamic Republic of Iran': 'Iran', 'Republic of Korea': 'South Korea', 'Chinese Taipei': 'Taiwan', "People's Republic of China": 'China', 'USA': 'United States', 'Hong Kong, China': 'Hong Kong' };
+  const bkNat = isBk && /^bk:[a-z]+:(FIBA|OLYMPICS_[MW]|ASIAD3?_[MW]):/.test(ko);
+  const bkW = bkNat && /_W:/.test(ko);
+  const f = bkNat ? { country: BKFIX[en] || en } : await findPage(isBk ? (BKFIX[en] || en) : en);
   if (f === undefined) return undefined;
   if (f === null) return null;
   if (f.country) {
     const out = {};
-    for (const [suffix, sportKey] of [['national football team', ''], ['national baseball team', '|baseball']]) {
+    for (const [suffix, sportKey] of isBk ? [['national basketball team', '']] : [['national football team', ''], ['national baseball team', '|baseball']]) {
       const q = `${f.country} ${suffix}`;
       const s = await wp('en', { action: 'query', list: 'search', srsearch: q, srlimit: '3' });
       await pause();
-      const title = (s?.query?.search || []).find((r) => normalizeForMatch(r.title).includes(normalizeForMatch(f.country)) && /national/i.test(r.title) && !/women|u-?\d\d|under/i.test(r.title) && new RegExp(suffix.split(' ')[1], 'i').test(r.title))?.title;
+      const title = (s?.query?.search || []).find((r) => normalizeForMatch(r.title).includes(normalizeForMatch(f.country)) && /national/i.test(r.title) && (bkW ? /women/i.test(r.title) && !/u-?\d\d|under/i.test(r.title) : !/women|u-?\d\d|under/i.test(r.title)) && new RegExp(suffix.split(' ')[1], 'i').test(r.title))?.title;
       if (!title) continue;
       const p = await get(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title.replace(/ /g, '_'))}`);
       await pause();
@@ -273,6 +277,11 @@ async function save(cache, meta, aliases) {
 async function main() {
   const names = JSON.parse(await fs.readFile(NAMES, 'utf8'));
   try { Object.assign(names, JSON.parse(await fs.readFile(path.join(REPO_ROOT, 'basketball', 'team-name-en.json'), 'utf8'))); } catch {}
+  try {
+    const bt = JSON.parse(await fs.readFile(path.join(REPO_ROOT, 'basketball', 'teams.json'), 'utf8'));
+    let bi = {}; try { bi = JSON.parse(await fs.readFile(path.join(REPO_ROOT, 'basketball', 'team-i18n.json'), 'utf8')); } catch {}
+    for (const [k, t] of Object.entries(bt)) { const en = t.en || bi[k]?.en; if (en && !names['bk:' + k] && !names['bk:' + k.replace(/^naver:/, 'espn:')]) names['bk:' + k] = en; }
+  } catch {}
   const cache = {};
   await fs.mkdir(OUT_DIR, { recursive: true });
   for (let i = 0; i < 16; i++) { try { Object.assign(cache, JSON.parse(await fs.readFile(path.join(OUT_DIR, `${i.toString(16)}.json`), 'utf8'))); } catch {} }
