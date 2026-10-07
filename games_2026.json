@@ -650607,6 +650607,10 @@
     "homePitcherPid": "npb:900062",
     "awayScore": 1,
     "homeScore": 2,
+    "winPitcher": "오카도메",
+    "losePitcher": "타녹",
+    "winPitcherPid": "npb:2103848",
+    "losePitcherPid": "npb:2108238",
     "highlights": {
       "home": [
         {
@@ -651021,17 +651025,15 @@
     "homeScore": 4,
     "inningInfo": "8회말",
     "liveState": {
-      "pitcher": "황동하",
-      "pitcherPid": "kbo:p:52641",
-      "batter": "조세진",
-      "batterPid": "kbo:b:52516",
-      "ball": 1,
+      "pitcher": "현도훈",
+      "pitcherPid": "kbo:p:68260",
+      "batter": "박정우",
+      "batterPid": "kbo:b:67609",
+      "ball": 0,
       "strike": 0,
-      "out": 2,
-      "bases": [
-        2
-      ],
-      "pitchCount": 21
+      "out": 0,
+      "bases": [],
+      "pitchCount": 7
     },
     "highlights": {
       "home": [
@@ -651138,13 +651140,15 @@
     "liveState": {
       "pitcher": "문용익",
       "pitcherPid": "kbo:p:67419",
-      "batter": "김헌곤",
-      "batterPid": "kbo:b:61404",
-      "ball": 1,
-      "strike": 0,
+      "batter": "김성윤",
+      "batterPid": "kbo:b:67449",
+      "ball": 0,
+      "strike": 1,
       "out": 1,
-      "bases": [],
-      "pitchCount": 6
+      "bases": [
+        2
+      ],
+      "pitchCount": 10
     },
     "highlights": {
       "home": [
@@ -651211,6 +651215,13 @@
           "player": "김성윤",
           "inn": "3회초",
           "pid": "kbo:b:67449"
+        },
+        {
+          "how": "2루타",
+          "text": "김헌곤 좌익수 왼쪽 2루타",
+          "player": "김헌곤",
+          "inn": "9회초",
+          "pid": "kbo:b:61404"
         }
       ]
     }
