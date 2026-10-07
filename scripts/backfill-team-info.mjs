@@ -100,9 +100,9 @@ function parseHonoursHtml(html) {
 }
 
 // 선수 기록표(최다출장 등)·상대팀 표가 우승 이력으로 잘못 잡히는 것 방지 — 라벨 대부분이 대회명 단어 없는 사람/팀 이름이면 거부.
-const COMP_WORD = /cup|copa|coupe|coppa|taça|liga|league|lig|serie|série|división|division|divisi|primera|segunda|tercera|categor|campeon|champion|trophy|title|olympic|games|shield|super|medal|bowl|tournament|ligue|bundesliga|eredivisie|premier|torneo|torneio|play-?off|winners|runners|1st|2nd|3rd|first|second|third|series|pennant|promotion|d/i;
+const COMP_WORD = /cup|copa|coupe|coppa|taça|liga|league|lig\b|serie|série|división|division|divisi|primera|segunda|tercera|categor|campeon|champion|trophy|title|olympic|games|shield|super|medal|bowl|tournament|ligue|bundesliga|eredivisie|premier|torneo|torneio|play-?off|winners|runners|1st|2nd|3rd|first|second|third|series|pennant|promotion|\d/i;
 function looksLikeRecordTable(rows) {
-  const nameLike = rows.filter((r) => Array.isArray(r) && typeof r[0] === 'string' && !COMP_WORD.test(r[0]) && /^S+( S+){1,3}( (list))?$/.test(r[0].trim()));
+  const nameLike = rows.filter((r) => Array.isArray(r) && typeof r[0] === 'string' && !COMP_WORD.test(r[0]) && /^\S+( \S+){1,3}( \(list\))?$/.test(r[0].trim()));
   return nameLike.length >= Math.max(2, Math.ceil(rows.length / 2));
 }
 
@@ -198,7 +198,8 @@ async function loadPage(title, summary) {
   const sec = await wp('en', { action: 'parse', page: title, prop: 'sections' });
   await pause();
   const secs = sec?.parse?.sections || [];
-  const hs = secs.find((s) => Number(s.toclevel) <= 2 && /honou?rs|trophies|achievements|palmar[eè]s|championships|titles/i.test(s.line));
+  const hs = secs.find((s) => Number(s.toclevel) <= 2 && /^(honou?rs|trophies|palmar[eè]s)/i.test(s.line.trim()))
+    || secs.find((s) => Number(s.toclevel) <= 2 && !/records?|individual/i.test(s.line) && /honou?rs|trophies|achievements|palmar[eè]s|championships|titles/i.test(s.line));
   if (hs) {
     const p = await wp('en', { action: 'parse', page: title, section: hs.index, prop: 'text' });
     await pause();
