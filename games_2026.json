@@ -650610,13 +650610,14 @@
     "inningInfo": "10회말",
     "liveState": {
       "pitcher": "타카",
-      "batter": "모토야마",
+      "batter": "치카모토",
       "pitcherPid": "npb:1950429",
-      "batterPid": "npb:2000027",
-      "ball": 0,
-      "strike": 0,
-      "out": 0,
-      "bases": []
+      "batterPid": "npb:1800065",
+      "ball": 2,
+      "strike": 1,
+      "out": 1,
+      "bases": [],
+      "pitchCount": 3
     },
     "highlights": {
       "home": [
@@ -650653,13 +650654,14 @@
       "pitcherPid": "kbo:p:53754",
       "batter": "권혁빈",
       "batterPid": "kbo:b:55371",
-      "ball": 0,
-      "strike": 1,
+      "ball": 1,
+      "strike": 2,
       "out": 2,
       "bases": [
-        1
+        1,
+        2
       ],
-      "pitchCount": 22
+      "pitchCount": 26
     },
     "highlights": {
       "home": [
@@ -650787,16 +650789,15 @@
     "liveState": {
       "pitcher": "이영하",
       "pitcherPid": "kbo:p:66291",
-      "batter": "신민재",
-      "batterPid": "kbo:b:65207",
-      "ball": 2,
-      "strike": 1,
-      "out": 0,
+      "batter": "박해민",
+      "batterPid": "kbo:b:62415",
+      "ball": 1,
+      "strike": 0,
+      "out": 2,
       "bases": [
-        1,
-        2
+        3
       ],
-      "pitchCount": 14
+      "pitchCount": 17
     },
     "highlights": {
       "home": [
@@ -650838,6 +650839,20 @@
         {
           "how": "도루",
           "text": "구본혁 도루로 2루까지 진루",
+          "player": "구본혁",
+          "inn": "8회말",
+          "pid": "kbo:b:69100"
+        },
+        {
+          "how": "도루",
+          "text": "박동원 이중도루 실패시 2루까지 진루",
+          "player": "박동원",
+          "inn": "8회말",
+          "pid": "kbo:b:79365"
+        },
+        {
+          "how": "도루",
+          "text": "구본혁 도루실패아웃 (포수->3루수 태그아웃)",
           "player": "구본혁",
           "inn": "8회말",
           "pid": "kbo:b:69100"
@@ -650896,13 +650911,15 @@
     "liveState": {
       "pitcher": "문승원",
       "pitcherPid": "kbo:p:62869",
-      "batter": "김주원",
-      "batterPid": "kbo:b:51907",
+      "batter": "최정원",
+      "batterPid": "kbo:b:69992",
       "ball": 0,
       "strike": 0,
       "out": 1,
-      "bases": [],
-      "pitchCount": 6
+      "bases": [
+        2
+      ],
+      "pitchCount": 13
     },
     "highlights": {
       "home": [
@@ -650990,6 +651007,13 @@
           "player": "김형준",
           "inn": "8회초",
           "pid": "kbo:b:68912"
+        },
+        {
+          "how": "2루타",
+          "text": "김주원 우익수 오른쪽 뒤 2루타",
+          "player": "김주원",
+          "inn": "8회초",
+          "pid": "kbo:b:51907"
         }
       ]
     }
@@ -651107,21 +651131,17 @@
     "homePitcherPid": "kbo:b:50030",
     "awayScore": 0,
     "homeScore": 4,
-    "inningInfo": "7회말",
+    "inningInfo": "8회초",
     "liveState": {
-      "pitcher": "김태훈",
-      "pitcherPid": "kbo:p:62360",
-      "batter": "한승택",
-      "batterPid": "kbo:b:63722",
-      "ball": 1,
-      "strike": 2,
-      "out": 2,
-      "bases": [
-        1,
-        2,
-        3
-      ],
-      "pitchCount": 14
+      "pitcher": "김정운",
+      "pitcherPid": "kbo:p:53029",
+      "batter": "최형우",
+      "batterPid": "kbo:b:72443",
+      "ball": 0,
+      "strike": 0,
+      "out": 0,
+      "bases": [],
+      "pitchCount": 5
     },
     "highlights": {
       "home": [
