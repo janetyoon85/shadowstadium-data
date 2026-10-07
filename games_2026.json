@@ -650284,8 +650284,8 @@
           "m": 29,
           "a": "Alex Freeman",
           "nat": "USA",
-          "pid": "espn:403425",
           "aNat": "USA",
+          "pid": "espn:403425",
           "apid": "espn:248276"
         }
       ],
@@ -650339,7 +650339,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 2,
-    "matchPeriod": "후반 15'",
+    "matchPeriod": "후반 17'",
     "scorers": {
       "home": [
         {
@@ -650380,7 +650380,15 @@
           "nat": "USA"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Tate Johnson",
+          "type": "Y",
+          "m": 61,
+          "pid": "espn:338836",
+          "nat": "USA"
+        }
+      ]
     },
     "phaseCode": "LEAGUE"
   },
@@ -650429,13 +650437,15 @@
     "inningInfo": "2회초",
     "liveState": {
       "pitcher": "피베타",
-      "batter": "옐리치",
+      "batter": "프랫",
       "ball": 1,
-      "strike": 1,
-      "out": 1,
-      "bases": [],
-      "pitchCount": 28,
-      "batterPid": "mlb:592885"
+      "strike": 0,
+      "out": 2,
+      "bases": [
+        1
+      ],
+      "pitchCount": 32,
+      "batterPid": "mlb:806198"
     },
     "round": "ps_nlds",
     "rn": 3
