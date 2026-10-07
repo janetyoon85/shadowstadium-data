@@ -94,7 +94,7 @@ function parseHonoursHtml(html) {
     if (!n) continue;
     if (/^total/i.test(comp)) continue;
     const yrs = (cells[i + 1] || '').slice(0, 70);
-    rows.push([comp, n, /(1[89]|20)d{2}/.test(yrs) ? yrs : '']);
+    rows.push([comp, n, /(1[89]|20)\d{2}/.test(yrs) ? yrs : '']);
   }
   return rows;
 }
