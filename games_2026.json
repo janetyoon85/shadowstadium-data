@@ -650607,19 +650607,16 @@
     "homePitcherPid": "npb:900062",
     "awayScore": 1,
     "homeScore": 1,
-    "inningInfo": "9회말",
+    "inningInfo": "10회초",
     "liveState": {
-      "pitcher": "오세라",
-      "batter": "오바타",
-      "pitcherPid": "npb:1300057",
-      "batterPid": "npb:1800066",
+      "pitcher": "오요카와",
+      "batter": "쿠보",
+      "pitcherPid": "npb:1900046",
+      "batterPid": "npb:2107875",
       "ball": 0,
       "strike": 0,
-      "out": 3,
-      "bases": [
-        1
-      ],
-      "pitchCount": 15
+      "out": 0,
+      "bases": []
     },
     "highlights": {
       "home": [
@@ -650775,13 +650772,13 @@
       "pitcherPid": "kbo:p:67119",
       "batter": "강승호",
       "batterPid": "kbo:b:63123",
-      "ball": 2,
+      "ball": 3,
       "strike": 2,
       "out": 2,
       "bases": [
-        1
+        2
       ],
-      "pitchCount": 13
+      "pitchCount": 16
     },
     "highlights": {
       "home": [
@@ -650842,6 +650839,13 @@
           "player": "강승호",
           "inn": "3회초",
           "pid": "kbo:b:63123"
+        },
+        {
+          "how": "폭투",
+          "text": "김민석 폭투로 2루까지 진루",
+          "player": "김민석",
+          "inn": "8회초",
+          "pid": "kbo:b:53554"
         }
       ]
     }
@@ -650862,21 +650866,18 @@
     "awayPitcherPid": "kbo:p:69962",
     "homePitcherPid": "kbo:b:56840",
     "awayScore": 0,
-    "homeScore": 4,
-    "inningInfo": "7회말",
+    "homeScore": 6,
+    "inningInfo": "8회초",
     "liveState": {
-      "pitcher": "배재환",
-      "pitcherPid": "kbo:p:64995",
-      "batter": "에레디아",
-      "batterPid": "kbo:b:53827",
+      "pitcher": "김민준",
+      "pitcherPid": "kbo:p:56840",
+      "batter": "이우성",
+      "batterPid": "kbo:b:63260",
       "ball": 0,
       "strike": 0,
-      "out": 2,
-      "bases": [
-        1,
-        2
-      ],
-      "pitchCount": 20
+      "out": 0,
+      "bases": [],
+      "pitchCount": 108
     },
     "highlights": {
       "home": [
@@ -651070,13 +651071,13 @@
       "pitcherPid": "kbo:p:60146",
       "batter": "최원준",
       "batterPid": "kbo:b:66606",
-      "ball": 1,
+      "ball": 3,
       "strike": 0,
       "out": 0,
       "bases": [
         1
       ],
-      "pitchCount": 18
+      "pitchCount": 20
     },
     "highlights": {
       "home": [
@@ -663491,6 +663492,18 @@
   {
     "date": "2026-10-24",
     "time": "08:00",
+    "league": "CHILE",
+    "venueId": "estadio_la_florida_santiago",
+    "home": "아우닥스 이탈리아노",
+    "away": "우아치파토",
+    "stadium": "Estadio Municipal de La Florida",
+    "timeTbd": false,
+    "gameId": "CHILE_ESPN_401850668",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-24",
+    "time": "08:00",
     "league": "COLOMBIA",
     "venueId": "estadio_la_independencia_tunja",
     "home": "보야카 치코",
@@ -664427,6 +664440,18 @@
   {
     "date": "2026-10-25",
     "time": "00:30",
+    "league": "CHILE",
+    "venueId": "estadio_la_portada_laserena",
+    "home": "라 세레나",
+    "away": "데포르테스 콘셉시온",
+    "stadium": "Estadio La Portada",
+    "timeTbd": false,
+    "gameId": "CHILE_ESPN_401850674",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-25",
+    "time": "00:30",
     "league": "SWEDEN",
     "venueId": "guldfagelin_arena_kalmar",
     "home": "칼마르 FF",
@@ -664953,6 +664978,18 @@
     "stadium": "Arena Condá",
     "timeTbd": false,
     "gameId": "BRASILEIRAO_ESPN_401841278",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-25",
+    "time": "08:00",
+    "league": "CHILE",
+    "venueId": "estadio_el_teniente_rancagua",
+    "home": "오이긴스",
+    "away": "코브레살",
+    "stadium": "Estadio El Teniente",
+    "timeTbd": false,
+    "gameId": "CHILE_ESPN_401850673",
     "status": "scheduled"
   },
   {
@@ -665833,6 +665870,18 @@
   {
     "date": "2026-10-26",
     "time": "00:30",
+    "league": "CHILE",
+    "venueId": "estadio_municipal_chillan",
+    "home": "뉴블렌세",
+    "away": "코킴보 우니도",
+    "stadium": "Estadio Municipal Oyarzún Arenas",
+    "timeTbd": false,
+    "gameId": "CHILE_ESPN_401850675",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-26",
+    "time": "00:30",
     "league": "PORTUGAL",
     "venueId": "estadio_antonio_coimbra_da_mota",
     "home": "이스토릴",
@@ -666302,95 +666351,11 @@
     "date": "2026-10-26",
     "time": "03:00",
     "league": "CHILE",
-    "venueId": "estadio_el_teniente_rancagua",
-    "home": "오이긴스",
-    "away": "코브레살",
-    "stadium": "Estadio El Teniente",
-    "timeTbd": true,
-    "gameId": "CHILE_ESPN_401850673",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-10-26",
-    "time": "03:00",
-    "league": "CHILE",
-    "venueId": "estadio_ester_roa_concepcion",
-    "home": "우니베르시다드 데 콘셉시온",
-    "away": "데포르테스 리마체",
-    "stadium": "Estadio Municipal Alcaldesa Ester Roa Rebolledo",
-    "timeTbd": true,
-    "gameId": "CHILE_ESPN_401850670",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-10-26",
-    "time": "03:00",
-    "league": "CHILE",
-    "venueId": "estadio_la_cisterna_santiago",
-    "home": "팔레스티노",
-    "away": "콜로콜로",
-    "stadium": "Estadio Municipal de La Cisterna",
-    "timeTbd": true,
-    "gameId": "CHILE_ESPN_401850672",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-10-26",
-    "time": "03:00",
-    "league": "CHILE",
-    "venueId": "estadio_la_florida_santiago",
-    "home": "아우닥스 이탈리아노",
-    "away": "우아치파토",
-    "stadium": "Estadio Municipal de La Florida",
-    "timeTbd": true,
-    "gameId": "CHILE_ESPN_401850668",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-10-26",
-    "time": "03:00",
-    "league": "CHILE",
-    "venueId": "estadio_la_portada_laserena",
-    "home": "라 세레나",
-    "away": "데포르테스 콘셉시온",
-    "stadium": "Estadio La Portada",
-    "timeTbd": true,
-    "gameId": "CHILE_ESPN_401850674",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-10-26",
-    "time": "03:00",
-    "league": "CHILE",
-    "venueId": "estadio_municipal_chillan",
-    "home": "뉴블렌세",
-    "away": "코킴보 우니도",
-    "stadium": "Estadio Municipal Oyarzún Arenas",
-    "timeTbd": true,
-    "gameId": "CHILE_ESPN_401850675",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-10-26",
-    "time": "03:00",
-    "league": "CHILE",
-    "venueId": "estadio_nacional_julio_martinez_pradanos",
-    "home": "우니베르시다드 데 칠레",
-    "away": "에버톤 (칠레)",
-    "stadium": "Estadio Nacional Julio Martínez Prádanos",
-    "timeTbd": true,
-    "gameId": "CHILE_ESPN_401850671",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-10-26",
-    "time": "03:00",
-    "league": "CHILE",
     "venueId": "estadio_nicolas_chahuan_calera",
     "home": "우니온 라 칼레라",
     "away": "우니베르시다드 카톨리카",
     "stadium": "Estadio Municipal Nicolás Chahuán",
-    "timeTbd": true,
+    "timeTbd": false,
     "gameId": "CHILE_ESPN_401850669",
     "status": "scheduled"
   },
@@ -666637,6 +666602,18 @@
   {
     "date": "2026-10-26",
     "time": "05:30",
+    "league": "CHILE",
+    "venueId": "estadio_la_cisterna_santiago",
+    "home": "팔레스티노",
+    "away": "콜로콜로",
+    "stadium": "",
+    "timeTbd": false,
+    "gameId": "CHILE_ESPN_401850672",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-26",
+    "time": "05:30",
     "league": "PERU",
     "venueId": "estadio_miguel_grau_callao",
     "home": "스포르트 보이스",
@@ -666740,6 +666717,18 @@
     "stadium": "Armando Maestre Pavajeau",
     "timeTbd": false,
     "gameId": "COLOMBIA_ESPN_401878036",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-26",
+    "time": "08:00",
+    "league": "CHILE",
+    "venueId": "estadio_ester_roa_concepcion",
+    "home": "우니베르시다드 데 콘셉시온",
+    "away": "데포르테스 리마체",
+    "stadium": "Estadio Municipal Alcaldesa Ester Roa Rebolledo",
+    "timeTbd": false,
+    "gameId": "CHILE_ESPN_401850670",
     "status": "scheduled"
   },
   {
@@ -667083,6 +667072,18 @@
     "stadium": "Estadio do Maracana",
     "timeTbd": false,
     "gameId": "BRASILEIRAO_ESPN_401841286",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-27",
+    "time": "08:00",
+    "league": "CHILE",
+    "venueId": "estadio_nacional_julio_martinez_pradanos",
+    "home": "우니베르시다드 데 칠레",
+    "away": "에버톤 (칠레)",
+    "stadium": "Estadio Nacional Julio Martínez Prádanos",
+    "timeTbd": false,
+    "gameId": "CHILE_ESPN_401850671",
     "status": "scheduled"
   },
   {
