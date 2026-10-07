@@ -651358,14 +651358,16 @@
     "inningInfo": "7회초",
     "liveState": {
       "pitcher": "데이비스",
-      "batter": "드라우터",
-      "ball": 1,
+      "batter": "로우",
+      "ball": 3,
       "strike": 0,
-      "out": 1,
-      "bases": [],
-      "pitchCount": 9,
+      "out": 2,
+      "bases": [
+        1
+      ],
+      "pitchCount": 13,
       "pitcherPid": "mlb:680779",
-      "batterPid": "mlb:800050"
+      "batterPid": "mlb:664040"
     },
     "highlights": {
       "home": [],
@@ -651403,15 +651405,15 @@
     "inningInfo": "2회초",
     "liveState": {
       "pitcher": "말리",
-      "batter": "T.에르난데스",
+      "batter": "먼시",
       "ball": 1,
       "strike": 1,
-      "out": 0,
+      "out": 1,
       "bases": [
-        1
+        3
       ],
-      "pitchCount": 19,
-      "batterPid": "mlb:606192"
+      "pitchCount": 23,
+      "batterPid": "mlb:571970"
     },
     "highlights": {
       "home": [
@@ -651424,7 +651426,16 @@
           "pid": "mlb:671739"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "how": "도루",
+          "text": "오타니",
+          "player": "오타니",
+          "playerId": "310835",
+          "nat": "Japan",
+          "pid": "mlb:660271"
+        }
+      ]
     },
     "round": "ps_nlds",
     "rn": 4
@@ -651439,7 +651450,21 @@
     "stadium": "Estadio Beira-Rio",
     "timeTbd": false,
     "gameId": "BRASILEIRAO_ESPN_401841255",
-    "status": "scheduled"
+    "status": "live",
+    "matchPeriod": "전반",
+    "homeScore": 1,
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "Vitinho",
+          "m": 1,
+          "nat": "Brazil",
+          "pid": "espn:287903"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-10-08",
@@ -651451,7 +651476,10 @@
     "stadium": "Mangueirão",
     "timeTbd": false,
     "gameId": "BRASILEIRAO_ESPN_401841252",
-    "status": "scheduled"
+    "status": "live",
+    "matchPeriod": "전반",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-10-08",
@@ -651463,7 +651491,10 @@
     "stadium": "Estádio Municipal Cicero de Souza Marques",
     "timeTbd": false,
     "gameId": "BRASILEIRAO_ESPN_401841253",
-    "status": "scheduled"
+    "status": "live",
+    "matchPeriod": "전반",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-10-08",
