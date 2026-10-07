@@ -650346,8 +650346,8 @@
           "m": 9,
           "a": "Anton Salétros",
           "nat": "Ivory Coast",
-          "pid": "espn:210538",
           "aNat": "Sweden",
+          "pid": "espn:210538",
           "apid": "espn:193105"
         },
         {
@@ -650355,8 +650355,8 @@
           "m": 50,
           "a": "Maren Haile-Selassie",
           "nat": "Denmark",
-          "pid": "espn:186466",
           "aNat": "Switzerland",
+          "pid": "espn:186466",
           "apid": "espn:259951"
         },
         {
@@ -650364,8 +650364,8 @@
           "m": 88,
           "a": "Robert Lewandowski",
           "nat": "Switzerland",
-          "pid": "espn:259951",
           "aNat": "Poland",
+          "pid": "espn:259951",
           "apid": "espn:125824"
         }
       ],
@@ -650375,8 +650375,8 @@
           "m": 73,
           "a": "Oliver Larraz",
           "nat": "Uruguay",
-          "pid": "espn:286523",
           "aNat": "USA",
+          "pid": "espn:286523",
           "apid": "espn:315920"
         }
       ]
@@ -650423,16 +650423,19 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 1,
-    "inningInfo": "4회초",
+    "inningInfo": "4회말",
     "liveState": {
-      "pitcher": "Alex Williams",
-      "batter": "Jake Casey",
-      "pitcherPid": "mlb:677354",
-      "batterPid": "mlb:814457",
-      "ball": 3,
-      "strike": 3,
-      "out": 3,
-      "bases": []
+      "pitcher": "Tanner Bauman",
+      "batter": "Breyson Guedez",
+      "pitcherPid": "mlb:703748",
+      "batterPid": "mlb:829052",
+      "ball": 2,
+      "strike": 0,
+      "out": 0,
+      "bases": [
+        1,
+        2
+      ]
     }
   },
   {
@@ -650450,18 +650453,18 @@
     "homePitcher": "닉 피베타",
     "awayPitcherPid": "mlb:669160",
     "homePitcherPid": "mlb:601713",
-    "awayScore": 0,
+    "awayScore": 1,
     "homeScore": 2,
     "inningInfo": "4회초",
     "liveState": {
       "pitcher": "피베타",
-      "batter": "콘트레라스",
-      "ball": 2,
+      "batter": "투랑",
+      "ball": 1,
       "strike": 2,
       "out": 0,
       "bases": [],
-      "pitchCount": 49,
-      "batterPid": "mlb:661388"
+      "pitchCount": 53,
+      "batterPid": "mlb:668930"
     },
     "highlights": {
       "home": [
@@ -650482,7 +650485,16 @@
           "pid": "mlb:669392"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "how": "홈런",
+          "text": "콘트레라스",
+          "player": "콘트레라스",
+          "playerId": "11268",
+          "nat": "Venezuela",
+          "pid": "mlb:661388"
+        }
+      ]
     },
     "round": "ps_nlds",
     "rn": 3
@@ -650497,7 +650509,10 @@
     "stadium": "유나이티드 항공 필드 앳 로스앤젤레스 메모리얼 콜로세움",
     "timeTbd": false,
     "gameId": "uhHEnLhFSzwOFee",
-    "status": "scheduled"
+    "status": "live",
+    "awayScore": 0,
+    "homeScore": 0,
+    "matchPeriod": "전반 1'"
   },
   {
     "date": "2026-10-07",
