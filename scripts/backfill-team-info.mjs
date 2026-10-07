@@ -203,10 +203,11 @@ async function loadPage(title, summary) {
   if (hs) {
     const p = await wp('en', { action: 'parse', page: title, section: hs.index, prop: 'text' });
     await pause();
-    const html = p?.parse?.text?.['*'] || '';
+    const html = (p?.parse?.text?.['*'] || '').replace(/<ol[^>]*class="[^"]*references[^"]*"[\s\S]*?<\/ol>/g, '').replace(/<div[^>]*class="[^"]*reflist[^"]*"[\s\S]*?<\/div>/g, '');
     let rows = parseHonoursHtml(html);
     if (!rows.length) rows = parseWinnerLists(html);
     if (!rows.length) rows = [...html.matchAll(/<li[^>]*>([\s\S]*?)<\/li>/g)].map((m) => m[1].replace(/<sup[\s\S]*?<\/sup>/g, '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim()).filter((x) => x.length > 3 && x.length < 120 && !/^runners?-?up/i.test(x)).slice(0, 8);
+    rows = rows.filter((r) => !/^\^|Retrieved|Archived|\bwww\.|https?:|rsssf/i.test(Array.isArray(r) ? r.join(' ') : String(r)));
     if (rows.length && !looksLikeRecordTable(rows)) info.honours = rows.slice(0, 14);
   }
   if (!info.honours) {
