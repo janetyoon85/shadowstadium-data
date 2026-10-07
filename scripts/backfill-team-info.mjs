@@ -93,6 +93,7 @@ function parseHonoursHtml(html) {
     const n = Number(cells[i]);
     if (!n) continue;
     if (/^total/i.test(comp)) continue;
+    if (n > 70) continue;
     const yrs = (cells[i + 1] || '').slice(0, 70);
     rows.push([comp, n, /(1[89]|20)\d{2}/.test(yrs) ? yrs : '']);
   }
@@ -112,7 +113,11 @@ function parseInfoboxTitles(html) {
   for (const m of box.matchAll(/<tr[^>]*>\s*<th[^>]*>([\s\S]*?)<\/th>\s*<td[^>]*>([\s\S]*?)<\/td>/g)) {
     const k = m[1].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
     const v = m[2].replace(/<sup[\s\S]*?<\/sup>/g, '').replace(/<[^>]+>/g, '').replace(/&#\d+;|&\w+;/g, ' ').replace(/\s+/g, ' ').trim();
-    if (/title|champion|pennant|world series|cup|trophy/i.test(k) && v && v.length < 160) out.push([k, v.slice(0, 120)]);
+    if (/title|champion|pennant|world series|cup|trophy/i.test(k) && v && v.length < 160) {
+      const parts = [...v.matchAll(/([A-Za-z][A-Za-z \/-]*?):\s*(\d+)/g)];
+      if (parts.length >= 2) for (const p of parts) out.push([p[1].trim(), p[2]]);
+      else out.push([k, v.slice(0, 120)]);
+    }
   }
   return out.slice(0, 8);
 }
