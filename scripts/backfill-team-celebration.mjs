@@ -2,19 +2,21 @@
 import fs from 'fs';
 const UA = { 'User-Agent': 'ShadeSideBot/1.0 (https://github.com/janetyoon85/shadowstadium-data)' };
 const OUT = 'team-celebration.json';
-const PASS2 = process.env.CEL_PASS === '2';
+const PASS3 = process.env.CEL_PASS === '3';
+const ONLY = process.env.CEL_ONLY ? process.env.CEL_ONLY.split(',') : null;
+const PASS2 = process.env.CEL_PASS === '2' || PASS3;
 const out = fs.existsSync(OUT) ? JSON.parse(fs.readFileSync(OUT, 'utf8')) : {};
 const BUDGET = Number(process.env.CEL_BUDGET || 1300);
-const GOOD = PASS2 ? /celebrat|lift|champion|winner|parade|squad|team|players|with[_ ]|holding|raising|podium|ceremony|trophy|cup|title|victory|final|promotion|promoted|win/i : /celebrat|lift|champion|winner|parade|squad|team|with[_ ]|holding|raising|podium|ceremony|trophy|cup|title|victory|final/i;
-const QUERIES = PASS2 ? ['champions parade', 'players trophy', 'team squad'] : ['celebrate OR celebrating OR lifting OR champions OR winners OR trophy'];
-const BAD = /logo|crest|badge|flag|map|kit|shirt|jersey|ticket|stamp|poster|coat|emblem|stadium|stadion|arena|museum|statue|icon|silhouette|\.svg|vs[_ .]|_v_|match|protest|ultras|banner|graffiti|bus|train|plane|cheerlead/i;
+const GOOD = PASS3 ? /campe|mundial|world[_ ]cup|copa|celebrat|lift|champion|winner|parade|squad|holding|raising|podium|ceremony|trophy|cup|title|victory|final|win/i : PASS2 ? /celebrat|lift|champion|winner|parade|squad|team|players|with[_ ]|holding|raising|podium|ceremony|trophy|cup|title|victory|final|promotion|promoted|win/i : /celebrat|lift|champion|winner|parade|squad|team|with[_ ]|holding|raising|podium|ceremony|trophy|cup|title|victory|final/i;
+const QUERIES = PASS3 ? ['world cup winners celebration', 'champions trophy celebration', 'campeón', 'copa lifting'] : PASS2 ? ['champions parade', 'players trophy', 'team squad'] : ['celebrate OR celebrating OR lifting OR champions OR winners OR trophy'];
+const BAD = /goles|goals|festej|logo|crest|badge|flag|map|kit|shirt|jersey|ticket|stamp|poster|coat|emblem|stadium|stadion|arena|museum|statue|icon|silhouette|\.svg|vs[_ .]|_v_|match|protest|ultras|banner|graffiti|bus|train|plane|cheerlead/i;
 const norm = (s) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
-const STOP = new Set(['fc', 'f.c.', 'cf', 'sc', 'afc', 'ac', 'as', 'club', 'de', 'the', 'football', 'baseball', 'basketball', 'team', 'bc', 'b.c.', 'calcio', 'real', 'sk', 'fk', 'cd', 'ca', 'cs', 'sv', 'ssc', 'us', 'ud', 'sd', 'rc', 'og', 'ogc']);
+const STOP = new Set(['national', 'soccer', 'fc', 'f.c.', 'cf', 'sc', 'afc', 'ac', 'as', 'club', 'de', 'the', 'football', 'baseball', 'basketball', 'team', 'bc', 'b.c.', 'calcio', 'real', 'sk', 'fk', 'cd', 'ca', 'cs', 'sv', 'ssc', 'us', 'ud', 'sd', 'rc', 'og', 'ogc']);
 const keys = [];
 for (const f of fs.readdirSync('team-info')) {
   if (!/^[0-9a-f]+\.json$/.test(f)) continue;
   const j = JSON.parse(fs.readFileSync('team-info/' + f, 'utf8'));
-  for (const [k, v] of Object.entries(j)) if (v && v.wiki && v.honours?.length && (PASS2 ? out[k] === null : !(k in out))) keys.push([k, v.wiki]);
+  for (const [k, v] of Object.entries(j)) if (v && v.wiki && v.honours?.length && (ONLY ? ONLY.includes(k) : PASS2 ? out[k] === null : !(k in out))) keys.push([k, v.wiki]);
 }
 console.log('[cel] todo=' + keys.length);
 let done = 0, found = 0;
