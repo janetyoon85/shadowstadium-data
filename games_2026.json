@@ -651422,7 +651422,7 @@
       "pitcher": "수아레즈",
       "batter": "프리먼",
       "ball": 0,
-      "strike": 0,
+      "strike": 1,
       "out": 0,
       "bases": [],
       "pitchCount": 8,
@@ -651700,7 +651700,7 @@
     "gameId": "BRASILEIRAO_ESPN_401841250",
     "status": "live",
     "matchPeriod": "후반",
-    "homeScore": 3,
+    "homeScore": 4,
     "awayScore": 0,
     "scorers": {
       "home": [
@@ -651721,6 +651721,12 @@
           "m": 61,
           "nat": "Brazil",
           "pid": "espn:256044"
+        },
+        {
+          "n": "Matheus",
+          "m": 74,
+          "nat": "Brazil",
+          "pid": "espn:218972"
         }
       ],
       "away": []
@@ -651806,13 +651812,15 @@
     "inningInfo": "2회말",
     "liveState": {
       "pitcher": "마르티네즈",
-      "batter": "롬바드 주니어",
+      "batter": "웰스",
       "ball": 2,
       "strike": 2,
       "out": 1,
-      "bases": [],
-      "pitchCount": 13,
-      "batterPid": "mlb:806146"
+      "bases": [
+        1
+      ],
+      "pitchCount": 18,
+      "batterPid": "mlb:669224"
     },
     "highlights": {
       "home": [],
