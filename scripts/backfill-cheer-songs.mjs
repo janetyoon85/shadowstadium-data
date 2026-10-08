@@ -8,6 +8,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildCheerSongQuery, pickCheerSong } from './cheer-song-pick.mjs';
+import { allocateBySource } from './search-yield.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -66,10 +67,18 @@ async function main() {
   let cache = {};
   try { cache = JSON.parse(await fs.readFile(OUT_PATH, 'utf-8')); } catch (e) { if (e.code !== 'ENOENT') throw e; }
 
-  const targets = players
+  // 소스(kbo/naver/nbk:kbl/mlb/espn/espnbk:nba)별 측정 성공률로 검색 예산을 배분한다(2026-10-09, 검색 한도 하루 100회 절약).
+  // 예전엔 tier 순서로만 채워서 성공률 9%인 naver(K리그 등)에 442회를 써서 43개를 얻는 동안 kbo(65%)·mlb·espn은 못 갔음.
+  const sourceOf = (id) => (id.startsWith('nbk:') || id.startsWith('espnbk:') ? id.split(':').slice(0, 2).join(':') : id.split(':')[0]);
+  const stats = {};
+  for (const [id, v] of Object.entries(cache)) { const s = (stats[sourceOf(id)] ??= { n: 0, h: 0 }); s.n += 1; if (v) s.h += 1; }
+  const queues = {};
+  players
     .filter((p) => p.id && tierOf(p.id) < 9 && !(p.id in cache))
     .sort((a, b) => tierOf(a.id) - tierOf(b.id) || (tierOf(a.id) === 2 ? popularityRank(a) - popularityRank(b) : 0) || (b.lastSeenDate || '').localeCompare(a.lastSeenDate || ''))
-    .slice(0, BUDGET);
+    .forEach((p) => { (queues[sourceOf(p.id)] ??= []).push(p); });
+  const targets = allocateBySource(stats, queues, BUDGET);
+  console.log('[cheer-songs] plan ' + Object.entries(queues).map(([k, q]) => `${k}:${targets.filter((t) => sourceOf(t.id) === k).length}/${q.length}(yield ${stats[k] ? stats[k].h + '/' + stats[k].n : 'new'})`).join(' '));
   const mlbNames = await fetchMlbFullNames(targets.filter((p) => p.id.startsWith('mlb:')).map((p) => p.id.slice(4)));
 
   let used = 0;

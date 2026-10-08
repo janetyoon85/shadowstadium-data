@@ -6,6 +6,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { allowSearch, seedStats } from './search-yield.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = path.join(ROOT, 'highlights-video.json');
@@ -143,6 +144,9 @@ async function searchFallback({ out, games, bk, bkTeams, teamEn, tAl, aliasG, al
   const st = await readJson(SEARCH_F, { day: '', used: 0, tried: {} });
   const day = new Date(Date.now() - 7 * 3600e3).toISOString().slice(0, 10);
   if (st.day !== day) { st.day = day; st.used = 0; }
+  // 리그별 검색 성공률 통계(2026-10-09 검색 한도 절약) — 처음엔 최근 시도 기록(tried)과 결과(out)로 1회 시드한다.
+  const idLg = new Map([...games.map((g) => [g.gameId, g.league]), ...bk.map((g) => [g.id, g.lg])]);
+  st.lg ??= seedStats(st.tried, (id) => !!out[id], (id) => idLg.get(id));
   const now = Date.now();
   const covered = new Set(CHANNELS.flatMap((c) => c.leagues));
   // 2026-10-07 "모든경기 하이라이트, A매치·UNL 다 포함" — 국가대표 경기는 단일 공식채널이 없어 검색 보강을 최우선으로(6시간 후부터).
@@ -155,8 +159,12 @@ async function searchFallback({ out, games, bk, bkTeams, teamEn, tAl, aliasG, al
     .filter((c) => { const t = st.tried[c.id]; return !t || (t.n < 3 && now - t.t >= 12 * 3600e3); })
     .sort((x, y) => (NAT.has(y.lg) - NAT.has(x.lg)) || (covered.has(x.lg) - covered.has(y.lg)) || y.ts - x.ts);
   let added = 0, runN = 0;
+  const skippedLow = {};
   for (const c of cands) {
     if (st.used >= SEARCH_DAILY * 100 || runN >= SEARCH_RUN) break;
+    // 성공률이 낮은 리그(예: AFL 0/12)는 7일에 1회만 프로브 — 검색 한도(하루 100회)를 성공률 높은 곳에 쓰기 위함.
+    const ls = (st.lg[c.lg] ??= { n: 0, h: 0 });
+    if (!allowSearch(ls, now)) { skippedLow[c.lg] = (skippedLow[c.lg] || 0) + 1; continue; }
     st.used += 100; runN++;
     const u = 'https://www.googleapis.com/youtube/v3/search?' + new URLSearchParams({ part: 'snippet', type: 'video', maxResults: '8', q: `${c.qh} vs ${c.qa} highlights`, publishedAfter: new Date(c.ts - 3600e3).toISOString(), key: API_KEY });
     let items;
@@ -168,17 +176,21 @@ async function searchFallback({ out, games, bk, bkTeams, teamEn, tAl, aliasG, al
     } catch { continue; }
     const t = st.tried[c.id] || { n: 0 };
     st.tried[c.id] = { n: t.n + 1, t: now };
+    ls.n += 1;
     const hit = items.find((it) => {
       const title = norm(it.snippet?.title || '');
       const p = Date.parse(it.snippet?.publishedAt || '');
       return p - c.ts < 4 * 86400e3 && HL_WORD.test(title.normalize('NFC')) && !HL_NOT.test(title.normalize('NFC')) && c.h.some((x) => has(title, x)) && c.a.some((x) => has(title, x));
     });
+    if (hit) ls.h += 1;
     if (hit) { out[c.id] = { v: hit.id.videoId, t: (hit.snippet.title || '').replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/&quot;/g, '"') }; added++; console.log(`[hl] search hit ${c.lg} ${c.qh} vs ${c.qa}`); }
     await new Promise((r) => setTimeout(r, 200));
   }
   for (const [k, v] of Object.entries(st.tried)) if (now - v.t > 7 * 86400e3) delete st.tried[k];
   await fs.writeFile(SEARCH_F, JSON.stringify(st) + '\n');
   console.log(`[hl] search used=${runN} dayUnits=${st.used} candidates=${cands.length}`);
+  const skipped = Object.entries(skippedLow).map(([k, v]) => `${k}:${v}`).join(' ');
+  if (skipped) console.log(`[hl] search skipped(low-yield leagues) ${skipped}`);
   return added;
 }
 
