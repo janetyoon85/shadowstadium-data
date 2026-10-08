@@ -6,6 +6,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { CHINA_VENUES, ALLSTAR_TEAMS, NATIONAL_LEAGUES } from './ops-shared.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dry = process.argv.includes('--dry');
@@ -29,8 +30,6 @@ const venueEn = J('venue-name-en.json', {});
 const issues = new Map();
 const add = (group, key, text, useBaseline = false) => issues.set(`${group}:${key}`, { group, text, useBaseline });
 
-// 중국 구장(측량법 리스크로 의도적 제거, 앱 checkVenueCoverage.mjs KNOWN_EXCLUDED_VENUES와 동일) — 누락 점검 제외
-const CHINA_VENUES = new Set('beijing_guoan_workers phoenix_mountain_sports_park_chengdu chongqing_longxing_stadium dalian_suoyuwan_football_stadium hanghai_stadium_zhengzhou tiexi_stadium_shenyang qingdao_youth_football_stadium qingdao_westcoast_university_stadium jinan_olympic_sports_center shanghai_port_pudong shanghai_stadium shenzhen_stadium_xinpengcheng teda_football_stadium_tianjin wuhan_sports_center_stadium yuxi_plateau_sports_center huanglong_sports_center_hangzhou xiamen_egret_stadium tongliang_long_stadium shenzhen_universiade_sports_centre_stadium tianjin_olympic_center_stadium shenyang_olympic_sports_center_stadium hangzhou_olympic_sports_center_stadium bao_an_stadium shenzhen_youth_football_training_base_center_stadium longhua_cultural_and_sports_center_stadium shenzhen_youth_football_training_base_pitch_1 suzhou_taihu_football_center suzhou_sports_center_stadium'.split(' '));
 // 표기만 다른 같은 팀(언어별 명칭 차이) — 로고 중복 검사에서 제외
 const ALIAS_SETS = [['인터','인테르'],['아랍에미리트','UAE'],['USVI','버진 제도'],['샤를루아','샬레로이'],['로센보르','로젠보리'],['안트베르펜','앤트워프'],['미엘뷔 AIF','미얄비'],['괴즈테페','괴체페'],['바이킹','비킹 FK'],['이스트 벵갈','SC 이스트벵골']];
 // 1) 로고 오매칭 의심 — 같은 로고 URL이 영문명이 서로 다른 팀들에 쓰임(5곳 초과는 공용 플레이스홀더로 보고 제외)
@@ -56,10 +55,6 @@ const ALIAS_SETS = [['인터','인테르'],['아랍에미리트','UAE'],['USVI',
     for (const n of [g.home, g.away]) if (n) teams.set(n, g.league);
     if (g.venueId && !CHINA_VENUES.has(g.venueId)) venues.set(g.venueId, g.stadium || g.venueId);
   }
-  // 올스타·선발 연합팀은 로고·영문명이 원래 없다(2026-10-09 분류) — 점검 제외. 국가대표 대회는 국기를 쓰므로 팀 로고만 제외.
-  const ALLSTAR_TEAMS = new Set(['드림', '나눔', '퍼시픽리그', '센트럴리그', '아메리칸', '내셔널', 'K리그 XI']);
-  // App.tsx NATIONAL_TEAM_LEAGUES 미러 — 새 국가대표 대회를 앱에 추가하면 여기도 같이 추가할 것.
-  const NATIONAL_LEAGUES = new Set('WORLDCUP AFRICACUP U17WORLDCUP UNL WCQUEFA AMATCHFRIENDLY WCQAFC ASIANCUP U17ASIANCUP U20ASIANCUP U23ASIANCUP WOMENASIANCUP U20WOMENASIANCUP AFFCUP E1MEN E1WOMEN COPAAMERICA UEFAEURO U20WORLDCUP U20WOMENWORLDCUP U17WOMENASIANCUP ASIANGAMESFOOTBALL OLYMPICFOOTBALL WBC PREMIER12 OLYMPICBASEBALL U18BASEBALLWORLDCUP U15BASEBALLWORLDCUP U23BASEBALLWORLDCUP U18ASIANBASEBALL ASIANGAMESBASEBALL'.split(' '));
   for (const [n, lg] of teams) {
     if (ALLSTAR_TEAMS.has(n)) continue;
     const base = n.replace(/\s*\((남자|여자)\)$/, '');
