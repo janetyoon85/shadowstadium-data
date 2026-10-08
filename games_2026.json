@@ -651865,14 +651865,22 @@
     "homeScore": 3,
     "inningInfo": "8회말",
     "liveState": {
-      "pitcher": "잭스",
-      "batter": "가르시아",
+      "pitcher": "부저",
+      "batter": "골드슈미트",
       "ball": 0,
-      "strike": 0,
+      "strike": 1,
       "out": 0,
       "bases": [],
-      "pitchCount": 32,
-      "batterPid": "mlb:671277"
+      "pitchCount": 2,
+      "batterPid": "mlb:502671"
+    },
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "잭스"
+        }
+      ]
     },
     "highlights": {
       "home": [],
@@ -651968,18 +651976,16 @@
     "status": "live",
     "homeScore": 4,
     "awayScore": 2,
-    "inningInfo": "4회말",
+    "inningInfo": "5회초",
     "liveState": {
-      "pitcher": "Joseph King",
-      "batter": "Nathan Flewelling",
-      "pitcherPid": "mlb:683165",
-      "batterPid": "mlb:807083",
+      "pitcher": "Logan Berrier",
+      "batter": "Ty Harvey",
+      "pitcherPid": "mlb:828603",
+      "batterPid": "mlb:829210",
       "ball": 0,
-      "strike": 0,
-      "out": 2,
-      "bases": [
-        2
-      ]
+      "strike": 2,
+      "out": 1,
+      "bases": []
     }
   },
   {
@@ -651997,36 +652003,28 @@
     "homePitcher": "워커 뷸러",
     "awayPitcherPid": "mlb:688107",
     "homePitcherPid": "mlb:621111",
-    "awayScore": 0,
+    "awayScore": 1,
     "homeScore": 0,
     "inningInfo": "3회초",
     "liveState": {
       "pitcher": "뷸러",
-      "batter": "미첼",
-      "ball": 2,
-      "strike": 2,
-      "out": 0,
-      "bases": [
-        2
-      ],
-      "pitchCount": 33,
-      "batterPid": "mlb:669003"
+      "batter": "오티즈",
+      "ball": 1,
+      "strike": 0,
+      "out": 2,
+      "bases": [],
+      "pitchCount": 36,
+      "batterPid": "mlb:687401"
     },
     "highlights": {
       "home": [],
       "away": [
         {
-          "how": "병살타",
-          "text": "프랫 3루수 병살타 아웃",
-          "player": "프랫",
-          "inn": "2회초",
-          "pid": "mlb:806198"
-        },
-        {
           "how": "도루",
-          "text": "프렐릭 도루로 2루까지 진루",
+          "text": "프렐릭",
           "player": "프렐릭",
-          "inn": "3회초",
+          "playerId": "312476",
+          "nat": "USA",
           "pid": "mlb:686217"
         }
       ]
