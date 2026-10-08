@@ -56,10 +56,15 @@ const ALIAS_SETS = [['USVI','버진 제도'],['샤를루아','샬레로이'],['�
     for (const n of [g.home, g.away]) if (n) teams.set(n, g.league);
     if (g.venueId && !CHINA_VENUES.has(g.venueId)) venues.set(g.venueId, g.stadium || g.venueId);
   }
+  // 올스타·선발 연합팀은 로고·영문명이 원래 없다(2026-10-09 분류) — 점검 제외. 국가대표 대회는 국기를 쓰므로 팀 로고만 제외.
+  const ALLSTAR_TEAMS = new Set(['드림', '나눔', '퍼시픽리그', '센트럴리그', '아메리칸', '내셔널', 'K리그 XI']);
+  // App.tsx NATIONAL_TEAM_LEAGUES 미러 — 새 국가대표 대회를 앱에 추가하면 여기도 같이 추가할 것.
+  const NATIONAL_LEAGUES = new Set('WORLDCUP AFRICACUP U17WORLDCUP UNL WCQUEFA AMATCHFRIENDLY WCQAFC ASIANCUP U17ASIANCUP U20ASIANCUP U23ASIANCUP WOMENASIANCUP U20WOMENASIANCUP AFFCUP E1MEN E1WOMEN COPAAMERICA UEFAEURO U20WORLDCUP U20WOMENWORLDCUP U17WOMENASIANCUP ASIANGAMESFOOTBALL OLYMPICFOOTBALL WBC PREMIER12 OLYMPICBASEBALL U18BASEBALLWORLDCUP U15BASEBALLWORLDCUP U23BASEBALLWORLDCUP U18ASIANBASEBALL ASIANGAMESBASEBALL'.split(' '));
   for (const [n, lg] of teams) {
+    if (ALLSTAR_TEAMS.has(n)) continue;
     const base = n.replace(/\s*\((남자|여자)\)$/, '');
     const hasLogo = logos[n] || logos[base] || logos[`${base}|Baseball`] || logos[`${base}|Soccer`];
-    if (!hasLogo) add('팀 로고 없음', n, `${n} (${lg})`, true);
+    if (!hasLogo && !NATIONAL_LEAGUES.has(lg)) add('팀 로고 없음', n, `${n} (${lg})`, true);
     if (!teamEn[n] && !teamEn[base]) add('팀 영문명 없음', n, `${n} (${lg})`, true);
   }
   for (const [id, nm] of venues) {
