@@ -7,7 +7,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { buildCheerSongQuery, pickCheerSong } from './cheer-song-pick.mjs';
+import { buildCheerSongQuery, pickCheerSong, KBO_CHEER_CHANNELS, uploadsPlaylistId, matchChannelVideos } from './cheer-song-pick.mjs';
 import { allocateBySource } from './search-yield.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -40,6 +40,31 @@ async function fetchMlbFullNames(personIds) {
   return out;
 }
 
+// 채널 업로드 목록 스캔(검색 0회) — playlistItems.list 는 페이지당 1유닛(하루 'Queries per day' 풀 10,000, search 한도와 별개).
+// KBO 응원가는 팬 채널(야쏭·크보쏭)이 거의 매일 올리므로 매 실행 전체를 훑어 새로 올라온 영상까지 반영한다.
+const SCAN_MAX_PAGES = Number(process.env.CHEER_SCAN_PAGES || 40); // 채널당 최대 40페이지(=2,000영상=40유닛)
+async function scanChannelUploads(channelId) {
+  const videos = [];
+  let token = '';
+  let units = 0;
+  for (let i = 0; i < SCAN_MAX_PAGES; i++) {
+    const url = 'https://www.googleapis.com/youtube/v3/playlistItems?' + new URLSearchParams({
+      part: 'snippet', maxResults: '50', playlistId: uploadsPlaylistId(channelId), key: API_KEY, ...(token ? { pageToken: token } : {}),
+    });
+    let res;
+    try { res = await fetch(url, { signal: AbortSignal.timeout(20000) }); } catch { return { videos, units, error: 'network' }; }
+    units++;
+    if (res.status === 403) return { videos, units, quota: true };
+    if (!res.ok) return { videos, units, error: res.status };
+    const j = await res.json();
+    for (const it of j.items || []) videos.push({ v: it.snippet?.resourceId?.videoId, t: it.snippet?.title || '', p: Date.parse(it.snippet?.publishedAt || '') || 0 });
+    token = j.nextPageToken;
+    if (!token) break;
+    await new Promise((r2) => setTimeout(r2, 150));
+  }
+  return { videos, units };
+}
+
 async function searchYoutube(q) {
   const url = 'https://www.googleapis.com/youtube/v3/search?' + new URLSearchParams({
     part: 'snippet', type: 'video', maxResults: '5', q,
@@ -67,11 +92,33 @@ async function main() {
   let cache = {};
   try { cache = JSON.parse(await fs.readFile(OUT_PATH, 'utf-8')); } catch (e) { if (e.code !== 'ENOENT') throw e; }
 
+  const searchCache = { ...cache }; // 검색 성공률 통계는 스캔 결과를 섞지 않은 기존 캐시로 계산한다.
+  // 0) KBO 팬 채널 업로드 스캔(검색 0회) — 아직 없거나 이전에 못 찾은(null) KBO 선수를 제목 매칭으로 채운다.
+  {
+    const kbo = players
+      .filter((p) => p.id?.startsWith('kbo:') && p.name && !cache[p.id])
+      .map((p) => ({ id: p.id, name: p.name, team: p.appearances?.[0]?.team }))
+      .filter((p) => p.team);
+    if (kbo.length) {
+      let allVideos = [];
+      let units = 0;
+      for (const ch of KBO_CHEER_CHANNELS) {
+        const r = await scanChannelUploads(ch.id);
+        units += r.units;
+        allVideos = allVideos.concat(r.videos);
+        if (r.quota) { console.error(`[cheer-songs] scan ${ch.name} quota`); break; }
+        if (r.error) console.error(`[cheer-songs] scan ${ch.name} error ${r.error}`);
+      }
+      const hits = matchChannelVideos(allVideos, kbo);
+      for (const [id, hit] of Object.entries(hits)) cache[id] = hit;
+      console.log(`[cheer-songs] scan videos=${allVideos.length} units=${units} kboTargets=${kbo.length} matched=${Object.keys(hits).length}`);
+    }
+  }
   // 소스(kbo/naver/nbk:kbl/mlb/espn/espnbk:nba)별 측정 성공률로 검색 예산을 배분한다(2026-10-09, 검색 한도 하루 100회 절약).
   // 예전엔 tier 순서로만 채워서 성공률 9%인 naver(K리그 등)에 442회를 써서 43개를 얻는 동안 kbo(65%)·mlb·espn은 못 갔음.
   const sourceOf = (id) => (id.startsWith('nbk:') || id.startsWith('espnbk:') ? id.split(':').slice(0, 2).join(':') : id.split(':')[0]);
   const stats = {};
-  for (const [id, v] of Object.entries(cache)) { const s = (stats[sourceOf(id)] ??= { n: 0, h: 0 }); s.n += 1; if (v) s.h += 1; }
+  for (const [id, v] of Object.entries(searchCache)) { const s = (stats[sourceOf(id)] ??= { n: 0, h: 0 }); s.n += 1; if (v) s.h += 1; }
   const queues = {};
   players
     .filter((p) => p.id && tierOf(p.id) < 9 && !(p.id in cache))
