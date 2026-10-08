@@ -652190,13 +652190,15 @@
     "inningInfo": "9회초",
     "liveState": {
       "pitcher": "머스그로브",
-      "ball": 1,
-      "strike": 0,
+      "batter": "콘트레라스",
+      "ball": 2,
+      "strike": 2,
       "out": 1,
       "bases": [
-        1
+        2
       ],
-      "pitchCount": 17
+      "pitchCount": 22,
+      "batterPid": "mlb:661388"
     },
     "highlights": {
       "home": [
@@ -652210,6 +652212,14 @@
         }
       ],
       "away": [
+        {
+          "how": "도루",
+          "text": "옐리치",
+          "player": "옐리치",
+          "playerId": "9320",
+          "nat": "USA",
+          "pid": "mlb:592885"
+        },
         {
           "how": "도루",
           "text": "프렐릭",
