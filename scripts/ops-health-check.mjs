@@ -32,7 +32,7 @@ const add = (group, key, text, useBaseline = false) => issues.set(`${group}:${ke
 // 중국 구장(측량법 리스크로 의도적 제거, 앱 checkVenueCoverage.mjs KNOWN_EXCLUDED_VENUES와 동일) — 누락 점검 제외
 const CHINA_VENUES = new Set('beijing_guoan_workers phoenix_mountain_sports_park_chengdu chongqing_longxing_stadium dalian_suoyuwan_football_stadium hanghai_stadium_zhengzhou tiexi_stadium_shenyang qingdao_youth_football_stadium qingdao_westcoast_university_stadium jinan_olympic_sports_center shanghai_port_pudong shanghai_stadium shenzhen_stadium_xinpengcheng teda_football_stadium_tianjin wuhan_sports_center_stadium yuxi_plateau_sports_center huanglong_sports_center_hangzhou xiamen_egret_stadium tongliang_long_stadium shenzhen_universiade_sports_centre_stadium tianjin_olympic_center_stadium shenyang_olympic_sports_center_stadium hangzhou_olympic_sports_center_stadium bao_an_stadium shenzhen_youth_football_training_base_center_stadium longhua_cultural_and_sports_center_stadium shenzhen_youth_football_training_base_pitch_1 suzhou_taihu_football_center suzhou_sports_center_stadium'.split(' '));
 // 표기만 다른 같은 팀(언어별 명칭 차이) — 로고 중복 검사에서 제외
-const ALIAS_SETS = [['USVI','버진 제도'],['샤를루아','샬레로이'],['로센보르','로젠보리'],['안트베르펜','앤트워프'],['미엘뷔 AIF','미얄비'],['괴즈테페','괴체페'],['바이킹','비킹 FK'],['이스트 벵갈','SC 이스트벵골']];
+const ALIAS_SETS = [['인터','인테르'],['아랍에미리트','UAE'],['USVI','버진 제도'],['샤를루아','샬레로이'],['로센보르','로젠보리'],['안트베르펜','앤트워프'],['미엘뷔 AIF','미얄비'],['괴즈테페','괴체페'],['바이킹','비킹 FK'],['이스트 벵갈','SC 이스트벵골']];
 // 1) 로고 오매칭 의심 — 같은 로고 URL이 영문명이 서로 다른 팀들에 쓰임(5곳 초과는 공용 플레이스홀더로 보고 제외)
 {
   const by = {};
