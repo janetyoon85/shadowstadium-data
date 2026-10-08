@@ -651849,27 +651849,27 @@
     "homePitcher": "맥스 프리드",
     "awayPitcherPid": "mlb:607259",
     "homePitcherPid": "mlb:608331",
-    "awayScore": 1,
+    "awayScore": 2,
     "homeScore": 1,
     "inningInfo": "4회초",
     "liveState": {
       "pitcher": "프리드",
-      "batter": "빌라드",
-      "ball": 1,
+      "batter": "힉스",
+      "ball": 2,
       "strike": 1,
       "out": 2,
       "bases": [],
-      "pitchCount": 52
+      "pitchCount": 55,
+      "batterPid": "mlb:689414"
     },
     "highlights": {
       "home": [],
       "away": [
         {
-          "how": "병살타",
-          "text": "아란다 유격수 병살타 아웃",
-          "player": "아란다",
-          "inn": "1회초",
-          "pid": "mlb:666018"
+          "how": "홈런",
+          "text": "빌라드",
+          "player": "빌라드",
+          "playerId": "310875"
         }
       ]
     },
@@ -651888,7 +651888,7 @@
     "gameId": "BRASILEIRAO_ESPN_401841249",
     "status": "live",
     "matchPeriod": "전반",
-    "homeScore": 0,
+    "homeScore": 1,
     "awayScore": 0,
     "cards": {
       "home": [
@@ -651909,6 +651909,17 @@
           "nat": "Brazil"
         }
       ]
+    },
+    "scorers": {
+      "home": [
+        {
+          "n": "Kaio Jorge",
+          "m": 44,
+          "nat": "Brazil",
+          "pid": "espn:280978"
+        }
+      ],
+      "away": []
     }
   },
   {
@@ -651921,7 +651932,20 @@
     "stadium": "Scottsdale Stadium",
     "timeTbd": false,
     "gameId": "AFL_MLBSTATS_867722",
-    "status": "scheduled"
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0,
+    "inningInfo": "1회초",
+    "liveState": {
+      "pitcher": "Drake George",
+      "batter": "Tai Peete",
+      "pitcherPid": "mlb:825095",
+      "batterPid": "mlb:806191",
+      "ball": 0,
+      "strike": 0,
+      "out": 0,
+      "bases": []
+    }
   },
   {
     "date": "2026-10-08",
