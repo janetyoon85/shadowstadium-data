@@ -651865,15 +651865,16 @@
     "homeScore": 3,
     "inningInfo": "8회말",
     "liveState": {
-      "pitcher": "부저",
+      "pitcher": "켈리",
       "batter": "스탠튼",
-      "ball": 0,
-      "strike": 0,
+      "ball": 2,
+      "strike": 2,
       "out": 2,
       "bases": [
         1
       ],
-      "pitchCount": 8,
+      "pitchCount": 3,
+      "pitcherPid": "mlb:608348",
       "batterPid": "mlb:519317"
     },
     "holds": {
@@ -651881,6 +651882,9 @@
       "away": [
         {
           "n": "잭스"
+        },
+        {
+          "n": "부저"
         }
       ]
     },
@@ -652009,20 +652013,29 @@
     "awayPitcherPid": "mlb:688107",
     "homePitcherPid": "mlb:621111",
     "awayScore": 1,
-    "homeScore": 0,
+    "homeScore": 1,
     "inningInfo": "3회말",
     "liveState": {
       "pitcher": "개서",
-      "batter": "타티스 주니어",
-      "ball": 0,
-      "strike": 0,
+      "batter": "메릴",
+      "ball": 1,
+      "strike": 2,
       "out": 0,
       "bases": [],
-      "pitchCount": 27,
-      "batterPid": "mlb:665487"
+      "pitchCount": 31,
+      "batterPid": "mlb:701538"
     },
     "highlights": {
-      "home": [],
+      "home": [
+        {
+          "how": "홈런",
+          "text": "타티스 주니어",
+          "player": "타티스 주니어",
+          "playerId": "10639",
+          "nat": "Dominican Republic",
+          "pid": "mlb:665487"
+        }
+      ],
       "away": [
         {
           "how": "도루",
