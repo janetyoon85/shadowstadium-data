@@ -22,5 +22,19 @@ export function espnStage(e, comp) {
   if (phaseCode) out.phaseCode = phaseCode;
   const leg = /\b([12])(?:st|nd) Leg\b/i.exec(hl)?.[1];
   if (leg && phaseCode) out.leg = Number(leg);
+  // 2차전(합산 확정 경기)의 합계 스코어 — ESPN 은 competitors[].aggregateScore 에 두 경기 합계를 싣는다
+  // (2026-10-08 실측: UCL/멕시코 리가 등 2차전에만 존재, 1차전은 없음). 앱은 leg===2 에서만 표시.
+  if (out.leg === 2) {
+    for (const t of comp?.competitors || []) {
+      const v = Number(t?.aggregateScore);
+      if (!Number.isFinite(v)) continue;
+      if (t.homeAway === 'home') out.homeAggregateScore = v;
+      else if (t.homeAway === 'away') out.awayAggregateScore = v;
+    }
+    if (typeof out.homeAggregateScore !== 'number' || typeof out.awayAggregateScore !== 'number') {
+      delete out.homeAggregateScore;
+      delete out.awayAggregateScore;
+    }
+  }
   return out;
 }

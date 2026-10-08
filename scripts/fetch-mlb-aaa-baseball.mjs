@@ -11,6 +11,7 @@ import { inningInfoFrom, liveStateFrom, applyLive, liveChanged } from './statsap
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execSync } from 'node:child_process';
+import { assignSeriesRecord } from './series-record.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -100,6 +101,17 @@ function ymd(d) {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 }
 
+// 포스트시즌(다전제 시리즈) 판정 — MLB StatsAPI gameType 이 정규시즌(R)/시범(S,E)/올스타(A)가 아니고
+// 시리즈 길이가 3~9경기인 경우만. 라운드로빈(LVBP 'of 40' 등)·AFL 단판은 제외. 2026-10-08 실측:
+// AAA 'W'(챔피언십 3전), LMP 'D/L/W'(7전), PWL 'W'(9전), ABL 'W'(3전), LIDOM 'W'(7전).
+const PS_GAME_TYPES = new Set(['F', 'D', 'L', 'W', 'C', 'P']);
+function postseasonSeriesFields(g) {
+  const n = g.seriesGameNumber;
+  const len = g.gamesInSeries;
+  if (!PS_GAME_TYPES.has(g.gameType) || !Number.isInteger(n) || !Number.isInteger(len) || len < 3 || len > 9) return null;
+  return { round: 'ps', rn: n };
+}
+
 async function fetchAaaBaseball(startDate, endDate, unknownTeams, unknownVenues) {
   const url = `https://statsapi.mlb.com/api/v1/schedule?sportId=11&startDate=${startDate}&endDate=${endDate}&hydrate=linescore`;
   const res = await fetch(url, { headers: { 'User-Agent': USER_AGENT } });
@@ -140,6 +152,8 @@ async function fetchAaaBaseball(startDate, endDate, unknownTeams, unknownVenues)
         const ls = liveStateFrom(g.linescore);
         if (ls) out.liveState = ls;
       }
+      const ps = postseasonSeriesFields(g);
+      if (ps) Object.assign(out, ps);
       games.push(out);
     }
   }
@@ -211,6 +225,8 @@ async function main() {
     existingIds.add(key);
     added++;
   }
+  // 시리즈 전적(직전까지 승수) — 앞 경기 결과가 확정될 때마다 달라지므로 병합 후 매번 재계산(멱등).
+  assignSeriesRecord(games.filter((g) => g.league === 'AAA'));
   games.sort((a, b) => (a.date + a.time + a.league + a.venueId + a.home + a.away).localeCompare(b.date + b.time + b.league + b.venueId + b.home + b.away));
   await fs.writeFile(gamesPath, JSON.stringify(games, null, 2), 'utf-8');
   console.log(`[mlb-aaa] added=${added} updated=${updated} total=${games.length}`);

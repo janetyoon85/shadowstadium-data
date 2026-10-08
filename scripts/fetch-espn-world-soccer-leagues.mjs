@@ -19,6 +19,7 @@ import { fileURLToPath } from 'node:url';
 import { execSync } from 'node:child_process';
 import { normalizeTeamName } from './espn-soccer-teams.mjs';
 import { espnStage } from './espn-stage.mjs';
+import { assignLegOneResult } from './series-record.mjs';
 import { BATCH2_TEAMS } from './espn-world-soccer-teams.mjs';
 import { fillDetailsFromSummary } from './espn-summary-details.mjs';
 import { getAthleteNationality } from './espn-nationality.mjs';
@@ -319,7 +320,7 @@ async function main() {
         const prev = games[idx];
         // 킥오프 시각/구장 변경 감지 추가(2026-09-29) — fetch-espn-soccer-leagues.mjs와 동일 버그
         // (시각만 바뀐 경기는 이 비교에 안 걸려 예전 시각이 영구 고정되던 문제) 수정.
-        if (prev.status !== g.status || prev.matchPeriod !== g.matchPeriod || prev.phaseCode !== g.phaseCode || prev.leg !== g.leg || prev.homeScore !== g.homeScore || prev.awayScore !== g.awayScore || prev.date !== g.date || prev.time !== g.time || prev.timeTbd !== g.timeTbd || prev.venueId !== g.venueId || prev.stadium !== g.stadium || JSON.stringify(prev.scorers) !== JSON.stringify(g.scorers) || JSON.stringify(prev.cards) !== JSON.stringify(g.cards)) {
+        if (prev.status !== g.status || prev.matchPeriod !== g.matchPeriod || prev.phaseCode !== g.phaseCode || prev.leg !== g.leg || prev.homeAggregateScore !== g.homeAggregateScore || prev.awayAggregateScore !== g.awayAggregateScore || prev.homeScore !== g.homeScore || prev.awayScore !== g.awayScore || prev.date !== g.date || prev.time !== g.time || prev.timeTbd !== g.timeTbd || prev.venueId !== g.venueId || prev.stadium !== g.stadium || JSON.stringify(prev.scorers) !== JSON.stringify(g.scorers) || JSON.stringify(prev.cards) !== JSON.stringify(g.cards)) {
           games[idx] = { ...prev, ...g };
           updated++;
         }
@@ -330,6 +331,8 @@ async function main() {
     existingIds.add(key);
     added++;
   }
+  // 2차전 카드용 1차전 결과 — 1차전 종료가 확정될 때마다 달라지므로 병합 후 매번 재계산(멱등).
+  assignLegOneResult(games.filter((g) => g.leg && /_ESPN_/.test(g.gameId || '')));
   games.sort((a, b) => (a.date + a.time + a.league + a.venueId + a.home + a.away).localeCompare(b.date + b.time + b.league + b.venueId + b.home + b.away));
   await fs.writeFile(gamesPath, JSON.stringify(games, null, 2), 'utf-8');
   console.log(`[espn-world-soccer] added=${added} updated=${updated} total=${games.length}`);

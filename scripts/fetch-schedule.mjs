@@ -7,6 +7,7 @@ import { validateDataset } from './validators.mjs';
 import { getAthleteNationality, getAthleteDisplayName } from './espn-nationality.mjs';
 import { parseBaseballHighlights, parseKboRelayHighlights, parseMlbNpbRelayHighlights, extractPitcherDecisions, parseLiveState } from './baseball-highlight-parse.mjs';
 import { selectUniqueScoreMatch } from './espn-match-select.mjs';
+import { assignSeriesRecord, assignLegOneResult } from './series-record.mjs';
 import { getMlbNationality, getMlbPitcherDecisionNats, getMlbHoldNats, getMlbProbableStarterPid } from './mlb-nationality.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -1947,6 +1948,10 @@ function serializeGame(g) {
   if (g.phaseCode) out.phaseCode = g.phaseCode;
   if (g.round) out.round = g.round;
   if (g.rn) out.rn = g.rn;
+  // 시리즈 전적(이 경기 직전까지 홈/원정 팀 승수) — series-record.mjs, 포스트시즌 2차전 이후만.
+  if (Number.isInteger(g.serH) && Number.isInteger(g.serA)) { out.serH = g.serH; out.serA = g.serA; }
+  // 2차전의 1차전 결과(이 경기 홈/원정 팀 기준 득점) — series-record.mjs assignLegOneResult.
+  if (Number.isInteger(g.l1H) && Number.isInteger(g.l1A)) { out.l1H = g.l1H; out.l1A = g.l1A; }
   if (g.leg) out.leg = g.leg;
   if (typeof g.homeAggregateScore === 'number') out.homeAggregateScore = g.homeAggregateScore;
   if (typeof g.awayAggregateScore === 'number') out.awayAggregateScore = g.awayAggregateScore;
@@ -2031,6 +2036,8 @@ async function main() {
   }
 
   assignSeriesNum(allGames);
+  assignSeriesRecord(allGames);
+  assignLegOneResult(allGames);
   const dh = assignDoubleheaderNum(allGames);
   console.log(`\n[doubleheader] ${dh.count} groups detected`);
   for (const s of dh.samples) console.log(`  ${s.key} → ${s.times.join(', ')}`);
