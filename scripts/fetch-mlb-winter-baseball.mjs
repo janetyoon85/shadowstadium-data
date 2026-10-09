@@ -41,6 +41,8 @@ const TEAM_KO = {
   'Glendale Desert Dogs': '글렌데일 데저트독스', 'Salt River Rafters': '솔트리버 래프터스',
   'Surprise Saguaros': '서프라이즈 사구아로스', 'Scottsdale Scorpions': '스코츠데일 스콜피온스',
   'Peoria Javelinas': '피오리아 하벨리나스', 'Mesa Solar Sox': '메사 솔라삭스',
+  // 폴 스타스 게임(올스타전, 매년 11월 초) — 일회성 연합팀이라 로고·영문명 점검은 제외(ops-shared.mjs ALLSTAR_TEAMS).
+  'National League Fall Stars': '내셔널리그 폴 스타스', 'American League Fall Stars': '아메리칸리그 폴 스타스',
   'Jaguares de Nayarit': '하과레스 데 나야리트', 'Aguilas de Mexicali': '아길라스 데 멕시칼리',
   'Charros de Jalisco': '차로스 데 할리스코', 'Caneros de los Mochis': '카녜로스 데 로스모치스',
   'Mayos de Navojoa': '마요스 데 나보호아', 'Naranjeros de Hermosillo': '나랑헤로스 데 에르모시요',
