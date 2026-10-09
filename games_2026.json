@@ -652463,7 +652463,7 @@
     "stadium": "Estádio Vila Belmiro (Urbano Caldeira)",
     "timeTbd": false,
     "gameId": "BRASILEIRAO_ESPN_401841251",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 2,
     "awayScore": 2,
@@ -652631,6 +652631,13 @@
           "m": 73,
           "pid": "espn:361299",
           "nat": "Argentina"
+        },
+        {
+          "n": "Kevin Castaño",
+          "type": "Y",
+          "m": 74,
+          "pid": "espn:307756",
+          "nat": "Colombia"
         }
       ]
     }
@@ -652683,11 +652690,11 @@
     "liveState": {
       "pitcher": "페디",
       "batter": "바자나",
-      "ball": 0,
-      "strike": 0,
-      "out": 0,
+      "ball": 3,
+      "strike": 2,
+      "out": 1,
       "bases": [],
-      "pitchCount": 5,
+      "pitchCount": 10,
       "batterPid": "mlb:683953"
     },
     "round": "ps_alds",
@@ -652707,8 +652714,19 @@
     "gameId": "BRASILEIRAO_ESPN_401841254",
     "status": "live",
     "matchPeriod": "전반",
-    "homeScore": 0,
-    "awayScore": 0
+    "homeScore": 1,
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "José Manuel López",
+          "m": 7,
+          "nat": "Argentina",
+          "pid": "espn:311743"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-10-09",
