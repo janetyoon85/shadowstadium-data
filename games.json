@@ -652465,7 +652465,7 @@
     "gameId": "BRASILEIRAO_ESPN_401841251",
     "status": "live",
     "matchPeriod": "후반",
-    "homeScore": 0,
+    "homeScore": 1,
     "awayScore": 2,
     "cards": {
       "home": [
@@ -652529,15 +652529,23 @@
         },
         {
           "n": "Jorginho",
-          "type": "Y",
-          "m": 72,
+          "type": "R",
+          "m": 79,
           "pid": "espn:165778",
           "nat": "Italy"
         }
       ]
     },
     "scorers": {
-      "home": [],
+      "home": [
+        {
+          "n": "Neymar",
+          "m": 82,
+          "pk": true,
+          "nat": "Brazil",
+          "pid": "espn:132948"
+        }
+      ],
       "away": [
         {
           "n": "Danilo",
