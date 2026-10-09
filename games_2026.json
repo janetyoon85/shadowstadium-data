@@ -652465,7 +652465,7 @@
     "gameId": "BRASILEIRAO_ESPN_401841251",
     "status": "live",
     "matchPeriod": "후반",
-    "homeScore": 0,
+    "homeScore": 1,
     "awayScore": 2,
     "cards": {
       "home": [
@@ -652529,15 +652529,23 @@
         },
         {
           "n": "Jorginho",
-          "type": "Y",
-          "m": 72,
+          "type": "R",
+          "m": 79,
           "pid": "espn:165778",
           "nat": "Italy"
         }
       ]
     },
     "scorers": {
-      "home": [],
+      "home": [
+        {
+          "n": "Neymar",
+          "m": 82,
+          "pk": true,
+          "nat": "Brazil",
+          "pid": "espn:132948"
+        }
+      ],
       "away": [
         {
           "n": "Danilo",
@@ -652622,16 +652630,16 @@
     "inningInfo": "1회초",
     "liveState": {
       "pitcher": "스미스",
-      "batter": "드라우터",
-      "ball": 1,
-      "strike": 0,
-      "out": 1,
+      "batter": "아델",
+      "ball": 0,
+      "strike": 2,
+      "out": 2,
       "bases": [
         1
       ],
-      "pitchCount": 8,
+      "pitchCount": 12,
       "pitcherPid": "mlb:701358",
-      "batterPid": "mlb:800050"
+      "batterPid": "mlb:666176"
     },
     "round": "ps_alds",
     "rn": 4,
