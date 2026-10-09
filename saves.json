@@ -77,8 +77,8 @@
   },
   "20261009LGLT02026": {
     "save": null,
-    "winPitcherCode": null,
-    "losePitcherCode": null,
+    "winPitcherCode": "50556",
+    "losePitcherCode": "56103",
     "savePitcherCode": null,
     "holdHome": [],
     "holdAway": [],
@@ -96,51 +96,63 @@
       "양우진": "56165"
     },
     "highlights": {
-      "home": [],
-      "away": []
-    },
-    "relayHighlights": {
       "home": [
         {
-          "how": "실책",
-          "text": "나승엽 투수 땅볼 실책으로 출루 (투수 포구 실책)",
-          "player": "나승엽",
-          "seqno": 381,
-          "inn": "7회말"
+          "how": "결승타",
+          "text": "황성빈(2회 1사 만루서 좌전 안타)",
+          "player": "황성빈",
+          "pid": "kbo:b:50500"
+        },
+        {
+          "how": "홈런",
+          "text": "전민재9호(7회3점 우강훈)",
+          "player": "전민재",
+          "pid": "kbo:b:68205"
         }
       ],
       "away": [
         {
           "how": "홈런",
-          "text": "문정빈 좌익수 뒤 홈런 (홈런거리:130M)",
+          "text": "문정빈18호(4회1점 김한결)",
           "player": "문정빈",
-          "seqno": 182,
-          "inn": "4회초"
+          "pid": "kbo:b:52121"
         },
         {
-          "how": "병살타",
-          "text": "문보경 유격수 병살타 아웃 (유격수->2루수->1루수 송구아웃)",
+          "how": "실책",
+          "text": "케네디(7회)",
+          "player": "케네디",
+          "pid": "kbo:b:56168"
+        },
+        {
+          "how": "실책",
+          "text": "문보경(7회)",
           "player": "문보경",
-          "seqno": 301,
-          "inn": "6회초"
+          "pid": "kbo:b:69102"
         },
         {
           "how": "병살타",
-          "text": "이재원 유격수 병살타 아웃 (유격수->2루수->1루수 송구아웃)",
+          "text": "문보경(6회)",
+          "player": "문보경",
+          "pid": "kbo:b:69102"
+        },
+        {
+          "how": "병살타",
+          "text": "이재원(9회)",
           "player": "이재원",
-          "seqno": 511,
-          "inn": "9회초"
+          "pid": "kbo:b:68106"
         }
       ]
-    },
-    "relayMaxSeqno": 520
+    }
   },
   "20261009SSSK02026": {
-    "save": null,
-    "winPitcherCode": null,
-    "losePitcherCode": null,
-    "savePitcherCode": null,
-    "holdHome": [],
+    "save": "조병현",
+    "winPitcherCode": "53892",
+    "losePitcherCode": "56474",
+    "savePitcherCode": "51897",
+    "holdHome": [
+      "문승원",
+      "전영준"
+    ],
     "holdAway": [],
     "pitcherCodeByName": {
       "이로운": "53892",
@@ -154,58 +166,54 @@
       "페덱": "56459"
     },
     "highlights": {
-      "home": [],
-      "away": []
-    },
-    "relayHighlights": {
       "home": [
         {
-          "how": "2루타",
-          "text": "최지훈 중견수 오른쪽 뒤 2루타",
-          "player": "최지훈",
-          "seqno": 27,
-          "inn": "1회말"
-        },
-        {
-          "how": "도루",
-          "text": "최지훈 도루로 2루까지 진루",
-          "player": "최지훈",
-          "seqno": 147,
-          "inn": "3회말"
+          "how": "결승타",
+          "text": "전의산(1회 2사 2루서 우전 안타)",
+          "player": "전의산",
+          "pid": "kbo:b:50820"
         },
         {
           "how": "홈런",
-          "text": "한유섬 우중간 뒤 홈런 (홈런거리:130M)",
+          "text": "한유섬3호(4회1점 임기영)",
           "player": "한유섬",
-          "seqno": 189,
-          "inn": "4회말"
+          "pid": "kbo:b:62895"
         },
         {
           "how": "2루타",
-          "text": "임근우 좌익수 왼쪽 2루타",
+          "text": "최지훈(1회)",
+          "player": "최지훈",
+          "pid": "kbo:b:50854"
+        },
+        {
+          "how": "2루타",
+          "text": "임근우(4회)",
           "player": "임근우",
-          "seqno": 201,
-          "inn": "4회말"
+          "pid": "kbo:b:52807"
         },
         {
           "how": "2루타",
-          "text": "한유섬 우익수 오른쪽 2루타",
+          "text": "한유섬(8회)",
           "player": "한유섬",
-          "seqno": 422,
-          "inn": "8회말"
+          "pid": "kbo:b:62895"
+        },
+        {
+          "how": "도루",
+          "text": "최지훈(3회)",
+          "player": "최지훈",
+          "pid": "kbo:b:50854"
         }
       ],
       "away": [
         {
           "how": "도루",
-          "text": "박승규 도루로 2루까지 진루",
+          "text": "박승규(4회)",
           "player": "박승규",
-          "seqno": 177,
-          "inn": "4회초"
+          "pid": "kbo:b:69418"
         }
       ]
     },
-    "relayMaxSeqno": 460
+    "hlRetries": 1
   },
   "20261009CLCW0": {
     "save": null,
@@ -1925,7 +1933,7 @@
       "home": [],
       "away": []
     },
-    "hlRetries": 370,
+    "hlRetries": 371,
     "relayHighlights": {
       "home": [
         {
