@@ -652593,7 +652593,7 @@
     "stadium": "Arena da Baixada",
     "timeTbd": false,
     "gameId": "BRASILEIRAO_ESPN_401841256",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 2,
     "awayScore": 2,
@@ -652708,15 +652708,28 @@
     "inningInfo": "3회말",
     "liveState": {
       "pitcher": "메식",
-      "batter": "메이드로스",
+      "batter": "그리칙",
       "ball": 1,
       "strike": 0,
       "out": 0,
       "bases": [
-        1
+        2,
+        3
       ],
-      "pitchCount": 44,
-      "batterPid": "mlb:805367"
+      "pitchCount": 47,
+      "batterPid": "mlb:545341"
+    },
+    "highlights": {
+      "home": [
+        {
+          "how": "2루타",
+          "text": "메이드로스 좌전 2루타",
+          "player": "메이드로스",
+          "inn": "3회말",
+          "pid": "mlb:805367"
+        }
+      ],
+      "away": []
     },
     "round": "ps_alds",
     "rn": 4,
@@ -652761,8 +652774,19 @@
     "gameId": "BRASILEIRAO_ESPN_401841248",
     "status": "live",
     "matchPeriod": "전반",
-    "homeScore": 0,
-    "awayScore": 0
+    "homeScore": 1,
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "Jefferson Savarino",
+          "m": 30,
+          "nat": "Venezuela",
+          "pid": "espn:177219"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-10-09",
