@@ -652465,7 +652465,7 @@
     "gameId": "BRASILEIRAO_ESPN_401841251",
     "status": "live",
     "matchPeriod": "후반",
-    "homeScore": 1,
+    "homeScore": 2,
     "awayScore": 2,
     "cards": {
       "home": [
@@ -652533,6 +652533,13 @@
           "m": 79,
           "pid": "espn:165778",
           "nat": "Italy"
+        },
+        {
+          "n": "Bruno Henrique",
+          "type": "Y",
+          "m": 85,
+          "pid": "espn:201683",
+          "nat": "Brazil"
         }
       ]
     },
@@ -652541,6 +652548,13 @@
         {
           "n": "Neymar",
           "m": 82,
+          "pk": true,
+          "nat": "Brazil",
+          "pid": "espn:132948"
+        },
+        {
+          "n": "Neymar",
+          "m": 88,
           "pk": true,
           "nat": "Brazil",
           "pid": "espn:132948"
@@ -652608,7 +652622,19 @@
     "status": "live",
     "matchPeriod": "후반",
     "homeScore": 0,
-    "awayScore": 0
+    "awayScore": 0,
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Brayan Rovira",
+          "type": "Y",
+          "m": 54,
+          "pid": "espn:197407",
+          "nat": "Colombia"
+        }
+      ]
+    }
   },
   {
     "date": "2026-10-09",
@@ -652630,17 +652656,16 @@
     "inningInfo": "1회초",
     "liveState": {
       "pitcher": "스미스",
-      "batter": "로우",
-      "ball": 2,
-      "strike": 0,
+      "ball": 4,
+      "strike": 2,
       "out": 2,
       "bases": [
         1,
-        2
+        2,
+        3
       ],
-      "pitchCount": 21,
-      "pitcherPid": "mlb:701358",
-      "batterPid": "mlb:664040"
+      "pitchCount": 27,
+      "pitcherPid": "mlb:701358"
     },
     "round": "ps_alds",
     "rn": 4,
