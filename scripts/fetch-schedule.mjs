@@ -8,6 +8,7 @@ import { getAthleteNationality, getAthleteDisplayName } from './espn-nationality
 import { parseBaseballHighlights, parseKboRelayHighlights, parseMlbNpbRelayHighlights, extractPitcherDecisions, parseLiveState } from './baseball-highlight-parse.mjs';
 import { selectUniqueScoreMatch } from './espn-match-select.mjs';
 import { assignSeriesRecord, assignLegOneResult } from './series-record.mjs';
+import { canonTeamName } from './team-name-canon.mjs';
 import { getMlbNationality, getMlbPitcherDecisionNats, getMlbHoldNats, getMlbProbableStarterPid } from './mlb-nationality.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -382,8 +383,8 @@ function convertGame(n, cat, stadiumMap, mapFailures) {
     time,
     league: cat.league,
     venueId,
-    home: n.homeTeamName,
-    away: n.awayTeamName,
+    home: canonTeamName(cat.league, n.homeTeamName),
+    away: canonTeamName(cat.league, n.awayTeamName),
     stadium,
     timeTbd: false,
     gameId: n.gameId,
