@@ -654752,19 +654752,19 @@
         {
           "n": "스벤손",
           "m": 80,
+          "pid": "espn:310709",
           "a": "Fábio Silva",
           "nat": "Sweden",
           "aNat": "Portugal",
-          "pid": "espn:310709",
           "apid": "espn:291629"
         },
         {
           "n": "슐로터벡",
           "m": 85,
+          "pid": "espn:286828",
           "a": "Joey Veerman",
           "nat": "Germany",
           "aNat": "Netherlands",
-          "pid": "espn:286828",
           "apid": "espn:240912"
         }
       ],
@@ -654772,19 +654772,19 @@
         {
           "n": "레이스",
           "m": 88,
+          "pid": "espn:261363",
           "a": "Oskar Wójcik",
           "nat": "Netherlands",
           "aNat": "Poland",
-          "pid": "espn:261363",
           "apid": "espn:305821"
         },
         {
           "n": "퓔크루크",
           "m": 90,
+          "pid": "espn:170257",
           "a": "Marco Grüll",
           "nat": "Germany",
           "aNat": "Austria",
-          "pid": "espn:170257",
           "apid": "espn:305853"
         }
       ]
@@ -654907,19 +654907,19 @@
         {
           "n": "소토카",
           "m": 36,
+          "pid": "espn:215687",
           "a": "Florian Thauvin",
           "nat": "France",
           "aNat": "France",
-          "pid": "espn:215687",
           "apid": "espn:156898"
         },
         {
           "n": "우돌",
           "m": 76,
+          "pid": "espn:233199",
           "a": "Florian Thauvin",
           "nat": "France",
           "aNat": "France",
-          "pid": "espn:233199",
           "apid": "espn:156898"
         }
       ],
@@ -655061,16 +655061,16 @@
         {
           "n": "보웬",
           "m": 70,
-          "nat": "England",
-          "pid": "espn:201089"
+          "pid": "espn:201089",
+          "nat": "England"
         }
       ],
       "away": [
         {
           "n": "마센",
           "m": 18,
-          "nat": "Denmark",
           "pid": "espn:272629",
+          "nat": "Denmark",
           "pk": true
         }
       ]
@@ -655159,10 +655159,10 @@
         {
           "n": "브리안",
           "m": 13,
+          "pid": "espn:311571",
           "a": "Javi Hernández",
           "nat": "Spain",
           "aNat": "Spain",
-          "pid": "espn:311571",
           "apid": "espn:367946"
         }
       ]
@@ -655305,19 +655305,17 @@
     "gameId": "AFL_MLBSTATS_867718",
     "status": "live",
     "homeScore": 1,
-    "awayScore": 0,
+    "awayScore": 1,
     "inningInfo": "2회초",
     "liveState": {
-      "pitcher": "Patrick Forbes",
-      "batter": "Owen Carey",
-      "pitcherPid": "mlb:804467",
-      "batterPid": "mlb:826928",
-      "ball": 2,
-      "strike": 1,
-      "out": 2,
-      "bases": [
-        2
-      ]
+      "pitcher": "Briggs McKenzie",
+      "batter": "Core Jackson",
+      "pitcherPid": "mlb:828987",
+      "batterPid": "mlb:692110",
+      "ball": 0,
+      "strike": 3,
+      "out": 3,
+      "bases": []
     }
   },
   {
@@ -655333,19 +655331,17 @@
     "status": "live",
     "homeScore": 2,
     "awayScore": 1,
-    "inningInfo": "1회말",
+    "inningInfo": "2회초",
     "liveState": {
-      "pitcher": "Fernando Perez",
-      "batter": "Luke Davis",
-      "pitcherPid": "mlb:800125",
-      "batterPid": "mlb:701592",
-      "ball": 2,
+      "pitcher": "Miqueas Mercedes",
+      "batter": "Juan Cabada",
+      "pitcherPid": "mlb:823650",
+      "batterPid": "mlb:829040",
+      "ball": 1,
       "strike": 1,
-      "out": 2,
+      "out": 0,
       "bases": [
-        1,
-        2,
-        3
+        1
       ]
     }
   },
@@ -655361,18 +655357,19 @@
     "gameId": "AFL_MLBSTATS_867704",
     "status": "live",
     "homeScore": 0,
-    "awayScore": 1,
+    "awayScore": 2,
     "inningInfo": "2회초",
     "liveState": {
-      "pitcher": "Peyton Prescott",
-      "batter": "Ty Harvey",
-      "pitcherPid": "mlb:807290",
-      "batterPid": "mlb:829210",
-      "ball": 1,
+      "pitcher": "Keegan Batka",
+      "batter": "Vance Honeycutt",
+      "pitcherPid": "mlb:700176",
+      "batterPid": "mlb:701689",
+      "ball": 0,
       "strike": 0,
       "out": 1,
       "bases": [
         1,
+        2,
         3
       ]
     }
