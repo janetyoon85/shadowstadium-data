@@ -124,6 +124,12 @@ export function parseBaseballHighlightsFromBoxscore(rd) {
 // 한글/영문만(숫자 제외)으로 잡고 그 뒤 숫자(+호는 있어도/없어도)는 통째로 매치에 포함만 시킴.
 export const PLAYER_TOKEN_RE = /([가-힣A-Za-z]+)(?:\d+호?)?\(([^)]*)\)/g;
 
+// "문정빈18호(4회1점 김한결)" → "김한결" (홈런을 맞은 투수). 형식이 아니면 null.
+export function extractHomeRunPitcher(token) {
+  const m = /\(\s*\d+회\s*\d+점\s+([^()\s][^()]*?)\s*\)\s*$/.exec(token || '');
+  return m ? m[1].trim() : null;
+}
+
 export function parseBaseballHighlights(rd) {
   const etcRecords = rd?.etcRecords;
   if (!Array.isArray(etcRecords)) return parseBaseballHighlightsFromBoxscore(rd);
@@ -137,6 +143,12 @@ export function parseBaseballHighlights(rd) {
   for (const p of [...(rd?.pitchersBoxscore?.home || []), ...(rd?.pitchersBoxscore?.away || [])]) {
     if (p?.name && p?.pcode) codeByName.set(p.name.trim(), String(p.pcode));
   }
+  // 홈런 하이라이트의 "맞은 투수" 코드(2026-10-09, "홈런 맞은 투수 이름 누르면 선수정보 안 나옴") — 팀별 투수 명단(pcode)에서 찾는다.
+  // 타자 맵(codeByName)과 따로 두는 이유: 같은 이름의 타자/투수가 있으면 한 맵에선 덮어써져 엉뚱한 코드가 붙는다.
+  const pitchHome = new Map();
+  const pitchAway = new Map();
+  for (const p of rd?.pitchersBoxscore?.home || []) if (p?.name && p?.pcode) pitchHome.set(p.name.trim(), String(p.pcode));
+  for (const p of rd?.pitchersBoxscore?.away || []) if (p?.name && p?.pcode) pitchAway.set(p.name.trim(), String(p.pcode));
   const homeNames = new Set([
     ...(rd?.battersBoxscore?.home || []).map((p) => p?.name).filter(Boolean),
     ...(rd?.pitchersBoxscore?.home || []).map((p) => p?.name).filter(Boolean),
@@ -163,6 +175,16 @@ export function parseBaseballHighlights(rd) {
       const entry = { how: e.how, text: m[0], player: m[1] };
       const code = codeByName.get(m[1]);
       if (code) entry.playerCode = code;
+      if (e.how === '홈런') {
+        const pitcher = extractHomeRunPitcher(m[0]);
+        if (pitcher) {
+          entry.pitcher = pitcher;
+          // 타자 팀의 상대 팀 투수 명단을 우선. 타자 팀 판정이 틀렸을 수 있어(외국인 표기차 → away 폴백) 한쪽에만 있으면 그 코드를 쓴다.
+          const opp = side === 'home' ? pitchAway : pitchHome;
+          const pc = opp.get(pitcher) ?? (pitchHome.has(pitcher) !== pitchAway.has(pitcher) ? (pitchHome.get(pitcher) ?? pitchAway.get(pitcher)) : undefined);
+          if (pc) entry.pitcherCode = pc;
+        }
+      }
       if (side === 'home') home.push(entry);
       else away.push(entry); // 로스터 매칭 실패(외국인 표기차 등)도 정보 유실 방지로 away 폴백.
     }

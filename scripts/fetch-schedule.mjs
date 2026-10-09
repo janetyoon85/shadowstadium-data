@@ -628,10 +628,13 @@ async function enrichSaves(allGames) {
     // 이름 매칭 자체가 실패하던 문제 발견, wls 코드로 직접 뽑도록 수정) — 이 필드 도입 이전에
     // 캐시된 경기는 winPitcherCode 자체가 없어서(undefined) 재조회 안 하면 영원히 안 채워짐
     // (같은 계열의 반복 패턴, [[feedback_final_cache_stale_snapshot_bug]]).
+    // 홈런 맞은 투수 코드 백필(2026-10-09) — 이 필드 도입 이전에 캐시된 최근 KBO 경기는 hrPitcherChecked 가 없어 재조회 1회 트리거
+    // (recentHighlightIds 범위만 — 오래된 경기는 앱이 이름→pid 맵으로 폴백).
+    const needsKboHrPitcherBackfill = g.league === 'KBO' && isSplitHighlightFormat && !cached.hrPitcherChecked;
     const needsPitcherCodeMigration = (g.league === 'KBO' || g.league === 'NPB') && isNewFormat && !('winPitcherCode' in cached);
     // 종료 직후 etcRecords가 비어있을 때 조회된 채로 굳는 문제(2026-10-01, LG-SSG 9/30 하이라이트 없음) — relay 누적본만 있고 최종 하이라이트가 비면 최대 3회 재조회.
     const needsEmptyHlRetry = g.status === 'completed' && recentHighlightIds.has(g.gameId) && cached && typeof cached === 'object' && cached.relayHighlights && !((cached.highlights?.home?.length) || (cached.highlights?.away?.length)) && (cached.hlRetries || 0) < 3;
-    const needsHighlightRefetch = needsEmptyHlRetry || (recentHighlightIds.has(g.gameId) && (!isSplitHighlightFormat || needsMlbNatBackfill || needsMlbPidBackfill || needsHoldBackfill)) || (pidBackfillIds.has(g.gameId) && (needsKboNpbPidBackfill || needsPitcherCodeMigration));
+    const needsHighlightRefetch = needsEmptyHlRetry || (recentHighlightIds.has(g.gameId) && (!isSplitHighlightFormat || needsMlbNatBackfill || needsMlbPidBackfill || needsHoldBackfill || needsKboHrPitcherBackfill)) || (pidBackfillIds.has(g.gameId) && (needsKboNpbPidBackfill || needsPitcherCodeMigration));
     // live는 스코어/이닝이 계속 바뀌므로 캐시·예산과 무관하게 매 실행 무조건 재조회(축구 enrichScorers/
     // enrichEuroAssists와 동일 패턴) — 완전신규/백필만 SAVES_FETCH_BUDGET으로 제한.
     const needsSavesFetch = g.status === 'live' || cached === undefined || needsHighlightRefetch;
@@ -641,6 +644,7 @@ async function enrichSaves(allGames) {
         await sleep(REQUEST_DELAY_MS);
         const prevRec = cache[g.gameId];
         cache[g.gameId] = await fetchGameRecord(g.gameId);
+        if (g.league === 'KBO' && cache[g.gameId] && typeof cache[g.gameId] === 'object') cache[g.gameId].hrPitcherChecked = true;
         if (prevRec && typeof prevRec === 'object' && prevRec.relayHighlights && g.status === 'completed' && cache[g.gameId] && typeof cache[g.gameId] === 'object') {
           cache[g.gameId].hlRetries = (prevRec.hlRetries || 0) + 1;
           cache[g.gameId].relayHighlights = prevRec.relayHighlights;
@@ -753,6 +757,9 @@ async function enrichSaves(allGames) {
                 if (code) h.pid = `${prefix}${code}`;
                 delete h.playerCode;
                 delete h.playerId;
+                // 홈런 맞은 투수 코드 → 투수 pid(KBO 투수 페이지 kbo:p:) — 임시 필드 정리.
+                if (h.pitcherCode && g.league === 'KBO') h.pitcherPid = `kbo:p:${h.pitcherCode}`;
+                delete h.pitcherCode;
                 delete h.birth;
                 delete h.backnum;
               }

@@ -248,3 +248,49 @@ test('parseMlbNpbRelayHighlights - textRelays 자체가 없어도(undefined) 안
   assert.deepEqual(r.away, []);
   assert.equal(r.maxSeqno, 0);
 });
+
+// ── 홈런 맞은 투수(2026-10-09) ──
+test('extractHomeRunPitcher - "(N회M점 투수)"에서 투수 이름 추출, 다른 형식은 null', async () => {
+  const { extractHomeRunPitcher } = await import('../baseball-highlight-parse.mjs');
+  assert.equal(extractHomeRunPitcher('문정빈18호(4회1점 김한결)'), '김한결');
+  assert.equal(extractHomeRunPitcher('서건창1호(8회1점 타무라)'), '타무라');
+  assert.equal(extractHomeRunPitcher('이강민2(6 7회)'), null);
+  assert.equal(extractHomeRunPitcher('강백호'), null);
+  assert.equal(extractHomeRunPitcher(''), null);
+});
+
+test('parseBaseballHighlights - 홈런 entry에 맞은 투수 이름과 pcode (상대 팀 투수 명단 우선)', () => {
+  const rd = {
+    etcRecords: [{ how: '홈런', result: '문정빈18호(4회1점 김한결)' }],
+    battersBoxscore: { home: [{ name: '문정빈', playerCode: '111' }], away: [] },
+    // 같은 이름 "김한결"이 홈 팀(타자 팀)에도 있다 — 홈런을 맞은 건 상대(원정) 팀 투수여야 한다.
+    pitchersBoxscore: { home: [{ name: '김한결', pcode: '900' }], away: [{ name: '김한결', pcode: '222' }] },
+  };
+  const { home } = parseBaseballHighlights(rd);
+  assert.equal(home.length, 1);
+  assert.equal(home[0].player, '문정빈');
+  assert.equal(home[0].playerCode, '111');
+  assert.equal(home[0].pitcher, '김한결');
+  assert.equal(home[0].pitcherCode, '222');
+});
+
+test('parseBaseballHighlights - 투수 명단에 없으면 이름만, 타자 팀 판정 실패 시 한쪽에만 있는 투수 코드 사용, 홈런 외엔 투수 필드 없음', () => {
+  const rd = {
+    etcRecords: [
+      { how: '홈런', result: '모르는타자1호(2회1점 타무라)' }, // 타자 팀 판정 불가 → away 폴백
+      { how: '2루타', result: '강백호(3회)' },
+      { how: '홈런', result: '박찬호3호(5회2점 없는투수)' },
+    ],
+    battersBoxscore: { home: [{ name: '박찬호' }], away: [] },
+    pitchersBoxscore: { home: [{ name: '타무라', pcode: '777' }], away: [] },
+  };
+  const { home, away } = parseBaseballHighlights(rd);
+  const hr1 = away.find((e) => e.player === '모르는타자');
+  assert.equal(hr1.pitcher, '타무라');
+  assert.equal(hr1.pitcherCode, '777'); // 한쪽(home 명단)에만 있어 채택
+  const hr2 = home.find((e) => e.player === '박찬호');
+  assert.equal(hr2.pitcher, '없는투수');
+  assert.equal(hr2.pitcherCode, undefined);
+  const dbl = away.find((e) => e.how === '2루타') || home.find((e) => e.how === '2루타');
+  assert.equal(dbl?.pitcher, undefined);
+});
