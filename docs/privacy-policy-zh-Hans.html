@@ -24,8 +24,9 @@
 
 <div class="meta">
   <strong>生效日期：</strong>2026年6月1日<br>
-  <strong>最后修订日期：</strong>2026年6月1日<br>
-  <strong>版本：</strong>1.0
+  <strong>最后修订日期：</strong>2026-10-10
+  <br>
+  <strong>版本：</strong>1.1
 </div>
 
 <p>
@@ -38,7 +39,8 @@
   <li>无注册或创建账户功能</li>
   <li>不要求输入姓名、电话、电子邮件等身份识别信息</li>
   <li>不请求访问设备的位置信息（GPS）</li>
-  <li>不请求相机、麦克风、通讯录、存储等敏感权限</li>
+  <li>不会请求相机、麦克风、通讯录等敏感权限</li>
+  <li>仅当您选择保存或分享比赛图片时才会请求相册访问权限，且仅用于保存该图片</li>
 </ul>
 
 <h2>2. 存储在您设备中的信息</h2>
@@ -63,6 +65,7 @@
   <li>IP地址及大致位置（国家/地区级别）</li>
   <li>广告展示及互动记录</li>
 </ul>
+<p>在 iOS 上，本应用仅请求非个性化广告，不会显示应用跟踪透明度（ATT）弹窗，也不会将广告标识符（IDFA）用于跟踪。</p>
 <p>您可以在设备设置中重置广告标识符或选择退出个性化广告。</p>
 <p>详情请参阅：<a href="https://policies.google.com/privacy" target="_blank">Google隐私政策</a></p>
 
@@ -75,11 +78,19 @@
 </table>
 <p>调用上述API时，设备的IP地址可能会被传输至相应服务器，但不会发送可识别的个人信息。</p>
 
-<h3>3.3 YouTube API 服务</h3>
+<h3>3.3 Firebase Cloud Messaging（推送通知）</h3>
+<p>本应用使用 Google Firebase Cloud Messaging（FCM）发送推送通知（iOS 上通过 Apple 推送通知服务）。为发送通知，FCM 会为您的设备分配推送令牌和安装标识符。应用还会让您的设备订阅与您所选球队、比赛、球员和语言对应的通知主题（例如关注球队的比赛结束提醒）。由于本应用没有账户，这些主题不会与您的姓名、电子邮件或任何账户关联。您可以在设备设置中关闭通知，或在应用中取消收藏以取消订阅相应主题。 详细信息：<a href="https://firebase.google.com/support/privacy" target="_blank">Firebase 隐私与安全</a></p>
+
+<h3>3.4 Sentry（崩溃与性能报告）</h3>
+<p>本应用使用 Sentry 接收崩溃报告和基本性能测量数据，以便修复问题。报告包含错误和堆栈跟踪、设备型号、操作系统版本、应用版本等技术信息。应用已设置为不发送姓名、电子邮件、账户标识符等个人信息。 详细信息：<a href="https://sentry.io/privacy/" target="_blank">Sentry 隐私政策</a></p>
+
+<h3>3.5 YouTube API 服务</h3>
 <p>本应用使用 YouTube API 服务（YouTube Data API）来链接比赛集锦和加油歌曲视频。调用仅由我们的服务器发出；不会向 YouTube 发送或从中收集应用用户的个人信息或 Google 账号信息。我们仅存储视频 ID 和标题。打开视频时会跳转到 YouTube（应用或浏览器），适用 <a href="https://www.youtube.com/t/terms" target="_blank">YouTube 服务条款</a> 和 <a href="https://policies.google.com/privacy" target="_blank">Google 隐私权政策</a>。我们不存储 YouTube 用户数据，因此没有需要删除的数据。您可以在 <a href="https://security.google.com/settings/security/permissions" target="_blank">Google 安全设置</a> 中撤销授予 Google 账号的权限。</p>
 
 <h2>4. 通知</h2>
-<p>本应用会根据您设置的比赛时间发送提醒。所有通知均在<strong>您的设备本地处理</strong>，本应用不会从外部服务器接收推送通知。您可以随时更改或关闭提醒设置。</p>
+<p>
+  本应用会发送您所选球队、比赛和球员的提醒。通知通过 Firebase Cloud Messaging（见 3.3）以推送通知方式送达，因此您设备的推送令牌会由 Google 和 Apple 为此处理。无需提供任何个人信息。您可以随时更改或关闭通知设置。
+</p>
 
 <h2>5. 权限使用说明</h2>
 <table>
@@ -88,6 +99,7 @@
   <tr><td>精确闹钟（USE_EXACT_ALARM）</td><td>保证提醒时间的准确性</td></tr>
   <tr><td>网络（INTERNET, ACCESS_NETWORK_STATE）</td><td>获取比赛日程/天气，显示广告</td></tr>
   <tr><td>广告ID（AD_ID）</td><td>个性化广告（用户可选择退出）</td></tr>
+  <tr><td>相册（仅保存）</td><td>保存您选择分享的比赛图片</td></tr>
 </table>
 
 <h2>6. 儿童隐私保护</h2>

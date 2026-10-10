@@ -24,8 +24,9 @@
 
 <div class="meta">
   <strong>Date d'entrée en vigueur :</strong> 1er juin 2026<br>
-  <strong>Dernière modification :</strong> 1er juin 2026<br>
-  <strong>Version :</strong> 1.0
+  <strong>Dernière modification :</strong> 2026-10-10
+  <br>
+  <strong>Version :</strong> 1.1
 </div>
 
 <p>
@@ -38,7 +39,8 @@
   <li>Aucune fonction d'inscription ou de création de compte</li>
   <li>Aucune demande d'informations identifiantes telles que nom, téléphone ou e-mail</li>
   <li>Aucune demande d'accès à la localisation (GPS) de l'appareil</li>
-  <li>Aucune demande d'autorisations sensibles telles que caméra, microphone, contacts ou stockage</li>
+  <li>Aucune autorisation sensible n'est demandée (appareil photo, microphone, contacts, etc.)</li>
+  <li>L'accès à la photothèque n'est demandé que lorsque vous choisissez d'enregistrer ou de partager une image de match, et uniquement pour enregistrer cette image</li>
 </ul>
 
 <h2>2. Informations stockées sur votre appareil</h2>
@@ -63,6 +65,7 @@
   <li>Adresse IP et localisation approximative (au niveau du pays/de la région)</li>
   <li>Historique des impressions et interactions publicitaires</li>
 </ul>
+<p>Sur iOS, l'application ne demande que des publicités non personnalisées et n'affiche pas la fenêtre de transparence du suivi des applications (ATT) ; elle n'utilise pas non plus l'identifiant publicitaire (IDFA) à des fins de suivi.</p>
 <p>Vous pouvez réinitialiser votre identifiant publicitaire ou désactiver la publicité personnalisée dans les paramètres de votre appareil.</p>
 <p>Plus de détails : <a href="https://policies.google.com/privacy" target="_blank">Politique de confidentialité de Google</a></p>
 
@@ -75,11 +78,19 @@
 </table>
 <p>Lors de ces appels d'API, l'adresse IP de l'appareil peut être transmise aux serveurs concernés, mais aucune information personnelle identifiable n'est envoyée.</p>
 
-<h3>3.3 Services d'API YouTube</h3>
+<h3>3.3 Firebase Cloud Messaging (notifications push)</h3>
+<p>Cette application utilise Google Firebase Cloud Messaging (FCM) pour envoyer des notifications push (via le service de notifications push d'Apple sur iOS). Pour acheminer les notifications, FCM attribue à votre appareil un jeton push et un identifiant d'installation. L'application abonne également votre appareil à des sujets de notification correspondant aux équipes, matchs, joueurs et à la langue que vous choisissez (par exemple, l'alerte de fin de match d'une équipe favorite). Ces sujets ne sont liés ni à votre nom, ni à votre e-mail, ni à un compte, car l'application n'a pas de comptes. Vous pouvez désactiver les notifications dans les réglages de l'appareil ou retirer un favori dans l'application pour vous désabonner de son sujet. Pour en savoir plus : <a href="https://firebase.google.com/support/privacy" target="_blank">Confidentialité et sécurité de Firebase</a></p>
+
+<h3>3.4 Sentry (rapports de plantage et de performance)</h3>
+<p>Cette application utilise Sentry pour recevoir des rapports de plantage et des mesures de performance de base afin de corriger les problèmes. Un rapport contient des informations techniques telles que l'erreur et la trace d'appels, le modèle de l'appareil, la version du système et la version de l'application. L'application est configurée pour ne pas envoyer d'informations personnelles (ni nom, ni e-mail, ni identifiants de compte). Pour en savoir plus : <a href="https://sentry.io/privacy/" target="_blank">Politique de confidentialité de Sentry</a></p>
+
+<h3>3.5 Services d'API YouTube</h3>
 <p>Cette application utilise les services d'API YouTube (YouTube Data API) pour lier des vidéos de résumés de matchs et de chants de supporters. Les appels sont effectués uniquement depuis nos serveurs ; aucune information personnelle ni aucune information de compte Google des utilisateurs n'est envoyée à YouTube ni collectée. Nous ne conservons que les identifiants et titres des vidéos. L'ouverture d'une vidéo vous mène à YouTube (application ou navigateur), où les <a href="https://www.youtube.com/t/terms" target="_blank">Conditions d'utilisation de YouTube</a> et les <a href="https://policies.google.com/privacy" target="_blank">Règles de confidentialité de Google</a> s'appliquent. Nous ne stockons aucune donnée d'utilisateur YouTube ; il n'y a donc rien à supprimer. Vous pouvez révoquer les accès accordés à votre compte Google dans les <a href="https://security.google.com/settings/security/permissions" target="_blank">paramètres de sécurité Google</a>.</p>
 
 <h2>4. Notifications</h2>
-<p>Cette Application envoie des alertes pour les horaires de match que vous configurez. Toutes les notifications sont <strong>traitées localement sur votre appareil</strong>, et cette Application ne reçoit pas de notifications push d'un serveur externe. Vous pouvez modifier ou désactiver vos paramètres d'alerte à tout moment.</p>
+<p>
+  Cette application envoie des alertes pour les équipes, matchs et joueurs que vous choisissez. Les notifications sont acheminées sous forme de notifications push via Firebase Cloud Messaging (voir la section 3.3) ; un jeton push de votre appareil est donc traité par Google et Apple à cet effet. Aucune information personnelle n'est requise. Vous pouvez modifier ou désactiver les alertes à tout moment.
+</p>
 
 <h2>5. Utilisation des autorisations</h2>
 <table>
@@ -88,6 +99,7 @@
   <tr><td>Alarmes exactes (USE_EXACT_ALARM)</td><td>Garantir la précision de l'horaire des alertes</td></tr>
   <tr><td>Internet (INTERNET, ACCESS_NETWORK_STATE)</td><td>Récupérer les calendriers/la météo, afficher des publicités</td></tr>
   <tr><td>ID publicitaire (AD_ID)</td><td>Publicité personnalisée (l'utilisateur peut refuser)</td></tr>
+  <tr><td>Photothèque (enregistrement uniquement)</td><td>Enregistrer une image de match que vous choisissez de partager</td></tr>
 </table>
 
 <h2>6. Confidentialité des enfants</h2>

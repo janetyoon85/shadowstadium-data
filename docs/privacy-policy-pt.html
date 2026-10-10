@@ -24,8 +24,9 @@
 
 <div class="meta">
   <strong>Data de vigência:</strong> 1 de junho de 2026<br>
-  <strong>Última modificação:</strong> 1 de junho de 2026<br>
-  <strong>Versão:</strong> 1.0
+  <strong>Última modificação:</strong> 2026-10-10
+  <br>
+  <strong>Versão:</strong> 1.1
 </div>
 
 <p>
@@ -38,7 +39,8 @@
   <li>Não há função de cadastro ou criação de conta</li>
   <li>Não são solicitadas informações de identificação como nome, telefone ou e-mail</li>
   <li>Não é solicitado acesso à localização (GPS) do dispositivo</li>
-  <li>Não são solicitadas permissões sensíveis como câmera, microfone, contatos ou armazenamento</li>
+  <li>Não solicitamos permissões sensíveis, como câmera, microfone ou contatos</li>
+  <li>O acesso à biblioteca de fotos só é solicitado quando você escolhe salvar ou compartilhar uma imagem de jogo, e apenas para salvar essa imagem</li>
 </ul>
 
 <h2>2. Informações armazenadas no seu dispositivo</h2>
@@ -63,6 +65,7 @@
   <li>Endereço IP e localização aproximada (nível de país/região)</li>
   <li>Registros de impressões e interações com anúncios</li>
 </ul>
+<p>No iOS, o aplicativo solicita apenas anúncios não personalizados e não exibe o aviso de Transparência de Rastreamento de Apps (ATT); também não usa o identificador de publicidade (IDFA) para rastreamento.</p>
 <p>Você pode redefinir seu identificador de publicidade ou desativar anúncios personalizados nas configurações do seu dispositivo.</p>
 <p>Mais detalhes: <a href="https://policies.google.com/privacy" target="_blank">Política de Privacidade do Google</a></p>
 
@@ -75,11 +78,19 @@
 </table>
 <p>Ao chamar essas APIs, o endereço IP do dispositivo pode ser transmitido aos respectivos servidores, mas nenhuma informação pessoal identificável é enviada.</p>
 
-<h3>3.3 Serviços da API do YouTube</h3>
+<h3>3.3 Firebase Cloud Messaging (notificações push)</h3>
+<p>Este aplicativo usa o Google Firebase Cloud Messaging (FCM) para entregar notificações push (pelo serviço de notificações push da Apple no iOS). Para entregar as notificações, o FCM atribui ao seu dispositivo um token push e um identificador de instalação. O aplicativo também inscreve seu dispositivo em tópicos de notificação correspondentes às equipes, jogos, jogadores e ao idioma que você escolher (por exemplo, o aviso de fim de jogo de uma equipe favorita). Esses tópicos não são vinculados ao seu nome, e-mail nem a qualquer conta, pois o aplicativo não tem contas. Você pode desativar as notificações nos ajustes do dispositivo ou remover um favorito no aplicativo para cancelar a inscrição no tópico. Saiba mais: <a href="https://firebase.google.com/support/privacy" target="_blank">Privacidade e segurança do Firebase</a></p>
+
+<h3>3.4 Sentry (relatórios de falhas e desempenho)</h3>
+<p>Este aplicativo usa o Sentry para receber relatórios de falhas e medições básicas de desempenho, a fim de corrigir problemas. Um relatório contém informações técnicas, como o erro e o rastreamento de pilha, o modelo do dispositivo, a versão do sistema operacional e a versão do aplicativo. O aplicativo está configurado para não enviar informações pessoais (nem nome, nem e-mail, nem identificadores de conta). Saiba mais: <a href="https://sentry.io/privacy/" target="_blank">Política de privacidade do Sentry</a></p>
+
+<h3>3.5 Serviços da API do YouTube</h3>
 <p>Este app usa os serviços da API do YouTube (YouTube Data API) para vincular vídeos de melhores momentos de jogos e canções de torcida. As chamadas são feitas apenas pelos nossos servidores; nenhuma informação pessoal ou da conta Google dos usuários é enviada ao YouTube ou coletada dele. Armazenamos apenas IDs e títulos de vídeos. Ao abrir um vídeo, você vai ao YouTube (app ou navegador), onde valem os <a href="https://www.youtube.com/t/terms" target="_blank">Termos de Serviço do YouTube</a> e a <a href="https://policies.google.com/privacy" target="_blank">Política de Privacidade do Google</a>. Não armazenamos dados de usuários do YouTube, portanto não há dados a excluir. Você pode revogar acessos concedidos à sua conta Google nas <a href="https://security.google.com/settings/security/permissions" target="_blank">configurações de segurança do Google</a>.</p>
 
 <h2>4. Notificações</h2>
-<p>Este App envia alertas para os horários de jogos que você configura. Todas as notificações são <strong>processadas localmente no seu dispositivo</strong>, e este App não recebe notificações push de um servidor externo. Você pode alterar ou desativar as configurações de alerta a qualquer momento.</p>
+<p>
+  Este aplicativo envia alertas das equipes, jogos e jogadores que você escolher. As notificações são entregues como notificações push pelo Firebase Cloud Messaging (veja a seção 3.3), portanto um token push do seu dispositivo é processado pelo Google e pela Apple para essa finalidade. Nenhuma informação pessoal é necessária. Você pode alterar ou desativar os alertas a qualquer momento.
+</p>
 
 <h2>5. Uso de permissões</h2>
 <table>
@@ -88,6 +99,7 @@
   <tr><td>Alarmes exatos (USE_EXACT_ALARM)</td><td>Garantir a precisão do horário dos alertas</td></tr>
   <tr><td>Internet (INTERNET, ACCESS_NETWORK_STATE)</td><td>Obter calendários/clima, exibir anúncios</td></tr>
   <tr><td>ID de publicidade (AD_ID)</td><td>Anúncios personalizados (o usuário pode desativar)</td></tr>
+  <tr><td>Biblioteca de fotos (somente salvar)</td><td>Salvar uma imagem de jogo que você escolhe compartilhar</td></tr>
 </table>
 
 <h2>6. Privacidade de crianças</h2>

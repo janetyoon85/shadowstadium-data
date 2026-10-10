@@ -24,8 +24,9 @@
 
 <div class="meta">
   <strong>Ingangsdatum:</strong> 1 juni 2026<br>
-  <strong>Laatst gewijzigd:</strong> 1 juni 2026<br>
-  <strong>Versie:</strong> 1.0
+  <strong>Laatst gewijzigd:</strong> 2026-10-10
+  <br>
+  <strong>Versie:</strong> 1.1
 </div>
 
 <p>
@@ -38,7 +39,8 @@
   <li>Geen registratie- of accountaanmaakfunctie</li>
   <li>Er wordt geen identificerende informatie zoals naam, telefoonnummer of e-mail gevraagd</li>
   <li>Er wordt geen toegang tot de locatie (GPS) van uw apparaat gevraagd</li>
-  <li>Er worden geen gevoelige machtigingen zoals camera, microfoon, contacten of opslag gevraagd</li>
+  <li>Er worden geen gevoelige rechten gevraagd, zoals camera, microfoon of contacten</li>
+  <li>Toegang tot de fotobibliotheek wordt alleen gevraagd wanneer u ervoor kiest een wedstrijdafbeelding op te slaan of te delen, en alleen om die afbeelding op te slaan</li>
 </ul>
 
 <h2>2. Informatie die op uw apparaat wordt opgeslagen</h2>
@@ -63,6 +65,7 @@
   <li>IP-adres en geschatte locatie (op land-/regioniveau)</li>
   <li>Registraties van advertentievertoningen en -interacties</li>
 </ul>
+<p>Op iOS vraagt de app uitsluitend niet-gepersonaliseerde advertenties aan en toont geen App Tracking Transparency-melding (ATT); de advertentie-ID (IDFA) wordt niet gebruikt voor tracking.</p>
 <p>U kunt uw advertentie-ID resetten of gepersonaliseerde advertenties uitschakelen in de instellingen van uw apparaat.</p>
 <p>Meer informatie: <a href="https://policies.google.com/privacy" target="_blank">Privacybeleid van Google</a></p>
 
@@ -75,11 +78,19 @@
 </table>
 <p>Bij het aanroepen van deze API's kan het IP-adres van het apparaat naar de betreffende servers worden verzonden, maar er wordt geen identificeerbare persoonlijke informatie verzonden.</p>
 
-<h3>3.3 YouTube API-services</h3>
+<h3>3.3 Firebase Cloud Messaging (pushmeldingen)</h3>
+<p>Deze app gebruikt Google Firebase Cloud Messaging (FCM) om pushmeldingen te bezorgen (op iOS via de Apple Push Notification service). Om meldingen te bezorgen, wijst FCM uw apparaat een pushtoken en een installatie-ID toe. De app abonneert uw apparaat ook op meldingsonderwerpen die overeenkomen met de teams, wedstrijden, spelers en taal die u kiest (bijvoorbeeld de eindstandmelding van een favoriet team). Deze onderwerpen worden niet gekoppeld aan uw naam, e-mailadres of een account, omdat de app geen accounts heeft. U kunt meldingen uitschakelen in de apparaatinstellingen of een favoriet in de app verwijderen om u voor het onderwerp af te melden. Meer informatie: <a href="https://firebase.google.com/support/privacy" target="_blank">Firebase Privacy en beveiliging</a></p>
+
+<h3>3.4 Sentry (crash- en prestatierapporten)</h3>
+<p>Deze app gebruikt Sentry om crashrapporten en basisprestatiemetingen te ontvangen, zodat we problemen kunnen oplossen. Een rapport bevat technische informatie zoals de fout en de stacktrace, het apparaatmodel, de versie van het besturingssysteem en de appversie. De app is zo ingesteld dat er geen persoonsgegevens (geen naam, e-mailadres of account-ID's) worden verzonden. Meer informatie: <a href="https://sentry.io/privacy/" target="_blank">Sentry-privacybeleid</a></p>
+
+<h3>3.5 YouTube API-services</h3>
 <p>Deze app gebruikt de YouTube API-services (YouTube Data API) om video's met wedstrijdsamenvattingen en supportersliedjes te koppelen. Aanroepen gebeuren alleen vanaf onze servers; er worden geen persoonlijke gegevens of Google-accountgegevens van gebruikers naar YouTube verzonden of daar verzameld. We slaan alleen video-ID's en titels op. Als je een video opent, ga je naar YouTube (app of browser), waar de <a href="https://www.youtube.com/t/terms" target="_blank">YouTube-servicevoorwaarden</a> en het <a href="https://policies.google.com/privacy" target="_blank">privacybeleid van Google</a> gelden. We slaan geen YouTube-gebruikersgegevens op, dus er zijn geen gegevens te verwijderen. Je kunt toegang tot je Google-account intrekken in de <a href="https://security.google.com/settings/security/permissions" target="_blank">beveiligingsinstellingen van Google</a>.</p>
 
 <h2>4. Meldingen</h2>
-<p>Deze App verstuurt herinneringen voor de wedstrijdtijden die u instelt. Alle meldingen worden <strong>lokaal op uw apparaat verwerkt</strong>, en deze App ontvangt geen pushmeldingen van een externe server. U kunt uw herinneringsinstellingen op elk moment wijzigen of uitschakelen.</p>
+<p>
+  Deze app stuurt meldingen voor de teams, wedstrijden en spelers die u kiest. Meldingen worden bezorgd als pushmeldingen via Firebase Cloud Messaging (zie sectie 3.3), waarvoor een pushtoken van uw apparaat door Google en Apple wordt verwerkt. Er zijn geen persoonsgegevens nodig. U kunt de meldingen op elk moment wijzigen of uitschakelen.
+</p>
 
 <h2>5. Gebruik van machtigingen</h2>
 <table>
@@ -88,6 +99,7 @@
   <tr><td>Exacte alarmen (USE_EXACT_ALARM)</td><td>Nauwkeurigheid van herinneringstijd garanderen</td></tr>
   <tr><td>Internet (INTERNET, ACCESS_NETWORK_STATE)</td><td>Schema's/weer ophalen, advertenties weergeven</td></tr>
   <tr><td>Advertentie-ID (AD_ID)</td><td>Gepersonaliseerde advertenties (gebruiker kan zich afmelden)</td></tr>
+  <tr><td>Fotobibliotheek (alleen opslaan)</td><td>Een wedstrijdafbeelding opslaan die u wilt delen</td></tr>
 </table>
 
 <h2>6. Privacy van kinderen</h2>

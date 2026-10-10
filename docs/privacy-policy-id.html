@@ -24,8 +24,9 @@
 
 <div class="meta">
   <strong>Tanggal berlaku:</strong> 1 Juni 2026<br>
-  <strong>Terakhir diperbarui:</strong> 1 Juni 2026<br>
-  <strong>Versi:</strong> 1.0
+  <strong>Terakhir diperbarui:</strong> 2026-10-10
+  <br>
+  <strong>Versi:</strong> 1.1
 </div>
 
 <p>
@@ -38,7 +39,8 @@
   <li>Tidak ada fitur pendaftaran atau pembuatan akun</li>
   <li>Tidak meminta informasi identitas seperti nama, telepon, atau email</li>
   <li>Tidak meminta akses ke lokasi (GPS) perangkat Anda</li>
-  <li>Tidak meminta izin sensitif seperti kamera, mikrofon, kontak, atau penyimpanan</li>
+  <li>Tidak meminta izin sensitif seperti kamera, mikrofon, atau kontak</li>
+  <li>Akses ke pustaka foto hanya diminta saat Anda memilih untuk menyimpan atau membagikan gambar pertandingan, dan hanya untuk menyimpan gambar tersebut</li>
 </ul>
 
 <h2>2. Informasi yang Disimpan di Perangkat Anda</h2>
@@ -63,6 +65,7 @@
   <li>Alamat IP dan perkiraan lokasi (tingkat negara/wilayah)</li>
   <li>Catatan tayangan dan interaksi iklan</li>
 </ul>
+<p>Di iOS, aplikasi ini hanya meminta iklan non-personalisasi dan tidak menampilkan jendela App Tracking Transparency (ATT); aplikasi juga tidak menggunakan ID iklan (IDFA) untuk pelacakan.</p>
 <p>Anda dapat mengatur ulang pengenal iklan atau menonaktifkan iklan yang dipersonalisasi di pengaturan perangkat Anda.</p>
 <p>Selengkapnya: <a href="https://policies.google.com/privacy" target="_blank">Kebijakan Privasi Google</a></p>
 
@@ -75,11 +78,19 @@
 </table>
 <p>Saat memanggil API ini, alamat IP perangkat dapat dikirim ke server terkait, tetapi tidak ada informasi pribadi yang dapat diidentifikasi yang dikirim.</p>
 
-<h3>3.3 Layanan API YouTube</h3>
+<h3>3.3 Firebase Cloud Messaging (notifikasi push)</h3>
+<p>Aplikasi ini menggunakan Google Firebase Cloud Messaging (FCM) untuk mengirim notifikasi push (melalui layanan notifikasi push Apple di iOS). Untuk mengirim notifikasi, FCM memberikan token push dan ID instalasi pada perangkat Anda. Aplikasi juga mendaftarkan perangkat Anda ke topik notifikasi yang sesuai dengan tim, pertandingan, pemain, dan bahasa yang Anda pilih (misalnya notifikasi akhir pertandingan tim favorit). Topik ini tidak dikaitkan dengan nama, email, atau akun apa pun karena aplikasi ini tidak memiliki akun. Anda dapat mematikan notifikasi di pengaturan perangkat atau menghapus favorit di aplikasi untuk berhenti berlangganan topiknya. Detail lebih lanjut: <a href="https://firebase.google.com/support/privacy" target="_blank">Privasi dan Keamanan Firebase</a></p>
+
+<h3>3.4 Sentry (laporan crash dan performa)</h3>
+<p>Aplikasi ini menggunakan Sentry untuk menerima laporan crash dan pengukuran performa dasar agar kami dapat memperbaiki masalah. Laporan berisi informasi teknis seperti error dan stack trace, model perangkat, versi OS, dan versi aplikasi. Aplikasi dikonfigurasi agar tidak mengirim informasi pribadi (tanpa nama, email, atau ID akun). Detail lebih lanjut: <a href="https://sentry.io/privacy/" target="_blank">Kebijakan Privasi Sentry</a></p>
+
+<h3>3.5 Layanan API YouTube</h3>
 <p>Aplikasi ini menggunakan layanan API YouTube (YouTube Data API) untuk menautkan video sorotan pertandingan dan lagu dukungan. Panggilan hanya dilakukan dari server kami; tidak ada informasi pribadi atau akun Google pengguna yang dikirim ke atau dikumpulkan dari YouTube. Kami hanya menyimpan ID dan judul video. Saat Anda membuka video, Anda diarahkan ke YouTube (aplikasi atau peramban) yang tunduk pada <a href="https://www.youtube.com/t/terms" target="_blank">Ketentuan Layanan YouTube</a> dan <a href="https://policies.google.com/privacy" target="_blank">Kebijakan Privasi Google</a>. Kami tidak menyimpan data pengguna YouTube sehingga tidak ada data yang perlu dihapus. Anda dapat mencabut akses ke akun Google di <a href="https://security.google.com/settings/security/permissions" target="_blank">pengaturan keamanan Google</a>.</p>
 
 <h2>4. Notifikasi</h2>
-<p>Aplikasi ini mengirimkan pengingat untuk waktu pertandingan yang Anda atur. Semua notifikasi <strong>diproses secara lokal di perangkat Anda</strong>, dan Aplikasi ini tidak menerima notifikasi push dari server eksternal. Anda dapat mengubah atau menonaktifkan pengaturan pengingat kapan saja.</p>
+<p>
+  Aplikasi ini mengirim pengingat untuk tim, pertandingan, dan pemain yang Anda pilih. Notifikasi dikirim sebagai notifikasi push melalui Firebase Cloud Messaging (lihat Bagian 3.3), sehingga token push perangkat Anda diproses oleh Google dan Apple untuk tujuan tersebut. Tidak diperlukan informasi pribadi. Anda dapat mengubah atau mematikan pengingat kapan saja.
+</p>
 
 <h2>5. Penggunaan Izin</h2>
 <table>
@@ -88,6 +99,7 @@
   <tr><td>Alarm tepat (USE_EXACT_ALARM)</td><td>Menjamin ketepatan waktu pengingat</td></tr>
   <tr><td>Internet (INTERNET, ACCESS_NETWORK_STATE)</td><td>Mengambil jadwal/cuaca, menampilkan iklan</td></tr>
   <tr><td>ID Iklan (AD_ID)</td><td>Iklan yang dipersonalisasi (pengguna dapat menonaktifkan)</td></tr>
+  <tr><td>Pustaka foto (hanya menyimpan)</td><td>Menyimpan gambar pertandingan yang Anda pilih untuk dibagikan</td></tr>
 </table>
 
 <h2>6. Privasi Anak-anak</h2>

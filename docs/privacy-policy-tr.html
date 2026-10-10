@@ -24,8 +24,9 @@
 
 <div class="meta">
   <strong>Yürürlük tarihi:</strong> 1 Haziran 2026<br>
-  <strong>Son değişiklik:</strong> 1 Haziran 2026<br>
-  <strong>Sürüm:</strong> 1.0
+  <strong>Son değişiklik:</strong> 2026-10-10
+  <br>
+  <strong>Sürüm:</strong> 1.1
 </div>
 
 <p>
@@ -38,7 +39,8 @@
   <li>Kayıt olma veya hesap oluşturma özelliği yoktur</li>
   <li>Ad, telefon veya e-posta gibi kimlik bilgileri istenmez</li>
   <li>Cihazınızın konumuna (GPS) erişim talep edilmez</li>
-  <li>Kamera, mikrofon, kişiler veya depolama gibi hassas izinler istenmez</li>
+  <li>Kamera, mikrofon veya kişiler gibi hassas izinler istenmez</li>
+  <li>Fotoğraf kitaplığına erişim yalnızca bir maç görselini kaydetmeyi veya paylaşmayı seçtiğinizde ve yalnızca o görseli kaydetmek için istenir</li>
 </ul>
 
 <h2>2. Cihazınızda Saklanan Bilgiler</h2>
@@ -63,6 +65,7 @@
   <li>IP adresi ve yaklaşık konum (ülke/bölge düzeyinde)</li>
   <li>Reklam gösterim ve etkileşim kayıtları</li>
 </ul>
+<p>iOS'ta uygulama yalnızca kişiselleştirilmemiş reklamlar ister ve Uygulama İzleme Şeffaflığı (ATT) penceresini göstermez; reklam kimliğini (IDFA) izleme amacıyla kullanmaz.</p>
 <p>Cihaz ayarlarınızdan reklam kimliğinizi sıfırlayabilir veya kişiselleştirilmiş reklamlardan çıkabilirsiniz.</p>
 <p>Daha fazla bilgi: <a href="https://policies.google.com/privacy" target="_blank">Google Gizlilik Politikası</a></p>
 
@@ -75,11 +78,19 @@
 </table>
 <p>Bu API'ler çağrıldığında cihazın IP adresi ilgili sunuculara iletilebilir, ancak tanımlanabilir kişisel bilgi gönderilmez.</p>
 
-<h3>3.3 YouTube API Hizmetleri</h3>
+<h3>3.3 Firebase Cloud Messaging (anlık bildirimler)</h3>
+<p>Bu uygulama, anlık bildirimleri iletmek için Google Firebase Cloud Messaging (FCM) kullanır (iOS'ta Apple Anlık Bildirim hizmeti üzerinden). Bildirimleri iletmek için FCM, cihazınıza bir anlık bildirim jetonu ve bir yükleme kimliği atar. Uygulama ayrıca cihazınızı seçtiğiniz takımlara, maçlara, oyunculara ve dile karşılık gelen bildirim konularına abone eder (örneğin favori bir takımın maç sonu bildirimi). Uygulamada hesap bulunmadığından bu konular adınız, e-postanız veya herhangi bir hesapla ilişkilendirilmez. Bildirimleri cihaz ayarlarından kapatabilir veya uygulamada bir favoriyi kaldırarak ilgili konunun aboneliğini sonlandırabilirsiniz. Daha fazla bilgi: <a href="https://firebase.google.com/support/privacy" target="_blank">Firebase Gizlilik ve Güvenlik</a></p>
+
+<h3>3.4 Sentry (çökme ve performans raporları)</h3>
+<p>Bu uygulama, sorunları düzeltebilmek için çökme raporlarını ve temel performans ölçümlerini almak üzere Sentry kullanır. Bir rapor; hata ve yığın izi, cihaz modeli, işletim sistemi sürümü ve uygulama sürümü gibi teknik bilgiler içerir. Uygulama, kişisel bilgi (ad, e-posta, hesap kimlikleri) göndermeyecek şekilde yapılandırılmıştır. Daha fazla bilgi: <a href="https://sentry.io/privacy/" target="_blank">Sentry Gizlilik Politikası</a></p>
+
+<h3>3.5 YouTube API Hizmetleri</h3>
 <p>Bu uygulama, maç özeti ve tezahürat şarkısı videolarını bağlamak için YouTube API Hizmetlerini (YouTube Data API) kullanır. Çağrılar yalnızca sunucularımızdan yapılır; kullanıcıların kişisel bilgileri veya Google hesap bilgileri YouTube'a gönderilmez ve oradan toplanmaz. Yalnızca video kimliklerini ve başlıklarını saklarız. Bir videoyu açtığınızda YouTube'a (uygulama veya tarayıcı) yönlendirilirsiniz; orada <a href="https://www.youtube.com/t/terms" target="_blank">YouTube Hizmet Şartları</a> ve <a href="https://policies.google.com/privacy" target="_blank">Google Gizlilik Politikası</a> geçerlidir. YouTube kullanıcı verilerini saklamıyoruz; dolayısıyla silinecek veri yoktur. Google hesabınıza verilen izinleri <a href="https://security.google.com/settings/security/permissions" target="_blank">Google güvenlik ayarlarından</a> iptal edebilirsiniz.</p>
 
 <h2>4. Bildirimler</h2>
-<p>Bu Uygulama, ayarladığınız maç saatleri için hatırlatmalar gönderir. Tüm bildirimler <strong>cihazınızda yerel olarak işlenir</strong> ve bu Uygulama harici bir sunucudan push bildirimi almaz. Hatırlatma ayarlarınızı istediğiniz zaman değiştirebilir veya kapatabilirsiniz.</p>
+<p>
+  Bu uygulama, seçtiğiniz takımlar, maçlar ve oyuncular için bildirimler gönderir. Bildirimler Firebase Cloud Messaging üzerinden (bkz. Bölüm 3.3) anlık bildirim olarak iletilir; bu nedenle cihazınızın anlık bildirim jetonu bu amaçla Google ve Apple tarafından işlenir. Kişisel bilgi gerekmez. Bildirim ayarlarını istediğiniz zaman değiştirebilir veya kapatabilirsiniz.
+</p>
 
 <h2>5. İzinlerin Kullanımı</h2>
 <table>
@@ -88,6 +99,7 @@
   <tr><td>Kesin alarmlar (USE_EXACT_ALARM)</td><td>Hatırlatma zamanının doğruluğunu garanti etme</td></tr>
   <tr><td>İnternet (INTERNET, ACCESS_NETWORK_STATE)</td><td>Program/hava durumu alma, reklam gösterme</td></tr>
   <tr><td>Reklam kimliği (AD_ID)</td><td>Kişiselleştirilmiş reklamlar (kullanıcı çıkabilir)</td></tr>
+  <tr><td>Fotoğraf kitaplığı (yalnızca kaydetme)</td><td>Paylaşmayı seçtiğiniz bir maç görselini kaydetme</td></tr>
 </table>
 
 <h2>6. Çocukların Gizliliği</h2>

@@ -24,8 +24,9 @@
 
 <div class="meta">
   <strong>Ngày có hiệu lực:</strong> 1 tháng 6 năm 2026<br>
-  <strong>Sửa đổi lần cuối:</strong> 1 tháng 6 năm 2026<br>
-  <strong>Phiên bản:</strong> 1.0
+  <strong>Sửa đổi lần cuối:</strong> 2026-10-10
+  <br>
+  <strong>Phiên bản:</strong> 1.1
 </div>
 
 <p>
@@ -38,7 +39,8 @@
   <li>Không có chức năng đăng ký hoặc tạo tài khoản</li>
   <li>Không yêu cầu thông tin nhận dạng như tên, số điện thoại hoặc email</li>
   <li>Không yêu cầu quyền truy cập vị trí (GPS) của thiết bị</li>
-  <li>Không yêu cầu các quyền nhạy cảm như camera, micro, danh bạ hoặc bộ nhớ</li>
+  <li>Không yêu cầu các quyền nhạy cảm như máy ảnh, micrô hoặc danh bạ</li>
+  <li>Quyền truy cập thư viện ảnh chỉ được yêu cầu khi bạn chọn lưu hoặc chia sẻ hình ảnh trận đấu, và chỉ để lưu hình ảnh đó</li>
 </ul>
 
 <h2>2. Thông tin được lưu trữ trên thiết bị của bạn</h2>
@@ -63,6 +65,7 @@
   <li>Địa chỉ IP và vị trí gần đúng (ở cấp quốc gia/khu vực)</li>
   <li>Bản ghi lượt hiển thị và tương tác quảng cáo</li>
 </ul>
+<p>Trên iOS, ứng dụng chỉ yêu cầu quảng cáo không cá nhân hóa và không hiển thị cửa sổ Minh bạch theo dõi ứng dụng (ATT); ứng dụng cũng không dùng mã định danh quảng cáo (IDFA) để theo dõi.</p>
 <p>Bạn có thể đặt lại mã định danh quảng cáo hoặc từ chối quảng cáo cá nhân hóa trong cài đặt thiết bị của mình.</p>
 <p>Chi tiết thêm: <a href="https://policies.google.com/privacy" target="_blank">Chính sách bảo mật của Google</a></p>
 
@@ -75,11 +78,19 @@
 </table>
 <p>Khi gọi các API này, địa chỉ IP của thiết bị có thể được truyền đến các máy chủ liên quan, nhưng không có thông tin cá nhân có thể nhận dạng nào được gửi đi.</p>
 
-<h3>3.3 Dịch vụ API YouTube</h3>
+<h3>3.3 Firebase Cloud Messaging (thông báo đẩy)</h3>
+<p>Ứng dụng này sử dụng Google Firebase Cloud Messaging (FCM) để gửi thông báo đẩy (qua dịch vụ thông báo đẩy của Apple trên iOS). Để gửi thông báo, FCM cấp cho thiết bị của bạn một mã thông báo đẩy và một mã định danh cài đặt. Ứng dụng cũng đăng ký thiết bị của bạn vào các chủ đề thông báo tương ứng với đội, trận đấu, cầu thủ và ngôn ngữ bạn chọn (ví dụ: thông báo kết thúc trận của đội yêu thích). Các chủ đề này không được liên kết với tên, email hoặc bất kỳ tài khoản nào của bạn vì ứng dụng không có tài khoản. Bạn có thể tắt thông báo trong cài đặt thiết bị hoặc bỏ mục yêu thích trong ứng dụng để hủy đăng ký chủ đề tương ứng. Chi tiết: <a href="https://firebase.google.com/support/privacy" target="_blank">Quyền riêng tư và bảo mật của Firebase</a></p>
+
+<h3>3.4 Sentry (báo cáo sự cố và hiệu suất)</h3>
+<p>Ứng dụng này sử dụng Sentry để nhận báo cáo sự cố và các số đo hiệu suất cơ bản nhằm khắc phục vấn đề. Báo cáo chứa thông tin kỹ thuật như lỗi và dấu vết ngăn xếp, mẫu thiết bị, phiên bản hệ điều hành và phiên bản ứng dụng. Ứng dụng được cấu hình để không gửi thông tin cá nhân (không có tên, email hay mã định danh tài khoản). Chi tiết: <a href="https://sentry.io/privacy/" target="_blank">Chính sách quyền riêng tư của Sentry</a></p>
+
+<h3>3.5 Dịch vụ API YouTube</h3>
 <p>Ứng dụng này sử dụng dịch vụ API YouTube (YouTube Data API) để liên kết video tổng hợp trận đấu và bài cổ vũ. Các lệnh gọi chỉ được thực hiện từ máy chủ của chúng tôi; không có thông tin cá nhân hay thông tin tài khoản Google của người dùng được gửi đến hoặc thu thập từ YouTube. Chúng tôi chỉ lưu ID và tiêu đề video. Khi mở video, bạn được chuyển đến YouTube (ứng dụng hoặc trình duyệt), nơi áp dụng <a href="https://www.youtube.com/t/terms" target="_blank">Điều khoản dịch vụ của YouTube</a> và <a href="https://policies.google.com/privacy" target="_blank">Chính sách quyền riêng tư của Google</a>. Chúng tôi không lưu dữ liệu người dùng YouTube nên không có dữ liệu cần xóa. Bạn có thể thu hồi quyền đã cấp cho tài khoản Google trong <a href="https://security.google.com/settings/security/permissions" target="_blank">cài đặt bảo mật của Google</a>.</p>
 
 <h2>4. Thông báo</h2>
-<p>Ứng dụng này gửi nhắc nhở cho thời gian trận đấu mà bạn thiết lập. Tất cả thông báo đều <strong>được xử lý cục bộ trên thiết bị của bạn</strong>, và Ứng dụng này không nhận thông báo đẩy từ máy chủ bên ngoài. Bạn có thể thay đổi hoặc tắt cài đặt nhắc nhở bất cứ lúc nào.</p>
+<p>
+  Ứng dụng này gửi thông báo về các đội, trận đấu và cầu thủ bạn chọn. Thông báo được gửi dưới dạng thông báo đẩy qua Firebase Cloud Messaging (xem mục 3.3), do đó mã thông báo đẩy của thiết bị bạn được Google và Apple xử lý cho mục đích này. Không cần thông tin cá nhân. Bạn có thể thay đổi hoặc tắt thông báo bất cứ lúc nào.
+</p>
 
 <h2>5. Sử dụng quyền truy cập</h2>
 <table>
@@ -88,6 +99,7 @@
   <tr><td>Báo thức chính xác (USE_EXACT_ALARM)</td><td>Đảm bảo độ chính xác về thời gian nhắc nhở</td></tr>
   <tr><td>Internet (INTERNET, ACCESS_NETWORK_STATE)</td><td>Lấy lịch thi đấu/thời tiết, hiển thị quảng cáo</td></tr>
   <tr><td>ID quảng cáo (AD_ID)</td><td>Quảng cáo cá nhân hóa (người dùng có thể từ chối)</td></tr>
+  <tr><td>Thư viện ảnh (chỉ lưu)</td><td>Lưu hình ảnh trận đấu mà bạn chọn chia sẻ</td></tr>
 </table>
 
 <h2>6. Quyền riêng tư của trẻ em</h2>
