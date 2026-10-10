@@ -662345,7 +662345,7 @@
     "stadium": "Estadio Claudio Chiqui Tapia",
     "timeTbd": false,
     "gameId": "ARGENTINA_ESPN_401841611",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 2,
     "awayScore": 0,
@@ -662477,7 +662477,7 @@
     "stadium": "Elindus Arena",
     "timeTbd": false,
     "gameId": "BELGIUM_ESPN_401878974",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 0,
     "awayScore": 2,
@@ -663217,7 +663217,7 @@
     "timeTbd": false,
     "gameId": "PORTUGAL_ESPN_401885429",
     "status": "live",
-    "matchPeriod": "하프타임",
+    "matchPeriod": "후반",
     "homeScore": 1,
     "awayScore": 0,
     "cards": {
@@ -663267,7 +663267,15 @@
     "homeScore": 0,
     "awayScore": 0,
     "cards": {
-      "home": [],
+      "home": [
+        {
+          "n": "David Sousa",
+          "type": "Y",
+          "m": 49,
+          "pid": "espn:301593",
+          "nat": "Brazil"
+        }
+      ],
       "away": [
         {
           "n": "Djé",
@@ -663291,7 +663299,7 @@
     "gameId": "ARGENTINA_ESPN_401841610",
     "status": "live",
     "matchPeriod": "전반",
-    "homeScore": 1,
+    "homeScore": 2,
     "awayScore": 1,
     "cards": {
       "home": [
@@ -663320,6 +663328,12 @@
           "m": 37,
           "nat": "Argentina",
           "pid": "espn:216663"
+        },
+        {
+          "n": "Michael Santos",
+          "m": 38,
+          "nat": "Uruguay",
+          "pid": "espn:131758"
         }
       ],
       "away": [
