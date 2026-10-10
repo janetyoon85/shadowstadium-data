@@ -656343,7 +656343,10 @@
     "stadium": "YANMAR HANASAKA STADIUM",
     "timeTbd": false,
     "gameId": "cKlMhcJO1UXcmPq",
-    "status": "scheduled"
+    "status": "live",
+    "awayScore": 0,
+    "homeScore": 0,
+    "matchPeriod": "전반 2'"
   },
   {
     "date": "2026-10-10",
@@ -656366,13 +656369,13 @@
     "liveState": {
       "pitcher": "나균안",
       "pitcherPid": "kbo:p:67539",
-      "batter": "박해민",
-      "batterPid": "kbo:b:62415",
+      "batter": "오스틴",
+      "batterPid": "kbo:b:53123",
       "ball": 1,
       "strike": 1,
-      "out": 1,
+      "out": 2,
       "bases": [],
-      "pitchCount": 5
+      "pitchCount": 11
     }
   },
   {
@@ -656388,7 +656391,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 2'"
+    "matchPeriod": "전반 4'"
   },
   {
     "date": "2026-10-10",
@@ -656403,7 +656406,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 3'"
+    "matchPeriod": "전반 5'"
   },
   {
     "date": "2026-10-10",
@@ -656418,7 +656421,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 3'"
+    "matchPeriod": "전반 5'"
   },
   {
     "date": "2026-10-10",
@@ -656439,14 +656442,16 @@
     "inningInfo": "1회초",
     "liveState": {
       "pitcher": "타이라",
-      "batter": "시바타",
+      "batter": "만나미",
       "pitcherPid": "npb:1700124",
-      "batterPid": "npb:2117696",
+      "batterPid": "npb:1800093",
       "ball": 1,
-      "strike": 0,
+      "strike": 1,
       "out": 2,
-      "bases": [],
-      "pitchCount": 3
+      "bases": [
+        1
+      ],
+      "pitchCount": 6
     },
     "round": "ps_plcs_first",
     "rn": 1
@@ -656466,19 +656471,30 @@
     "homePitcher": "이노우에",
     "awayPitcherPid": "npb:1700058",
     "homePitcherPid": "npb:1900045",
-    "awayScore": 0,
+    "awayScore": 1,
     "homeScore": 0,
     "inningInfo": "1회초",
     "liveState": {
       "pitcher": "이노우에",
-      "batter": "와타라이",
+      "batter": "츠츠고",
       "pitcherPid": "npb:1900019",
-      "batterPid": "npb:1850873",
+      "batterPid": "npb:1000002",
       "ball": 1,
       "strike": 3,
-      "out": 1,
+      "out": 2,
       "bases": [],
-      "pitchCount": 4
+      "pitchCount": 9
+    },
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "마키",
+          "player": "마키",
+          "pid": "npb:2000035"
+        }
+      ]
     },
     "round": "ps_clcs_first",
     "rn": 1
