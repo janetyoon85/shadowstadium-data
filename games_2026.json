@@ -661917,9 +661917,9 @@
     "stadium": "Estadio El Cobre",
     "timeTbd": false,
     "gameId": "CHILE_ESPN_401850660",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
-    "homeScore": 0,
+    "homeScore": 1,
     "awayScore": 1,
     "cards": {
       "home": [
@@ -661970,7 +661970,14 @@
       ]
     },
     "scorers": {
-      "home": [],
+      "home": [
+        {
+          "n": "Guillermo Pacheco",
+          "m": 90,
+          "nat": "Chile",
+          "pid": "espn:142335"
+        }
+      ],
       "away": [
         {
           "n": "Luis Rojas",
@@ -662150,9 +662157,9 @@
         {
           "n": "베르흐윈",
           "m": 89,
-          "pk": true,
           "nat": "Netherlands",
-          "pid": "espn:207542"
+          "pid": "espn:207542",
+          "pk": true
         }
       ]
     },
@@ -662277,7 +662284,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 1,
-    "matchPeriod": "후반 16'",
+    "matchPeriod": "후반 19'",
     "scorers": {
       "home": [
         {
@@ -662315,6 +662322,13 @@
           "type": "R",
           "m": 43,
           "pid": "espn:335605"
+        },
+        {
+          "n": "Mbekezeli Mbokazi",
+          "type": "Y",
+          "m": 64,
+          "pid": "espn:400594",
+          "nat": "South Africa"
         }
       ],
       "away": []
@@ -662465,7 +662479,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 5,
-    "matchPeriod": "후반 11'",
+    "matchPeriod": "후반 14'",
     "scorers": {
       "home": [
         {
@@ -662534,7 +662548,22 @@
           "nat": "France"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Jordan Lefort",
+          "type": "Y",
+          "m": 57,
+          "pid": "espn:191712",
+          "nat": "Mauritania"
+        },
+        {
+          "n": "Jordan Lefort",
+          "type": "Y",
+          "m": 58,
+          "pid": "espn:191712",
+          "nat": "Mauritania"
+        }
+      ]
     }
   },
   {
@@ -662550,7 +662579,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 2,
-    "matchPeriod": "후반 10'",
+    "matchPeriod": "후반 13'",
     "scorers": {
       "home": [
         {
@@ -662615,7 +662644,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "후반 15'",
+    "matchPeriod": "후반 18'",
     "cards": {
       "home": [],
       "away": [
@@ -662654,9 +662683,9 @@
     "timeTbd": false,
     "gameId": "AI1iEh5TicYbZa8",
     "status": "live",
-    "awayScore": 0,
+    "awayScore": 1,
     "homeScore": 1,
-    "matchPeriod": "후반 10'",
+    "matchPeriod": "후반 13'",
     "scorers": {
       "home": [
         {
@@ -662664,7 +662693,17 @@
           "m": 19
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "마포우타",
+          "m": 54,
+          "a": "Lucas Calodat",
+          "nat": "Central African Republic",
+          "pid": "espn:268720",
+          "aNat": "France",
+          "apid": "espn:331636"
+        }
+      ]
     },
     "cards": {
       "home": [],
@@ -662692,7 +662731,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 2,
-    "matchPeriod": "후반 12'",
+    "matchPeriod": "후반 16'",
     "scorers": {
       "home": [
         {
@@ -662957,7 +662996,10 @@
     "stadium": "Alfredo Terrera",
     "timeTbd": false,
     "gameId": "ARGENTINA_ESPN_401841610",
-    "status": "scheduled"
+    "status": "live",
+    "matchPeriod": "전반",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-10-11",
