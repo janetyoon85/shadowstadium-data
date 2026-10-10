@@ -663974,13 +663974,16 @@
     "inningInfo": "6회초",
     "liveState": {
       "pitcher": "Antonio Gomez",
-      "batter": "Eric Bitonti",
+      "batter": "Luke Davis",
       "pitcherPid": "mlb:682625",
-      "batterPid": "mlb:800724",
-      "ball": 0,
+      "batterPid": "mlb:701592",
+      "ball": 4,
       "strike": 0,
-      "out": 0,
-      "bases": []
+      "out": 1,
+      "bases": [
+        1,
+        2
+      ]
     }
   },
   {
@@ -664065,6 +664068,13 @@
           "m": 57,
           "pid": "espn:214113",
           "nat": "Ecuador"
+        },
+        {
+          "n": "Jaime Ayoví",
+          "type": "R",
+          "m": 90,
+          "pid": "espn:82650",
+          "nat": "Ecuador"
         }
       ]
     }
@@ -664079,7 +664089,7 @@
     "stadium": "Estadio Campeón del Siglo",
     "timeTbd": false,
     "gameId": "URUGUAY_ESPN_401927437",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 1,
     "awayScore": 1,
@@ -664361,7 +664371,19 @@
     "status": "live",
     "matchPeriod": "전반",
     "homeScore": 0,
-    "awayScore": 0
+    "awayScore": 0,
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Eugenio Pizzuto",
+          "type": "Y",
+          "m": 20,
+          "pid": "espn:297283",
+          "nat": "Mexico"
+        }
+      ]
+    }
   },
   {
     "date": "2026-10-11",
