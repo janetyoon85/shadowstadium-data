@@ -656315,6 +656315,20 @@
           "m": 43,
           "pid": "espn:275897",
           "nat": "Mexico"
+        },
+        {
+          "n": "Franco Romero",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:128422",
+          "nat": "Argentina"
+        },
+        {
+          "n": "Federico Pereira",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:288735",
+          "nat": "Uruguay"
         }
       ]
     }
@@ -656341,11 +656355,25 @@
     "stadium": "사직",
     "timeTbd": false,
     "gameId": "20261010LGLT02026",
-    "status": "scheduled",
+    "status": "live",
     "awayPitcher": "톨허스트",
     "homePitcher": "나균안",
     "awayPitcherPid": "kbo:b:55130",
-    "homePitcherPid": "kbo:b:67539"
+    "homePitcherPid": "kbo:b:67539",
+    "awayScore": 0,
+    "homeScore": 0,
+    "inningInfo": "1회초",
+    "liveState": {
+      "pitcher": "나균안",
+      "pitcherPid": "kbo:p:67539",
+      "batter": "박해민",
+      "batterPid": "kbo:b:62415",
+      "ball": 1,
+      "strike": 1,
+      "out": 1,
+      "bases": [],
+      "pitchCount": 5
+    }
   },
   {
     "date": "2026-10-10",
@@ -656357,7 +656385,10 @@
     "stadium": "서울 월드컵",
     "timeTbd": false,
     "gameId": "202610100904184",
-    "status": "scheduled"
+    "status": "live",
+    "awayScore": 0,
+    "homeScore": 0,
+    "matchPeriod": "전반 2'"
   },
   {
     "date": "2026-10-10",
@@ -656369,7 +656400,10 @@
     "stadium": "광양 전용",
     "timeTbd": false,
     "gameId": "202610100742220",
-    "status": "scheduled"
+    "status": "live",
+    "awayScore": 0,
+    "homeScore": 0,
+    "matchPeriod": "전반 3'"
   },
   {
     "date": "2026-10-10",
@@ -656381,7 +656415,10 @@
     "stadium": "파주 스타디움",
     "timeTbd": false,
     "gameId": "202610104006221",
-    "status": "scheduled"
+    "status": "live",
+    "awayScore": 0,
+    "homeScore": 0,
+    "matchPeriod": "전반 3'"
   },
   {
     "date": "2026-10-10",
@@ -656393,10 +656430,24 @@
     "stadium": "베루나 돔",
     "timeTbd": false,
     "gameId": "20261010NHSE0",
-    "status": "scheduled",
+    "status": "live",
     "awayPitcher": "아리하라",
     "homePitcher": "타이라",
     "awayPitcherPid": "npb:1400117",
+    "awayScore": 0,
+    "homeScore": 0,
+    "inningInfo": "1회초",
+    "liveState": {
+      "pitcher": "타이라",
+      "batter": "시바타",
+      "pitcherPid": "npb:1700124",
+      "batterPid": "npb:2117696",
+      "ball": 1,
+      "strike": 0,
+      "out": 2,
+      "bases": [],
+      "pitchCount": 3
+    },
     "round": "ps_plcs_first",
     "rn": 1
   },
@@ -656410,11 +656461,25 @@
     "stadium": "도쿄 돔",
     "timeTbd": false,
     "gameId": "20261010YKYO0",
-    "status": "scheduled",
+    "status": "live",
     "awayPitcher": "아즈마",
     "homePitcher": "이노우에",
     "awayPitcherPid": "npb:1700058",
     "homePitcherPid": "npb:1900045",
+    "awayScore": 0,
+    "homeScore": 0,
+    "inningInfo": "1회초",
+    "liveState": {
+      "pitcher": "이노우에",
+      "batter": "와타라이",
+      "pitcherPid": "npb:1900019",
+      "batterPid": "npb:1850873",
+      "ball": 1,
+      "strike": 3,
+      "out": 1,
+      "bases": [],
+      "pitchCount": 4
+    },
     "round": "ps_clcs_first",
     "rn": 1
   },
