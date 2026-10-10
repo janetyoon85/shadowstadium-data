@@ -40,10 +40,17 @@
           "player": "김휘집",
           "seqno": 156,
           "inn": "3회초"
+        },
+        {
+          "how": "실책",
+          "text": "신재인 도루실패 기록하며 1루까지 진루 (포수->2루수 송구 실책->1루수)",
+          "player": "신재인",
+          "seqno": 208,
+          "inn": "4회초"
         }
       ]
     },
-    "relayMaxSeqno": 203
+    "relayMaxSeqno": 208
   },
   "20261010SKHT02026": {
     "save": null,
@@ -96,15 +103,19 @@
         }
       ]
     },
-    "relayMaxSeqno": 195
+    "relayMaxSeqno": 200
   },
   "20261010LGLT02026": {
     "save": null,
-    "winPitcherCode": null,
-    "losePitcherCode": null,
+    "winPitcherCode": "61145",
+    "losePitcherCode": "56503",
     "savePitcherCode": null,
     "holdHome": [],
-    "holdAway": [],
+    "holdAway": [
+      "케네디",
+      "고우석",
+      "김진수"
+    ],
     "pitcherCodeByName": {
       "나균안": "67539",
       "이준서": "56554",
@@ -119,108 +130,97 @@
       "이우찬": "61145"
     },
     "highlights": {
-      "home": [],
-      "away": []
-    },
-    "hrPitcherChecked": true,
-    "relayHighlights": {
       "home": [
         {
           "how": "2루타",
-          "text": "한동희 좌익수 뒤 2루타",
+          "text": "한동희3(2 6 8회)",
           "player": "한동희",
-          "seqno": 76,
-          "inn": "2회말"
+          "pid": "kbo:b:68525"
         },
         {
           "how": "2루타",
-          "text": "고승민 우익수 오른쪽 2루타",
+          "text": "고승민(2회)",
           "player": "고승민",
-          "seqno": 81,
-          "inn": "2회말"
+          "pid": "kbo:b:69517"
         },
         {
-          "how": "실책",
-          "text": "레이예스 유격수 땅볼 실책으로 출루 (유격수 포구 실책)",
-          "player": "레이예스",
-          "seqno": 155,
-          "inn": "3회말"
+          "how": "2루타",
+          "text": "장두성(9회)",
+          "player": "장두성",
+          "pid": "kbo:b:68507"
         },
         {
           "how": "도루",
-          "text": "장두성 도루로 2루까지 진루",
+          "text": "장두성(5회)",
           "player": "장두성",
-          "seqno": 268,
-          "inn": "5회말"
+          "pid": "kbo:b:68507"
         },
         {
-          "how": "2루타",
-          "text": "한동희 좌익수 왼쪽 2루타",
-          "player": "한동희",
-          "seqno": 312,
-          "inn": "6회말"
+          "how": "주루사",
+          "text": "고승민(2회)",
+          "player": "고승민",
+          "pid": "kbo:b:69517"
         },
         {
-          "how": "2루타",
-          "text": "한동희 우중간 2루타",
-          "player": "한동희",
-          "seqno": 441,
-          "inn": "8회말"
-        },
-        {
-          "how": "2루타",
-          "text": "장두성 좌익수 왼쪽 2루타",
-          "player": "장두성",
-          "seqno": 501,
-          "inn": "9회말"
+          "how": "병살타",
+          "text": "손성빈(8회)",
+          "player": "손성빈",
+          "pid": "kbo:b:51528"
         }
       ],
       "away": [
         {
-          "how": "2루타",
-          "text": "문정빈 좌중간 2루타",
-          "player": "문정빈",
-          "seqno": 49,
-          "inn": "2회초"
-        },
-        {
-          "how": "2루타",
-          "text": "송찬의 좌익수 왼쪽 2루타",
+          "how": "결승타",
+          "text": "송찬의(10회 1사 1,3루서 3루수 안타)",
           "player": "송찬의",
-          "seqno": 60,
-          "inn": "2회초"
+          "pid": "kbo:b:68110"
         },
         {
           "how": "2루타",
-          "text": "구본혁 우중간 2루타",
-          "player": "구본혁",
-          "seqno": 174,
-          "inn": "4회초"
-        },
-        {
-          "how": "2루타",
-          "text": "문정빈 우익수 뒤 2루타",
+          "text": "문정빈2(2 5회)",
           "player": "문정빈",
-          "seqno": 239,
-          "inn": "5회초"
+          "pid": "kbo:b:52121"
+        },
+        {
+          "how": "2루타",
+          "text": "송찬의(2회)",
+          "player": "송찬의",
+          "pid": "kbo:b:68110"
+        },
+        {
+          "how": "2루타",
+          "text": "구본혁(4회)",
+          "player": "구본혁",
+          "pid": "kbo:b:69100"
+        },
+        {
+          "how": "2루타",
+          "text": "신민재(9회)",
+          "player": "신민재",
+          "pid": "kbo:b:65207"
+        },
+        {
+          "how": "실책",
+          "text": "구본혁(3회)",
+          "player": "구본혁",
+          "pid": "kbo:b:69100"
         },
         {
           "how": "도루",
-          "text": "박해민 도루로 2루까지 진루",
+          "text": "박해민(7회)",
           "player": "박해민",
-          "seqno": 362,
-          "inn": "7회초"
+          "pid": "kbo:b:62415"
         },
         {
-          "how": "2루타",
-          "text": "신민재 좌익수 왼쪽 2루타",
+          "how": "주루사",
+          "text": "신민재(7회)",
           "player": "신민재",
-          "seqno": 470,
-          "inn": "9회초"
+          "pid": "kbo:b:65207"
         }
       ]
     },
-    "relayMaxSeqno": 635
+    "hrPitcherChecked": true,
+    "hlRetries": 1
   },
   "20261010NHSE0": {
     "save": null,
@@ -2315,7 +2315,7 @@
       "home": [],
       "away": []
     },
-    "hlRetries": 490,
+    "hlRetries": 491,
     "relayHighlights": {
       "home": [
         {
