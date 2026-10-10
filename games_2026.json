@@ -656419,11 +656419,11 @@
       "pitcherPid": "kbo:p:67143",
       "batter": "장두성",
       "batterPid": "kbo:b:68507",
-      "ball": 0,
-      "strike": 0,
+      "ball": 2,
+      "strike": 2,
       "out": 1,
       "bases": [],
-      "pitchCount": 8
+      "pitchCount": 14
     },
     "highlights": {
       "home": [
@@ -656738,24 +656738,12 @@
     "stadium": "베루나 돔",
     "timeTbd": false,
     "gameId": "20261010NHSE0",
-    "status": "live",
+    "status": "completed",
     "awayPitcher": "아리하라",
     "homePitcher": "타이라",
     "awayPitcherPid": "npb:1400117",
     "awayScore": 2,
-    "homeScore": 2,
-    "inningInfo": "10회말",
-    "liveState": {
-      "pitcher": "호소노",
-      "batter": "카나리오",
-      "pitcherPid": "npb:2111822",
-      "batterPid": "npb:2117028",
-      "ball": 0,
-      "strike": 0,
-      "out": 1,
-      "bases": [],
-      "pitchCount": 2
-    },
+    "homeScore": 3,
     "highlights": {
       "home": [
         {
@@ -656990,7 +656978,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 37'",
+    "matchPeriod": "전반 39'",
     "cards": {
       "home": [],
       "away": [
@@ -657016,7 +657004,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 37'",
+    "matchPeriod": "전반 39'",
     "cards": {
       "home": [],
       "away": [
@@ -657042,7 +657030,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 1,
-    "matchPeriod": "전반 37'",
+    "matchPeriod": "전반 39'",
     "scorers": {
       "home": [
         {
@@ -657096,17 +657084,30 @@
     "awayPitcherPid": "kbo:b:56939",
     "homePitcherPid": "kbo:b:54729",
     "awayScore": 0,
-    "homeScore": 0,
+    "homeScore": 1,
     "inningInfo": "1회말",
     "liveState": {
       "pitcher": "클레빈저",
       "pitcherPid": "kbo:p:56939",
-      "batter": "최인호",
-      "batterPid": "kbo:b:50707",
-      "ball": 0,
-      "strike": 0,
+      "batter": "이도윤",
+      "batterPid": "kbo:b:65703",
+      "ball": 3,
+      "strike": 1,
       "out": 0,
-      "bases": []
+      "bases": [],
+      "pitchCount": 6
+    },
+    "highlights": {
+      "home": [
+        {
+          "how": "홈런",
+          "text": "최인호 우익수 뒤 홈런 (홈런거리:125M)",
+          "player": "최인호",
+          "inn": "1회말",
+          "pid": "kbo:b:50707"
+        }
+      ],
+      "away": []
     }
   },
   {
@@ -657130,13 +657131,15 @@
     "liveState": {
       "pitcher": "시라카와",
       "pitcherPid": "kbo:p:54843",
-      "batter": "에레디아",
-      "batterPid": "kbo:b:53827",
+      "batter": "전의산",
+      "batterPid": "kbo:b:50820",
       "ball": 0,
-      "strike": 2,
+      "strike": 0,
       "out": 2,
-      "bases": [],
-      "pitchCount": 13
+      "bases": [
+        1
+      ],
+      "pitchCount": 20
     }
   },
   {
@@ -658749,7 +658752,9 @@
     "gameId": "20261011NHSE0",
     "status": "scheduled",
     "round": "ps_plcs_first",
-    "rn": 2
+    "rn": 2,
+    "serH": 1,
+    "serA": 0
   },
   {
     "date": "2026-10-11",
