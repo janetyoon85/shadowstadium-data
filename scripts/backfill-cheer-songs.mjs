@@ -107,8 +107,10 @@ async function discoverWalkupChannels() {
     try { res = await fetch(url, { signal: AbortSignal.timeout(20000) }); } catch { continue; }
     used++;
     if (res.status === 403) { console.log('[discover] quota'); break; }
-    if (!res.ok) continue;
-    for (const it of (await res.json()).items || []) {
+    if (!res.ok) { console.log('[discover] http', res.status, (await res.text()).slice(0, 200)); break; }
+    const body = await res.json();
+    if (used === 1) console.log(`[discover] first query items=${(body.items || []).length} e.g. ${(body.items || []).slice(0, 3).map((x) => x.snippet?.channelTitle + ' | ' + x.snippet?.title).join(' || ')}`);
+    for (const it of body.items || []) {
       const cid = it.snippet?.channelId;
       if (!cid || !/walk.?up/i.test(it.snippet?.title || '')) continue;
       const e = (by[cid] ??= { title: it.snippet.channelTitle, n: 0, teams: new Set(), sample: it.snippet.title });
