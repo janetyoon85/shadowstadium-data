@@ -85,3 +85,16 @@ test('여러 선수를 나열한 모음·재탕 제목은 제외', () => {
   const videos = [vid('m', '한화 이글스 "오재원 • 이도훈 • 장규현 • 유민" 재탕으로 띵곡 응원가 탄생!!')];
   assert.deepEqual(matchChannelVideos(videos, [{ id: 'k1', name: '유민', team: '한화' }]), {});
 });
+
+test('matchChannelVideos - requireTeam:false(농구 채널)는 팀 약칭 없이 이름+응원가로 채택, 모음·나열 제목은 제외', () => {
+  const videos = [
+    { v: 'k1', t: '허일영 응원가 Music Video', p: 2 },
+    { v: 'k2', t: '이정현•허일영 응원가 모음', p: 3 },
+    { v: 'k3', t: '하윤기 하이라이트', p: 4 },
+  ];
+  const out = matchChannelVideos(videos, [{ id: 'nbk:kbl:1', name: '허일영' }, { id: 'nbk:kbl:2', name: '하윤기' }], { requireTeam: false });
+  assert.equal(out['nbk:kbl:1'].v, 'k1');
+  assert.equal(out['nbk:kbl:2'], undefined);
+  // 기본(requireTeam true)은 team 이 없으면 매칭하지 않는다.
+  assert.deepEqual(matchChannelVideos(videos, [{ id: 'x', name: '허일영' }]), {});
+});

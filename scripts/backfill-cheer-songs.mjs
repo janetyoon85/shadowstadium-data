@@ -7,7 +7,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { buildCheerSongQuery, pickCheerSong, KBO_CHEER_CHANNELS, uploadsPlaylistId, matchChannelVideos } from './cheer-song-pick.mjs';
+import { buildCheerSongQuery, pickCheerSong, KBO_CHEER_CHANNELS, EXTRA_CHEER_CHANNELS, uploadsPlaylistId, matchChannelVideos } from './cheer-song-pick.mjs';
 import { allocateBySource } from './search-yield.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -65,6 +65,20 @@ async function scanChannelUploads(channelId) {
   return { videos, units };
 }
 
+// 핸들(@…) → 채널 ID (channels.list?forHandle, 1유닛). 실패하면 null(그 채널만 건너뜀).
+async function resolveHandle(handle) {
+  try {
+    const res = await fetch('https://www.googleapis.com/youtube/v3/channels?' + new URLSearchParams({ part: 'id', forHandle: handle, key: API_KEY }), { signal: AbortSignal.timeout(15000) });
+    if (!res.ok) return null;
+    return (await res.json()).items?.[0]?.id || null;
+  } catch { return null; }
+}
+async function resolveChannels(list) {
+  const out = [];
+  for (const c of list) { const id = await resolveHandle(c.handle); if (id) out.push({ name: c.name, id }); else console.error(`[cheer-songs] handle unresolved ${c.handle}`); }
+  return out;
+}
+
 async function searchYoutube(q) {
   const url = 'https://www.googleapis.com/youtube/v3/search?' + new URLSearchParams({
     part: 'snippet', type: 'video', maxResults: '5', q,
@@ -102,7 +116,8 @@ async function main() {
     if (kbo.length) {
       let allVideos = [];
       let units = 0;
-      for (const ch of KBO_CHEER_CHANNELS) {
+      const kboChannels = [...KBO_CHEER_CHANNELS, ...(await resolveChannels(EXTRA_CHEER_CHANNELS.kbo))];
+      for (const ch of kboChannels) {
         const r = await scanChannelUploads(ch.id);
         units += r.units;
         allVideos = allVideos.concat(r.videos);
@@ -112,6 +127,26 @@ async function main() {
       const hits = matchChannelVideos(allVideos, kbo);
       for (const [id, hit] of Object.entries(hits)) cache[id] = hit;
       console.log(`[cheer-songs] scan videos=${allVideos.length} units=${units} kboTargets=${kbo.length} matched=${Object.keys(hits).length}`);
+    }
+  }
+  // 0-b) KBL 농구 응원가 채널 스캔(검색 0회) — 채널이 농구 전용이라 팀 약칭 없이 이름+'응원가'로 매칭.
+  {
+    const kbl = players
+      .filter((p) => p.id?.startsWith('nbk:kbl:') && p.name && !cache[p.id])
+      .map((p) => ({ id: p.id, name: p.name }));
+    if (kbl.length) {
+      let allVideos = [];
+      let units = 0;
+      for (const ch of await resolveChannels(EXTRA_CHEER_CHANNELS.kbl)) {
+        const r = await scanChannelUploads(ch.id);
+        units += r.units;
+        allVideos = allVideos.concat(r.videos);
+        if (r.quota) { console.error(`[cheer-songs] scan ${ch.name} quota`); break; }
+        if (r.error) console.error(`[cheer-songs] scan ${ch.name} error ${r.error}`);
+      }
+      const hits = matchChannelVideos(allVideos, kbl, { requireTeam: false });
+      for (const [id, hit] of Object.entries(hits)) cache[id] = hit;
+      console.log(`[cheer-songs] scan-kbl videos=${allVideos.length} units=${units} kblTargets=${kbl.length} matched=${Object.keys(hits).length}`);
     }
   }
   // 소스(kbo/naver/nbk:kbl/mlb/espn/espnbk:nba)별 측정 성공률로 검색 예산을 배분한다(2026-10-09, 검색 한도 하루 100회 절약).

@@ -38,6 +38,30 @@ export const KBO_CHEER_CHANNELS = [
 ];
 export const uploadsPlaylistId = (channelId) => 'UU' + String(channelId).slice(2);
 
+// 추가 응원가 채널(2026-10-11, "모든 종목 리그 선수 응원가") — 이미 찾은 응원가의 업로드 채널을 oEmbed 로 역추적해(검색 쿼터 0) 모은 목록.
+// 핸들(@…)은 channels.list?forHandle(1유닛)로 채널 ID 를 풀어 쓴다. kbo=야구 응원가 채널(팀 약칭 필수 규칙 그대로), kbl=농구 채널(채널 자체가
+// 농구 전용이라 팀 약칭 없이 이름+'응원가'만 요구 — KBL 은 선수가 적어 동명이인 위험이 낮다).
+export const EXTRA_CHEER_CHANNELS = {
+  kbo: [
+    { name: '비크티비', handle: '@baseballcheersong' },
+    { name: '양산형 쇠돌이', handle: '@양쇠' },
+    { name: '슬림모토', handle: '@slimmototv' },
+    { name: '야구는 치윗뮤', handle: '@cwm_baseball' },
+  ],
+  kbl: [
+    { name: '응원가 아카이브', handle: '@user-proyoyo' },
+    { name: '만두매니아', handle: '@만두매니아' },
+    { name: '크쏭', handle: '@크쏭5' },
+    { name: '농구와 미첼', handle: '@basketball_and_mitchell' },
+    { name: '카메라든 수달곰팅', handle: '@ottercamkr' },
+    { name: '로윈열차', handle: '@로윈열차' },
+    { name: '펌킨이야', handle: '@펌킨이야' },
+    { name: '직관 중입니다', handle: '@직관중입니다' },
+    { name: '좋케니', handle: '@좋케니keni' },
+    { name: 'DB프로미', handle: '@dbpromy' },
+  ],
+};
+
 // 영문 약칭(KT·LG·NC·SSG·KIA)은 다른 단어 안에 우연히 들어갈 수 있어 앞뒤가 영문자가 아닐 때만 인정.
 const isLetter = (ch) => !!ch && ch >= 'a' && ch <= 'z';
 function hasWord(text, w) {
@@ -54,7 +78,8 @@ const AI_RE = /\bai\b|인공지능/i;
  *  - 후보가 여럿이면 AI 생성곡이 아닌 것 → 최신 순.
  * 반환: { [player.id]: { v, t } }
  */
-export function matchChannelVideos(videos, players) {
+export function matchChannelVideos(videos, players, opts = {}) {
+  const needTeam = opts.requireTeam !== false;
   const norms = (videos || [])
     .filter((x) => x?.v && x.t)
     .map((x) => ({ v: x.v, t: x.t, p: x.p || 0, n: norm(x.t.split('#')[0]) })) // 해시태그(#선수이름)로만 이름이 걸린 제목은 제외
@@ -65,7 +90,7 @@ export function matchChannelVideos(videos, players) {
   for (const pl of players || []) {
     const name = norm(pl.name);
     const team = norm(pl.team);
-    if (!name || !team) continue;
+    if (!name || (needTeam && !team)) continue;
     // 영문 약칭(KT·LG·NC·SSG·KIA)은 다른 단어 안에 우연히 들어갈 수 있어 단어 경계로 확인, 한글 약칭은 그대로 포함 검사.
     const ascii = String(pl.team).split('').every((ch) => ch >= ' ' && ch <= '~');
     const w = String(pl.team).toLowerCase();
@@ -73,7 +98,7 @@ export function matchChannelVideos(videos, players) {
     // 이름이 첫 '응원가'보다 앞, 12자 이내여야 그 선수의 곡("[팀] 노경은 응원가 - 기존 박성한 응원가"처럼 다른 선수 곡 제목 오탐 방지).
     const song = norm('응원가');
     const nameOk = (x) => { const i = x.n.indexOf(name); const q = x.n.indexOf(song); return i >= 0 && q >= i + name.length && q - (i + name.length) <= 12; };
-    const cands = norms.filter((x) => nameOk(x) && teamOk(x));
+    const cands = norms.filter((x) => nameOk(x) && (!needTeam || teamOk(x)));
     if (!cands.length) continue;
     cands.sort((a, b) => (AI_RE.test(a.t) - AI_RE.test(b.t)) || b.p - a.p);
     out[pl.id] = { v: cands[0].v, t: cands[0].t };
