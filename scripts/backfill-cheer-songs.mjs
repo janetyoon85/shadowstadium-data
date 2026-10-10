@@ -7,7 +7,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { buildCheerSongQuery, pickCheerSong, KBO_CHEER_CHANNELS, EXTRA_CHEER_CHANNELS, uploadsPlaylistId, matchChannelVideos } from './cheer-song-pick.mjs';
+import { buildCheerSongQuery, pickCheerSong, KBO_CHEER_CHANNELS, EXTRA_CHEER_CHANNELS, uploadsPlaylistId, matchChannelVideos, matchWalkupVideos } from './cheer-song-pick.mjs';
 import { allocateBySource } from './search-yield.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -15,7 +15,7 @@ const REPO_ROOT = path.resolve(__dirname, '..');
 const PLAYERS_PATH = path.join(REPO_ROOT, 'players.json');
 const TEAM_EN_PATH = path.join(REPO_ROOT, 'team-name-en.json');
 const OUT_PATH = path.join(REPO_ROOT, 'cheer-songs.json');
-const BUDGET = Number(process.env.CHEER_BUDGET || 30); // 하이라이트 검색(highlights-search.json, 65건/일)이 우선, 응원가는 남는 몫. 수동 실행 때 CHEER_BUDGET 으로 늘릴 수 있다(쿼터 초과 시 스스로 멈춤).
+const BUDGET = Number(process.env.CHEER_BUDGET || 8); // 하이라이트 검색(highlights-search.json, 65건/일)이 우선, 응원가는 남는 몫. 수동 실행 때 CHEER_BUDGET 으로 늘릴 수 있다(쿼터 초과 시 스스로 멈춤).
 const API_KEY = process.env.YOUTUBE_API_KEY;
 
 // 농구: KBL(nbk:kbl, 한글 응원가)은 KBO급 최우선, NBA/WNBA는 축구 다음. NBL/FIBA/기타 코드는 제외.
@@ -32,11 +32,12 @@ function popularityRank(p) {
 
 async function fetchMlbFullNames(personIds) {
   const out = {};
-  if (personIds.length === 0) return out;
-  try {
-    const res = await fetch('https://statsapi.mlb.com/api/v1/people?personIds=' + personIds.join(','), { signal: AbortSignal.timeout(15000) });
-    if (res.ok) for (const x of (await res.json()).people || []) out['mlb:' + x.id] = x.fullName;
-  } catch {}
+  for (let i = 0; i < personIds.length; i += 100) {
+    try {
+      const res = await fetch('https://statsapi.mlb.com/api/v1/people?personIds=' + personIds.slice(i, i + 100).join(','), { signal: AbortSignal.timeout(15000) });
+      if (res.ok) for (const x of (await res.json()).people || []) out['mlb:' + x.id] = x.fullName;
+    } catch {}
+  }
   return out;
 }
 
@@ -147,6 +148,26 @@ async function main() {
       const hits = matchChannelVideos(allVideos, kbl, { requireTeam: false });
       for (const [id, hit] of Object.entries(hits)) cache[id] = hit;
       console.log(`[cheer-songs] scan-kbl videos=${allVideos.length} units=${units} kblTargets=${kbl.length} matched=${Object.keys(hits).length}`);
+    }
+  }
+  // 0-c) MLB 구단별 워크업 송 채널 스캔(검색 0회) — 영문 풀네임 + 'walk up' 제목 매칭.
+  {
+    const mlbIds = players.filter((p) => p.id?.startsWith('mlb:') && !cache[p.id]).map((p) => p.id);
+    if (mlbIds.length) {
+      const names = await fetchMlbFullNames(mlbIds.map((id) => id.slice(4)));
+      const targets0 = mlbIds.filter((id) => names[id]).map((id) => ({ id, full: names[id] }));
+      let allVideos = [];
+      let units = 0;
+      for (const ch of await resolveChannels(EXTRA_CHEER_CHANNELS.mlb)) {
+        const r = await scanChannelUploads(ch.id);
+        units += r.units;
+        allVideos = allVideos.concat(r.videos);
+        if (r.quota) { console.error(`[cheer-songs] scan ${ch.name} quota`); break; }
+        if (r.error) console.error(`[cheer-songs] scan ${ch.name} error ${r.error}`);
+      }
+      const hits = matchWalkupVideos(allVideos, targets0);
+      for (const [id, hit] of Object.entries(hits)) cache[id] = hit;
+      console.log(`[cheer-songs] scan-mlb videos=${allVideos.length} units=${units} mlbTargets=${targets0.length} matched=${Object.keys(hits).length}`);
     }
   }
   // 소스(kbo/naver/nbk:kbl/mlb/espn/espnbk:nba)별 측정 성공률로 검색 예산을 배분한다(2026-10-09, 검색 한도 하루 100회 절약).

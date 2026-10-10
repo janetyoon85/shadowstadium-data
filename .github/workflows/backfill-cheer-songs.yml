@@ -8,9 +8,9 @@ on:
   workflow_dispatch:
     inputs:
       budget:
-        description: '이번 실행의 검색 예산(기본 30, 쿼터 남을 때만 늘리기)'
+        description: '이번 실행의 검색 예산(기본 8, 쿼터 남을 때만 늘리기)'
         required: false
-        default: '30'
+        default: '8'
 
 permissions:
   contents: write
@@ -36,7 +36,7 @@ jobs:
       - name: Run cheer songs backfill
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
-          CHEER_BUDGET: ${{ inputs.budget || '30' }}
+          CHEER_BUDGET: ${{ inputs.budget || '8' }}
         run: node scripts/backfill-cheer-songs.mjs
 
       - name: Check for changes

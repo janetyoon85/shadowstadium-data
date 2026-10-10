@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { matchChannelVideos, uploadsPlaylistId, KBO_CHEER_CHANNELS } from '../cheer-song-pick.mjs';
+import { matchChannelVideos, matchWalkupVideos, uploadsPlaylistId, KBO_CHEER_CHANNELS } from '../cheer-song-pick.mjs';
 
 const vid = (v, t, p = 1) => ({ v, t, p });
 
@@ -97,4 +97,21 @@ test('matchChannelVideos - requireTeam:false(농구 채널)는 팀 약칭 없이
   assert.equal(out['nbk:kbl:2'], undefined);
   // 기본(requireTeam true)은 team 이 없으면 매칭하지 않는다.
   assert.deepEqual(matchChannelVideos(videos, [{ id: 'x', name: '허일영' }]), {});
+});
+
+test('matchWalkupVideos - 영문 풀네임 + walk up 제목만 채택, 모음·여러 선수 나열 제외, 최신 우선', () => {
+  const videos = [
+    { v: 'w1', t: 'Mookie Betts Walk Up Song 2023', p: 1 },
+    { v: 'w2', t: 'Mookie Betts Walk-Up Song 2025', p: 5 },
+    { v: 'w3', t: 'Freddie Freeman & Will Smith Walk Up Songs', p: 3 },
+    { v: 'w4', t: 'Shohei Ohtani highlights', p: 4 },
+    { v: 'w5', t: 'Dodgers Walk Up Songs Compilation - Max Muncy', p: 6 },
+  ];
+  const out = matchWalkupVideos(videos, [
+    { id: 'mlb:1', full: 'Mookie Betts' }, { id: 'mlb:2', full: 'Freddie Freeman' }, { id: 'mlb:3', full: 'Shohei Ohtani' }, { id: 'mlb:4', full: 'Max Muncy' },
+  ]);
+  assert.equal(out['mlb:1'].v, 'w2');
+  assert.equal(out['mlb:2'], undefined);
+  assert.equal(out['mlb:3'], undefined);
+  assert.equal(out['mlb:4'], undefined);
 });

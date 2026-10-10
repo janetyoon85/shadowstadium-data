@@ -60,6 +60,15 @@ export const EXTRA_CHEER_CHANNELS = {
     { name: '좋케니', handle: '@좋케니keni' },
     { name: 'DB프로미', handle: '@dbpromy' },
   ],
+  // MLB 구단별 워크업 송 채널(제목에 영문 풀네임 + 'walk up') — 이미 찾은 MLB 영상의 업로드 채널을 역추적해 선정.
+  mlb: [
+    { name: 'Dodgers Walk Up Songs', handle: '@DodgersWalkUpSongs17' },
+    { name: 'Braves Walk Up and Highlights', handle: '@Bravesbaseball503' },
+    { name: 'Braves Walk Up: All Time', handle: '@Braveswalkup2' },
+    { name: 'Brewers Walk-Ups', handle: '@brewers_walkups' },
+    { name: 'MLBVids22', handle: '@MLBVids2024' },
+    { name: 'Trent Rabuck', handle: '@Trent.Rabuck' },
+  ],
 };
 
 // 영문 약칭(KT·LG·NC·SSG·KIA)은 다른 단어 안에 우연히 들어갈 수 있어 앞뒤가 영문자가 아닐 때만 인정.
@@ -101,6 +110,29 @@ export function matchChannelVideos(videos, players, opts = {}) {
     const cands = norms.filter((x) => nameOk(x) && (!needTeam || teamOk(x)));
     if (!cands.length) continue;
     cands.sort((a, b) => (AI_RE.test(a.t) - AI_RE.test(b.t)) || b.p - a.p);
+    out[pl.id] = { v: cands[0].v, t: cands[0].t };
+  }
+  return out;
+}
+
+/**
+ * MLB 워크업 송 채널 업로드 매칭(검색 0회). videos: [{ v, t, p }], players: [{ id, full }] (영문 풀네임).
+ * 제목에 영문 풀네임 + 'walk up' 류가 있어야 채택, 모음·리믹스·여러 선수 나열 제목은 제외(틀린 영상보다 없는 게 낫다). 후보가 여럿이면 최신 순.
+ */
+export function matchWalkupVideos(videos, players) {
+  const words = ['walkup', 'walkupsong', 'walkups'];
+  const norms = (videos || [])
+    .filter((x) => x?.v && x.t)
+    .map((x) => ({ v: x.v, t: x.t, p: x.p || 0, n: norm(x.t.split('#')[0]) }))
+    .filter((x) => words.some((w) => x.n.includes(w)) && !CHEER_REJECT.some((w) => x.n.includes(w)) && !/\b(compilation|every|best of|top \d+)\b/i.test(x.t))
+    .filter((x) => !/[•‧·,&]|\band\b/i.test(x.t.split('#')[0]));
+  const out = {};
+  for (const pl of players || []) {
+    const full = norm(pl.full);
+    if (full.length < 6) continue;
+    const cands = norms.filter((x) => x.n.includes(full));
+    if (!cands.length) continue;
+    cands.sort((a, b) => b.p - a.p);
     out[pl.id] = { v: cands[0].v, t: cands[0].t };
   }
   return out;
