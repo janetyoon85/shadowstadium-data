@@ -1,6 +1,6 @@
 {
   "KBO": {
-    "updatedAt": "2026-10-10T09:00:50.303Z",
+    "updatedAt": "2026-10-10T09:55:21.230Z",
     "seasonCode": "2026",
     "rows": [
       {
@@ -36,12 +36,12 @@
       {
         "team": "LG",
         "rank": 4,
-        "played": 142,
-        "win": 77,
+        "played": 143,
+        "win": 78,
         "loss": 64,
         "draw": 1,
-        "winPct": 0.546,
-        "gb": 13
+        "winPct": 0.549,
+        "gb": 12.5
       },
       {
         "team": "두산",
@@ -64,23 +64,23 @@
         "gb": 23.5
       },
       {
-        "team": "롯데",
-        "rank": 7,
-        "played": 141,
-        "win": 62,
-        "loss": 76,
-        "draw": 3,
-        "winPct": 0.449,
-        "gb": 26.5
-      },
-      {
         "team": "NC",
-        "rank": 8,
+        "rank": 7,
         "played": 143,
         "win": 63,
         "loss": 78,
         "draw": 2,
         "winPct": 0.447,
+        "gb": 27
+      },
+      {
+        "team": "롯데",
+        "rank": 8,
+        "played": 142,
+        "win": 62,
+        "loss": 77,
+        "draw": 3,
+        "winPct": 0.446,
         "gb": 27
       },
       {
@@ -140,14 +140,14 @@
       },
       {
         "team": "LG",
-        "avg": 0.26459,
+        "avg": 0.26489,
         "hr": 134,
-        "rbi": 689,
-        "sb": 90,
-        "era": 4.82425,
-        "whip": 1.46371,
+        "rbi": 693,
+        "sb": 91,
+        "era": 4.80744,
+        "whip": 1.4632,
         "save": 50,
-        "hold": 101
+        "hold": 104
       },
       {
         "team": "두산",
@@ -172,17 +172,6 @@
         "hold": 65
       },
       {
-        "team": "롯데",
-        "avg": 0.27168,
-        "hr": 109,
-        "rbi": 631,
-        "sb": 103,
-        "era": 4.77531,
-        "whip": 1.48197,
-        "save": 26,
-        "hold": 68
-      },
-      {
         "team": "NC",
         "avg": 0.26963,
         "hr": 132,
@@ -192,6 +181,17 @@
         "whip": 1.49168,
         "save": 27,
         "hold": 78
+      },
+      {
+        "team": "롯데",
+        "avg": 0.27156,
+        "hr": 109,
+        "rbi": 634,
+        "sb": 104,
+        "era": 4.76597,
+        "whip": 1.48052,
+        "save": 26,
+        "hold": 68
       },
       {
         "team": "한화",
@@ -230,12 +230,12 @@
       {
         "name": "레이예스",
         "team": "롯데",
-        "avg": 0.35915492957746475,
+        "avg": 0.35776614310645727,
         "hr": 17,
         "rbi": 107,
         "sb": 1,
-        "ops": 0.929,
-        "played": 141
+        "ops": 0.925,
+        "played": 142
       },
       {
         "name": "최원준",
@@ -250,12 +250,12 @@
       {
         "name": "오스틴",
         "team": "LG",
-        "avg": 0.33707865168539325,
+        "avg": 0.3339517625231911,
         "hr": 41,
         "rbi": 127,
         "sb": 5,
-        "ops": 1.079,
-        "played": 142
+        "ops": 1.069,
+        "played": 143
       },
       {
         "name": "박성한",
@@ -358,6 +358,16 @@
         "played": 142
       },
       {
+        "name": "한동희",
+        "team": "롯데",
+        "avg": 0.3037037037037037,
+        "hr": 23,
+        "rbi": 75,
+        "sb": 1,
+        "ops": 0.898,
+        "played": 107
+      },
+      {
         "name": "박건우",
         "team": "NC",
         "avg": 0.30162412993039445,
@@ -376,16 +386,6 @@
         "sb": 19,
         "ops": 0.78,
         "played": 123
-      },
-      {
-        "name": "한동희",
-        "team": "롯데",
-        "avg": 0.29925187032418954,
-        "hr": 23,
-        "rbi": 75,
-        "sb": 1,
-        "ops": 0.883,
-        "played": 106
       },
       {
         "name": "문현빈",
@@ -418,16 +418,6 @@
         "played": 129
       },
       {
-        "name": "박해민",
-        "team": "LG",
-        "avg": 0.29098360655737704,
-        "hr": 5,
-        "rbi": 57,
-        "sb": 41,
-        "ops": 0.742,
-        "played": 142
-      },
-      {
         "name": "페라자",
         "team": "한화",
         "avg": 0.2901098901098901,
@@ -436,6 +426,16 @@
         "sb": 10,
         "ops": 0.902,
         "played": 131
+      },
+      {
+        "name": "박해민",
+        "team": "LG",
+        "avg": 0.28861788617886175,
+        "hr": 5,
+        "rbi": 57,
+        "sb": 42,
+        "ops": 0.737,
+        "played": 143
       },
       {
         "name": "강백호",
@@ -448,24 +448,14 @@
         "played": 130
       },
       {
-        "name": "황성빈",
-        "team": "롯데",
-        "avg": 0.2869757174392936,
-        "hr": 0,
-        "rbi": 37,
-        "sb": 55,
-        "ops": 0.701,
-        "played": 119
-      },
-      {
         "name": "고승민",
         "team": "롯데",
-        "avg": 0.286697247706422,
+        "avg": 0.2870159453302961,
         "hr": 16,
-        "rbi": 74,
+        "rbi": 75,
         "sb": 0,
-        "ops": 0.809,
-        "played": 109
+        "ops": 0.814,
+        "played": 110
       },
       {
         "name": "김선빈",
@@ -476,6 +466,16 @@
         "sb": 3,
         "ops": 0.734,
         "played": 134
+      },
+      {
+        "name": "황성빈",
+        "team": "롯데",
+        "avg": 0.2844638949671773,
+        "hr": 0,
+        "rbi": 37,
+        "sb": 55,
+        "ops": 0.696,
+        "played": 120
       },
       {
         "name": "노시환",
@@ -608,6 +608,28 @@
         "kk": 133
       },
       {
+        "name": "톨허스트",
+        "team": "LG",
+        "era": 4.242857142857143,
+        "win": 12,
+        "loss": 11,
+        "save": 0,
+        "hold": 0,
+        "whip": 1.26,
+        "kk": 126
+      },
+      {
+        "name": "나균안",
+        "team": "롯데",
+        "era": 4.269487750556793,
+        "win": 6,
+        "loss": 11,
+        "save": 0,
+        "hold": 0,
+        "whip": 1.44,
+        "kk": 128
+      },
+      {
         "name": "잭로그",
         "team": "두산",
         "era": 4.271805273833671,
@@ -628,28 +650,6 @@
         "hold": 0,
         "whip": 1.33,
         "kk": 186
-      },
-      {
-        "name": "나균안",
-        "team": "롯데",
-        "era": 4.289719626168224,
-        "win": 6,
-        "loss": 11,
-        "save": 0,
-        "hold": 0,
-        "whip": 1.45,
-        "kk": 123
-      },
-      {
-        "name": "톨허스트",
-        "team": "LG",
-        "era": 4.32,
-        "win": 12,
-        "loss": 11,
-        "save": 0,
-        "hold": 0,
-        "whip": 1.27,
-        "kk": 126
       },
       {
         "name": "임찬규",
@@ -709,7 +709,7 @@
     ]
   },
   "K리그1": {
-    "updatedAt": "2026-10-10T09:00:52.250Z",
+    "updatedAt": "2026-10-10T09:55:23.090Z",
     "seasonCode": "2026",
     "rows": [
       {
@@ -922,12 +922,12 @@
         "team": "안양",
         "goals": 39,
         "goalsConceded": 47,
-        "shots": 283,
-        "shotsOnTarget": 158,
-        "possession": 42.635162,
+        "shots": 286,
+        "shotsOnTarget": 160,
+        "possession": 43.94613,
         "passesAccuracy": null,
-        "fouls": 388,
-        "yellowCards": 59,
+        "fouls": 391,
+        "yellowCards": 60,
         "redCards": 4
       },
       {
@@ -946,11 +946,11 @@
         "team": "김천",
         "goals": 30,
         "goalsConceded": 37,
-        "shots": 319,
-        "shotsOnTarget": 143,
-        "possession": 51.851612,
+        "shots": 321,
+        "shotsOnTarget": 144,
+        "possession": 53.766453,
         "passesAccuracy": null,
-        "fouls": 366,
+        "fouls": 368,
         "yellowCards": 63,
         "redCards": 2
       },
@@ -1313,7 +1313,7 @@
     ]
   },
   "K리그2": {
-    "updatedAt": "2026-10-10T09:00:53.555Z",
+    "updatedAt": "2026-10-10T09:55:24.370Z",
     "seasonCode": "2026",
     "rows": [
       {
@@ -1564,11 +1564,11 @@
         "team": "충남아산",
         "goals": 35,
         "goalsConceded": 32,
-        "shots": 262,
-        "shotsOnTarget": 132,
-        "possession": 43.91346,
+        "shots": 268,
+        "shotsOnTarget": 134,
+        "possession": 45.87808,
         "passesAccuracy": null,
-        "fouls": 308,
+        "fouls": 311,
         "yellowCards": 46,
         "redCards": 0
       },
@@ -1588,11 +1588,11 @@
         "team": "경남",
         "goals": 31,
         "goalsConceded": 31,
-        "shots": 265,
+        "shots": 268,
         "shotsOnTarget": 113,
-        "possession": 43.25346,
+        "possession": 45.40346,
         "passesAccuracy": null,
-        "fouls": 357,
+        "fouls": 361,
         "yellowCards": 63,
         "redCards": 3
       },
@@ -1648,12 +1648,12 @@
         "team": "천안",
         "goals": 31,
         "goalsConceded": 37,
-        "shots": 314,
-        "shotsOnTarget": 148,
-        "possession": 40.977406,
+        "shots": 318,
+        "shotsOnTarget": 149,
+        "possession": 42.61074,
         "passesAccuracy": null,
-        "fouls": 324,
-        "yellowCards": 52,
+        "fouls": 326,
+        "yellowCards": 54,
         "redCards": 2
       },
       {
@@ -1684,11 +1684,11 @@
         "team": "김해",
         "goals": 20,
         "goalsConceded": 50,
-        "shots": 221,
+        "shots": 223,
         "shotsOnTarget": 103,
-        "possession": 44.083847,
+        "possession": 45.965385,
         "passesAccuracy": null,
-        "fouls": 325,
+        "fouls": 328,
         "yellowCards": 55,
         "redCards": 0
       }
@@ -2027,7 +2027,7 @@
     ]
   },
   "MLB": {
-    "updatedAt": "2026-10-10T09:00:54.847Z",
+    "updatedAt": "2026-10-10T09:55:25.678Z",
     "seasonCode": "2026",
     "rows": [
       {
@@ -3329,7 +3329,7 @@
     ]
   },
   "NPB": {
-    "updatedAt": "2026-10-10T09:00:57.221Z",
+    "updatedAt": "2026-10-10T09:55:27.955Z",
     "seasonCode": "2026",
     "rows": [
       {
@@ -3916,7 +3916,7 @@
     ]
   },
   "EPL": {
-    "updatedAt": "2026-10-10T09:00:58.936Z",
+    "updatedAt": "2026-10-10T09:55:29.607Z",
     "seasonCode": "gMoc",
     "rows": [
       {
@@ -4696,7 +4696,7 @@
     ]
   },
   "EFL": {
-    "updatedAt": "2026-10-10T09:01:00.317Z",
+    "updatedAt": "2026-10-10T09:55:30.911Z",
     "seasonCode": "Gpa6",
     "rows": [
       {
@@ -5564,7 +5564,7 @@
     ]
   },
   "LALIGA": {
-    "updatedAt": "2026-10-10T09:01:01.624Z",
+    "updatedAt": "2026-10-10T09:55:32.190Z",
     "seasonCode": "AKz3",
     "rows": [
       {
@@ -6344,7 +6344,7 @@
     ]
   },
   "BUNDESLIGA": {
-    "updatedAt": "2026-10-10T09:01:02.989Z",
+    "updatedAt": "2026-10-10T09:55:33.576Z",
     "seasonCode": "QAF5",
     "rows": [
       {
@@ -6534,7 +6534,7 @@
         "goals": 11,
         "goalsConceded": 4,
         "shots": 59,
-        "shotsOnTarget": 30,
+        "shotsOnTarget": 31,
         "possession": 53.7,
         "passesAccuracy": 84.2,
         "fouls": 55,
@@ -7080,7 +7080,7 @@
     ]
   },
   "SERIEA": {
-    "updatedAt": "2026-10-10T09:01:04.349Z",
+    "updatedAt": "2026-10-10T09:55:34.879Z",
     "seasonCode": "YUEy",
     "rows": [
       {
@@ -7860,7 +7860,7 @@
     ]
   },
   "LIGUE1": {
-    "updatedAt": "2026-10-10T09:01:05.711Z",
+    "updatedAt": "2026-10-10T09:55:36.151Z",
     "seasonCode": "yEGP",
     "rows": [
       {
@@ -8596,7 +8596,7 @@
     ]
   },
   "EREDIVISIE": {
-    "updatedAt": "2026-10-10T09:01:07.145Z",
+    "updatedAt": "2026-10-10T09:55:37.441Z",
     "seasonCode": "rY5l",
     "rows": [
       {
@@ -9332,7 +9332,7 @@
     ]
   },
   "MLS": {
-    "updatedAt": "2026-10-10T09:01:08.417Z",
+    "updatedAt": "2026-10-10T09:55:38.821Z",
     "seasonCode": "kFAV",
     "rows": [
       {
@@ -10362,7 +10362,7 @@
     ]
   },
   "SCOTLAND": {
-    "updatedAt": "2026-10-10T09:01:09.841Z",
+    "updatedAt": "2026-10-10T09:55:40.197Z",
     "seasonCode": "tcRg",
     "rows": [
       {
@@ -10966,7 +10966,7 @@
     ]
   },
   "DENMARK": {
-    "updatedAt": "2026-10-10T09:01:11.174Z",
+    "updatedAt": "2026-10-10T09:55:41.531Z",
     "seasonCode": "ut8A",
     "rows": [
       {
@@ -11122,7 +11122,7 @@
         "shots": 118,
         "shotsOnTarget": 51,
         "possession": 56.2,
-        "passesAccuracy": 86.64,
+        "passesAccuracy": 86.65,
         "fouls": 107,
         "yellowCards": 19,
         "redCards": 0
@@ -11194,7 +11194,7 @@
         "shots": 106,
         "shotsOnTarget": 40,
         "possession": 52.4,
-        "passesAccuracy": 85.24,
+        "passesAccuracy": 85.26,
         "fouls": 135,
         "yellowCards": 22,
         "redCards": 0
@@ -11570,7 +11570,7 @@
     ]
   },
   "SAUDI": {
-    "updatedAt": "2026-10-10T09:01:12.524Z",
+    "updatedAt": "2026-10-10T09:55:42.847Z",
     "seasonCode": "mNWf",
     "rows": [
       {
@@ -12306,7 +12306,7 @@
     ]
   },
   "J1": {
-    "updatedAt": "2026-10-10T09:01:13.809Z",
+    "updatedAt": "2026-10-10T09:55:44.210Z",
     "seasonCode": "sxaF",
     "rows": [
       {
@@ -13086,7 +13086,7 @@
     ]
   },
   "UCL": {
-    "updatedAt": "2026-10-10T09:01:15.098Z",
+    "updatedAt": "2026-10-10T09:55:45.496Z",
     "seasonCode": "SwZB",
     "rows": [
       {
@@ -14218,7 +14218,7 @@
     ]
   },
   "UEL": {
-    "updatedAt": "2026-10-10T09:01:16.422Z",
+    "updatedAt": "2026-10-10T09:55:46.852Z",
     "seasonCode": "zKAT",
     "rows": [
       {
@@ -15350,7 +15350,7 @@
     ]
   },
   "UECL": {
-    "updatedAt": "2026-10-10T09:01:17.857Z",
+    "updatedAt": "2026-10-10T09:55:48.169Z",
     "seasonCode": "cKUe",
     "rows": [
       {
@@ -16458,7 +16458,7 @@
     ]
   },
   "ACL": {
-    "updatedAt": "2026-10-10T09:01:19.215Z",
+    "updatedAt": "2026-10-10T09:55:49.441Z",
     "seasonCode": "oNJx",
     "rows": [
       {
@@ -17534,7 +17534,7 @@
     ]
   },
   "ACL2": {
-    "updatedAt": "2026-10-10T09:01:20.602Z",
+    "updatedAt": "2026-10-10T09:55:50.756Z",
     "seasonCode": "PtcK",
     "rows": [
       {
@@ -18610,7 +18610,7 @@
     ]
   },
   "WORLDCUP": {
-    "updatedAt": "2026-10-10T09:01:21.929Z",
+    "updatedAt": "2026-10-10T09:55:52.070Z",
     "seasonCode": "3F9X",
     "rows": [
       {
@@ -20054,7 +20054,7 @@
     ]
   },
   "AFRICACUP": {
-    "updatedAt": "2026-10-10T09:01:23.416Z",
+    "updatedAt": "2026-10-10T09:55:53.511Z",
     "seasonCode": "GZMA",
     "rows": [
       {
@@ -20946,7 +20946,7 @@
     ]
   },
   "U17WORLDCUP": {
-    "updatedAt": "2026-10-10T09:01:24.731Z",
+    "updatedAt": "2026-10-10T09:55:54.892Z",
     "seasonCode": "LjKn",
     "rows": [
       {
@@ -21963,7 +21963,7 @@
     "players": []
   },
   "CONCACAFCUP": {
-    "updatedAt": "2026-10-10T09:01:26.021Z",
+    "updatedAt": "2026-10-10T09:55:56.119Z",
     "seasonCode": "G9oo",
     "rows": [
       {
@@ -22897,7 +22897,7 @@
     ]
   },
   "UNL": {
-    "updatedAt": "2026-10-10T09:01:27.406Z",
+    "updatedAt": "2026-10-10T09:55:57.498Z",
     "seasonCode": "0Eel",
     "rows": [
       {
@@ -24479,7 +24479,7 @@
     ]
   },
   "WCQUEFA": {
-    "updatedAt": "2026-10-10T09:01:28.929Z",
+    "updatedAt": "2026-10-10T09:55:58.915Z",
     "seasonCode": "lbrT",
     "rows": [
       {
@@ -26061,7 +26061,7 @@
     ]
   },
   "WCQAFC": {
-    "updatedAt": "2026-10-10T09:01:30.460Z",
+    "updatedAt": "2026-10-10T09:56:00.472Z",
     "seasonCode": "ECsm",
     "rows": [
       {
@@ -27229,7 +27229,7 @@
     ]
   },
   "ASIANCUP": {
-    "updatedAt": "2026-10-10T09:01:31.903Z",
+    "updatedAt": "2026-10-10T09:56:01.850Z",
     "seasonCode": "h5za",
     "rows": [
       {
@@ -27742,7 +27742,7 @@
     "players": []
   },
   "U17ASIANCUP": {
-    "updatedAt": "2026-10-10T09:01:33.166Z",
+    "updatedAt": "2026-10-10T09:56:03.140Z",
     "seasonCode": "W0Pm",
     "rows": [
       {
@@ -28427,7 +28427,7 @@
     ]
   },
   "U20ASIANCUP": {
-    "updatedAt": "2026-10-10T09:01:34.483Z",
+    "updatedAt": "2026-10-10T09:56:04.558Z",
     "seasonCode": "KL2i",
     "rows": [
       {
@@ -29135,7 +29135,7 @@
     ]
   },
   "U23ASIANCUP": {
-    "updatedAt": "2026-10-10T09:01:35.796Z",
+    "updatedAt": "2026-10-10T09:56:05.857Z",
     "seasonCode": "Ui6E",
     "rows": [
       {
@@ -29843,7 +29843,7 @@
     ]
   },
   "WOMENASIANCUP": {
-    "updatedAt": "2026-10-10T09:01:37.104Z",
+    "updatedAt": "2026-10-10T09:56:07.153Z",
     "seasonCode": "HlL4",
     "rows": [
       {
@@ -30459,7 +30459,7 @@
     ]
   },
   "U20WOMENASIANCUP": {
-    "updatedAt": "2026-10-10T09:01:38.448Z",
+    "updatedAt": "2026-10-10T09:56:08.445Z",
     "seasonCode": "BMHu",
     "rows": [
       {
@@ -31075,7 +31075,7 @@
     ]
   },
   "AFFCUP": {
-    "updatedAt": "2026-10-10T09:01:39.793Z",
+    "updatedAt": "2026-10-10T09:56:09.692Z",
     "seasonCode": "lOl0",
     "rows": [
       {
@@ -31645,7 +31645,7 @@
     ]
   },
   "E1MEN": {
-    "updatedAt": "2026-10-10T09:01:41.109Z",
+    "updatedAt": "2026-10-10T09:56:10.989Z",
     "seasonCode": "uqX4",
     "rows": [
       {
@@ -32073,7 +32073,7 @@
     ]
   },
   "E1WOMEN": {
-    "updatedAt": "2026-10-10T09:01:42.359Z",
+    "updatedAt": "2026-10-10T09:56:12.244Z",
     "seasonCode": "RagT",
     "rows": [
       {
@@ -32501,7 +32501,7 @@
     ]
   },
   "COPAAMERICA": {
-    "updatedAt": "2026-10-10T09:01:43.663Z",
+    "updatedAt": "2026-10-10T09:56:13.506Z",
     "seasonCode": "2bjq",
     "rows": [
       {
@@ -33209,7 +33209,7 @@
     ]
   },
   "CLUBWORLDCUP": {
-    "updatedAt": "2026-10-10T09:01:44.954Z",
+    "updatedAt": "2026-10-10T09:56:14.791Z",
     "seasonCode": "o2Rl",
     "rows": [
       {
@@ -34285,7 +34285,7 @@
     ]
   },
   "UEFAEURO": {
-    "updatedAt": "2026-10-10T09:01:46.381Z",
+    "updatedAt": "2026-10-10T09:56:16.143Z",
     "seasonCode": "bNU9",
     "rows": [
       {
@@ -35177,7 +35177,7 @@
     ]
   },
   "U20WORLDCUP": {
-    "updatedAt": "2026-10-10T09:01:47.727Z",
+    "updatedAt": "2026-10-10T09:56:17.421Z",
     "seasonCode": "o26O",
     "rows": [
       {
@@ -36069,7 +36069,7 @@
     ]
   },
   "U20WOMENWORLDCUP": {
-    "updatedAt": "2026-10-10T09:01:49.085Z",
+    "updatedAt": "2026-10-10T09:56:18.815Z",
     "seasonCode": "0Lw5",
     "rows": [
       {
@@ -36961,7 +36961,7 @@
     ]
   },
   "U17WOMENASIANCUP": {
-    "updatedAt": "2026-10-10T09:01:50.416Z",
+    "updatedAt": "2026-10-10T09:56:20.147Z",
     "seasonCode": "DbeE",
     "rows": [
       {
