@@ -252,7 +252,20 @@ async function loadPage(title, summary) {
   return info;
 }
 
+// 수동 지정 위키 제목(2026-10-10 "한화 팀소개가 없다") — team-name-en 의 영문명이 너무 일반적이면("Hanwha","Boston","Samsung")
+// 검색이 엉뚱한 문서나 null 로 끝난다. team-info-overrides.json 에 저장 키(예: "한화|baseball")→영문 위키 제목을 적으면 검색을 건너뛰고 그 문서를 쓴다.
+const OVERRIDES_PATH = path.join(REPO_ROOT, 'team-info-overrides.json');
+let OVERRIDES = {};
+async function fetchOverride(title) {
+  const p = await get(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title.replace(/ /g, '_'))}`);
+  await pause();
+  if (p === undefined) return undefined;
+  if (!p?.wikibase_item || p.type === 'disambiguation') return null;
+  return loadPage(p.title, p);
+}
+
 async function fetchInfo(ko, en) {
+  if (OVERRIDES[ko]) return fetchOverride(OVERRIDES[ko]);
   const isBk = ko.startsWith('bk:');
   const BKFIX = { 'Islamic Republic of Iran': 'Iran', 'Republic of Korea': 'South Korea', 'Chinese Taipei': 'Taiwan', "People's Republic of China": 'China', 'USA': 'United States', 'Hong Kong, China': 'Hong Kong' };
   const bkNat = isBk && /^bk:[a-z]+:(FIBA|OLYMPICS_[MW]|ASIAD3?_[MW]):/.test(ko);
@@ -296,6 +309,7 @@ async function main() {
     let bi = {}; try { bi = JSON.parse(await fs.readFile(path.join(REPO_ROOT, 'basketball', 'team-i18n.json'), 'utf8')); } catch {}
     for (const [k, t] of Object.entries(bt)) { const en = t.en || bi[k]?.en; if (en && !names['bk:' + k] && !names['bk:' + k.replace(/^naver:/, 'espn:')]) names['bk:' + k] = en; }
   } catch {}
+  try { OVERRIDES = JSON.parse(await fs.readFile(OVERRIDES_PATH, 'utf8')); } catch {}
   const cache = {};
   await fs.mkdir(OUT_DIR, { recursive: true });
   for (let i = 0; i < 16; i++) { try { Object.assign(cache, JSON.parse(await fs.readFile(path.join(OUT_DIR, `${i.toString(16)}.json`), 'utf8'))); } catch {} }
@@ -311,7 +325,8 @@ async function main() {
   const fresh = Object.keys(names).filter((k) => !(k in cache) && (!only || only.includes(k)));
   const stale = Object.keys(names).filter((k) => k in cache && (today - (meta[k] ?? today) >= REFRESH_DAYS || (cache[k] && !(k in aliases)) || (cache[k] && !cache[k].pc)) && (!only || only.includes(k))).sort((a, b) => meta[a] - meta[b]);
   const bkFirst = (a, b) => (b.startsWith('bk:') ? 1 : 0) - (a.startsWith('bk:') ? 1 : 0);
-  const todo = [...fresh.sort(bkFirst), ...stale];
+  const overrideTodo = Object.keys(OVERRIDES).filter((k) => !cache[k] && (!only || only.includes(k)));
+  const todo = [...overrideTodo, ...fresh.filter((k) => !overrideTodo.includes(k)).sort(bkFirst), ...stale.filter((k) => !overrideTodo.includes(k))];
   console.log(`[team-info] total=${Object.keys(names).length} cached=${Object.keys(cache).length} todo=${todo.length} (stale=${stale.length}) budget=${BUDGET}`);
   let done = 0, found = 0;
   for (const ko of todo) {
