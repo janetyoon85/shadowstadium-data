@@ -1,6 +1,6 @@
 {
   "KBO": {
-    "updatedAt": "2026-10-10T06:00:50.811Z",
+    "updatedAt": "2026-10-10T07:00:44.378Z",
     "seasonCode": "2026",
     "rows": [
       {
@@ -709,18 +709,18 @@
     ]
   },
   "K리그1": {
-    "updatedAt": "2026-10-10T06:00:53.025Z",
+    "updatedAt": "2026-10-10T07:00:46.372Z",
     "seasonCode": "2026",
     "rows": [
       {
         "team": "서울",
         "rank": 1,
         "played": 31,
-        "win": 19,
+        "win": 20,
         "loss": 6,
-        "draw": 6,
-        "pts": 63,
-        "gd": 31
+        "draw": 5,
+        "pts": 65,
+        "gd": 32
       },
       {
         "team": "울산",
@@ -733,24 +733,24 @@
         "gd": 5
       },
       {
-        "team": "제주",
-        "rank": 3,
-        "played": 31,
-        "win": 12,
-        "loss": 8,
-        "draw": 11,
-        "pts": 47,
-        "gd": 6
-      },
-      {
         "team": "강원",
-        "rank": 4,
+        "rank": 3,
         "played": 31,
         "win": 11,
         "loss": 7,
         "draw": 13,
         "pts": 46,
         "gd": 10
+      },
+      {
+        "team": "제주",
+        "rank": 4,
+        "played": 31,
+        "win": 12,
+        "loss": 9,
+        "draw": 10,
+        "pts": 46,
+        "gd": 5
       },
       {
         "team": "전북",
@@ -836,14 +836,14 @@
     "teamRecords": [
       {
         "team": "서울",
-        "goals": 56,
-        "goalsConceded": 25,
-        "shots": 356,
-        "shotsOnTarget": 192,
+        "goals": 58,
+        "goalsConceded": 26,
+        "shots": 361,
+        "shotsOnTarget": 196,
         "possession": 51.565483,
         "passesAccuracy": null,
-        "fouls": 293,
-        "yellowCards": 53,
+        "fouls": 299,
+        "yellowCards": 54,
         "redCards": 2
       },
       {
@@ -859,18 +859,6 @@
         "redCards": 1
       },
       {
-        "team": "제주",
-        "goals": 35,
-        "goalsConceded": 29,
-        "shots": 340,
-        "shotsOnTarget": 168,
-        "possession": 43.125805,
-        "passesAccuracy": null,
-        "fouls": 350,
-        "yellowCards": 54,
-        "redCards": 3
-      },
-      {
         "team": "강원",
         "goals": 38,
         "goalsConceded": 28,
@@ -880,6 +868,18 @@
         "passesAccuracy": null,
         "fouls": 407,
         "yellowCards": 65,
+        "redCards": 3
+      },
+      {
+        "team": "제주",
+        "goals": 36,
+        "goalsConceded": 31,
+        "shots": 343,
+        "shotsOnTarget": 169,
+        "possession": 43.125805,
+        "passesAccuracy": null,
+        "fouls": 355,
+        "yellowCards": 55,
         "redCards": 3
       },
       {
@@ -936,7 +936,7 @@
         "goalsConceded": 47,
         "shots": 275,
         "shotsOnTarget": 153,
-        "possession": 44.05633,
+        "possession": 42.635162,
         "passesAccuracy": null,
         "fouls": 376,
         "yellowCards": 58,
@@ -948,7 +948,7 @@
         "goalsConceded": 36,
         "shots": 311,
         "shotsOnTarget": 138,
-        "possession": 53.58,
+        "possession": 51.851612,
         "passesAccuracy": null,
         "fouls": 355,
         "yellowCards": 62,
@@ -981,6 +981,17 @@
     ],
     "players": [
       {
+        "name": "클리말라",
+        "team": "서울",
+        "pos": "FW",
+        "played": 28,
+        "goals": 14,
+        "assists": 1,
+        "yellowCards": 7,
+        "redCards": 0,
+        "country": "폴란드"
+      },
+      {
         "name": "무고사",
         "team": "인천",
         "pos": "FW",
@@ -1001,17 +1012,6 @@
         "yellowCards": 3,
         "redCards": 1,
         "country": "브라질"
-      },
-      {
-        "name": "클리말라",
-        "team": "서울",
-        "pos": "FW",
-        "played": 28,
-        "goals": 13,
-        "assists": 1,
-        "yellowCards": 7,
-        "redCards": 0,
-        "country": "폴란드"
       },
       {
         "name": "마테우스",
@@ -1179,6 +1179,17 @@
         "country": "브라질"
       },
       {
+        "name": "이건희",
+        "team": "제주",
+        "pos": "FW",
+        "played": 29,
+        "goals": 6,
+        "assists": 2,
+        "yellowCards": 6,
+        "redCards": 0,
+        "country": "한국"
+      },
+      {
         "name": "이승모",
         "team": "서울",
         "pos": "MF",
@@ -1278,17 +1289,6 @@
         "country": "호주"
       },
       {
-        "name": "이건희",
-        "team": "제주",
-        "pos": "FW",
-        "played": 28,
-        "goals": 5,
-        "assists": 2,
-        "yellowCards": 6,
-        "redCards": 0,
-        "country": "한국"
-      },
-      {
         "name": "최건주",
         "team": "안양",
         "pos": "FW",
@@ -1300,20 +1300,20 @@
         "country": "한국"
       },
       {
-        "name": "루빅손",
-        "team": "대전",
-        "pos": "MF",
-        "played": 31,
+        "name": "문선민",
+        "team": "서울",
+        "pos": "FW",
+        "played": 29,
         "goals": 4,
-        "assists": 4,
-        "yellowCards": 1,
+        "assists": 7,
+        "yellowCards": 2,
         "redCards": 0,
-        "country": "스웨덴"
+        "country": "한국"
       }
     ]
   },
   "K리그2": {
-    "updatedAt": "2026-10-10T06:00:54.487Z",
+    "updatedAt": "2026-10-10T07:00:47.738Z",
     "seasonCode": "2026",
     "rows": [
       {
@@ -1550,14 +1550,14 @@
       },
       {
         "team": "부산",
-        "goals": 41,
+        "goals": 42,
         "goalsConceded": 34,
-        "shots": 299,
-        "shotsOnTarget": 152,
-        "possession": 45.20111,
+        "shots": 301,
+        "shotsOnTarget": 153,
+        "possession": 47.205555,
         "passesAccuracy": null,
-        "fouls": 317,
-        "yellowCards": 44,
+        "fouls": 322,
+        "yellowCards": 45,
         "redCards": 0
       },
       {
@@ -1578,7 +1578,7 @@
         "goalsConceded": 31,
         "shots": 255,
         "shotsOnTarget": 129,
-        "possession": 45.67,
+        "possession": 43.91346,
         "passesAccuracy": null,
         "fouls": 302,
         "yellowCards": 46,
@@ -1590,7 +1590,7 @@
         "goalsConceded": 30,
         "shots": 258,
         "shotsOnTarget": 110,
-        "possession": 44.9836,
+        "possession": 43.25346,
         "passesAccuracy": null,
         "fouls": 346,
         "yellowCards": 62,
@@ -1623,37 +1623,37 @@
       {
         "team": "파주",
         "goals": 24,
-        "goalsConceded": 28,
-        "shots": 222,
-        "shotsOnTarget": 116,
-        "possession": 40.091152,
+        "goalsConceded": 29,
+        "shots": 232,
+        "shotsOnTarget": 123,
+        "possession": 41.85577,
         "passesAccuracy": null,
-        "fouls": 332,
+        "fouls": 335,
         "yellowCards": 64,
         "redCards": 0
       },
       {
         "team": "용인",
-        "goals": 31,
-        "goalsConceded": 36,
-        "shots": 220,
-        "shotsOnTarget": 123,
+        "goals": 32,
+        "goalsConceded": 37,
+        "shots": 223,
+        "shotsOnTarget": 126,
         "possession": 44.357307,
         "passesAccuracy": null,
-        "fouls": 333,
+        "fouls": 338,
         "yellowCards": 55,
         "redCards": 2
       },
       {
         "team": "전남",
-        "goals": 29,
-        "goalsConceded": 43,
-        "shots": 249,
-        "shotsOnTarget": 102,
+        "goals": 30,
+        "goalsConceded": 44,
+        "shots": 252,
+        "shotsOnTarget": 104,
         "possession": 43.41731,
         "passesAccuracy": null,
-        "fouls": 318,
-        "yellowCards": 52,
+        "fouls": 321,
+        "yellowCards": 53,
         "redCards": 4
       },
       {
@@ -1662,7 +1662,7 @@
         "goalsConceded": 37,
         "shots": 303,
         "shotsOnTarget": 144,
-        "possession": 42.553463,
+        "possession": 40.977406,
         "passesAccuracy": null,
         "fouls": 313,
         "yellowCards": 52,
@@ -1761,6 +1761,17 @@
         "country": "한국"
       },
       {
+        "name": "보르하 바스톤",
+        "team": "파주",
+        "pos": "FW",
+        "played": 24,
+        "goals": 8,
+        "assists": 1,
+        "yellowCards": 3,
+        "redCards": 0,
+        "country": "스페인"
+      },
+      {
         "name": "에드가",
         "team": "대구",
         "pos": "FW",
@@ -1825,17 +1836,6 @@
         "yellowCards": 1,
         "redCards": 0,
         "country": "브라질"
-      },
-      {
-        "name": "보르하 바스톤",
-        "team": "파주",
-        "pos": "FW",
-        "played": 24,
-        "goals": 7,
-        "assists": 1,
-        "yellowCards": 3,
-        "redCards": 0,
-        "country": "스페인"
       },
       {
         "name": "단레이",
@@ -1970,6 +1970,17 @@
         "country": "브라질"
       },
       {
+        "name": "백가온",
+        "team": "부산",
+        "pos": "FW",
+        "played": 24,
+        "goals": 5,
+        "assists": 2,
+        "yellowCards": 1,
+        "redCards": 0,
+        "country": "한국"
+      },
+      {
         "name": "은고이",
         "team": "충남아산",
         "pos": "FW",
@@ -1988,17 +1999,6 @@
         "goals": 5,
         "assists": 1,
         "yellowCards": 2,
-        "redCards": 0,
-        "country": "한국"
-      },
-      {
-        "name": "백가온",
-        "team": "부산",
-        "pos": "FW",
-        "played": 23,
-        "goals": 5,
-        "assists": 1,
-        "yellowCards": 1,
         "redCards": 0,
         "country": "한국"
       },
@@ -2027,7 +2027,7 @@
     ]
   },
   "MLB": {
-    "updatedAt": "2026-10-10T06:00:55.938Z",
+    "updatedAt": "2026-10-10T07:00:49.144Z",
     "seasonCode": "2026",
     "rows": [
       {
@@ -3329,7 +3329,7 @@
     ]
   },
   "NPB": {
-    "updatedAt": "2026-10-10T06:00:58.544Z",
+    "updatedAt": "2026-10-10T07:00:51.545Z",
     "seasonCode": "2026",
     "rows": [
       {
@@ -3916,7 +3916,7 @@
     ]
   },
   "EPL": {
-    "updatedAt": "2026-10-10T06:01:00.391Z",
+    "updatedAt": "2026-10-10T07:00:53.289Z",
     "seasonCode": "gMoc",
     "rows": [
       {
@@ -4696,7 +4696,7 @@
     ]
   },
   "EFL": {
-    "updatedAt": "2026-10-10T06:01:01.922Z",
+    "updatedAt": "2026-10-10T07:00:54.646Z",
     "seasonCode": "Gpa6",
     "rows": [
       {
@@ -5564,7 +5564,7 @@
     ]
   },
   "LALIGA": {
-    "updatedAt": "2026-10-10T06:01:03.352Z",
+    "updatedAt": "2026-10-10T07:00:56.014Z",
     "seasonCode": "AKz3",
     "rows": [
       {
@@ -6344,7 +6344,7 @@
     ]
   },
   "BUNDESLIGA": {
-    "updatedAt": "2026-10-10T06:01:04.772Z",
+    "updatedAt": "2026-10-10T07:00:57.343Z",
     "seasonCode": "QAF5",
     "rows": [
       {
@@ -7080,7 +7080,7 @@
     ]
   },
   "SERIEA": {
-    "updatedAt": "2026-10-10T06:01:06.317Z",
+    "updatedAt": "2026-10-10T07:00:58.704Z",
     "seasonCode": "YUEy",
     "rows": [
       {
@@ -7860,7 +7860,7 @@
     ]
   },
   "LIGUE1": {
-    "updatedAt": "2026-10-10T06:01:07.776Z",
+    "updatedAt": "2026-10-10T07:01:00.121Z",
     "seasonCode": "yEGP",
     "rows": [
       {
@@ -8596,7 +8596,7 @@
     ]
   },
   "EREDIVISIE": {
-    "updatedAt": "2026-10-10T06:01:09.215Z",
+    "updatedAt": "2026-10-10T07:01:01.469Z",
     "seasonCode": "rY5l",
     "rows": [
       {
@@ -9332,7 +9332,7 @@
     ]
   },
   "MLS": {
-    "updatedAt": "2026-10-10T06:01:10.651Z",
+    "updatedAt": "2026-10-10T07:01:02.790Z",
     "seasonCode": "kFAV",
     "rows": [
       {
@@ -10362,7 +10362,7 @@
     ]
   },
   "SCOTLAND": {
-    "updatedAt": "2026-10-10T06:01:12.169Z",
+    "updatedAt": "2026-10-10T07:01:04.199Z",
     "seasonCode": "tcRg",
     "rows": [
       {
@@ -10966,7 +10966,7 @@
     ]
   },
   "DENMARK": {
-    "updatedAt": "2026-10-10T06:01:13.579Z",
+    "updatedAt": "2026-10-10T07:01:05.548Z",
     "seasonCode": "ut8A",
     "rows": [
       {
@@ -11570,7 +11570,7 @@
     ]
   },
   "SAUDI": {
-    "updatedAt": "2026-10-10T06:01:15.005Z",
+    "updatedAt": "2026-10-10T07:01:06.923Z",
     "seasonCode": "mNWf",
     "rows": [
       {
@@ -11774,7 +11774,7 @@
         "shots": 100,
         "shotsOnTarget": 55,
         "possession": 56,
-        "passesAccuracy": 86.81,
+        "passesAccuracy": 86.84,
         "fouls": 103,
         "yellowCards": 11,
         "redCards": 1
@@ -12306,7 +12306,7 @@
     ]
   },
   "J1": {
-    "updatedAt": "2026-10-10T06:01:16.441Z",
+    "updatedAt": "2026-10-10T07:01:08.303Z",
     "seasonCode": "sxaF",
     "rows": [
       {
@@ -12330,8 +12330,18 @@
         "gd": 5
       },
       {
-        "team": "산프레체 히로시마",
+        "team": "FC 도쿄",
         "rank": 3,
+        "played": 8,
+        "win": 5,
+        "loss": 1,
+        "draw": 3,
+        "pts": 18,
+        "gd": 6
+      },
+      {
+        "team": "산프레체 히로시마",
+        "rank": 4,
         "played": 8,
         "win": 5,
         "loss": 1,
@@ -12341,23 +12351,13 @@
       },
       {
         "team": "마치다 젤비아",
-        "rank": 4,
-        "played": 8,
-        "win": 5,
-        "loss": 1,
-        "draw": 2,
-        "pts": 17,
-        "gd": 11
-      },
-      {
-        "team": "FC 도쿄",
         "rank": 5,
         "played": 8,
         "win": 5,
         "loss": 1,
         "draw": 2,
         "pts": 17,
-        "gd": 6
+        "gd": 11
       },
       {
         "team": "가시마 앤틀러스",
@@ -12394,7 +12394,7 @@
         "rank": 9,
         "played": 8,
         "win": 4,
-        "loss": 3,
+        "loss": 4,
         "draw": 1,
         "pts": 13,
         "gd": 1
@@ -12405,8 +12405,8 @@
         "played": 8,
         "win": 4,
         "loss": 4,
-        "draw": 0,
-        "pts": 12,
+        "draw": 1,
+        "pts": 13,
         "gd": -2
       },
       {
@@ -12460,8 +12460,18 @@
         "gd": -5
       },
       {
-        "team": "나고야 그램퍼스",
+        "team": "아비스파 후쿠오카",
         "rank": 16,
+        "played": 8,
+        "win": 2,
+        "loss": 6,
+        "draw": 1,
+        "pts": 7,
+        "gd": -3
+      },
+      {
+        "team": "나고야 그램퍼스",
+        "rank": 17,
         "played": 8,
         "win": 2,
         "loss": 6,
@@ -12471,23 +12481,13 @@
       },
       {
         "team": "감바 오사카",
-        "rank": 17,
+        "rank": 18,
         "played": 9,
         "win": 1,
         "loss": 5,
         "draw": 3,
         "pts": 6,
         "gd": -8
-      },
-      {
-        "team": "아비스파 후쿠오카",
-        "rank": 18,
-        "played": 8,
-        "win": 1,
-        "loss": 6,
-        "draw": 1,
-        "pts": 4,
-        "gd": -3
       },
       {
         "team": "도쿄 베르디",
@@ -12536,6 +12536,18 @@
         "redCards": 0
       },
       {
+        "team": "FC 도쿄",
+        "goals": 14,
+        "goalsConceded": 8,
+        "shots": 86,
+        "shotsOnTarget": 38,
+        "possession": 51.1,
+        "passesAccuracy": 81.73,
+        "fouls": 89,
+        "yellowCards": 8,
+        "redCards": 2
+      },
+      {
         "team": "산프레체 히로시마",
         "goals": 20,
         "goalsConceded": 6,
@@ -12557,18 +12569,6 @@
         "passesAccuracy": 81.34,
         "fouls": 86,
         "yellowCards": 5,
-        "redCards": 2
-      },
-      {
-        "team": "FC 도쿄",
-        "goals": 14,
-        "goalsConceded": 8,
-        "shots": 86,
-        "shotsOnTarget": 38,
-        "possession": 51.1,
-        "passesAccuracy": 81.73,
-        "fouls": 89,
-        "yellowCards": 8,
         "redCards": 2
       },
       {
@@ -12692,6 +12692,18 @@
         "redCards": 0
       },
       {
+        "team": "아비스파 후쿠오카",
+        "goals": 9,
+        "goalsConceded": 12,
+        "shots": 83,
+        "shotsOnTarget": 37,
+        "possession": 40.1,
+        "passesAccuracy": 73.88,
+        "fouls": 110,
+        "yellowCards": 13,
+        "redCards": 2
+      },
+      {
         "team": "나고야 그램퍼스",
         "goals": 7,
         "goalsConceded": 14,
@@ -12713,18 +12725,6 @@
         "passesAccuracy": 81.84,
         "fouls": 101,
         "yellowCards": 8,
-        "redCards": 2
-      },
-      {
-        "team": "아비스파 후쿠오카",
-        "goals": 9,
-        "goalsConceded": 12,
-        "shots": 83,
-        "shotsOnTarget": 37,
-        "possession": 40.1,
-        "passesAccuracy": 73.88,
-        "fouls": 110,
-        "yellowCards": 13,
         "redCards": 2
       },
       {
@@ -13086,7 +13086,7 @@
     ]
   },
   "UCL": {
-    "updatedAt": "2026-10-10T06:01:17.851Z",
+    "updatedAt": "2026-10-10T07:01:09.633Z",
     "seasonCode": "SwZB",
     "rows": [
       {
@@ -14218,7 +14218,7 @@
     ]
   },
   "UEL": {
-    "updatedAt": "2026-10-10T06:01:19.341Z",
+    "updatedAt": "2026-10-10T07:01:11.076Z",
     "seasonCode": "zKAT",
     "rows": [
       {
@@ -15350,7 +15350,7 @@
     ]
   },
   "UECL": {
-    "updatedAt": "2026-10-10T06:01:20.832Z",
+    "updatedAt": "2026-10-10T07:01:12.438Z",
     "seasonCode": "cKUe",
     "rows": [
       {
@@ -16458,7 +16458,7 @@
     ]
   },
   "ACL": {
-    "updatedAt": "2026-10-10T06:01:22.306Z",
+    "updatedAt": "2026-10-10T07:01:13.773Z",
     "seasonCode": "oNJx",
     "rows": [
       {
@@ -17534,7 +17534,7 @@
     ]
   },
   "ACL2": {
-    "updatedAt": "2026-10-10T06:01:23.723Z",
+    "updatedAt": "2026-10-10T07:01:15.130Z",
     "seasonCode": "PtcK",
     "rows": [
       {
@@ -18610,7 +18610,7 @@
     ]
   },
   "WORLDCUP": {
-    "updatedAt": "2026-10-10T06:01:25.198Z",
+    "updatedAt": "2026-10-10T07:01:16.559Z",
     "seasonCode": "3F9X",
     "rows": [
       {
@@ -20054,7 +20054,7 @@
     ]
   },
   "AFRICACUP": {
-    "updatedAt": "2026-10-10T06:01:26.822Z",
+    "updatedAt": "2026-10-10T07:01:18.093Z",
     "seasonCode": "GZMA",
     "rows": [
       {
@@ -20946,7 +20946,7 @@
     ]
   },
   "U17WORLDCUP": {
-    "updatedAt": "2026-10-10T06:01:28.315Z",
+    "updatedAt": "2026-10-10T07:01:19.484Z",
     "seasonCode": "LjKn",
     "rows": [
       {
@@ -21963,7 +21963,7 @@
     "players": []
   },
   "CONCACAFCUP": {
-    "updatedAt": "2026-10-10T06:01:29.761Z",
+    "updatedAt": "2026-10-10T07:01:20.748Z",
     "seasonCode": "G9oo",
     "rows": [
       {
@@ -22897,7 +22897,7 @@
     ]
   },
   "UNL": {
-    "updatedAt": "2026-10-10T06:01:31.283Z",
+    "updatedAt": "2026-10-10T07:01:22.188Z",
     "seasonCode": "0Eel",
     "rows": [
       {
@@ -24479,7 +24479,7 @@
     ]
   },
   "WCQUEFA": {
-    "updatedAt": "2026-10-10T06:01:32.902Z",
+    "updatedAt": "2026-10-10T07:01:23.733Z",
     "seasonCode": "lbrT",
     "rows": [
       {
@@ -26061,7 +26061,7 @@
     ]
   },
   "WCQAFC": {
-    "updatedAt": "2026-10-10T06:01:34.539Z",
+    "updatedAt": "2026-10-10T07:01:25.263Z",
     "seasonCode": "ECsm",
     "rows": [
       {
@@ -27229,7 +27229,7 @@
     ]
   },
   "ASIANCUP": {
-    "updatedAt": "2026-10-10T06:01:36.071Z",
+    "updatedAt": "2026-10-10T07:01:26.776Z",
     "seasonCode": "h5za",
     "rows": [
       {
@@ -27742,7 +27742,7 @@
     "players": []
   },
   "U17ASIANCUP": {
-    "updatedAt": "2026-10-10T06:01:37.412Z",
+    "updatedAt": "2026-10-10T07:01:28.045Z",
     "seasonCode": "W0Pm",
     "rows": [
       {
@@ -28427,7 +28427,7 @@
     ]
   },
   "U20ASIANCUP": {
-    "updatedAt": "2026-10-10T06:01:38.845Z",
+    "updatedAt": "2026-10-10T07:01:29.389Z",
     "seasonCode": "KL2i",
     "rows": [
       {
@@ -29135,7 +29135,7 @@
     ]
   },
   "U23ASIANCUP": {
-    "updatedAt": "2026-10-10T06:01:40.299Z",
+    "updatedAt": "2026-10-10T07:01:30.768Z",
     "seasonCode": "Ui6E",
     "rows": [
       {
@@ -29843,7 +29843,7 @@
     ]
   },
   "WOMENASIANCUP": {
-    "updatedAt": "2026-10-10T06:01:41.758Z",
+    "updatedAt": "2026-10-10T07:01:32.123Z",
     "seasonCode": "HlL4",
     "rows": [
       {
@@ -30459,7 +30459,7 @@
     ]
   },
   "U20WOMENASIANCUP": {
-    "updatedAt": "2026-10-10T06:01:43.189Z",
+    "updatedAt": "2026-10-10T07:01:33.457Z",
     "seasonCode": "BMHu",
     "rows": [
       {
@@ -31075,7 +31075,7 @@
     ]
   },
   "AFFCUP": {
-    "updatedAt": "2026-10-10T06:01:44.647Z",
+    "updatedAt": "2026-10-10T07:01:34.786Z",
     "seasonCode": "lOl0",
     "rows": [
       {
@@ -31645,7 +31645,7 @@
     ]
   },
   "E1MEN": {
-    "updatedAt": "2026-10-10T06:01:46.172Z",
+    "updatedAt": "2026-10-10T07:01:36.135Z",
     "seasonCode": "uqX4",
     "rows": [
       {
@@ -32073,7 +32073,7 @@
     ]
   },
   "E1WOMEN": {
-    "updatedAt": "2026-10-10T06:01:47.563Z",
+    "updatedAt": "2026-10-10T07:01:37.400Z",
     "seasonCode": "RagT",
     "rows": [
       {
@@ -32501,7 +32501,7 @@
     ]
   },
   "COPAAMERICA": {
-    "updatedAt": "2026-10-10T06:01:48.926Z",
+    "updatedAt": "2026-10-10T07:01:38.703Z",
     "seasonCode": "2bjq",
     "rows": [
       {
@@ -33209,7 +33209,7 @@
     ]
   },
   "CLUBWORLDCUP": {
-    "updatedAt": "2026-10-10T06:01:50.376Z",
+    "updatedAt": "2026-10-10T07:01:40.017Z",
     "seasonCode": "o2Rl",
     "rows": [
       {
@@ -34285,7 +34285,7 @@
     ]
   },
   "UEFAEURO": {
-    "updatedAt": "2026-10-10T06:01:51.868Z",
+    "updatedAt": "2026-10-10T07:01:41.497Z",
     "seasonCode": "bNU9",
     "rows": [
       {
@@ -35177,7 +35177,7 @@
     ]
   },
   "U20WORLDCUP": {
-    "updatedAt": "2026-10-10T06:01:53.388Z",
+    "updatedAt": "2026-10-10T07:01:42.942Z",
     "seasonCode": "o26O",
     "rows": [
       {
@@ -36069,7 +36069,7 @@
     ]
   },
   "U20WOMENWORLDCUP": {
-    "updatedAt": "2026-10-10T06:01:54.869Z",
+    "updatedAt": "2026-10-10T07:01:44.401Z",
     "seasonCode": "0Lw5",
     "rows": [
       {
@@ -36961,7 +36961,7 @@
     ]
   },
   "U17WOMENASIANCUP": {
-    "updatedAt": "2026-10-10T06:01:56.340Z",
+    "updatedAt": "2026-10-10T07:01:45.757Z",
     "seasonCode": "DbeE",
     "rows": [
       {
