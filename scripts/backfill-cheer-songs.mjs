@@ -95,8 +95,35 @@ async function searchYoutube(q) {
   }
 }
 
+// 채널 발굴(수동, CHEER_DISCOVER=1) — MLB 30개 구단 이름으로 'walk up songs' 를 검색(구단당 1회=검색 쿼터 30건)해서 'walk up' 제목 영상이 많은 채널을 로그로만 출력한다
+// (파일은 안 바꿈). 출력된 채널을 EXTRA_CHEER_CHANNELS.mlb 에 핸들로 추가하면 이후 업로드 스캔(검색 0회)으로 채워진다.
+const MLB_TEAMS = ['Arizona Diamondbacks', 'Atlanta Braves', 'Baltimore Orioles', 'Boston Red Sox', 'Chicago Cubs', 'Chicago White Sox', 'Cincinnati Reds', 'Cleveland Guardians', 'Colorado Rockies', 'Detroit Tigers', 'Houston Astros', 'Kansas City Royals', 'Los Angeles Angels', 'Los Angeles Dodgers', 'Miami Marlins', 'Milwaukee Brewers', 'Minnesota Twins', 'New York Mets', 'New York Yankees', 'Athletics', 'Philadelphia Phillies', 'Pittsburgh Pirates', 'San Diego Padres', 'San Francisco Giants', 'Seattle Mariners', 'St. Louis Cardinals', 'Tampa Bay Rays', 'Texas Rangers', 'Toronto Blue Jays', 'Washington Nationals'];
+async function discoverWalkupChannels() {
+  const by = {};
+  let used = 0;
+  for (const team of MLB_TEAMS) {
+    const url = 'https://www.googleapis.com/youtube/v3/search?' + new URLSearchParams({ part: 'snippet', type: 'video', maxResults: '50', q: `${team} walk up songs`, key: API_KEY });
+    let res;
+    try { res = await fetch(url, { signal: AbortSignal.timeout(20000) }); } catch { continue; }
+    used++;
+    if (res.status === 403) { console.log('[discover] quota'); break; }
+    if (!res.ok) continue;
+    for (const it of (await res.json()).items || []) {
+      const cid = it.snippet?.channelId;
+      if (!cid || !/walk.?up/i.test(it.snippet?.title || '')) continue;
+      const e = (by[cid] ??= { title: it.snippet.channelTitle, n: 0, teams: new Set(), sample: it.snippet.title });
+      e.n += 1; e.teams.add(team);
+    }
+    await new Promise((r2) => setTimeout(r2, 300));
+  }
+  const list = Object.entries(by).sort((a, b) => b[1].n - a[1].n).slice(0, 40);
+  console.log(`[discover] searches=${used} channels=${list.length}`);
+  for (const [cid, e] of list) console.log(`[discover] ${e.n} videos | ${e.title} | ${cid} | teams=${[...e.teams].slice(0, 3).join('/')} | e.g. ${e.sample}`);
+}
+
 async function main() {
   if (!API_KEY) { console.error('[cheer-songs] YOUTUBE_API_KEY missing'); process.exit(1); }
+  if (process.env.CHEER_DISCOVER) { await discoverWalkupChannels(); return; }
   const players = JSON.parse(await fs.readFile(PLAYERS_PATH, 'utf-8'));
   const teamEn = JSON.parse(await fs.readFile(TEAM_EN_PATH, 'utf-8'));
   const bkTeams = {};

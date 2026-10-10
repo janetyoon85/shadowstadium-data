@@ -11,6 +11,10 @@ on:
         description: '이번 실행의 검색 예산(기본 8, 쿼터 남을 때만 늘리기)'
         required: false
         default: '8'
+      discover:
+        description: 'MLB 워크업 채널 발굴(검색 30건 사용, 파일 변경 없음) — 1 입력 시'
+        required: false
+        default: ''
 
 permissions:
   contents: write
@@ -37,6 +41,7 @@ jobs:
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           CHEER_BUDGET: ${{ inputs.budget || '8' }}
+          CHEER_DISCOVER: ${{ inputs.discover }}
         run: node scripts/backfill-cheer-songs.mjs
 
       - name: Check for changes
