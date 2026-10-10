@@ -663524,6 +663524,13 @@
           "m": 27,
           "pid": "espn:379430",
           "nat": "Paraguay"
+        },
+        {
+          "n": "Gastón Gerzel",
+          "type": "Y",
+          "m": 89,
+          "pid": "espn:303316",
+          "nat": "Argentina"
         }
       ],
       "away": [
@@ -663712,7 +663719,18 @@
     "status": "live",
     "matchPeriod": "전반",
     "homeScore": 0,
-    "awayScore": 1
+    "awayScore": 1,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "Axel Amador",
+          "m": 43,
+          "nat": "Costa Rica",
+          "pid": "espn:277201"
+        }
+      ]
+    }
   },
   {
     "date": "2026-10-11",
@@ -663782,14 +663800,15 @@
     "inningInfo": "3회초",
     "liveState": {
       "pitcher": "Jarlin Susana",
-      "batter": "Dalton Wentz",
+      "batter": "Nathan Flewelling",
       "pitcherPid": "mlb:703186",
-      "batterPid": "mlb:807275",
-      "ball": 1,
-      "strike": 2,
-      "out": 0,
+      "batterPid": "mlb:807083",
+      "ball": 0,
+      "strike": 0,
+      "out": 1,
       "bases": [
-        1
+        1,
+        2
       ]
     }
   },
