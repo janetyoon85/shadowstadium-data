@@ -657167,93 +657167,100 @@
     "homeScore": 8,
     "winPitcher": "클레빈저",
     "losePitcher": "황준서",
+    "savePitcher": "김재열",
     "winPitcherPid": "kbo:p:56939",
     "losePitcherPid": "kbo:p:54729",
+    "savePitcherPid": "kbo:p:64580",
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "이용준",
+          "pid": "kbo:p:51948"
+        }
+      ]
+    },
     "highlights": {
       "home": [
         {
           "how": "홈런",
-          "text": "최인호 우익수 뒤 홈런 (홈런거리:125M)",
+          "text": "최인호5호(1회1점 클레빈저)",
           "player": "최인호",
-          "inn": "1회말",
-          "pid": "kbo:b:50707"
+          "pitcher": "클레빈저",
+          "pid": "kbo:b:50707",
+          "pitcherPid": "kbo:p:56939"
         },
         {
           "how": "2루타",
-          "text": "유로결 우중간 2루타",
+          "text": "유로결(8회)",
           "player": "유로결",
-          "inn": "8회말"
+          "pid": "kbo:b:69766"
         },
         {
-          "how": "폭투",
-          "text": "이원석 폭투로 2루까지 진루",
-          "player": "이원석",
-          "inn": "9회말",
-          "pid": "kbo:b:68700"
+          "how": "실책",
+          "text": "이도윤(4회)",
+          "player": "이도윤",
+          "pid": "kbo:b:65703"
         },
         {
-          "how": "폭투",
-          "text": "허인서 폭투로 3루까지 진루",
-          "player": "허인서",
-          "inn": "9회말",
-          "pid": "kbo:b:52764"
-        },
-        {
-          "how": "폭투",
-          "text": "유로결 폭투로 홈인",
-          "player": "유로결",
-          "inn": "9회말"
+          "how": "실책",
+          "text": "심우준(8회)",
+          "player": "심우준",
+          "pid": "kbo:b:64006"
         }
       ],
       "away": [
         {
+          "how": "결승타",
+          "text": "김휘집(3회 2사 1,2루서 좌월 홈런)",
+          "player": "김휘집",
+          "pid": "kbo:b:51344"
+        },
+        {
+          "how": "홈런",
+          "text": "김휘집14호(3회3점 황준서)",
+          "player": "김휘집",
+          "pitcher": "황준서",
+          "pid": "kbo:b:51344",
+          "pitcherPid": "kbo:p:54729"
+        },
+        {
+          "how": "홈런",
+          "text": "이우성7호(6회1점 원종혁)",
+          "player": "이우성",
+          "pitcher": "원종혁",
+          "pid": "kbo:b:63260",
+          "pitcherPid": "kbo:p:54702"
+        },
+        {
+          "how": "2루타",
+          "text": "김휘집(4회)",
+          "player": "김휘집",
+          "pid": "kbo:b:51344"
+        },
+        {
+          "how": "2루타",
+          "text": "이우성(4회)",
+          "player": "이우성",
+          "pid": "kbo:b:63260"
+        },
+        {
           "how": "도루",
-          "text": "천재환 도루로 2루까지 진루",
+          "text": "천재환(3회)",
           "player": "천재환",
-          "inn": "3회초",
           "pid": "kbo:b:67905"
         },
         {
-          "how": "홈런",
-          "text": "김휘집 좌익수 뒤 홈런 (홈런거리:125M)",
-          "player": "김휘집",
-          "inn": "3회초",
-          "pid": "kbo:b:51344"
-        },
-        {
-          "how": "실책",
-          "text": "신재인 도루실패 기록하며 1루까지 진루 (포수->2루수 송구 실책->1루수)",
+          "how": "도루자",
+          "text": "신재인(4회)",
           "player": "신재인",
-          "inn": "4회초",
           "pid": "kbo:b:56909"
         },
         {
-          "how": "2루타",
-          "text": "이우성 우중간 2루타",
-          "player": "이우성",
-          "inn": "4회초",
-          "pid": "kbo:b:63260"
-        },
-        {
-          "how": "2루타",
-          "text": "김휘집 우중간 2루타",
-          "player": "김휘집",
-          "inn": "4회초",
-          "pid": "kbo:b:51344"
-        },
-        {
-          "how": "홈런",
-          "text": "이우성 좌익수 뒤 홈런 (홈런거리:105M)",
-          "player": "이우성",
-          "inn": "6회초",
-          "pid": "kbo:b:63260"
-        },
-        {
-          "how": "실책",
-          "text": "오태양 유격수 실책으로 3루까지 진루 (유격수 포구 실책)",
-          "player": "오태양",
-          "inn": "8회초",
-          "pid": "kbo:b:51996"
+          "how": "폭투",
+          "text": "이용준(9회)",
+          "player": "이용준",
+          "pid": "kbo:b:51948"
         }
       ]
     }
@@ -657277,73 +657284,105 @@
     "homeScore": 8,
     "winPitcher": "이의리",
     "losePitcher": "최민준",
+    "savePitcher": "전상현",
     "winPitcherPid": "kbo:p:51648",
     "losePitcherPid": "kbo:p:68856",
+    "savePitcherPid": "kbo:p:66609",
+    "holds": {
+      "home": [
+        {
+          "n": "조상우",
+          "pid": "kbo:p:63342"
+        }
+      ],
+      "away": []
+    },
     "highlights": {
       "home": [
         {
-          "how": "홈런",
-          "text": "카스트로 우익수 뒤 홈런 (홈런거리:120M)",
-          "player": "카스트로",
-          "inn": "2회말",
-          "pid": "kbo:b:56626"
-        },
-        {
-          "how": "홈런",
-          "text": "김도영 좌중간 뒤 홈런 (홈런거리:125M)",
+          "how": "결승타",
+          "text": "김도영(3회 1사 1루서 좌중월 홈런)",
           "player": "김도영",
-          "inn": "3회말",
           "pid": "kbo:b:52605"
         },
         {
-          "how": "도루",
-          "text": "박재현 도루실패아웃 (포수->유격수 태그아웃)",
+          "how": "홈런",
+          "text": "김도영44호(3회2점 최민준)",
+          "player": "김도영",
+          "pitcher": "최민준",
+          "pid": "kbo:b:52605",
+          "pitcherPid": "kbo:p:68856"
+        },
+        {
+          "how": "홈런",
+          "text": "나성범31호(5회1점 이준기)",
+          "player": "나성범",
+          "pitcher": "이준기",
+          "pid": "kbo:b:62947",
+          "pitcherPid": "kbo:p:51702"
+        },
+        {
+          "how": "도루자",
+          "text": "박재현(5회)",
           "player": "박재현",
-          "inn": "5회말",
           "pid": "kbo:b:55636"
         },
         {
-          "how": "홈런",
-          "text": "카스트로 우익수 뒤 홈런 (홈런거리:130M)",
-          "player": "카스트로",
-          "inn": "5회말",
-          "pid": "kbo:b:56626"
+          "how": "주루사",
+          "text": "한준수(2회)",
+          "player": "한준수",
+          "pid": "kbo:b:68646"
         },
         {
-          "how": "홈런",
-          "text": "나성범 중견수 뒤 홈런 (홈런거리:130M)",
-          "player": "나성범",
-          "inn": "5회말",
-          "pid": "kbo:b:62947"
+          "how": "견제사",
+          "text": "김민규(8회)",
+          "player": "김민규",
+          "pid": "kbo:b:56637"
         },
         {
           "how": "병살타",
-          "text": "하주석 2루수 병살타 아웃 (2루수->유격수->1루수 송구아웃)",
+          "text": "한준수(4회)",
+          "player": "한준수",
+          "pid": "kbo:b:68646"
+        },
+        {
+          "how": "병살타",
+          "text": "하주석(6회)",
           "player": "하주석",
-          "inn": "6회말",
           "pid": "kbo:b:62700"
+        },
+        {
+          "how": "폭투",
+          "text": "곽도규(7회)",
+          "player": "곽도규",
+          "pid": "kbo:b:53609"
         }
       ],
       "away": [
         {
-          "how": "2루타",
-          "text": "조형우 좌익수 뒤 2루타",
-          "player": "조형우",
-          "inn": "2회초",
-          "pid": "kbo:b:51865"
+          "how": "홈런",
+          "text": "호21호(2회1점 5회3점 최민준 이준기)",
+          "player": "호",
+          "pitcher": "5회3점 최민준 이준기"
         },
         {
           "how": "홈런",
-          "text": "박성한 우익수 뒤 홈런 (홈런거리:120M)",
+          "text": "박성한5호(3회2점 시라카와)",
           "player": "박성한",
-          "inn": "3회초",
-          "pid": "kbo:b:67893"
+          "pitcher": "시라카와",
+          "pid": "kbo:b:67893",
+          "pitcherPid": "kbo:p:54843"
         },
         {
-          "how": "폭투",
-          "text": "임근우 폭투로 2루까지 진루",
+          "how": "2루타",
+          "text": "조형우(2회)",
+          "player": "조형우",
+          "pid": "kbo:b:51865"
+        },
+        {
+          "how": "실책",
+          "text": "임근우(2회)",
           "player": "임근우",
-          "inn": "7회초",
           "pid": "kbo:b:52807"
         }
       ]
@@ -657551,7 +657590,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 1,
-    "matchPeriod": "전반 28'",
+    "matchPeriod": "전반 31'",
     "scorers": {
       "home": [
         {
@@ -657588,15 +657627,18 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 0,
-    "matchPeriod": "전반 29'",
+    "matchPeriod": "전반 31'",
     "scorers": {
       "home": [],
       "away": [
         {
           "n": "라이트",
           "m": 28,
+          "a": "Oscar Schwartau",
           "nat": "England",
-          "pid": "espn:365340"
+          "pid": "espn:365340",
+          "aNat": "Denmark",
+          "apid": "espn:345568"
         }
       ]
     },
@@ -657626,7 +657668,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 29'",
+    "matchPeriod": "전반 31'",
     "cards": {
       "home": [
         {
@@ -657653,7 +657695,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 28'"
+    "matchPeriod": "전반 30'"
   },
   {
     "date": "2026-10-10",
@@ -677205,7 +677247,7 @@
     "venueId": "kishore_bharati_krirangan",
     "home": "인터 카시",
     "away": "FC 고아",
-    "stadium": "",
+    "stadium": "Shree Shiv Chhatrapati Sports Complex",
     "timeTbd": false,
     "gameId": "INDIA_ESPN_401925418",
     "status": "scheduled"
