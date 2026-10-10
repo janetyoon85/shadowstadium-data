@@ -67,8 +67,8 @@
 
 <div class="meta">
   <strong>시행일:</strong> 2026년 6월 1일<br>
-  <strong>최종 수정일:</strong> 2026년 6월 1일<br>
-  <strong>버전:</strong> 1.0
+  <strong>최종 수정일:</strong> 2026년 10월 10일<br>
+  <strong>버전:</strong> 1.1
 </div>
 
 <p>
@@ -83,7 +83,8 @@
   <li>회원가입 기능 없음</li>
   <li>이름, 연락처, 이메일 등 식별정보 입력 요청 없음</li>
   <li>사용자의 디바이스 위치(GPS) 접근 권한을 요청하지 않습니다</li>
-  <li>카메라, 마이크, 연락처, 저장소 등 민감 권한을 요청하지 않습니다</li>
+  <li>카메라, 마이크, 연락처 등 민감 권한을 요청하지 않습니다</li>
+  <li>사진 보관함 접근은 사용자가 경기 이미지를 저장·공유하려고 할 때에만, 해당 이미지를 저장하는 용도로만 요청합니다</li>
 </ul>
 
 <h2>2. 디바이스 내부에 저장되는 정보</h2>
@@ -103,7 +104,7 @@
 <p>본 앱은 다음 제3자 서비스를 이용하며, 해당 서비스가 자체적으로 일부 정보를 수집할 수 있습니다.</p>
 
 <h3>3.1 Google AdMob (광고)</h3>
-<p>본 앱은 배너 광고 표시를 위해 Google AdMob을 사용합니다. AdMob은 다음 정보를 자동으로 수집할 수 있습니다:</p>
+<p>본 앱은 배너·네이티브 광고 표시를 위해 Google AdMob을 사용합니다. AdMob은 다음 정보를 자동으로 수집할 수 있습니다:</p>
 <ul>
   <li>광고 식별자 (Android Advertising ID / iOS IDFA)</li>
   <li>디바이스 정보 (모델명, OS 버전, 화면 크기, 언어 설정)</li>
@@ -111,7 +112,7 @@
   <li>광고 노출 및 상호작용 기록</li>
 </ul>
 <p>
-  사용자는 디바이스 설정에서 광고 식별자를 재설정하거나 맞춤 광고를 옵트아웃할 수 있습니다.
+  iOS에서는 비개인화 광고만 요청하며 앱 추적 투명성(ATT) 팝업을 표시하지 않고, 광고 식별자(IDFA)를 추적 목적으로 사용하지 않습니다. 사용자는 디바이스 설정에서 광고 식별자를 재설정하거나 맞춤 광고를 옵트아웃할 수 있습니다.
 </p>
 <p>
   자세한 내용: <a href="https://policies.google.com/privacy" target="_blank">Google 개인정보처리방침</a>
@@ -134,12 +135,18 @@
 </table>
 <p>위 API 호출 시 사용자 디바이스의 IP 주소는 해당 서버에 전달될 수 있으나, 식별 가능한 개인정보는 전송하지 않습니다.</p>
 
-<h3>3.3 YouTube API 서비스</h3>
+<h3>3.3 Firebase Cloud Messaging (푸시 알림)</h3>
+<p>본 앱은 푸시 알림 전달을 위해 Google Firebase Cloud Messaging(FCM)을 사용합니다(iOS에서는 Apple 푸시 알림 서비스 경유). 알림 전달을 위해 FCM이 기기에 푸시 토큰과 설치 식별자를 부여합니다. 또한 사용자가 선택한 팀·경기·선수·언어에 해당하는 알림 주제(예: 즐겨찾는 팀의 경기 종료 알림)를 기기에 구독시킵니다. 이 주제는 본 앱에 계정이 없으므로 이름·이메일 등 사용자 신원과 연결되지 않습니다. 알림은 디바이스 설정에서 끄거나, 앱에서 즐겨찾기를 해제하면 해당 주제 구독이 해제됩니다. 자세한 내용: <a href="https://firebase.google.com/support/privacy" target="_blank">Firebase 개인정보 보호 및 보안</a></p>
+
+<h3>3.4 Sentry (오류·성능 보고)</h3>
+<p>본 앱은 문제를 고치기 위해 Sentry로 비정상 종료 보고와 기본 성능 측정값을 받습니다. 보고에는 오류 내용과 호출 기록, 기기 모델, OS 버전, 앱 버전 같은 기술 정보가 담깁니다. 이름·이메일·계정 식별자 등 개인정보는 보내지 않도록 설정되어 있습니다. 자세한 내용: <a href="https://sentry.io/privacy/" target="_blank">Sentry 개인정보처리방침</a></p>
+
+<h3>3.5 YouTube API 서비스</h3>
 <p>이 앱은 경기 하이라이트 및 응원가 영상을 연결하기 위해 YouTube API 서비스(YouTube Data API)를 사용합니다. 호출은 당사 서버에서만 이루어지며, 앱 사용자의 개인정보나 Google 계정 정보는 YouTube로 전송되거나 수집되지 않습니다. 영상 ID와 제목만 저장하며, 영상을 열면 YouTube(앱 또는 브라우저)로 이동하고 이때는 <a href="https://www.youtube.com/t/terms" target="_blank">YouTube 서비스 약관</a>과 <a href="https://policies.google.com/privacy" target="_blank">Google 개인정보처리방침</a>이 적용됩니다. 당사는 YouTube 사용자 데이터를 저장하지 않으므로 별도로 삭제할 데이터가 없습니다. Google 계정에 부여한 권한은 <a href="https://security.google.com/settings/security/permissions" target="_blank">Google 보안 설정</a>에서 철회할 수 있습니다.</p>
 
 <h2>4. 알림 (Notifications)</h2>
 <p>
-  본 앱은 사용자가 설정한 경기 시각 알림을 발송합니다. 모든 알림은 <strong>디바이스 내부에서 로컬로 처리</strong>되며, 외부 서버로부터 푸시 알림을 받지 않습니다. 알림 설정은 사용자가 언제든 변경하거나 해제할 수 있습니다.
+  본 앱은 사용자가 선택한 팀·경기·선수에 대한 알림을 발송합니다. 알림은 Firebase Cloud Messaging(3.3 참조)을 통한 푸시 알림으로 전달되므로, 이를 위해 기기의 푸시 토큰이 Google·Apple에서 처리됩니다. 개인정보 입력은 필요하지 않습니다. 알림 설정은 사용자가 언제든 변경하거나 해제할 수 있습니다.
 </p>
 
 <h2>5. 권한 사용 안내</h2>
@@ -148,7 +155,8 @@
   <tr><td>알림 발송 (POST_NOTIFICATIONS)</td><td>경기 시작 전 알림</td></tr>
   <tr><td>정확한 알림 (USE_EXACT_ALARM)</td><td>알림 시각 정확도 보장</td></tr>
   <tr><td>인터넷 (INTERNET, ACCESS_NETWORK_STATE)</td><td>경기 일정·날씨 가져오기, 광고 표시</td></tr>
-  <tr><td>광고 ID (AD_ID)</td><td>맞춤 광고 (사용자 옵트아웃 가능)</td></tr>
+  <tr><td>광고 ID (AD_ID)</td><td>광고 제공·측정 (맞춤 광고는 사용자 옵트아웃 가능)</td></tr>
+  <tr><td>사진 보관함 (저장 전용)</td><td>사용자가 공유하려고 선택한 경기 이미지 저장</td></tr>
 </table>
 
 <h2>6. 아동 개인정보 보호</h2>

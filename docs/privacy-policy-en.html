@@ -67,8 +67,8 @@
 
 <div class="meta">
   <strong>Effective Date:</strong> June 1, 2026<br>
-  <strong>Last Modified:</strong> June 1, 2026<br>
-  <strong>Version:</strong> 1.0
+  <strong>Last Modified:</strong> October 10, 2026<br>
+  <strong>Version:</strong> 1.1
 </div>
 
 <p>
@@ -83,7 +83,8 @@
   <li>No sign-up or account creation feature</li>
   <li>No requests for identifying information such as name, phone number, or email</li>
   <li>No request for access to your device's location (GPS)</li>
-  <li>No requests for sensitive permissions such as camera, microphone, contacts, or storage</li>
+  <li>No requests for sensitive permissions such as camera, microphone, or contacts</li>
+  <li>Photo library access is requested only when you choose to save or share a game image, and only to save that image</li>
 </ul>
 
 <h2>2. Information Stored on Your Device</h2>
@@ -103,7 +104,7 @@
 <p>This App uses the following third-party services, which may collect certain information on their own.</p>
 
 <h3>3.1 Google AdMob (Advertising)</h3>
-<p>This App uses Google AdMob to display banner ads. AdMob may automatically collect the following information:</p>
+<p>This App uses Google AdMob to display banner and native ads. AdMob may automatically collect the following information:</p>
 <ul>
   <li>Advertising identifier (Android Advertising ID / iOS IDFA)</li>
   <li>Device information (model, OS version, screen size, language settings)</li>
@@ -111,7 +112,7 @@
   <li>Ad impression and interaction records</li>
 </ul>
 <p>
-  You can reset your advertising identifier or opt out of personalized ads in your device settings.
+  On iOS, this App requests only non-personalized ads and does not display the App Tracking Transparency prompt; it does not use the advertising identifier (IDFA) for tracking. You can reset your advertising identifier or opt out of personalized ads in your device settings.
 </p>
 <p>
   For more details: <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a>
@@ -134,12 +135,18 @@
 </table>
 <p>When these APIs are called, the device's IP address may be transmitted to the respective servers, but no identifiable personal information is sent.</p>
 
-<h3>3.3 YouTube API Services</h3>
+<h3>3.3 Firebase Cloud Messaging (Push Notifications)</h3>
+<p>This App uses Google Firebase Cloud Messaging (FCM) to deliver push notifications (via Apple Push Notification service on iOS). To deliver notifications, FCM assigns your device a push token and an installation identifier. The App also subscribes your device to notification topics that correspond to the teams, games, players, and language you choose (for example, a favorite team's final-score alert). These topics are not linked to your name, email, or any account, because this App has no accounts. You can turn off notifications in your device settings, or remove a favorite in the App to unsubscribe from its topic. For more details: <a href="https://firebase.google.com/support/privacy" target="_blank">Firebase Privacy and Security</a>.</p>
+
+<h3>3.4 Sentry (Crash and Performance Reporting)</h3>
+<p>This App uses Sentry to receive crash reports and basic performance measurements so we can fix problems. A report contains technical information such as the error and stack trace, device model, OS version, and App version. The App is configured not to send personal information (no name, email, or account identifiers). For more details: <a href="https://sentry.io/privacy/" target="_blank">Sentry Privacy Policy</a>.</p>
+
+<h3>3.5 YouTube API Services</h3>
 <p>This App uses YouTube API Services (YouTube Data API) to link match-highlight and cheer-song videos. Calls are made only from our servers; no personal information or Google account information of App users is sent to or collected from YouTube. We store only video IDs and titles. When you open a video you are taken to YouTube (app or browser), where the <a href="https://www.youtube.com/t/terms" target="_blank">YouTube Terms of Service</a> and the <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a> apply. We do not store YouTube user data, so there is no such data to delete. You can revoke any access granted to your Google account in the <a href="https://security.google.com/settings/security/permissions" target="_blank">Google security settings</a>.</p>
 
 <h2>4. Notifications</h2>
 <p>
-  This App sends alerts for game times that you configure. All notifications are <strong>processed locally on your device</strong>, and this App does not receive push notifications from an external server. You can change or turn off your alert settings at any time.
+  This App sends alerts for teams, games, and players you choose. Notifications are delivered as push notifications through Firebase Cloud Messaging (see Section 3.3), so a push token for your device is processed by Google and Apple for that purpose. No personal information is required. You can change or turn off your alert settings at any time.
 </p>
 
 <h2>5. Permissions Usage</h2>
@@ -148,7 +155,8 @@
   <tr><td>Send notifications (POST_NOTIFICATIONS)</td><td>Alerts before games start</td></tr>
   <tr><td>Exact alarms (USE_EXACT_ALARM)</td><td>Guarantee accurate alert timing</td></tr>
   <tr><td>Internet (INTERNET, ACCESS_NETWORK_STATE)</td><td>Retrieve game schedules/weather, display ads</td></tr>
-  <tr><td>Advertising ID (AD_ID)</td><td>Personalized ads (user can opt out)</td></tr>
+  <tr><td>Advertising ID (AD_ID)</td><td>Ad delivery and measurement (user can opt out of personalized ads)</td></tr>
+  <tr><td>Photo library (save only)</td><td>Saving a game image you choose to share</td></tr>
 </table>
 
 <h2>6. Children's Privacy</h2>
