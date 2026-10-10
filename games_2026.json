@@ -663512,10 +663512,10 @@
     "stadium": "Estadio Gunther Vogel",
     "timeTbd": false,
     "gameId": "PARAGUAY_ESPN_401888658",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 1,
-    "awayScore": 0,
+    "awayScore": 1,
     "cards": {
       "home": [
         {
@@ -663547,6 +663547,13 @@
           "m": 77,
           "pid": "espn:402627",
           "nat": "Paraguay"
+        },
+        {
+          "n": "Agustin Da Silveira Muñoa",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:309506",
+          "nat": "Uruguay"
         }
       ]
     },
@@ -663560,7 +663567,14 @@
           "pid": "espn:379430"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Gustavo Viera",
+          "m": 90,
+          "nat": "Uruguay",
+          "pid": "espn:174830"
+        }
+      ]
     }
   },
   {
@@ -663724,7 +663738,7 @@
     "timeTbd": false,
     "gameId": "COSTARICA_ESPN_401876894",
     "status": "live",
-    "matchPeriod": "전반",
+    "matchPeriod": "하프타임",
     "homeScore": 0,
     "awayScore": 1,
     "scorers": {
