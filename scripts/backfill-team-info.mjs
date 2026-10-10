@@ -325,7 +325,8 @@ async function main() {
   const fresh = Object.keys(names).filter((k) => !(k in cache) && (!only || only.includes(k)));
   const stale = Object.keys(names).filter((k) => k in cache && (today - (meta[k] ?? today) >= REFRESH_DAYS || (cache[k] && !(k in aliases)) || (cache[k] && !cache[k].pc)) && (!only || only.includes(k))).sort((a, b) => meta[a] - meta[b]);
   const bkFirst = (a, b) => (b.startsWith('bk:') ? 1 : 0) - (a.startsWith('bk:') ? 1 : 0);
-  const overrideTodo = Object.keys(OVERRIDES).filter((k) => !cache[k] && (!only || only.includes(k)));
+  const FORCE = process.env.TEAM_INFO_FORCE ? process.env.TEAM_INFO_FORCE.split(',') : []; // 이미 잘못된 팀으로 캐시된 키를 override 로 다시 받을 때
+  const overrideTodo = Object.keys(OVERRIDES).filter((k) => (!cache[k] || FORCE.includes(k)) && (!only || only.includes(k)));
   const todo = [...overrideTodo, ...fresh.filter((k) => !overrideTodo.includes(k)).sort(bkFirst), ...stale.filter((k) => !overrideTodo.includes(k))];
   console.log(`[team-info] total=${Object.keys(names).length} cached=${Object.keys(cache).length} todo=${todo.length} (stale=${stale.length}) budget=${BUDGET}`);
   let done = 0, found = 0;
