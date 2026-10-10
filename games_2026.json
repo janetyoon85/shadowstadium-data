@@ -664354,7 +664354,18 @@
     "status": "live",
     "matchPeriod": "전반",
     "homeScore": 0,
-    "awayScore": 1
+    "awayScore": 1,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "Ronaldo Cisneros",
+          "m": 45,
+          "nat": "Mexico",
+          "pid": "espn:208436"
+        }
+      ]
+    }
   },
   {
     "date": "2026-10-11",
@@ -664490,7 +664501,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 6'",
+    "matchPeriod": "전반 8'",
     "phaseCode": "LEAGUE"
   },
   {
@@ -664506,12 +664517,17 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 1,
-    "matchPeriod": "전반 6'",
+    "matchPeriod": "전반 8'",
     "scorers": {
       "home": [
         {
           "n": "수아레스",
-          "m": 3
+          "m": 3,
+          "a": "Germán Berterame",
+          "nat": "Uruguay",
+          "pid": "espn:125088",
+          "aNat": "Mexico",
+          "apid": "espn:228394"
         }
       ],
       "away": []
@@ -664531,7 +664547,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 6'",
+    "matchPeriod": "전반 7'",
     "phaseCode": "LEAGUE"
   },
   {
@@ -664545,14 +664561,38 @@
     "timeTbd": false,
     "gameId": "S99SuNPY28pmbTX",
     "status": "live",
-    "awayScore": 0,
+    "awayScore": 1,
     "homeScore": 1,
-    "matchPeriod": "전반 6'",
+    "matchPeriod": "전반 8'",
     "scorers": {
       "home": [
         {
           "n": "사라지안",
-          "m": 1
+          "m": 1,
+          "a": "Antoine Griezmann",
+          "nat": "USA",
+          "pid": "espn:418358",
+          "aNat": "France",
+          "apid": "espn:140416"
+        }
+      ],
+      "away": [
+        {
+          "n": "하브룬",
+          "m": 8,
+          "nat": "USA",
+          "pid": "espn:362812"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Vinícius Nogueira",
+          "type": "Y",
+          "m": 3,
+          "pid": "espn:357210",
+          "nat": "Brazil"
         }
       ],
       "away": []
@@ -664572,7 +664612,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 5'",
+    "matchPeriod": "전반 8'",
     "phaseCode": "LEAGUE"
   },
   {
@@ -664588,7 +664628,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 6'",
+    "matchPeriod": "전반 8'",
     "phaseCode": "LEAGUE"
   },
   {
@@ -664604,7 +664644,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 6'",
+    "matchPeriod": "전반 7'",
     "phaseCode": "LEAGUE"
   },
   {
@@ -665682,7 +665722,8 @@
     "stadium": "Estadio 9 de Mayo",
     "timeTbd": false,
     "gameId": "ECUADOR_ESPN_401921384",
-    "status": "scheduled"
+    "status": "scheduled",
+    "phaseCode": "FR"
   },
   {
     "date": "2026-10-12",
