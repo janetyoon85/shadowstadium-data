@@ -667421,7 +667421,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 0,
-    "matchPeriod": "후반 2'",
+    "matchPeriod": "후반 5'",
     "scorers": {
       "home": [],
       "away": [
@@ -667458,10 +667458,18 @@
     "gameId": "mET49HVTeGszhzB",
     "status": "live",
     "awayScore": 2,
-    "homeScore": 0,
-    "matchPeriod": "후반 2'",
+    "homeScore": 1,
+    "matchPeriod": "후반 5'",
     "scorers": {
-      "home": [],
+      "home": [
+        {
+          "n": "로스",
+          "m": 48,
+          "pk": true,
+          "nat": "Denmark",
+          "pid": "espn:338004"
+        }
+      ],
       "away": [
         {
           "n": "사이네",
@@ -667470,6 +667478,17 @@
         {
           "n": "본드",
           "m": 23
+        }
+      ]
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Abdul Salam Moro",
+          "type": "Y",
+          "m": 47,
+          "pid": "espn:3098142"
         }
       ]
     }
@@ -667487,7 +667506,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "후반 1'",
+    "matchPeriod": "후반 5'",
     "cards": {
       "home": [],
       "away": [
@@ -667512,7 +667531,7 @@
     "timeTbd": false,
     "gameId": "SWEDEN_ESPN_401842837",
     "status": "live",
-    "matchPeriod": "하프타임",
+    "matchPeriod": "후반",
     "homeScore": 0,
     "awayScore": 1,
     "cards": {
@@ -667637,31 +667656,22 @@
     "status": "live",
     "awayScore": 2,
     "homeScore": 1,
-    "matchPeriod": "전반 34'",
+    "matchPeriod": "전반 37'",
     "scorers": {
       "home": [
         {
           "n": "오우수",
-          "m": 14,
-          "nat": "Netherlands",
-          "pid": "espn:306461"
+          "m": 14
         }
       ],
       "away": [
         {
           "n": "에두아르도",
-          "m": 16,
-          "a": "Evan Rottier",
-          "nat": "Czechia",
-          "pid": "espn:357092",
-          "aNat": "Netherlands",
-          "apid": "espn:304576"
+          "m": 16
         },
         {
           "n": "로티에르",
-          "m": 25,
-          "nat": "Netherlands",
-          "pid": "espn:304576"
+          "m": 25
         }
       ]
     },
@@ -667699,7 +667709,27 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 35'"
+    "matchPeriod": "전반 39'",
+    "cards": {
+      "home": [
+        {
+          "n": "Sherel Floranus",
+          "type": "Y",
+          "m": 39,
+          "pid": "espn:224786",
+          "nat": "Curaçao"
+        }
+      ],
+      "away": [
+        {
+          "n": "Devid Eugene Bouah",
+          "type": "Y",
+          "m": 39,
+          "pid": "espn:270887",
+          "nat": "Italy"
+        }
+      ]
+    }
   },
   {
     "date": "2026-10-11",
@@ -667732,7 +667762,15 @@
           "nat": "Norway"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Vetle Skjaervik",
+          "type": "Y",
+          "m": 31,
+          "pid": "espn:333783",
+          "nat": "Norway"
+        }
+      ]
     },
     "scorers": {
       "home": [],
@@ -667759,7 +667797,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 4'"
+    "matchPeriod": "전반 8'"
   },
   {
     "date": "2026-10-11",
@@ -667774,7 +667812,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 0,
-    "matchPeriod": "전반 4'",
+    "matchPeriod": "전반 8'",
     "scorers": {
       "home": [],
       "away": [
@@ -667800,7 +667838,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 5'"
+    "matchPeriod": "전반 7'"
   },
   {
     "date": "2026-10-11",
@@ -667815,7 +667853,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 5'"
+    "matchPeriod": "전반 8'"
   },
   {
     "date": "2026-10-11",
@@ -667830,7 +667868,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 1,
-    "matchPeriod": "전반 4'",
+    "matchPeriod": "전반 8'",
     "scorers": {
       "home": [
         {
@@ -667859,7 +667897,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 2'"
+    "matchPeriod": "전반 6'"
   },
   {
     "date": "2026-10-11",
@@ -667871,7 +667909,10 @@
     "stadium": "Gaziantep Stadium",
     "timeTbd": false,
     "gameId": "TURKEY_ESPN_401888380",
-    "status": "scheduled"
+    "status": "live",
+    "matchPeriod": "전반",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-10-11",
