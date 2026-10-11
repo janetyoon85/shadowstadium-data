@@ -186,7 +186,7 @@ async function fetchWikiSquads(rosters) {
     if (!t || (rosters[t] && !String(rosters[t][0]?.id).startsWith('wk:'))) continue; // wk: 로스터는 매번 새로 받는다
     const w = info[t]?.wiki || '';
     if ((g.league === 'K리그1' || g.league === 'K리그2') && w) targets.add(t);
-    else if (NAT.has(g.league) && /national (football|soccer) team/i.test(w) && !/여자|\(/.test(t)) targets.add(t);
+    else if ((NAT.has(g.league) || g.league === 'ASIANGAMESFOOTBALL') && /national (football|soccer) team/i.test(w) && !/\((?!여자\))/.test(t)) targets.add(t); // 여자 대표팀 포함, U-연령대 팀('(U23)' 등)만 제외
   }
   let n = 0;
   for (const key of targets) {

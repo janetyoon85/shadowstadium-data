@@ -1,0 +1,83 @@
+name: Roster Photos Backfill
+
+on:
+  schedule:
+    # 3시간마다 700명씩(요청 간격 2.5s ≈ 30분) — TheSportsDB 무료 한도(분당 30건)의 80%로 천천히. 429 가 오면 스크립트가 즉시 중단.
+    - cron: '25 */3 * * *'
+  workflow_dispatch:
+    inputs:
+      budget:
+        description: '이번 실행에서 조회할 선수 수'
+        default: '700'
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: fetch-team-rosters
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Backfill roster photos
+        env:
+          ROSTER_PHOTO_BUDGET: ${{ github.event.inputs.budget || '700' }}
+        run: node scripts/backfill-roster-photos.mjs
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if [[ -n "$(git status --porcelain team-rosters roster-photos-tried.json)" ]]; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "changed=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add team-rosters roster-photos-tried.json
+          git commit -m "chore(data): 선수 사진 보충 ($(date +'%Y-%m-%d %H:%M'))"
+          for i in $(seq 1 20); do
+            if git push; then
+              exit 0
+            fi
+            echo "push rejected, rebasing onto origin/main and retrying ($i/20)"
+            if ! git pull --rebase origin main; then
+              git rebase --abort || true
+              git reset --hard origin/main
+              echo "conflict, dropping this run's result"
+              exit 1
+            fi
+            sleep $((RANDOM % 30 + 1))
+          done
+          echo "push failed after 20 retries"
+          exit 1
+
+      - name: Create issue on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const date = new Date().toISOString().split('T')[0];
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `🚨 Roster photos backfill failed - ${date}`,
+              body: `Roster photos backfill failed at ${date}.\n\nWorkflow run: ${context.runId}`,
+              labels: ['bug', 'crawler']
+            });
