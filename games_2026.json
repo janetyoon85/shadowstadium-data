@@ -665648,7 +665648,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 1,
-    "matchPeriod": "후반 22'",
+    "matchPeriod": "후반 25'",
     "scorers": {
       "home": [
         {
@@ -665697,7 +665697,7 @@
     "status": "live",
     "awayScore": 2,
     "homeScore": 1,
-    "matchPeriod": "후반 14'",
+    "matchPeriod": "후반 18'",
     "scorers": {
       "home": [
         {
@@ -665753,17 +665753,21 @@
     "status": "live",
     "awayScore": 2,
     "homeScore": 0,
-    "matchPeriod": "후반 21'",
+    "matchPeriod": "후반 25'",
     "scorers": {
       "home": [],
       "away": [
         {
           "n": "베이커-화이팅",
-          "m": 30
+          "m": 30,
+          "nat": "USA",
+          "pid": "espn:304120"
         },
         {
           "n": "사드",
-          "m": 67
+          "m": 67,
+          "nat": "Tunisia",
+          "pid": "espn:323950"
         }
       ]
     },
@@ -665792,11 +665796,18 @@
     "timeTbd": false,
     "gameId": "ELSALVADOR_ESPN_401899705",
     "status": "live",
-    "matchPeriod": "하프타임",
+    "matchPeriod": "후반",
     "homeScore": 1,
     "awayScore": 2,
     "scorers": {
-      "home": [],
+      "home": [
+        {
+          "n": "Wilma Torres",
+          "m": 45,
+          "nat": "El Salvador",
+          "pid": "espn:206787"
+        }
+      ],
       "away": [
         {
           "n": "Rafael Águila",
@@ -665867,8 +665878,22 @@
     "gameId": "jDzuetiqmqpRhg9",
     "status": "live",
     "awayScore": 0,
-    "homeScore": 0,
-    "matchPeriod": "전반 24'",
+    "homeScore": 1,
+    "matchPeriod": "전반 28'",
+    "scorers": {
+      "home": [
+        {
+          "n": "필립",
+          "m": 27,
+          "a": "Paxten Aaronson",
+          "nat": "St Lucia",
+          "pid": "espn:385082",
+          "aNat": "USA",
+          "apid": "espn:304129"
+        }
+      ],
+      "away": []
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -665881,7 +665906,10 @@
     "stadium": "Estadio Carlos Alvarado",
     "timeTbd": false,
     "gameId": "COSTARICA_ESPN_401876847",
-    "status": "scheduled"
+    "status": "live",
+    "matchPeriod": "전반",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-10-11",
