@@ -664348,6 +664348,13 @@
           "m": 36,
           "pid": "espn:206616",
           "nat": "Argentina"
+        },
+        {
+          "n": "Iván Maggi",
+          "type": "Y",
+          "m": 85,
+          "pid": "espn:295851",
+          "nat": "Argentina"
         }
       ],
       "away": [
@@ -664570,7 +664577,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 0,
-    "matchPeriod": "전반 28'",
+    "matchPeriod": "전반 30'",
     "scorers": {
       "home": [],
       "away": [
@@ -664595,17 +664602,12 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 1,
-    "matchPeriod": "전반 28'",
+    "matchPeriod": "전반 30'",
     "scorers": {
       "home": [
         {
           "n": "수아레스",
-          "m": 3,
-          "a": "Germán Berterame",
-          "nat": "Uruguay",
-          "pid": "espn:125088",
-          "aNat": "Mexico",
-          "apid": "espn:228394"
+          "m": 3
         }
       ],
       "away": []
@@ -664625,7 +664627,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 0,
-    "matchPeriod": "전반 28'",
+    "matchPeriod": "전반 30'",
     "scorers": {
       "home": [],
       "away": [
@@ -664670,7 +664672,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 2,
-    "matchPeriod": "전반 28'",
+    "matchPeriod": "전반 30'",
     "scorers": {
       "home": [
         {
@@ -664743,7 +664745,19 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 28'",
+    "matchPeriod": "전반 30'",
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Teenage Hadebe",
+          "type": "Y",
+          "m": 2,
+          "pid": "espn:232755",
+          "nat": "Zimbabwe"
+        }
+      ]
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -664759,7 +664773,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 3,
-    "matchPeriod": "전반 28'",
+    "matchPeriod": "전반 31'",
     "scorers": {
       "home": [
         {
@@ -664792,6 +664806,18 @@
       ],
       "away": []
     },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Jeppe Tverskov",
+          "type": "Y",
+          "m": 30,
+          "pid": "espn:214371",
+          "nat": "Denmark"
+        }
+      ]
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -664806,8 +664832,29 @@
     "gameId": "1rzg9xuhluCyfeO",
     "status": "live",
     "awayScore": 0,
-    "homeScore": 0,
-    "matchPeriod": "전반 28'",
+    "homeScore": 1,
+    "matchPeriod": "전반 30'",
+    "scorers": {
+      "home": [
+        {
+          "n": "다미아니",
+          "m": 31
+        }
+      ],
+      "away": []
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Teenage Hadebe",
+          "type": "Y",
+          "m": 2,
+          "pid": "espn:232755",
+          "nat": "Zimbabwe"
+        }
+      ]
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -664867,11 +664914,25 @@
     "stadium": "프로그레시브 필드",
     "timeTbd": false,
     "gameId": "20261011CWCL0",
-    "status": "scheduled",
+    "status": "live",
     "awayPitcher": "션 버크",
     "homePitcher": "개빈 윌리엄스",
     "awayPitcherPid": "mlb:680732",
     "homePitcherPid": "mlb:668909",
+    "awayScore": 0,
+    "homeScore": 0,
+    "inningInfo": "1회초",
+    "liveState": {
+      "pitcher": "윌리엄스",
+      "batter": "틸",
+      "ball": 0,
+      "strike": 2,
+      "out": 2,
+      "bases": [],
+      "pitchCount": 5,
+      "pitcherPid": "mlb:675961",
+      "batterPid": "mlb:691019"
+    },
     "round": "ps_alds",
     "rn": 5,
     "serH": 2,
