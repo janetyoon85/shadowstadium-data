@@ -664730,15 +664730,15 @@
     "stadium": "뱅크 오브 아메리카 스타디움",
     "timeTbd": false,
     "gameId": "l8JOkNnLxhkmCUs",
-    "status": "live",
+    "status": "completed",
     "awayScore": 2,
     "homeScore": 3,
-    "matchPeriod": "후반 52'",
     "scorers": {
       "home": [
         {
           "n": "지오르노",
-          "m": 70
+          "m": 70,
+          "pid": "espn:340698"
         },
         {
           "n": "토폴로",
@@ -664746,17 +664746,20 @@
         },
         {
           "n": "지오르노",
-          "m": 90
+          "m": 90,
+          "pid": "espn:340698"
         }
       ],
       "away": [
         {
           "n": "패링턴",
-          "m": 22
+          "m": 22,
+          "pid": "espn:348870"
         },
         {
           "n": "무사",
-          "m": 64
+          "m": 64,
+          "pid": "espn:277128"
         }
       ]
     },
@@ -664795,7 +664798,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 4,
-    "matchPeriod": "후반 48'",
+    "matchPeriod": "후반 52'",
     "scorers": {
       "home": [
         {
@@ -664852,7 +664855,7 @@
     "status": "live",
     "awayScore": 3,
     "homeScore": 0,
-    "matchPeriod": "후반 48'",
+    "matchPeriod": "후반 51'",
     "scorers": {
       "home": [],
       "away": [
@@ -664921,33 +664924,37 @@
     "stadium": "인터코 스타디움",
     "timeTbd": false,
     "gameId": "S99SuNPY28pmbTX",
-    "status": "live",
+    "status": "completed",
     "awayScore": 2,
     "homeScore": 3,
-    "matchPeriod": "후반 49'",
     "scorers": {
       "home": [
         {
           "n": "사라지안",
-          "m": 1
+          "m": 1,
+          "pid": "espn:418358"
         },
         {
           "n": "그리에즈만",
-          "m": 16
+          "m": 16,
+          "pid": "espn:140416"
         },
         {
           "n": "앙굴로",
-          "m": 89
+          "m": 89,
+          "pid": "espn:250448"
         }
       ],
       "away": [
         {
           "n": "하브룬",
-          "m": 7
+          "m": 7,
+          "pid": "espn:362812"
         },
         {
           "n": "브라이스 멘데스",
-          "m": 53
+          "m": 53,
+          "pid": "espn:262729"
         }
       ]
     },
@@ -665011,10 +665018,9 @@
     "stadium": "메르세데스-벤츠 스타디움",
     "timeTbd": false,
     "gameId": "lHPk7WbfHeYGs60",
-    "status": "live",
+    "status": "completed",
     "awayScore": 3,
     "homeScore": 1,
-    "matchPeriod": "후반 53'",
     "scorers": {
       "home": [
         {
@@ -665112,8 +665118,8 @@
     "gameId": "ub2KelPTUIw97uw",
     "status": "live",
     "awayScore": 1,
-    "homeScore": 3,
-    "matchPeriod": "후반 47'",
+    "homeScore": 4,
+    "matchPeriod": "후반 49'",
     "scorers": {
       "home": [
         {
@@ -665142,6 +665148,15 @@
           "pid": "espn:329917",
           "aNat": "Ghana",
           "apid": "espn:362442"
+        },
+        {
+          "n": "추포-모팅",
+          "m": 90,
+          "a": "Matthew Dos Santos",
+          "nat": "Cameroon",
+          "pid": "espn:102254",
+          "aNat": "USA",
+          "apid": "espn:385287"
         }
       ],
       "away": [
@@ -665209,25 +665224,39 @@
     "stadium": "스바루 파크",
     "timeTbd": false,
     "gameId": "1rzg9xuhluCyfeO",
-    "status": "live",
+    "status": "completed",
     "awayScore": 1,
     "homeScore": 2,
-    "matchPeriod": "후반 50'",
     "scorers": {
       "home": [
         {
           "n": "다미아니",
-          "m": 31
+          "m": 31,
+          "a": "Frankie Westfield",
+          "nat": "Uruguay",
+          "pid": "espn:322680",
+          "aNat": "USA",
+          "apid": "espn:366034"
         },
         {
           "n": "일로스키",
-          "m": 81
+          "m": 81,
+          "a": "Cavan Sullivan",
+          "nat": "USA",
+          "pid": "espn:263585",
+          "aNat": "USA",
+          "apid": "espn:384397"
         }
       ],
       "away": [
         {
           "n": "로브자니쩨",
-          "m": 90
+          "m": 90,
+          "a": "Luc De Fougerolles",
+          "nat": "Georgia",
+          "pid": "espn:221128",
+          "aNat": "Canada",
+          "apid": "espn:365345"
         }
       ]
     },
@@ -665430,14 +665459,16 @@
     "inningInfo": "6회초",
     "liveState": {
       "pitcher": "윌리엄스",
-      "batter": "몽고메리",
-      "ball": 0,
+      "batter": "도일",
+      "ball": 2,
       "strike": 2,
-      "out": 0,
-      "bases": [],
-      "pitchCount": 73,
+      "out": 1,
+      "bases": [
+        1
+      ],
+      "pitchCount": 79,
       "pitcherPid": "mlb:675961",
-      "batterPid": "mlb:695657"
+      "batterPid": "mlb:686668"
     },
     "highlights": {
       "home": [
