@@ -1,0 +1,77 @@
+name: Team Rosters
+
+on:
+  schedule:
+    # 주 1회(일요일 21:10 UTC = 월요일 06:10 KST) — 선수단은 자주 안 바뀌어 충분. 약 7분 소요.
+    - cron: '10 21 * * 0'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: fetch-team-rosters
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Fetch team rosters
+        run: node scripts/fetch-team-rosters.mjs
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if [[ -n "$(git status --porcelain team-rosters)" ]]; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "changed=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add team-rosters
+          git commit -m "chore(data): 팀 로스터 갱신 ($(date +'%Y-%m-%d %H:%M'))"
+          for i in $(seq 1 20); do
+            if git push; then
+              exit 0
+            fi
+            echo "push rejected, rebasing onto origin/main and retrying ($i/20)"
+            if ! git pull --rebase origin main; then
+              git rebase --abort || true
+              git reset --hard origin/main
+              echo "conflict, dropping this run's result"
+              exit 1
+            fi
+            sleep $((RANDOM % 30 + 1))
+          done
+          echo "push failed after 20 retries"
+          exit 1
+
+      - name: Create issue on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const date = new Date().toISOString().split('T')[0];
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `🚨 Team rosters fetch failed - ${date}`,
+              body: `Team rosters crawler failed at ${date}.\n\nWorkflow run: ${context.runId}`,
+              labels: ['bug', 'crawler']
+            });
