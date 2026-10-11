@@ -664305,6 +664305,13 @@
           "m": 45,
           "pid": "espn:215564",
           "nat": "Argentina"
+        },
+        {
+          "n": "Tomás Adoryan",
+          "type": "Y",
+          "m": 85,
+          "pid": "espn:338907",
+          "nat": "Armenia"
         }
       ]
     }
@@ -664362,6 +664369,13 @@
           "type": "Y",
           "m": 33,
           "pid": "espn:268138",
+          "nat": "Paraguay"
+        },
+        {
+          "n": "Gastón Giménez",
+          "type": "Y",
+          "m": 81,
+          "pid": "espn:144509",
           "nat": "Paraguay"
         }
       ]
@@ -664501,7 +664515,7 @@
     "timeTbd": false,
     "gameId": "COLOMBIA_ESPN_401877899",
     "status": "live",
-    "matchPeriod": "전반",
+    "matchPeriod": "하프타임",
     "homeScore": 1,
     "awayScore": 1,
     "scorers": {
@@ -664545,6 +664559,13 @@
           "type": "Y",
           "m": 28,
           "pid": "espn:3099927"
+        },
+        {
+          "n": "Alejandro Bejarano",
+          "type": "Y",
+          "m": 32,
+          "pid": "espn:74247",
+          "nat": "Bolivia"
         }
       ]
     }
@@ -664562,7 +664583,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 0,
-    "matchPeriod": "전반 22'",
+    "matchPeriod": "전반 23'",
     "scorers": {
       "home": [],
       "away": [
@@ -664587,7 +664608,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 1,
-    "matchPeriod": "전반 22'",
+    "matchPeriod": "전반 24'",
     "scorers": {
       "home": [
         {
@@ -664617,7 +664638,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 0,
-    "matchPeriod": "전반 22'",
+    "matchPeriod": "전반 24'",
     "scorers": {
       "home": [],
       "away": [
@@ -664662,7 +664683,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 2,
-    "matchPeriod": "전반 22'",
+    "matchPeriod": "전반 24'",
     "scorers": {
       "home": [
         {
@@ -664728,7 +664749,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 22'",
+    "matchPeriod": "전반 24'",
     "phaseCode": "LEAGUE"
   },
   {
@@ -664744,7 +664765,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 2,
-    "matchPeriod": "전반 22'",
+    "matchPeriod": "전반 24'",
     "scorers": {
       "home": [
         {
@@ -664783,7 +664804,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 22'",
+    "matchPeriod": "전반 23'",
     "phaseCode": "LEAGUE"
   },
   {
@@ -664798,8 +664819,19 @@
     "gameId": "VENEZUELA_ESPN_401903443",
     "status": "live",
     "matchPeriod": "전반",
-    "homeScore": 0,
-    "awayScore": 0
+    "homeScore": 1,
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "Santiago Garcés Panameño",
+          "m": 29,
+          "og": true,
+          "pid": "espn:3119328"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-10-11",
@@ -664843,7 +664875,10 @@
     "stadium": "Estadio Monumental de Lima",
     "timeTbd": false,
     "gameId": "PERU_ESPN_401886179",
-    "status": "scheduled"
+    "status": "live",
+    "matchPeriod": "전반",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-10-11",
@@ -683723,7 +683758,8 @@
     "stadium": "",
     "timeTbd": true,
     "gameId": "ECUADOR_ESPN_401921373",
-    "status": "scheduled"
+    "status": "scheduled",
+    "phaseCode": "FR"
   },
   {
     "date": "2026-11-02",
@@ -683735,7 +683771,8 @@
     "stadium": "",
     "timeTbd": true,
     "gameId": "ECUADOR_ESPN_401921324",
-    "status": "scheduled"
+    "status": "scheduled",
+    "phaseCode": "FR"
   },
   {
     "date": "2026-11-02",
@@ -683747,7 +683784,8 @@
     "stadium": "",
     "timeTbd": true,
     "gameId": "ECUADOR_ESPN_401921328",
-    "status": "scheduled"
+    "status": "scheduled",
+    "phaseCode": "FR"
   },
   {
     "date": "2026-11-02",
@@ -683759,7 +683797,8 @@
     "stadium": "",
     "timeTbd": true,
     "gameId": "ECUADOR_ESPN_401921371",
-    "status": "scheduled"
+    "status": "scheduled",
+    "phaseCode": "FR"
   },
   {
     "date": "2026-11-02",
@@ -683771,7 +683810,8 @@
     "stadium": "",
     "timeTbd": true,
     "gameId": "ECUADOR_ESPN_401921370",
-    "status": "scheduled"
+    "status": "scheduled",
+    "phaseCode": "FR"
   },
   {
     "date": "2026-11-02",
@@ -683783,7 +683823,8 @@
     "stadium": "",
     "timeTbd": true,
     "gameId": "ECUADOR_ESPN_401921374",
-    "status": "scheduled"
+    "status": "scheduled",
+    "phaseCode": "FR"
   },
   {
     "date": "2026-11-02",
@@ -683795,7 +683836,8 @@
     "stadium": "",
     "timeTbd": true,
     "gameId": "ECUADOR_ESPN_401921372",
-    "status": "scheduled"
+    "status": "scheduled",
+    "phaseCode": "FR"
   },
   {
     "date": "2026-11-02",
@@ -683807,7 +683849,8 @@
     "stadium": "",
     "timeTbd": true,
     "gameId": "ECUADOR_ESPN_401921345",
-    "status": "scheduled"
+    "status": "scheduled",
+    "phaseCode": "FR"
   },
   {
     "date": "2026-11-02",
@@ -690022,7 +690065,8 @@
     "stadium": "",
     "timeTbd": true,
     "gameId": "ECUADOR_ESPN_401921321",
-    "status": "scheduled"
+    "status": "scheduled",
+    "phaseCode": "FR"
   },
   {
     "date": "2026-11-09",
@@ -690034,7 +690078,8 @@
     "stadium": "",
     "timeTbd": true,
     "gameId": "ECUADOR_ESPN_401921322",
-    "status": "scheduled"
+    "status": "scheduled",
+    "phaseCode": "FR"
   },
   {
     "date": "2026-11-09",
@@ -690046,7 +690091,8 @@
     "stadium": "",
     "timeTbd": true,
     "gameId": "ECUADOR_ESPN_401921367",
-    "status": "scheduled"
+    "status": "scheduled",
+    "phaseCode": "FR"
   },
   {
     "date": "2026-11-09",
@@ -690058,7 +690104,8 @@
     "stadium": "",
     "timeTbd": true,
     "gameId": "ECUADOR_ESPN_401921323",
-    "status": "scheduled"
+    "status": "scheduled",
+    "phaseCode": "FR"
   },
   {
     "date": "2026-11-09",
@@ -690070,7 +690117,8 @@
     "stadium": "",
     "timeTbd": true,
     "gameId": "ECUADOR_ESPN_401921368",
-    "status": "scheduled"
+    "status": "scheduled",
+    "phaseCode": "FR"
   },
   {
     "date": "2026-11-09",
@@ -690082,7 +690130,8 @@
     "stadium": "",
     "timeTbd": true,
     "gameId": "ECUADOR_ESPN_401921366",
-    "status": "scheduled"
+    "status": "scheduled",
+    "phaseCode": "FR"
   },
   {
     "date": "2026-11-09",
@@ -690094,7 +690143,8 @@
     "stadium": "",
     "timeTbd": true,
     "gameId": "ECUADOR_ESPN_401921365",
-    "status": "scheduled"
+    "status": "scheduled",
+    "phaseCode": "FR"
   },
   {
     "date": "2026-11-09",
@@ -690106,7 +690156,8 @@
     "stadium": "",
     "timeTbd": true,
     "gameId": "ECUADOR_ESPN_401921369",
-    "status": "scheduled"
+    "status": "scheduled",
+    "phaseCode": "FR"
   },
   {
     "date": "2026-11-09",
