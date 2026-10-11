@@ -666296,11 +666296,25 @@
     "stadium": "대구",
     "timeTbd": false,
     "gameId": "20261011KTSS02026",
-    "status": "scheduled",
+    "status": "live",
     "awayPitcher": "고영표",
     "homePitcher": "후라도",
     "awayPitcherPid": "kbo:p:64001",
-    "homePitcherPid": "kbo:b:53375"
+    "homePitcherPid": "kbo:b:53375",
+    "awayScore": 0,
+    "homeScore": 0,
+    "inningInfo": "1회초",
+    "liveState": {
+      "pitcher": "후라도",
+      "pitcherPid": "kbo:p:53375",
+      "batter": "김민혁",
+      "batterPid": "kbo:b:64004",
+      "ball": 0,
+      "strike": 1,
+      "out": 1,
+      "bases": [],
+      "pitchCount": 3
+    }
   },
   {
     "date": "2026-10-11",
@@ -666312,11 +666326,25 @@
     "stadium": "광주",
     "timeTbd": false,
     "gameId": "20261011LTHT02026",
-    "status": "scheduled",
+    "status": "live",
     "awayPitcher": "김진욱",
     "homePitcher": "올러",
     "awayPitcherPid": "kbo:p:51516",
-    "homePitcherPid": "kbo:b:55633"
+    "homePitcherPid": "kbo:b:55633",
+    "awayScore": 0,
+    "homeScore": 0,
+    "inningInfo": "1회초",
+    "liveState": {
+      "pitcher": "올러",
+      "pitcherPid": "kbo:p:55633",
+      "batter": "레이예스",
+      "batterPid": "kbo:b:54529",
+      "ball": 2,
+      "strike": 2,
+      "out": 0,
+      "bases": [],
+      "pitchCount": 4
+    }
   },
   {
     "date": "2026-10-11",
@@ -666328,7 +666356,10 @@
     "stadium": "광주 월드컵",
     "timeTbd": false,
     "gameId": "202610112201186",
-    "status": "scheduled"
+    "status": "live",
+    "awayScore": 0,
+    "homeScore": 0,
+    "matchPeriod": "전반 3'"
   },
   {
     "date": "2026-10-11",
@@ -666340,7 +666371,10 @@
     "stadium": "수원 월드컵",
     "timeTbd": false,
     "gameId": "202610110232224",
-    "status": "scheduled"
+    "status": "live",
+    "awayScore": 0,
+    "homeScore": 0,
+    "matchPeriod": "전반 3'"
   },
   {
     "date": "2026-10-11",
@@ -666352,11 +666386,25 @@
     "stadium": "베루나 돔",
     "timeTbd": false,
     "gameId": "20261011NHSE0",
-    "status": "scheduled",
+    "status": "live",
     "awayPitcher": "타츠",
     "homePitcher": "다카하시",
     "awayPitcherPid": "npb:2050307",
     "homePitcherPid": "npb:1700078",
+    "awayScore": 0,
+    "homeScore": 0,
+    "inningInfo": "1회초",
+    "liveState": {
+      "pitcher": "다카하시",
+      "batter": "기요미야",
+      "pitcherPid": "npb:1400182",
+      "batterPid": "npb:1700025",
+      "ball": 1,
+      "strike": 0,
+      "out": 1,
+      "bases": [],
+      "pitchCount": 1
+    },
     "round": "ps_plcs_first",
     "rn": 2,
     "serH": 1,
@@ -666372,11 +666420,36 @@
     "stadium": "도쿄 돔",
     "timeTbd": false,
     "gameId": "20261011YKYO0",
-    "status": "scheduled",
+    "status": "live",
     "awayPitcher": "이시다",
     "homePitcher": "타케마루",
     "awayPitcherPid": "npb:1400110",
     "homePitcherPid": "npb:2118993",
+    "awayScore": 1,
+    "homeScore": 0,
+    "inningInfo": "1회초",
+    "liveState": {
+      "pitcher": "타케마루",
+      "batter": "와타라이",
+      "pitcherPid": "npb:2118993",
+      "batterPid": "npb:1850873",
+      "ball": 1,
+      "strike": 1,
+      "out": 0,
+      "bases": [],
+      "pitchCount": 3
+    },
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "홈런",
+          "text": "와타라이",
+          "player": "와타라이",
+          "pid": "npb:1850873"
+        }
+      ]
+    },
     "round": "ps_clcs_first",
     "rn": 2,
     "serH": 0,
