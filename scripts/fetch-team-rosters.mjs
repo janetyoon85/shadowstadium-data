@@ -70,14 +70,55 @@ function matchKo(byEn, team, inLeague) {
   return found.size ? narrow(found) : null;
 }
 
+// MLB 30개 구단(StatsAPI 팀 id → 앱 한글 팀명). 키는 '<팀>|baseball'(축구와 이름이 겹치지 않게). 40인 로스터(부상자 포함).
+const MLB_TEAMS = { 109: '애리조나', 144: '애틀랜타', 110: '볼티모어', 111: '보스턴', 112: '시카고컵스', 145: '시카고W', 113: '신시내티', 114: '클리블랜드', 115: '콜로라도', 116: '디트로이트', 117: '휴스턴', 118: '캔자스시티', 108: 'LA에인절스', 119: 'LA다저스', 146: '마이애미', 158: '밀워키', 142: '미네소타', 121: '뉴욕메츠', 147: '뉴욕양키스', 133: '애슬레틱스', 143: '필라델피아', 134: '피츠버그', 135: '샌디에이고', 137: '샌프란시스코', 136: '시애틀', 138: '세인트루이스', 139: '탬파베이', 140: '텍사스', 141: '토론토', 120: '워싱턴' };
+async function fetchMlbRosters(rosters) {
+  let n = 0;
+  for (const [id, ko] of Object.entries(MLB_TEAMS)) {
+    const r = await getJson(`https://statsapi.mlb.com/api/v1/teams/${id}/roster?rosterType=40Man`);
+    await sleep(DELAY_MS);
+    const list = (r?.roster || []).filter((x) => x?.person?.id && x.person.fullName).map((x) => ({
+      id: `mlb:${x.person.id}`, n: x.person.fullName,
+      ...(x.position?.abbreviation ? { pos: x.position.abbreviation } : {}),
+      ...(x.jerseyNumber ? { no: String(x.jerseyNumber) } : {}),
+    }));
+    if (list.length) { rosters[`${ko}|baseball`] = list; n++; }
+  }
+  console.log(`[rosters] MLB teams=${n}`);
+}
+// NBA·WNBA(ESPN 농구) — 앱 농구 팀 키가 'espn:NBA:<ESPN 팀 id>' 라 id 로 바로 연결. 키는 'bk:<팀키>'. 헤드샷 주소(ph)도 함께 저장(농구 로스터는 실제로 열린다).
+async function fetchBasketballRosters(rosters) {
+  let n = 0;
+  for (const [league, slug] of [['NBA', 'nba'], ['WNBA', 'wnba']]) {
+    const t = await getJson(`https://site.api.espn.com/apis/site/v2/sports/basketball/${slug}/teams`);
+    await sleep(DELAY_MS);
+    const teams = t?.sports?.[0]?.leagues?.[0]?.teams?.map((x) => x.team) || [];
+    for (const tm of teams) {
+      const r = await getJson(`https://site.api.espn.com/apis/site/v2/sports/basketball/${slug}/teams/${tm.id}/roster`);
+      await sleep(DELAY_MS);
+      const list = (Array.isArray(r?.athletes) ? r.athletes : []).filter((x) => x?.id && x.fullName).map((x) => ({
+        id: `espnbk:${slug}:${x.id}`, n: x.fullName,
+        ...(x.position?.abbreviation ? { pos: x.position.abbreviation } : {}),
+        ...(x.jersey ? { no: String(x.jersey) } : {}),
+        ...(x.headshot?.href ? { ph: x.headshot.href } : {}),
+      }));
+      if (list.length) { rosters[`bk:espn:${league}:${tm.id}`] = list; n++; }
+    }
+  }
+  console.log(`[rosters] basketball teams=${n}`);
+}
+
 async function main() {
   const byEn = await buildLookup();
   const slugs = await domesticSlugs();
   const leagueNames = await leagueTeamNames();
   const rosters = {};
+  // 기존 샤드를 먼저 읽어 두고(이번 실행에서 못 받은 팀·축구를 건너뛴 부분 실행에서도 보존), 받은 팀만 덮어쓴다.
+  try { for (const f of await fs.readdir(OUT_DIR)) if (f.endsWith('.json')) Object.assign(rosters, JSON.parse(await fs.readFile(path.join(OUT_DIR, f), 'utf8'))); } catch { /* 첫 실행 */ }
+  const SKIP_SOCCER = !!process.env.ROSTER_SKIP_SOCCER;
   const unmatched = [];
   let teamCount = 0;
-  for (const { slug, code } of slugs) {
+  for (const { slug, code } of (SKIP_SOCCER ? [] : slugs)) {
     const t = await getJson(`https://site.api.espn.com/apis/site/v2/sports/soccer/${slug}/teams`);
     await sleep(DELAY_MS);
     const teams = t?.sports?.[0]?.leagues?.[0]?.teams?.map((x) => x.team) || [];
@@ -108,6 +149,8 @@ async function main() {
     }
     console.log(`[rosters] ${slug} teams=${teams.length} total=${Object.keys(rosters).length}`);
   }
+  await fetchMlbRosters(rosters);
+  await fetchBasketballRosters(rosters);
   await fs.mkdir(OUT_DIR, { recursive: true });
   const shards = Array.from({ length: 16 }, () => ({}));
   for (const [ko, list] of Object.entries(rosters)) shards[parseInt(shardOf(ko), 16)][ko] = list;
