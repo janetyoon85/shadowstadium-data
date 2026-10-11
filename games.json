@@ -669604,13 +669604,19 @@
     "gameId": "NORWAY_ESPN_401843457",
     "status": "live",
     "matchPeriod": "후반",
-    "homeScore": 1,
+    "homeScore": 2,
     "awayScore": 4,
     "scorers": {
       "home": [
         {
           "n": "Elias Hagen",
           "m": 70,
+          "nat": "Norway",
+          "pid": "espn:290110"
+        },
+        {
+          "n": "Elias Hagen",
+          "m": 74,
           "nat": "Norway",
           "pid": "espn:290110"
         }
@@ -669995,7 +670001,7 @@
     "gameId": "TURKEY_ESPN_401888279",
     "status": "live",
     "matchPeriod": "전반",
-    "homeScore": 1,
+    "homeScore": 2,
     "awayScore": 1,
     "scorers": {
       "home": [
@@ -670004,6 +670010,13 @@
           "m": 18,
           "nat": "Türkiye",
           "pid": "espn:272700"
+        },
+        {
+          "n": "Dusan Vlahovic",
+          "m": 31,
+          "pk": true,
+          "nat": "Serbia",
+          "pid": "espn:235677"
         }
       ],
       "away": [
@@ -670012,6 +670025,18 @@
           "m": 27,
           "nat": "Angola",
           "pid": "espn:272027"
+        }
+      ]
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Tayfur Bingöl",
+          "type": "Y",
+          "m": 29,
+          "pid": "espn:261307",
+          "nat": "Türkiye"
         }
       ]
     }
