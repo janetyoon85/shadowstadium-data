@@ -672110,10 +672110,18 @@
     "gameId": "ARGENTINA_ESPN_401841605",
     "status": "live",
     "matchPeriod": "후반",
-    "homeScore": 0,
+    "homeScore": 1,
     "awayScore": 1,
     "scorers": {
-      "home": [],
+      "home": [
+        {
+          "n": "Franco Zapiola",
+          "m": 70,
+          "pk": true,
+          "nat": "Argentina",
+          "pid": "espn:322911"
+        }
+      ],
       "away": [
         {
           "n": "Diego Porcel",
@@ -672299,13 +672307,28 @@
       ]
     },
     "cards": {
-      "home": [],
+      "home": [
+        {
+          "n": "Manuel Granados",
+          "type": "Y",
+          "m": 69,
+          "pid": "espn:123495",
+          "nat": "Venezuela"
+        }
+      ],
       "away": [
         {
           "n": "Robinson Flores",
           "type": "Y",
           "m": 59,
           "pid": "espn:316197",
+          "nat": "Venezuela"
+        },
+        {
+          "n": "Gustavo González",
+          "type": "Y",
+          "m": 70,
+          "pid": "espn:193480",
           "nat": "Venezuela"
         }
       ]
@@ -672668,8 +672691,11 @@
     "stadium": "Rodrigo Paz Delgado",
     "timeTbd": false,
     "gameId": "ECUADOR_ESPN_401921350",
-    "status": "scheduled",
-    "phaseCode": "FR"
+    "status": "live",
+    "phaseCode": "FR",
+    "matchPeriod": "전반",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-10-12",
@@ -672693,7 +672719,10 @@
     "stadium": "Estadio Olímpico de la UCV",
     "timeTbd": false,
     "gameId": "VENEZUELA_ESPN_401903441",
-    "status": "scheduled"
+    "status": "live",
+    "matchPeriod": "전반",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-10-12",
