@@ -666360,15 +666360,15 @@
     "liveState": {
       "pitcher": "오원석",
       "pitcherPid": "kbo:p:50859",
-      "batter": "윤정빈",
-      "batterPid": "kbo:b:68463",
-      "ball": 0,
+      "batter": "박계범",
+      "batterPid": "kbo:b:64468",
+      "ball": 1,
       "strike": 0,
-      "out": 1,
+      "out": 2,
       "bases": [
         1
       ],
-      "pitchCount": 8
+      "pitchCount": 13
     },
     "highlights": {
       "home": [
@@ -666472,47 +666472,55 @@
       "home": [
         {
           "how": "2루타",
-          "text": "카스트로 중견수 뒤 2루타",
+          "text": "카스트로(9회)",
           "player": "카스트로",
-          "inn": "9회말",
           "pid": "kbo:b:56626"
+        },
+        {
+          "how": "도루자",
+          "text": "나성범(4회)",
+          "player": "나성범",
+          "pid": "kbo:b:62947"
         }
       ],
       "away": [
         {
-          "how": "2루타",
-          "text": "레이예스 좌익수 왼쪽 2루타",
-          "player": "레이예스",
-          "inn": "1회초",
-          "pid": "kbo:b:54529"
-        },
-        {
-          "how": "병살타",
-          "text": "한동희 2루수 병살타 아웃 (2루수->유격수->1루수 송구아웃)",
+          "how": "결승타",
+          "text": "한동희(6회 2사 만루서 중월 홈런)",
           "player": "한동희",
-          "inn": "1회초",
           "pid": "kbo:b:68525"
         },
         {
-          "how": "도루",
-          "text": "장두성 도루실패아웃 (포수->2루수 태그아웃)",
+          "how": "홈런",
+          "text": "한동희24호(6회4점 올러)",
+          "player": "한동희",
+          "pitcher": "올러",
+          "pid": "kbo:b:68525",
+          "pitcherPid": "kbo:p:55633"
+        },
+        {
+          "how": "2루타",
+          "text": "레이예스(1회)",
+          "player": "레이예스",
+          "pid": "kbo:b:54529"
+        },
+        {
+          "how": "도루자",
+          "text": "장두성(3회)",
           "player": "장두성",
-          "inn": "3회초",
           "pid": "kbo:b:68507"
         },
         {
           "how": "병살타",
-          "text": "전준우 2루수 병살타 아웃 (2루수->유격수->1루수 송구아웃)",
-          "player": "전준우",
-          "inn": "5회초",
-          "pid": "kbo:b:78513"
+          "text": "한동희(1회)",
+          "player": "한동희",
+          "pid": "kbo:b:68525"
         },
         {
-          "how": "홈런",
-          "text": "한동희 중견수 뒤 홈런 (홈런거리:125M)",
-          "player": "한동희",
-          "inn": "6회초",
-          "pid": "kbo:b:68525"
+          "how": "병살타",
+          "text": "전준우(5회)",
+          "player": "전준우",
+          "pid": "kbo:b:78513"
         }
       ]
     }
@@ -666643,7 +666651,7 @@
         },
         {
           "n": "조지훈",
-          "m": 61,
+          "m": 60,
           "og": true,
           "pid": "naver:20110029"
         }
@@ -666651,7 +666659,7 @@
       "away": [
         {
           "n": "류승완",
-          "m": 68,
+          "m": 67,
           "pid": "naver:20240321"
         }
       ]
@@ -666706,14 +666714,14 @@
     "inningInfo": "9회초",
     "liveState": {
       "pitcher": "사토",
-      "batter": "만나미",
+      "batter": "다미야",
       "pitcherPid": "npb:2103714",
-      "batterPid": "npb:1800093",
-      "ball": 3,
-      "strike": 0,
-      "out": 1,
+      "batterPid": "npb:1800095",
+      "ball": 1,
+      "strike": 1,
+      "out": 2,
       "bases": [],
-      "pitchCount": 5
+      "pitchCount": 10
     },
     "round": "ps_plcs_first",
     "rn": 2,
@@ -666740,13 +666748,14 @@
     "inningInfo": "9회말",
     "liveState": {
       "pitcher": "레이놀즈",
-      "batter": "달벡",
+      "batter": "나카야마",
       "pitcherPid": "npb:2117433",
-      "batterPid": "npb:1561820",
+      "batterPid": "npb:2000007",
       "ball": 1,
       "strike": 2,
-      "out": 0,
-      "bases": []
+      "out": 1,
+      "bases": [],
+      "pitchCount": 11
     },
     "highlights": {
       "home": [
@@ -666857,10 +666866,9 @@
     "stadium": "카사마츠 스타디움",
     "timeTbd": false,
     "gameId": "aDdnEutRP54VaPc",
-    "status": "live",
+    "status": "completed",
     "awayScore": 2,
     "homeScore": 1,
-    "matchPeriod": "후반 51'",
     "scorers": {
       "home": [
         {
