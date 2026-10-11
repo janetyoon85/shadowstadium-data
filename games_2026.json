@@ -672529,7 +672529,7 @@
     "stadium": "Arena do Grêmio",
     "timeTbd": false,
     "gameId": "BRASILEIRAO_ESPN_401841267",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 1,
     "awayScore": 1,
@@ -672684,10 +672684,10 @@
     "stadium": "Estadio Municipal Alcaldesa Ester Roa Rebolledo",
     "timeTbd": false,
     "gameId": "CHILE_ESPN_401850667",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 1,
-    "awayScore": 0,
+    "awayScore": 1,
     "cards": {
       "home": [
         {
@@ -672702,6 +672702,13 @@
           "type": "Y",
           "m": 28,
           "pid": "espn:222007",
+          "nat": "Chile"
+        },
+        {
+          "n": "Ariel Cáceres",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:274876",
           "nat": "Chile"
         }
       ],
@@ -672738,7 +672745,14 @@
           "pid": "espn:289077"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Cristopher Díaz",
+          "m": 90,
+          "nat": "Chile",
+          "pid": "espn:186784"
+        }
+      ]
     }
   },
   {
@@ -672754,7 +672768,7 @@
     "status": "live",
     "matchPeriod": "후반",
     "homeScore": 1,
-    "awayScore": 2,
+    "awayScore": 3,
     "scorers": {
       "home": [
         {
@@ -672776,6 +672790,12 @@
           "m": 68,
           "nat": "Peru",
           "pid": "espn:330672"
+        },
+        {
+          "n": "Guillermo Larios",
+          "m": 90,
+          "nat": "Peru",
+          "pid": "espn:316524"
         }
       ]
     },
