@@ -190,6 +190,14 @@ const WF = {
   'fcm-player-alerts': 30, 'fcm-reminders': 30, 'fetch-basketball': 45,
   'backfill-player-photos': 180, 'backfill-player-ko-names': 120, 'backfill-cheer-songs': 720,
   'fetch-basketball-stats': 180, 'backfill-basketball-players': 180, 'backfill-basketball-wikidata': 180,
+  // 자동 수집 전부 감시(2026-10-12 "자동으로 가져오는 건 모두 크론잡에 등록해 운영 알럿에 추가") — 값은 cron-job.org 주기의 3~4배 이상(성공 실행 기준, 변경 없는 실행도 성공으로 센다).
+  'fetch-espn-olympic-football': 45, 'fetch-mlb-aaa-baseball': 45, 'fetch-mlb-winter-baseball': 45,
+  'fetch-asiangames-baseball': 45, 'fetch-asiangames-football': 45,
+  'fetch-highlight-videos': 90, 'fetch-standings': 180, 'fetch-espn-standings': 180,
+  'backfill-team-info': 180, 'backfill-team-info-i18n': 180, 'backfill-venue-info': 180, 'backfill-venue-photos': 180,
+  'backfill-team-logos': 180, 'backfill-trophy-photos': 180, 'fetch-wbsc-baseball': 540, 'fetch-espn-baseball': 1500,
+  'check-future-editions': 1800, 'backfill-report': 480,
+  'fetch-team-rosters': 1800, 'backfill-roster-photos': 400, // 선수단 매일 / 사진 보충 3시간(실행 30분+대기열 여유)
 };
 {
   const repo = process.env.GITHUB_REPOSITORY || 'janetyoon85/shadowstadium-data';
