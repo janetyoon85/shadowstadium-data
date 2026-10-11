@@ -673251,7 +673251,7 @@
     "stadium": "Estadio Olímpico de la UCV",
     "timeTbd": false,
     "gameId": "VENEZUELA_ESPN_401903441",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 4,
     "awayScore": 1,
@@ -673388,7 +673388,7 @@
     "timeTbd": false,
     "gameId": "ARGENTINA_ESPN_401841604",
     "status": "live",
-    "matchPeriod": "하프타임",
+    "matchPeriod": "후반",
     "homeScore": 0,
     "awayScore": 1,
     "cards": {
@@ -673447,7 +673447,7 @@
     "timeTbd": false,
     "gameId": "PARAGUAY_ESPN_401888657",
     "status": "live",
-    "matchPeriod": "하프타임",
+    "matchPeriod": "후반",
     "homeScore": 1,
     "awayScore": 1,
     "scorers": {
@@ -673554,7 +673554,7 @@
     "gameId": "COSTARICA_ESPN_401876846",
     "status": "live",
     "matchPeriod": "전반",
-    "homeScore": 0,
+    "homeScore": 1,
     "awayScore": 0
   },
   {
@@ -673569,8 +673569,19 @@
     "gameId": "LIGAMX_ESPN_401876948",
     "status": "live",
     "matchPeriod": "전반",
-    "homeScore": 0,
-    "awayScore": 0
+    "homeScore": 1,
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "Oscar Macías",
+          "m": 19,
+          "nat": "Mexico",
+          "pid": "espn:259819"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-10-12",
@@ -673585,7 +673596,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 2,
-    "matchPeriod": "전반 8'",
+    "matchPeriod": "전반 10'",
     "scorers": {
       "home": [
         {
@@ -673602,7 +673613,9 @@
           "m": 7,
           "a": "Rafael Navarro",
           "nat": "Denmark",
-          "pid": "espn:255313"
+          "pid": "espn:255313",
+          "aNat": "Brazil",
+          "apid": "espn:288791"
         }
       ],
       "away": []
@@ -673622,7 +673635,19 @@
     "status": "live",
     "matchPeriod": "전반",
     "homeScore": 0,
-    "awayScore": 0
+    "awayScore": 0,
+    "cards": {
+      "home": [
+        {
+          "n": "Cristian Mosquera",
+          "type": "Y",
+          "m": 9,
+          "pid": "espn:345702",
+          "nat": "Colombia"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-10-12",
