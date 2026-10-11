@@ -2,8 +2,8 @@ name: Team Rosters
 
 on:
   schedule:
-    # 주 1회(일요일 21:10 UTC = 월요일 06:10 KST) — 선수단은 자주 안 바뀌어 충분. 약 7분 소요.
-    - cron: '10 21 * * 0'
+    # 매일 21:10 UTC(= 06:10 KST) — 이적·번호 변경을 하루 안에 반영. 사진 보충(3시간 주기)과 같은 concurrency 그룹이라 겹치면 순서대로 돈다.
+    - cron: '10 21 * * *'
   workflow_dispatch:
 
 permissions:
