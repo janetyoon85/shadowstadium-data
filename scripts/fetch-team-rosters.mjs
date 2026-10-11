@@ -159,13 +159,22 @@ async function koLabelsFor(titles) {
     for (const t of chunk) { let k = norm.get(t) ?? t; k = redir.get(k) ?? k; const q = byTitle.get(k); if (q) qOf.set(t, q); }
   }
   const labels = new Map();
+  const images = new Map(); // Q → Commons 파일명(P18)
   const qs = [...new Set(qOf.values())];
   for (let i = 0; i < qs.length; i += 50) {
-    const j = await wikiGet('https://www.wikidata.org/w/api.php?' + new URLSearchParams({ action: 'wbgetentities', format: 'json', props: 'labels', languages: 'ko', ids: qs.slice(i, i + 50).join('|') }));
+    // 한글 라벨 + 대표 사진(P18, Commons 파일명)을 한 번에 — 선수 사진이 부족하다는 요청(2026-10-11)으로 추가.
+    const j = await wikiGet('https://www.wikidata.org/w/api.php?' + new URLSearchParams({ action: 'wbgetentities', format: 'json', props: 'labels|claims', languages: 'ko', ids: qs.slice(i, i + 50).join('|') }));
     await sleep(DELAY_MS);
-    for (const [q, e] of Object.entries(j?.entities || {})) if (e?.labels?.ko?.value) labels.set(q, e.labels.ko.value);
+    for (const [q, e] of Object.entries(j?.entities || {})) {
+      if (e?.labels?.ko?.value) labels.set(q, e.labels.ko.value);
+      const p18 = e?.claims?.P18?.[0]?.mainsnak?.datavalue?.value;
+      if (typeof p18 === 'string' && /\.(jpe?g|png)$/i.test(p18)) images.set(q, p18);
+    }
   }
-  return (title) => labels.get(qOf.get(title));
+  const photoUrl = (title) => { const f = images.get(qOf.get(title)); return f ? `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(f.replace(/ /g, '_'))}?width=200` : undefined; };
+  const lab = (title) => labels.get(qOf.get(title));
+  lab.photo = photoUrl;
+  return lab;
 }
 async function fetchWikiSquads(rosters) {
   const info = {};
@@ -189,11 +198,47 @@ async function fetchWikiSquads(rosters) {
     rosters[key] = squad.slice(0, 45).map((x, i) => ({
       id: `wk:${key}:${x.no || i}`, n: x.n,
       ...(ko(x.title) ? { k: ko(x.title) } : {}),
+      ...(ko.photo(x.title) ? { ph: ko.photo(x.title) } : {}),
       ...(x.pos ? { pos: x.pos } : {}), ...(x.no ? { no: x.no } : {}), ...(x.nat ? { nat: x.nat } : {}),
     }));
     n++;
   }
   console.log(`[rosters] wiki squads teams=${n} (targets=${targets.size})`);
+}
+
+// ESPN 축구 선수는 헤드샷이 없다(2026-10-11 "선수단 사진이 너무 없다") — 클럽 영문 위키 현재 선수단의 Wikidata P18 사진을 이름으로 맞춰 ph 로 붙인다.
+// 이름 매칭: 악센트 제거·소문자 풀네임 일치, 아니면 성(마지막 토큰)+이름 첫 글자 일치가 팀 내 유일할 때만(동명이인 오매칭보다 빈 칸이 낫다).
+const normName = (s) => String(s).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z\s-]/g, ' ').replace(/\s+/g, ' ').trim();
+async function enrichEspnPhotos(rosters) {
+  const info = {};
+  for (const f of await fs.readdir(path.join(REPO_ROOT, 'team-info'))) if (/^[0-9a-f]\.json$/.test(f)) Object.assign(info, JSON.parse(await fs.readFile(path.join(REPO_ROOT, 'team-info', f), 'utf8')));
+  let teams = 0, added = 0;
+  for (const [key, list] of Object.entries(rosters)) {
+    if (!list.length || !String(list[0].id).startsWith('espn:')) continue;
+    if (list.every((p) => p.ph)) continue;
+    const wiki = info[key]?.wiki;
+    if (!wiki || /national/i.test(wiki)) continue;
+    const j = await wikiGet('https://en.wikipedia.org/w/api.php?' + new URLSearchParams({ action: 'parse', format: 'json', formatversion: '2', redirects: '1', prop: 'wikitext', page: wiki }));
+    await sleep(DELAY_MS);
+    const squad = parseSquad(j?.parse?.wikitext || '');
+    if (squad.length < 8) continue;
+    const ko = await koLabelsFor(squad.map((x) => x.title));
+    const ws = squad.map((x) => ({ norm: normName(x.n), ph: ko.photo(x.title) })).filter((x) => x.ph && x.norm);
+    if (!ws.length) continue;
+    teams++;
+    for (const p of list) {
+      if (p.ph) continue;
+      const nn = normName(p.n);
+      if (!nn) continue;
+      let hit = ws.filter((w) => w.norm === nn);
+      if (hit.length !== 1) {
+        const parts = nn.split(' '); const last = parts[parts.length - 1]; const first = parts[0][0];
+        hit = ws.filter((w) => { const q = w.norm.split(' '); return q[q.length - 1] === last && q[0][0] === first; });
+      }
+      if (hit.length === 1) { p.ph = hit[0].ph; added++; }
+    }
+  }
+  console.log(`[rosters] espn photo enrich teams=${teams} photos+=${added}`);
 }
 
 async function main() {
@@ -240,6 +285,7 @@ async function main() {
   await fetchMlbRosters(rosters);
   await fetchWikiSquads(rosters);
   await fetchBasketballRosters(rosters);
+  await enrichEspnPhotos(rosters);
   await fs.mkdir(OUT_DIR, { recursive: true });
   const shards = Array.from({ length: 16 }, () => ({}));
   for (const [ko, list] of Object.entries(rosters)) shards[parseInt(shardOf(ko), 16)][ko] = list;
