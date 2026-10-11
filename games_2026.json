@@ -673638,7 +673638,18 @@
     "status": "live",
     "matchPeriod": "전반",
     "homeScore": 1,
-    "awayScore": 0
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "John Jairo Ruiz",
+          "m": 35,
+          "nat": "Costa Rica",
+          "pid": "espn:190944"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-10-12",
@@ -673686,7 +673697,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 3,
-    "matchPeriod": "전반 32'",
+    "matchPeriod": "전반 33'",
     "scorers": {
       "home": [
         {
@@ -673720,7 +673731,12 @@
       "away": [
         {
           "n": "테일러",
-          "m": 31
+          "m": 31,
+          "a": "Erik Thommy",
+          "nat": "Finland",
+          "pid": "espn:237823",
+          "aNat": "Germany",
+          "apid": "espn:199926"
         }
       ]
     },
@@ -673823,7 +673839,7 @@
     "gameId": "ELSALVADOR_ESPN_401899664",
     "status": "live",
     "matchPeriod": "전반",
-    "homeScore": 0,
+    "homeScore": 1,
     "awayScore": 0
   },
   {
@@ -673851,7 +673867,20 @@
     "stadium": "Surprise Stadium",
     "timeTbd": false,
     "gameId": "AFL_MLBSTATS_867707",
-    "status": "scheduled"
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0,
+    "inningInfo": "1회초",
+    "liveState": {
+      "pitcher": "Peyton Prescott",
+      "batter": "Tate Southisene",
+      "pitcherPid": "mlb:807290",
+      "batterPid": "mlb:816111",
+      "ball": 0,
+      "strike": 0,
+      "out": 0,
+      "bases": []
+    }
   },
   {
     "date": "2026-10-12",
