@@ -672064,6 +672064,13 @@
           "m": 62,
           "pid": "espn:355525",
           "nat": "Portugal"
+        },
+        {
+          "n": "Taichi Fukui",
+          "type": "Y",
+          "m": 81,
+          "pid": "espn:316899",
+          "nat": "Japan"
         }
       ],
       "away": [
@@ -672149,7 +672156,7 @@
     "gameId": "ARGENTINA_ESPN_401841602",
     "status": "live",
     "matchPeriod": "후반",
-    "homeScore": 2,
+    "homeScore": 3,
     "awayScore": 0,
     "scorers": {
       "home": [
@@ -672165,6 +672172,12 @@
           "m": 51,
           "nat": "Colombia",
           "pid": "espn:255295"
+        },
+        {
+          "n": "Ángel Di María",
+          "m": 57,
+          "nat": "Argentina",
+          "pid": "espn:108223"
         }
       ],
       "away": []
@@ -672252,7 +672265,30 @@
     "status": "live",
     "matchPeriod": "후반",
     "homeScore": 0,
-    "awayScore": 0
+    "awayScore": 1,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "Robinson Flores",
+          "m": 61,
+          "nat": "Venezuela",
+          "pid": "espn:316197"
+        }
+      ]
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Robinson Flores",
+          "type": "Y",
+          "m": 59,
+          "pid": "espn:316197",
+          "nat": "Venezuela"
+        }
+      ]
+    }
   },
   {
     "date": "2026-10-12",
@@ -672278,6 +672314,18 @@
           "pid": "espn:217573"
         }
       ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "David Guevara",
+          "type": "Y",
+          "m": 59,
+          "pid": "espn:361153",
+          "nat": "Venezuela"
+        }
+      ],
+      "away": []
     }
   },
   {
@@ -672291,7 +672339,7 @@
     "timeTbd": false,
     "gameId": "BRASILEIRAO_ESPN_401841261",
     "status": "live",
-    "matchPeriod": "전반",
+    "matchPeriod": "하프타임",
     "homeScore": 2,
     "awayScore": 0,
     "cards": {
@@ -672431,7 +672479,7 @@
     "timeTbd": false,
     "gameId": "CHILE_ESPN_401850667",
     "status": "live",
-    "matchPeriod": "전반",
+    "matchPeriod": "하프타임",
     "homeScore": 0,
     "awayScore": 0,
     "cards": {
@@ -672480,7 +672528,7 @@
     "timeTbd": false,
     "gameId": "PERU_ESPN_401886180",
     "status": "live",
-    "matchPeriod": "전반",
+    "matchPeriod": "하프타임",
     "homeScore": 1,
     "awayScore": 0,
     "scorers": {
@@ -672501,6 +672549,13 @@
           "type": "Y",
           "m": 28,
           "pid": "espn:288622",
+          "nat": "Peru"
+        },
+        {
+          "n": "Hansell Riojas",
+          "type": "Y",
+          "m": 45,
+          "pid": "espn:205219",
           "nat": "Peru"
         }
       ],
@@ -672577,7 +672632,10 @@
     "stadium": "Estadio Félix Capriles",
     "timeTbd": false,
     "gameId": "BOLIVIA_ESPN_401906469",
-    "status": "scheduled"
+    "status": "live",
+    "matchPeriod": "전반",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-10-12",
