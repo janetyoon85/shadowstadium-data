@@ -670160,7 +670160,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 2,
-    "matchPeriod": "후반 34'",
+    "matchPeriod": "후반 36'",
     "scorers": {
       "home": [
         {
@@ -670291,7 +670291,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 1,
-    "matchPeriod": "후반 30'",
+    "matchPeriod": "후반 32'",
     "scorers": {
       "home": [
         {
@@ -670442,7 +670442,15 @@
           "nat": "Belgium"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Mauricio Benitez",
+          "type": "Y",
+          "m": 49,
+          "pid": "espn:349711",
+          "nat": "Argentina"
+        }
+      ]
     }
   },
   {
@@ -670504,25 +670512,21 @@
     "gameId": "Qly5iFcfiikGEgo",
     "status": "live",
     "awayScore": 0,
-    "homeScore": 2,
-    "matchPeriod": "후반 1'",
+    "homeScore": 3,
+    "matchPeriod": "후반 3'",
     "scorers": {
       "home": [
         {
           "n": "이스코",
-          "m": 10,
-          "pk": true,
-          "nat": "Spain",
-          "pid": "espn:143564"
+          "m": 10
         },
         {
           "n": "에잘줄리",
-          "m": 31,
-          "a": "Cucho Hernández",
-          "nat": "Morocco",
-          "pid": "espn:300912",
-          "aNat": "Colombia",
-          "apid": "espn:336809"
+          "m": 31
+        },
+        {
+          "n": "디에고 요렌테",
+          "m": 48
         }
       ],
       "away": []
@@ -670659,7 +670663,7 @@
     "gameId": "BELGIUM_ESPN_401878972",
     "status": "live",
     "matchPeriod": "전반",
-    "homeScore": 0,
+    "homeScore": 1,
     "awayScore": 0,
     "cards": {
       "home": [],
@@ -670672,6 +670676,18 @@
           "nat": "Japan"
         }
       ]
+    },
+    "scorers": {
+      "home": [
+        {
+          "n": "Kota Takai",
+          "m": 24,
+          "og": true,
+          "nat": "Japan",
+          "pid": "espn:328492"
+        }
+      ],
+      "away": []
     }
   },
   {
@@ -670703,6 +670719,18 @@
           "m": 10,
           "nat": "Norway",
           "pid": "espn:361822"
+        }
+      ]
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Sondre Granaas",
+          "type": "Y",
+          "m": 24,
+          "pid": "espn:379152",
+          "nat": "Norway"
         }
       ]
     }
