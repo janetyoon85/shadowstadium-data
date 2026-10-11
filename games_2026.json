@@ -665477,13 +665477,15 @@
     "inningInfo": "8회말",
     "liveState": {
       "pitcher": "뉴컴",
-      "batter": "할핀",
+      "batter": "로키오",
       "ball": 0,
-      "strike": 1,
+      "strike": 0,
       "out": 0,
-      "bases": [],
-      "pitchCount": 21,
-      "batterPid": "mlb:690984"
+      "bases": [
+        2
+      ],
+      "pitchCount": 23,
+      "batterPid": "mlb:677587"
     },
     "holds": {
       "home": [
@@ -665649,9 +665651,9 @@
     "timeTbd": false,
     "gameId": "2Qac9yPYW1VAUzU",
     "status": "live",
-    "awayScore": 1,
+    "awayScore": 2,
     "homeScore": 2,
-    "matchPeriod": "후반 45'",
+    "matchPeriod": "후반 47'",
     "scorers": {
       "home": [
         {
@@ -665676,9 +665678,11 @@
       "away": [
         {
           "n": "포스터",
-          "m": 18,
-          "nat": "South Africa",
-          "pid": "espn:264751"
+          "m": 18
+        },
+        {
+          "n": "맥과이어",
+          "m": 90
         }
       ]
     },
@@ -665716,7 +665720,7 @@
     "status": "live",
     "awayScore": 3,
     "homeScore": 3,
-    "matchPeriod": "후반 38'",
+    "matchPeriod": "후반 40'",
     "scorers": {
       "home": [
         {
@@ -665797,9 +665801,9 @@
     "timeTbd": false,
     "gameId": "LNGPdEoGiQmYytg",
     "status": "live",
-    "awayScore": 3,
+    "awayScore": 4,
     "homeScore": 1,
-    "matchPeriod": "후반 45'",
+    "matchPeriod": "후반 47'",
     "scorers": {
       "home": [
         {
@@ -665833,6 +665837,13 @@
           "pid": "espn:325936",
           "aNat": "Germany",
           "apid": "espn:174548"
+        },
+        {
+          "n": "무크타르",
+          "m": 90,
+          "a": "Shak Mohammed",
+          "nat": "Germany",
+          "pid": "espn:174548"
         }
       ]
     },
@@ -665984,7 +665995,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 1,
-    "matchPeriod": "전반 48'",
+    "matchPeriod": "전반 50'",
     "scorers": {
       "home": [
         {
@@ -666000,7 +666011,15 @@
       "away": []
     },
     "cards": {
-      "home": [],
+      "home": [
+        {
+          "n": "Loic Williams",
+          "type": "Y",
+          "m": 45,
+          "pid": "espn:324001",
+          "nat": "Spain"
+        }
+      ],
       "away": [
         {
           "n": "Jack Jasinski",
