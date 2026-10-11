@@ -10,6 +10,7 @@ import { selectUniqueScoreMatch } from './espn-match-select.mjs';
 import { assignSeriesRecord, assignLegOneResult } from './series-record.mjs';
 import { canonTeamName } from './team-name-canon.mjs';
 import { getMlbNationality, getMlbPitcherDecisionNats, getMlbHoldNats, getMlbProbableStarterPid } from './mlb-nationality.mjs';
+import { staleSuspendedStatus } from './live-staleness.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -377,6 +378,10 @@ function convertGame(n, cat, stadiumMap, mapFailures) {
   // 경기 시작 전 — READY 를 놓치면 시작 전 경기가 "경기중 0:0"으로 잘못 표시됨, 실사용자 리포트).
   // 리그마다 다른 실제 진행중 코드값(LIVE 등)까지 화이트리스트로 다 알 수는 없어 이 세 값만 배제.
   else if (n.statusCode !== 'BEFORE' && n.statusCode !== 'READY') status = 'live';
+  // 지연·중단 문구인 채 오래 굳은 비야구 경기는 '연기'로(live-staleness.mjs) — 킥오프 후 6시간 넘게 "경기지연"으로 남는 문제.
+  if (status === 'live' && !BASEBALL_LEAGUES.has(cat.league) && n.gameDateTime) {
+    status = staleSuspendedStatus(status, n.statusInfo, Date.parse(n.gameDateTime + '+09:00'), Date.now());
+  }
 
   const game = {
     date: n.gameDate,
