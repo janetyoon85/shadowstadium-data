@@ -664397,7 +664397,7 @@
     "stadium": "Estadio Lito Pérez",
     "timeTbd": false,
     "gameId": "COSTARICA_ESPN_401876845",
-    "status": "live",
+    "status": "scheduled",
     "matchPeriod": "후반",
     "homeScore": 0,
     "awayScore": 1,
@@ -664601,7 +664601,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 0,
-    "matchPeriod": "전반 36'",
+    "matchPeriod": "전반 40'",
     "scorers": {
       "home": [],
       "away": [
@@ -664625,13 +664625,27 @@
     "gameId": "VDwoeogtwh7EJx2",
     "status": "live",
     "awayScore": 0,
-    "homeScore": 1,
-    "matchPeriod": "전반 36'",
+    "homeScore": 2,
+    "matchPeriod": "전반 40'",
     "scorers": {
       "home": [
         {
           "n": "수아레스",
-          "m": 3
+          "m": 3,
+          "a": "Germán Berterame",
+          "nat": "Uruguay",
+          "pid": "espn:125088",
+          "aNat": "Mexico",
+          "apid": "espn:228394"
+        },
+        {
+          "n": "수아레스",
+          "m": 39,
+          "a": "Germán Berterame",
+          "nat": "Uruguay",
+          "pid": "espn:125088",
+          "aNat": "Mexico",
+          "apid": "espn:228394"
         }
       ],
       "away": []
@@ -664651,7 +664665,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 0,
-    "matchPeriod": "전반 36'",
+    "matchPeriod": "전반 40'",
     "scorers": {
       "home": [],
       "away": [
@@ -664696,7 +664710,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 2,
-    "matchPeriod": "전반 37'",
+    "matchPeriod": "전반 40'",
     "scorers": {
       "home": [
         {
@@ -664776,7 +664790,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 36'",
+    "matchPeriod": "전반 40'",
     "cards": {
       "home": [],
       "away": [
@@ -664804,7 +664818,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 3,
-    "matchPeriod": "전반 36'",
+    "matchPeriod": "전반 40'",
     "scorers": {
       "home": [
         {
@@ -664864,15 +664878,47 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 1,
-    "matchPeriod": "전반 36'",
+    "matchPeriod": "전반 40'",
     "scorers": {
       "home": [
         {
           "n": "다미아니",
-          "m": 31
+          "m": 31,
+          "a": "Frankie Westfield",
+          "nat": "Uruguay",
+          "pid": "espn:322680",
+          "aNat": "USA",
+          "apid": "espn:366034"
         }
       ],
       "away": []
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Danley Jean Jacques",
+          "type": "Y",
+          "m": 2,
+          "pid": "espn:333939",
+          "nat": "Haiti"
+        },
+        {
+          "n": "Frankie Westfield",
+          "type": "Y",
+          "m": 23,
+          "pid": "espn:366034",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "n": "DeAndre Yedlin",
+          "type": "Y",
+          "m": 13,
+          "pid": "espn:183778",
+          "nat": "USA"
+        }
+      ]
     },
     "phaseCode": "LEAGUE"
   },
@@ -664887,7 +664933,7 @@
     "timeTbd": false,
     "gameId": "VENEZUELA_ESPN_401903443",
     "status": "live",
-    "matchPeriod": "전반",
+    "matchPeriod": "하프타임",
     "homeScore": 2,
     "awayScore": 0,
     "scorers": {
@@ -664906,6 +664952,18 @@
         }
       ],
       "away": []
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Jhan Velez",
+          "type": "Y",
+          "m": 45,
+          "pid": "espn:378695",
+          "nat": "Venezuela"
+        }
+      ]
     }
   },
   {
@@ -664921,7 +664979,19 @@
     "status": "live",
     "matchPeriod": "전반",
     "homeScore": 0,
-    "awayScore": 0
+    "awayScore": 0,
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Matheus",
+          "type": "Y",
+          "m": 16,
+          "pid": "espn:218972",
+          "nat": "Brazil"
+        }
+      ]
+    }
   },
   {
     "date": "2026-10-11",
@@ -664940,16 +665010,17 @@
     "homePitcherPid": "mlb:668909",
     "awayScore": 0,
     "homeScore": 0,
-    "inningInfo": "1회말",
+    "inningInfo": "2회초",
     "liveState": {
-      "pitcher": "버크",
-      "batter": "드라우터",
-      "ball": 2,
-      "strike": 1,
-      "out": 2,
+      "pitcher": "윌리엄스",
+      "batter": "무라카미",
+      "ball": 0,
+      "strike": 0,
+      "out": 0,
       "bases": [],
       "pitchCount": 7,
-      "batterPid": "mlb:800050"
+      "pitcherPid": "mlb:675961",
+      "batterPid": "mlb:808959"
     },
     "round": "ps_alds",
     "rn": 5,
