@@ -669764,19 +669764,19 @@
         {
           "n": "르폴",
           "m": 15,
+          "pid": "espn:323850",
           "a": "Charlie Cresswell",
           "nat": "France",
           "aNat": "England",
-          "pid": "espn:323850",
           "apid": "espn:307713"
         },
         {
           "n": "토마손",
           "m": 53,
+          "pid": "espn:173266",
           "a": "Bryan Reynolds",
           "nat": "France",
           "aNat": "USA",
-          "pid": "espn:173266",
           "apid": "espn:250758"
         },
         {
@@ -669802,10 +669802,10 @@
         {
           "n": "아처",
           "m": 25,
+          "pid": "espn:293347",
           "a": "Mamadou Diop",
           "nat": "England",
           "aNat": "Mauritania",
-          "pid": "espn:293347",
           "apid": "espn:345926"
         }
       ]
@@ -669874,8 +669874,8 @@
         {
           "n": "에게슈타인",
           "m": 10,
-          "nat": "Germany",
-          "pid": "espn:214203"
+          "pid": "espn:214203",
+          "nat": "Germany"
         },
         {
           "n": "고토",
@@ -669891,10 +669891,10 @@
         {
           "n": "카라만",
           "m": 30,
+          "pid": "espn:188057",
           "a": "Adrian Gantenbein",
           "nat": "Türkiye",
           "aNat": "Switzerland",
-          "pid": "espn:188057",
           "apid": "espn:326766"
         }
       ]
@@ -670075,8 +670075,8 @@
         {
           "n": "홀란",
           "m": 65,
-          "nat": "Norway",
-          "pid": "espn:253989"
+          "pid": "espn:253989",
+          "nat": "Norway"
         },
         {
           "n": "도쿠",
@@ -670090,10 +670090,10 @@
         {
           "n": "셰르키",
           "m": 78,
+          "pid": "espn:298008",
           "a": "Josko Gvardiol",
           "nat": "France",
           "aNat": "Croatia",
-          "pid": "espn:298008",
           "apid": "espn:299910"
         }
       ]
@@ -670165,22 +670165,22 @@
         {
           "n": "에팀",
           "m": 12,
-          "nat": "Nigeria",
-          "pid": "espn:333739"
+          "pid": "espn:333739",
+          "nat": "Nigeria"
         },
         {
           "n": "카스티요",
           "m": 62,
-          "nat": "Ecuador",
-          "pid": "espn:328742"
+          "pid": "espn:328742",
+          "nat": "Ecuador"
         }
       ],
       "away": [
         {
           "n": "엘유누시",
           "m": 49,
-          "nat": "Norway",
           "pid": "espn:162484",
+          "nat": "Norway",
           "pk": true
         }
       ]
@@ -670318,7 +670318,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 1,
-    "matchPeriod": "후반 48'",
+    "matchPeriod": "후반 50'",
     "scorers": {
       "home": [
         {
@@ -670341,7 +670341,15 @@
       ]
     },
     "cards": {
-      "home": [],
+      "home": [
+        {
+          "n": "Kristian Thorstvedt",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:284212",
+          "nat": "Norway"
+        }
+      ],
       "away": [
         {
           "n": "Pervis Estupiñán",
@@ -670567,7 +670575,7 @@
     "status": "live",
     "awayScore": 2,
     "homeScore": 3,
-    "matchPeriod": "후반 19'",
+    "matchPeriod": "후반 21'",
     "scorers": {
       "home": [
         {
@@ -670638,6 +670646,13 @@
           "type": "Y",
           "m": 45,
           "pid": "espn:415867",
+          "nat": "Spain"
+        },
+        {
+          "n": "Lucas Torró",
+          "type": "Y",
+          "m": 64,
+          "pid": "espn:170154",
           "nat": "Spain"
         }
       ]
@@ -670913,7 +670928,10 @@
     "stadium": "알 샤밥 클럽 경기장",
     "timeTbd": false,
     "gameId": "SRmS4MgCX3bx7AP",
-    "status": "scheduled"
+    "status": "live",
+    "awayScore": 0,
+    "homeScore": 0,
+    "matchPeriod": "전반 1'"
   },
   {
     "date": "2026-10-12",
