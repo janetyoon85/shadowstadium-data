@@ -670632,17 +670632,17 @@
         {
           "n": "이스코",
           "m": 10,
-          "pk": true,
           "nat": "Spain",
-          "pid": "espn:143564"
+          "pid": "espn:143564",
+          "pk": true
         },
         {
           "n": "에잘줄리",
           "m": 31,
           "a": "Cucho Hernández",
           "nat": "Morocco",
-          "pid": "espn:300912",
           "aNat": "Colombia",
+          "pid": "espn:300912",
           "apid": "espn:336809"
         },
         {
@@ -670663,8 +670663,8 @@
           "m": 90,
           "a": "Héctor Bellerín",
           "nat": "Spain",
-          "pid": "espn:411284",
           "aNat": "Spain",
+          "pid": "espn:411284",
           "apid": "espn:178978"
         }
       ],
@@ -670674,8 +670674,8 @@
           "m": 51,
           "a": "Rubén García",
           "nat": "Croatia",
-          "pid": "espn:207288",
           "aNat": "Spain",
+          "pid": "espn:207288",
           "apid": "espn:178328"
         },
         {
@@ -670683,8 +670683,8 @@
           "m": 56,
           "a": "Alejandro Catena",
           "nat": "Spain",
-          "pid": "espn:296163",
           "aNat": "Spain",
+          "pid": "espn:296163",
           "apid": "espn:264175"
         }
       ]
@@ -671043,7 +671043,7 @@
     "timeTbd": false,
     "gameId": "ARGENTINA_ESPN_401841601",
     "status": "live",
-    "matchPeriod": "전반",
+    "matchPeriod": "하프타임",
     "homeScore": 0,
     "awayScore": 0,
     "cards": {
@@ -671201,7 +671201,15 @@
           "nat": "Peru"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Santiago González",
+          "type": "Y",
+          "m": 31,
+          "pid": "espn:108090",
+          "nat": "Argentina"
+        }
+      ]
     }
   },
   {
@@ -671217,7 +671225,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 1,
-    "matchPeriod": "전반 35'",
+    "matchPeriod": "전반 36'",
     "scorers": {
       "home": [
         {
