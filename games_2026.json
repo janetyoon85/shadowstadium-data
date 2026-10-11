@@ -666295,7 +666295,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 1,
-    "matchPeriod": "후반 45'",
+    "matchPeriod": "후반 47'",
     "scorers": {
       "home": [
         {
@@ -666350,13 +666350,16 @@
     "liveState": {
       "pitcher": "이승현",
       "pitcherPid": "kbo:p:51454",
-      "batter": "장준원",
-      "batterPid": "kbo:b:64115",
-      "ball": 2,
-      "strike": 2,
+      "batter": "김민혁",
+      "batterPid": "kbo:b:64004",
+      "ball": 0,
+      "strike": 1,
       "out": 2,
-      "bases": [],
-      "pitchCount": 14
+      "bases": [
+        1,
+        2
+      ],
+      "pitchCount": 20
     },
     "highlights": {
       "home": [
@@ -666417,6 +666420,20 @@
           "player": "힐리어드",
           "inn": "5회초",
           "pid": "kbo:b:56034"
+        },
+        {
+          "how": "실책",
+          "text": "최원준 투수 실책으로 출루 (1루수->투수 포구 실책)",
+          "player": "최원준",
+          "inn": "6회초",
+          "pid": "kbo:b:66606"
+        },
+        {
+          "how": "실책",
+          "text": "장준원 실책으로 2루까지 진루",
+          "player": "장준원",
+          "inn": "6회초",
+          "pid": "kbo:b:64115"
         }
       ]
     }
@@ -666504,7 +666521,7 @@
     "status": "live",
     "awayScore": 2,
     "homeScore": 4,
-    "matchPeriod": "후반 47'",
+    "matchPeriod": "후반 49'",
     "scorers": {
       "home": [
         {
@@ -666540,6 +666557,17 @@
           "pid": "naver:20220188"
         }
       ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "김동화",
+          "type": "Y",
+          "m": 93,
+          "pid": "naver:20250048"
+        }
+      ],
+      "away": []
     },
     "assists": {
       "home": [
@@ -666581,7 +666609,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 4,
-    "matchPeriod": "후반 49'",
+    "matchPeriod": "후반 51'",
     "scorers": {
       "home": [
         {
@@ -666665,14 +666693,14 @@
     "inningInfo": "6회초",
     "liveState": {
       "pitcher": "다카하시",
-      "batter": "군지",
+      "batter": "미즈노",
       "pitcherPid": "npb:1400182",
-      "batterPid": "npb:1900040",
+      "batterPid": "npb:1851204",
       "ball": 1,
-      "strike": 1,
-      "out": 1,
+      "strike": 0,
+      "out": 2,
       "bases": [],
-      "pitchCount": 98
+      "pitchCount": 103
     },
     "round": "ps_plcs_first",
     "rn": 2,
@@ -666696,17 +666724,17 @@
     "homePitcherPid": "npb:2118993",
     "awayScore": 2,
     "homeScore": 1,
-    "inningInfo": "6회초",
+    "inningInfo": "6회말",
     "liveState": {
-      "pitcher": "나카가와",
-      "batter": "이즈구치",
-      "pitcherPid": "npb:1500052",
-      "batterPid": "npb:1750321",
+      "pitcher": "이와타",
+      "batter": "오시로",
+      "pitcherPid": "npb:2000059",
+      "batterPid": "npb:1700044",
       "ball": 0,
       "strike": 0,
-      "out": 0,
+      "out": 1,
       "bases": [],
-      "pitchCount": 15
+      "pitchCount": 4
     },
     "highlights": {
       "home": [
@@ -666750,7 +666778,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 49'"
+    "matchPeriod": "전반종료"
   },
   {
     "date": "2026-10-11",
