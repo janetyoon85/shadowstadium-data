@@ -250,6 +250,7 @@ async function main() {
   try { for (const f of await fs.readdir(OUT_DIR)) if (f.endsWith('.json')) Object.assign(rosters, JSON.parse(await fs.readFile(path.join(OUT_DIR, f), 'utf8'))); } catch { /* 첫 실행 */ }
   const SKIP_SOCCER = !!process.env.ROSTER_SKIP_SOCCER;
   const unmatched = [];
+  const freshTeams = new Set();
   let teamCount = 0;
   for (const { slug, code } of (SKIP_SOCCER ? [] : slugs)) {
     const t = await getJson(`https://site.api.espn.com/apis/site/v2/sports/soccer/${slug}/teams`);
@@ -276,8 +277,14 @@ async function main() {
         }
       }
       if (!list.length) continue;
-      const seen = new Set((rosters[ko] || []).map((p) => p.id));
-      rosters[ko] = [...(rosters[ko] || []), ...list.filter((p) => !seen.has(p.id))].slice(0, 70);
+      // 이번 실행에서 처음 받는 팀은 기존 목록을 통째로 교체한다(이적·은퇴로 떠난 선수가 영원히 남던 문제, 2026-10-12).
+      // 같은 실행에서 두 번째로 받는 같은 팀(다른 리그 슬러그)만 병합하고, 기존에 찾아둔 사진(ph)은 id 로 이어받는다.
+      const prev = new Map((rosters[ko] || []).map((p) => [p.id, p]));
+      const base = freshTeams.has(ko) ? (rosters[ko] || []) : [];
+      const seen = new Set(base.map((p) => p.id));
+      const merged = list.filter((p) => !seen.has(p.id)).map((p) => (prev.get(p.id)?.ph && !p.ph ? { ...p, ph: prev.get(p.id).ph } : p));
+      rosters[ko] = [...base, ...merged].slice(0, 70);
+      freshTeams.add(ko);
       teamCount++;
     }
     console.log(`[rosters] ${slug} teams=${teams.length} total=${Object.keys(rosters).length}`);
