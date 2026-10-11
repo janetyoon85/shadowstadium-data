@@ -669944,7 +669944,7 @@
     "stadium": "Estadio Sausalito",
     "timeTbd": false,
     "gameId": "CHILE_ESPN_401850665",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 3,
     "awayScore": 2,
@@ -670564,7 +670564,7 @@
     "gameId": "PORTUGAL_ESPN_401885421",
     "status": "live",
     "matchPeriod": "전반",
-    "homeScore": 0,
+    "homeScore": 1,
     "awayScore": 0,
     "cards": {
       "home": [],
@@ -670577,6 +670577,17 @@
           "nat": "Romania"
         }
       ]
+    },
+    "scorers": {
+      "home": [
+        {
+          "n": "Samuel Dahl",
+          "m": 24,
+          "nat": "Sweden",
+          "pid": "espn:329653"
+        }
+      ],
+      "away": []
     }
   },
   {
@@ -670619,7 +670630,18 @@
     "status": "live",
     "matchPeriod": "전반",
     "homeScore": 0,
-    "awayScore": 0
+    "awayScore": 1,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "Sander Kilen",
+          "m": 10,
+          "nat": "Norway",
+          "pid": "espn:361822"
+        }
+      ]
+    }
   },
   {
     "date": "2026-10-12",
