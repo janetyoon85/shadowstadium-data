@@ -665484,13 +665484,23 @@
     "winPitcher": "윌리엄스",
     "losePitcher": "버크",
     "savePitcher": "스미스",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "savePitcherNat": "Canada",
+    "winPitcherPid": "mlb:668909",
+    "losePitcherPid": "mlb:680732",
+    "savePitcherPid": "mlb:671922",
     "holds": {
       "home": [
         {
-          "n": "사브로스키"
+          "n": "사브로스키",
+          "nat": "Canada",
+          "pid": "mlb:681870"
         },
         {
-          "n": "개디스"
+          "n": "개디스",
+          "nat": "USA",
+          "pid": "mlb:683769"
         }
       ],
       "away": []
@@ -665655,10 +665665,10 @@
         {
           "n": "예보아",
           "m": 48,
+          "pid": "espn:289941",
           "a": "Morris Duggan",
           "nat": "Italy",
           "aNat": "Germany",
-          "pid": "espn:289941",
           "apid": "espn:337922"
         },
         {
@@ -665675,8 +665685,8 @@
         {
           "n": "포스터",
           "m": 18,
-          "nat": "South Africa",
-          "pid": "espn:264751"
+          "pid": "espn:264751",
+          "nat": "South Africa"
         },
         {
           "n": "맥과이어",
@@ -665728,25 +665738,25 @@
         {
           "n": "안드레 루이스",
           "m": 45,
-          "nat": "Brazil",
-          "pid": "espn:324574"
+          "pid": "espn:324574",
+          "nat": "Brazil"
         },
         {
           "n": "레이놀즈",
           "m": 70,
+          "pid": "espn:357792",
           "a": "Taylor Calheira",
           "nat": "USA",
           "aNat": "USA",
-          "pid": "espn:357792",
           "apid": "espn:381688"
         },
         {
           "n": "안드레 루이스",
           "m": 72,
+          "pid": "espn:324574",
           "a": "Seymour Reid",
           "nat": "Brazil",
           "aNat": "Jamaica",
-          "pid": "espn:324574",
           "apid": "espn:402322"
         }
       ],
@@ -665754,26 +665764,26 @@
         {
           "n": "다비드 페레이라 다 코스타",
           "m": 10,
+          "pid": "espn:303579",
           "a": "Ariel Lassiter",
           "nat": "Portugal",
           "aNat": "Costa Rica",
-          "pid": "espn:303579",
           "apid": "espn:222765"
         },
         {
           "n": "안센",
           "m": 45,
-          "nat": "Netherlands",
           "pid": "espn:188402",
+          "nat": "Netherlands",
           "pk": true
         },
         {
           "n": "라시터",
           "m": 64,
+          "pid": "espn:222765",
           "a": "Jimer Fory",
           "nat": "Costa Rica",
           "aNat": "Colombia",
-          "pid": "espn:222765",
           "apid": "espn:301463"
         }
       ]
@@ -665810,10 +665820,10 @@
         {
           "n": "바스케스",
           "m": 76,
+          "pid": "espn:228620",
           "a": "Facundo Torres",
           "nat": "USA",
           "aNat": "Uruguay",
-          "pid": "espn:228620",
           "apid": "espn:67518"
         }
       ],
@@ -665821,14 +665831,14 @@
         {
           "n": "베이커-화이팅",
           "m": 30,
-          "nat": "USA",
-          "pid": "espn:304120"
+          "pid": "espn:304120",
+          "nat": "USA"
         },
         {
           "n": "사드",
           "m": 67,
-          "nat": "Tunisia",
-          "pid": "espn:323950"
+          "pid": "espn:323950",
+          "nat": "Tunisia"
         },
         {
           "n": "모하메드",
@@ -665839,10 +665849,10 @@
         {
           "n": "무크타르",
           "m": 90,
+          "pid": "espn:174548",
           "a": "Shak Mohammed",
           "nat": "Germany",
           "aNat": "Ghana",
-          "pid": "espn:174548",
           "apid": "espn:325936"
         }
       ]
@@ -665886,7 +665896,7 @@
     "stadium": "Estadio Doctor José Ramón Flores Berríos",
     "timeTbd": false,
     "gameId": "ELSALVADOR_ESPN_401899705",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 2,
     "awayScore": 3,
@@ -666020,9 +666030,9 @@
     "timeTbd": false,
     "gameId": "jDzuetiqmqpRhg9",
     "status": "live",
-    "awayScore": 0,
+    "awayScore": 1,
     "homeScore": 1,
-    "matchPeriod": "후반 10'",
+    "matchPeriod": "후반 12'",
     "scorers": {
       "home": [
         {
@@ -666035,7 +666045,17 @@
           "apid": "espn:304129"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "롬니",
+          "m": 57,
+          "a": "Ronaldo Vieira",
+          "nat": "USA",
+          "pid": "espn:222188",
+          "aNat": "Guinea-Bissau",
+          "apid": "espn:235593"
+        }
+      ]
     },
     "cards": {
       "home": [
@@ -666098,7 +666118,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 18'",
+    "matchPeriod": "전반 20'",
     "cards": {
       "home": [],
       "away": [
