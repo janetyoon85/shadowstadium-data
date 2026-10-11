@@ -198,13 +198,19 @@ const WF = {
   'backfill-team-logos': 180, 'backfill-trophy-photos': 180, 'fetch-wbsc-baseball': 540, 'fetch-espn-baseball': 1500,
   'check-future-editions': 1800, 'backfill-report': 480,
   'fetch-team-rosters': 1800, 'backfill-roster-photos': 400, // 선수단 매일 / 사진 보충 3시간(실행 30분+대기열 여유)
+  // 앱 저장소(비공개) 워크플로우 — 'owner/repo:워크플로' 형식, 읽기 토큰(APP_REPO_TOKEN 시크릿)이 있어야 조회된다.
+  'janetyoon85/shadowstadium:venue-coverage': 1080, 'janetyoon85/shadowstadium:weather-verify': 2160,
 };
 {
   const repo = process.env.GITHUB_REPOSITORY || 'janetyoon85/shadowstadium-data';
   const headers = { Accept: 'application/vnd.github+json', ...(process.env.GITHUB_TOKEN ? { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` } : {}) };
-  for (const [wf, maxMin] of Object.entries(WF)) {
+  for (const [key, maxMin] of Object.entries(WF)) {
+    const cross = key.includes(':');
+    const [wfRepo, wf] = cross ? key.split(':') : [repo, key];
+    if (cross && !process.env.APP_REPO_TOKEN) { console.log(`[ops] ${key}: APP_REPO_TOKEN 없음 — 건너뜀`); continue; }
+    const hdrs = cross ? { Accept: headers.Accept, Authorization: `Bearer ${process.env.APP_REPO_TOKEN}` } : headers;
     try {
-      const r = await fetch(`https://api.github.com/repos/${repo}/actions/workflows/${wf}.yml/runs?per_page=50`, { headers });
+      const r = await fetch(`https://api.github.com/repos/${wfRepo}/actions/workflows/${wf}.yml/runs?per_page=50`, { headers: hdrs });
       if (!r.ok) { add('워크플로 조회 실패', wf, `${wf}: HTTP ${r.status}`); continue; }
       const runs = (await r.json()).workflow_runs.filter((x) => x.status === 'completed' && x.conclusion !== 'cancelled' && x.conclusion !== 'skipped');
       if (runs.length >= 3 && runs.slice(0, 3).every((x) => x.conclusion === 'failure')) add('워크플로 연속 실패', wf, `${wf}: 최근 3회 연속 실패`);
