@@ -665373,7 +665373,7 @@
     "stadium": "Estádio Cícero Pompeu de Toledo",
     "timeTbd": false,
     "gameId": "BRASILEIRAO_ESPN_401841259",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 2,
     "awayScore": 1,
@@ -665474,18 +665474,16 @@
     "homePitcherPid": "mlb:668909",
     "awayScore": 0,
     "homeScore": 2,
-    "inningInfo": "7회초",
+    "inningInfo": "7회말",
     "liveState": {
-      "pitcher": "개디스",
-      "batter": "메이드로스",
+      "pitcher": "뉴컴",
+      "batter": "로우",
       "ball": 0,
-      "strike": 2,
-      "out": 1,
-      "bases": [
-        1
-      ],
-      "pitchCount": 9,
-      "batterPid": "mlb:805367"
+      "strike": 0,
+      "out": 0,
+      "bases": [],
+      "pitchCount": 13,
+      "batterPid": "mlb:664040"
     },
     "holds": {
       "home": [
@@ -665650,7 +665648,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 1,
-    "matchPeriod": "후반 21'",
+    "matchPeriod": "후반 22'",
     "scorers": {
       "home": [
         {
@@ -665671,6 +665669,18 @@
           "pid": "espn:264751"
         }
       ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Mauricio Gonzalez",
+          "type": "Y",
+          "m": 66,
+          "pid": "espn:353246",
+          "nat": "Colombia"
+        }
+      ],
+      "away": []
     },
     "phaseCode": "LEAGUE"
   },
@@ -665741,7 +665751,7 @@
     "timeTbd": false,
     "gameId": "LNGPdEoGiQmYytg",
     "status": "live",
-    "awayScore": 1,
+    "awayScore": 2,
     "homeScore": 0,
     "matchPeriod": "후반 21'",
     "scorers": {
@@ -665749,9 +665759,11 @@
       "away": [
         {
           "n": "베이커-화이팅",
-          "m": 30,
-          "nat": "USA",
-          "pid": "espn:304120"
+          "m": 30
+        },
+        {
+          "n": "사드",
+          "m": 67
         }
       ]
     },
