@@ -672914,7 +672914,18 @@
     "status": "live",
     "matchPeriod": "후반",
     "homeScore": 0,
-    "awayScore": 1
+    "awayScore": 1,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "Edgar Medrano",
+          "m": 74,
+          "nat": "Colombia",
+          "pid": "espn:324456"
+        }
+      ]
+    }
   },
   {
     "date": "2026-10-12",
@@ -673056,10 +673067,17 @@
     "status": "live",
     "phaseCode": "FR",
     "matchPeriod": "후반",
-    "homeScore": 0,
+    "homeScore": 1,
     "awayScore": 1,
     "scorers": {
-      "home": [],
+      "home": [
+        {
+          "n": "Fernando Cornejo",
+          "m": 53,
+          "nat": "Chile",
+          "pid": "espn:82355"
+        }
+      ],
       "away": [
         {
           "n": "Jesús Pretell",
@@ -673163,13 +673181,6 @@
     "cards": {
       "home": [],
       "away": [
-        {
-          "n": "Brayan Rodríguez",
-          "type": "Y",
-          "m": 14,
-          "pid": "espn:193472",
-          "nat": "Venezuela"
-        },
         {
           "n": "Freddy Espinal",
           "type": "Y",
@@ -673294,6 +673305,18 @@
           "m": 21,
           "nat": "Uruguay",
           "pid": "espn:359990"
+        }
+      ]
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Victor Cespedes",
+          "type": "Y",
+          "m": 25,
+          "pid": "espn:304382",
+          "nat": "Paraguay"
         }
       ]
     }
