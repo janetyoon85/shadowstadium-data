@@ -108,6 +108,94 @@ async function fetchBasketballRosters(rosters) {
   console.log(`[rosters] basketball teams=${n}`);
 }
 
+// K리그 29개 클럽 + 국가대표(남자) — ESPN 에 자료가 없어 영문 위키백과 "Current squad"({{Fs player|no=|nat=|pos=|name=[[…]]}} 표)를 파싱한다.
+// 위키 제목은 team-info 샤드의 wiki 필드를 재사용. 선수 한글 이름은 위키 링크 → Wikidata 라벨(ko)로 얻고(없으면 영문), 사진은 없다.
+// 첫 번째 Fs start~Fs end 블록(현재 선수단)만 쓴다(임대·유스 블록 제외).
+const WIKI_UA = 'shadowstadium-crawler/1.0 (+https://github.com/janetyoon85/shadowstadium-data)';
+async function wikiGet(url) {
+  for (let i = 0; i < 3; i++) {
+    try {
+      const res = await fetch(url, { headers: { 'User-Agent': WIKI_UA }, signal: AbortSignal.timeout(25000) });
+      if (res.ok) return await res.json();
+    } catch { /* 재시도 */ }
+    await sleep(600 * (i + 1));
+  }
+  return undefined;
+}
+function parseSquad(wikitext) {
+  // 클럽: {{Fs start}}…{{Fs player}}…{{Fs end}} / 국가대표: {{nat fs g start}}…{{nat fs g player}}…{{nat fs end}} — 첫 블록(현재 선수단/소집 명단)만.
+  const blocks = [...wikitext.matchAll(/\{\{\s*(?:Fs start|nat fs g start|nat fs start)[^}]*\}\}([\s\S]*?)\{\{\s*(?:Fs end|nat fs end)\s*\}\}/gi)].map((m) => m[1]);
+  const pick = blocks.find((b) => (b.match(/\{\{\s*(?:Fs player|nat fs g player|nat fs player)/gi) || []).length >= 8) ?? blocks[0];
+  if (!pick) return [];
+  const out = [];
+  for (const m of pick.matchAll(/\{\{\s*(?:Fs player|nat fs g player|nat fs player)([^\n]*)\}\}/gi)) {
+    const body = m[1];
+    // 값에 [[링크|표시]] 가 있으면 그 안의 | 를 필드 구분자로 오인하지 않는다.
+    const f = (k) => new RegExp('\\|\\s*' + k + '\\s*=\\s*((?:\\[\\[[^\\]]*\\]\\]|[^|}\\[])*)', 'i').exec(body)?.[1]?.trim() ?? '';
+    const nameRaw = f('name');
+    const link = /\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/.exec(nameRaw);
+    const title = link ? link[1].trim() : '';
+    const n = (link ? (link[2] || link[1]) : nameRaw).replace(/\s*\([^)]*\)\s*$/, '').replace(/'{2,3}/g, '').trim();
+    if (!n) continue;
+    const no = f('no').replace(/[^0-9]/g, '');
+    const pos = f('pos').trim();
+    const nat = f('nat').trim().toUpperCase();
+    out.push({ title, n, no, pos, nat });
+  }
+  return out;
+}
+async function koLabelsFor(titles) {
+  // 영문 위키 제목 → Wikidata Q → ko 라벨
+  const qOf = new Map();
+  const uniq = [...new Set(titles.filter(Boolean))];
+  for (let i = 0; i < uniq.length; i += 50) {
+    const chunk = uniq.slice(i, i + 50);
+    const j = await wikiGet('https://en.wikipedia.org/w/api.php?' + new URLSearchParams({ action: 'query', format: 'json', formatversion: '2', redirects: '1', prop: 'pageprops', ppprop: 'wikibase_item', titles: chunk.join('|') }));
+    await sleep(DELAY_MS);
+    if (!j?.query) continue;
+    const norm = new Map((j.query.normalized || []).map((x) => [x.from, x.to]));
+    const redir = new Map((j.query.redirects || []).map((x) => [x.from, x.to]));
+    const byTitle = new Map((j.query.pages || []).map((pg) => [pg.title, pg.pageprops?.wikibase_item]));
+    for (const t of chunk) { let k = norm.get(t) ?? t; k = redir.get(k) ?? k; const q = byTitle.get(k); if (q) qOf.set(t, q); }
+  }
+  const labels = new Map();
+  const qs = [...new Set(qOf.values())];
+  for (let i = 0; i < qs.length; i += 50) {
+    const j = await wikiGet('https://www.wikidata.org/w/api.php?' + new URLSearchParams({ action: 'wbgetentities', format: 'json', props: 'labels', languages: 'ko', ids: qs.slice(i, i + 50).join('|') }));
+    await sleep(DELAY_MS);
+    for (const [q, e] of Object.entries(j?.entities || {})) if (e?.labels?.ko?.value) labels.set(q, e.labels.ko.value);
+  }
+  return (title) => labels.get(qOf.get(title));
+}
+async function fetchWikiSquads(rosters) {
+  const info = {};
+  for (const f of await fs.readdir(path.join(REPO_ROOT, 'team-info'))) if (/^[0-9a-f]\.json$/.test(f)) Object.assign(info, JSON.parse(await fs.readFile(path.join(REPO_ROOT, 'team-info', f), 'utf8')));
+  const games = JSON.parse(await fs.readFile(path.join(REPO_ROOT, 'games.json'), 'utf8'));
+  const NAT = new Set(['WORLDCUP', 'AMATCHFRIENDLY', 'WCQUEFA', 'UNL', 'WCQAFC', 'ASIANCUP', 'AFRICACUP', 'COPAAMERICA', 'UEFAEURO', 'U17WORLDCUP']);
+  const targets = new Set();
+  for (const g of games) for (const t of [g.home, g.away]) {
+    if (!t || (rosters[t] && !String(rosters[t][0]?.id).startsWith('wk:'))) continue; // wk: 로스터는 매번 새로 받는다
+    const w = info[t]?.wiki || '';
+    if ((g.league === 'K리그1' || g.league === 'K리그2') && w) targets.add(t);
+    else if (NAT.has(g.league) && /national (football|soccer) team/i.test(w) && !/여자|\(/.test(t)) targets.add(t);
+  }
+  let n = 0;
+  for (const key of targets) {
+    const j = await wikiGet('https://en.wikipedia.org/w/api.php?' + new URLSearchParams({ action: 'parse', format: 'json', formatversion: '2', redirects: '1', prop: 'wikitext', page: info[key].wiki }));
+    await sleep(DELAY_MS);
+    const squad = parseSquad(j?.parse?.wikitext || '');
+    if (squad.length < 8) continue;
+    const ko = await koLabelsFor(squad.map((x) => x.title));
+    rosters[key] = squad.slice(0, 45).map((x, i) => ({
+      id: `wk:${key}:${x.no || i}`, n: x.n,
+      ...(ko(x.title) ? { k: ko(x.title) } : {}),
+      ...(x.pos ? { pos: x.pos } : {}), ...(x.no ? { no: x.no } : {}), ...(x.nat ? { nat: x.nat } : {}),
+    }));
+    n++;
+  }
+  console.log(`[rosters] wiki squads teams=${n} (targets=${targets.size})`);
+}
+
 async function main() {
   const byEn = await buildLookup();
   const slugs = await domesticSlugs();
@@ -150,6 +238,7 @@ async function main() {
     console.log(`[rosters] ${slug} teams=${teams.length} total=${Object.keys(rosters).length}`);
   }
   await fetchMlbRosters(rosters);
+  await fetchWikiSquads(rosters);
   await fetchBasketballRosters(rosters);
   await fs.mkdir(OUT_DIR, { recursive: true });
   const shards = Array.from({ length: 16 }, () => ({}));
