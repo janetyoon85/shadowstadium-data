@@ -5,13 +5,13 @@ on:
   workflow_dispatch:
     inputs:
       token:
-        description: 'FCM 토큰 (앱 설정 제목 길게 누르기로 공유됨)'
+        description: '앱 설정 제목 길게 누르기로 공유된 메시지 전체(token=·favs= 줄 포함)'
         required: true
       keep_lang:
         description: '남길 언어 코드'
         default: 'ko'
       dry_run:
-        description: '1 = 해제하지 않고 목록만'
+        description: '1 = 해제하지 않고 후보 개수만'
         default: '1'
 
 permissions:
