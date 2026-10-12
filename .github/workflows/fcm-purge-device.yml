@@ -32,7 +32,7 @@ jobs:
         env:
           FCM_IN: ${{ inputs.token }}
         run: |
-          TOKEN=$(printf '%s' "$FCM_IN" | sed -n 's/.*token=\([^[:space:]]*\).*//p' | head -1)
+          TOKEN=$(printf '%s' "$FCM_IN" | sed -n 's/.*token=\([^[:space:]]*\).*/\1/p' | head -1)
           [ -z "$TOKEN" ] && TOKEN=$(printf '%s' "$FCM_IN" | head -1 | tr -d '[:space:]')
           echo "::add-mask::$TOKEN"
       - name: Purge
