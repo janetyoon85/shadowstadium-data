@@ -7,6 +7,9 @@ on:
       name:
         description: '즐겨찾기한 선수 이름 (예: 김도영)'
         required: true
+      use_tag:
+        description: '1 = 모든 언어에 같은 tag(합치기 테스트), 0 = 진단(구독 중인 언어 수만큼 따로 보임)'
+        default: '0'
 
 permissions:
   contents: read
@@ -26,4 +29,5 @@ jobs:
         env:
           FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
           PLAYER_NAME: ${{ inputs.name }}
+          USE_TAG: ${{ inputs.use_tag }}
         run: node scripts/send-test-player-alert.mjs
