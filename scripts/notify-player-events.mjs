@@ -19,6 +19,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { sendPlayerEvent } from './send-player-alert.mjs';
+import { fnv1a32 } from './topic.mjs';
 import { canonicalPlayerName } from './player-name-canon.mjs';
 import { LANGS, eventLabel, minuteLabel, localTeam, localPlayer, localLeague } from './push-i18n.mjs';
 
@@ -216,7 +217,9 @@ async function main() {
     let anyOk = false;
     for (const target of targets) {
       try {
-        await sendPlayerEvent(target, { title, body, gameId: g.gameId, displayName: name, byLang });
+        // 같은 이벤트의 알림은 tag 로 한 기기에서 하나로 합친다(2026-10-12 "아직 와" — 기기에 예전 언어 구독이 남아 있으면 한 이벤트가 5개 언어로 따로 쌓였다. tag 가 없었다).
+        // dedupKey 에서 만든 같은 tag 면 안드로이드가 기존 알림을 교체하고 iOS 는 collapse-id 로 합친다. 선수 ID 토픽과 이름 토픽에서 둘 다 와도 한 개.
+        await sendPlayerEvent(target, { title, body, gameId: g.gameId, displayName: name, byLang, tag: 'pe_' + fnv1a32(dedupKey) });
         anyOk = true;
       } catch (e) {
         console.error(`[player-alerts] FAIL ${dedupKey} (${target}): ${e?.message ?? e}`);

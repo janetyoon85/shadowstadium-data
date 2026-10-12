@@ -25,7 +25,8 @@ export async function sendGameLang(gameId, leadHours, lang, { title, body, venue
     topic: gameLangTopic(gameId, leadHours, lang),
     notification: { title, body },
     data: { gameId: String(gameId), venueId: String(venueId), date: String(date), doubleheaderNum: '' },
-    android: { priority: 'high', notification: { channelId: NOTIF_CHANNEL_ID } },
+    android: { priority: 'high', notification: { channelId: NOTIF_CHANNEL_ID, tag: `gr_${gameId}_${leadHours}` } }, // 같은 경기·리드의 알림은 언어별 구독이 겹쳐도 한 기기에서 하나로(2026-10-12)
+    apns: { headers: { 'apns-collapse-id': `gr_${gameId}_${leadHours}`.slice(0, 64) } },
   });
 }
 
@@ -45,7 +46,9 @@ export async function sendGame(gameId, leadHours, { title, body, venueId, date, 
       priority: 'high',
       notification: {
         channelId: NOTIF_CHANNEL_ID,
+        tag: `gr_${gameId}_${leadHours}`, // sendGameLang 과 같은 tag — 언어 토픽·구토픽이 겹쳐도 한 개로 합쳐진다.
       },
     },
+    apns: { headers: { 'apns-collapse-id': `gr_${gameId}_${leadHours}`.slice(0, 64) } },
   });
 }
