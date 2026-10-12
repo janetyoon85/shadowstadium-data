@@ -559,6 +559,25 @@ async function enrichSaves(allGames) {
     if (e.code !== 'ENOENT') throw e;
     console.log('[playerCodes] no player-codes.json yet — starting fresh');
   }
+  // MLB 중계는 선수를 성만 준다("스쿠발") — 레지스트리 키는 풀네임("타릭 스쿠발")이라 정확 일치가 빗나가 pid 가 안 붙고
+  // 선수 정보 모달이 "정보를 찾을 수 없어요"가 됐다(2026-10-12). 풀네임의 마지막 토큰이 같고 mlb: pid 가 하나뿐일 때만 성으로 연결한다.
+  let mlbSurnameIdx = null;
+  const mlbPidByName = (name) => {
+    if (!name) return undefined;
+    if (playerCodeRegistry[name]) return playerCodeRegistry[name];
+    if (/\s/.test(name)) return undefined;
+    if (!mlbSurnameIdx) {
+      mlbSurnameIdx = new Map();
+      for (const [k, v] of Object.entries(playerCodeRegistry)) {
+        if (!String(v).startsWith('mlb:')) continue;
+        const last = k.trim().split(/\s+/).pop();
+        if (!mlbSurnameIdx.has(last)) mlbSurnameIdx.set(last, new Set());
+        mlbSurnameIdx.get(last).add(v);
+      }
+    }
+    const set = mlbSurnameIdx.get(name);
+    return set && set.size === 1 ? [...set][0] : undefined;
+  };
 
   // 버그(2026-09-29 발견, 사용자 리포트 "지금 경기중인 야구경기에 이벤트 하나도 안붙음"): status가
   // completed일 때만 대상에 포함시켜서, 축구(enrichScorers/enrichEuroAssists)와 달리 야구는
@@ -689,8 +708,8 @@ async function enrichSaves(allGames) {
           const rc = cache[g.gameId];
           const ls = parseLiveState(g.league, trd, g.inningInfo?.endsWith('초') ? true : g.inningInfo?.endsWith('말') ? false : null);
           if (ls && g.league === 'MLB') {
-            if (ls.pitcher && playerCodeRegistry[ls.pitcher]) ls.pitcherPid = playerCodeRegistry[ls.pitcher];
-            if (ls.batter && playerCodeRegistry[ls.batter]) ls.batterPid = playerCodeRegistry[ls.batter];
+            if (ls.pitcher && mlbPidByName(ls.pitcher)) ls.pitcherPid = mlbPidByName(ls.pitcher);
+            if (ls.batter && mlbPidByName(ls.batter)) ls.batterPid = mlbPidByName(ls.batter);
           }
           if (ls) g.liveState = ls; else delete g.liveState;
           const parsed = g.league === 'KBO' ? parseKboRelayHighlights(trd, g.home, g.away) : parseMlbNpbRelayHighlights(trd);
