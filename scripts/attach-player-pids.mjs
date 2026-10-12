@@ -3,6 +3,8 @@
 // 같은 데이터 안에 이미 pid 로 나온 (리그·팀·이름) 정보를 모아 색인을 만들고, 색인에서 pid 가 정확히 하나로 확정되는 참조에만 붙인다
 // (동명이인이 있으면 붙이지 않는다 — 틀린 선수 정보보다 빈 정보가 낫다).
 // 순서: ① 같은 리그·같은 팀·같은 이름 → ② 같은 팀(리그 무관)·같은 이름 → ③ 같은 리그·팀 무관·같은 이름(투수 승패 등 팀을 모르는 참조).
+import { NATIONAL_SENIOR_LEAGUES } from './backfill-national-pids.mjs';
+
 export const PID_RE = /^(espn|naver|kbo:[bp]|npb|mlb|nbk|bk):?/;
 
 const norm = (s) => String(s ?? '').trim().replace(/\s+/g, ' ');
@@ -27,7 +29,7 @@ function addTo(map, key, pid) {
   s.add(pid);
 }
 
-export function attachPlayerPids(games, gamePids = {}) {
+export function attachPlayerPids(games, gamePids = {}, nationalLinks = {}) {
   const byLgTeam = new Map(); // league|team|name
   const byTeam = new Map(); // team|name
   const byLg = new Map(); // league|name
@@ -47,6 +49,11 @@ export function attachPlayerPids(games, gamePids = {}) {
       const name = norm(r.name);
       if (!name || r.get()) continue;
       // ⓪ 경기 단위 정확 표(backfill-baseball-pids: 네이버 박스스코어 이름→코드) — 경기·이름이 유일하므로 가장 신뢰한다.
+      // ⓪' 대표팀 검증 연결표(backfill-national-pids: 국적·선수단 대조를 통과한 것만) — 성인 대표팀 대회 득점·카드에만 적용.
+      if (r.team && NATIONAL_SENIOR_LEAGUES.has(g.league)) {
+        const lp = nationalLinks?.[`${r.team}|${name}`]?.pid;
+        if (lp) { r.set(lp); attached++; continue; }
+      }
       const slotPid = r.slot && gamePids?.[g.gameId]?._s?.[r.slot];
       if (slotPid) { r.set(slotPid); attached++; continue; }
       const gp = gamePids?.[g.gameId]?.[name];

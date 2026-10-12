@@ -198,6 +198,7 @@ const WF = {
   'backfill-team-logos': 180, 'backfill-trophy-photos': 180, 'fetch-wbsc-baseball': 540, 'fetch-espn-baseball': 1500,
   'check-future-editions': 1800,
   'backfill-baseball-pids': 240,
+  'backfill-national-pids': 1080,
   'fetch-team-rosters': 1800, 'backfill-roster-photos': 400, // 선수단 매일 / 사진 보충 3시간(실행 30분+대기열 여유)
   // 앱 저장소(비공개) 워크플로우 — 'owner/repo:워크플로' 형식, 읽기 토큰(APP_REPO_TOKEN 시크릿)이 있어야 조회된다.
   'janetyoon85/shadowstadium:venue-coverage': 1080, 'janetyoon85/shadowstadium:weather-verify': 2160,
