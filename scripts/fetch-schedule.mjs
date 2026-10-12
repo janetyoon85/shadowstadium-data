@@ -11,6 +11,7 @@ import { assignSeriesRecord, assignLegOneResult } from './series-record.mjs';
 import { canonTeamName } from './team-name-canon.mjs';
 import { getMlbNationality, getMlbPitcherDecisionNats, getMlbHoldNats, getMlbProbableStarterPid } from './mlb-nationality.mjs';
 import { staleSuspendedStatus } from './live-staleness.mjs';
+import { mlbLivePitcherPid } from './mlb-live-pid.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -741,6 +742,8 @@ async function enrichSaves(allGames) {
             const pTeams = [g.home, g.away];
             if (ls.pitcher && mlbPidByName(ls.pitcher, pTeams)) ls.pitcherPid = mlbPidByName(ls.pitcher, pTeams);
             if (ls.batter && mlbPidByName(ls.batter, pTeams)) ls.batterPid = mlbPidByName(ls.batter, pTeams);
+            // 마지막 폴백: 이름으로 못 찾은 투수는 StatsAPI 현재 투수 id 를 투구수 대조(±2)로 확정.
+            if (ls.pitcher && !ls.pitcherPid) { const lp = await mlbLivePitcherPid(g.home, g.away, g.date, ls.pitchCount); if (lp) ls.pitcherPid = lp; }
           }
           if (ls) g.liveState = ls; else delete g.liveState;
           const parsed = g.league === 'KBO' ? parseKboRelayHighlights(trd, g.home, g.away) : parseMlbNpbRelayHighlights(trd);
