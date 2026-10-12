@@ -1,6 +1,6 @@
 {
   "KBO": {
-    "updatedAt": "2026-10-12T18:00:47.278Z",
+    "updatedAt": "2026-10-12T19:00:47.138Z",
     "seasonCode": "2026",
     "rows": [
       {
@@ -720,7 +720,7 @@
     ]
   },
   "K리그1": {
-    "updatedAt": "2026-10-12T18:00:49.510Z",
+    "updatedAt": "2026-10-12T19:00:49.478Z",
     "seasonCode": "2026",
     "rows": [
       {
@@ -1324,7 +1324,7 @@
     ]
   },
   "K리그2": {
-    "updatedAt": "2026-10-12T18:00:51.020Z",
+    "updatedAt": "2026-10-12T19:00:50.870Z",
     "seasonCode": "2026",
     "rows": [
       {
@@ -2038,7 +2038,7 @@
     ]
   },
   "MLB": {
-    "updatedAt": "2026-10-12T18:00:52.428Z",
+    "updatedAt": "2026-10-12T19:00:52.275Z",
     "seasonCode": "2026",
     "rows": [
       {
@@ -3340,7 +3340,7 @@
     ]
   },
   "NPB": {
-    "updatedAt": "2026-10-12T18:00:54.796Z",
+    "updatedAt": "2026-10-12T19:00:54.685Z",
     "seasonCode": "2026",
     "rows": [
       {
@@ -3927,7 +3927,7 @@
     ]
   },
   "EPL": {
-    "updatedAt": "2026-10-12T18:00:56.665Z",
+    "updatedAt": "2026-10-12T19:00:56.475Z",
     "seasonCode": "gMoc",
     "rows": [
       {
@@ -4011,8 +4011,18 @@
         "gd": 2
       },
       {
-        "team": "리버풀",
+        "team": "뉴캐슬 유나이티드",
         "rank": 9,
+        "played": 5,
+        "win": 2,
+        "loss": 1,
+        "draw": 3,
+        "pts": 9,
+        "gd": 0
+      },
+      {
+        "team": "리버풀",
+        "rank": 10,
         "played": 6,
         "win": 2,
         "loss": 1,
@@ -4022,23 +4032,13 @@
       },
       {
         "team": "입스위치 타운",
-        "rank": 10,
+        "rank": 11,
         "played": 6,
         "win": 3,
         "loss": 3,
         "draw": 0,
         "pts": 9,
         "gd": -3
-      },
-      {
-        "team": "뉴캐슬 유나이티드",
-        "rank": 11,
-        "played": 5,
-        "win": 2,
-        "loss": 1,
-        "draw": 2,
-        "pts": 8,
-        "gd": 0
       },
       {
         "team": "크리스털 팰리스",
@@ -4091,17 +4091,17 @@
         "gd": -6
       },
       {
-        "team": "본머스",
+        "team": "코벤트리 시티",
         "rank": 17,
-        "played": 6,
-        "win": 0,
-        "loss": 3,
-        "draw": 3,
-        "pts": 3,
-        "gd": -6
+        "played": 5,
+        "win": 1,
+        "loss": 4,
+        "draw": 1,
+        "pts": 4,
+        "gd": -9
       },
       {
-        "team": "토트넘 홋스퍼",
+        "team": "본머스",
         "rank": 18,
         "played": 6,
         "win": 0,
@@ -4111,14 +4111,14 @@
         "gd": -6
       },
       {
-        "team": "코벤트리 시티",
+        "team": "토트넘 홋스퍼",
         "rank": 19,
-        "played": 5,
-        "win": 1,
-        "loss": 4,
-        "draw": 0,
+        "played": 6,
+        "win": 0,
+        "loss": 3,
+        "draw": 3,
         "pts": 3,
-        "gd": -9
+        "gd": -6
       },
       {
         "team": "풀럼",
@@ -4229,6 +4229,18 @@
         "redCards": 0
       },
       {
+        "team": "뉴캐슬 유나이티드",
+        "goals": 9,
+        "goalsConceded": 9,
+        "shots": 41,
+        "shotsOnTarget": 18,
+        "possession": 49.5,
+        "passesAccuracy": 83.11,
+        "fouls": 61,
+        "yellowCards": 12,
+        "redCards": 0
+      },
+      {
         "team": "리버풀",
         "goals": 7,
         "goalsConceded": 7,
@@ -4251,18 +4263,6 @@
         "fouls": 66,
         "yellowCards": 11,
         "redCards": 1
-      },
-      {
-        "team": "뉴캐슬 유나이티드",
-        "goals": 9,
-        "goalsConceded": 9,
-        "shots": 41,
-        "shotsOnTarget": 18,
-        "possession": 49.5,
-        "passesAccuracy": 83.11,
-        "fouls": 61,
-        "yellowCards": 12,
-        "redCards": 0
       },
       {
         "team": "크리스털 팰리스",
@@ -4325,6 +4325,18 @@
         "redCards": 1
       },
       {
+        "team": "코벤트리 시티",
+        "goals": 1,
+        "goalsConceded": 10,
+        "shots": 39,
+        "shotsOnTarget": 16,
+        "possession": 38.7,
+        "passesAccuracy": 77.26,
+        "fouls": 60,
+        "yellowCards": 4,
+        "redCards": 1
+      },
+      {
         "team": "본머스",
         "goals": 7,
         "goalsConceded": 13,
@@ -4346,18 +4358,6 @@
         "passesAccuracy": 87.69,
         "fouls": 82,
         "yellowCards": 8,
-        "redCards": 1
-      },
-      {
-        "team": "코벤트리 시티",
-        "goals": 1,
-        "goalsConceded": 10,
-        "shots": 39,
-        "shotsOnTarget": 16,
-        "possession": 38.7,
-        "passesAccuracy": 77.26,
-        "fouls": 60,
-        "yellowCards": 4,
         "redCards": 1
       },
       {
@@ -4707,7 +4707,7 @@
     ]
   },
   "EFL": {
-    "updatedAt": "2026-10-12T18:00:58.155Z",
+    "updatedAt": "2026-10-12T19:00:57.855Z",
     "seasonCode": "Gpa6",
     "rows": [
       {
@@ -5575,7 +5575,7 @@
     ]
   },
   "LALIGA": {
-    "updatedAt": "2026-10-12T18:00:59.594Z",
+    "updatedAt": "2026-10-12T19:00:59.232Z",
     "seasonCode": "AKz3",
     "rows": [
       {
@@ -6355,7 +6355,7 @@
     ]
   },
   "BUNDESLIGA": {
-    "updatedAt": "2026-10-12T18:01:01.050Z",
+    "updatedAt": "2026-10-12T19:01:00.627Z",
     "seasonCode": "QAF5",
     "rows": [
       {
@@ -7091,7 +7091,7 @@
     ]
   },
   "SERIEA": {
-    "updatedAt": "2026-10-12T18:01:02.443Z",
+    "updatedAt": "2026-10-12T19:01:02.009Z",
     "seasonCode": "YUEy",
     "rows": [
       {
@@ -7187,12 +7187,12 @@
       {
         "team": "아탈란타",
         "rank": 10,
-        "played": 5,
+        "played": 6,
         "win": 3,
         "loss": 3,
         "draw": 0,
         "pts": 9,
-        "gd": -2
+        "gd": 0
       },
       {
         "team": "사수올로",
@@ -7230,8 +7230,8 @@
         "played": 5,
         "win": 1,
         "loss": 3,
-        "draw": 1,
-        "pts": 4,
+        "draw": 2,
+        "pts": 5,
         "gd": -3
       },
       {
@@ -7240,8 +7240,8 @@
         "played": 5,
         "win": 1,
         "loss": 3,
-        "draw": 1,
-        "pts": 4,
+        "draw": 2,
+        "pts": 5,
         "gd": -3
       },
       {
@@ -7287,12 +7287,12 @@
       {
         "team": "베네치아",
         "rank": 20,
-        "played": 5,
+        "played": 6,
         "win": 0,
         "loss": 6,
         "draw": 0,
         "pts": 0,
-        "gd": -9
+        "gd": -11
       }
     ],
     "teamRecords": [
@@ -7406,15 +7406,15 @@
       },
       {
         "team": "아탈란타",
-        "goals": 5,
-        "goalsConceded": 7,
-        "shots": 42,
-        "shotsOnTarget": 17,
-        "possession": 48.5,
-        "passesAccuracy": 88.44,
-        "fouls": 48,
+        "goals": 8,
+        "goalsConceded": 8,
+        "shots": 59,
+        "shotsOnTarget": 28,
+        "possession": 46.7,
+        "passesAccuracy": 87.83,
+        "fouls": 62,
         "yellowCards": 4,
-        "redCards": 1
+        "redCards": 2
       },
       {
         "team": "사수올로",
@@ -7526,14 +7526,14 @@
       },
       {
         "team": "베네치아",
-        "goals": 4,
-        "goalsConceded": 13,
-        "shots": 53,
-        "shotsOnTarget": 22,
-        "possession": 56.6,
-        "passesAccuracy": 84.83,
-        "fouls": 58,
-        "yellowCards": 16,
+        "goals": 5,
+        "goalsConceded": 16,
+        "shots": 66,
+        "shotsOnTarget": 26,
+        "possession": 57.8,
+        "passesAccuracy": 85.96,
+        "fouls": 64,
+        "yellowCards": 18,
         "redCards": 0
       }
     ],
@@ -7614,6 +7614,17 @@
         "yellowCards": 0,
         "redCards": 0,
         "country": "프랑스"
+      },
+      {
+        "name": "니콜라 크르스토비치",
+        "team": "아탈란타",
+        "pos": "FW",
+        "played": 6,
+        "goals": 3,
+        "assists": 1,
+        "yellowCards": 1,
+        "redCards": 0,
+        "country": "몬테네그로"
       },
       {
         "name": "밀루틴 오스마이치",
@@ -7713,6 +7724,17 @@
         "yellowCards": 2,
         "redCards": 0,
         "country": "세네갈"
+      },
+      {
+        "name": "앙투안 하이노",
+        "team": "베네치아",
+        "pos": "DF",
+        "played": 6,
+        "goals": 2,
+        "assists": 1,
+        "yellowCards": 0,
+        "redCards": 0,
+        "country": "프랑스"
       },
       {
         "name": "에돈 제그로바",
@@ -7845,33 +7867,11 @@
         "yellowCards": 0,
         "redCards": 0,
         "country": "포르투갈"
-      },
-      {
-        "name": "마티아 자카니",
-        "team": "라치오",
-        "pos": "MF",
-        "played": 6,
-        "goals": 1,
-        "assists": 2,
-        "yellowCards": 2,
-        "redCards": 0,
-        "country": "이탈리아"
-      },
-      {
-        "name": "가브리엘레 브라카글리아",
-        "team": "프로시노네",
-        "pos": "DF",
-        "played": 6,
-        "goals": 1,
-        "assists": 1,
-        "yellowCards": 3,
-        "redCards": 0,
-        "country": "이탈리아"
       }
     ]
   },
   "LIGUE1": {
-    "updatedAt": "2026-10-12T18:01:03.863Z",
+    "updatedAt": "2026-10-12T19:01:03.393Z",
     "seasonCode": "yEGP",
     "rows": [
       {
@@ -8607,7 +8607,7 @@
     ]
   },
   "EREDIVISIE": {
-    "updatedAt": "2026-10-12T18:01:05.315Z",
+    "updatedAt": "2026-10-12T19:01:04.739Z",
     "seasonCode": "rY5l",
     "rows": [
       {
@@ -9343,7 +9343,7 @@
     ]
   },
   "MLS": {
-    "updatedAt": "2026-10-12T18:01:06.704Z",
+    "updatedAt": "2026-10-12T19:01:06.088Z",
     "seasonCode": "kFAV",
     "rows": [
       {
@@ -10373,7 +10373,7 @@
     ]
   },
   "SCOTLAND": {
-    "updatedAt": "2026-10-12T18:01:08.209Z",
+    "updatedAt": "2026-10-12T19:01:07.545Z",
     "seasonCode": "tcRg",
     "rows": [
       {
@@ -10977,7 +10977,7 @@
     ]
   },
   "DENMARK": {
-    "updatedAt": "2026-10-12T18:01:09.599Z",
+    "updatedAt": "2026-10-12T19:01:08.976Z",
     "seasonCode": "ut8A",
     "rows": [
       {
@@ -11581,7 +11581,7 @@
     ]
   },
   "SAUDI": {
-    "updatedAt": "2026-10-12T18:01:11.044Z",
+    "updatedAt": "2026-10-12T19:01:10.385Z",
     "seasonCode": "mNWf",
     "rows": [
       {
@@ -12317,7 +12317,7 @@
     ]
   },
   "J1": {
-    "updatedAt": "2026-10-12T18:01:12.436Z",
+    "updatedAt": "2026-10-12T19:01:11.723Z",
     "seasonCode": "sxaF",
     "rows": [
       {
@@ -12589,7 +12589,7 @@
         "shots": 105,
         "shotsOnTarget": 40,
         "possession": 58.2,
-        "passesAccuracy": 82.66,
+        "passesAccuracy": 82.59,
         "fouls": 99,
         "yellowCards": 16,
         "redCards": 0
@@ -12601,7 +12601,7 @@
         "shots": 67,
         "shotsOnTarget": 29,
         "possession": 48,
-        "passesAccuracy": 75.73,
+        "passesAccuracy": 75.66,
         "fouls": 125,
         "yellowCards": 14,
         "redCards": 0
@@ -12658,10 +12658,10 @@
         "team": "세레소 오사카",
         "goals": 7,
         "goalsConceded": 12,
-        "shots": 80,
+        "shots": 79,
         "shotsOnTarget": 30,
         "possession": 55.9,
-        "passesAccuracy": 79.97,
+        "passesAccuracy": 79.95,
         "fouls": 84,
         "yellowCards": 14,
         "redCards": 0
@@ -12733,7 +12733,7 @@
         "shots": 91,
         "shotsOnTarget": 38,
         "possession": 55.2,
-        "passesAccuracy": 81.86,
+        "passesAccuracy": 81.89,
         "fouls": 101,
         "yellowCards": 8,
         "redCards": 2
@@ -13097,7 +13097,7 @@
     ]
   },
   "UCL": {
-    "updatedAt": "2026-10-12T18:01:13.821Z",
+    "updatedAt": "2026-10-12T19:01:13.098Z",
     "seasonCode": "SwZB",
     "rows": [
       {
@@ -14229,7 +14229,7 @@
     ]
   },
   "UEL": {
-    "updatedAt": "2026-10-12T18:01:15.255Z",
+    "updatedAt": "2026-10-12T19:01:14.478Z",
     "seasonCode": "zKAT",
     "rows": [
       {
@@ -15361,7 +15361,7 @@
     ]
   },
   "UECL": {
-    "updatedAt": "2026-10-12T18:01:16.725Z",
+    "updatedAt": "2026-10-12T19:01:15.885Z",
     "seasonCode": "cKUe",
     "rows": [
       {
@@ -16469,18 +16469,18 @@
     ]
   },
   "ACL": {
-    "updatedAt": "2026-10-12T18:01:18.166Z",
+    "updatedAt": "2026-10-12T19:01:17.267Z",
     "seasonCode": "oNJx",
     "rows": [
       {
-        "team": "알 아흘리",
+        "team": "알 아인",
         "rank": 1,
         "played": 1,
-        "win": 1,
+        "win": 2,
         "loss": 0,
-        "draw": 1,
-        "pts": 4,
-        "gd": 0,
+        "draw": 0,
+        "pts": 6,
+        "gd": 4,
         "group": "WEST"
       },
       {
@@ -16506,14 +16506,25 @@
         "group": "EAST"
       },
       {
-        "team": "알 카디시야",
+        "team": "에스테그랄",
         "rank": 2,
+        "played": 1,
+        "win": 2,
+        "loss": 0,
+        "draw": 0,
+        "pts": 6,
+        "gd": 3,
+        "group": "WEST"
+      },
+      {
+        "team": "알 아흘리",
+        "rank": 3,
         "played": 2,
         "win": 1,
         "loss": 0,
         "draw": 1,
         "pts": 4,
-        "gd": 1,
+        "gd": 2,
         "group": "WEST"
       },
       {
@@ -16528,17 +16539,6 @@
         "group": "EAST"
       },
       {
-        "team": "알 아인",
-        "rank": 3,
-        "played": 1,
-        "win": 1,
-        "loss": 0,
-        "draw": 0,
-        "pts": 3,
-        "gd": 4,
-        "group": "WEST"
-      },
-      {
         "team": "베이징 궈안",
         "rank": 4,
         "played": 1,
@@ -16550,14 +16550,14 @@
         "group": "EAST"
       },
       {
-        "team": "에스테그랄",
+        "team": "알 카디시야",
         "rank": 4,
-        "played": 1,
+        "played": 2,
         "win": 1,
         "loss": 0,
-        "draw": 0,
-        "pts": 3,
-        "gd": 3,
+        "draw": 1,
+        "pts": 4,
+        "gd": 1,
         "group": "WEST"
       },
       {
@@ -16662,7 +16662,7 @@
       {
         "team": "알샤말",
         "rank": 9,
-        "played": 1,
+        "played": 2,
         "win": 0,
         "loss": 0,
         "draw": 2,
@@ -16695,7 +16695,7 @@
       {
         "team": "트락토르",
         "rank": 11,
-        "played": 1,
+        "played": 2,
         "win": 0,
         "loss": 1,
         "draw": 1,
@@ -16730,21 +16730,21 @@
         "rank": 12,
         "played": 1,
         "win": 0,
-        "loss": 1,
+        "loss": 2,
         "draw": 0,
         "pts": 0,
         "gd": -1,
         "group": "WEST"
       },
       {
-        "team": "Air Force",
+        "team": "알와슬",
         "rank": 13,
-        "played": 1,
+        "played": 2,
         "win": 0,
-        "loss": 1,
+        "loss": 2,
         "draw": 0,
         "pts": 0,
-        "gd": -1,
+        "gd": -3,
         "group": "WEST"
       },
       {
@@ -16770,14 +16770,25 @@
         "group": "EAST"
       },
       {
-        "team": "알와슬",
+        "team": "알 사드",
         "rank": 14,
         "played": 1,
         "win": 0,
-        "loss": 2,
+        "loss": 1,
         "draw": 0,
         "pts": 0,
-        "gd": -1,
+        "gd": -3,
+        "group": "WEST"
+      },
+      {
+        "team": "알 나스르",
+        "rank": 15,
+        "played": 1,
+        "win": 0,
+        "loss": 1,
+        "draw": 0,
+        "pts": 0,
+        "gd": -4,
         "group": "WEST"
       },
       {
@@ -16792,28 +16803,6 @@
         "group": "EAST"
       },
       {
-        "team": "알 사드",
-        "rank": 15,
-        "played": 1,
-        "win": 0,
-        "loss": 1,
-        "draw": 0,
-        "pts": 0,
-        "gd": -3,
-        "group": "WEST"
-      },
-      {
-        "team": "알 나스르",
-        "rank": 16,
-        "played": 1,
-        "win": 0,
-        "loss": 1,
-        "draw": 0,
-        "pts": 0,
-        "gd": -4,
-        "group": "WEST"
-      },
-      {
         "team": "뉴캐슬 제츠",
         "rank": 16,
         "played": 1,
@@ -16823,19 +16812,30 @@
         "pts": 0,
         "gd": -6,
         "group": "EAST"
+      },
+      {
+        "team": "Air Force",
+        "rank": 16,
+        "played": 1,
+        "win": 0,
+        "loss": 2,
+        "draw": 0,
+        "pts": 0,
+        "gd": -1,
+        "group": "WEST"
       }
     ],
     "teamRecords": [
       {
-        "team": "알 아흘리",
-        "goals": 1,
-        "goalsConceded": 1,
-        "shots": 16,
-        "shotsOnTarget": 5,
-        "possession": 55.6,
-        "passesAccuracy": 84.97,
-        "fouls": 8,
-        "yellowCards": 2,
+        "team": "알 아인",
+        "goals": 4,
+        "goalsConceded": 0,
+        "shots": 12,
+        "shotsOnTarget": 7,
+        "possession": 42.8,
+        "passesAccuracy": 82.66,
+        "fouls": 16,
+        "yellowCards": 3,
         "redCards": 0
       },
       {
@@ -16863,14 +16863,26 @@
         "redCards": 0
       },
       {
-        "team": "알 카디시야",
+        "team": "에스테그랄",
         "goals": 3,
+        "goalsConceded": 0,
+        "shots": 9,
+        "shotsOnTarget": 7,
+        "possession": 27.4,
+        "passesAccuracy": 74.31,
+        "fouls": 9,
+        "yellowCards": 3,
+        "redCards": 0
+      },
+      {
+        "team": "알 아흘리",
+        "goals": 4,
         "goalsConceded": 2,
-        "shots": 21,
+        "shots": 24,
         "shotsOnTarget": 9,
-        "possession": 53.5,
-        "passesAccuracy": 86.65,
-        "fouls": 20,
+        "possession": 47.1,
+        "passesAccuracy": 82.39,
+        "fouls": 21,
         "yellowCards": 3,
         "redCards": 0
       },
@@ -16887,18 +16899,6 @@
         "redCards": 0
       },
       {
-        "team": "알 아인",
-        "goals": 4,
-        "goalsConceded": 0,
-        "shots": 12,
-        "shotsOnTarget": 7,
-        "possession": 42.8,
-        "passesAccuracy": 82.66,
-        "fouls": 16,
-        "yellowCards": 3,
-        "redCards": 0
-      },
-      {
         "team": "베이징 궈안",
         "goals": 3,
         "goalsConceded": 1,
@@ -16911,14 +16911,14 @@
         "redCards": 0
       },
       {
-        "team": "에스테그랄",
+        "team": "알 카디시야",
         "goals": 3,
-        "goalsConceded": 0,
-        "shots": 9,
-        "shotsOnTarget": 7,
-        "possession": 27.4,
-        "passesAccuracy": 74.31,
-        "fouls": 9,
+        "goalsConceded": 2,
+        "shots": 21,
+        "shotsOnTarget": 9,
+        "possession": 53.5,
+        "passesAccuracy": 86.65,
+        "fouls": 20,
         "yellowCards": 3,
         "redCards": 0
       },
@@ -17034,12 +17034,12 @@
         "team": "알샤말",
         "goals": 1,
         "goalsConceded": 1,
-        "shots": 6,
-        "shotsOnTarget": 2,
-        "possession": 42.2,
-        "passesAccuracy": 79.35,
-        "fouls": 11,
-        "yellowCards": 1,
+        "shots": 14,
+        "shotsOnTarget": 4,
+        "possession": 48,
+        "passesAccuracy": 83.68,
+        "fouls": 19,
+        "yellowCards": 2,
         "redCards": 0
       },
       {
@@ -17070,11 +17070,11 @@
         "team": "트락토르",
         "goals": 0,
         "goalsConceded": 1,
-        "shots": 6,
-        "shotsOnTarget": 1,
-        "possession": 47.1,
-        "passesAccuracy": 82.31,
-        "fouls": 14,
+        "shots": 13,
+        "shotsOnTarget": 3,
+        "possession": 46.8,
+        "passesAccuracy": 83.35,
+        "fouls": 19,
         "yellowCards": 2,
         "redCards": 0
       },
@@ -17115,15 +17115,15 @@
         "redCards": 1
       },
       {
-        "team": "Air Force",
-        "goals": 0,
-        "goalsConceded": 1,
-        "shots": 4,
-        "shotsOnTarget": 1,
-        "possession": 48.1,
-        "passesAccuracy": 75.74,
-        "fouls": 3,
-        "yellowCards": 2,
+        "team": "알와슬",
+        "goals": 2,
+        "goalsConceded": 5,
+        "shots": 20,
+        "shotsOnTarget": 6,
+        "possession": 53.6,
+        "passesAccuracy": 86.95,
+        "fouls": 16,
+        "yellowCards": 4,
         "redCards": 0
       },
       {
@@ -17151,30 +17151,6 @@
         "redCards": 0
       },
       {
-        "team": "알와슬",
-        "goals": 1,
-        "goalsConceded": 2,
-        "shots": 10,
-        "shotsOnTarget": 4,
-        "possession": 47.2,
-        "passesAccuracy": 86.14,
-        "fouls": 6,
-        "yellowCards": 2,
-        "redCards": 0
-      },
-      {
-        "team": "공안 하노이",
-        "goals": 1,
-        "goalsConceded": 4,
-        "shots": 13,
-        "shotsOnTarget": 7,
-        "possession": 47.1,
-        "passesAccuracy": 79.33,
-        "fouls": 7,
-        "yellowCards": 1,
-        "redCards": 0
-      },
-      {
         "team": "알 사드",
         "goals": 0,
         "goalsConceded": 3,
@@ -17199,6 +17175,18 @@
         "redCards": 0
       },
       {
+        "team": "공안 하노이",
+        "goals": 1,
+        "goalsConceded": 4,
+        "shots": 13,
+        "shotsOnTarget": 7,
+        "possession": 47.1,
+        "passesAccuracy": 79.33,
+        "fouls": 7,
+        "yellowCards": 1,
+        "redCards": 0
+      },
+      {
         "team": "뉴캐슬 제츠",
         "goals": 1,
         "goalsConceded": 7,
@@ -17208,6 +17196,18 @@
         "passesAccuracy": 91.09,
         "fouls": 7,
         "yellowCards": 1,
+        "redCards": 0
+      },
+      {
+        "team": "Air Force",
+        "goals": 0,
+        "goalsConceded": 1,
+        "shots": 4,
+        "shotsOnTarget": 1,
+        "possession": 48.1,
+        "passesAccuracy": 75.74,
+        "fouls": 3,
+        "yellowCards": 2,
         "redCards": 0
       }
     ],
@@ -17246,17 +17246,6 @@
         "country": "모로코"
       },
       {
-        "name": "우 레이",
-        "team": "상하이 하이강",
-        "pos": "FW",
-        "played": 1,
-        "goals": 1,
-        "assists": 1,
-        "yellowCards": 0,
-        "redCards": 0,
-        "country": "중국"
-      },
-      {
         "name": "기오르고스 야카우마키스",
         "team": "알 아인",
         "pos": "FW",
@@ -17282,7 +17271,7 @@
         "name": "레안드로 스파다치오",
         "team": "알와슬",
         "pos": "FW",
-        "played": 1,
+        "played": 2,
         "goals": 1,
         "assists": 0,
         "yellowCards": 0,
@@ -17293,6 +17282,17 @@
         "name": "레오나르두",
         "team": "상하이 하이강",
         "pos": "FW",
+        "played": 1,
+        "goals": 1,
+        "assists": 0,
+        "yellowCards": 0,
+        "redCards": 0,
+        "country": "브라질"
+      },
+      {
+        "name": "로저 이바녜스",
+        "team": "알 아흘리",
+        "pos": "DF",
         "played": 1,
         "goals": 1,
         "assists": 0,
@@ -17532,20 +17532,20 @@
         "country": "일본"
       },
       {
-        "name": "모하메드 벤 롬다네",
-        "team": "알샤말",
-        "pos": "MF",
-        "played": 1,
+        "name": "메리흐 데미랄",
+        "team": "알 아흘리",
+        "pos": "DF",
+        "played": 2,
         "goals": 0,
         "assists": 1,
         "yellowCards": 0,
         "redCards": 0,
-        "country": "튀니지"
+        "country": "튀르키예"
       }
     ]
   },
   "ACL2": {
-    "updatedAt": "2026-10-12T18:01:19.586Z",
+    "updatedAt": "2026-10-12T19:01:18.722Z",
     "seasonCode": "PtcK",
     "rows": [
       {
@@ -18621,7 +18621,7 @@
     ]
   },
   "WORLDCUP": {
-    "updatedAt": "2026-10-12T18:01:21.028Z",
+    "updatedAt": "2026-10-12T19:01:20.121Z",
     "seasonCode": "3F9X",
     "rows": [
       {
@@ -20065,7 +20065,7 @@
     ]
   },
   "AFRICACUP": {
-    "updatedAt": "2026-10-12T18:01:22.619Z",
+    "updatedAt": "2026-10-12T19:01:21.615Z",
     "seasonCode": "GZMA",
     "rows": [
       {
@@ -20957,7 +20957,7 @@
     ]
   },
   "U17WORLDCUP": {
-    "updatedAt": "2026-10-12T18:01:24.127Z",
+    "updatedAt": "2026-10-12T19:01:23.195Z",
     "seasonCode": "LjKn",
     "rows": [
       {
@@ -21974,7 +21974,7 @@
     "players": []
   },
   "CONCACAFCUP": {
-    "updatedAt": "2026-10-12T18:01:25.516Z",
+    "updatedAt": "2026-10-12T19:01:24.502Z",
     "seasonCode": "G9oo",
     "rows": [
       {
@@ -22908,7 +22908,7 @@
     ]
   },
   "UNL": {
-    "updatedAt": "2026-10-12T18:01:26.983Z",
+    "updatedAt": "2026-10-12T19:01:25.947Z",
     "seasonCode": "0Eel",
     "rows": [
       {
@@ -24490,7 +24490,7 @@
     ]
   },
   "WCQUEFA": {
-    "updatedAt": "2026-10-12T18:01:28.549Z",
+    "updatedAt": "2026-10-12T19:01:27.466Z",
     "seasonCode": "lbrT",
     "rows": [
       {
@@ -26072,7 +26072,7 @@
     ]
   },
   "WCQAFC": {
-    "updatedAt": "2026-10-12T18:01:30.169Z",
+    "updatedAt": "2026-10-12T19:01:29.041Z",
     "seasonCode": "ECsm",
     "rows": [
       {
@@ -27240,7 +27240,7 @@
     ]
   },
   "ASIANCUP": {
-    "updatedAt": "2026-10-12T18:01:31.705Z",
+    "updatedAt": "2026-10-12T19:01:30.589Z",
     "seasonCode": "h5za",
     "rows": [
       {
@@ -27753,7 +27753,7 @@
     "players": []
   },
   "U17ASIANCUP": {
-    "updatedAt": "2026-10-12T18:01:33.078Z",
+    "updatedAt": "2026-10-12T19:01:31.875Z",
     "seasonCode": "W0Pm",
     "rows": [
       {
@@ -28438,7 +28438,7 @@
     ]
   },
   "U20ASIANCUP": {
-    "updatedAt": "2026-10-12T18:01:34.490Z",
+    "updatedAt": "2026-10-12T19:01:33.257Z",
     "seasonCode": "KL2i",
     "rows": [
       {
@@ -29146,7 +29146,7 @@
     ]
   },
   "U23ASIANCUP": {
-    "updatedAt": "2026-10-12T18:01:35.931Z",
+    "updatedAt": "2026-10-12T19:01:34.671Z",
     "seasonCode": "Ui6E",
     "rows": [
       {
@@ -29854,7 +29854,7 @@
     ]
   },
   "WOMENASIANCUP": {
-    "updatedAt": "2026-10-12T18:01:37.345Z",
+    "updatedAt": "2026-10-12T19:01:36.070Z",
     "seasonCode": "HlL4",
     "rows": [
       {
@@ -30470,7 +30470,7 @@
     ]
   },
   "U20WOMENASIANCUP": {
-    "updatedAt": "2026-10-12T18:01:38.784Z",
+    "updatedAt": "2026-10-12T19:01:37.430Z",
     "seasonCode": "BMHu",
     "rows": [
       {
@@ -31086,7 +31086,7 @@
     ]
   },
   "AFFCUP": {
-    "updatedAt": "2026-10-12T18:01:40.206Z",
+    "updatedAt": "2026-10-12T19:01:38.855Z",
     "seasonCode": "lOl0",
     "rows": [
       {
@@ -31656,7 +31656,7 @@
     ]
   },
   "E1MEN": {
-    "updatedAt": "2026-10-12T18:01:41.634Z",
+    "updatedAt": "2026-10-12T19:01:40.226Z",
     "seasonCode": "uqX4",
     "rows": [
       {
@@ -32084,7 +32084,7 @@
     ]
   },
   "E1WOMEN": {
-    "updatedAt": "2026-10-12T18:01:43.032Z",
+    "updatedAt": "2026-10-12T19:01:41.572Z",
     "seasonCode": "RagT",
     "rows": [
       {
@@ -32512,7 +32512,7 @@
     ]
   },
   "COPAAMERICA": {
-    "updatedAt": "2026-10-12T18:01:44.408Z",
+    "updatedAt": "2026-10-12T19:01:42.892Z",
     "seasonCode": "2bjq",
     "rows": [
       {
@@ -33220,7 +33220,7 @@
     ]
   },
   "CLUBWORLDCUP": {
-    "updatedAt": "2026-10-12T18:01:45.850Z",
+    "updatedAt": "2026-10-12T19:01:44.304Z",
     "seasonCode": "o2Rl",
     "rows": [
       {
@@ -34296,7 +34296,7 @@
     ]
   },
   "UEFAEURO": {
-    "updatedAt": "2026-10-12T18:01:47.333Z",
+    "updatedAt": "2026-10-12T19:01:45.738Z",
     "seasonCode": "bNU9",
     "rows": [
       {
@@ -35188,7 +35188,7 @@
     ]
   },
   "U20WORLDCUP": {
-    "updatedAt": "2026-10-12T18:01:48.806Z",
+    "updatedAt": "2026-10-12T19:01:47.193Z",
     "seasonCode": "o26O",
     "rows": [
       {
@@ -36080,7 +36080,7 @@
     ]
   },
   "U20WOMENWORLDCUP": {
-    "updatedAt": "2026-10-12T18:01:50.278Z",
+    "updatedAt": "2026-10-12T19:01:48.602Z",
     "seasonCode": "0Lw5",
     "rows": [
       {
@@ -36972,7 +36972,7 @@
     ]
   },
   "U17WOMENASIANCUP": {
-    "updatedAt": "2026-10-12T18:01:51.667Z",
+    "updatedAt": "2026-10-12T19:01:50.025Z",
     "seasonCode": "DbeE",
     "rows": [
       {
