@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { fetchVenuePhotoFromWikipedia, isPlausibleStadiumDescription } from '../venue-photo-wiki.mjs';
+import { fetchVenuePhotoFromWikipedia, isPlausibleStadiumDescription, venueTitleKindConflict } from '../venue-photo-wiki.mjs';
 
 function mockFetch(routes) {
   return async (url) => {
@@ -144,4 +144,12 @@ test('fetchVenuePhotoFromWikipedia - 요약 API가 일시적으로 !ok 응답이
   };
   const result = await fetchVenuePhotoFromWikipedia('Some Stadium');
   assert.equal(result, undefined);
+});
+
+test('venueTitleKindConflict - indoor Arena vs outdoor Stadium title mismatch is rejected (SAGA Arena -> SAGA Stadium)', () => {
+  assert.equal(venueTitleKindConflict('SAGA Arena', 'SAGA Stadium'), true);
+  assert.equal(venueTitleKindConflict('Wembley Stadium', 'Wembley Arena'), true);
+  assert.equal(venueTitleKindConflict('SAGA Arena', 'SAGA Arena'), false);
+  assert.equal(venueTitleKindConflict('Madison Square Garden', 'Madison Square Garden (1968)'), false);
+  assert.equal(venueTitleKindConflict('Frost Bank Center', 'Frost Bank Center'), false);
 });

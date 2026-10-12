@@ -68,6 +68,19 @@ async function fetchWithTimeout(url, options) {
 // 달라지는 것으로 추정. srlimit=1(1위만) 대신 상위 5개를 받아서, 검색어와 제목이 정확히 일치하는
 // 후보가 있으면 그걸 우선 사용 — 백엔드 랭킹이 흔들려도 "정확히 이 이름인 문서"는 항상 같은
 // 결과를 주므로 안정적.
+// 검색 1위가 이름만 비슷한 다른 시설일 때(2026-10-12 "농구장 사진이어야 하는데" — 사가 아레나에 SAGA Stadium 사진): 구장명이 arena/gymnasium(실내)인데
+// 문서 제목이 stadium/stadion(경기장)이고 arena 가 없으면, 또는 그 반대면 다른 시설로 보고 버린다. 틀린 사진보다 빈 사진이 낫다.
+export function venueTitleKindConflict(venueName, title) {
+  const kind = (t) => {
+    const s = String(t || '').toLowerCase();
+    const indoor = /\b(arena|gymnasium|gym|fieldhouse|forum)\b/.test(s);
+    const outdoor = /\b(stadium|stadion|stade|estadio|ballpark)\b/.test(s);
+    return indoor && !outdoor ? 'indoor' : outdoor && !indoor ? 'outdoor' : '';
+  };
+  const a = kind(venueName);
+  const b = kind(title);
+  return !!a && !!b && a !== b;
+}
 export async function fetchVenuePhotoFromWikipedia(venueName) {
   let sres;
   try {
@@ -81,6 +94,7 @@ export async function fetchVenuePhotoFromWikipedia(venueName) {
   const exactMatch = results.find((r) => r.title?.toLowerCase() === venueName.toLowerCase());
   const title = exactMatch?.title ?? results[0]?.title;
   if (!title) return null; // 검색 결과 자체가 없음 — 이 이름으론 확정적으로 없음.
+  if (venueTitleKindConflict(venueName, title)) return null; // 'SAGA Arena' 검색이 같은 도시의 'SAGA Stadium'(육상경기장) 문서로 간 오매칭 방지.
   await sleep(WIKI_REQUEST_DELAY_MS);
   let pres;
   try {
