@@ -30,3 +30,15 @@ test('judge - outdoor football venue named Arena is only suspect, never auto-wro
   const r = judgeVenuePhoto({ name: 'Tarczynski Arena', city: 'Wroclaw', file: 'Wroclaw Munincipal Stadium 2019.jpg', cats: [], usage: [] });
   assert.notEqual(r.verdict, 'wrong');
 });
+test('judge - baseball venue with only athletics-stadium evidence is wrong (Estadio Panamericano = Telmex athletics stadium)', () => {
+  const r = judgeVenuePhoto({ name: 'Estadio Panamericano', city: 'Zapopan', file: 'Estadio Telmex de Atletismo.JPG', cats: ['Category:Estadio Telmex de Atletismo'], usage: [], sport: 'baseball' });
+  assert.equal(r.verdict, 'wrong');
+});
+test('judge - baseball venue evidence that also mentions baseball stays ok (multi-use park)', () => {
+  const r = judgeVenuePhoto({ name: 'Durham Athletic Park', city: 'Durham', file: 'Durham Athletic Park.jpg', cats: ['Category:Baseball venues in North Carolina', 'Category:Athletic Park'], sport: 'baseball' });
+  assert.equal(r.verdict, 'ok');
+});
+test('judge - football venue is not affected by the baseball rule', () => {
+  const r = judgeVenuePhoto({ name: 'Estadio Panamericano', city: 'Zapopan', file: 'Estadio Telmex de Atletismo.JPG', cats: [], usage: [], sport: 'football' });
+  assert.notEqual(r.verdict, 'wrong');
+});

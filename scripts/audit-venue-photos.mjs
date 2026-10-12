@@ -32,8 +32,15 @@ export function commonsFileTitle(url) {
 const distinctive = (name, city) => strip(`${name} ${city || ''}`).split(/\s+/).filter((t) => t.length >= 4 && !GENERIC.has(t));
 
 // 순수 판정 함수(테스트 대상). evidence = 파일 제목·분류 이름들·설명·사용처 문서 제목들.
-export function judgeVenuePhoto({ name, city, file, cats = [], desc = '', usage = [], indoorSport = false }) {
+export function judgeVenuePhoto({ name, city, file, cats = [], desc = '', usage = [], indoorSport = false, sport = '' }) {
   if (/\.svg$|\bmap\b|locator|location map|\blogo\b|\bflag\b/i.test(file || '')) return { verdict: 'wrong', reason: 'not-a-photo' };
+  // 야구장인데 사진 제목·분류·사용처가 육상·축구 경기장 단어뿐이고 야구 단어가 하나도 없으면 다른 시설이다(Estadio Panamericano 야구장에 Telmex 육상경기장 사진, 2026-10-12).
+  if (sport === 'baseball') {
+    const ev = [file, ...cats, ...usage].filter(Boolean).join(' ');
+    const nonBall = /atletism|athletics?|track and field|\btrack\b|\bfootball\b|soccer|f[uú]tbol|rugby|velodrom|olympic stadium/i;
+    const ball = /baseball|b[eé]isbol|softball|ballpark|baseball park|\bbb\b|beisebol|yakyu|野球/i;
+    if (nonBall.test(ev) && !ball.test(ev)) return { verdict: 'wrong', reason: 'baseball-venue-non-baseball-photo' };
+  }
   const strings = [file, ...cats.map((c) => c.replace(/^Category:/, '')), ...usage].filter(Boolean);
   const toks = distinctive(name, city);
   const shares = (s) => toks.length === 0 || toks.some((t) => strip(s).includes(t));
@@ -54,6 +61,8 @@ export function judgeVenuePhoto({ name, city, file, cats = [], desc = '', usage 
 async function main() {
   const vp = JSON.parse(await fs.readFile(path.join(REPO_ROOT, 'venue-photos.json'), 'utf8'));
   const names = { ...JSON.parse(await fs.readFile(path.join(REPO_ROOT, 'venue-name-en.json'), 'utf8')), ...JSON.parse(await fs.readFile(path.join(REPO_ROOT, 'basketball', 'venue-name-en.json'), 'utf8')) };
+  let sportOf = {};
+  try { const meta = JSON.parse(await fs.readFile(path.join(REPO_ROOT, 'venues-meta.json'), 'utf8')); for (const x of Array.isArray(meta) ? meta : Object.values(meta)) sportOf[x.id] = x.sport; } catch { /* 종목 정보 없으면 종목별 규칙만 생략 */ }
   let audit = {};
   try { audit = JSON.parse(await fs.readFile(AUDIT_PATH, 'utf8')); } catch { /* 첫 실행 */ }
   const now = Date.now();
@@ -65,7 +74,7 @@ async function main() {
     if (!file) continue;
     const prev = audit[id];
     if (prev && prev.file === file && now - prev.at < RECHECK_MS) continue; // 같은 사진을 최근에 검증함
-    todo.push({ id, file, name: names[id].name, city: names[id].city || '' });
+    todo.push({ id, file, name: names[id].name, city: names[id].city || '', sport: sportOf[id] || '' });
   }
   todo.sort((a, b) => (a.id.startsWith('bk_') === b.id.startsWith('bk_') ? 0 : a.id.startsWith('bk_') ? -1 : 1)); // 농구장 먼저
   console.log(`[venue-audit] todo=${todo.length} maxRequests=${MAX_REQUESTS}`);
@@ -94,7 +103,7 @@ async function main() {
       const cats = (p.categories || []).map((x) => x.title);
       const usage = (p.globalusage || []).map((x) => x.title);
       const desc = (p.imageinfo?.[0]?.extmetadata?.ImageDescription?.value || '').replace(/<[^>]+>/g, ' ');
-      const r = judgeVenuePhoto({ name: c.name, city: c.city, file: c.file, cats, desc, usage, indoorSport: c.id.startsWith('bk_') });
+      const r = judgeVenuePhoto({ name: c.name, city: c.city, file: c.file, cats, desc, usage, indoorSport: c.id.startsWith('bk_'), sport: c.sport });
       audit[c.id] = { file: c.file, at: now, verdict: r.verdict, reason: r.reason };
       checked++;
       if (r.verdict === 'wrong') wrong.push(c.id);
