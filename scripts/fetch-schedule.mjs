@@ -562,10 +562,39 @@ async function enrichSaves(allGames) {
   // MLB 중계는 선수를 성만 준다("스쿠발") — 레지스트리 키는 풀네임("타릭 스쿠발")이라 정확 일치가 빗나가 pid 가 안 붙고
   // 선수 정보 모달이 "정보를 찾을 수 없어요"가 됐다(2026-10-12). 풀네임의 마지막 토큰이 같고 mlb: pid 가 하나뿐일 때만 성으로 연결한다.
   let mlbSurnameIdx = null;
-  const mlbPidByName = (name) => {
+  // 레지스트리에 아직 없는 선수(하이라이트에 안 나온 구원투수 등)는 두 팀의 MLB 로스터(team-rosters)에서 성(영문 player-name-en 매핑)으로 유일 매칭한다
+  // ("베시아"→Vesia→LA다저스 로스터의 Alex Vesia, 2026-10-12).
+  let rosterCache = null;
+  let nameEnCache = null;
+  const normSurname = (x) => String(x).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z-]/g, '');
+  const loadRosterBits = async () => {
+    if (rosterCache) return;
+    rosterCache = {};
+    try {
+      for (let i = 0; i < 16; i++) Object.assign(rosterCache, JSON.parse(await fs.readFile(path.join(REPO_ROOT, 'team-rosters', `${i.toString(16)}.json`), 'utf-8')));
+    } catch { /* 로스터 없으면 폴백 생략 */ }
+    try { nameEnCache = JSON.parse(await fs.readFile(path.join(REPO_ROOT, 'player-name-en.json'), 'utf-8')); } catch { nameEnCache = {}; }
+  };
+  const mlbRosterPid = (name, teams) => {
+    const en = nameEnCache?.[name];
+    if (!en || !rosterCache) return undefined;
+    const want = normSurname(en);
+    const hits = new Set();
+    for (const t of teams || []) {
+      for (const pl of rosterCache[`${t}|baseball`] || []) {
+        if (!String(pl.id).startsWith('mlb:')) continue;
+        const parts = String(pl.n).trim().split(/\s+/).filter((w) => !/^(jr\.?|sr\.?|ii|iii|iv)$/i.test(w));
+        if (normSurname(parts[parts.length - 1] || '') === want) hits.add(pl.id);
+      }
+    }
+    return hits.size === 1 ? [...hits][0] : undefined;
+  };
+  const mlbPidByName = (name, teams) => {
     if (!name) return undefined;
     if (playerCodeRegistry[name]) return playerCodeRegistry[name];
     if (/\s/.test(name)) return undefined;
+    const viaRoster = mlbRosterPid(name, teams);
+    if (viaRoster) return viaRoster;
     if (!mlbSurnameIdx) {
       mlbSurnameIdx = new Map();
       for (const [k, v] of Object.entries(playerCodeRegistry)) {
@@ -708,8 +737,10 @@ async function enrichSaves(allGames) {
           const rc = cache[g.gameId];
           const ls = parseLiveState(g.league, trd, g.inningInfo?.endsWith('초') ? true : g.inningInfo?.endsWith('말') ? false : null);
           if (ls && g.league === 'MLB') {
-            if (ls.pitcher && mlbPidByName(ls.pitcher)) ls.pitcherPid = mlbPidByName(ls.pitcher);
-            if (ls.batter && mlbPidByName(ls.batter)) ls.batterPid = mlbPidByName(ls.batter);
+            await loadRosterBits();
+            const pTeams = [g.home, g.away];
+            if (ls.pitcher && mlbPidByName(ls.pitcher, pTeams)) ls.pitcherPid = mlbPidByName(ls.pitcher, pTeams);
+            if (ls.batter && mlbPidByName(ls.batter, pTeams)) ls.batterPid = mlbPidByName(ls.batter, pTeams);
           }
           if (ls) g.liveState = ls; else delete g.liveState;
           const parsed = g.league === 'KBO' ? parseKboRelayHighlights(trd, g.home, g.away) : parseMlbNpbRelayHighlights(trd);
