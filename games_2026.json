@@ -680288,7 +680288,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 0,
-    "matchPeriod": "전반종료",
+    "matchPeriod": "후반 1'",
     "scorers": {
       "home": [],
       "away": [
@@ -680337,48 +680337,26 @@
     "status": "live",
     "awayScore": 5,
     "homeScore": 0,
-    "matchPeriod": "후반 6'",
+    "matchPeriod": "후반 7'",
     "scorers": {
       "home": [],
       "away": [
         {
           "n": "카쿠 로메로",
-          "m": 13,
-          "nat": "Paraguay",
-          "pid": "espn:188160"
+          "m": 13
         },
         {
           "n": "사에드 알 로산",
           "m": 18,
-          "og": true,
-          "nat": "Jordan",
-          "pid": "espn:374200"
+          "og": true
         },
         {
           "n": "라히미",
-          "m": 23,
-          "a": "Matías Palacios",
-          "nat": "Morocco",
-          "pid": "espn:315526",
-          "aNat": "Argentina",
-          "apid": "espn:181294"
+          "m": 23
         },
         {
           "n": "라히미",
-          "m": 43,
-          "a": "Soufiane Rahimi",
-          "nat": "Morocco",
-          "pid": "espn:315526",
-          "aNat": "Morocco",
-          "apid": "espn:276139"
-        },
-        {
-          "n": "라히미",
-          "m": 50,
-          "nat": "Morocco",
-          "pid": "espn:276139",
-          "aNat": "Morocco",
-          "apid": "espn:315526"
+          "m": 43
         }
       ]
     },
@@ -680570,7 +680548,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 12'",
+    "matchPeriod": "전반 13'",
     "phaseCode": "GROUP"
   },
   {
@@ -680586,7 +680564,19 @@
     "status": "live",
     "matchPeriod": "전반",
     "homeScore": 0,
-    "awayScore": 0
+    "awayScore": 0,
+    "cards": {
+      "home": [
+        {
+          "n": "Pedro Bondo",
+          "type": "Y",
+          "m": 11,
+          "pid": "espn:313915",
+          "nat": "Angola"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-10-13",
