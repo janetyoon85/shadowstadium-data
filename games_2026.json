@@ -680480,7 +680480,7 @@
     "gameId": "ARGENTINA_ESPN_401841606",
     "status": "live",
     "matchPeriod": "후반",
-    "homeScore": 1,
+    "homeScore": 2,
     "awayScore": 0,
     "cards": {
       "home": [
@@ -680530,6 +680530,13 @@
           "m": 59,
           "nat": "Argentina",
           "pid": "espn:292050"
+        },
+        {
+          "n": "Tomás Marchiori",
+          "m": 90,
+          "og": true,
+          "nat": "Argentina",
+          "pid": "espn:216697"
         }
       ],
       "away": []
@@ -680545,7 +680552,7 @@
     "stadium": "Estadio Jesús Bermúdez",
     "timeTbd": false,
     "gameId": "BOLIVIA_ESPN_401906468",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 4,
     "awayScore": 1,
@@ -680733,9 +680740,9 @@
         {
           "n": "루도니",
           "m": 6,
-          "pk": true,
           "nat": "England",
-          "pid": "espn:286967"
+          "pid": "espn:286967",
+          "pk": true
         },
         {
           "n": "체리프",
@@ -680748,8 +680755,8 @@
           "m": 81,
           "a": "Brandon Thomas-Asante",
           "nat": "England",
-          "pid": "espn:282647",
           "aNat": "Ghana",
+          "pid": "espn:282647",
           "apid": "espn:240495"
         },
         {
@@ -680757,8 +680764,8 @@
           "m": 86,
           "a": "Jay Dasilva",
           "nat": "England",
-          "pid": "espn:374220",
           "aNat": "Wales",
+          "pid": "espn:374220",
           "apid": "espn:206172"
         }
       ],
@@ -680768,8 +680775,8 @@
           "m": 70,
           "a": "Nico González",
           "nat": "Netherlands",
-          "pid": "espn:274633",
           "aNat": "Spain",
+          "pid": "espn:274633",
           "apid": "espn:323986"
         }
       ]
@@ -680808,7 +680815,7 @@
     "status": "live",
     "awayScore": 3,
     "homeScore": 2,
-    "matchPeriod": "후반 50'",
+    "matchPeriod": "후반 52'",
     "scorers": {
       "home": [
         {
@@ -680830,16 +680837,27 @@
       "away": [
         {
           "n": "우레",
-          "m": 13
+          "m": 13,
+          "nat": "Scotland",
+          "pid": "espn:322993"
         },
         {
           "n": "펠릭스 코레이아",
-          "m": 54
+          "m": 54,
+          "a": "Robbie Ure",
+          "nat": "Portugal",
+          "pid": "espn:288900",
+          "aNat": "Scotland",
+          "apid": "espn:322993"
         },
         {
           "n": "이삭 로메로",
           "m": 90,
-          "pid": "espn:365821"
+          "a": "Youssouf Fofana",
+          "nat": "Spain",
+          "pid": "espn:365821",
+          "aNat": "France",
+          "apid": "espn:277307"
         }
       ]
     },
@@ -680991,7 +681009,7 @@
     "status": "live",
     "matchPeriod": "후반",
     "homeScore": 1,
-    "awayScore": 2,
+    "awayScore": 3,
     "cards": {
       "home": [
         {
@@ -681054,6 +681072,12 @@
           "m": 56,
           "nat": "Brazil",
           "pid": "espn:314864"
+        },
+        {
+          "n": "Vivaldo Semedo",
+          "m": 77,
+          "nat": "Portugal",
+          "pid": "espn:349681"
         }
       ]
     }
@@ -681159,13 +681183,13 @@
     "awayScore": 1,
     "inningInfo": "2회초",
     "liveState": {
-      "pitcher": "Miguel Mendez",
-      "batter": "Colby Shelton",
-      "pitcherPid": "mlb:700280",
-      "batterPid": "mlb:701333",
-      "ball": 0,
-      "strike": 1,
-      "out": 0,
+      "pitcher": "Brooks Auger",
+      "batter": "John Peck",
+      "pitcherPid": "mlb:824624",
+      "batterPid": "mlb:807726",
+      "ball": 1,
+      "strike": 0,
+      "out": 3,
       "bases": []
     }
   },
