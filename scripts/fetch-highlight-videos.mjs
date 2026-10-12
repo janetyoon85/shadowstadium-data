@@ -177,13 +177,21 @@ async function searchFallback({ out, games, bk, bkTeams, teamEn, tAl, aliasG, al
     const t = st.tried[c.id] || { n: 0 };
     st.tried[c.id] = { n: t.n + 1, t: now };
     ls.n += 1;
-    const hit = items.find((it) => {
+    const hits = items.filter((it) => {
       const title = norm(it.snippet?.title || '');
       const p = Date.parse(it.snippet?.publishedAt || '');
-      return p - c.ts < 4 * 86400e3 && HL_WORD.test(title.normalize('NFC')) && !HL_NOT.test(title.normalize('NFC')) && c.h.some((x) => has(title, x)) && c.a.some((x) => has(title, x));
+      return it.id?.videoId && p - c.ts < 4 * 86400e3 && HL_WORD.test(title.normalize('NFC')) && !HL_NOT.test(title.normalize('NFC')) && c.h.some((x) => has(title, x)) && c.a.some((x) => has(title, x));
     });
+    const hit = hits[0];
     if (hit) ls.h += 1;
-    if (hit) { out[c.id] = { v: hit.id.videoId, t: (hit.snippet.title || '').replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/&quot;/g, '"') }; added++; console.log(`[hl] search hit ${c.lg} ${c.qh} vs ${c.qa}`); }
+    if (hit) {
+      const fix = (t) => (t || '').replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/&quot;/g, '"');
+      out[c.id] = { v: hit.id.videoId, t: fix(hit.snippet.title) };
+      // 같은 검색 결과의 나머지 일치 영상은 대체 후보(alts)로 — 대표 영상이 일부 지역에서 막혀 있어도 앱이 열리는 후보를 고른다.
+      const alts = hits.slice(1, 3).map((h) => ({ v: h.id.videoId, t: fix(h.snippet.title) }));
+      if (alts.length) out[c.id].alts = alts;
+      added++; console.log(`[hl] search hit ${c.lg} ${c.qh} vs ${c.qa}${alts.length ? ` (+${alts.length} alts)` : ''}`);
+    }
     await new Promise((r) => setTimeout(r, 200));
   }
   for (const [k, v] of Object.entries(st.tried)) if (now - v.t > 7 * 86400e3) delete st.tried[k];
@@ -215,7 +223,7 @@ async function main() {
   const prep = (t, ch) => (ch.script === 'latin' ? t.replace(/\butd\b\.?/g, 'united').replace(/\bman\b/g, 'manchester') : t);
   const aliasBk = (k) => { const t = bkTeams[k]; if (!t) return []; const w = (t.en || '').split(' '); if (t.lg === 'KBL' && t.ko) return [t.ko, t.ko.split(' ').slice(-1)[0]]; return [t.en, w.slice(-1)[0], w.slice(-2).join(' '), t.ko, t.ja].filter(Boolean); };
 
-  let added = 0;
+  let added = 0, altAdded = 0;
   for (const ch of CHANNELS) {
     let vids = [];
     try { vids = await listVideos(ch); } catch (e) { console.error(`[hl] ${ch.name} fail`, e.message); continue; }
@@ -225,12 +233,17 @@ async function main() {
       : games.filter((g) => ch.leagues.includes(g.league) && g.status === 'completed').map((g) => ({ id: g.gameId, ts: Date.parse(`${g.date}T${g.time && /^\d\d:\d\d$/.test(g.time) ? g.time : '12:00'}:00Z`) - KST, h: ch.script ? aliasS(g.home, ch.script, g.league) : aliasG(g.league, g.home), a: ch.script ? aliasS(g.away, ch.script, g.league) : aliasG(g.league, g.away) }));
     for (const v of vids) {
       const title = prep(norm(v.t), ch);
-      const cands = pool.filter((g) => g.ts <= v.p + 3600e3 && v.p - g.ts < 4 * 86400e3 && g.h.some((x) => has(title, x)) && g.a.some((x) => has(title, x)) && !out[g.id]);
-      cands.sort((x, y) => y.ts - x.ts);
-      const g = cands[0];
-      if (!g) continue;
-      out[g.id] = { v: v.v, t: v.t.replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/&quot;/g, '"') };
-      added++;
+      const matches = pool.filter((g) => g.ts <= v.p + 3600e3 && v.p - g.ts < 4 * 86400e3 && g.h.some((x) => has(title, x)) && g.a.some((x) => has(title, x)));
+      matches.sort((x, y) => y.ts - x.ts);
+      const vt = v.t.replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/&quot;/g, '"');
+      const g = matches.find((m) => !out[m.id]);
+      if (g) { out[g.id] = { v: v.v, t: vt }; added++; continue; }
+      // 후보 보관(2026-10-13): 이 경기에 이미 다른 채널의 영상이 있으면 이 영상을 대체 후보(alts, 최대 3개)로 둔다 — 앱이 사용자 지역에서 열리는 첫 후보를 고른다.
+      const dup = matches[0];
+      if (dup && out[dup.id] && out[dup.id].v !== v.v) {
+        const alts = (out[dup.id].alts ??= []);
+        if (alts.length < 3 && !alts.some((a) => a.v === v.v)) { alts.push({ v: v.v, t: vt }); altAdded++; }
+      }
     }
     console.log(`[hl] ${ch.name} videos=${vids.length}`);
   }
@@ -238,6 +251,6 @@ async function main() {
   if (API_KEY) added += await searchFallback({ out, games, bk, bkTeams, teamEn, tAl, aliasG, aliasS, aliasBk });
   const sorted = Object.fromEntries(Object.entries(out).sort(([a], [b]) => (a < b ? -1 : 1)));
   await fs.writeFile(OUT, JSON.stringify(sorted, null, 1) + '\n');
-  console.log(`[hl] added=${added} total=${Object.keys(sorted).length}`);
+  console.log(`[hl] added=${added} altAdded=${altAdded} total=${Object.keys(sorted).length}`);
 }
 main().catch((e) => { console.error(e); process.exit(1); });
