@@ -63,6 +63,7 @@ const nth = (m, nm) => { const n = (m.get(nm) || 0) + 1; m.set(nm, n); return n;
 async function main() {
   const games = await loadJson(GAMES_FILE, []);
   const sent = await loadJson(SENT_FILE, {});
+  for (const k of Object.keys(sent)) if (k.includes(':cand:') && Date.now() - Date.parse(sent[k]) > 6 * 3600e3) delete sent[k]; // 구원 등판 확인용 임시 기록 정리
   if (!Array.isArray(games) || games.length === 0) {
     console.error('[player-alerts] games.json empty/invalid');
     process.exit(1);
@@ -166,6 +167,12 @@ async function main() {
         const same = (starter && (starter === nm || starter.includes(nm) || nm.includes(starter))) || (starterPid && starterPid === g.liveState.pitcherPid);
         const dedupKey = `${g.gameId}:${defSide}:relief:${nm}`;
         let skip = false;
+        // 이닝 전환 직후 중계의 현재 투수는 직전 이닝 반대편 투수로 남아 있을 수 있다(2026-10-12 "양현종 선발 아님?" — KIA(홈) 선발 양현종이 1회말 시작 순간
+        // 원정팀 LG 의 '구원 등판'으로 알림). 그 투수가 반대편 팀 선발이면 구원이 아니다.
+        const oppStarter = defSide === 'home' ? g.awayPitcher : g.homePitcher;
+        const oppStarterPid = defSide === 'home' ? g.awayPitcherPid : g.homePitcherPid;
+        const isOppStarter = (oppStarter && (oppStarter === nm || oppStarter.includes(nm) || nm.includes(oppStarter))) || (oppStarterPid && oppStarterPid === g.liveState.pitcherPid);
+        if (isOppStarter) skip = true;
         if (Number(m[1]) === 1 && g.league !== 'KBO') {
           // 1회 MLB/NPB: 선발 표기 불일치 오탐 방지 — 처음 본 투수는 선발로 기록만 하고, 이후 다른 투수가 보이면 교체로 판단.
           const p0 = `${g.gameId}:${defSide}:p0:`;
@@ -173,7 +180,12 @@ async function main() {
           if (!first) { sent[p0 + nm] = new Date().toISOString(); skip = true; }
           else if (first === p0 + nm) skip = true;
         }
-        if (!skip && !same && !sent[dedupKey]) pending.push({ dedupKey, name: nm, pid: g.liveState.pitcherPid, game: g, team, opp, icon: '⚾', label: '구원 등판', labelKey: 'rp' });
+        // 반대편 구원투수가 전환 직후 남아 있는 경우까지 막기 위해 같은 (경기·수비측·투수·이닝)이 이후 실행에서 한 번 더 관측될 때만 알린다(첫 관측은 기록만).
+        if (!skip && !same && !sent[dedupKey]) {
+          const candKey = `${g.gameId}:${defSide}:cand:${nm}:${g.inningInfo}`;
+          if (!sent[candKey]) sent[candKey] = new Date().toISOString();
+          else if (Date.now() - Date.parse(sent[candKey]) >= 30000) pending.push({ dedupKey, name: nm, pid: g.liveState.pitcherPid, game: g, team, opp, icon: '⚾', label: '구원 등판', labelKey: 'rp' });
+        }
       }
     }
   }
