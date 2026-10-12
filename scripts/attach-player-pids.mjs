@@ -29,7 +29,19 @@ function addTo(map, key, pid) {
   s.add(pid);
 }
 
+const LEAGUE_PREFIX = { MLB: 'mlb:', KBO: 'kbo:', NPB: 'npb:' };
+
 export function attachPlayerPids(games, gamePids = {}, nationalLinks = {}) {
+  // 리그와 pid 접두어가 안 맞는 기존 값은 오류다(MLB 경기의 npb: 야마모토, KBO·NPB 선발의 mlb: 등) — 먼저 비워서 아래 단계가 올바른 값으로 다시 채운다.
+  for (const g of games) {
+    const want = LEAGUE_PREFIX[g.league];
+    if (!want) continue;
+    for (const r of refs(g)) { const v = r.get(); if (v && !String(v).startsWith(want)) r.set(undefined); }
+    if (g.liveState) {
+      if (g.liveState.pitcherPid && !String(g.liveState.pitcherPid).startsWith(want)) delete g.liveState.pitcherPid;
+      if (g.liveState.batterPid && !String(g.liveState.batterPid).startsWith(want)) delete g.liveState.batterPid;
+    }
+  }
   const byLgTeam = new Map(); // league|team|name
   const byTeam = new Map(); // team|name
   const byLg = new Map(); // league|name

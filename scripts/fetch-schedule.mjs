@@ -561,6 +561,17 @@ async function enrichSaves(allGames) {
     if (e.code !== 'ENOENT') throw e;
     console.log('[playerCodes] no player-codes.json yet — starting fresh');
   }
+  // 레지스트리는 "이름 → pid" 단일 표라 리그가 다른 동명 선수가 서로 덮어쓰고 엉뚱한 pid 가 붙었다(2026-10-12 "야마모토 투수를 눌렀는데 NPB 포수가 나옴" —
+  // MLB 야마모토에 NPB pid, KBO·NPB 선발 투수 169건에 MLB pid). 리그 접두어(mlb:/kbo:/npb:)가 맞는 값만 돌려주고, 쓸 때는 리그별 키(`MLB|이름`)도 함께 저장한다.
+  const LEAGUE_PREFIX = { MLB: 'mlb:', KBO: 'kbo:', NPB: 'npb:' };
+  const leagueOfPid = (pid) => (String(pid).startsWith('mlb:') ? 'MLB' : String(pid).startsWith('kbo:') ? 'KBO' : String(pid).startsWith('npb:') ? 'NPB' : null);
+  const regSet = (name, pid, league) => { playerCodeRegistry[name] = pid; if (league) playerCodeRegistry[`${league}|${name}`] = pid; };
+  const regGet = (name, league) => {
+    const ns = playerCodeRegistry[`${league}|${name}`];
+    if (ns) return ns;
+    const v = playerCodeRegistry[name];
+    return v && (!LEAGUE_PREFIX[league] || String(v).startsWith(LEAGUE_PREFIX[league])) ? v : undefined;
+  };
   // MLB 중계는 선수를 성만 준다("스쿠발") — 레지스트리 키는 풀네임("타릭 스쿠발")이라 정확 일치가 빗나가 pid 가 안 붙고
   // 선수 정보 모달이 "정보를 찾을 수 없어요"가 됐다(2026-10-12). 풀네임의 마지막 토큰이 같고 mlb: pid 가 하나뿐일 때만 성으로 연결한다.
   let mlbSurnameIdx = null;
@@ -593,14 +604,15 @@ async function enrichSaves(allGames) {
   };
   const mlbPidByName = (name, teams) => {
     if (!name) return undefined;
-    if (playerCodeRegistry[name]) return playerCodeRegistry[name];
+    const exact = regGet(name, 'MLB');
+    if (exact) return exact;
     if (/\s/.test(name)) return undefined;
     const viaRoster = mlbRosterPid(name, teams);
     if (viaRoster) return viaRoster;
     if (!mlbSurnameIdx) {
       mlbSurnameIdx = new Map();
       for (const [k, v] of Object.entries(playerCodeRegistry)) {
-        if (!String(v).startsWith('mlb:')) continue;
+        if (k.includes('|') || !String(v).startsWith('mlb:')) continue; // 리그별 사본 키는 건너뜀
         const last = k.trim().split(/\s+/).pop();
         if (!mlbSurnameIdx.has(last)) mlbSurnameIdx.set(last, new Set());
         mlbSurnameIdx.get(last).add(v);
@@ -910,7 +922,7 @@ async function enrichSaves(allGames) {
         const prefix = g.league === 'KBO' ? 'kbo:p:' : g.league === 'NPB' ? 'npb:' : null;
         if (prefix) {
           for (const [name, code] of Object.entries(rec.pitcherCodeByName)) {
-            playerCodeRegistry[name] = `${prefix}${code}`;
+            regSet(name, `${prefix}${code}`, g.league);
           }
         }
       }
@@ -967,7 +979,7 @@ async function enrichSaves(allGames) {
     if (!g.highlights) continue;
     for (const side of ['home', 'away']) {
       for (const h of g.highlights[side] || []) {
-        if (h.player && h.pid && /^(kbo:b:|npb:|mlb:)/.test(h.pid)) playerCodeRegistry[h.player] = h.pid;
+        if (h.player && h.pid && /^(kbo:b:|npb:|mlb:)/.test(h.pid)) regSet(h.player, h.pid, leagueOfPid(h.pid));
       }
     }
   }
@@ -975,7 +987,7 @@ async function enrichSaves(allGames) {
     if (g.status !== 'live' || !g.highlights) continue;
     for (const side of ['home', 'away']) {
       for (const h of g.highlights[side] || []) {
-        if (h.player && !h.pid && playerCodeRegistry[h.player]) { h.pid = playerCodeRegistry[h.player]; liveHlPidAttached++; }
+        if (h.player && !h.pid && regGet(h.player, g.league)) { h.pid = regGet(h.player, g.league); liveHlPidAttached++; }
       }
     }
   }
@@ -1037,8 +1049,8 @@ async function enrichSaves(allGames) {
   for (const g of allGames) {
     if (!BASEBALL_LEAGUES.has(g.league)) continue;
     // 이름 단독 레지스트리는 폴백만(동명이인 박시원: 팀 기준 학습값이 우선) — 위 uniq 단계에서 이미 붙었으면 덮지 않음.
-    if (g.homePitcher && playerCodeRegistry[g.homePitcher] && !g.homePitcherPid) { g.homePitcherPid = playerCodeRegistry[g.homePitcher]; starterPidAttached++; }
-    if (g.awayPitcher && playerCodeRegistry[g.awayPitcher] && !g.awayPitcherPid) { g.awayPitcherPid = playerCodeRegistry[g.awayPitcher]; starterPidAttached++; }
+    if (g.homePitcher && regGet(g.homePitcher, g.league) && !g.homePitcherPid) { g.homePitcherPid = regGet(g.homePitcher, g.league); starterPidAttached++; }
+    if (g.awayPitcher && regGet(g.awayPitcher, g.league) && !g.awayPitcherPid) { g.awayPitcherPid = regGet(g.awayPitcher, g.league); starterPidAttached++; }
     if (g.league === 'MLB' && (!g.homePitcherPid || !g.awayPitcherPid) && mlbStarterPidUsed < MLB_STARTER_PID_BUDGET) {
       mlbStarterPidUsed++;
       try {
@@ -1046,12 +1058,12 @@ async function enrichSaves(allGames) {
         if (res.found) {
           if (!g.homePitcherPid && g.homePitcher && res.homePersonId != null) {
             g.homePitcherPid = `mlb:${res.homePersonId}`;
-            playerCodeRegistry[g.homePitcher] = g.homePitcherPid;
+            regSet(g.homePitcher, g.homePitcherPid, 'MLB');
             starterPidAttached++;
           }
           if (!g.awayPitcherPid && g.awayPitcher && res.awayPersonId != null) {
             g.awayPitcherPid = `mlb:${res.awayPersonId}`;
-            playerCodeRegistry[g.awayPitcher] = g.awayPitcherPid;
+            regSet(g.awayPitcher, g.awayPitcherPid, 'MLB');
             starterPidAttached++;
           }
         }
