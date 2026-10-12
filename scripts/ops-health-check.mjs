@@ -244,6 +244,27 @@ const WF = {
   }
 }
 
+// 15) 영상 지역 재생 가능 여부(2026-10-13): 확인 기록이 3일 넘게 갱신 안 되면 알림, 리그별로 "한국에서 열리는 후보가 하나도 없는" 하이라이트 비율이 60%를 넘으면(처음 한 번은 기준선으로만 기록) 알림.
+{
+  const av = J('video-availability.json', {});
+  const hl = J('highlights-video.json', {});
+  const times = Object.values(av).map((e) => e.t || 0);
+  const newest = times.length ? Math.max(...times) : 0;
+  if (times.length && now - newest > 3 * 86400e3) add('영상 지역 확인 정체', 'video-availability', `마지막 확인 ${Math.round((now - newest) / 3600e3)}시간 전`);
+  const lgOf = new Map(games.map((g) => [g.gameId, g.league]));
+  const st3 = {};
+  for (const [gid, e] of Object.entries(hl)) {
+    const lg = lgOf.get(gid);
+    if (!lg) continue;
+    const cands = [e, ...(e.alts || [])].map((c) => c.v);
+    if (!cands.some((v) => av[v])) continue; // 아직 확인 전인 경기는 제외
+    const playable = cands.some((v) => !av[v] || (!av[v].g && !(av[v].b || []).includes('KR')));
+    const o = (st3[lg] ??= { t: 0, hidden: 0 });
+    o.t++; if (!playable) o.hidden++;
+  }
+  for (const [lg, o] of Object.entries(st3)) if (o.t >= 10 && o.hidden / o.t > 0.6) add('한국 재생불가 하이라이트 많음', lg, `${lg}: ${o.hidden}/${o.t}건(${Math.round(100 * o.hidden / o.t)}%) 한국에서 열리는 후보 없음`, true);
+}
+
 // 9) ScraperAPI 월 예산(900건 캡) 80% 이상
 {
   const b = J('.wbsc-scraperapi-budget.json', null);
