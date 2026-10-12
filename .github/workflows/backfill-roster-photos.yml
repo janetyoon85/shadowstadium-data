@@ -39,7 +39,7 @@ jobs:
       - name: Check for changes
         id: changes
         run: |
-          if [[ -n "$(git status --porcelain team-rosters roster-photos-tried.json)" ]]; then
+          if [[ -n "$(git status --porcelain team-rosters roster-photos-tried.json roster-photos.json)" ]]; then
             echo "changed=true" >> $GITHUB_OUTPUT
           else
             echo "changed=false" >> $GITHUB_OUTPUT
@@ -50,7 +50,8 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add team-rosters roster-photos-tried.json
+          git add team-rosters roster-photos-tried.json roster-photos.json
+          mkdir -p /tmp/ours && cp roster-photos.json roster-photos-tried.json /tmp/ours/
           git commit -m "chore(data): 선수 사진 보충 ($(date +'%Y-%m-%d %H:%M'))"
           for i in $(seq 1 20); do
             if git push; then
@@ -58,10 +59,12 @@ jobs:
             fi
             echo "push rejected, rebasing onto origin/main and retrying ($i/20)"
             if ! git pull --rebase origin main; then
+              # 충돌해도 이번 실행의 결과(30분·수백 건)를 버리지 않는다 — origin 으로 맞춘 뒤 보관해 둔 정본(사진·시도 기록)을 합쳐 샤드에 다시 적용한다(네트워크 호출 없음).
               git rebase --abort || true
               git reset --hard origin/main
-              echo "conflict, dropping this run's result"
-              exit 1
+              ROSTER_PHOTO_MERGE_DIR=/tmp/ours node scripts/backfill-roster-photos.mjs
+              git add team-rosters roster-photos-tried.json roster-photos.json
+              git commit -m "chore(data): 선수 사진 보충 — 충돌 후 병합 ($(date +'%Y-%m-%d %H:%M'))" || exit 0
             fi
             sleep $((RANDOM % 30 + 1))
           done

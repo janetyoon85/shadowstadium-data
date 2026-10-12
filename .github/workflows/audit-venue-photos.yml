@@ -51,6 +51,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add venue-photo-audit.json venue-photos.json venue-photos-commons-tried.json
+          mkdir -p /tmp/ours && cp venue-photo-audit.json /tmp/ours/
           git commit -m "chore(data): 구장 사진 재검증 ($(date +'%Y-%m-%d %H:%M'))"
           for i in $(seq 1 20); do
             if git push; then
@@ -58,10 +59,12 @@ jobs:
             fi
             echo "push rejected, rebasing onto origin/main and retrying ($i/20)"
             if ! git pull --rebase origin main; then
+              # 충돌해도 이번 실행의 검증 결과를 버리지 않는다 — origin 으로 맞춘 뒤 보관한 검증 기록을 합친다(네트워크 호출 없음).
               git rebase --abort || true
               git reset --hard origin/main
-              echo "conflict, dropping this run's result"
-              exit 1
+              AUDIT_MERGE_DIR=/tmp/ours node scripts/audit-venue-photos.mjs
+              git add venue-photo-audit.json venue-photos.json venue-photos-commons-tried.json
+              git commit -m "chore(data): 구장 사진 재검증 — 충돌 후 병합 ($(date +'%Y-%m-%d %H:%M'))" || exit 0
             fi
             sleep $((RANDOM % 30 + 1))
           done

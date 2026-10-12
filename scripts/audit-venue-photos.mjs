@@ -58,7 +58,30 @@ export function judgeVenuePhoto({ name, city, file, cats = [], desc = '', usage 
   return { verdict: 'ok', reason: 'name-overlap' };
 }
 
+// 푸시 충돌 복구(2026-10-12 — 287곳 검증 결과가 충돌로 통째로 버려졌음): 워크플로우가 origin 으로 리셋한 뒤 AUDIT_MERGE_DIR 에 보관한
+// 이번 실행의 검증 기록을 합친다(키별 최신값 우선). 거기서 'wrong' 이었던 구장은 현재 사진이 같은 파일일 때만 다시 "사진 없음" 처리한다. 네트워크 호출 없음.
+async function mergeMode(dir) {
+  const read = async (f, d) => { try { return JSON.parse(await fs.readFile(f, 'utf8')); } catch { return d; } };
+  const cur = await read(AUDIT_PATH, {});
+  const ours = await read(path.join(dir, 'venue-photo-audit.json'), {});
+  const vp = await read(path.join(REPO_ROOT, 'venue-photos.json'), {});
+  const tried = await read(path.join(REPO_ROOT, 'venue-photos-commons-tried.json'), {});
+  let merged = 0, nulled = 0;
+  for (const [id, v] of Object.entries(ours)) {
+    if (!cur[id] || (v.at || 0) > (cur[id].at || 0)) { cur[id] = v; merged++; }
+    if (v.verdict === 'wrong') {
+      const u = Array.isArray(vp[id]) ? vp[id][0] : vp[id];
+      if (u && commonsFileTitle(u) === v.file) { vp[id] = null; tried[id] = true; nulled++; }
+    }
+  }
+  await fs.writeFile(AUDIT_PATH, JSON.stringify(cur, null, 1) + '\n', 'utf8');
+  await fs.writeFile(path.join(REPO_ROOT, 'venue-photos.json'), JSON.stringify(vp, null, 2) + '\n', 'utf8');
+  await fs.writeFile(path.join(REPO_ROOT, 'venue-photos-commons-tried.json'), JSON.stringify(tried, null, 2) + '\n', 'utf8');
+  console.log(`[venue-audit] merge mode merged=${merged} wrong→null=${nulled}`);
+}
+
 async function main() {
+  if (process.env.AUDIT_MERGE_DIR) return mergeMode(process.env.AUDIT_MERGE_DIR);
   const vp = JSON.parse(await fs.readFile(path.join(REPO_ROOT, 'venue-photos.json'), 'utf8'));
   const names = { ...JSON.parse(await fs.readFile(path.join(REPO_ROOT, 'venue-name-en.json'), 'utf8')), ...JSON.parse(await fs.readFile(path.join(REPO_ROOT, 'basketball', 'venue-name-en.json'), 'utf8')) };
   let sportOf = {};
