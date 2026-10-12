@@ -1,0 +1,39 @@
+name: FCM Purge Device Topics
+
+# 한 기기(FCM 토큰)에 남은 예전 언어/옛 토픽 구독을 서버에서 해제(수동). 앱 설정 제목을 길게 눌러 공유한 메시지의 token= 값을 입력.
+on:
+  workflow_dispatch:
+    inputs:
+      token:
+        description: 'FCM 토큰 (앱 설정 제목 길게 누르기로 공유됨)'
+        required: true
+      keep_lang:
+        description: '남길 언어 코드'
+        default: 'ko'
+      dry_run:
+        description: '1 = 해제하지 않고 목록만'
+        default: '1'
+
+permissions:
+  contents: read
+
+jobs:
+  purge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - name: Mask token
+        run: echo "::add-mask::${{ inputs.token }}"
+      - name: Purge
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          FCM_TOKEN: ${{ inputs.token }}
+          KEEP_LANG: ${{ inputs.keep_lang }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: node scripts/purge-device-topics.mjs
