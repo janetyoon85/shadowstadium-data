@@ -31,10 +31,17 @@ jobs:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
         run: node scripts/fetch-highlight-videos.mjs
 
+      # 저장된 영상의 지역별 재생 가능 여부 확인(새 영상 우선, 7일 지난 것 갱신) — videos.list 는 50개당 1유닛, 실행당 최대 6호출.
+      - name: Check video availability
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          AVAIL_MAX_CALLS: '6'
+        run: node scripts/youtube-availability.mjs
+
       - name: Check for changes
         id: changes
         run: |
-          if [[ -n "$(git status --porcelain highlights-video.json highlights-deep.json highlights-search.json)" ]]; then
+          if [[ -n "$(git status --porcelain highlights-video.json highlights-deep.json highlights-search.json video-availability.json)" ]]; then
             echo "changed=true" >> $GITHUB_OUTPUT
           else
             echo "changed=false" >> $GITHUB_OUTPUT
@@ -45,7 +52,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add highlights-video.json highlights-deep.json highlights-search.json
+          git add highlights-video.json highlights-deep.json highlights-search.json video-availability.json
           git commit -m "chore(data): 경기 하이라이트 영상 ($(date +'%Y-%m-%d %H:%M'))"
           for i in $(seq 1 20); do
             if git push; then
