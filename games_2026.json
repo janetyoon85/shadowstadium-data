@@ -673736,7 +673736,7 @@
     "stadium": "Estadio Rafael Bolaños",
     "timeTbd": false,
     "gameId": "COSTARICA_ESPN_401876846",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 1,
     "awayScore": 0,
@@ -673816,7 +673816,7 @@
     "status": "live",
     "awayScore": 2,
     "homeScore": 6,
-    "matchPeriod": "후반 33'",
+    "matchPeriod": "후반 34'",
     "scorers": {
       "home": [
         {
@@ -674067,6 +674067,13 @@
           "m": 57,
           "pid": "espn:200481",
           "nat": "Bolivia"
+        },
+        {
+          "n": "Dorny Romero",
+          "type": "Y",
+          "m": 68,
+          "pid": "espn:271271",
+          "nat": "Dominican Republic"
         }
       ],
       "away": [
@@ -674130,10 +674137,17 @@
     "gameId": "PERU_ESPN_401886174",
     "status": "live",
     "matchPeriod": "후반",
-    "homeScore": 0,
+    "homeScore": 1,
     "awayScore": 1,
     "scorers": {
-      "home": [],
+      "home": [
+        {
+          "n": "Diego Soto",
+          "m": 56,
+          "nat": "Peru",
+          "pid": "espn:223219"
+        }
+      ],
       "away": [
         {
           "n": "Anto",
@@ -674179,16 +674193,14 @@
     "awayScore": 0,
     "inningInfo": "3회말",
     "liveState": {
-      "pitcher": "Samuel Carpio",
-      "batter": "Austin Charles",
-      "pitcherPid": "mlb:815704",
-      "batterPid": "mlb:800051",
-      "ball": 0,
-      "strike": 0,
-      "out": 1,
-      "bases": [
-        2
-      ]
+      "pitcher": "Jesus Gamez",
+      "batter": "Dillon Lewis",
+      "pitcherPid": "mlb:804966",
+      "batterPid": "mlb:827665",
+      "ball": 1,
+      "strike": 1,
+      "out": 3,
+      "bases": []
     }
   },
   {
@@ -674211,13 +674223,15 @@
     "inningInfo": "2회말",
     "liveState": {
       "pitcher": "스쿠발",
-      "batter": "본",
+      "batter": "프랫",
       "ball": 1,
-      "strike": 2,
-      "out": 1,
-      "bases": [],
-      "pitchCount": 21,
-      "batterPid": "mlb:683734"
+      "strike": 0,
+      "out": 2,
+      "bases": [
+        3
+      ],
+      "pitchCount": 24,
+      "batterPid": "mlb:806198"
     },
     "highlights": {
       "home": [],
