@@ -680961,19 +680961,19 @@
         {
           "n": "안젤루",
           "m": 33,
+          "pid": "espn:309275",
           "a": "Nawaf Bu Washl",
           "nat": "Brazil",
           "aNat": "Saudi Arabia",
-          "pid": "espn:309275",
           "apid": "espn:331918"
         },
         {
           "n": "크리스티아누 호날두",
           "m": 42,
+          "pid": "espn:22774",
           "a": "Aiman Yahya",
           "nat": "Portugal",
           "aNat": "Saudi Arabia",
-          "pid": "espn:22774",
           "apid": "espn:296602"
         },
         {
@@ -681213,7 +681213,7 @@
     "stadium": "Estadio Río Parapití",
     "timeTbd": false,
     "gameId": "PARAGUAY_ESPN_401888585",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 1,
     "awayScore": 0,
@@ -681248,6 +681248,13 @@
           "m": 90,
           "pid": "espn:252662",
           "nat": "Paraguay"
+        },
+        {
+          "n": "Abel Paredes",
+          "type": "R",
+          "m": 90,
+          "pid": "espn:257333",
+          "nat": "Paraguay"
         }
       ]
     },
@@ -681276,18 +681283,16 @@
     "status": "live",
     "homeScore": 2,
     "awayScore": 2,
-    "inningInfo": "6회초",
+    "inningInfo": "6회말",
     "liveState": {
-      "pitcher": "Preston Howey",
-      "batter": "Colby Shelton",
-      "pitcherPid": "mlb:813796",
-      "batterPid": "mlb:701333",
-      "ball": 1,
-      "strike": 2,
-      "out": 2,
-      "bases": [
-        1
-      ]
+      "pitcher": "Brandon Cain",
+      "batter": "Bryce Rainer",
+      "pitcherPid": "mlb:827610",
+      "batterPid": "mlb:800614",
+      "ball": 2,
+      "strike": 0,
+      "out": 0,
+      "bases": []
     }
   },
   {
@@ -681310,14 +681315,16 @@
     "inningInfo": "3회말",
     "liveState": {
       "pitcher": "야마모토",
-      "batter": "해밀튼",
+      "batter": "추리오",
       "ball": 0,
-      "strike": 0,
+      "strike": 2,
       "out": 0,
-      "bases": [],
-      "pitchCount": 39,
+      "bases": [
+        1
+      ],
+      "pitchCount": 46,
       "pitcherPid": "npb:1700066",
-      "batterPid": "mlb:666152"
+      "batterPid": "mlb:694192"
     },
     "highlights": {
       "home": [],
@@ -681374,6 +681381,18 @@
         }
       ],
       "away": []
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Alan Mercado",
+          "type": "Y",
+          "m": 43,
+          "pid": "espn:196776",
+          "nat": "Bolivia"
+        }
+      ]
     }
   },
   {
@@ -681389,7 +681408,18 @@
     "status": "live",
     "matchPeriod": "전반",
     "homeScore": 0,
-    "awayScore": 0
+    "awayScore": 1,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "Santiago Solari",
+          "m": 27,
+          "nat": "Argentina",
+          "pid": "espn:315926"
+        }
+      ]
+    }
   },
   {
     "date": "2026-10-13",
