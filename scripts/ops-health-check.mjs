@@ -11,6 +11,7 @@ import { CHINA_VENUES, ALLSTAR_TEAMS, NATIONAL_LEAGUES } from './ops-shared.mjs'
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dry = process.argv.includes('--dry');
 const J = (f, d) => { try { return JSON.parse(fs.readFileSync(path.join(ROOT, f), 'utf8')); } catch { return d; } };
+const NO_PHOTO_ACK = new Set(J('ops-venue-no-photo.json', []));
 const STATE_FILE = 'ops-health-state.json';
 const state = J(STATE_FILE, null);
 const first = !state;
@@ -63,7 +64,8 @@ const ALIAS_SETS = [['인터','인테르'],['아랍에미리트','UAE'],['USVI',
     if (!teamEn[n] && !teamEn[base]) add('팀 영문명 없음', n, `${n} (${lg})`, true);
   }
   for (const [id, nm] of venues) {
-    if (!venuePhotos[id]) add('구장 사진 없음', id, `${nm} [${id}]`, true);
+    // 공개 사진이 아예 없다고 확인한 구장(ops-venue-no-photo.json)은 매일 다시 알리지 않는다.
+    if (!venuePhotos[id] && !NO_PHOTO_ACK.has(id)) add('구장 사진 없음', id, `${nm} [${id}]`, true);
     if (!venueEn[id]) add('구장 영문명 없음', id, `${nm} [${id}]`, true);
   }
 }
