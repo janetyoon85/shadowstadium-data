@@ -197,6 +197,7 @@ const WF = {
   'backfill-team-info': 180, 'backfill-team-info-i18n': 180, 'backfill-venue-info': 180, 'backfill-venue-photos': 180,
   'backfill-team-logos': 180, 'backfill-trophy-photos': 180, 'fetch-wbsc-baseball': 540, 'fetch-espn-baseball': 1500,
   'check-future-editions': 1800,
+  'backfill-baseball-pids': 240,
   'fetch-team-rosters': 1800, 'backfill-roster-photos': 400, // 선수단 매일 / 사진 보충 3시간(실행 30분+대기열 여유)
   // 앱 저장소(비공개) 워크플로우 — 'owner/repo:워크플로' 형식, 읽기 토큰(APP_REPO_TOKEN 시크릿)이 있어야 조회된다.
   'janetyoon85/shadowstadium:venue-coverage': 1080, 'janetyoon85/shadowstadium:weather-verify': 2160,
@@ -218,6 +219,25 @@ const WF = {
       const age = ok ? (now - Date.parse(ok.updated_at)) / 60000 : Infinity;
       if (age > maxMin) add('워크플로 정체', wf, `${wf}: 마지막 성공 ${ok ? Math.round(age) + '분 전' : '없음'} (기준 ${maxMin}분)`);
     } catch (e) { add('워크플로 조회 실패', wf, `${wf}: ${e.message}`); }
+  }
+}
+
+// 14) 선수 정보 pid 누락 — 선수 모달이 "정보를 찾을 수 없어요"가 되는 근본 원인(2026-10-12 전수조사). 최근 14일 경기의 선수 참조 중 pid 없는 비율이 5%를 넘는 리그 알림.
+{
+  const cut = addDays(kstToday, -14);
+  const WATCH = new Set(['KBO', 'NPB', 'MLB', 'K리그1', 'K리그2', 'EPL', 'LALIGA', 'BUNDESLIGA', 'SERIEA', 'LIGUE1', 'J1', 'UCL', 'UEL']);
+  const st2 = {};
+  const bump = (lg, name, pid) => { if (!name) return; const o = (st2[lg] ??= { t: 0, m: 0, ex: [] }); o.t++; if (!pid) { o.m++; if (o.ex.length < 4) o.ex.push(name); } };
+  for (const g of games) {
+    if (!WATCH.has(g.league) || !g.date || g.date < cut) continue;
+    for (const side of ['home', 'away']) {
+      for (const k of ['scorers', 'cards']) for (const x of g[k]?.[side] || []) bump(g.league, x.n, x.pid);
+      for (const x of g.highlights?.[side] || []) bump(g.league, x.player, x.pid);
+    }
+    for (const f of ['homePitcher', 'awayPitcher', 'winPitcher', 'losePitcher', 'savePitcher']) bump(g.league, g[f], g[`${f}Pid`]);
+  }
+  for (const [lg, o] of Object.entries(st2)) {
+    if (o.t >= 30 && o.m / o.t > 0.05) add('선수 pid 누락', lg, `${lg}: 최근 14일 ${o.m}/${o.t}건(${Math.round(100 * o.m / o.t)}%) — 예: ${o.ex.join(', ')}`);
   }
 }
 

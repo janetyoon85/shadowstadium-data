@@ -10,14 +10,14 @@ const norm = (s) => String(s ?? '').trim().replace(/\s+/g, ' ');
 function* refs(g) {
   for (const side of ['home', 'away']) {
     const team = g[side];
-    for (const kind of ['scorers', 'cards']) for (const x of g[kind]?.[side] || []) yield { team, name: x.n, get: () => x.pid, set: (v) => { x.pid = v; } };
-    for (const x of g.assists?.[side] || []) yield { team, name: x.n, get: () => x.pid, set: (v) => { x.pid = v; } };
-    for (const x of g.highlights?.[side] || []) yield { team, name: x.player, get: () => x.pid, set: (v) => { x.pid = v; } };
+    for (const kind of ['scorers', 'cards']) for (const x of g[kind]?.[side] || []) yield { team, name: x.n, role: 'b', get: () => x.pid, set: (v) => { x.pid = v; } };
+    for (const x of g.assists?.[side] || []) yield { team, name: x.n, role: 'b', get: () => x.pid, set: (v) => { x.pid = v; } };
+    for (const x of g.highlights?.[side] || []) yield { team, name: x.player, role: 'b', get: () => x.pid, set: (v) => { x.pid = v; } };
     const sp = g[`${side}Pitcher`];
-    if (sp) yield { team, name: sp, get: () => g[`${side}PitcherPid`], set: (v) => { g[`${side}PitcherPid`] = v; } };
+    if (sp) yield { team, name: sp, role: 'p', slot: side, get: () => g[`${side}PitcherPid`], set: (v) => { g[`${side}PitcherPid`] = v; } };
   }
   for (const f of ['win', 'lose', 'save']) {
-    if (g[`${f}Pitcher`]) yield { team: null, name: g[`${f}Pitcher`], get: () => g[`${f}PitcherPid`], set: (v) => { g[`${f}PitcherPid`] = v; } };
+    if (g[`${f}Pitcher`]) yield { team: null, name: g[`${f}Pitcher`], role: 'p', get: () => g[`${f}PitcherPid`], set: (v) => { g[`${f}PitcherPid`] = v; } };
   }
 }
 
@@ -27,7 +27,7 @@ function addTo(map, key, pid) {
   s.add(pid);
 }
 
-export function attachPlayerPids(games) {
+export function attachPlayerPids(games, gamePids = {}) {
   const byLgTeam = new Map(); // league|team|name
   const byTeam = new Map(); // team|name
   const byLg = new Map(); // league|name
@@ -46,6 +46,12 @@ export function attachPlayerPids(games) {
     for (const r of refs(g)) {
       const name = norm(r.name);
       if (!name || r.get()) continue;
+      // ⓪ 경기 단위 정확 표(backfill-baseball-pids: 네이버 박스스코어 이름→코드) — 경기·이름이 유일하므로 가장 신뢰한다.
+      const slotPid = r.slot && gamePids?.[g.gameId]?._s?.[r.slot];
+      if (slotPid) { r.set(slotPid); attached++; continue; }
+      const gp = gamePids?.[g.gameId]?.[name];
+      const gpid = gp && (r.role === 'p' ? (gp.p ?? gp.b) : (gp.b ?? gp.p));
+      if (gpid) { r.set(gpid); attached++; continue; }
       const pid = (r.team && (one(byLgTeam.get(`${g.league}|${r.team}|${name}`)) ?? one(byTeam.get(`${r.team}|${name}`)))) ?? one(byLg.get(`${g.league}|${name}`));
       // 팀 정보가 있는 참조는 ③(팀 무관)로 내려가지 않는다 — 다른 팀 동명이인 방지. 팀을 모르는 참조(승·패·세이브)만 ③.
       if (!pid) continue;

@@ -2250,7 +2250,9 @@ async function main() {
 
   // Validate
   // 선수 참조 pid 일괄 보강(2026-10-12 전수조사: pid 없는 참조가 약 8% → 선수 정보 "찾을 수 없어요"의 근본 원인).
-  console.log(`[pid-attach] attached=${attachPlayerPids(allGames)}`);
+  let gamePids = {};
+  try { gamePids = JSON.parse(await fs.readFile(path.join(REPO_ROOT, 'game-player-pids.json'), 'utf-8')); } catch { /* 표 없음 — 색인 보강만 */ }
+  console.log(`[pid-attach] attached=${attachPlayerPids(allGames, gamePids)}`);
   const result = validateDataset(allGames);
   console.log(`\n[validator] valid=${result.valid}, total=${result.totalGames}, counts=`, result.counts);
   if (result.errors.length > 0) {
