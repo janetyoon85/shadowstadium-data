@@ -12,6 +12,7 @@ import { canonTeamName } from './team-name-canon.mjs';
 import { getMlbNationality, getMlbPitcherDecisionNats, getMlbHoldNats, getMlbProbableStarterPid } from './mlb-nationality.mjs';
 import { staleSuspendedStatus } from './live-staleness.mjs';
 import { mlbLivePitcherPid } from './mlb-live-pid.mjs';
+import { attachPlayerPids } from './attach-player-pids.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -2248,6 +2249,8 @@ async function main() {
   console.log(`\n[staging] saved to ${stagingPath}`);
 
   // Validate
+  // 선수 참조 pid 일괄 보강(2026-10-12 전수조사: pid 없는 참조가 약 8% → 선수 정보 "찾을 수 없어요"의 근본 원인).
+  console.log(`[pid-attach] attached=${attachPlayerPids(allGames)}`);
   const result = validateDataset(allGames);
   console.log(`\n[validator] valid=${result.valid}, total=${result.totalGames}, counts=`, result.counts);
   if (result.errors.length > 0) {
