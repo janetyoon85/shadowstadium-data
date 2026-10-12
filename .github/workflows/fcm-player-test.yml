@@ -7,6 +7,9 @@ on:
       name:
         description: '즐겨찾기한 선수 이름 (예: 김도영)'
         required: true
+      player_id:
+        description: '선수 ID(선택, 예: kbo:b:50500) — 앱은 ID로 즐겨찾기를 저장하므로 ID 토픽으로도 보낸다'
+        default: ''
       use_tag:
         description: '1 = 모든 언어에 같은 tag(합치기 테스트), 0 = 진단(구독 중인 언어 수만큼 따로 보임)'
         default: '0'
@@ -30,4 +33,5 @@ jobs:
           FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
           PLAYER_NAME: ${{ inputs.name }}
           USE_TAG: ${{ inputs.use_tag }}
+          PLAYER_ID: ${{ inputs.player_id }}
         run: node scripts/send-test-player-alert.mjs
