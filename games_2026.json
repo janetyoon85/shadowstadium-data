@@ -673941,7 +673941,7 @@
     "status": "live",
     "matchPeriod": "후반",
     "homeScore": 0,
-    "awayScore": 0,
+    "awayScore": 1,
     "cards": {
       "home": [
         {
@@ -673979,6 +673979,17 @@
           "m": 64,
           "pid": "espn:197447",
           "nat": "Colombia"
+        }
+      ]
+    },
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "Dayan Pérez",
+          "m": 70,
+          "nat": "Colombia",
+          "pid": "espn:416627"
         }
       ]
     }
@@ -674136,6 +674147,13 @@
           "m": 68,
           "pid": "espn:271271",
           "nat": "Dominican Republic"
+        },
+        {
+          "n": "Leonel Justiniano",
+          "type": "Y",
+          "m": 86,
+          "pid": "espn:155101",
+          "nat": "Bolivia"
         }
       ],
       "away": [
@@ -674214,7 +674232,7 @@
     "status": "live",
     "matchPeriod": "후반",
     "homeScore": 1,
-    "awayScore": 1,
+    "awayScore": 2,
     "scorers": {
       "home": [
         {
@@ -674230,6 +674248,13 @@
           "m": 38,
           "nat": "Spain",
           "pid": "espn:125939"
+        },
+        {
+          "n": "Alvaro Ampuero",
+          "m": 75,
+          "og": true,
+          "nat": "Peru",
+          "pid": "espn:164530"
         }
       ]
     },
@@ -674270,13 +674295,15 @@
     "inningInfo": "5회초",
     "liveState": {
       "pitcher": "Alejandro Chiquillo",
-      "batter": "Owen Carey",
+      "batter": "Wyatt Sanford",
       "pitcherPid": "mlb:823330",
-      "batterPid": "mlb:826928",
-      "ball": 0,
-      "strike": 0,
-      "out": 1,
-      "bases": []
+      "batterPid": "mlb:815608",
+      "ball": 2,
+      "strike": 2,
+      "out": 2,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -674296,16 +674323,16 @@
     "homePitcherPid": "mlb:694819",
     "awayScore": 1,
     "homeScore": 0,
-    "inningInfo": "3회말",
+    "inningInfo": "4회초",
     "liveState": {
-      "pitcher": "스쿠발",
-      "batter": "오티즈",
-      "ball": 0,
+      "pitcher": "미저라우스키",
+      "batter": "추리오",
+      "ball": 1,
       "strike": 2,
       "out": 2,
       "bases": [],
-      "pitchCount": 36,
-      "batterPid": "mlb:687401"
+      "pitchCount": 69,
+      "batterPid": "mlb:694192"
     },
     "highlights": {
       "home": [],
