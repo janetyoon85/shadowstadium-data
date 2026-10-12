@@ -30,6 +30,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # 대기열에 있던 실행은 "요청 시점의 커밋"을 체크아웃해 앞선 실행의 결과(저장 파일)를 모르는 낡은 상태로 시작하고, 마지막 푸시의 `-X theirs` 병합이 그 낡은 파일로 덮어썼다
+          # (2026-10-13 백필 결과 하이라이트 1,028건·영상 확인 2,674건이 되돌려짐). 항상 최신 main 에서 시작한다.
+          ref: main
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
