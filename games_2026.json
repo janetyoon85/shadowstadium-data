@@ -681306,21 +681306,29 @@
     "awayPitcherPid": "mlb:808967",
     "homePitcherPid": "mlb:701656",
     "awayScore": 4,
-    "homeScore": 3,
+    "homeScore": 4,
     "inningInfo": "5회말",
     "liveState": {
       "pitcher": "부빅",
-      "batter": "콘트레라스",
+      "batter": "바우어스",
       "ball": 0,
       "strike": 1,
       "out": 1,
       "bases": [],
-      "pitchCount": 5,
+      "pitchCount": 9,
       "pitcherPid": "mlb:663460",
-      "batterPid": "mlb:661388"
+      "batterPid": "mlb:641343"
     },
     "highlights": {
       "home": [
+        {
+          "how": "홈런",
+          "text": "콘트레라스",
+          "player": "콘트레라스",
+          "playerId": "11268",
+          "nat": "Venezuela",
+          "pid": "mlb:661388"
+        },
         {
           "how": "도루",
           "text": "해밀튼",
@@ -681468,7 +681476,19 @@
     "status": "live",
     "matchPeriod": "전반",
     "homeScore": 0,
-    "awayScore": 0
+    "awayScore": 0,
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Wilfrido Báez",
+          "type": "Y",
+          "m": 41,
+          "pid": "espn:208060",
+          "nat": "Paraguay"
+        }
+      ]
+    }
   },
   {
     "date": "2026-10-13",
@@ -681483,7 +681503,7 @@
     "status": "live",
     "matchPeriod": "전반",
     "homeScore": 0,
-    "awayScore": 1,
+    "awayScore": 2,
     "scorers": {
       "home": [],
       "away": [
@@ -681492,6 +681512,12 @@
           "m": 6,
           "nat": "Brazil",
           "pid": "espn:380327"
+        },
+        {
+          "n": "Luiz Gustavo",
+          "m": 29,
+          "nat": "Brazil",
+          "pid": "espn:113352"
         }
       ]
     }
