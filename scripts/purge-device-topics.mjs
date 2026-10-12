@@ -4,7 +4,9 @@
 // 사용: workflow fcm-purge-device 에 토큰을 입력(마스킹됨). 앱 설정 제목을 길게 눌러 공유한 메시지에 토큰이 들어 있다.
 import admin from 'firebase-admin';
 
-const token = (process.env.FCM_TOKEN || '').trim();
+// 공유 메시지 전체("token=…" 줄 포함)를 붙여 넣어도 토큰만 뽑는다.
+const rawIn = process.env.FCM_TOKEN || '';
+const token = ((/token=([^\s]+)/.exec(rawIn)?.[1]) || rawIn).trim();
 const keep = process.env.KEEP_LANG || 'ko';
 const dry = process.env.DRY_RUN === '1';
 if (!token) { console.error('FCM_TOKEN required'); process.exit(1); }
@@ -13,6 +15,11 @@ const LANGS = new Set(['ko', 'en', 'ja', 'es', 'pt', 'fr', 'de', 'it', 'ru', 'ar
 const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
 const cred = admin.credential.cert(serviceAccount);
 admin.initializeApp({ credential: cred });
+
+console.log(`token length=${token.length} prefix=${token.slice(0, 6)}`);
+// 토큰이 아직 유효한지 먼저 확인(validate_only 발송): 앱이 토큰을 새로 받았으면 옛 토큰은 등록 해제 상태다.
+try { await admin.messaging().send({ token, data: { ping: '1' } }, true); console.log('token valid (dry-run send ok)'); }
+catch (e) { console.error('token check failed:', e.code, e.message); }
 
 const at = await cred.getAccessToken();
 const res = await fetch(`https://iid.googleapis.com/iid/info/${encodeURIComponent(token)}?details=true`, {
