@@ -42,3 +42,11 @@ test('judge - football venue is not affected by the baseball rule', () => {
   const r = judgeVenuePhoto({ name: 'Estadio Panamericano', city: 'Zapopan', file: 'Estadio Telmex de Atletismo.JPG', cats: [], usage: [], sport: 'football' });
   assert.notEqual(r.verdict, 'wrong');
 });
+test('judge - baseball park whose file title has the venue name is never auto-wrong (Cheney Stadium: soccer-list usage)', () => {
+  const r = judgeVenuePhoto({ name: 'Cheney Stadium', city: 'Tacoma', file: 'Cheney Stadium Sunset.jpg', cats: ['Category:Cheney Stadium', 'Category:Portland Beavers'], usage: ['List_of_soccer_stadiums_in_the_United_States', 'Cheney_Stadium'], sport: 'baseball' });
+  assert.notEqual(r.verdict, 'wrong');
+});
+test('judge - Athletic Park name is not an athletics-stadium signal (Durham Bulls Athletic Park)', () => {
+  const r = judgeVenuePhoto({ name: 'Durham Bulls Athletic Park', city: 'Durham', file: 'Durham Bulls Athletic Park, Durham, NC (49160936218).jpg', cats: ['Category:Durham Bulls Athletic Park'], usage: ['Durham_Bulls_Athletic_Park'], sport: 'baseball' });
+  assert.notEqual(r.verdict, 'wrong');
+});

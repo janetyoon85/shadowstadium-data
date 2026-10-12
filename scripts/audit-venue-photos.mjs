@@ -34,12 +34,15 @@ const distinctive = (name, city) => strip(`${name} ${city || ''}`).split(/\s+/).
 // 순수 판정 함수(테스트 대상). evidence = 파일 제목·분류 이름들·설명·사용처 문서 제목들.
 export function judgeVenuePhoto({ name, city, file, cats = [], desc = '', usage = [], indoorSport = false, sport = '' }) {
   if (/\.svg$|\bmap\b|locator|location map|\blogo\b|\bflag\b/i.test(file || '')) return { verdict: 'wrong', reason: 'not-a-photo' };
-  // 야구장인데 사진 제목·분류·사용처가 육상·축구 경기장 단어뿐이고 야구 단어가 하나도 없으면 다른 시설이다(Estadio Panamericano 야구장에 Telmex 육상경기장 사진, 2026-10-12).
+  // 야구장인데 사진 파일 제목·분류가 육상·축구 경기장 단어뿐이고 야구 단어가 없고, 파일 제목에 구장 이름 단서도 없으면 다른 시설이다(Estadio Panamericano 야구장에 Telmex 육상경기장 사진).
+  // 오탐 방지(2026-10-12 Cheney Stadium·Durham Bulls Athletic Park 가 지워짐): ① 사용처(그 파일을 쓰는 문서 목록)는 'List of soccer stadiums' 같은 일반 목록이 섞여 증거로 쓰지 않는다
+  // ② 'Athletic Park' 같은 이름의 'athletic'은 육상 단어가 아니다(athletics 만) ③ 파일 제목에 구장 이름이 보이면 그 구장 사진으로 본다.
   if (sport === 'baseball') {
-    const ev = [file, ...cats, ...usage].filter(Boolean).join(' ');
-    const nonBall = /atletism|athletics?|track and field|\btrack\b|\bfootball\b|soccer|f[uú]tbol|rugby|velodrom|olympic stadium/i;
+    const ev = [file, ...cats.map((c) => c.replace(/^Category:/, ''))].filter(Boolean).join(' ');
+    const nonBall = /atletism|athletics\b|track and field|\bfootball\b|soccer|f[uú]tbol|rugby|velodrom|olympic stadium/i;
     const ball = /baseball|b[eé]isbol|softball|ballpark|baseball park|\bbb\b|beisebol|yakyu|野球/i;
-    if (nonBall.test(ev) && !ball.test(ev)) return { verdict: 'wrong', reason: 'baseball-venue-non-baseball-photo' };
+    const fileHasName = distinctive(name, city).some((t) => strip(file || '').includes(t));
+    if (nonBall.test(ev) && !ball.test(ev) && !fileHasName) return { verdict: 'wrong', reason: 'baseball-venue-non-baseball-photo' };
   }
   const strings = [file, ...cats.map((c) => c.replace(/^Category:/, '')), ...usage].filter(Boolean);
   const toks = distinctive(name, city);
