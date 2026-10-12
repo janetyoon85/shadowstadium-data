@@ -81,7 +81,7 @@ export function venueTitleKindConflict(venueName, title) {
   const b = kind(title);
   return !!a && !!b && a !== b;
 }
-export async function fetchVenuePhotoFromWikipedia(venueName) {
+export async function fetchVenuePhotoFromWikipedia(venueName, { strictKind = false } = {}) {
   let sres;
   try {
     sres = await fetchWithTimeout(`https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(venueName)}&format=json&srlimit=5`, { headers: { 'User-Agent': WIKI_UA } });
@@ -94,7 +94,7 @@ export async function fetchVenuePhotoFromWikipedia(venueName) {
   const exactMatch = results.find((r) => r.title?.toLowerCase() === venueName.toLowerCase());
   const title = exactMatch?.title ?? results[0]?.title;
   if (!title) return null; // 검색 결과 자체가 없음 — 이 이름으론 확정적으로 없음.
-  if (venueTitleKindConflict(venueName, title)) return null; // 'SAGA Arena' 검색이 같은 도시의 'SAGA Stadium'(육상경기장) 문서로 간 오매칭 방지.
+  if (strictKind && venueTitleKindConflict(venueName, title)) return null; // 'SAGA Arena' 검색이 같은 도시의 'SAGA Stadium'(육상경기장) 문서로 간 오매칭 방지.
   await sleep(WIKI_REQUEST_DELAY_MS);
   let pres;
   try {

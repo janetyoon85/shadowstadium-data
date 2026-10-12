@@ -191,7 +191,7 @@ async function main() {
     if (!photos && canTryWiki) {
       wikiUsed++;
       await sleep(WIKI_REQUEST_DELAY_MS);
-      const wikiPhoto = await fetchVenuePhotoFromWikipedia(venueEn.name);
+      const wikiPhoto = await fetchVenuePhotoFromWikipedia(venueEn.name, { strictKind: v.sport === 'basketball' }); // 실내/실외 제목 충돌 가드는 농구 구장에만(축구장은 Arena 이름의 야외 경기장이 흔함)
       if (wikiPhoto) { photos = [wikiPhoto]; wikiFound++; }
       else photos = wikiPhoto; // null 또는 undefined 그대로 전달(재시도 계약 유지).
     }

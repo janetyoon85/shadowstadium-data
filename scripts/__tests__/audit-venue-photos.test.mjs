@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { judgeVenuePhoto, commonsFileTitle } from '../audit-venue-photos.mjs';
 
 test('judge - SAGA Arena photo whose only related strings are the outdoor SAGA Stadium is wrong', () => {
-  const r = judgeVenuePhoto({ name: 'SAGA Arena', city: 'Saga', file: 'SAGA Stadium 2023-08 02.jpg', cats: ['Category:SAGA Stadium'], usage: ['SAGA Stadium'] });
+  const r = judgeVenuePhoto({ name: 'SAGA Arena', city: 'Saga', file: 'SAGA Stadium 2023-08 02.jpg', cats: ['Category:SAGA Stadium'], usage: ['SAGA Stadium'], indoorSport: true });
   assert.equal(r.verdict, 'wrong');
 });
 test('judge - same-kind related string makes it ok (renamed venue still ok)', () => {
@@ -25,4 +25,8 @@ test('commonsFileTitle - parses thumb, original and FilePath urls', () => {
   assert.equal(commonsFileTitle('https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/SAGA_Stadium_2023-08_02.jpg/960px-SAGA_Stadium_2023-08_02.jpg?x=1'), 'SAGA Stadium 2023-08 02.jpg');
   assert.equal(commonsFileTitle('https://commons.wikimedia.org/wiki/Special:FilePath/SAGA_Arena_2023-08_02.jpg?width=960'), 'SAGA Arena 2023-08 02.jpg');
   assert.equal(commonsFileTitle('https://upload.wikimedia.org/wikipedia/commons/5/55/A_b.jpg'), 'A b.jpg');
+});
+test('judge - outdoor football venue named Arena is only suspect, never auto-wrong (Tarczynski Arena = Wroclaw Municipal Stadium)', () => {
+  const r = judgeVenuePhoto({ name: 'Tarczynski Arena', city: 'Wroclaw', file: 'Wroclaw Munincipal Stadium 2019.jpg', cats: [], usage: [] });
+  assert.notEqual(r.verdict, 'wrong');
 });

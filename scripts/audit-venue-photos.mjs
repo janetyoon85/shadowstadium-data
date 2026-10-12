@@ -32,7 +32,7 @@ export function commonsFileTitle(url) {
 const distinctive = (name, city) => strip(`${name} ${city || ''}`).split(/\s+/).filter((t) => t.length >= 4 && !GENERIC.has(t));
 
 // 순수 판정 함수(테스트 대상). evidence = 파일 제목·분류 이름들·설명·사용처 문서 제목들.
-export function judgeVenuePhoto({ name, city, file, cats = [], desc = '', usage = [] }) {
+export function judgeVenuePhoto({ name, city, file, cats = [], desc = '', usage = [], indoorSport = false }) {
   if (/\.svg$|\bmap\b|locator|location map|\blogo\b|\bflag\b/i.test(file || '')) return { verdict: 'wrong', reason: 'not-a-photo' };
   const strings = [file, ...cats.map((c) => c.replace(/^Category:/, '')), ...usage].filter(Boolean);
   const toks = distinctive(name, city);
@@ -41,7 +41,8 @@ export function judgeVenuePhoto({ name, city, file, cats = [], desc = '', usage 
   // 같은 이름 단서를 공유하는 문서·분류 중에 구장 유형(실내 Arena ↔ 실외 Stadium)이 반대인 것만 있고 같은 유형은 없으면 다른 시설이다(SAGA Arena ↔ SAGA Stadium).
   const conflicting = related.filter((s) => venueTitleKindConflict(name, s));
   const compatible = related.filter((s) => !venueTitleKindConflict(name, s));
-  if (conflicting.length > 0 && compatible.length === 0) return { verdict: 'wrong', reason: `kind-conflict:${conflicting[0]}` };
+  // 농구 구장(실내)만 확정 오류로 본다. 축구·야구는 'Arena'라는 이름의 야외 경기장이 흔해(Tarczynski Arena=Stadion Wroclaw 등) 같은 건물이어도 제목에 Stadium 이 나오므로 의심으로만 남긴다.
+  if (conflicting.length > 0 && compatible.length === 0) return indoorSport ? { verdict: 'wrong', reason: `kind-conflict:${conflicting[0]}` } : { verdict: 'suspect', reason: `kind-conflict:${conflicting[0]}` };
   if (related.length === 0) {
     const d = strip(desc);
     if (toks.some((t) => d.includes(t))) return { verdict: 'ok', reason: 'desc' };
@@ -93,7 +94,7 @@ async function main() {
       const cats = (p.categories || []).map((x) => x.title);
       const usage = (p.globalusage || []).map((x) => x.title);
       const desc = (p.imageinfo?.[0]?.extmetadata?.ImageDescription?.value || '').replace(/<[^>]+>/g, ' ');
-      const r = judgeVenuePhoto({ name: c.name, city: c.city, file: c.file, cats, desc, usage });
+      const r = judgeVenuePhoto({ name: c.name, city: c.city, file: c.file, cats, desc, usage, indoorSport: c.id.startsWith('bk_') });
       audit[c.id] = { file: c.file, at: now, verdict: r.verdict, reason: r.reason };
       checked++;
       if (r.verdict === 'wrong') wrong.push(c.id);
