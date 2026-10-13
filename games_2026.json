@@ -681303,7 +681303,7 @@
     "liveState": {
       "pitcher": "엔리케스",
       "batter": "바우어스",
-      "ball": 0,
+      "ball": 1,
       "strike": 0,
       "out": 1,
       "bases": [
@@ -681652,7 +681652,19 @@
     "status": "live",
     "matchPeriod": "전반",
     "homeScore": 0,
-    "awayScore": 0
+    "awayScore": 0,
+    "cards": {
+      "home": [
+        {
+          "n": "Guzmán Rodríguez",
+          "type": "Y",
+          "m": 11,
+          "pid": "espn:302225",
+          "nat": "Uruguay"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-10-13",
@@ -681674,14 +681686,28 @@
     "inningInfo": "1회초",
     "liveState": {
       "pitcher": "라스무센",
-      "batter": "라미레즈",
-      "ball": 2,
-      "strike": 1,
+      "batter": "드라우터",
+      "ball": 0,
+      "strike": 0,
       "out": 1,
-      "bases": [],
-      "pitchCount": 9,
+      "bases": [
+        1
+      ],
+      "pitchCount": 15,
       "pitcherPid": "mlb:656876",
-      "batterPid": "mlb:608070"
+      "batterPid": "mlb:800050"
+    },
+    "highlights": {
+      "home": [],
+      "away": [
+        {
+          "how": "도루",
+          "text": "라미레즈 도루실패 아웃",
+          "player": "라미레즈",
+          "inn": "1회초",
+          "pid": "mlb:608070"
+        }
+      ]
     },
     "round": "ps_alcs",
     "rn": 1
