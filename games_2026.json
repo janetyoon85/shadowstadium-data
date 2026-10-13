@@ -681298,20 +681298,20 @@
     "awayPitcherPid": "mlb:808967",
     "homePitcherPid": "mlb:701656",
     "awayScore": 4,
-    "homeScore": 5,
+    "homeScore": 6,
     "inningInfo": "8회말",
     "liveState": {
       "pitcher": "엔리케스",
-      "batter": "추리오",
-      "ball": 0,
-      "strike": 1,
+      "batter": "콘트레라스",
+      "ball": 2,
+      "strike": 0,
       "out": 1,
       "bases": [
-        3
+        1
       ],
-      "pitchCount": 14,
+      "pitchCount": 19,
       "pitcherPid": "mlb:683618",
-      "batterPid": "mlb:694192"
+      "batterPid": "mlb:661388"
     },
     "holds": {
       "home": [
@@ -681536,10 +681536,17 @@
     "gameId": "BRASILEIRAO_ESPN_401841265",
     "status": "live",
     "matchPeriod": "후반",
-    "homeScore": 0,
-    "awayScore": 3,
+    "homeScore": 1,
+    "awayScore": 4,
     "scorers": {
-      "home": [],
+      "home": [
+        {
+          "n": "Maurício Garcez",
+          "m": 72,
+          "nat": "Brazil",
+          "pid": "espn:307717"
+        }
+      ],
       "away": [
         {
           "n": "Leozinho",
@@ -681556,6 +681563,12 @@
         {
           "n": "Kevin Viveros",
           "m": 31,
+          "nat": "Colombia",
+          "pid": "espn:268476"
+        },
+        {
+          "n": "Kevin Viveros",
+          "m": 79,
           "nat": "Colombia",
           "pid": "espn:268476"
         }
@@ -681604,15 +681617,16 @@
     "awayScore": 7,
     "inningInfo": "3회말",
     "liveState": {
-      "pitcher": "Ricardo Pinto",
-      "batter": "Luis Sardinas",
-      "pitcherPid": "mlb:620982",
-      "batterPid": "mlb:596143",
-      "ball": 0,
-      "strike": 1,
+      "pitcher": "Luis Arejula",
+      "batter": "Angel Reyes",
+      "pitcherPid": "mlb:700728",
+      "batterPid": "mlb:622580",
+      "ball": 2,
+      "strike": 0,
       "out": 0,
       "bases": [
-        1
+        1,
+        2
       ]
     }
   },
@@ -681641,11 +681655,25 @@
     "stadium": "트로피카나 필드",
     "timeTbd": false,
     "gameId": "20261013CLTB0",
-    "status": "scheduled",
+    "status": "live",
     "awayPitcher": "포스터 그리핀",
     "homePitcher": "드류 라스무센",
     "awayPitcherPid": "mlb:656492",
     "homePitcherPid": "mlb:656876",
+    "awayScore": 0,
+    "homeScore": 0,
+    "inningInfo": "1회초",
+    "liveState": {
+      "pitcher": "라스무센",
+      "batter": "콴",
+      "ball": 1,
+      "strike": 2,
+      "out": 0,
+      "bases": [],
+      "pitchCount": 4,
+      "pitcherPid": "mlb:656876",
+      "batterPid": "mlb:680757"
+    },
     "round": "ps_alcs",
     "rn": 1
   },
