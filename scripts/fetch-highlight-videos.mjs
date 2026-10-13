@@ -100,7 +100,8 @@ function nameVariants(n) {
   const t = noParen.replace(TRAIL_GENERIC, '').trim();
   const lt = l.replace(TRAIL_GENERIC, '').trim();
   const dc = noParen.replace(/\s+de\s+[^\s]+$/i, '').trim();
-  return [...new Set([n, noParen, l, t, lt, dc])].filter((x) => x && x.length >= 4);
+  // 한글 팀명은 2~3글자(대전·울산·토트넘)가 흔해 길이 4 미만이라고 버리면 한국어 제목(쿠팡플레이·SPOTV)이 매칭되지 않는다(2026-10-14 "상하이 하이강 vs 대전" 누락). 두 팀이 모두 제목에 있어야 하므로 짧아도 오매칭 위험은 낮다.
+  return [...new Set([n, noParen, l, t, lt, dc])].filter((x) => x && (x.length >= 4 || (/[가-힣]/.test(x) && x.length >= 2)));
 }
 const KST = 9 * 3600e3;
 
