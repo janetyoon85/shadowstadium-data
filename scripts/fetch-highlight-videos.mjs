@@ -26,7 +26,7 @@ const KBO_NICK = { '한화': ['이글스'], 'KIA': ['타이거즈'], '두산': [
 const NPB_JA = { '소프트뱅크': ['ソフトバンク'], '오릭스': ['オリックス'], '지바롯데': ['ロッテ'], '라쿠텐': ['楽天'], '세이부': ['西武'], '닛폰햄': ['日本ハム'], '한신': ['阪神'], '요미우리': ['巨人', '読売'], '야쿠르트': ['ヤクルト'], '히로시마': ['広島'], '주니치': ['中日'], '요코하마': ['DeNA', '横浜'] };
 const GENERIC = new Set(['united', 'city', 'real', 'sporting', 'athletic', 'manchester', 'atletico', 'inter', 'club', 'sport', 'town', 'rovers', 'wanderers', 'olympique', 'borussia', 'racing', 'deportivo', 'national', 'fenerbahce fc']);
 // 공식 채널 제목의 오타(예: J.LEAGUE International 의 'FC Machina Zelvia' — Machida 의 오기, 2026-10-10)도 같은 팀으로 매칭하기 위한 영문 보조 별칭.
-const LATIN_TYPO = { '마치다 젤비아': ['FC Machina Zelvia', 'Machina Zelvia'] };
+const LATIN_TYPO = { '마치다 젤비아': ['FC Machina Zelvia', 'Machina Zelvia'] , '다룰 탁짐': ['조호르'] };
 const J_EXTRA = { '가와사키': ['川崎フロンターレ', '川崎F'], '나가사키': ['V・ファーレン長崎', '長崎'] };
 
 // 채널: ids = 게임 리그 코드(games.json league 또는 basketball lg). must = 하이라이트 판정, 둘 다 팀 이름 필요.
@@ -248,8 +248,9 @@ async function main() {
     return [name, teamEn[name]].filter(Boolean);
   };
   const aliasS = (name, script, lg) => {
-    const ok = (a) => script === 'ko' ? /[가-힣]/.test(a) : /^[ -~À-ɏ]+$/.test(a);
-    return [...new Set([name.replace(/\s*\((남자|여자)\)$/, ''), teamEn[name], ...(tAl[name] || []), ...(LATIN_TYPO[name] || [])].filter(Boolean).flatMap(nameVariants).map(norm))].filter((a) => ok(a) && a.length >= (script === 'ko' ? 2 : SA_LEAGUES.has(lg) ? 3 : 4) && (SA_LEAGUES.has(lg) || !GENERIC.has(a)));
+    // norm() 이 NFD 로 분해하므로 한글 판정·길이는 NFC 로 되돌려서 한다(분해된 자모는 /[가-힣]/ 에 안 걸려 한글 별칭이 전부 버려지고 있었다 — 2026-10-14).
+    const ok = (a) => script === 'ko' ? /[가-힣]/.test(a.normalize('NFC')) : /^[ -~À-ɏ]+$/.test(a);
+    return [...new Set([name.replace(/\s*\((남자|여자)\)$/, ''), teamEn[name], ...(tAl[name] || []), ...(LATIN_TYPO[name] || [])].filter(Boolean).flatMap(nameVariants).map(norm))].filter((a) => ok(a) && a.normalize('NFC').length >= (script === 'ko' ? 2 : SA_LEAGUES.has(lg) ? 3 : 4) && (SA_LEAGUES.has(lg) || !GENERIC.has(a)));
   };
   const prep = (t, ch) => (ch.script === 'latin' ? t.replace(/\butd\b\.?/g, 'united').replace(/\bman\b/g, 'manchester') : t);
   const aliasBk = (k) => { const t = bkTeams[k]; if (!t) return []; const w = (t.en || '').split(' '); if (t.lg === 'KBL' && t.ko) return [t.ko, t.ko.split(' ').slice(-1)[0]]; return [t.en, w.slice(-1)[0], w.slice(-2).join(' '), t.ko, t.ja].filter(Boolean); };
