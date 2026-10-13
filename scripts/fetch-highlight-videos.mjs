@@ -42,6 +42,8 @@ export const CHANNELS = [
   { name: 'B.LEAGUE', id: 'UC4NpGzqd6nnntf8ehYC50-A', src: 'bk', leagues: ['BLEAGUE1', 'BLEAGUE2', 'BLEAGUE3'], must: /ハイライト/, not: /プレーまとめ/ },
   { name: 'WNBA', id: 'UCO9a_ryN_l7DIDS-VIt-zmw', src: 'bk', leagues: ['WNBA'], must: /full game highlights/i },
   { name: 'Coupang Play', id: 'UCnBht7BrOx-A328KFXgysqQ', src: 'g', leagues: ['EPL', 'LALIGA', 'BUNDESLIGA', 'ACL'], must: /highlights|하이라이트/i, not: /shorts|women|femenil/i, script: 'latin' },
+  // 같은 채널의 한국어 제목(2026-10-14: "[ACLE] 상하이 하이강 vs 대전 2분 하이라이트" 가 영문 별칭(latin)으로는 안 맞아 누락) — 한국어 팀명으로 따로 매칭. 먼저 붙은 영문 영상이 있으면 대체 후보(alts)로 들어가고, 앱은 한국어 설정이면 한국어 제목을 우선한다.
+  { name: 'Coupang Play (ko)', id: 'UCnBht7BrOx-A328KFXgysqQ', src: 'g', leagues: ['EPL', 'LALIGA', 'BUNDESLIGA', 'ACL', 'ACL2'], must: /하이라이트/, not: /shorts|women|femenil|여자/i, script: 'ko' },
   { name: 'SPOTV', id: 'UCtm_QoN2SIxwCE-59shX7Qg', src: 'g', leagues: ['UCL', 'UEL', 'UECL', 'SERIEA', 'UNL', 'ASIANGAMESFOOTBALL'], must: /하이라이트/, not: /shorts|mlb|kbo|nba/i, script: 'ko' },
   { name: 'Serie A', id: 'UCBJeMCIeLQos7wacox4hmLQ', src: 'g', leagues: ['SERIEA', 'COPPAITALIA'], must: /highlights/i, not: /classic|full match|shorts/i, script: 'latin' },
   { name: 'Bundesliga', id: 'UC6UL29enLNe4mqwTfAyeNuw', src: 'g', leagues: ['BUNDESLIGA'], must: /highlights/i, not: /shorts/i, script: 'latin' },
