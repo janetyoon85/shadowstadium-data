@@ -683688,10 +683688,17 @@
     "gameId": "SOUTHAFRICA_ESPN_401902032",
     "status": "live",
     "matchPeriod": "후반",
-    "homeScore": 0,
+    "homeScore": 1,
     "awayScore": 2,
     "scorers": {
-      "home": [],
+      "home": [
+        {
+          "n": "Haashim Domingo",
+          "m": 72,
+          "nat": "South Africa",
+          "pid": "espn:263331"
+        }
+      ],
       "away": [
         {
           "n": "Mondli Mbanjwa",
@@ -683719,7 +683726,7 @@
     "timeTbd": false,
     "gameId": "SOUTHAFRICA_ESPN_401902025",
     "status": "live",
-    "homeScore": 2,
+    "homeScore": 3,
     "awayScore": 0,
     "matchPeriod": "후반",
     "scorers": {
@@ -683735,6 +683742,12 @@
           "m": 50,
           "nat": "South Africa",
           "pid": "espn:313399"
+        },
+        {
+          "n": "Simphiwe Masilela",
+          "m": 76,
+          "nat": "South Africa",
+          "pid": "espn:416444"
         }
       ],
       "away": []
@@ -683828,6 +683841,18 @@
           "m": 59,
           "nat": "South Africa",
           "pid": "espn:272402"
+        }
+      ]
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Fawaaz Basadien",
+          "type": "Y",
+          "m": 79,
+          "pid": "espn:272402",
+          "nat": "South Africa"
         }
       ]
     }
