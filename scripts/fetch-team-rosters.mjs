@@ -26,6 +26,8 @@ async function domesticSlugs() {
   const src = await fs.readFile(path.join(__dirname, 'fetch-schedule.mjs'), 'utf8');
   const out = new Map(); // slug -> 리그코드
   for (const m of src.matchAll(/([A-Z0-9]+):\s*'([a-z]{3}\.[12])'/g)) out.set(m[2], m[1]);
+  // fetch-schedule.mjs 의 ESPN_LEAGUE_SLUG 에 없는 국내 리그(중국 슈퍼리그는 별도 크롤러가 수집) — 2026-10-13 중국 리그 복원으로 선수단·pid·사진도 수집.
+  for (const [slug, code] of [['chn.1', 'CHINA']]) if (!out.has(slug)) out.set(slug, code);
   return [...out].map(([slug, code]) => ({ slug, code }));
 }
 // 리그 코드별로 games.json 에 실제 등장하는 한글 팀명 — 동명 후보(Liverpool 등)를 그 리그 소속으로 좁히는 데 쓴다.
