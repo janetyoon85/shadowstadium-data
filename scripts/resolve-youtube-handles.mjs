@@ -7,7 +7,17 @@ for (const id of (process.env.LIST_IDS || '').split(',').map((x) => x.trim()).fi
   const r = await fetch('https://www.googleapis.com/youtube/v3/playlistItems?' + new URLSearchParams({ part: 'snippet', maxResults: '50', playlistId: 'UU' + id.slice(2), key: API_KEY }), { signal: AbortSignal.timeout(20000) });
   console.log(`== ${id} http ${r.status}`);
   if (!r.ok) continue;
-  for (const it of (await r.json()).items || []) console.log(`${(it.snippet?.publishedAt || '').slice(0, 10)} ${it.snippet?.title}`);
+  const items = (await r.json()).items || [];
+  // 한국 재생 가능 여부(videos.list, 50개당 1유닛)도 같이 표시 — 허용 목록에 넣기 전에 한국에서 열리는 채널인지 확인.
+  const kr = {};
+  const vids = items.map((it) => it.snippet?.resourceId?.videoId).filter(Boolean);
+  if (vids.length) {
+    const vr = await fetch('https://www.googleapis.com/youtube/v3/videos?' + new URLSearchParams({ part: 'contentDetails', id: vids.join(','), key: API_KEY }), { signal: AbortSignal.timeout(20000) });
+    if (vr.ok) for (const v of (await vr.json()).items || []) { const rr = v.contentDetails?.regionRestriction; kr[v.id] = rr ? (rr.allowed ? rr.allowed.includes('KR') : !(rr.blocked || []).includes('KR')) : true; }
+  }
+  let okN = 0;
+  for (const it of items) { const k = kr[it.snippet?.resourceId?.videoId]; if (k) okN++; console.log(`${(it.snippet?.publishedAt || '').slice(0, 10)} [${k === undefined ? '?' : k ? 'KR가능' : 'KR막힘'}] ${it.snippet?.title}`); }
+  console.log(`-- ${id}: 한국 재생 가능 ${okN}/${items.length}`);
 }
 for (const h of handles) {
   try {

@@ -262,7 +262,18 @@ const WF = {
     const o = (st3[lg] ??= { t: 0, hidden: 0 });
     o.t++; if (!playable) o.hidden++;
   }
-  for (const [lg, o] of Object.entries(st3)) if (o.t >= 10 && o.hidden / o.t > 0.6) add('한국 재생불가 하이라이트 많음', lg, `${lg}: ${o.hidden}/${o.t}건(${Math.round(100 * o.hidden / o.t)}%) 한국에서 열리는 후보 없음`, true);
+  // 알려진 한국 미제공 리그(공식 한국 재생 가능 소스가 없음을 확인 — 2026-10-13 NPB 센트럴=DAZN, EREDIVISIE=ESPN NL)는 고정 알림 대신 "비율 변동"만 알린다.
+  // 직전 기록 대비 재생불가 비율이 10%p 이상 바뀌면(=새 소스가 생겼거나 더 막힘) 알리고 기준을 갱신한다. 새 채널을 추가해 해결되면 목록(ops-kr-limited-leagues.json)에서 빼면 된다.
+  const KR_LIMITED = new Set(J('ops-kr-limited-leagues.json', []));
+  st.krRatio ??= {};
+  for (const [lg, o] of Object.entries(st3)) {
+    if (o.t < 10) continue;
+    const r = o.hidden / o.t;
+    if (!KR_LIMITED.has(lg)) { if (r > 0.6) add('한국 재생불가 하이라이트 많음', lg, `${lg}: ${o.hidden}/${o.t}건(${Math.round(100 * r)}%) 한국에서 열리는 후보 없음`, true); continue; }
+    const prev = st.krRatio[lg];
+    if (typeof prev === 'number' && Math.abs(r - prev) >= 0.1) add('한국 재생 비율 변동(알려진 제한 리그)', `${lg}:${Math.round(100 * r)}`, `${lg}: 재생불가 ${Math.round(100 * prev)}% → ${Math.round(100 * r)}% (${o.hidden}/${o.t}건)${r < prev ? ' — 한국에서 열리는 새 소스가 생겼을 수 있음(채널 확인)' : ''}`);
+    if (typeof prev !== 'number' || Math.abs(r - prev) >= 0.1) st.krRatio[lg] = r;
+  }
 }
 
 // 9) ScraperAPI 월 예산(900건 캡) 80% 이상
