@@ -1,0 +1,29 @@
+name: YouTube Resolve Handles
+
+# 채널 핸들 후보 조사(수동, 1유닛/건): 로그에 채널 ID·이름·구독자·국가가 출력된다.
+on:
+  workflow_dispatch:
+    inputs:
+      handles:
+        description: '쉼표로 구분한 핸들 목록(@ 생략 가능)'
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  resolve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Resolve
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          HANDLES: ${{ inputs.handles }}
+        run: node scripts/resolve-youtube-handles.mjs
