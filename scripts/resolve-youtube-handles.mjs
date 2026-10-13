@@ -2,6 +2,13 @@
 const API_KEY = process.env.YOUTUBE_API_KEY;
 const handles = (process.env.HANDLES || '').split(',').map((h) => h.trim().replace(/^@/, '')).filter(Boolean);
 if (!API_KEY) { console.error('YOUTUBE_API_KEY required'); process.exit(1); }
+// LIST_IDS: 채널 ID 목록의 최근 업로드 제목(playlistItems, 1유닛/페이지)을 출력 — 허용 목록에 넣기 전 어떤 영상을 올리는지 확인.
+for (const id of (process.env.LIST_IDS || '').split(',').map((x) => x.trim()).filter(Boolean)) {
+  const r = await fetch('https://www.googleapis.com/youtube/v3/playlistItems?' + new URLSearchParams({ part: 'snippet', maxResults: '50', playlistId: 'UU' + id.slice(2), key: API_KEY }), { signal: AbortSignal.timeout(20000) });
+  console.log(`== ${id} http ${r.status}`);
+  if (!r.ok) continue;
+  for (const it of (await r.json()).items || []) console.log(`${(it.snippet?.publishedAt || '').slice(0, 10)} ${it.snippet?.title}`);
+}
 for (const h of handles) {
   try {
     const r = await fetch('https://www.googleapis.com/youtube/v3/channels?' + new URLSearchParams({ part: 'id,snippet,statistics', forHandle: h, key: API_KEY }), { signal: AbortSignal.timeout(20000) });

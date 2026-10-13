@@ -6,7 +6,10 @@ on:
     inputs:
       handles:
         description: '쉼표로 구분한 핸들 목록(@ 생략 가능)'
-        required: true
+        default: ''
+      list_ids:
+        description: '최근 업로드 제목을 볼 채널 ID 목록(쉼표 구분)'
+        default: ''
 
 permissions:
   contents: read
@@ -26,4 +29,5 @@ jobs:
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           HANDLES: ${{ inputs.handles }}
+          LIST_IDS: ${{ inputs.list_ids }}
         run: node scripts/resolve-youtube-handles.mjs
