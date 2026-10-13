@@ -1,6 +1,6 @@
 // 운영 점검(ops-health-check)과 백필 현황 보고(backfill-report)가 같은 제외 기준을 쓰도록 공용화(2026-10-09).
-// 중국 구장(측량법 리스크로 의도적 제거, 앱 checkVenueCoverage.mjs KNOWN_EXCLUDED_VENUES와 동일) — 누락 점검 제외
-export const CHINA_VENUES = new Set('beijing_guoan_workers phoenix_mountain_sports_park_chengdu chongqing_longxing_stadium dalian_suoyuwan_football_stadium hanghai_stadium_zhengzhou tiexi_stadium_shenyang qingdao_youth_football_stadium qingdao_westcoast_university_stadium jinan_olympic_sports_center shanghai_port_pudong shanghai_stadium shenzhen_stadium_xinpengcheng teda_football_stadium_tianjin wuhan_sports_center_stadium yuxi_plateau_sports_center huanglong_sports_center_hangzhou xiamen_egret_stadium tongliang_long_stadium shenzhen_universiade_sports_centre_stadium tianjin_olympic_center_stadium shenyang_olympic_sports_center_stadium hangzhou_olympic_sports_center_stadium bao_an_stadium shenzhen_youth_football_training_base_center_stadium longhua_cultural_and_sports_center_stadium shenzhen_youth_football_training_base_pitch_1 suzhou_taihu_football_center suzhou_sports_center_stadium'.split(' '));
+// 2026-10-13: 중국 구장도 좌표 없이 다시 등록(noLocation) — 일반 구장과 같이 백필·누락 점검 대상. 제외 목록은 비워 둔다(import 호환용 export 유지).
+export const CHINA_VENUES = new Set();
 // 올스타·선발 연합팀은 로고·영문명이 원래 없다 — 점검 제외
 export const ALLSTAR_TEAMS = new Set(['드림', '나눔', '퍼시픽리그', '센트럴리그', '아메리칸', '내셔널', 'K리그 XI', '내셔널리그 폴 스타스', '아메리칸리그 폴 스타스']);
 // App.tsx NATIONAL_TEAM_LEAGUES 미러 — 국가대표 대회는 국기를 쓰므로 팀 로고 점검 제외. 앱에 새 국가대표 대회를 추가하면 여기도 같이 추가할 것.
