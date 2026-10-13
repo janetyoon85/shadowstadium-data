@@ -34,6 +34,8 @@ export const CHANNELS = [
   { name: 'NBA', id: 'UCWJ2lWNubArHWmf3FIHbfcQ', src: 'bk', leagues: ['NBA'], must: /full game highlights/i },
   { name: 'KBO', id: 'UCoVz66yWHzVsXAFG8WhJK9g', src: 'g', leagues: ['KBO'], must: /야구 하이라이트/ },
   { name: 'NPB Pacific', id: 'UC0v-pxTo1XamIDE-f__Ad0Q', src: 'g', leagues: ['NPB'], must: /試合ハイライト/ },
+  // 2026-10-13: 일본어 J.League 공식 채널 영상은 한국에서 거의 전부 재생 불가(J1 82건 중 81건) — 영문 채널(J.LEAGUE International)은 한국에서 열린다(사용자 확인). 같은 경기의 대체 후보(alts)로 쓰인다.
+  { name: 'J.LEAGUE International', handle: 'JLEAGUEInternational', src: 'g', leagues: ['J1'], must: /highlights/i, not: /shorts|classic|top goals|goal of|best of|preview|press|interview|mid-season|awards/i, script: 'latin' },
   { name: 'J.League', id: 'UCyzs0YrgWiL2wdROpajnO1Q', src: 'g', leagues: ['J1'], must: /ハイライト/, not: /プレーまとめ|shorts/ },
   { name: 'B.LEAGUE', id: 'UC4NpGzqd6nnntf8ehYC50-A', src: 'bk', leagues: ['BLEAGUE1', 'BLEAGUE2', 'BLEAGUE3'], must: /ハイライト/, not: /プレーまとめ/ },
   { name: 'WNBA', id: 'UCO9a_ryN_l7DIDS-VIt-zmw', src: 'bk', leagues: ['WNBA'], must: /full game highlights/i },
@@ -202,7 +204,27 @@ async function searchFallback({ out, games, bk, bkTeams, teamEn, tAl, aliasG, al
   return added;
 }
 
+const HANDLE_CACHE = path.join(ROOT, 'highlight-channel-ids.json');
+async function resolveHandles() {
+  const todo = CHANNELS.filter((c) => c.handle && !c.id);
+  if (!todo.length) return;
+  const cache = await readJson(HANDLE_CACHE, {});
+  let dirty = false;
+  for (const c of todo) {
+    if (cache[c.handle]) { c.id = cache[c.handle]; continue; }
+    if (!API_KEY) continue;
+    try {
+      const r = await fetch('https://www.googleapis.com/youtube/v3/channels?' + new URLSearchParams({ part: 'id,snippet', forHandle: c.handle, key: API_KEY }), { signal: AbortSignal.timeout(20000) });
+      if (!r.ok) { console.error(`[hl] handle ${c.handle} api ${r.status}`); continue; }
+      const it = ((await r.json()).items || [])[0];
+      if (it?.id) { c.id = it.id; cache[c.handle] = it.id; dirty = true; console.log(`[hl] handle ${c.handle} -> ${it.id} (${it.snippet?.title})`); }
+    } catch (e) { console.error('[hl] handle resolve fail', c.handle, e.message); }
+  }
+  if (dirty) await fs.writeFile(HANDLE_CACHE, JSON.stringify(cache, null, 1) + '\n');
+}
+
 async function main() {
+  await resolveHandles();
   const out = await readJson(OUT, {});
   const games = await readJson(path.join(ROOT, 'games.json'), []);
   const bk = (await readJson(path.join(ROOT, 'basketball', 'games.json'), { games: [] })).games || [];
@@ -225,6 +247,7 @@ async function main() {
 
   let added = 0, altAdded = 0;
   for (const ch of CHANNELS) {
+    if (!ch.id) { console.error(`[hl] ${ch.name} skipped (no channel id)`); continue; }
     let vids = [];
     try { vids = await listVideos(ch); } catch (e) { console.error(`[hl] ${ch.name} fail`, e.message); continue; }
     vids = vids.filter((v) => v.v && v.p && ch.must.test(norm(v.t).normalize('NFC')) && !(ch.not && ch.not.test(norm(v.t).normalize('NFC')))).sort((a, b) => a.p - b.p);
