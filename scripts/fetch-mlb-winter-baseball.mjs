@@ -191,6 +191,8 @@ async function fetchMlbWinterLeague(leagueId, code, sportId, startDate, endDate,
     for (const g of d.games || []) {
       const homeEn = g.teams?.home?.team?.name;
       const awayEn = g.teams?.away?.team?.name;
+      // 대진 미정 자리표시("To Be Determined" — 플레이오프·결승 슬롯)는 팀이 아니므로 매핑 알림 없이 건너뛴다(2026-10-13 AFL 알림). 팀이 확정되면 다음 실행부터 정상 처리된다.
+      if (/^(to be determined|tbd|tba)$/i.test(String(homeEn ?? '').trim()) || /^(to be determined|tbd|tba)$/i.test(String(awayEn ?? '').trim())) continue;
       const homeKo = TEAM_KO[homeEn];
       const awayKo = TEAM_KO[awayEn];
       if (!homeKo) unknownTeams.add(`${code}:${homeEn}`);
