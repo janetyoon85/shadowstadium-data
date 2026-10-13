@@ -51,6 +51,10 @@ export const CHANNELS = [
   { name: 'ge tv', id: 'UCgCKagVhzGnZcuP9bSMgMCg', src: 'g', leagues: ['BRASILEIRAO'], must: /highlights/i, not: /femin|women/i, script: 'latin' },
   { name: 'TUDN Mexico', id: 'UCTIyEyDNHPrwVFPhpi5dm0A', src: 'g', leagues: ['LIGAMX'], must: /highlights/i, not: /femenil|shorts/i, script: 'latin' },
   { name: 'sport tv', id: 'UCINrlkmrXi4a-kOl6unb51A', src: 'g', leagues: ['PORTUGAL'], must: /resumo/i, script: 'latin' },
+  // 2026-10-13 허용 목록 추가(사용자 결정). 최근 업로드를 확인한 결과 두 채널 모두 씨름·태권도·UFC·테니스·당구와 "#KBL/#WKBL" 선수 클립 위주라 지금은 경기 하이라이트가 거의 없다 —
+  // 팀 이름 두 개가 제목에 있어야 매칭되므로 선수 클립은 걸리지 않고, 앞으로 KBL·WKBL 경기 하이라이트를 올리면 자동으로 후보(alts)가 된다.
+  { name: 'tvN SPORTS', id: 'UCtybqqaTj6Nx74Azdz1KrsA', src: 'bk', leagues: ['KBL', 'WKBL'], must: /하이라이트/, not: /shorts|ufc|pba|씨름|태권도|테니스|당구/i, lang: 'ko' },
+  { name: 'MBC Sports+', id: 'UCMkrtzkegsLZJ1s6H7S0eKw', src: 'bk', leagues: ['KBL', 'WKBL'], must: /하이라이트/, not: /shorts|ufc|pba|씨름|태권도|테니스|당구/i, lang: 'ko' },
   { name: 'TVING KBL', id: 'UC8JtQf77wqhVpOQ8Cze8JjA', src: 'bk', leagues: ['KBL'], must: /프로농구.*하이라이트/ },
   { name: 'DAZN Baseball', id: 'UCyeDNNizMGbVsn_8Ttc3FIw', src: 'g', leagues: ['NPB'], must: /ハイライト/, not: /プレーまとめ/ },
   { name: 'Win Sports', id: 'UCZjpA3YBPXvJv3pg4SPEjfw', src: 'g', leagues: ["COLOMBIA"], must: /resumen y goles/i, not: /#shorts|femenin|golazo|atajada|#laligaxwin/i, script: 'latin' },
