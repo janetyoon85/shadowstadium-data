@@ -20,19 +20,20 @@ if (admin.apps.length === 0) {
 }
 
 // tag: 같은 기기가 구토픽+언어토픽 등 여러 토픽으로 같은 알림을 받아도 하나로 합쳐지게(안드로이드 tag / iOS apns-collapse-id).
-const msg = (topic, { title, body }, gameId, displayName, id, tag) => ({
+// nav: { venueId, date, doubleheaderNum } — 알림을 눌렀을 때 앱 데이터에 새 경기가 아직 없어도 바로 그 경기 구장 화면으로 이동하게 한다(2026-10-13, gameId 만 있으면 목록을 받은 뒤에야 이동해 홈이 잠깐 보였다).
+const msg = (topic, { title, body }, gameId, displayName, id, tag, nav) => ({
   topic,
   notification: { title, body },
-  data: { gameId: String(gameId ?? ''), playerName: String(displayName ?? id), playerId: String(id) },
+  data: { gameId: String(gameId ?? ''), playerName: String(displayName ?? id), playerId: String(id), ...(nav?.venueId && nav?.date ? { venueId: String(nav.venueId), date: String(nav.date), doubleheaderNum: nav.doubleheaderNum ? String(nav.doubleheaderNum) : '' } : {}) },
   android: { priority: 'high', notification: { channelId: NOTIF_CHANNEL_ID, ...(tag ? { tag } : {}) } },
   ...(tag ? { apns: { headers: { 'apns-collapse-id': tag.slice(0, 64) } } } : {}),
 });
 
 // byLang: { [lang]: {title, body} } — 언어별 토픽으로 각각 발송. 접미사 없는 토픽은 구버전 앱용(한국어).
-export async function sendPlayerEvent(id, { title, body, gameId, displayName, byLang, tag }) {
-  const jobs = [admin.messaging().send(msg(playerTopic(id), { title, body }, gameId, displayName, id, tag))];
+export async function sendPlayerEvent(id, { title, body, gameId, displayName, byLang, tag, nav }) {
+  const jobs = [admin.messaging().send(msg(playerTopic(id), { title, body }, gameId, displayName, id, tag, nav))];
   for (const [lang, t] of Object.entries(byLang || {})) {
-    jobs.push(admin.messaging().send(msg(playerLangTopic(id, lang), t, gameId, displayName, id, tag)));
+    jobs.push(admin.messaging().send(msg(playerLangTopic(id, lang), t, gameId, displayName, id, tag, nav)));
   }
   const res = await Promise.allSettled(jobs);
   if (res.every((r) => r.status === 'rejected')) throw res[0].reason;
