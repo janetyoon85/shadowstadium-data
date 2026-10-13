@@ -36,6 +36,9 @@ jobs:
           ROSTER_PHOTO_BUDGET: ${{ github.event.inputs.budget || '700' }}
         run: node scripts/backfill-roster-photos.mjs
 
+      - name: Apply face veto
+        run: node scripts/apply-photo-face-veto.mjs
+
       - name: Check for changes
         id: changes
         run: |
@@ -63,6 +66,7 @@ jobs:
               git rebase --abort || true
               git reset --hard origin/main
               ROSTER_PHOTO_MERGE_DIR=/tmp/ours node scripts/backfill-roster-photos.mjs
+              node scripts/apply-photo-face-veto.mjs
               git add team-rosters roster-photos-tried.json roster-photos.json
               git commit -m "chore(data): 선수 사진 보충 — 충돌 후 병합 ($(date +'%Y-%m-%d %H:%M'))" || exit 0
             fi
