@@ -26,3 +26,12 @@ test('경기 단위 표(게임ID+이름)로 pid 를 붙인다', () => {
   attachPlayerPids(g, { g4: { 문성주: { b: 'kbo:b:68119' } } });
   assert.equal(g[0].highlights.home[0].pid, 'kbo:b:68119');
 });
+
+test('홀드 투수도 같은 팀·이름으로 다른 경기의 pid 를 이어받는다(유리베)', () => {
+  const g = [
+    { league: 'MLB', home: '밀워키', away: 'LA다저스', gameId: 'a', holds: { home: [{ n: '유리베', pid: 'mlb:682842' }], away: [] } },
+    { league: 'MLB', home: '밀워키', away: 'LA다저스', gameId: 'b', holds: { home: [{ n: '유리베' }], away: [] } },
+  ];
+  attachPlayerPids(g);
+  assert.equal(g[1].holds.home[0].pid, 'mlb:682842');
+});

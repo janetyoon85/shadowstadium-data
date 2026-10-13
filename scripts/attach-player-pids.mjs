@@ -15,11 +15,18 @@ function* refs(g) {
     for (const kind of ['scorers', 'cards']) for (const x of g[kind]?.[side] || []) yield { team, name: x.n, role: 'b', get: () => x.pid, set: (v) => { x.pid = v; } };
     for (const x of g.assists?.[side] || []) yield { team, name: x.n, role: 'b', get: () => x.pid, set: (v) => { x.pid = v; } };
     for (const x of g.highlights?.[side] || []) yield { team, name: x.player, role: 'b', get: () => x.pid, set: (v) => { x.pid = v; } };
+    // 홀드 투수(2026-10-13 "유리베 정보 없음" — 방금 끝난 MLB 경기의 홀드 투수는 pid 확정 전이라 비어 있었다): 같은 팀·같은 이름으로 다른 경기에서 알려진 pid 로 채운다.
+    for (const x of g.holds?.[side] || []) yield { team, name: x.n, role: 'p', get: () => x.pid, set: (v) => { x.pid = v; } };
     const sp = g[`${side}Pitcher`];
     if (sp) yield { team, name: sp, role: 'p', slot: side, get: () => g[`${side}PitcherPid`], set: (v) => { g[`${side}PitcherPid`] = v; } };
   }
+  // 승·패·세이브 투수의 소속 팀은 점수로 알 수 있다(승·세이브=이긴 팀, 패=진 팀) — 팀을 알면 같은 팀의 다른 경기에서 확정된 pid 로 더 정확히 채운다(동명이인 위험도 줄어듦).
+  const hs = g.homeScore, as = g.awayScore;
+  const decided = typeof hs === 'number' && typeof as === 'number' && hs !== as;
+  const winTeam = decided ? (hs > as ? g.home : g.away) : null;
+  const loseTeam = decided ? (hs > as ? g.away : g.home) : null;
   for (const f of ['win', 'lose', 'save']) {
-    if (g[`${f}Pitcher`]) yield { team: null, name: g[`${f}Pitcher`], role: 'p', get: () => g[`${f}PitcherPid`], set: (v) => { g[`${f}PitcherPid`] = v; } };
+    if (g[`${f}Pitcher`]) yield { team: f === 'lose' ? loseTeam : winTeam, name: g[`${f}Pitcher`], role: 'p', get: () => g[`${f}PitcherPid`], set: (v) => { g[`${f}PitcherPid`] = v; } };
   }
 }
 
