@@ -133,15 +133,17 @@ async function main() {
         for (let i = 0; i < list.length; i++) {
           const h = list[i];
           if (!h.player) continue;
-          // 주자·타자가 폭투/포일/보크/실책으로 진루한 줄은 이름이 진루한 선수라 "박해민 폭투"처럼 잘못 알린다 — 알림 제외(2026-10-14).
-          if (h.advance || /(폭투|포일|보크|실책).*(진루|출루)/.test(h.text || '')) continue;
+          // 주자·타자가 폭투/포일/보크/실책으로 진루한 줄은 이름이 진루한 선수다 — "박해민 폭투"로 알리면 박해민이 폭투를 던진 것처럼 읽힌다(2026-10-14).
+          // 그래서 원문 그대로 "박해민 폭투로 2루까지 진루"로 알린다(advance). 다른 언어는 "진루(폭투)" 형태.
+          const advance = !!(h.advance || /(폭투|포일|보크|실책).*(진루|출루)/.test(h.text || ''));
           const nm = h.player;
           const oldN = nth(cntOld, nm);
           // 결승타가 홈런이면 같은 타구의 홈런 항목과 중복 — 홈런 알림만.
           if (h.how === '결승타' && /홈런/.test(h.text || '') && hrOf.has(nm)) continue;
-          const r = isSent(g.gameId, key, 'highlight', `${nm}|${h.how}`, nth(cntH, `${nm}|${h.how}`));
+          const hk = advance ? `${h.how}|adv` : h.how;
+          const r = isSent(g.gameId, key, 'highlight', `${nm}|${hk}`, nth(cntH, `${nm}|${hk}`));
           const legacy = isSent(g.gameId, key, 'highlight', nm, oldN);
-          if (!r.sent && !legacy.sent) pending.push({ dedupKey: r.k, name: nm, pid: h.pid, game: g, team, icon: '⚾', label: h.how === '도루자' ? '도루 실패' : h.how, labelKey: undefined, detail: h.text });
+          if (!r.sent && !legacy.sent) pending.push({ dedupKey: r.k, name: nm, pid: h.pid, game: g, team, icon: '⚾', label: h.how === '도루자' ? '도루 실패' : h.how, labelKey: undefined, detail: h.text, advance });
         }
       }
     }
@@ -199,7 +201,9 @@ async function main() {
     const byLang = {};
     for (const lang of LANGS) {
       const nm = localPlayer(lang, name, pid);
-      const lb = item.labelKey ? eventLabel(lang, null, item.labelKey) : eventLabel(lang, label === '도루 실패' ? '도루자' : label);
+      let lb = item.labelKey ? eventLabel(lang, null, item.labelKey) : eventLabel(lang, label === '도루 실패' ? '도루자' : label);
+      // 진루 알림: 한국어는 원문("폭투로 2루까지 진루"), 그 외 언어는 "진루(폭투)".
+      if (item.advance) lb = lang === 'ko' ? (detail || '').replace(name, '').trim() || eventLabel(lang, null, 'adv') : `${eventLabel(lang, null, 'adv')} (${lb})`;
       const tm = localTeam(lang, team), op = localTeam(lang, opp), lg = localLeague(lang, g.league);
       const sc = typeof g.homeScore === 'number' && typeof g.awayScore === 'number' ? `${localTeam(lang, g.away)} ${g.awayScore}-${g.homeScore} ${localTeam(lang, g.home)}` : '';
       const ctx = [lg, g.inningInfo].filter(Boolean).join(' · ');
