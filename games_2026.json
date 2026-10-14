@@ -407771,7 +407771,8 @@
       "home": [
         {
           "n": "카키타",
-          "m": 5
+          "m": 5,
+          "pid": "espn:238023"
         },
         {
           "n": "고이즈미",
@@ -685657,12 +685658,12 @@
     "inningInfo": "3회말",
     "liveState": {
       "pitcher": "야마사키",
-      "batter": "콘도",
+      "batter": "쿠리하라",
       "pitcherPid": "npb:1400195",
-      "batterPid": "npb:1100097",
-      "ball": 1,
-      "strike": 1,
-      "out": 2,
+      "batterPid": "npb:1400127",
+      "ball": 0,
+      "strike": 0,
+      "out": 3,
       "bases": [
         1
       ],
@@ -685691,14 +685692,14 @@
     "inningInfo": "5회초",
     "liveState": {
       "pitcher": "무라카미",
-      "batter": "에비나",
+      "batter": "다이라",
       "pitcherPid": "npb:2000055",
-      "batterPid": "npb:1900035",
+      "batterPid": "npb:1300031",
       "ball": 0,
       "strike": 1,
-      "out": 1,
+      "out": 2,
       "bases": [],
-      "pitchCount": 71
+      "pitchCount": 77
     },
     "round": "ps_clcs_final",
     "rn": 1
@@ -685724,17 +685725,17 @@
     "liveState": {
       "pitcher": "곽빈",
       "pitcherPid": "kbo:p:68220",
-      "batter": "박해민",
-      "batterPid": "kbo:b:62415",
-      "ball": 0,
-      "strike": 1,
-      "out": 1,
+      "batter": "오스틴",
+      "batterPid": "kbo:b:53123",
+      "ball": 1,
+      "strike": 0,
+      "out": 2,
       "bases": [
         1,
         2,
         3
       ],
-      "pitchCount": 38
+      "pitchCount": 43
     },
     "highlights": {
       "home": [
@@ -685786,7 +685787,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 1,
-    "matchPeriod": "전반 14'",
+    "matchPeriod": "전반 18'",
     "scorers": {
       "home": [
         {
@@ -685816,21 +685817,29 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 3,
-    "matchPeriod": "전반 14'",
+    "matchPeriod": "전반 17'",
     "scorers": {
       "home": [
         {
           "n": "쿠보",
           "m": 3,
-          "pid": "espn:366810"
+          "a": "Kenshin Yuba",
+          "nat": "Japan",
+          "pid": "espn:366810",
+          "apid": "espn:3099674"
         },
         {
           "n": "카키타",
-          "m": 10
+          "m": 10,
+          "nat": "Japan",
+          "pid": "espn:238023"
         },
         {
           "n": "하라카와",
-          "m": 15
+          "m": 15,
+          "pk": true,
+          "nat": "Japan",
+          "pid": "espn:211762"
         }
       ],
       "away": []
