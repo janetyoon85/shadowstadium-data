@@ -140,10 +140,10 @@ async function main() {
           const oldN = nth(cntOld, nm);
           // 결승타가 홈런이면 같은 타구의 홈런 항목과 중복 — 홈런 알림만.
           if (h.how === '결승타' && /홈런/.test(h.text || '') && hrOf.has(nm)) continue;
-          const hk = advance ? `${h.how}|adv` : h.how;
-          const r = isSent(g.gameId, key, 'highlight', `${nm}|${hk}`, nth(cntH, `${nm}|${hk}`));
+          // 중복 방지 키는 예전 그대로(이름|종류) — 키를 바꾸면(|adv) 이미 보낸 이벤트가 새 키로 인식돼 전부 재발송된다(2026-10-14 12:41 실제로 3건 재발송).
+          const r = isSent(g.gameId, key, 'highlight', `${nm}|${h.how}`, nth(cntH, `${nm}|${h.how}`));
           const legacy = isSent(g.gameId, key, 'highlight', nm, oldN);
-          if (!r.sent && !legacy.sent) pending.push({ dedupKey: r.k, name: nm, pid: h.pid, game: g, team, icon: '⚾', label: h.how === '도루자' ? '도루 실패' : h.how, labelKey: undefined, detail: h.text, advance });
+          if (!r.sent && !legacy.sent) pending.push({ dedupKey: r.k, name: nm, pid: h.pid, game: g, team, icon: '⚾', label: h.how === '도루자' ? '도루 실패' : h.how, labelKey: undefined, detail: h.text, advance, inn: h.inn });
         }
       }
     }
@@ -206,7 +206,8 @@ async function main() {
       if (item.advance) lb = lang === 'ko' ? (detail || '').replace(name, '').trim() || eventLabel(lang, null, 'adv') : `${eventLabel(lang, null, 'adv')} (${lb})`;
       const tm = localTeam(lang, team), op = localTeam(lang, opp), lg = localLeague(lang, g.league);
       const sc = typeof g.homeScore === 'number' && typeof g.awayScore === 'number' ? `${localTeam(lang, g.away)} ${g.awayScore}-${g.homeScore} ${localTeam(lang, g.home)}` : '';
-      const ctx = [lg, g.inningInfo].filter(Boolean).join(' · ');
+      // 하이라이트 알림은 그 이벤트가 난 이닝(h.inn)을 쓴다 — 현재 이닝(g.inningInfo)을 쓰면 7회말 사건이 "8회말"로 알려진다.
+      const ctx = [lg, item.inn || g.inningInfo].filter(Boolean).join(' · ');
       byLang[lang] = {
         title: `${icon} ${nm} ${lb}!`,
         body: preGame
