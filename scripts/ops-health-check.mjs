@@ -214,7 +214,13 @@ const WF = {
     if (cross && !process.env.APP_REPO_TOKEN) { console.log(`[ops] ${key}: APP_REPO_TOKEN 없음 — 건너뜀`); continue; }
     const hdrs = cross ? { Accept: headers.Accept, Authorization: `Bearer ${process.env.APP_REPO_TOKEN}` } : headers;
     try {
-      const r = await fetch(`https://api.github.com/repos/${wfRepo}/actions/workflows/${wf}.yml/runs?per_page=50`, { headers: hdrs });
+      // GitHub API 가 간헐적으로 502/503 을 주는데(2026-10-14 backfill-player-photos 실제 워크플로는 정상) 한 번 실패로 바로 경보하지 않는다 — 5xx·네트워크 오류는 최대 3회 재시도.
+      let r;
+      for (let attempt = 1; attempt <= 3; attempt++) {
+        try { r = await fetch(`https://api.github.com/repos/${wfRepo}/actions/workflows/${wf}.yml/runs?per_page=50`, { headers: hdrs }); } catch (e) { if (attempt === 3) throw e; r = null; }
+        if (r && r.status < 500) break;
+        if (attempt < 3) await new Promise((res) => setTimeout(res, 2000 * attempt));
+      }
       if (!r.ok) { add('워크플로 조회 실패', wf, `${wf}: HTTP ${r.status}`); continue; }
       const runs = (await r.json()).workflow_runs.filter((x) => x.status === 'completed' && x.conclusion !== 'cancelled' && x.conclusion !== 'skipped');
       if (runs.length >= 3 && runs.slice(0, 3).every((x) => x.conclusion === 'failure')) add('워크플로 연속 실패', wf, `${wf}: 최근 3회 연속 실패`);
