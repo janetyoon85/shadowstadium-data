@@ -88,6 +88,7 @@ const ESPN_LEAGUE_SLUG = {
   AFRICACUP: 'caf.nations',
   CONCACAFCUP: 'concacaf.champions',
   ACL: 'afc.champions',
+  ACL2: 'afc.cup', // 2026-10-14 실측: ESPN 슬러그는 afc.cup(AFC Champions League Two) — 예전에 못 찾았다던 것은 오답 슬러그였다. 득점자·카드 pid/국적이 붙어 선수 정보 팝업이 뜬다.
   UEFASUPERCUP: 'uefa.super_cup',
   GERMANSUPERCUP: 'ger.super_cup',
   SPANISHSUPERCUP: 'esp.super_cup',
@@ -145,7 +146,7 @@ const ESPN_LEAGUE_SLUG = {
   KENYA: 'ken.1',
   UGANDA: 'uga.1',
   ZIMBABWE: 'zim.1',
-  // 슬러그 못 찾은 것들(400 응답, 재시도해도 실패) — ACL2, COMMUNITYSHIELD, U20WOMENWORLDCUP,
+  // 슬러그 못 찾은 것들(400 응답, 재시도해도 실패) — COMMUNITYSHIELD, U20WOMENWORLDCUP,
   // 코리아컵, AFF컵, EAFF E-1은 제외. INTERCONTINENTALCUP 후보로 찾은 'fifa.intercontinental.cup'은
   // 실제론 전혀 다른 대회("Intercontinental Cup (India)", 인도 국내 초청대회)라 오귀속 위험 —
   // 절대 쓰지 말 것. 나머지(U17/U20/U23 아시안컵 등 소규모 대회)는 ESPN 커버리지 자체가 없을
