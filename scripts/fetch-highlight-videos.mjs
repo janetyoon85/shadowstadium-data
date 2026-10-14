@@ -26,7 +26,7 @@ const KBO_NICK = { '한화': ['이글스'], 'KIA': ['타이거즈'], '두산': [
 const NPB_JA = { '소프트뱅크': ['ソフトバンク'], '오릭스': ['オリックス'], '지바롯데': ['ロッテ'], '라쿠텐': ['楽天'], '세이부': ['西武'], '닛폰햄': ['日本ハム'], '한신': ['阪神'], '요미우리': ['巨人', '読売'], '야쿠르트': ['ヤクルト'], '히로시마': ['広島'], '주니치': ['中日'], '요코하마': ['DeNA', '横浜'] };
 const GENERIC = new Set(['united', 'city', 'real', 'sporting', 'athletic', 'manchester', 'atletico', 'inter', 'club', 'sport', 'town', 'rovers', 'wanderers', 'olympique', 'borussia', 'racing', 'deportivo', 'national', 'fenerbahce fc']);
 // 공식 채널 제목의 오타(예: J.LEAGUE International 의 'FC Machina Zelvia' — Machida 의 오기, 2026-10-10)도 같은 팀으로 매칭하기 위한 영문 보조 별칭.
-const LATIN_TYPO = { '마치다 젤비아': ['FC Machina Zelvia', 'Machina Zelvia'] , '다룰 탁짐': ['조호르'] };
+const LATIN_TYPO = { '마치다 젤비아': ['FC Machina Zelvia', 'Machina Zelvia'] , '다룰 탁짐': ['조호르'], '바이킹': ['비킹', '비킹 FK'] };
 const J_EXTRA = { '가와사키': ['川崎フロンターレ', '川崎F'], '나가사키': ['V・ファーレン長崎', '長崎'] };
 
 // 채널: ids = 게임 리그 코드(games.json league 또는 basketball lg). must = 하이라이트 판정, 둘 다 팀 이름 필요.
@@ -273,11 +273,11 @@ async function main() {
       const vt = v.t.replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/&quot;/g, '"');
       const g = matches.find((m) => !out[m.id]);
       if (g) { out[g.id] = { v: v.v, t: vt }; added++; continue; }
-      // 후보 보관(2026-10-13): 이 경기에 이미 다른 채널의 영상이 있으면 이 영상을 대체 후보(alts, 최대 3개)로 둔다 — 앱이 사용자 지역에서 열리는 첫 후보를 고른다.
+      // 후보 보관(2026-10-13): 이 경기에 이미 다른 채널의 영상이 있으면 이 영상을 대체 후보(alts, 최대 6개 — 한국에서 막힌 해외 채널 영상 3개가 먼저 차면 한국어 영상이 못 붙던 문제, 2026-10-15 뮌헨-비킹)로 둔다 — 앱이 사용자 지역에서 열리는 첫 후보를 고른다.
       const dup = matches[0];
       if (dup && out[dup.id] && out[dup.id].v !== v.v) {
         const alts = (out[dup.id].alts ??= []);
-        if (alts.length < 3 && !alts.some((a) => a.v === v.v)) { alts.push({ v: v.v, t: vt }); altAdded++; }
+        if (alts.length < 6 && !alts.some((a) => a.v === v.v)) { alts.push({ v: v.v, t: vt }); altAdded++; }
       }
     }
     console.log(`[hl] ${ch.name} videos=${vids.length}`);
