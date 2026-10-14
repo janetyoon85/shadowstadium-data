@@ -10,6 +10,12 @@ on:
       list_ids:
         description: '최근 업로드 제목을 볼 채널 ID 목록(쉼표 구분)'
         default: ''
+      list_pages:
+        description: '업로드 목록 페이지 수(50개/페이지)'
+        default: '1'
+      list_grep:
+        description: '제목 필터 정규식(비우면 전체)'
+        default: ''
 
 permissions:
   contents: read
@@ -30,4 +36,6 @@ jobs:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           HANDLES: ${{ inputs.handles }}
           LIST_IDS: ${{ inputs.list_ids }}
+          LIST_PAGES: ${{ inputs.list_pages }}
+          LIST_GREP: ${{ inputs.list_grep }}
         run: node scripts/resolve-youtube-handles.mjs

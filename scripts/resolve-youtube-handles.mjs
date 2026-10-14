@@ -4,10 +4,20 @@ const handles = (process.env.HANDLES || '').split(',').map((h) => h.trim().repla
 if (!API_KEY) { console.error('YOUTUBE_API_KEY required'); process.exit(1); }
 // LIST_IDS: 채널 ID 목록의 최근 업로드 제목(playlistItems, 1유닛/페이지)을 출력 — 허용 목록에 넣기 전 어떤 영상을 올리는지 확인.
 for (const id of (process.env.LIST_IDS || '').split(',').map((x) => x.trim()).filter(Boolean)) {
-  const r = await fetch('https://www.googleapis.com/youtube/v3/playlistItems?' + new URLSearchParams({ part: 'snippet', maxResults: '50', playlistId: 'UU' + id.slice(2), key: API_KEY }), { signal: AbortSignal.timeout(20000) });
-  console.log(`== ${id} http ${r.status}`);
-  if (!r.ok) continue;
-  const items = (await r.json()).items || [];
+  // LIST_PAGES(기본 1)만큼 다음 페이지까지 읽고, LIST_GREP(정규식)이 있으면 제목이 맞는 것만 출력한다(오래된 영상이 왜 안 붙었는지 볼 때).
+  let items = [], token = '', status = 0;
+  for (let pg = 0; pg < Math.max(1, Number(process.env.LIST_PAGES) || 1); pg++) {
+    const r = await fetch('https://www.googleapis.com/youtube/v3/playlistItems?' + new URLSearchParams({ part: 'snippet', maxResults: '50', playlistId: 'UU' + id.slice(2), key: API_KEY, ...(token ? { pageToken: token } : {}) }), { signal: AbortSignal.timeout(20000) });
+    status = r.status;
+    if (!r.ok) break;
+    const j = await r.json();
+    items.push(...(j.items || []));
+    token = j.nextPageToken;
+    if (!token) break;
+  }
+  console.log(`== ${id} http ${status} items=${items.length}`);
+  if (status !== 200) continue;
+  if (process.env.LIST_GREP) { const re = new RegExp(process.env.LIST_GREP, 'i'); items = items.filter((it) => re.test(it.snippet?.title || '')); console.log(`grep ${process.env.LIST_GREP} → ${items.length}건`); }
   // 한국 재생 가능 여부(videos.list, 50개당 1유닛)도 같이 표시 — 허용 목록에 넣기 전에 한국에서 열리는 채널인지 확인.
   const kr = {};
   const vids = items.map((it) => it.snippet?.resourceId?.videoId).filter(Boolean);
