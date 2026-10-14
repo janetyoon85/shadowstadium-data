@@ -686240,9 +686240,9 @@
         {
           "n": "아르투르 헤젠지",
           "m": 48,
-          "pk": true,
           "nat": "Brazil",
-          "pid": "espn:218975"
+          "pid": "espn:218975",
+          "pk": true
         },
         {
           "n": "토바레스",
@@ -686351,28 +686351,49 @@
     "gameId": "YswLvBtuoWmWms0",
     "status": "live",
     "awayScore": 1,
-    "homeScore": 2,
+    "homeScore": 3,
     "matchPeriod": "후반 51'",
     "scorers": {
       "home": [
         {
           "n": "파이살",
-          "m": 45
+          "m": 45,
+          "nat": "Kuwait",
+          "pid": "espn:244728"
         },
         {
           "n": "유세프",
-          "m": 65
+          "m": 65,
+          "pk": true,
+          "nat": "Kuwait",
+          "pid": "espn:244734"
+        },
+        {
+          "n": "유세프",
+          "m": 90,
+          "nat": "Kuwait",
+          "pid": "espn:244734"
         }
       ],
       "away": [
         {
           "n": "글레이송",
-          "m": 80
+          "m": 80,
+          "nat": "Brazil",
+          "pid": "espn:239291"
         }
       ]
     },
     "cards": {
-      "home": [],
+      "home": [
+        {
+          "n": "El Mehdi Barrahma",
+          "type": "Y",
+          "m": 81,
+          "pid": "espn:269563",
+          "nat": "Morocco"
+        }
+      ],
       "away": [
         {
           "n": "Mohammed Adel",
@@ -686404,24 +686425,23 @@
     "gameId": "e8smhrCfqRHwHY6",
     "status": "live",
     "awayScore": 1,
-    "homeScore": 1,
-    "matchPeriod": "후반 51'",
+    "homeScore": 2,
+    "matchPeriod": "후반 53'",
     "scorers": {
       "home": [
         {
           "n": "말콤",
-          "m": 55,
-          "pk": true,
-          "nat": "Brazil",
-          "pid": "espn:202191"
+          "m": 55
+        },
+        {
+          "n": "무이키치",
+          "m": 90
         }
       ],
       "away": [
         {
           "n": "바시모프",
-          "m": 66,
-          "nat": "Turkmenistan",
-          "pid": "espn:321802"
+          "m": 66
         }
       ]
     },
@@ -687775,6 +687795,18 @@
     "stadium": "Monumental Simon Bolivar",
     "timeTbd": false,
     "gameId": "LVBP_MLBSTATS_870084",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-10-16",
+    "time": "10:00",
+    "league": "ELSALVADOR",
+    "venueId": "estadio_sergio_torres",
+    "home": "루이스 앙헬 피르포",
+    "away": "잉카 아루바",
+    "stadium": "Estadio Sergio Torres Rivera",
+    "timeTbd": false,
+    "gameId": "ELSALVADOR_ESPN_401899778",
     "status": "scheduled"
   },
   {
@@ -690148,18 +690180,6 @@
     "gameId": "I3dVNv9NWZ7TWNE",
     "status": "scheduled",
     "phaseCode": "LEAGUE"
-  },
-  {
-    "date": "2026-10-18",
-    "time": "10:00",
-    "league": "ELSALVADOR",
-    "venueId": "estadio_sergio_torres",
-    "home": "루이스 앙헬 피르포",
-    "away": "잉카 아루바",
-    "stadium": "",
-    "timeTbd": false,
-    "gameId": "ELSALVADOR_ESPN_401899778",
-    "status": "scheduled"
   },
   {
     "date": "2026-10-18",
