@@ -686978,8 +686978,8 @@
           "m": 45,
           "a": "Jarrod Bowen",
           "nat": "Greece",
-          "pid": "espn:242705",
           "aNat": "England",
+          "pid": "espn:242705",
           "apid": "espn:201089"
         },
         {
@@ -686987,8 +686987,8 @@
           "m": 48,
           "a": "Joël Piroe",
           "nat": "Norway",
-          "pid": "espn:341309",
           "aNat": "Suriname",
+          "pid": "espn:341309",
           "apid": "espn:245562"
         },
         {
@@ -686996,8 +686996,8 @@
           "m": 50,
           "a": "Arne Engels",
           "nat": "England",
-          "pid": "espn:201089",
           "aNat": "Belgium",
+          "pid": "espn:201089",
           "apid": "espn:314177"
         },
         {
@@ -687005,8 +687005,8 @@
           "m": 75,
           "a": "Edvin Austbø",
           "nat": "Brazil",
-          "pid": "espn:313229",
           "aNat": "Norway",
+          "pid": "espn:313229",
           "apid": "espn:341309"
         },
         {
@@ -687014,8 +687014,8 @@
           "m": 79,
           "a": "Jarrod Bowen",
           "nat": "Czechia",
-          "pid": "espn:230666",
           "aNat": "England",
+          "pid": "espn:230666",
           "apid": "espn:201089"
         },
         {
@@ -687127,17 +687127,17 @@
         {
           "n": "페드로 빅토르",
           "m": 34,
-          "pk": true,
           "nat": "Brazil",
-          "pid": "espn:253821"
+          "pid": "espn:253821",
+          "pk": true
         },
         {
           "n": "비니시우스 토비아스",
           "m": 80,
           "a": "Alisson Santana",
           "nat": "Brazil",
-          "pid": "espn:307928",
           "aNat": "Brazil",
+          "pid": "espn:307928",
           "apid": "espn:359420"
         },
         {
@@ -687145,8 +687145,8 @@
           "m": 86,
           "a": "Isaque",
           "nat": "Venezuela",
-          "pid": "espn:382379",
           "aNat": "Brazil",
+          "pid": "espn:382379",
           "apid": "espn:382970"
         }
       ],
@@ -687156,8 +687156,8 @@
           "m": 28,
           "a": "Stavros Pilios",
           "nat": "Croatia",
-          "pid": "espn:237549",
           "aNat": "Albania",
+          "pid": "espn:237549",
           "apid": "espn:285427"
         }
       ]
@@ -687507,10 +687507,9 @@
     "stadium": "스타디오 올림피코",
     "timeTbd": false,
     "gameId": "Y8kIKH7udvMkJIq",
-    "status": "live",
+    "status": "completed",
     "awayScore": 4,
     "homeScore": 3,
-    "matchPeriod": "후반 51'",
     "scorers": {
       "home": [
         {
@@ -687601,7 +687600,15 @@
           "nat": "Italy"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Álvaro Carreras",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:310637",
+          "nat": "Spain"
+        }
+      ]
     },
     "phaseCode": "LEAGUE"
   },
@@ -687705,18 +687712,18 @@
     "gameId": "AFL_MLBSTATS_867709",
     "status": "live",
     "homeScore": 0,
-    "awayScore": 0,
+    "awayScore": 1,
     "inningInfo": "2회초",
     "liveState": {
       "pitcher": "Jake Bloss",
-      "batter": "Kevin Bazzell",
+      "batter": "Nathan Hall",
       "pitcherPid": "mlb:814005",
-      "batterPid": "mlb:695494",
+      "batterPid": "mlb:703449",
       "ball": 1,
-      "strike": 0,
-      "out": 0,
+      "strike": 1,
+      "out": 1,
       "bases": [
-        2
+        1
       ]
     }
   },
@@ -687736,14 +687743,16 @@
     "inningInfo": "2회초",
     "liveState": {
       "pitcher": "Steven Zobac",
-      "batter": "Vance Honeycutt",
+      "batter": "Cade McGee",
       "pitcherPid": "mlb:686632",
-      "batterPid": "mlb:701689",
-      "ball": 0,
-      "strike": 2,
+      "batterPid": "mlb:801629",
+      "ball": 3,
+      "strike": 1,
       "out": 0,
       "bases": [
-        1
+        1,
+        2,
+        3
       ]
     }
   },
