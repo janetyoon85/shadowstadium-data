@@ -685288,7 +685288,18 @@
     "status": "live",
     "matchPeriod": "전반",
     "homeScore": 1,
-    "awayScore": 0
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "José De Jesús González",
+          "m": 29,
+          "nat": "Mexico",
+          "pid": "espn:280546"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-10-14",
@@ -685310,16 +685321,15 @@
     "inningInfo": "2회초",
     "liveState": {
       "pitcher": "페랄타",
-      "batter": "할핀",
       "ball": 1,
-      "strike": 2,
-      "out": 1,
+      "strike": 0,
+      "out": 2,
       "bases": [
+        1,
         2
       ],
-      "pitchCount": 23,
-      "pitcherPid": "mlb:642547",
-      "batterPid": "mlb:690984"
+      "pitchCount": 26,
+      "pitcherPid": "mlb:642547"
     },
     "highlights": {
       "home": [],
