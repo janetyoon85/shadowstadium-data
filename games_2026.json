@@ -685660,14 +685660,15 @@
       "batter": "야마가타",
       "pitcherPid": "npb:2102969",
       "batterPid": "npb:2114529",
-      "ball": 0,
-      "strike": 0,
-      "out": 2,
+      "ball": 2,
+      "strike": 1,
+      "out": 3,
       "bases": [
         1,
         2,
         3
-      ]
+      ],
+      "pitchCount": 4
     },
     "round": "ps_plcs_final",
     "rn": 1
@@ -685689,19 +685690,19 @@
     "homePitcherPid": "npb:2000055",
     "awayScore": 1,
     "homeScore": 0,
-    "inningInfo": "4회초",
+    "inningInfo": "4회말",
     "liveState": {
-      "pitcher": "무라카미",
-      "batter": "마츠오",
-      "pitcherPid": "npb:2000055",
-      "batterPid": "npb:2100277",
+      "pitcher": "타이라",
+      "batter": "모리시타",
+      "pitcherPid": "npb:1300031",
+      "batterPid": "npb:1850183",
       "ball": 0,
       "strike": 0,
-      "out": 3,
+      "out": 0,
       "bases": [
         1
       ],
-      "pitchCount": 68
+      "pitchCount": 47
     },
     "round": "ps_clcs_final",
     "rn": 1
@@ -685727,13 +685728,15 @@
     "liveState": {
       "pitcher": "곽빈",
       "pitcherPid": "kbo:p:68220",
-      "batter": "구본혁",
-      "batterPid": "kbo:b:69100",
-      "ball": 1,
-      "strike": 2,
+      "batter": "박동원",
+      "batterPid": "kbo:b:79365",
+      "ball": 0,
+      "strike": 0,
       "out": 0,
-      "bases": [],
-      "pitchCount": 22
+      "bases": [
+        2
+      ],
+      "pitchCount": 27
     },
     "highlights": {
       "home": [
@@ -685743,6 +685746,13 @@
           "player": "오스틴",
           "inn": "1회말",
           "pid": "kbo:b:53123"
+        },
+        {
+          "how": "2루타",
+          "text": "구본혁 좌중간 2루타",
+          "player": "구본혁",
+          "inn": "2회말",
+          "pid": "kbo:b:69100"
         }
       ],
       "away": [
@@ -685771,7 +685781,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 6'",
+    "matchPeriod": "전반 8'",
     "phaseCode": "GROUP"
   },
   {
@@ -685786,8 +685796,21 @@
     "gameId": "m65pIDi1mOUkcjA",
     "status": "live",
     "awayScore": 0,
-    "homeScore": 0,
-    "matchPeriod": "전반 5'",
+    "homeScore": 1,
+    "matchPeriod": "전반 7'",
+    "scorers": {
+      "home": [
+        {
+          "n": "쿠보",
+          "m": 3,
+          "a": "Kenshin Yuba",
+          "nat": "Japan",
+          "pid": "espn:366810",
+          "apid": "espn:3099674"
+        }
+      ],
+      "away": []
+    },
     "phaseCode": "GROUP"
   },
   {
