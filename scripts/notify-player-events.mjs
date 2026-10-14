@@ -133,6 +133,8 @@ async function main() {
         for (let i = 0; i < list.length; i++) {
           const h = list[i];
           if (!h.player) continue;
+          // 주자·타자가 폭투/포일/보크/실책으로 진루한 줄은 이름이 진루한 선수라 "박해민 폭투"처럼 잘못 알린다 — 알림 제외(2026-10-14).
+          if (h.advance || /(폭투|포일|보크|실책).*(진루|출루)/.test(h.text || '')) continue;
           const nm = h.player;
           const oldN = nth(cntOld, nm);
           // 결승타가 홈런이면 같은 타구의 홈런 항목과 중복 — 홈런 알림만.

@@ -294,3 +294,12 @@ test('parseBaseballHighlights - 투수 명단에 없으면 이름만, 타자 팀
   const dbl = away.find((e) => e.how === '2루타') || home.find((e) => e.how === '2루타');
   assert.equal(dbl?.pitcher, undefined);
 });
+
+test('parseKboRelayHighlights - 폭투로 진루한 주자 줄은 advance 로 표시(선수 알림 제외용)', () => {
+  const withTitle = (opt) => ({ textRelays: [{ no: 1, titleStyle: '0', title: '7회말 LG 공격', inn: 7, textOptions: [opt] }] });
+  const r = parseKboRelayHighlights(withTitle({ seqno: 5, type: 14, text: '2루주자 박해민 : 폭투로 3루까지 진루' }), 'LG', '두산');
+  assert.equal(r.home[0].how, '폭투');
+  assert.equal(r.home[0].advance, true);
+  const p = parseKboRelayHighlights(withTitle({ seqno: 6, type: 13, text: '이우찬 : 폭투' }), 'LG', '두산');
+  assert.equal(p.home[0].advance, undefined);
+});

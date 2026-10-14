@@ -218,6 +218,12 @@ function classifyRelayHow(desc) {
   return null;
 }
 
+// 주자·타자가 "폭투/포일/보크/실책으로 N루까지 진루·출루"한 줄은 이름이 진루한 주자·타자이지 잘못을 저지른 선수가 아니다
+// (2026-10-14 "박해민 폭투" 알림 — 박해민은 폭투로 2루에 간 주자). 하이라이트 줄 자체는 그대로 두되 advance 로 표시해 선수 알림에서 뺀다.
+export function isRunnerAdvanceLine(desc) {
+  return /(폭투|포일|보크|실책)/.test(desc || '') && /(진루|출루)/.test(desc || '');
+}
+
 // MLB/NPB 경기중(live) 하이라이트(2026-09-30, "mlb도 경기중에이벤트발생하면 추가해줘야지
 // 모든야구경기 다마찬가지임" — KBO만 /relay 실시간화가 돼있고 MLB/NPB는 여전히 etcRecords
 // 기반이라 경기 막판까지 하이라이트가 하나도 안 붙던 동일 공백이 남아있었음, 실측(7회말 3:2
@@ -243,7 +249,7 @@ export function parseMlbNpbRelayHighlights(textRelayData) {
       const [, name, desc] = m;
       const how = classifyRelayHow(desc);
       if (!how) continue;
-      const entry = { how, text: `${name.trim()} ${desc.trim()}`, player: name.trim(), seqno: r.no };
+      const entry = { how, text: `${name.trim()} ${desc.trim()}`, player: name.trim(), seqno: r.no, ...(isRunnerAdvanceLine(desc) ? { advance: true } : {}) };
       if (typeof r.inn === 'number' && r.inn > 0) entry.inn = `${r.inn}회${String(r.homeOrAway) === '0' ? '초' : '말'}`;
       if (String(r.homeOrAway) === '1') home.push(entry);
       else if (String(r.homeOrAway) === '0') away.push(entry);
@@ -276,7 +282,7 @@ export function parseKboRelayHighlights(textRelayData, homeTeamName, awayTeamNam
       const [, name, desc] = m;
       const how = classifyRelayHow(desc);
       if (!how) continue;
-      const entry = { how, text: `${name.trim()} ${desc.trim()}`, player: name.trim(), seqno: opt.seqno };
+      const entry = { how, text: `${name.trim()} ${desc.trim()}`, player: name.trim(), seqno: opt.seqno, ...(isRunnerAdvanceLine(desc) ? { advance: true } : {}) };
       if (typeof r.inn === 'number' && r.inn > 0) entry.inn = `${r.inn}회${battingSide === 'home' ? '말' : battingSide === 'away' ? '초' : ''}`;
       seenSeqnos.push(opt.seqno);
       if (battingSide === 'home') home.push(entry);
