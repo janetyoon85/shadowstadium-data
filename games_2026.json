@@ -686363,9 +686363,9 @@
         {
           "n": "유세프",
           "m": 65,
-          "pk": true,
           "nat": "Kuwait",
-          "pid": "espn:244734"
+          "pid": "espn:244734",
+          "pk": true
         },
         {
           "n": "유세프",
@@ -686457,8 +686457,8 @@
     "gameId": "oHi9SCd35EjZkRA",
     "status": "live",
     "awayScore": 1,
-    "homeScore": 1,
-    "matchPeriod": "후반 6'",
+    "homeScore": 2,
+    "matchPeriod": "후반 8'",
     "scorers": {
       "home": [
         {
@@ -686469,6 +686469,15 @@
           "pid": "espn:365021",
           "aNat": "Netherlands",
           "apid": "espn:319296"
+        },
+        {
+          "n": "하지 무사",
+          "m": 52,
+          "a": "Gaoussou Diarra",
+          "nat": "Algeria",
+          "pid": "espn:341711",
+          "aNat": "Mali",
+          "apid": "espn:402344"
         }
       ],
       "away": [
@@ -686482,6 +686491,18 @@
           "apid": "espn:380318"
         }
       ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Gaoussou Diarra",
+          "type": "Y",
+          "m": 50,
+          "pid": "espn:402344",
+          "nat": "Mali"
+        }
+      ],
+      "away": []
     },
     "phaseCode": "LEAGUE"
   },
@@ -686498,7 +686519,7 @@
     "status": "live",
     "awayScore": 4,
     "homeScore": 0,
-    "matchPeriod": "후반 11'",
+    "matchPeriod": "후반 14'",
     "scorers": {
       "home": [],
       "away": [
@@ -688367,7 +688388,7 @@
     "venueId": "estadio_las_delicias",
     "home": "인테르나시오날 산타테클라",
     "away": "CD 무니시팔 리메뇨",
-    "stadium": "",
+    "stadium": "Estadio Las Delicias",
     "timeTbd": false,
     "gameId": "ELSALVADOR_ESPN_401899716",
     "status": "scheduled"
@@ -689799,7 +689820,7 @@
     "venueId": "estadio_chapeltique",
     "home": "카카우아티케",
     "away": "알리안사 FC",
-    "stadium": "",
+    "stadium": "Estadio Municipal Chapeltique",
     "timeTbd": false,
     "gameId": "ELSALVADOR_ESPN_401899715",
     "status": "scheduled"
@@ -689947,18 +689968,6 @@
     "stadium": "Monumental Presidente José Fierro",
     "timeTbd": false,
     "gameId": "ARGENTINA_ESPN_401841614",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-10-18",
-    "time": "08:00",
-    "league": "ELSALVADOR",
-    "venueId": "estadio_calero_suarez",
-    "home": "이시드로 메타판",
-    "away": "푸에르테 산프란시스코",
-    "stadium": "",
-    "timeTbd": false,
-    "gameId": "ELSALVADOR_ESPN_401899680",
     "status": "scheduled"
   },
   {
@@ -690178,6 +690187,18 @@
     "gameId": "I3dVNv9NWZ7TWNE",
     "status": "scheduled",
     "phaseCode": "LEAGUE"
+  },
+  {
+    "date": "2026-10-18",
+    "time": "10:00",
+    "league": "ELSALVADOR",
+    "venueId": "estadio_calero_suarez",
+    "home": "이시드로 메타판",
+    "away": "푸에르테 산프란시스코",
+    "stadium": "Estadio Jorge \"Calero\" Suarez",
+    "timeTbd": false,
+    "gameId": "ELSALVADOR_ESPN_401899680",
+    "status": "scheduled"
   },
   {
     "date": "2026-10-18",
@@ -691542,7 +691563,7 @@
     "venueId": "estadio_marcelino_imbers",
     "home": "아틀레티코 발보아",
     "away": "아길라",
-    "stadium": "",
+    "stadium": "Estadio Marcelino Imbers",
     "timeTbd": false,
     "gameId": "ELSALVADOR_ESPN_401899777",
     "status": "scheduled"
@@ -691760,7 +691781,7 @@
     "venueId": "estadio_oscar_quiteno",
     "home": "CD FAS",
     "away": "CD 플라텐세",
-    "stadium": "",
+    "stadium": "Estadio Óscar Alberto Quiteño",
     "timeTbd": false,
     "gameId": "ELSALVADOR_ESPN_401899704",
     "status": "scheduled"
