@@ -685251,7 +685251,7 @@
     "timeTbd": false,
     "gameId": "COLOMBIA_ESPN_401877951",
     "status": "live",
-    "matchPeriod": "전반",
+    "matchPeriod": "하프타임",
     "homeScore": 1,
     "awayScore": 0,
     "scorers": {
@@ -685261,6 +685261,18 @@
           "m": 35,
           "nat": "Venezuela",
           "pid": "espn:196715"
+        }
+      ],
+      "away": []
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Aldair Gutiérrez",
+          "type": "Y",
+          "m": 45,
+          "pid": "espn:248686",
+          "nat": "Colombia"
         }
       ],
       "away": []
@@ -685301,13 +685313,14 @@
     "inningInfo": "1회말",
     "liveState": {
       "pitcher": "메식",
-      "batter": "디아즈",
-      "ball": 0,
-      "strike": 0,
-      "out": 0,
+      "batter": "카미네로",
+      "ball": 1,
+      "strike": 1,
+      "out": 2,
       "bases": [],
+      "pitchCount": 11,
       "pitcherPid": "mlb:800048",
-      "batterPid": "mlb:553869"
+      "batterPid": "mlb:691406"
     },
     "round": "ps_alcs",
     "rn": 2,
