@@ -682939,18 +682939,6 @@
   },
   {
     "date": "2026-10-13",
-    "time": "10:30",
-    "league": "AFL",
-    "venueId": "sloan_park",
-    "home": "메사 솔라삭스",
-    "away": "솔트리버 래프터스",
-    "stadium": "Sloan Park",
-    "timeTbd": false,
-    "gameId": "AFL_MLBSTATS_867709",
-    "status": "postponed"
-  },
-  {
-    "date": "2026-10-13",
     "time": "16:45",
     "league": "ACL",
     "venueId": "newcastle_jets_mcdonald_jones",
@@ -685396,21 +685384,25 @@
     "homeScore": 3,
     "inningInfo": "9회초",
     "liveState": {
-      "pitcher": "시모어",
+      "pitcher": "베이커",
       "batter": "베일리",
-      "ball": 0,
-      "strike": 0,
-      "out": 0,
+      "ball": 1,
+      "strike": 2,
+      "out": 1,
       "bases": [],
-      "pitchCount": 15,
-      "batterPid": "mlb:672275",
-      "pitcherPid": "mlb:693855"
+      "pitchCount": 4,
+      "pitcherPid": "mlb:641329",
+      "batterPid": "mlb:672275"
     },
     "holds": {
       "home": [
         {
           "n": "켈리",
           "pid": "mlb:687330"
+        },
+        {
+          "n": "시모어",
+          "pid": "mlb:693855"
         }
       ],
       "away": []
@@ -685445,19 +685437,17 @@
     "gameId": "AFL_MLBSTATS_867712",
     "status": "live",
     "homeScore": 0,
-    "awayScore": 9,
+    "awayScore": 11,
     "inningInfo": "5회초",
     "liveState": {
-      "pitcher": "Win Scott",
-      "batter": "Matthew Ellis",
-      "pitcherPid": "mlb:803094",
-      "batterPid": "mlb:700815",
+      "pitcher": "Francis Peña",
+      "batter": "Brendan Summerhill",
+      "pitcherPid": "mlb:800212",
+      "batterPid": "mlb:804911",
       "ball": 1,
-      "strike": 2,
-      "out": 2,
-      "bases": [
-        3
-      ]
+      "strike": 3,
+      "out": 3,
+      "bases": []
     }
   },
   {
@@ -685523,14 +685513,14 @@
     "status": "live",
     "homeScore": 2,
     "awayScore": 0,
-    "inningInfo": "2회말",
+    "inningInfo": "3회초",
     "liveState": {
-      "pitcher": "Leam Mendez",
-      "batter": "Christian Morales",
-      "pitcherPid": "mlb:801461",
-      "batterPid": "mlb:806157",
-      "ball": 2,
-      "strike": 1,
+      "pitcher": "Luis Ivan Rodriguez",
+      "batter": "Brandon Villarreal",
+      "pitcherPid": "mlb:645179",
+      "batterPid": "mlb:661311",
+      "ball": 0,
+      "strike": 0,
       "out": 2,
       "bases": []
     }
@@ -685935,6 +685925,18 @@
     "gameId": "tMvqXcfgU2Z2T22",
     "status": "scheduled",
     "phaseCode": "LEAGUE"
+  },
+  {
+    "date": "2026-10-15",
+    "time": "05:30",
+    "league": "AFL",
+    "venueId": "goodyear_ballpark",
+    "home": "메사 솔라삭스",
+    "away": "솔트리버 래프터스",
+    "stadium": "Goodyear Ballpark",
+    "timeTbd": false,
+    "gameId": "AFL_MLBSTATS_867709",
+    "status": "scheduled"
   },
   {
     "date": "2026-10-15",
