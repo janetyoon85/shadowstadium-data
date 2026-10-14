@@ -2306,6 +2306,18 @@ async function main() {
   try {
     const existing = JSON.parse(await fs.readFile(prodPath, 'utf-8'));
     preserved = existing.filter((g) => !knownLeagues.has(g.league));
+    // 스코어 역행 방지(2026-10-14 "두산 0-0 LG" 오알림): 소스가 진행·종료 경기 스코어를 잠깐 0-0 으로 내려주는 경우가 있어, 직전 스냅샷에 득점이 있던 경기가
+    // 이번에 0-0 으로 오면 직전 스코어를 유지한다(득점이 줄어드는 정상 경우는 없다).
+    const prevById = new Map(existing.map((g) => [g.gameId, g]));
+    let guarded = 0;
+    for (const g of serialized) {
+      const pv = prevById.get(g.gameId);
+      if (!pv || (g.status !== 'live' && g.status !== 'completed')) continue;
+      if ((pv.status !== 'live' && pv.status !== 'completed') || !(pv.homeScore > 0 || pv.awayScore > 0)) continue;
+      const zero = (g.homeScore === 0 || g.homeScore === undefined) && (g.awayScore === 0 || g.awayScore === undefined);
+      if (zero) { g.homeScore = pv.homeScore; g.awayScore = pv.awayScore; guarded++; }
+    }
+    if (guarded) console.log(`[score-guard] 0-0 로 역행한 ${guarded}경기의 직전 스코어를 유지`);
   } catch (e) {
     if (e.code !== 'ENOENT') throw e;
   }

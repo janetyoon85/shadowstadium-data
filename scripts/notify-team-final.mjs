@@ -57,6 +57,7 @@ for (const g of Array.isArray(games) ? games : []) {
   if (sent[g.gameId]) continue;
   const bb = isBaseball(g.league);
   todo.push({
+    score: `${g.homeScore}-${g.awayScore}`, zeroZero: g.homeScore === 0 && g.awayScore === 0, baseball: bb,
     id: g.gameId, keys: [...softKeys(g.home, bb), ...softKeys(g.away, bb)],
     data: { gameId: String(g.gameId), venueId: String(g.venueId || ''), date: String(g.date), doubleheaderNum: '' },
     text: (lang) => ({
@@ -84,6 +85,7 @@ for (const g of bk) {
   if (sent[mk] || bkSeen.has(mk)) continue;
   bkSeen.add(mk);
   todo.push({
+    score: `${g.h.s}-${g.a.s}`, zeroZero: g.h.s === 0 && g.a.s === 0, baseball: false,
     id: mk, keys: [...new Set([...sib(g.h.k), ...sib(g.a.k)])],
     data: { gameId: String(g.id), venueId: String(g.vid || ''), date: String(g.date), doubleheaderNum: '' },
     text: (lang) => {
@@ -97,10 +99,15 @@ let n = 0;
 for (const it of todo) {
   if (firstRun) { sent[it.id] = new Date().toISOString(); continue; }
   if (n >= MAX_GAMES_PER_RUN) break;
+  // 종료 알림의 스코어가 중간에 0-0 으로 잘못 내려온 적이 있어(2026-10-14 "두산 0-0 LG" — 소스가 종료 직전 몇 분간 스코어를 0-0 으로 줬다) 같은 스코어가
+  // 두 번 이상 관측되고 일정 시간이 지나야 보낸다. 야구의 0-0 은 사실상 불가능해 30분 이상 같은 값일 때만(그 전에 정정되면 바뀐 스코어로 다시 대기).
+  const ck = 'cand:' + it.id, sk = 'cands:' + it.id;
+  if (!sent[ck] || sent[sk] !== it.score) { sent[ck] = new Date().toISOString(); sent[sk] = it.score; continue; }
+  if (Date.now() - Date.parse(sent[ck]) < (it.zeroZero && it.baseball ? 30 * 60e3 : 90e3)) continue;
   const byLang = Object.fromEntries(LANGS.map((l) => [l, it.text(l)]));
-  try { await sendAll(it.keys, byLang, it.data); sent[it.id] = new Date().toISOString(); n++; }
+  try { await sendAll(it.keys, byLang, it.data); sent[it.id] = new Date().toISOString(); delete sent[ck]; delete sent[sk]; n++; }
   catch (e) { console.error('[team-final] FAIL', it.id, e?.message ?? e); }
 }
-for (const k of Object.keys(sent)) if (Date.parse(sent[k]) < Date.now() - 14 * 86400e3) delete sent[k];
+for (const k of Object.keys(sent)) { if (k.startsWith('cands:')) { if (!sent['cand:' + k.slice(6)]) delete sent[k]; continue; } if (Date.parse(sent[k]) < Date.now() - 14 * 86400e3) delete sent[k]; }
 await fs.writeFile(SENT_FILE, JSON.stringify(sent, null, 1) + '\n');
 console.log(`[team-final] sent=${n} firstRun=${firstRun} state=${Object.keys(sent).length}`);
