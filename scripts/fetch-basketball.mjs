@@ -565,6 +565,23 @@ async function main() {
     if (r === undefined) { failed++; console.log('[basketball] FAIL', cfg.lg); continue; }
     ok++; fresh.push(...(r || []));
   }
+  // ESPN 이 일정에서 뺀 경기(시리즈가 일찍 끝나 취소된 "필요시" 경기 등)가 예전에 받은 그대로 "진행중 0:0"·"종료 0:0"으로 남던 문제(2026-10-14 WNBA 준결승 4·5차전).
+  // 이번에 정상 조회된 ESPN 리그의 조회 구간 안에서, 이번 응답에 없고 점수가 없는(미종료이거나 0:0) 경기는 지운다. 실제 점수가 있는 종료 경기는 건드리지 않는다.
+  {
+    const freshIds = new Set(fresh.map((g) => g.id));
+    const lo = Date.parse(from) + 86400e3, hi = Date.parse(to);
+    const okEspn = new Set(results.filter(([cfg, r]) => ESPN.includes(cfg) && r !== undefined).map(([cfg]) => cfg.lg));
+    let purged = 0;
+    for (const [id, g] of [...byId]) {
+      if (g.src !== 'espn' || !okEspn.has(g.lg) || freshIds.has(id) || g.boxed) continue;
+      const scoreless = !(g.h?.s > 0 || g.a?.s > 0);
+      // 점수 없는 "종료"(0:0)는 어느 구간이든 존재할 수 없는 경기라 조회 구간 밖이어도 지운다(live 가 8시간 뒤 종료로 박제된 것).
+      if (!(g.st === 'final' && scoreless) && (g.t < lo || g.t > hi)) continue;
+      if (g.st === 'final' && !scoreless) continue;
+      byId.delete(id); purged++;
+    }
+    if (purged) console.log(`[basketball] purged ${purged} phantom ESPN games`);
+  }
   for (const g of fresh) {
     const prev = byId.get(g.id);
     byId.set(g.id, { ...g, boxed: prev?.boxed });
@@ -623,6 +640,30 @@ async function main() {
     for (const a of grp.values()) a.sort((x, y) => x.t - y.t).forEach((g, i) => { g.rn = i + 1; });
   }
   const games = [...byId.values()].filter((g) => g.date >= cutoff).sort((a, b) => a.t - b.t || a.id.localeCompare(b.id)).map(({ _cfg, ...g }) => g);
+  // 시리즈 전적(2026-10-14 "준결승전 승패"): 이 경기 직전까지 홈/원정 팀의 시리즈 승수(sh/sa, 2차전 이후만). 보수적 — 앞 경기 중 하나라도 종료+점수가 아니거나
+  // 차수(rn)가 순번과 안 맞으면(앞 경기가 수집 범위 밖) 생략한다.
+  {
+    const grp = new Map();
+    for (const g of games) {
+      if (!g.rd || !g.rn || g.st === 'cancelled') continue;
+      const key = `${g.lg}|${g.rd}|${[g.h.k, g.a.k].sort().join('|')}`;
+      if (!grp.has(key)) grp.set(key, []);
+      grp.get(key).push(g);
+    }
+    for (const a of grp.values()) {
+      a.sort((x, y) => x.t - y.t);
+      a.forEach((g, i) => {
+        delete g.sh; delete g.sa;
+        if (i === 0 || g.rn !== i + 1) return;
+        let h = 0, aw = 0;
+        for (const p of a.slice(0, i)) {
+          if (p.st !== 'final' || !(p.h.s > 0 || p.a.s > 0) || p.h.s === p.a.s) return;
+          if ((p.h.s > p.a.s ? p.h.k : p.a.k) === g.h.k) h++; else aw++;
+        }
+        g.sh = h; g.sa = aw;
+      });
+    }
+  }
   // ESPN은 팁오프 후에도 수 분~수십 분 pre로 남는 경우가 많아, 시작시각이 지난 예정 경기는 진행중으로 간주(최대 4시간)
   // 소스가 종료 처리를 안 해 live로 박제된 경기(ESPN 일부 프리시즌 등)는 8시간 뒤 종료로 확정
   for (const g of games) if (g.st === 'live' && now > g.t + 8 * 3600e3) g.st = 'final';
