@@ -15,7 +15,11 @@ const MAX_CALLS = Number(process.env.AVAIL_MAX_CALLS || 30); // 실행당 videos
 const REFRESH_MS = Number(process.env.AVAIL_REFRESH_DAYS || 7) * 86400000;
 
 // 앱이 지원하는 언어권의 대표 지역 — 여기에 해당하는 차단만 기록한다(전 세계 국가 목록을 저장하면 파일이 커진다).
-export const REGIONS = ['KR', 'JP', 'US', 'GB', 'ES', 'MX', 'BR', 'PT', 'FR', 'DE', 'IT', 'RU', 'SA', 'EG', 'AE', 'ID', 'TH', 'VN', 'CN', 'TW', 'HK', 'IN', 'TR', 'NL', 'AU', 'CA'];
+// 2026-10-15 확대(25 → 58곳): 목록에 없는 나라는 실제로 막혀 있어도 "열린다"로 처리돼 눌러도 안 열리는 버튼이 보일 수 있었다 — 사용자가 있을 만한 나라를 더 넣었다.
+export const REGIONS = ['KR', 'JP', 'US', 'GB', 'ES', 'MX', 'BR', 'PT', 'FR', 'DE', 'IT', 'RU', 'SA', 'EG', 'AE', 'ID', 'TH', 'VN', 'CN', 'TW', 'HK', 'IN', 'TR', 'NL', 'AU', 'CA',
+  'SG', 'PH', 'MY', 'NZ', 'AR', 'CO', 'CL', 'PE', 'VE', 'EC', 'UY', 'PL', 'CZ', 'SE', 'NO', 'DK', 'FI', 'IE', 'CH', 'AT', 'BE', 'GR', 'RO', 'HU', 'UA', 'IL', 'QA', 'KW', 'ZA', 'NG', 'PK', 'BD'];
+// 기록 버전 — 지역 목록을 바꾸면 올려서, 옛 목록으로 확인한 기록(v 없음/낮음)을 7일을 기다리지 않고 다시 확인한다.
+export const REGIONS_VER = 2;
 
 // regionRestriction → 지원 지역 중 차단된 지역 목록. allowed 가 있으면 거기 없는 지역이 차단, blocked 가 있으면 거기 있는 지역이 차단. 둘 다 없으면 제한 없음([]).
 export function blockedRegions(rr, regions = REGIONS) {
@@ -28,9 +32,9 @@ export function blockedRegions(rr, regions = REGIONS) {
 // videos.list 항목 하나 → 기록 값. 비공개·업로드 실패·삭제 상태면 gone.
 export function entryFromItem(item, now) {
   const st = item?.status || {};
-  if (!item || (st.privacyStatus && st.privacyStatus === 'private') || st.uploadStatus === 'deleted' || st.uploadStatus === 'rejected' || st.uploadStatus === 'failed') return { g: 1, t: now };
+  if (!item || (st.privacyStatus && st.privacyStatus === 'private') || st.uploadStatus === 'deleted' || st.uploadStatus === 'rejected' || st.uploadStatus === 'failed') return { g: 1, t: now, v: REGIONS_VER };
   const b = blockedRegions(item?.contentDetails?.regionRestriction);
-  return b.length ? { b, t: now } : { t: now };
+  return b.length ? { b, t: now, v: REGIONS_VER } : { t: now, v: REGIONS_VER };
 }
 
 async function collectIds() {
@@ -54,7 +58,8 @@ async function main() {
   // 새 영상 먼저, 그다음 가장 오래 확인 안 한 순서. 7일 안에 확인한 영상은 건너뜀. 더 이상 쓰이지 않는 ID 는 기록에서 제거.
   const used = new Set(ids);
   for (const k of Object.keys(avail)) if (!used.has(k)) delete avail[k];
-  const todo = ids.filter((id) => !avail[id] || now - (avail[id].t || 0) >= REFRESH_MS).sort((a, b) => (avail[a]?.t || 0) - (avail[b]?.t || 0));
+  const stale = (id) => !avail[id] || (avail[id].v || 1) < REGIONS_VER;
+  const todo = ids.filter((id) => stale(id) || now - (avail[id].t || 0) >= REFRESH_MS).sort((a, b) => (stale(b) - stale(a)) || ((avail[a]?.t || 0) - (avail[b]?.t || 0)));
   console.log(`[avail] ids=${ids.length} todo=${todo.length} maxCalls=${MAX_CALLS}`);
   let calls = 0, checked = 0, gone = 0, blocked = 0, stop = '';
   for (let i = 0; i < todo.length && calls < MAX_CALLS; i += 50) {
