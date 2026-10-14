@@ -686706,7 +686706,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 0,
-    "matchPeriod": "후반 25'",
+    "matchPeriod": "후반 27'",
     "scorers": {
       "home": [],
       "away": [
@@ -686759,7 +686759,7 @@
     "status": "live",
     "awayScore": 2,
     "homeScore": 2,
-    "matchPeriod": "후반 25'",
+    "matchPeriod": "후반 27'",
     "scorers": {
       "home": [
         {
@@ -686854,7 +686854,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 3,
-    "matchPeriod": "후반 20'",
+    "matchPeriod": "후반 22'",
     "scorers": {
       "home": [
         {
@@ -686937,7 +686937,7 @@
     "status": "live",
     "awayScore": 3,
     "homeScore": 0,
-    "matchPeriod": "후반 10'",
+    "matchPeriod": "후반 12'",
     "scorers": {
       "home": [],
       "away": [
@@ -687011,15 +687011,39 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 1,
-    "matchPeriod": "후반 14'",
+    "matchPeriod": "후반 16'",
     "scorers": {
       "home": [
         {
           "n": "셰볼드",
-          "m": 52
+          "m": 52,
+          "a": "Sondre Auklend",
+          "nat": "Norway",
+          "pid": "espn:333755",
+          "aNat": "Norway",
+          "apid": "espn:303740"
         }
       ],
       "away": []
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Kouakou Gadou",
+          "type": "Y",
+          "m": 13,
+          "pid": "espn:371500",
+          "nat": "France"
+        },
+        {
+          "n": "Fábio Silva",
+          "type": "Y",
+          "m": 25,
+          "pid": "espn:291629",
+          "nat": "Portugal"
+        }
+      ]
     },
     "phaseCode": "LEAGUE"
   },
@@ -687036,26 +687060,19 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 1,
-    "matchPeriod": "후반 11'",
+    "matchPeriod": "후반 13'",
     "scorers": {
       "home": [
         {
           "n": "페드로 빅토르",
           "m": 34,
-          "pk": true,
-          "nat": "Brazil",
           "pid": "espn:253821"
         }
       ],
       "away": [
         {
           "n": "마예르",
-          "m": 28,
-          "a": "Stavros Pilios",
-          "nat": "Croatia",
-          "pid": "espn:237549",
-          "aNat": "Albania",
-          "apid": "espn:285427"
+          "m": 28
         }
       ]
     },
@@ -687099,9 +687116,9 @@
     "timeTbd": false,
     "gameId": "QfgDt1QV22blIHF",
     "status": "live",
-    "awayScore": 0,
+    "awayScore": 1,
     "homeScore": 1,
-    "matchPeriod": "후반 8'",
+    "matchPeriod": "후반 10'",
     "scorers": {
       "home": [
         {
@@ -687110,7 +687127,12 @@
           "pid": "espn:300912"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "가브리엘 베이가",
+          "m": 54
+        }
+      ]
     },
     "phaseCode": "LEAGUE"
   },
@@ -687127,7 +687149,7 @@
     "status": "live",
     "awayScore": 3,
     "homeScore": 1,
-    "matchPeriod": "후반 9'",
+    "matchPeriod": "후반 11'",
     "scorers": {
       "home": [
         {
@@ -687185,7 +687207,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 0,
-    "matchPeriod": "후반 13'",
+    "matchPeriod": "후반 15'",
     "scorers": {
       "home": [],
       "away": [
@@ -687234,7 +687256,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 2,
-    "matchPeriod": "후반 11'",
+    "matchPeriod": "후반 12'",
     "scorers": {
       "home": [
         {
@@ -687283,27 +687305,32 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 3,
-    "matchPeriod": "후반 12'",
+    "matchPeriod": "후반 14'",
     "scorers": {
       "home": [
         {
           "n": "만잠비",
           "m": 12,
+          "nat": "Switzerland",
           "pid": "espn:386992"
         },
         {
           "n": "잭슨",
           "m": 31,
-          "pid": "espn:308524"
+          "a": "Boubacar Kamara",
+          "nat": "Senegal",
+          "pid": "espn:308524",
+          "aNat": "France",
+          "apid": "espn:250936"
         },
         {
           "n": "잭슨",
           "m": 39,
-          "pid": "espn:308524"
-        },
-        {
-          "n": "캐쉬",
-          "m": 56
+          "a": "Ross Barkley",
+          "nat": "Senegal",
+          "pid": "espn:308524",
+          "aNat": "England",
+          "apid": "espn:152469"
         }
       ],
       "away": []
@@ -687357,7 +687384,20 @@
     "stadium": "Surprise Stadium",
     "timeTbd": false,
     "gameId": "AFL_MLBSTATS_867710",
-    "status": "scheduled"
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0,
+    "inningInfo": "1회초",
+    "liveState": {
+      "pitcher": "Steven Zobac",
+      "batter": "Brandon Butterworth",
+      "pitcherPid": "mlb:686632",
+      "batterPid": "mlb:822578",
+      "ball": 0,
+      "strike": 0,
+      "out": 0,
+      "bases": []
+    }
   },
   {
     "date": "2026-10-15",
