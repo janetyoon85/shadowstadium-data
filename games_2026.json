@@ -685253,8 +685253,19 @@
     "gameId": "COLOMBIA_ESPN_401877951",
     "status": "live",
     "matchPeriod": "전반",
-    "homeScore": 0,
-    "awayScore": 0
+    "homeScore": 1,
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "Edwin Castro",
+          "m": 35,
+          "nat": "Venezuela",
+          "pid": "espn:196715"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-10-14",
@@ -685281,11 +685292,27 @@
     "stadium": "트로피카나 필드",
     "timeTbd": false,
     "gameId": "20261014CLTB0",
-    "status": "scheduled",
+    "status": "live",
     "awayPitcher": "파커 메식",
     "homePitcher": "프레디 페랄타",
     "awayPitcherPid": "mlb:800048",
     "homePitcherPid": "mlb:642547",
+    "awayScore": 0,
+    "homeScore": 0,
+    "inningInfo": "1회초",
+    "liveState": {
+      "pitcher": "페랄타",
+      "batter": "라미레즈",
+      "ball": 0,
+      "strike": 0,
+      "out": 0,
+      "bases": [
+        1
+      ],
+      "pitchCount": 2,
+      "pitcherPid": "mlb:642547",
+      "batterPid": "mlb:608070"
+    },
     "round": "ps_alcs",
     "rn": 2,
     "serH": 0,
