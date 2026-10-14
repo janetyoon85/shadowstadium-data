@@ -589593,7 +589593,8 @@
       "away": [
         {
           "n": "클라리스마리우 호드리게스",
-          "m": 58
+          "m": 58,
+          "pid": "espn:363862"
         }
       ]
     },
@@ -685518,23 +685519,40 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 3,
-    "matchPeriod": "후반 45'",
+    "matchPeriod": "후반 46'",
     "scorers": {
       "home": [
         {
           "n": "메이",
-          "m": 63
+          "m": 63,
+          "nat": "Uruguay",
+          "pid": "espn:235848"
         },
         {
           "n": "클라리스마리우 호드리게스",
-          "m": 73
+          "m": 73,
+          "nat": "Brazil",
+          "pid": "espn:363862"
         },
         {
           "n": "발라돈",
-          "m": 84
+          "m": 84,
+          "nat": "Australia",
+          "pid": "espn:334866"
         }
       ],
       "away": []
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Ahn Jae-Min",
+          "type": "Y",
+          "m": 70,
+          "pid": "espn:384757"
+        }
+      ]
     },
     "phaseCode": "GROUP"
   },
@@ -685558,15 +685576,16 @@
     "inningInfo": "2회초",
     "liveState": {
       "pitcher": "모이넬로",
-      "batter": "미즈노",
+      "batter": "야마가타",
       "pitcherPid": "npb:1700011",
-      "batterPid": "npb:1851204",
-      "ball": 1,
-      "strike": 1,
+      "batterPid": "npb:2114529",
+      "ball": 0,
+      "strike": 2,
       "out": 1,
       "bases": [
         1,
-        2
+        2,
+        3
       ],
       "pitchCount": 31
     },
@@ -685597,10 +685616,10 @@
       "pitcherPid": "npb:1300031",
       "batterPid": "npb:2000051",
       "ball": 1,
-      "strike": 1,
-      "out": 0,
+      "strike": 3,
+      "out": 1,
       "bases": [],
-      "pitchCount": 11
+      "pitchCount": 16
     },
     "round": "ps_clcs_final",
     "rn": 1
