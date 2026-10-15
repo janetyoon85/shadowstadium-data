@@ -238,7 +238,8 @@ const WF = {
   const st2 = {};
   const bump = (lg, name, pid) => { if (!name) return; const o = (st2[lg] ??= { t: 0, m: 0, ex: [] }); o.t++; if (!pid) { o.m++; if (o.ex.length < 4) o.ex.push(name); } };
   for (const g of games) {
-    if (!WATCH.has(g.league) || !g.date || g.date < cut) continue;
+    // 오늘(KST) 끝난 경기는 ESPN pid 보강이 아직 안 돈 상태가 정상이라 제외(2026-10-16 UEL 당일 경기 8건 오경보 — 다음 보강에서 채워짐).
+    if (!WATCH.has(g.league) || !g.date || g.date < cut || g.date >= kstToday) continue;
     for (const side of ['home', 'away']) {
       for (const k of ['scorers', 'cards']) for (const x of g[k]?.[side] || []) bump(g.league, x.n, x.pid);
       for (const x of g.highlights?.[side] || []) bump(g.league, x.player, x.pid);
