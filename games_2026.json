@@ -689291,14 +689291,14 @@
       "pitcherPid": "npb:1500109",
       "batterPid": "npb:1100097",
       "ball": 1,
-      "strike": 0,
-      "out": 2,
+      "strike": 2,
+      "out": 3,
       "bases": [
         1,
         2,
         3
       ],
-      "pitchCount": 6
+      "pitchCount": 10
     },
     "round": "ps_plcs_final",
     "rn": 2,
@@ -689320,19 +689320,19 @@
     "homePitcher": "다카하시",
     "awayPitcherPid": "npb:2000117",
     "homePitcherPid": "npb:1700078",
-    "awayScore": 0,
+    "awayScore": 1,
     "homeScore": 0,
     "inningInfo": "8회초",
     "liveState": {
       "pitcher": "다카하시",
-      "batter": "마키",
+      "batter": "사노",
       "pitcherPid": "npb:1700078",
-      "batterPid": "npb:2000035",
+      "batterPid": "npb:1600089",
       "ball": 0,
-      "strike": 0,
+      "strike": 1,
       "out": 2,
       "bases": [],
-      "pitchCount": 101
+      "pitchCount": 104
     },
     "highlights": {
       "home": [
@@ -689343,7 +689343,14 @@
           "pid": "npb:1800067"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "how": "홈런",
+          "text": "마키",
+          "player": "마키",
+          "pid": "npb:2000035"
+        }
+      ]
     },
     "round": "ps_clcs_final",
     "rn": 2,
@@ -689362,14 +689369,24 @@
     "gameId": "fkFgLZPgBBdCjkn",
     "status": "live",
     "awayScore": 1,
-    "homeScore": 0,
-    "matchPeriod": "후반 15'",
+    "homeScore": 1,
+    "matchPeriod": "후반 17'",
     "scorers": {
-      "home": [],
+      "home": [
+        {
+          "n": "할라이할",
+          "m": 61,
+          "pk": true,
+          "nat": "Israel",
+          "pid": "espn:314182"
+        }
+      ],
       "away": [
         {
           "n": "미즐란드",
-          "m": 44
+          "m": 44,
+          "nat": "Netherlands",
+          "pid": "espn:265819"
         }
       ]
     },
@@ -689405,13 +689422,15 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 0,
-    "matchPeriod": "후반 18'",
+    "matchPeriod": "후반 20'",
     "scorers": {
       "home": [],
       "away": [
         {
           "n": "다트코비치",
-          "m": 48
+          "m": 48,
+          "nat": "Croatia",
+          "pid": "espn:251647"
         }
       ]
     },
