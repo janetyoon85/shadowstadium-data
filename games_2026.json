@@ -687898,20 +687898,9 @@
     "stadium": "Estadio Luis Aparicio",
     "timeTbd": false,
     "gameId": "LVBP_MLBSTATS_870093",
-    "status": "live",
+    "status": "completed",
     "homeScore": 4,
-    "awayScore": 9,
-    "inningInfo": "9회말",
-    "liveState": {
-      "pitcher": "Henry Gomez",
-      "batter": "Yonathan Daza",
-      "pitcherPid": "mlb:683510",
-      "batterPid": "mlb:602074",
-      "ball": 0,
-      "strike": 1,
-      "out": 3,
-      "bases": []
-    }
+    "awayScore": 9
   },
   {
     "date": "2026-10-15",
@@ -688439,17 +688428,17 @@
     "homeScore": 2,
     "inningInfo": "8회초",
     "liveState": {
-      "pitcher": "사사키",
+      "pitcher": "로블레스키",
       "batter": "옐리치",
       "ball": 0,
-      "strike": 0,
+      "strike": 1,
       "out": 1,
       "bases": [
         1,
         3
       ],
-      "pitchCount": 14,
-      "pitcherPid": "mlb:808963",
+      "pitchCount": 1,
+      "pitcherPid": "mlb:680736",
       "batterPid": "mlb:592885"
     },
     "highlights": {
@@ -688499,7 +688488,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "후반 45'",
+    "matchPeriod": "후반 46'",
     "cards": {
       "home": [
         {
@@ -688548,7 +688537,7 @@
     "gameId": "N2VNbmT31PCGOWC",
     "status": "live",
     "awayScore": 0,
-    "homeScore": 3,
+    "homeScore": 4,
     "matchPeriod": "후반 50'",
     "scorers": {
       "home": [
@@ -688578,6 +688567,13 @@
           "pid": "espn:146355",
           "aNat": "Argentina",
           "apid": "espn:73200"
+        },
+        {
+          "n": "마드리갈",
+          "m": 90,
+          "pk": true,
+          "nat": "Costa Rica",
+          "pid": "espn:310068"
         }
       ],
       "away": []
@@ -688677,6 +688673,13 @@
           "type": "Y",
           "m": 85,
           "pid": "espn:266026",
+          "nat": "USA"
+        },
+        {
+          "n": "Neil Pierre",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:366558",
           "nat": "USA"
         }
       ]
