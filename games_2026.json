@@ -688417,6 +688417,9 @@
     "winPitcher": "홀",
     "losePitcher": "스넬",
     "savePitcher": "메길",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "savePitcherNat": "USA",
     "winPitcherPid": "mlb:669084",
     "losePitcherPid": "mlb:605483",
     "savePitcherPid": "mlb:656730",
@@ -688736,10 +688739,10 @@
         {
           "n": "드 푸제롤",
           "m": 79,
+          "pid": "espn:365345",
           "a": "Juan Manuel Sanabria",
           "nat": "Canada",
           "aNat": "Uruguay",
-          "pid": "espn:365345",
           "apid": "espn:287497"
         }
       ],
@@ -688784,10 +688787,10 @@
         {
           "n": "야피",
           "m": 45,
+          "pid": "espn:304623",
           "a": "Keegan Rosenberry",
           "nat": "USA",
           "aNat": "USA",
-          "pid": "espn:304623",
           "apid": "espn:233045"
         },
         {
@@ -688801,15 +688804,15 @@
         {
           "n": "예보아",
           "m": 52,
-          "nat": "Italy",
-          "pid": "espn:289941"
+          "pid": "espn:289941",
+          "nat": "Italy"
         },
         {
           "n": "로익 윌리엄스",
           "m": 83,
           "og": true,
-          "nat": "Spain",
-          "pid": "espn:324001"
+          "pid": "espn:324001",
+          "nat": "Spain"
         }
       ]
     },
@@ -688897,13 +688900,13 @@
     "awayScore": 1,
     "inningInfo": "5회초",
     "liveState": {
-      "pitcher": "Luis Fernando Miranda",
-      "batter": "Leo Heras",
-      "pitcherPid": "mlb:642532",
-      "batterPid": "mlb:511428",
-      "ball": 3,
-      "strike": 1,
-      "out": 0,
+      "pitcher": "Kevin Abel",
+      "batter": "Rodolfo Amador",
+      "pitcherPid": "mlb:674265",
+      "batterPid": "mlb:616613",
+      "ball": 2,
+      "strike": 3,
+      "out": 3,
       "bases": []
     }
   },
@@ -688920,14 +688923,14 @@
     "status": "live",
     "homeScore": 1,
     "awayScore": 4,
-    "inningInfo": "4회말",
+    "inningInfo": "5회초",
     "liveState": {
-      "pitcher": "Felipe Gonzalez",
-      "batter": "Carlos De La Cruz",
-      "pitcherPid": "mlb:542413",
-      "batterPid": "mlb:678926",
-      "ball": 2,
-      "strike": 1,
+      "pitcher": "Jorge Sauceda",
+      "batter": "Sebastián Elizalde",
+      "pitcherPid": "mlb:703006",
+      "batterPid": "mlb:590271",
+      "ball": 0,
+      "strike": 0,
       "out": 0,
       "bases": [
         1
@@ -688947,7 +688950,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 1,
-    "matchPeriod": "후반 17'",
+    "matchPeriod": "후반 19'",
     "scorers": {
       "home": [
         {
@@ -688973,7 +688976,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 1,
-    "matchPeriod": "후반 15'",
+    "matchPeriod": "후반 17'",
     "scorers": {
       "home": [
         {
@@ -689033,7 +689036,7 @@
     "status": "live",
     "awayScore": 3,
     "homeScore": 2,
-    "matchPeriod": "후반 8'",
+    "matchPeriod": "후반 10'",
     "scorers": {
       "home": [
         {
@@ -689081,7 +689084,15 @@
       ]
     },
     "cards": {
-      "home": [],
+      "home": [
+        {
+          "n": "Kieran Sargeant",
+          "type": "Y",
+          "m": 53,
+          "pid": "espn:380677",
+          "nat": "USA"
+        }
+      ],
       "away": [
         {
           "n": "Lawrence Ennali",
@@ -689119,20 +689130,19 @@
     "timeTbd": false,
     "gameId": "LMP_MLBSTATS_850568",
     "status": "live",
-    "homeScore": 0,
-    "awayScore": 0,
-    "inningInfo": "3회말",
+    "homeScore": 2,
+    "awayScore": 1,
+    "inningInfo": "4회초",
     "liveState": {
-      "pitcher": "Norge Ruiz",
-      "batter": "Andrés Alvarez",
-      "pitcherPid": "mlb:650204",
-      "batterPid": "mlb:687019",
+      "pitcher": "Jonatan Bernal",
+      "batter": "Fernando Villegas",
+      "pitcherPid": "mlb:685763",
+      "batterPid": "mlb:679589",
       "ball": 0,
-      "strike": 2,
-      "out": 0,
+      "strike": 0,
+      "out": 1,
       "bases": [
-        1,
-        3
+        1
       ]
     }
   },
@@ -689151,16 +689161,14 @@
     "awayScore": 3,
     "inningInfo": "2회말",
     "liveState": {
-      "pitcher": "Zac Grotz",
-      "batter": "Clay Dungan",
-      "pitcherPid": "mlb:665093",
-      "batterPid": "mlb:687867",
-      "ball": 0,
-      "strike": 1,
-      "out": 0,
-      "bases": [
-        1
-      ]
+      "pitcher": "David Reyes",
+      "batter": "Nick Solak",
+      "pitcherPid": "mlb:547862",
+      "batterPid": "mlb:669256",
+      "ball": 2,
+      "strike": 2,
+      "out": 3,
+      "bases": []
     }
   },
   {
