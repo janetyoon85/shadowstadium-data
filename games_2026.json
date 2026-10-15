@@ -688418,13 +688418,13 @@
     "liveState": {
       "pitcher": "로블레스키",
       "batter": "오티즈",
-      "ball": 1,
-      "strike": 0,
+      "ball": 2,
+      "strike": 1,
       "out": 2,
       "bases": [
-        1
+        2
       ],
-      "pitchCount": 22,
+      "pitchCount": 25,
       "pitcherPid": "mlb:680736",
       "batterPid": "mlb:687401"
     },
@@ -688454,6 +688454,14 @@
           "playerId": "12152",
           "nat": "USA",
           "pid": "mlb:669003"
+        },
+        {
+          "how": "도루",
+          "text": "프랫",
+          "player": "프랫",
+          "playerId": "13204",
+          "nat": "USA",
+          "pid": "mlb:806198"
         }
       ]
     },
@@ -688529,28 +688537,28 @@
         {
           "n": "무크타르",
           "m": 10,
+          "pid": "espn:174548",
           "a": "Andy Nájar",
           "nat": "Germany",
           "aNat": "Honduras",
-          "pid": "espn:174548",
           "apid": "espn:146355"
         },
         {
           "n": "서리지",
           "m": 17,
+          "pid": "espn:227627",
           "a": "Hany Mukhtar",
           "nat": "England",
           "aNat": "Germany",
-          "pid": "espn:227627",
           "apid": "espn:174548"
         },
         {
           "n": "나자르",
           "m": 29,
+          "pid": "espn:146355",
           "a": "Cristian Espinoza",
           "nat": "Honduras",
           "aNat": "Argentina",
-          "pid": "espn:146355",
           "apid": "espn:73200"
         },
         {
@@ -688583,10 +688591,10 @@
         {
           "n": "하일레-셀라시에",
           "m": 44,
+          "pid": "espn:259951",
           "a": "Noah Allen",
           "nat": "Switzerland",
           "aNat": "Greece",
-          "pid": "espn:259951",
           "apid": "espn:316344"
         }
       ],
@@ -688594,28 +688602,28 @@
         {
           "n": "일로스키",
           "m": 49,
+          "pid": "espn:263585",
           "a": "Bruno Damiani",
           "nat": "USA",
           "aNat": "Uruguay",
-          "pid": "espn:263585",
           "apid": "espn:322680"
         },
         {
           "n": "다미아니",
           "m": 55,
+          "pid": "espn:322680",
           "a": "Cavan Sullivan",
           "nat": "Uruguay",
           "aNat": "USA",
-          "pid": "espn:322680",
           "apid": "espn:384397"
         },
         {
           "n": "다미아니",
           "m": 67,
+          "pid": "espn:322680",
           "a": "Jovan Lukic",
           "nat": "Uruguay",
           "aNat": "Serbia",
-          "pid": "espn:322680",
           "apid": "espn:322063"
         }
       ]
@@ -688688,10 +688696,10 @@
         {
           "n": "카이키",
           "m": 63,
+          "pid": "espn:380441",
           "a": "Osaze Urhoghide",
           "nat": "Brazil",
           "aNat": "England",
-          "pid": "espn:380441",
           "apid": "espn:268731"
         }
       ],
@@ -688731,7 +688739,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "후반 17'",
+    "matchPeriod": "후반 19'",
     "phaseCode": "LEAGUE"
   },
   {
@@ -688747,7 +688755,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 1,
-    "matchPeriod": "후반 13'",
+    "matchPeriod": "후반 15'",
     "scorers": {
       "home": [
         {
@@ -688794,7 +688802,7 @@
     "timeTbd": false,
     "gameId": "COSTARICA_ESPN_401876841",
     "status": "live",
-    "matchPeriod": "전반",
+    "matchPeriod": "하프타임",
     "homeScore": 1,
     "awayScore": 1,
     "scorers": {
@@ -688806,7 +688814,14 @@
           "pid": "espn:208436"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Fernando Lesme",
+          "m": 45,
+          "nat": "Paraguay",
+          "pid": "espn:381345"
+        }
+      ]
     }
   },
   {
@@ -688824,17 +688839,14 @@
     "awayScore": 0,
     "inningInfo": "1회초",
     "liveState": {
-      "pitcher": "Luis Fernando Miranda",
-      "batter": "Jesus Castillo",
-      "pitcherPid": "mlb:642532",
-      "batterPid": "mlb:477399",
-      "ball": 3,
-      "strike": 2,
-      "out": 2,
-      "bases": [
-        1,
-        2
-      ]
+      "pitcher": "Kevin Abel",
+      "batter": "Mallex Smith",
+      "pitcherPid": "mlb:674265",
+      "batterPid": "mlb:605480",
+      "ball": 1,
+      "strike": 3,
+      "out": 3,
+      "bases": []
     }
   },
   {
@@ -688849,17 +688861,19 @@
     "gameId": "LMP_MLBSTATS_850569",
     "status": "live",
     "homeScore": 1,
-    "awayScore": 0,
-    "inningInfo": "1회말",
+    "awayScore": 1,
+    "inningInfo": "2회초",
     "liveState": {
       "pitcher": "Collin Wiles",
-      "batter": "Sebastián Elizalde",
+      "batter": "Kyle Garlick",
       "pitcherPid": "mlb:621079",
-      "batterPid": "mlb:590271",
-      "ball": 0,
+      "batterPid": "mlb:664247",
+      "ball": 2,
       "strike": 1,
-      "out": 3,
-      "bases": []
+      "out": 0,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -688875,7 +688889,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 18'",
+    "matchPeriod": "전반 21'",
     "phaseCode": "LEAGUE"
   },
   {
@@ -688891,17 +688905,13 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 1,
-    "matchPeriod": "전반 18'",
+    "matchPeriod": "전반 21'",
     "scorers": {
       "home": [
         {
           "n": "로이스",
           "m": 17,
-          "a": "Robert Taylor",
-          "nat": "Germany",
-          "pid": "espn:122356",
-          "aNat": "Finland",
-          "apid": "espn:237823"
+          "pid": "espn:122356"
         }
       ],
       "away": []
@@ -688920,8 +688930,18 @@
     "gameId": "CkpqgAFT99825xh",
     "status": "live",
     "awayScore": 0,
-    "homeScore": 0,
-    "matchPeriod": "전반 18'",
+    "homeScore": 1,
+    "matchPeriod": "전반 21'",
+    "scorers": {
+      "home": [
+        {
+          "n": "드레이어",
+          "m": 20,
+          "pid": "espn:250454"
+        }
+      ],
+      "away": []
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -688959,10 +688979,20 @@
     "stadium": "Estadio Nido de los Aguilas",
     "timeTbd": false,
     "gameId": "LMP_MLBSTATS_850561",
-    "status": "scheduled",
+    "status": "live",
     "homeScore": 0,
     "awayScore": 0,
-    "inningInfo": "1회초"
+    "inningInfo": "1회초",
+    "liveState": {
+      "pitcher": "David Reyes",
+      "batter": "Luis Durango",
+      "pitcherPid": "mlb:547862",
+      "batterPid": "mlb:691411",
+      "ball": 0,
+      "strike": 0,
+      "out": 0,
+      "bases": []
+    }
   },
   {
     "date": "2026-10-15",
