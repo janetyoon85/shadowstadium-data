@@ -33,11 +33,16 @@ const PLAYER_NAME_EN = { ...PLAYER_NAME_KO, ...PLAYER_NAME_AUTO, ...PLAYER_NAME_
 // In)이라, 대소문자까지 정확히 일치해야 하는 기존 조회가 항상 실패해서 이강인만 한글로 정규화
 // 안 되고 영문 그대로 인덱싱되던 버그. 사람이 1,300여명을 수작업으로 입력한 사전이라 이런
 // 대소문자 오타가 더 있을 수 있어 조회 자체를 대소문자 무시로 바꿈(값은 원래 표기 그대로 유지).
+// 2026-10-16: 같은 선수의 영문 표기가 사전마다 다를 수 있다(수작업 "Oh Hyun-Gyu" vs ESPN 자동 "Oh Hyeon-Gyu"). 합친 사전(PLAYER_NAME_EN)은 선수당 표기 하나만 남겨서
+// ESPN 원문이 버려진 쪽 표기면 한글로 정규화가 안 됐고, 오현규 어시스트 알림이 "오현규" 구독자에게 가지 않았다. 역인덱스는 세 사전의 모든 표기를 쓰되,
+// 같은 영문이 서로 다른 선수에 걸리면 수작업 > 자동 > ko 사전 순으로 앞선 것을 쓴다(아래 순서로 덮어쓰기).
+const ENGLISH_SOURCES = [PLAYER_NAME_KO, PLAYER_NAME_AUTO, PLAYER_NAME_EN_MANUAL];
 const byEn = {};
-for (const [ko, en] of Object.entries(PLAYER_NAME_EN)) byEn[en.toLowerCase()] = ko;
+for (const src of ENGLISH_SOURCES) for (const [ko, en] of Object.entries(src)) if (typeof en === 'string') byEn[en.toLowerCase()] = ko;
 
 const bySurnameSets = {};
-for (const [ko, en] of Object.entries(PLAYER_NAME_EN)) {
+for (const src of ENGLISH_SOURCES) for (const [ko, en] of Object.entries(src)) {
+  if (typeof en !== 'string') continue;
   const surname = en.trim().split(/\s+/).pop();
   if (!surname) continue;
   (bySurnameSets[surname.toLowerCase()] ??= new Set()).add(ko);

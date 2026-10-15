@@ -87,7 +87,7 @@ async function main() {
       for (const { key, team } of sides) {
         const list = g.scorers[key];
         if (!Array.isArray(list)) continue;
-        const cntS = new Map(), cntA = new Map();
+        const cntS = new Map(), cntA = new Map(), cntARaw = new Map();
         for (let i = 0; i < list.length; i++) {
           const s = list[i];
           // 득점자(한글, 네이버원문)/어시스트(영문, ESPN원문)가 같은 선수여도 문자열이 갈라지는
@@ -98,7 +98,8 @@ async function main() {
             { const nm = canonicalPlayerName(s.n); const r = isSent(g.gameId, key, 'scorer', nm, nth(cntS, nm)); if (!r.sent) pending.push({ dedupKey: r.k, name: nm, pid: s.pid, game: g, team, icon: '⚽', label: '골', labelKey: 'goal', minute: s.m }); }
           }
           if (s.a) {
-            { const nm = canonicalPlayerName(s.a); const r = isSent(g.gameId, key, 'assist', nm, nth(cntA, nm)); if (!r.sent) pending.push({ dedupKey: r.k, name: nm, pid: s.apid, game: g, team, icon: '🅰️', label: '어시스트', labelKey: 'assist', minute: s.m }); }
+            // 2026-10-16: 정규화 사전이 넓어져(영문 표기 변형 추가) 예전엔 영문 그대로였던 이름이 한글로 바뀐다 — 영문 이름 키로 이미 보낸 알림이면 다시 보내지 않는다.
+            { const nm = canonicalPlayerName(s.a); const r = isSent(g.gameId, key, 'assist', nm, nth(cntA, nm)); const rawN = nth(cntARaw, s.a); if (!r.sent && nm !== s.a && sent[`${g.gameId}:${key}:assist:${s.a}#${rawN}`]) r.sent = true; if (!r.sent) pending.push({ dedupKey: r.k, name: nm, pid: s.apid, game: g, team, icon: '🅰️', label: '어시스트', labelKey: 'assist', minute: s.m }); }
           }
         }
       }
@@ -109,12 +110,12 @@ async function main() {
       for (const { key, team } of sides) {
         const list = g.cards[key];
         if (!Array.isArray(list)) continue;
-        const cntC = new Map();
+        const cntC = new Map(), cntCRaw = new Map();
         for (let i = 0; i < list.length; i++) {
           const c = list[i];
           if (!c.n) continue;
           const isRed = c.type === 'R';
-          { const nm = canonicalPlayerName(c.n); const r = isSent(g.gameId, key, 'card', nm, nth(cntC, nm)); if (!r.sent) pending.push({ dedupKey: r.k, name: nm, pid: c.pid, game: g, team, icon: isRed ? '🟥' : '🟨', label: isRed ? '퇴장' : '경고', labelKey: isRed ? 'red' : 'yellow', minute: c.m }); }
+          { const nm = canonicalPlayerName(c.n); const r = isSent(g.gameId, key, 'card', nm, nth(cntC, nm)); const rawN = nth(cntCRaw, c.n); if (!r.sent && nm !== c.n && sent[`${g.gameId}:${key}:card:${c.n}#${rawN}`]) r.sent = true; if (!r.sent) pending.push({ dedupKey: r.k, name: nm, pid: c.pid, game: g, team, icon: isRed ? '🟥' : '🟨', label: isRed ? '퇴장' : '경고', labelKey: isRed ? 'red' : 'yellow', minute: c.m }); }
         }
       }
     }

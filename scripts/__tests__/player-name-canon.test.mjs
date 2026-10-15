@@ -32,3 +32,8 @@ test('canonicalPlayerName - 사전 값과 대소문자만 다른 실제 원문�
   assert.equal(canonicalPlayerName('Lee Kang-In'), '이강인');
   assert.equal(canonicalPlayerName('Lee Kang-in'), '이강인');
 });
+
+test('수작업 사전과 자동 사전의 영문 표기가 달라도 둘 다 한글로 정규화된다(오현규: Oh Hyun-Gyu / Oh Hyeon-Gyu)', () => {
+  assert.equal(canonicalPlayerName('Oh Hyeon-Gyu'), '오현규');
+  assert.equal(canonicalPlayerName('Oh Hyun-Gyu'), '오현규');
+});
