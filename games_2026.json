@@ -690001,7 +690001,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 1,
-    "matchPeriod": "전반 45'",
+    "matchPeriod": "전반종료",
     "scorers": {
       "home": [
         {
@@ -690056,7 +690056,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 1,
-    "matchPeriod": "전반 48'",
+    "matchPeriod": "전반 50'",
     "scorers": {
       "home": [
         {
@@ -690169,7 +690169,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 47'",
+    "matchPeriod": "전반종료",
     "phaseCode": "LEAGUE"
   },
   {
@@ -690185,7 +690185,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 1,
-    "matchPeriod": "전반 47'",
+    "matchPeriod": "전반종료",
     "scorers": {
       "home": [
         {
@@ -690328,7 +690328,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 0,
-    "matchPeriod": "전반 47'",
+    "matchPeriod": "전반종료",
     "scorers": {
       "home": [],
       "away": [
@@ -690376,14 +690376,24 @@
     "gameId": "ibey11OqHnyrCUC",
     "status": "live",
     "awayScore": 0,
-    "homeScore": 1,
-    "matchPeriod": "전반 46'",
+    "homeScore": 2,
+    "matchPeriod": "전반 48'",
     "scorers": {
       "home": [
         {
           "n": "톨리소",
           "m": 8,
+          "nat": "France",
           "pid": "espn:192060"
+        },
+        {
+          "n": "누아마",
+          "m": 45,
+          "a": "Keito Nakamura",
+          "nat": "Ghana",
+          "pid": "espn:333310",
+          "aNat": "Japan",
+          "apid": "espn:265953"
         }
       ],
       "away": []
@@ -690415,7 +690425,7 @@
     "status": "live",
     "awayScore": 3,
     "homeScore": 0,
-    "matchPeriod": "전반 47'",
+    "matchPeriod": "전반 49'",
     "scorers": {
       "home": [],
       "away": [
@@ -690548,10 +690558,35 @@
       "home": [
         {
           "n": "볼네이 펠테스",
-          "m": 37
+          "m": 37,
+          "a": "Amine Oudrhiri",
+          "nat": "Brazil",
+          "pid": "espn:321364",
+          "aNat": "Morocco",
+          "apid": "espn:198154"
         }
       ],
       "away": []
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Jonathan Mutombo",
+          "type": "Y",
+          "m": 43,
+          "pid": "espn:355033",
+          "nat": "France"
+        }
+      ],
+      "away": [
+        {
+          "n": "Trai Hume",
+          "type": "Y",
+          "m": 45,
+          "pid": "espn:290207",
+          "nat": "Northern Ireland"
+        }
+      ]
     },
     "phaseCode": "LEAGUE"
   },
@@ -690592,11 +690627,11 @@
     "liveState": {
       "pitcher": "잭스",
       "batter": "아델",
-      "ball": 0,
-      "strike": 0,
+      "ball": 1,
+      "strike": 2,
       "out": 0,
       "bases": [],
-      "pitchCount": 15,
+      "pitchCount": 17,
       "pitcherPid": "mlb:643377",
       "batterPid": "mlb:666176"
     },
