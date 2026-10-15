@@ -94,6 +94,8 @@ const VENUE_MAP = {
   'Estadio Francisco Carranza Limon': 'estadio_francisco_carranza_limon',
   'Estadio Panamericano de los Charros': 'estadio_panamericano_zapopan',
   'Coloso del Pacifico': 'coloso_del_pacifico_tepic',
+  // LVBP 2026-11-14·15 마이애미 시범경기(마가야네스 vs 라과이라 "Clásico en Miami", gameType E) — MLB 마이애미 말린스 홈구장을 그대로 쓴다(이미 등록된 구장).
+  'loanDepot park': 'loandepot_park',
   'Estadio Cibao': 'estadio_cibao',
   'Estadio Francisco Micheli': 'estadio_francisco_micheli',
   'Estadio Tetelo Vargas': 'estadio_tetelo_vargas',
