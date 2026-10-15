@@ -688412,21 +688412,19 @@
     "homePitcher": "블레이크 스넬",
     "awayPitcherPid": "mlb:688107",
     "homePitcherPid": "mlb:605483",
-    "awayScore": 5,
+    "awayScore": 6,
     "homeScore": 2,
-    "inningInfo": "9회초",
+    "inningInfo": "9회말",
     "liveState": {
-      "pitcher": "로블레스키",
-      "batter": "오티즈",
-      "ball": 2,
-      "strike": 2,
-      "out": 2,
-      "bases": [
-        2
-      ],
-      "pitchCount": 28,
-      "pitcherPid": "mlb:680736",
-      "batterPid": "mlb:687401"
+      "pitcher": "메길",
+      "batter": "K.에르난데스",
+      "ball": 0,
+      "strike": 0,
+      "out": 0,
+      "bases": [],
+      "pitchCount": 5,
+      "pitcherPid": "mlb:656730",
+      "batterPid": "mlb:571771"
     },
     "highlights": {
       "home": [],
@@ -688739,7 +688737,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "후반 21'",
+    "matchPeriod": "후반 23'",
     "phaseCode": "LEAGUE"
   },
   {
@@ -688755,7 +688753,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 1,
-    "matchPeriod": "후반 16'",
+    "matchPeriod": "후반 19'",
     "scorers": {
       "home": [
         {
@@ -688889,7 +688887,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 22'",
+    "matchPeriod": "전반 24'",
     "phaseCode": "LEAGUE"
   },
   {
@@ -688905,13 +688903,17 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 1,
-    "matchPeriod": "전반 22'",
+    "matchPeriod": "전반 24'",
     "scorers": {
       "home": [
         {
           "n": "로이스",
           "m": 17,
-          "pid": "espn:122356"
+          "a": "Robert Taylor",
+          "nat": "Germany",
+          "pid": "espn:122356",
+          "aNat": "Finland",
+          "apid": "espn:237823"
         }
       ],
       "away": []
@@ -688929,23 +688931,56 @@
     "timeTbd": false,
     "gameId": "CkpqgAFT99825xh",
     "status": "live",
-    "awayScore": 0,
+    "awayScore": 1,
     "homeScore": 2,
-    "matchPeriod": "전반 22'",
+    "matchPeriod": "전반 24'",
     "scorers": {
       "home": [
         {
           "n": "드레이어",
           "m": 20,
+          "pk": true,
+          "nat": "Denmark",
           "pid": "espn:250454"
         },
         {
           "n": "바캄부",
           "m": 22,
-          "pid": "espn:147193"
+          "a": "Onni Valakari",
+          "nat": "Congo DR",
+          "pid": "espn:147193",
+          "aNat": "Finland",
+          "apid": "espn:277212"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "기엘르미",
+          "m": 24,
+          "a": "Lawrence Ennali",
+          "nat": "Brazil",
+          "pid": "espn:233578"
+        }
+      ]
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Lawrence Ennali",
+          "type": "Y",
+          "m": 4,
+          "pid": "espn:323199",
+          "nat": "Germany"
+        },
+        {
+          "n": "Jonathan Bond",
+          "type": "Y",
+          "m": 19,
+          "pid": "espn:65434",
+          "nat": "England"
+        }
+      ]
     },
     "phaseCode": "LEAGUE"
   },
