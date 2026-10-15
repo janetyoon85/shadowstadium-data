@@ -690006,10 +690006,7 @@
       "home": [
         {
           "n": "아예티",
-          "m": 25,
-          "pk": true,
-          "nat": "Nigeria",
-          "pid": "espn:212250"
+          "m": 25
         }
       ],
       "away": [
@@ -690039,10 +690036,7 @@
       "home": [
         {
           "n": "데서스",
-          "m": 10,
-          "pk": true,
-          "nat": "Nigeria",
-          "pid": "espn:212250"
+          "m": 10
         }
       ],
       "away": []
@@ -690207,8 +690201,17 @@
     "gameId": "A78lK2mJSdIkgnb",
     "status": "live",
     "awayScore": 0,
-    "homeScore": 0,
-    "matchPeriod": "전반 36'",
+    "homeScore": 1,
+    "matchPeriod": "전반 37'",
+    "scorers": {
+      "home": [
+        {
+          "n": "산양",
+          "m": 37
+        }
+      ],
+      "away": []
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -690224,7 +690227,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 0,
-    "matchPeriod": "전반 36'",
+    "matchPeriod": "전반 38'",
     "scorers": {
       "home": [],
       "away": [
@@ -690496,14 +690499,14 @@
     "inningInfo": "1회말",
     "liveState": {
       "pitcher": "잭스",
-      "batter": "콴",
-      "ball": 1,
-      "strike": 2,
+      "ball": 4,
+      "strike": 1,
       "out": 1,
-      "bases": [],
-      "pitchCount": 4,
-      "pitcherPid": "mlb:643377",
-      "batterPid": "mlb:680757"
+      "bases": [
+        1
+      ],
+      "pitchCount": 10,
+      "pitcherPid": "mlb:643377"
     },
     "round": "ps_alcs",
     "rn": 3,
