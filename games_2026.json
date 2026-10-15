@@ -688486,14 +688486,16 @@
     "inningInfo": "7회초",
     "liveState": {
       "pitcher": "스넬",
-      "batter": "본",
-      "ball": 3,
-      "strike": 2,
+      "batter": "바우어스",
+      "ball": 1,
+      "strike": 1,
       "out": 0,
-      "bases": [],
-      "pitchCount": 86,
+      "bases": [
+        1
+      ],
+      "pitchCount": 89,
       "pitcherPid": "mlb:605483",
-      "batterPid": "mlb:683734"
+      "batterPid": "mlb:641343"
     },
     "highlights": {
       "home": [],
@@ -688526,7 +688528,27 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "후반 13'",
+    "matchPeriod": "후반 15'",
+    "cards": {
+      "home": [
+        {
+          "n": "Fallou Fall",
+          "type": "Y",
+          "m": 45,
+          "pid": "espn:355253",
+          "nat": "Senegal"
+        }
+      ],
+      "away": [
+        {
+          "n": "Édier Ocampo",
+          "type": "Y",
+          "m": 45,
+          "pid": "espn:341727",
+          "nat": "Colombia"
+        }
+      ]
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -688541,8 +688563,8 @@
     "gameId": "N2VNbmT31PCGOWC",
     "status": "live",
     "awayScore": 0,
-    "homeScore": 3,
-    "matchPeriod": "후반 18'",
+    "homeScore": 4,
+    "matchPeriod": "후반 20'",
     "scorers": {
       "home": [
         {
@@ -688571,6 +688593,15 @@
           "pid": "espn:146355",
           "aNat": "Argentina",
           "apid": "espn:73200"
+        },
+        {
+          "n": "서리지",
+          "m": 63,
+          "a": "Elias Saad",
+          "nat": "England",
+          "pid": "espn:227627",
+          "aNat": "Tunisia",
+          "apid": "espn:323950"
         }
       ],
       "away": []
@@ -688590,7 +688621,7 @@
     "status": "live",
     "awayScore": 2,
     "homeScore": 1,
-    "matchPeriod": "후반 16'",
+    "matchPeriod": "후반 17'",
     "scorers": {
       "home": [
         {
@@ -688664,8 +688695,22 @@
     "gameId": "rVvbsh7KUyHM1bl",
     "status": "live",
     "awayScore": 0,
-    "homeScore": 0,
-    "matchPeriod": "후반 18'",
+    "homeScore": 1,
+    "matchPeriod": "후반 20'",
+    "scorers": {
+      "home": [
+        {
+          "n": "카이키",
+          "m": 63,
+          "a": "Osaze Urhoghide",
+          "nat": "Brazil",
+          "pid": "espn:380441",
+          "aNat": "England",
+          "apid": "espn:268731"
+        }
+      ],
+      "away": []
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -688681,7 +688726,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 22'",
+    "matchPeriod": "전반 24'",
     "phaseCode": "LEAGUE"
   },
   {
@@ -688697,7 +688742,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 22'",
+    "matchPeriod": "전반 24'",
     "phaseCode": "LEAGUE"
   },
   {
@@ -688710,7 +688755,10 @@
     "stadium": "Alejandro Morera Soto",
     "timeTbd": false,
     "gameId": "COSTARICA_ESPN_401876841",
-    "status": "scheduled"
+    "status": "live",
+    "matchPeriod": "전반",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-10-15",
