@@ -688418,14 +688418,16 @@
     "liveState": {
       "pitcher": "메길",
       "batter": "베츠",
-      "ball": 3,
-      "strike": 2,
-      "out": 2,
+      "ball": 0,
+      "strike": 0,
+      "out": 0,
       "bases": [],
-      "pitchCount": 17,
+      "pitchCount": 18,
       "pitcherPid": "mlb:656730",
       "batterPid": "mlb:605141"
     },
+    "savePitcher": "메길",
+    "savePitcherPid": "mlb:656730",
     "highlights": {
       "home": [],
       "away": [
@@ -688737,7 +688739,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "후반 31'",
+    "matchPeriod": "후반 33'",
     "phaseCode": "LEAGUE"
   },
   {
@@ -688753,7 +688755,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 1,
-    "matchPeriod": "후반 26'",
+    "matchPeriod": "후반 29'",
     "scorers": {
       "home": [
         {
@@ -688892,7 +688894,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 32'",
+    "matchPeriod": "전반 34'",
     "phaseCode": "LEAGUE"
   },
   {
@@ -688908,7 +688910,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 1,
-    "matchPeriod": "전반 32'",
+    "matchPeriod": "전반 34'",
     "scorers": {
       "home": [
         {
@@ -688931,6 +688933,13 @@
           "m": 29,
           "pid": "espn:228390",
           "nat": "Argentina"
+        },
+        {
+          "n": "Sergi Roberto",
+          "type": "Y",
+          "m": 31,
+          "pid": "espn:150225",
+          "nat": "Spain"
         }
       ],
       "away": []
@@ -688948,9 +688957,9 @@
     "timeTbd": false,
     "gameId": "CkpqgAFT99825xh",
     "status": "live",
-    "awayScore": 1,
+    "awayScore": 2,
     "homeScore": 2,
-    "matchPeriod": "전반 32'",
+    "matchPeriod": "전반 34'",
     "scorers": {
       "home": [
         {
@@ -688979,6 +688988,15 @@
           "pid": "espn:233578",
           "aNat": "Germany",
           "apid": "espn:323199"
+        },
+        {
+          "n": "보구시",
+          "m": 33,
+          "a": "Guilherme",
+          "nat": "Poland",
+          "pid": "espn:287841",
+          "aNat": "Brazil",
+          "apid": "espn:233578"
         }
       ]
     },
