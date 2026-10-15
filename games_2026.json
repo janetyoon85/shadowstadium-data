@@ -688407,26 +688407,18 @@
     "stadium": "다저 스타디움",
     "timeTbd": false,
     "gameId": "20261015MILA0",
-    "status": "live",
+    "status": "completed",
     "awayPitcher": "로버트 개서",
     "homePitcher": "블레이크 스넬",
     "awayPitcherPid": "mlb:688107",
     "homePitcherPid": "mlb:605483",
     "awayScore": 6,
     "homeScore": 2,
-    "inningInfo": "9회말",
-    "liveState": {
-      "pitcher": "메길",
-      "batter": "베츠",
-      "ball": 0,
-      "strike": 0,
-      "out": 0,
-      "bases": [],
-      "pitchCount": 18,
-      "pitcherPid": "mlb:656730",
-      "batterPid": "mlb:605141"
-    },
+    "winPitcher": "홀",
+    "losePitcher": "스넬",
     "savePitcher": "메길",
+    "winPitcherPid": "mlb:669084",
+    "losePitcherPid": "mlb:605483",
     "savePitcherPid": "mlb:656730",
     "highlights": {
       "home": [],
@@ -688739,12 +688731,17 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 1,
-    "matchPeriod": "후반 34'",
+    "matchPeriod": "후반 37'",
     "scorers": {
       "home": [
         {
           "n": "드 푸제롤",
-          "m": 79
+          "m": 79,
+          "a": "Juan Manuel Sanabria",
+          "nat": "Canada",
+          "pid": "espn:365345",
+          "aNat": "Uruguay",
+          "apid": "espn:287497"
         }
       ],
       "away": []
@@ -688764,23 +688761,30 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 2,
-    "matchPeriod": "후반 30'",
+    "matchPeriod": "후반 32'",
     "scorers": {
       "home": [
         {
           "n": "야피",
           "m": 45,
-          "pid": "espn:304623"
+          "a": "Keegan Rosenberry",
+          "nat": "USA",
+          "pid": "espn:304623",
+          "aNat": "USA",
+          "apid": "espn:233045"
         },
         {
           "n": "미농구",
-          "m": 74
+          "m": 74,
+          "nat": "Burkina Faso",
+          "pid": "espn:362501"
         }
       ],
       "away": [
         {
           "n": "예보아",
           "m": 52,
+          "nat": "Italy",
           "pid": "espn:289941"
         }
       ]
@@ -688904,7 +688908,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 35'",
+    "matchPeriod": "전반 38'",
     "phaseCode": "LEAGUE"
   },
   {
@@ -688920,7 +688924,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 1,
-    "matchPeriod": "전반 35'",
+    "matchPeriod": "전반 37'",
     "scorers": {
       "home": [
         {
@@ -688967,9 +688971,9 @@
     "timeTbd": false,
     "gameId": "CkpqgAFT99825xh",
     "status": "live",
-    "awayScore": 2,
+    "awayScore": 3,
     "homeScore": 2,
-    "matchPeriod": "전반 35'",
+    "matchPeriod": "전반 38'",
     "scorers": {
       "home": [
         {
@@ -689007,6 +689011,12 @@
           "pid": "espn:287841",
           "aNat": "Brazil",
           "apid": "espn:233578"
+        },
+        {
+          "n": "기엘르미",
+          "m": 37,
+          "nat": "Brazil",
+          "pid": "espn:233578"
         }
       ]
     },
@@ -689863,7 +689873,9 @@
     "homePitcher": "타일러 글라스노우",
     "homePitcherPid": "mlb:607192",
     "round": "ps_nlcs",
-    "rn": 4
+    "rn": 4,
+    "serH": 0,
+    "serA": 3
   },
   {
     "date": "2026-10-16",
