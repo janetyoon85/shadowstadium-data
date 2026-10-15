@@ -1,28 +1,40 @@
 {
   "6RVY5s7Kj9r4sLa": {
-    "homeAssists": [],
+    "homeAssists": [
+      null
+    ],
     "awayAssists": [
-      "Nikolaos Athanasiou"
+      "Svetoslav Vutsov"
     ],
-    "homeNats": [],
+    "homeNats": [
+      "Suriname"
+    ],
     "awayNats": [
-      "Greece"
+      "Brazil"
     ],
-    "homeANats": [],
+    "homeANats": [
+      null
+    ],
     "awayANats": [
-      "Greece"
+      "Bulgaria"
     ],
-    "homePids": [],
+    "homePids": [
+      "espn:116893"
+    ],
     "awayPids": [
-      "espn:183154"
+      "espn:287830"
     ],
-    "homeAPids": [],
-    "homePks": [],
+    "homeAPids": [
+      null
+    ],
+    "homePks": [
+      false
+    ],
     "awayPks": [
       false
     ],
     "awayAPids": [
-      "espn:312967"
+      "espn:326583"
     ],
     "final": false,
     "sv": 4,
@@ -160,93 +172,40 @@
   "JbFi7wHEqw1JOjh": {
     "homeAssists": [
       "Adam Smith",
+      null,
       null
     ],
     "awayAssists": [],
     "homeNats": [
       "Brazil",
-      "Brazil"
+      "Brazil",
+      "Uruguay"
     ],
     "awayNats": [],
     "homeANats": [
       "England",
+      null,
       null
     ],
     "awayANats": [],
     "homePids": [
       "espn:102368",
-      "espn:357719"
+      "espn:357719",
+      "espn:353151"
     ],
     "awayPids": [],
     "homeAPids": [
       "espn:122268",
+      null,
       null
     ],
     "homePks": [
       false,
-      false
+      false,
+      true
     ],
     "awayPks": [],
     "awayAPids": [],
-    "final": false,
-    "sv": 4,
-    "r": 1
-  },
-  "p7RQGhZ2Z1gQYAs": {
-    "homeAssists": [
-      "Tim Lemperle",
-      "Vladimír Coufal"
-    ],
-    "awayAssists": [
-      "Oh Hyeon-Gyu",
-      "Junior Olaïtan",
-      "Ilhan Fakili"
-    ],
-    "homeNats": [
-      "Kosovo",
-      "Japan"
-    ],
-    "awayNats": [
-      "Panama",
-      "South Korea",
-      "South Korea"
-    ],
-    "homeANats": [
-      "Germany",
-      "Czechia"
-    ],
-    "awayANats": [
-      "South Korea",
-      "Benin",
-      "France"
-    ],
-    "homePids": [
-      "espn:331057",
-      "espn:238025"
-    ],
-    "awayPids": [
-      "espn:216420",
-      "espn:302434",
-      "espn:302434"
-    ],
-    "homeAPids": [
-      "espn:303792",
-      "espn:191209"
-    ],
-    "homePks": [
-      false,
-      false
-    ],
-    "awayPks": [
-      false,
-      false,
-      false
-    ],
-    "awayAPids": [
-      "espn:302434",
-      "espn:319985",
-      "espn:384290"
-    ],
     "final": false,
     "sv": 4,
     "r": 1
@@ -285,25 +244,29 @@
       "Williot Swedberg"
     ],
     "awayAssists": [
-      null
+      null,
+      "Andrea Cambiaso"
     ],
     "homeNats": [
       "Spain"
     ],
     "awayNats": [
-      "Germany"
+      "Germany",
+      "France"
     ],
     "homeANats": [
       "Sweden"
     ],
     "awayANats": [
-      null
+      null,
+      "Italy"
     ],
     "homePids": [
       "espn:188391"
     ],
     "awayPids": [
-      "espn:298349"
+      "espn:298349",
+      "espn:252971"
     ],
     "homeAPids": [
       "espn:322652"
@@ -312,10 +275,12 @@
       false
     ],
     "awayPks": [
+      false,
       false
     ],
     "awayAPids": [
-      null
+      null,
+      "espn:308029"
     ],
     "final": false,
     "sv": 4,
@@ -392,6 +357,65 @@
     ],
     "awayAPids": [
       "espn:276440"
+    ],
+    "final": true,
+    "sv": 4,
+    "r": 1
+  },
+  "p7RQGhZ2Z1gQYAs": {
+    "homeAssists": [
+      "Tim Lemperle",
+      "Vladimír Coufal"
+    ],
+    "awayAssists": [
+      "Oh Hyeon-Gyu",
+      "Junior Olaïtan",
+      "Ilhan Fakili"
+    ],
+    "homeNats": [
+      "Kosovo",
+      "Japan"
+    ],
+    "awayNats": [
+      "Panama",
+      "South Korea",
+      "South Korea"
+    ],
+    "homeANats": [
+      "Germany",
+      "Czechia"
+    ],
+    "awayANats": [
+      "South Korea",
+      "Benin",
+      "France"
+    ],
+    "homePids": [
+      "espn:331057",
+      "espn:238025"
+    ],
+    "awayPids": [
+      "espn:216420",
+      "espn:302434",
+      "espn:302434"
+    ],
+    "homeAPids": [
+      "espn:303792",
+      "espn:191209"
+    ],
+    "homePks": [
+      false,
+      false
+    ],
+    "awayPks": [
+      false,
+      false,
+      false
+    ],
+    "awayAPids": [
+      "espn:302434",
+      "espn:319985",
+      "espn:384290"
     ],
     "final": true,
     "sv": 4,
@@ -486,7 +510,8 @@
       "Lukas Kübler"
     ],
     "awayAssists": [
-      "Jirí Sláma"
+      "Jirí Sláma",
+      null
     ],
     "homeNats": [
       "Italy",
@@ -494,7 +519,8 @@
       "Germany"
     ],
     "awayNats": [
-      "Czechia"
+      "Czechia",
+      "Australia"
     ],
     "homeANats": [
       null,
@@ -502,7 +528,8 @@
       "Germany"
     ],
     "awayANats": [
-      "Czechia"
+      "Czechia",
+      null
     ],
     "homePids": [
       "espn:179571",
@@ -510,7 +537,8 @@
       "espn:214203"
     ],
     "awayPids": [
-      "espn:257078"
+      "espn:257078",
+      "espn:332947"
     ],
     "homeAPids": [
       null,
@@ -523,10 +551,12 @@
       false
     ],
     "awayPks": [
+      false,
       false
     ],
     "awayAPids": [
-      "espn:276602"
+      "espn:276602",
+      null
     ],
     "final": false,
     "sv": 4,
@@ -538,25 +568,33 @@
       null,
       "Charles De Ketelaere"
     ],
-    "awayAssists": [],
+    "awayAssists": [
+      "Anderson Silva"
+    ],
     "homeNats": [
       "North Macedonia",
       "Italy",
       "Italy"
     ],
-    "awayNats": [],
+    "awayNats": [
+      "Brazil"
+    ],
     "homeANats": [
       "Italy",
       null,
       "Belgium"
     ],
-    "awayANats": [],
+    "awayANats": [
+      "Brazil"
+    ],
     "homePids": [
       "espn:237435",
       "espn:271679",
       "espn:233140"
     ],
-    "awayPids": [],
+    "awayPids": [
+      "espn:314835"
+    ],
     "homeAPids": [
       "espn:271679",
       null,
@@ -567,8 +605,12 @@
       true,
       false
     ],
-    "awayPks": [],
-    "awayAPids": [],
+    "awayPks": [
+      false
+    ],
+    "awayAPids": [
+      "espn:36807"
+    ],
     "final": false,
     "sv": 4,
     "r": 1
