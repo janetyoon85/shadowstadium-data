@@ -689485,36 +689485,12 @@
     "date": "2026-10-15",
     "time": "19:33",
     "league": "LMP",
-    "venueId": "coloso_del_pacifico_tepic",
-    "home": "하과레스 데 나야리트",
-    "away": "차로스 데 할리스코",
-    "stadium": "Coloso del Pacifico",
-    "timeTbd": true,
-    "gameId": "LMP_MLBSTATS_850566",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-10-15",
-    "time": "19:33",
-    "league": "LMP",
     "venueId": "estadio_fernando_valenzuela",
     "home": "나랑헤로스 데 에르모시요",
     "away": "아길라스 데 멕시칼리",
     "stadium": "Estadio Fernando Valenzuela",
     "timeTbd": true,
     "gameId": "LMP_MLBSTATS_850565",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-10-15",
-    "time": "19:33",
-    "league": "LMP",
-    "venueId": "estadio_francisco_carranza_limon",
-    "home": "알고도네로스 데 과사베",
-    "away": "카녜로스 데 로스모치스",
-    "stadium": "Estadio Francisco Carranza Limon",
-    "timeTbd": true,
-    "gameId": "LMP_MLBSTATS_850567",
     "status": "scheduled"
   },
   {
@@ -692774,13 +692750,15 @@
     "inningInfo": "7회말",
     "liveState": {
       "pitcher": "Jhon Romero",
-      "batter": "Balbino Fuenmayor",
+      "batter": "Romer Cuadrado",
       "pitcherPid": "mlb:664584",
-      "batterPid": "mlb:515768",
+      "batterPid": "mlb:660630",
       "ball": 0,
       "strike": 0,
-      "out": 0,
-      "bases": []
+      "out": 1,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -692799,13 +692777,16 @@
     "inningInfo": "7회말",
     "liveState": {
       "pitcher": "Yohander Méndez",
-      "batter": "Leobaldo Piña",
+      "batter": "Jermaine Palacios",
       "pitcherPid": "mlb:622795",
-      "batterPid": "mlb:600951",
+      "batterPid": "mlb:650339",
       "ball": 1,
-      "strike": 2,
+      "strike": 0,
       "out": 2,
-      "bases": []
+      "bases": [
+        2,
+        3
+      ]
     }
   },
   {
@@ -692954,16 +692935,14 @@
     "awayScore": 0,
     "inningInfo": "3회초",
     "liveState": {
-      "pitcher": "Tekoah Roby",
-      "batter": "Nathan Flewelling",
-      "pitcherPid": "mlb:694358",
-      "batterPid": "mlb:807083",
-      "ball": 0,
-      "strike": 0,
-      "out": 2,
-      "bases": [
-        1
-      ]
+      "pitcher": "Joey Dixon",
+      "batter": "Justin DeCriscio",
+      "pitcherPid": "mlb:690972",
+      "batterPid": "mlb:813664",
+      "ball": 3,
+      "strike": 3,
+      "out": 3,
+      "bases": []
     }
   },
   {
@@ -692978,18 +692957,18 @@
     "gameId": "AFL_MLBSTATS_867715",
     "status": "live",
     "homeScore": 1,
-    "awayScore": 4,
+    "awayScore": 5,
     "inningInfo": "2회초",
     "liveState": {
       "pitcher": "Jarlin Susana",
-      "batter": "Arjun Nimmala",
+      "batter": "Aaron Parker",
       "pitcherPid": "mlb:703186",
-      "batterPid": "mlb:805796",
-      "ball": 3,
-      "strike": 2,
-      "out": 1,
+      "batterPid": "mlb:801590",
+      "ball": 2,
+      "strike": 1,
+      "out": 2,
       "bases": [
-        1
+        3
       ]
     }
   },
@@ -693007,6 +692986,56 @@
     "matchPeriod": "전반",
     "homeScore": 0,
     "awayScore": 0
+  },
+  {
+    "date": "2026-10-16",
+    "time": "11:30",
+    "league": "LMP",
+    "venueId": "coloso_del_pacifico_tepic",
+    "home": "하과레스 데 나야리트",
+    "away": "차로스 데 할리스코",
+    "stadium": "Coloso del Pacifico",
+    "timeTbd": false,
+    "gameId": "LMP_MLBSTATS_850566",
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0,
+    "inningInfo": "1회초",
+    "liveState": {
+      "pitcher": "Alex Delgado",
+      "batter": "Mateo Gil",
+      "pitcherPid": "mlb:604596",
+      "batterPid": "mlb:680771",
+      "ball": 0,
+      "strike": 0,
+      "out": 0,
+      "bases": []
+    }
+  },
+  {
+    "date": "2026-10-16",
+    "time": "11:30",
+    "league": "LMP",
+    "venueId": "estadio_francisco_carranza_limon",
+    "home": "알고도네로스 데 과사베",
+    "away": "카녜로스 데 로스모치스",
+    "stadium": "Estadio Francisco Carranza Limon",
+    "timeTbd": false,
+    "gameId": "LMP_MLBSTATS_850567",
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0,
+    "inningInfo": "1회초",
+    "liveState": {
+      "pitcher": "Saul Vazquez",
+      "batter": "Randy Romero",
+      "pitcherPid": "mlb:678410",
+      "batterPid": "mlb:678499",
+      "ball": 0,
+      "strike": 0,
+      "out": 0,
+      "bases": []
+    }
   },
   {
     "date": "2026-10-16",
