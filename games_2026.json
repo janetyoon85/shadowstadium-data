@@ -693116,15 +693116,19 @@
     "homePitcherPid": "npb:2104078",
     "awayScore": 2,
     "homeScore": 5,
-    "inningInfo": "7회초",
+    "inningInfo": "7회말",
     "liveState": {
-      "pitcher": "에르난데스",
-      "pitcherPid": "npb:1961052",
-      "ball": 2,
-      "strike": 2,
-      "out": 3,
-      "bases": [],
-      "pitchCount": 14
+      "pitcher": "호리",
+      "batter": "콘도",
+      "pitcherPid": "npb:1600133",
+      "batterPid": "npb:1100097",
+      "ball": 0,
+      "strike": 0,
+      "out": 0,
+      "bases": [
+        1
+      ],
+      "pitchCount": 1
     },
     "highlights": {
       "home": [
@@ -693163,23 +693167,29 @@
     "homePitcher": "사이키",
     "awayPitcherPid": "npb:2050019",
     "homePitcherPid": "npb:1600115",
-    "awayScore": 3,
+    "awayScore": 4,
     "homeScore": 0,
     "inningInfo": "8회초",
     "liveState": {
       "pitcher": "세베리노",
-      "batter": "마키",
+      "batter": "사노",
       "pitcherPid": "npb:2108124",
-      "batterPid": "npb:2000035",
-      "ball": 3,
-      "strike": 2,
+      "batterPid": "npb:1600089",
+      "ball": 2,
+      "strike": 1,
       "out": 0,
       "bases": [],
-      "pitchCount": 12
+      "pitchCount": 18
     },
     "highlights": {
       "home": [],
       "away": [
+        {
+          "how": "홈런",
+          "text": "마키",
+          "player": "마키",
+          "pid": "npb:2000035"
+        },
         {
           "how": "홈런",
           "text": "사노",
