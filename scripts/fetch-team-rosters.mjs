@@ -168,7 +168,9 @@ async function koLabelsFor(titles) {
     const j = await wikiGet('https://www.wikidata.org/w/api.php?' + new URLSearchParams({ action: 'wbgetentities', format: 'json', props: 'labels|claims', languages: 'ko', ids: qs.slice(i, i + 50).join('|') }));
     await sleep(DELAY_MS);
     for (const [q, e] of Object.entries(j?.entities || {})) {
-      if (e?.labels?.ko?.value) labels.set(q, e.labels.ko.value);
+      // 동음이인 구분용 괄호("이창근 (축구 선수)", "…(1994년)")는 선수단 표시용 이름에서 뗀다(2026-10-16 "(축구 선수) 빼야지").
+      const koLabel = e?.labels?.ko?.value?.replace(/\s*\([^)]*\)\s*$/, '').trim();
+      if (koLabel) labels.set(q, koLabel);
       const p18 = e?.claims?.P18?.[0]?.mainsnak?.datavalue?.value;
       if (typeof p18 === 'string' && /\.(jpe?g|png)$/i.test(p18)) images.set(q, p18);
     }
