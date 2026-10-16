@@ -693026,7 +693026,7 @@
     "stadium": "Allianz Stadium",
     "timeTbd": false,
     "gameId": "AUSTRALIA_ESPN_401892162",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 0,
     "awayScore": 0,
@@ -693088,6 +693088,13 @@
           "m": 86,
           "pid": "espn:346808",
           "nat": "Malta"
+        },
+        {
+          "n": "Jarrod Carluccio",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:291377",
+          "nat": "Australia"
         }
       ]
     }
@@ -693112,13 +693119,15 @@
     "inningInfo": "6회말",
     "liveState": {
       "pitcher": "쑨이레이",
-      "batter": "마키하라",
+      "batter": "야마모토",
       "pitcherPid": "npb:2106890",
-      "batterPid": "npb:1000175",
-      "ball": 4,
-      "strike": 0,
+      "batterPid": "npb:1700066",
+      "ball": 1,
+      "strike": 1,
       "out": 1,
-      "bases": [],
+      "bases": [
+        1
+      ],
       "pitchCount": 8
     },
     "highlights": {
@@ -693163,13 +693172,14 @@
     "inningInfo": "7회초",
     "liveState": {
       "pitcher": "세베리노",
-      "batter": "토바시라",
+      "batter": "와타라이",
       "pitcherPid": "npb:2108124",
-      "batterPid": "npb:1500064",
+      "batterPid": "npb:1850873",
       "ball": 0,
-      "strike": 2,
-      "out": 0,
-      "bases": []
+      "strike": 1,
+      "out": 2,
+      "bases": [],
+      "pitchCount": 9
     },
     "highlights": {
       "home": [],
@@ -705582,18 +705592,6 @@
     "date": "2026-10-31",
     "time": "02:30",
     "league": "SOUTHAFRICA",
-    "venueId": "athlone_stadium_capetown",
-    "home": "스텔렌보스 FC",
-    "away": "치파 유나이티드",
-    "stadium": "Danie Craven Stadium",
-    "timeTbd": false,
-    "gameId": "SOUTHAFRICA_ESPN_401902023",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-10-31",
-    "time": "02:30",
-    "league": "SOUTHAFRICA",
     "venueId": "petrus_molemela_stadium",
     "home": "마루모 갤런츠",
     "away": "시웰렐레",
@@ -706752,6 +706750,18 @@
     "stadium": "Cashpoint-Arena",
     "timeTbd": false,
     "gameId": "AUSTRIA_ESPN_401881756",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-01",
+    "time": "01:00",
+    "league": "SOUTHAFRICA",
+    "venueId": "athlone_stadium_capetown",
+    "home": "스텔렌보스 FC",
+    "away": "치파 유나이티드",
+    "stadium": "Danie Craven Stadium",
+    "timeTbd": false,
+    "gameId": "SOUTHAFRICA_ESPN_401902023",
     "status": "scheduled"
   },
   {
