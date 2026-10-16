@@ -692773,15 +692773,16 @@
     "awayScore": 2,
     "inningInfo": "6회말",
     "liveState": {
-      "pitcher": "Ian Churchill",
-      "batter": "Omar Alfonzo",
-      "pitcherPid": "mlb:686657",
-      "batterPid": "mlb:692657",
+      "pitcher": "Ramon Santos",
+      "batter": "Gabriel Noriega",
+      "pitcherPid": "mlb:622353",
+      "batterPid": "mlb:527045",
       "ball": 1,
       "strike": 0,
       "out": 0,
       "bases": [
-        1
+        1,
+        2
       ]
     }
   },
@@ -692801,14 +692802,15 @@
     "inningInfo": "6회말",
     "liveState": {
       "pitcher": "Amilcar Chirinos",
-      "batter": "David Rodríguez",
+      "batter": "Jermaine Palacios",
       "pitcherPid": "mlb:702847",
-      "batterPid": "mlb:630034",
-      "ball": 1,
-      "strike": 2,
-      "out": 1,
+      "batterPid": "mlb:650339",
+      "ball": 2,
+      "strike": 1,
+      "out": 2,
       "bases": [
-        1
+        1,
+        2
       ]
     }
   },
@@ -692822,20 +692824,9 @@
     "stadium": "Estadio Luis Aparicio",
     "timeTbd": false,
     "gameId": "LVBP_MLBSTATS_870096",
-    "status": "live",
+    "status": "completed",
     "homeScore": 2,
-    "awayScore": 0,
-    "inningInfo": "9회초",
-    "liveState": {
-      "pitcher": "Robinson Hernandez",
-      "batter": "Ali Castillo",
-      "pitcherPid": "mlb:681619",
-      "batterPid": "mlb:542419",
-      "ball": 0,
-      "strike": 1,
-      "out": 3,
-      "bases": []
-    }
+    "awayScore": 0
   },
   {
     "date": "2026-10-16",
@@ -692849,16 +692840,16 @@
     "gameId": "LVBP_MLBSTATS_870084",
     "status": "live",
     "homeScore": 1,
-    "awayScore": 2,
+    "awayScore": 3,
     "inningInfo": "9회초",
     "liveState": {
       "pitcher": "Sandy Gaston",
-      "batter": "Alexi Amarista",
+      "batter": "Carlos Pérez",
       "pitcherPid": "mlb:682624",
-      "batterPid": "mlb:506560",
-      "ball": 0,
-      "strike": 0,
-      "out": 0,
+      "batterPid": "mlb:656024",
+      "ball": 3,
+      "strike": 2,
+      "out": 1,
       "bases": []
     }
   },
@@ -692882,14 +692873,16 @@
     "inningInfo": "5회초",
     "liveState": {
       "pitcher": "글라스노우",
-      "ball": 4,
-      "strike": 1,
+      "batter": "추리오",
+      "ball": 0,
+      "strike": 0,
       "out": 1,
       "bases": [
         1
       ],
-      "pitchCount": 76,
-      "pitcherPid": "mlb:607192"
+      "pitchCount": 79,
+      "pitcherPid": "mlb:607192",
+      "batterPid": "mlb:694192"
     },
     "highlights": {
       "home": [
@@ -692902,7 +692895,16 @@
           "pid": "mlb:660271"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "how": "도루",
+          "text": "프렐릭",
+          "player": "프렐릭",
+          "playerId": "312476",
+          "nat": "USA",
+          "pid": "mlb:686217"
+        }
+      ]
     },
     "round": "ps_nlcs",
     "rn": 4,
@@ -692922,7 +692924,18 @@
     "status": "live",
     "matchPeriod": "전반",
     "homeScore": 0,
-    "awayScore": 1
+    "awayScore": 1,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "Brayan Paz",
+          "m": 29,
+          "nat": "El Salvador",
+          "pid": "espn:236413"
+        }
+      ]
+    }
   },
   {
     "date": "2026-10-16",
@@ -692940,13 +692953,15 @@
     "inningInfo": "1회초",
     "liveState": {
       "pitcher": "Tekoah Roby",
-      "batter": "Bryce Rainer",
+      "batter": "Jett Williams",
       "pitcherPid": "mlb:694358",
-      "batterPid": "mlb:800614",
-      "ball": 0,
+      "batterPid": "mlb:702518",
+      "ball": 1,
       "strike": 0,
-      "out": 0,
-      "bases": []
+      "out": 1,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -692965,13 +692980,15 @@
     "inningInfo": "1회초",
     "liveState": {
       "pitcher": "Jarlin Susana",
-      "batter": "Cole Conn",
+      "batter": "Arjun Nimmala",
       "pitcherPid": "mlb:703186",
-      "batterPid": "mlb:813833",
+      "batterPid": "mlb:805796",
       "ball": 0,
       "strike": 0,
       "out": 0,
-      "bases": []
+      "bases": [
+        2
+      ]
     }
   },
   {
