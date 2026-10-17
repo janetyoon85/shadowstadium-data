@@ -58,3 +58,10 @@ export const FCM_TEAM_FINAL_PREFIX = 'tfinal_';
 export function teamFinalTopic(key, lang) {
   return FCM_TEAM_FINAL_PREFIX + fnv1a32(key) + '_' + lang;
 }
+
+// 즐겨찾기 팀 경기 중 알림(2026-10-18, 축구 골 / 야구 이닝 종료 / 농구 쿼터 종료) — 앱 설정에서 켠 기기만 구독. 팀 키는 teamFinalTopic 과 같다.
+// MIRROR: shadowstadium/App.tsx teamLiveTopic.
+export const FCM_TEAM_LIVE_PREFIX = 'tlive_';
+export function teamLiveTopic(key, lang) {
+  return FCM_TEAM_LIVE_PREFIX + fnv1a32(key) + '_' + lang;
+}
