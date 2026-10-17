@@ -695597,10 +695597,11 @@
       "pitcherPid": "kbo:p:54610",
       "batter": "구본혁",
       "batterPid": "kbo:b:69100",
-      "ball": 0,
-      "strike": 0,
+      "ball": 1,
+      "strike": 1,
       "out": 0,
-      "bases": []
+      "bases": [],
+      "pitchCount": 2
     },
     "highlights": {
       "home": [
@@ -695864,19 +695865,17 @@
     "homePitcherPid": "npb:1700137",
     "awayScore": 3,
     "homeScore": 3,
-    "inningInfo": "6회말",
+    "inningInfo": "7회초",
     "liveState": {
-      "pitcher": "요시노",
-      "batter": "나카노",
-      "pitcherPid": "npb:2105707",
-      "batterPid": "npb:2000056",
+      "pitcher": "키노시타",
+      "batter": "가츠마타",
+      "pitcherPid": "npb:2112444",
+      "batterPid": "npb:1800046",
       "ball": 1,
       "strike": 0,
-      "out": 3,
-      "bases": [
-        1
-      ],
-      "pitchCount": 13
+      "out": 1,
+      "bases": [],
+      "pitchCount": 2
     },
     "highlights": {
       "home": [
@@ -695949,7 +695948,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 2,
-    "matchPeriod": "후반 5'",
+    "matchPeriod": "후반 7'",
     "scorers": {
       "home": [
         {
@@ -696000,8 +695999,8 @@
     "gameId": "FDB94nNzPqTNAxY",
     "status": "live",
     "awayScore": 2,
-    "homeScore": 1,
-    "matchPeriod": "후반 3'",
+    "homeScore": 2,
+    "matchPeriod": "후반 5'",
     "scorers": {
       "home": [
         {
@@ -696010,6 +696009,12 @@
           "pk": true,
           "nat": "Brazil",
           "pid": "espn:204000"
+        },
+        {
+          "n": "코미",
+          "m": 48,
+          "nat": "Japan",
+          "pid": "espn:356320"
         }
       ],
       "away": [
@@ -696068,7 +696073,19 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 10'"
+    "matchPeriod": "전반 12'",
+    "cards": {
+      "home": [
+        {
+          "n": "Taishi Senba",
+          "type": "R",
+          "m": 10,
+          "pid": "espn:333658",
+          "nat": "Japan"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-10-17",
