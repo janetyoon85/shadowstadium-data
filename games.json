@@ -703017,10 +703017,17 @@
     "gameId": "ARGENTINA_ESPN_401841614",
     "status": "live",
     "matchPeriod": "전반",
-    "homeScore": 0,
+    "homeScore": 1,
     "awayScore": 2,
     "scorers": {
-      "home": [],
+      "home": [
+        {
+          "n": "Pedro Canelo",
+          "m": 37,
+          "nat": "Argentina",
+          "pid": "espn:167609"
+        }
+      ],
       "away": [
         {
           "n": "Gastón Ávila",
@@ -703043,6 +703050,13 @@
           "type": "Y",
           "m": 10,
           "pid": "espn:414543",
+          "nat": "Argentina"
+        },
+        {
+          "n": "Leonel Di Plácido",
+          "type": "Y",
+          "m": 38,
+          "pid": "espn:176379",
           "nat": "Argentina"
         }
       ],
@@ -703069,8 +703083,19 @@
     "gameId": "COLOMBIA_ESPN_401878048",
     "status": "live",
     "matchPeriod": "전반",
-    "homeScore": 0,
-    "awayScore": 0
+    "homeScore": 1,
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "Andrey Estupiñán",
+          "m": 34,
+          "nat": "Colombia",
+          "pid": "espn:277093"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-10-18",
