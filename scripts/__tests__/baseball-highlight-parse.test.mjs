@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { classifyHighlightSide, parseBaseballHighlights, parseBaseballHighlightsFromBoxscore, parseKboRelayHighlights, parseMlbNpbRelayHighlights, extractPitcherDecisions } from '../baseball-highlight-parse.mjs';
+import { extractHomeRunPitcher, classifyHighlightSide, parseBaseballHighlights, parseBaseballHighlightsFromBoxscore, parseKboRelayHighlights, parseMlbNpbRelayHighlights, extractPitcherDecisions } from '../baseball-highlight-parse.mjs';
 
 test('classifyHighlightSide - home/away/unknown', () => {
   const home = new Set(['강백호']);
@@ -302,4 +302,20 @@ test('parseKboRelayHighlights - 폭투로 진루한 주자 줄은 advance 로 �
   assert.equal(r.home[0].advance, true);
   const p = parseKboRelayHighlights(withTitle({ seqno: 6, type: 13, text: '이우찬 : 폭투' }), 'LG', '두산');
   assert.equal(p.home[0].advance, undefined);
+});
+
+// 2026-10-17 실사례: 한 경기 두 번 홈런은 "김도영1호2호(4회1점 8회2점 톨허스트 장현식)" — 번호가 연속으로 붙어 "호"가 선수 이름으로 잡혔다.
+test('parseBaseballHighlights - 한 경기 2홈런(1호2호)도 선수 이름을 정확히 잡고 첫 홈런 투수를 쓴다', () => {
+  const rd = {
+    etcRecords: [{ how: '홈런', result: '카스트로1호(2회1점 톨허스트) 송찬의1호(2회1점 네일) 김도영1호2호(4회1점 8회2점 톨허스트 장현식)' }],
+    battersBoxscore: { home: [{ name: '김도영', playerCode: '52605' }, { name: '카스트로', playerCode: '56626' }], away: [{ name: '송찬의', playerCode: '68110' }] },
+    pitchersBoxscore: { home: [{ name: '네일', pcode: '54640' }], away: [{ name: '톨허스트', pcode: '55130' }, { name: '장현식', pcode: '1' }] },
+  };
+  const r = parseBaseballHighlights(rd);
+  const all = [...r.home, ...r.away];
+  assert.ok(!all.some((e) => e.player === '호'));
+  const kim = all.find((e) => e.player === '김도영');
+  assert.ok(kim);
+  assert.equal(kim.pitcher, '톨허스트');
+  assert.equal(extractHomeRunPitcher('송찬의1호(2회1점 네일)'), '네일');
 });

@@ -122,12 +122,16 @@ export function parseBaseballHighlightsFromBoxscore(rd) {
 // 그냥 "이강민2(6 7회)"처럼 횟수 숫자만 붙는 표기도 있음(2026-09-28 발견 — 이 숫자를 안
 // 걷어내던 게 선수 검색에 "이강민2(6 7회)"가 통째로 이름처럼 뜨던 버그의 원인). 이름 자체는
 // 한글/영문만(숫자 제외)으로 잡고 그 뒤 숫자(+호는 있어도/없어도)는 통째로 매치에 포함만 시킴.
-export const PLAYER_TOKEN_RE = /([가-힣A-Za-z]+)(?:\d+호?)?\(([^)]*)\)/g;
+// 2026-10-17: 한 경기 두 번 홈런은 "김도영1호2호(4회1점 8회2점 톨허스트 장현식)"처럼 번호가 여러 개 붙는다 — 번호 반복을 허용하지 않으면
+// 마지막 "호"만 이름으로 잡혀 "호"라는 가짜 선수가 생겼다(선수 모달 "호", 이름 누락).
+export const PLAYER_TOKEN_RE = /([가-힣A-Za-z]+)(?:\d+호?)*\(([^)]*)\)/g;
 
 // "문정빈18호(4회1점 김한결)" → "김한결" (홈런을 맞은 투수). 형식이 아니면 null.
 export function extractHomeRunPitcher(token) {
-  const m = /\(\s*\d+회\s*\d+점\s+([^()\s][^()]*?)\s*\)\s*$/.exec(token || '');
-  return m ? m[1].trim() : null;
+  // 두 번 이상 홈런이면 "(4회1점 8회2점 톨허스트 장현식)" — 이닝/점수 묶음이 여러 개, 투수는 그 순서대로 나열. 첫 홈런을 맞은 투수를 쓴다.
+  const m = /\(\s*(?:\d+회\s*\d+점\s+)+([^()\s][^()]*?)\s*\)\s*$/.exec(token || '');
+  if (!m) return null;
+  return m[1].trim().split(/\s+/)[0];
 }
 
 export function parseBaseballHighlights(rd) {
