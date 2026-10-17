@@ -700297,55 +700297,55 @@
         {
           "n": "디아스",
           "m": 12,
+          "pid": "espn:257390",
           "a": "Joshua Kimmich",
           "nat": "Colombia",
           "aNat": "Germany",
-          "pid": "espn:257390",
           "apid": "espn:190161"
         },
         {
           "n": "파블로비치",
           "m": 26,
+          "pid": "espn:359370",
           "a": "Luis Díaz",
           "nat": "Germany",
           "aNat": "Colombia",
-          "pid": "espn:359370",
           "apid": "espn:257390"
         },
         {
           "n": "올리세",
           "m": 34,
+          "pid": "espn:286831",
           "a": "Harry Kane",
           "nat": "France",
           "aNat": "England",
-          "pid": "espn:286831",
           "apid": "espn:142200"
         },
         {
           "n": "디아스",
           "m": 47,
+          "pid": "espn:257390",
           "a": "Harry Kane",
           "nat": "Colombia",
           "aNat": "England",
-          "pid": "espn:257390",
           "apid": "espn:142200"
         },
         {
           "n": "케인",
           "m": 52,
+          "pid": "espn:142200",
           "a": "Nathaniel Brown",
           "nat": "England",
           "aNat": "Germany",
-          "pid": "espn:142200",
           "apid": "espn:120829"
         },
         {
           "n": "디아스",
           "m": 69,
+          "pid": "espn:257390",
           "a": "Michael Olise",
           "nat": "Colombia",
           "aNat": "France",
-          "pid": "espn:257390",
           "apid": "espn:286831"
         }
       ],
@@ -700465,10 +700465,10 @@
         {
           "n": "만잠비",
           "m": 36,
+          "pid": "espn:386992",
           "a": "João Gomes",
           "nat": "Switzerland",
           "aNat": "Brazil",
-          "pid": "espn:386992",
           "apid": "espn:301524"
         }
       ]
@@ -700566,19 +700566,19 @@
         {
           "n": "고메스",
           "m": 27,
+          "pid": "espn:336480",
           "a": "Pablo Fornals",
           "nat": "Argentina",
           "aNat": "Spain",
-          "pid": "espn:336480",
           "apid": "espn:227714"
         },
         {
           "n": "에잘줄리",
           "m": 53,
+          "pid": "espn:300912",
           "a": "Giovani Lo Celso",
           "nat": "Morocco",
           "aNat": "Argentina",
-          "pid": "espn:300912",
           "apid": "espn:207343"
         }
       ],
@@ -700586,28 +700586,28 @@
         {
           "n": "라민 야말",
           "m": 10,
+          "pid": "espn:362150",
           "a": "Jules Koundé",
           "nat": "Spain",
           "aNat": "France",
-          "pid": "espn:362150",
           "apid": "espn:231692"
         },
         {
           "n": "로드리",
           "m": 41,
+          "pid": "espn:231828",
           "a": "Fermín López",
           "nat": "Spain",
           "aNat": "Spain",
-          "pid": "espn:231828",
           "apid": "espn:354334"
         },
         {
           "n": "가브리엘 제수스",
           "m": 51,
+          "pid": "espn:217289",
           "a": "Lamine Yamal",
           "nat": "Brazil",
           "aNat": "Spain",
-          "pid": "espn:217289",
           "apid": "espn:362150"
         },
         {
@@ -700967,7 +700967,19 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 18'",
+    "matchPeriod": "전반 20'",
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Allan Saint-Maximin",
+          "type": "Y",
+          "m": 19,
+          "pid": "espn:193281",
+          "nat": "France"
+        }
+      ]
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -700983,18 +700995,14 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 0,
-    "matchPeriod": "전반 14'",
+    "matchPeriod": "전반 16'",
     "scorers": {
       "home": [],
       "away": [
         {
           "n": "마마 발데",
           "m": 6,
-          "a": "Gautier Lloris",
-          "nat": "Guinea-Bissau",
-          "pid": "espn:259960",
-          "aNat": "France",
-          "apid": "espn:180174"
+          "pid": "espn:259960"
         }
       ]
     }
@@ -701012,14 +701020,14 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 0,
-    "matchPeriod": "전반 14'",
+    "matchPeriod": "전반 16'",
     "scorers": {
       "home": [],
       "away": [
         {
-          "n": "아귈라",
+          "n": "몽프레",
           "m": 13,
-          "pid": "espn:181946"
+          "og": true
         }
       ]
     }
@@ -701037,7 +701045,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 13'"
+    "matchPeriod": "전반 16'"
   },
   {
     "date": "2026-10-18",
@@ -701061,8 +701069,11 @@
     "stadium": "Estadio Bellavista",
     "timeTbd": false,
     "gameId": "ECUADOR_ESPN_401921349",
-    "status": "scheduled",
-    "phaseCode": "FR"
+    "status": "live",
+    "phaseCode": "FR",
+    "matchPeriod": "전반",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-10-18",
