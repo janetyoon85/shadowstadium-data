@@ -702636,8 +702636,19 @@
     "gameId": "BRASILEIRAO_ESPN_401841270",
     "status": "live",
     "matchPeriod": "후반",
-    "homeScore": 0,
-    "awayScore": 0
+    "homeScore": 1,
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "Igor Gomes",
+          "m": 78,
+          "nat": "Brazil",
+          "pid": "espn:268472"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-10-18",
@@ -702785,7 +702796,7 @@
     "timeTbd": false,
     "gameId": "PARAGUAY_ESPN_401888583",
     "status": "live",
-    "matchPeriod": "전반",
+    "matchPeriod": "하프타임",
     "homeScore": 1,
     "awayScore": 0,
     "scorers": {
@@ -702887,6 +702898,13 @@
           "m": 22,
           "pid": "espn:210143",
           "nat": "Spain"
+        },
+        {
+          "n": "Joaquín Piquerez",
+          "type": "Y",
+          "m": 35,
+          "pid": "espn:254007",
+          "nat": "Uruguay"
         }
       ]
     }
@@ -702946,7 +702964,7 @@
     "status": "live",
     "matchPeriod": "전반",
     "homeScore": 0,
-    "awayScore": 1,
+    "awayScore": 2,
     "scorers": {
       "home": [],
       "away": [
@@ -702955,8 +702973,26 @@
           "m": 3,
           "nat": "Argentina",
           "pid": "espn:285885"
+        },
+        {
+          "n": "Gastón Ávila",
+          "m": 6,
+          "nat": "Argentina",
+          "pid": "espn:285885"
         }
       ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Leonel Vega",
+          "type": "Y",
+          "m": 10,
+          "pid": "espn:414543",
+          "nat": "Argentina"
+        }
+      ],
+      "away": []
     }
   },
   {
@@ -702987,7 +703023,19 @@
     "status": "live",
     "matchPeriod": "전반",
     "homeScore": 0,
-    "awayScore": 0
+    "awayScore": 0,
+    "cards": {
+      "home": [
+        {
+          "n": "Ezequiel Bullaude",
+          "type": "Y",
+          "m": 3,
+          "pid": "espn:282380",
+          "nat": "Argentina"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-10-18",
@@ -703002,7 +703050,7 @@
     "status": "live",
     "matchPeriod": "전반",
     "homeScore": 0,
-    "awayScore": 0,
+    "awayScore": 1,
     "cards": {
       "home": [],
       "away": [
@@ -703012,6 +703060,17 @@
           "m": 5,
           "pid": "espn:211382",
           "nat": "Argentina"
+        }
+      ]
+    },
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "Facundo Castelli",
+          "m": 9,
+          "nat": "Argentina",
+          "pid": "espn:211382"
         }
       ]
     }
