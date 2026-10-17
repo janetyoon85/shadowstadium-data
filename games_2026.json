@@ -700823,6 +700823,13 @@
           "m": 68,
           "pid": "espn:176374",
           "nat": "Austria"
+        },
+        {
+          "n": "Moegamat Yusuf Maart",
+          "type": "Y",
+          "m": 79,
+          "pid": "espn:266133",
+          "nat": "South Africa"
         }
       ],
       "away": []
@@ -700839,7 +700846,7 @@
     "timeTbd": false,
     "gameId": "ARGENTINA_ESPN_401841615",
     "status": "live",
-    "matchPeriod": "하프타임",
+    "matchPeriod": "후반",
     "homeScore": 0,
     "awayScore": 0
   },
@@ -700856,7 +700863,7 @@
     "status": "live",
     "awayScore": 3,
     "homeScore": 2,
-    "matchPeriod": "후반 4'",
+    "matchPeriod": "후반 8'",
     "scorers": {
       "home": [
         {
@@ -700932,8 +700939,19 @@
     "gameId": "sZVgS0SHMbDFvZs",
     "status": "live",
     "awayScore": 0,
-    "homeScore": 0,
-    "matchPeriod": "후반 4'",
+    "homeScore": 1,
+    "matchPeriod": "후반 8'",
+    "scorers": {
+      "home": [
+        {
+          "n": "디안디",
+          "m": 50,
+          "nat": "Senegal",
+          "pid": "espn:376485"
+        }
+      ],
+      "away": []
+    },
     "cards": {
       "home": [
         {
@@ -700967,7 +700985,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 1,
-    "matchPeriod": "전반 29'",
+    "matchPeriod": "전반 34'",
     "scorers": {
       "home": [
         {
@@ -701007,14 +701025,30 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 0,
-    "matchPeriod": "전반 25'",
+    "matchPeriod": "전반 28'",
     "scorers": {
       "home": [],
       "away": [
         {
           "n": "마마 발데",
           "m": 6,
-          "pid": "espn:259960"
+          "a": "Gautier Lloris",
+          "nat": "Guinea-Bissau",
+          "pid": "espn:259960",
+          "aNat": "France",
+          "apid": "espn:180174"
+        }
+      ]
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Kamory Doumbia",
+          "type": "Y",
+          "m": 13,
+          "pid": "espn:330412",
+          "nat": "Mali"
         }
       ]
     }
@@ -701031,15 +701065,27 @@
     "gameId": "lhf1RqfJMpKI9w2",
     "status": "live",
     "awayScore": 1,
-    "homeScore": 0,
-    "matchPeriod": "전반 25'",
+    "homeScore": 1,
+    "matchPeriod": "전반 29'",
     "scorers": {
-      "home": [],
+      "home": [
+        {
+          "n": "은카다",
+          "m": 26,
+          "a": "Mouhamed Diop",
+          "nat": "France",
+          "pid": "espn:287514",
+          "aNat": "Senegal",
+          "apid": "espn:346359"
+        }
+      ],
       "away": [
         {
           "n": "몽프레",
           "m": 13,
-          "og": true
+          "og": true,
+          "nat": "France",
+          "pid": "espn:181582"
         }
       ]
     }
@@ -701057,7 +701103,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 23'"
+    "matchPeriod": "전반 27'"
   },
   {
     "date": "2026-10-18",
@@ -701103,7 +701149,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 8'"
+    "matchPeriod": "전반 12'"
   },
   {
     "date": "2026-10-18",
@@ -701118,7 +701164,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 8'"
+    "matchPeriod": "전반 11'"
   },
   {
     "date": "2026-10-18",
@@ -701133,7 +701179,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 9'"
+    "matchPeriod": "전반 13'"
   },
   {
     "date": "2026-10-18",
@@ -701160,7 +701206,20 @@
     "stadium": "Goodyear Ballpark",
     "timeTbd": false,
     "gameId": "AFL_MLBSTATS_867694",
-    "status": "scheduled"
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0,
+    "inningInfo": "1회초",
+    "liveState": {
+      "pitcher": "Madinson Frias",
+      "batter": "Andy Perez",
+      "pitcherPid": "mlb:821052",
+      "batterPid": "mlb:700321",
+      "ball": 0,
+      "strike": 0,
+      "out": 0,
+      "bases": []
+    }
   },
   {
     "date": "2026-10-18",
