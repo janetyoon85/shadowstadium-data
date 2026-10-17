@@ -694696,7 +694696,20 @@
     "stadium": "Estadio Julian Javier",
     "timeTbd": false,
     "gameId": "LIDOM_MLBSTATS_851509",
-    "status": "scheduled"
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0,
+    "inningInfo": "1회초",
+    "liveState": {
+      "pitcher": "Wily Peralta",
+      "batter": "Victor Scott II",
+      "pitcherPid": "mlb:503449",
+      "batterPid": "mlb:687363",
+      "ball": 0,
+      "strike": 0,
+      "out": 0,
+      "bases": []
+    }
   },
   {
     "date": "2026-10-17",
@@ -694714,13 +694727,14 @@
     "inningInfo": "4회초",
     "liveState": {
       "pitcher": "Cristian Hernandez",
-      "batter": "Juniel Querecuto",
+      "batter": "Tomás Telis",
       "pitcherPid": "mlb:678707",
-      "batterPid": "mlb:578570",
+      "batterPid": "mlb:542513",
       "ball": 0,
       "strike": 1,
-      "out": 1,
+      "out": 2,
       "bases": [
+        1,
         2
       ]
     }
@@ -694738,16 +694752,18 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 0,
-    "inningInfo": "3회말",
+    "inningInfo": "4회초",
     "liveState": {
-      "pitcher": "Jose Gonzalez",
-      "batter": "Cooper Kinney",
-      "pitcherPid": "mlb:683681",
-      "batterPid": "mlb:695692",
-      "ball": 3,
+      "pitcher": "Victor Vargas",
+      "batter": "Gorkys Hernández",
+      "pitcherPid": "mlb:678660",
+      "batterPid": "mlb:491676",
+      "ball": 0,
       "strike": 2,
-      "out": 2,
-      "bases": []
+      "out": 0,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -694763,16 +694779,18 @@
     "status": "live",
     "homeScore": 1,
     "awayScore": 4,
-    "inningInfo": "3회초",
+    "inningInfo": "3회말",
     "liveState": {
       "pitcher": "Jose Atencio",
-      "batter": "Chris Roller",
+      "batter": "Aron Estrada",
       "pitcherPid": "mlb:682719",
-      "batterPid": "mlb:676896",
+      "batterPid": "mlb:800406",
       "ball": 0,
-      "strike": 0,
-      "out": 3,
-      "bases": []
+      "strike": 2,
+      "out": 1,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -694791,12 +694809,12 @@
     "inningInfo": "2회초",
     "liveState": {
       "pitcher": "Jeremy Rhoades",
-      "batter": "Mel Rojas Jr.",
+      "batter": "Kevin Alcántara",
       "pitcherPid": "mlb:656889",
-      "batterPid": "mlb:592692",
-      "ball": 0,
-      "strike": 0,
-      "out": 0,
+      "batterPid": "mlb:682634",
+      "ball": 3,
+      "strike": 2,
+      "out": 1,
       "bases": []
     }
   },
@@ -694810,10 +694828,22 @@
     "stadium": "Estadio Francisco Micheli",
     "timeTbd": false,
     "gameId": "LIDOM_MLBSTATS_851435",
-    "status": "scheduled",
+    "status": "live",
     "homeScore": 0,
     "awayScore": 0,
-    "inningInfo": "1회초"
+    "inningInfo": "1회초",
+    "liveState": {
+      "pitcher": "Aaron Brooks",
+      "batter": "Harold Ramírez",
+      "pitcherPid": "mlb:605156",
+      "batterPid": "mlb:623912",
+      "ball": 0,
+      "strike": 1,
+      "out": 0,
+      "bases": [
+        1
+      ]
+    }
   },
   {
     "date": "2026-10-17",
@@ -719292,6 +719322,30 @@
     "gameId": "7TZTBq8pwFb45c1",
     "status": "scheduled",
     "phaseCode": "NLB"
+  },
+  {
+    "date": "2026-11-17",
+    "time": "08:00",
+    "league": "LVBP",
+    "venueId": "monumental_simon_bolivar",
+    "home": "레오네스 델 카라카스",
+    "away": "카르데날레스 데 라라",
+    "stadium": "Monumental Simon Bolivar",
+    "timeTbd": false,
+    "gameId": "LVBP_MLBSTATS_869989",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-17",
+    "time": "08:21",
+    "league": "PWL",
+    "venueId": "hiram_bithorn_stadium",
+    "home": "세나도레스 데 산후안",
+    "away": "크리오요스 데 카과스",
+    "stadium": "Hiram Bithorn Stadium",
+    "timeTbd": false,
+    "gameId": "PWL_MLBSTATS_872069",
+    "status": "scheduled"
   },
   {
     "date": "2026-11-17",
