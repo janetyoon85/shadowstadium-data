@@ -702516,22 +702516,18 @@
     "timeTbd": false,
     "gameId": "LIDOM_MLBSTATS_851464",
     "status": "live",
-    "homeScore": 0,
+    "homeScore": 1,
     "awayScore": 4,
     "inningInfo": "7회말",
     "liveState": {
-      "pitcher": "Christian Montes De Oca",
-      "batter": "Francisco Mejía",
-      "pitcherPid": "mlb:801216",
-      "batterPid": "mlb:642336",
-      "ball": 2,
+      "pitcher": "Luis Frías",
+      "batter": "Marcell Ozuna",
+      "pitcherPid": "mlb:666818",
+      "batterPid": "mlb:542303",
+      "ball": 0,
       "strike": 0,
-      "out": 2,
-      "bases": [
-        1,
-        2,
-        3
-      ]
+      "out": 3,
+      "bases": []
     }
   },
   {
@@ -702734,20 +702730,16 @@
     "status": "live",
     "homeScore": 2,
     "awayScore": 5,
-    "inningInfo": "4회초",
+    "inningInfo": "4회말",
     "liveState": {
-      "pitcher": "Carlos Peña",
-      "batter": "Jesús Sánchez",
-      "pitcherPid": "mlb:685329",
-      "batterPid": "mlb:660821",
+      "pitcher": "Evan Grills",
+      "batter": "Raynel Delgado",
+      "pitcherPid": "mlb:592361",
+      "batterPid": "mlb:669384",
       "ball": 0,
       "strike": 0,
-      "out": 1,
-      "bases": [
-        1,
-        2,
-        3
-      ]
+      "out": 0,
+      "bases": []
     }
   },
   {
@@ -702761,20 +702753,20 @@
     "timeTbd": false,
     "gameId": "LVBP_MLBSTATS_870078",
     "status": "live",
-    "homeScore": 2,
+    "homeScore": 3,
     "awayScore": 7,
     "inningInfo": "4회말",
     "liveState": {
       "pitcher": "Simon Leandro",
-      "batter": "Leonel Valera",
+      "batter": "Jesús Sucre",
       "pitcherPid": "mlb:814129",
-      "batterPid": "mlb:665987",
+      "batterPid": "mlb:491696",
       "ball": 0,
-      "strike": 0,
+      "strike": 2,
       "out": 0,
       "bases": [
         1,
-        2
+        3
       ]
     }
   },
@@ -702791,16 +702783,18 @@
     "status": "live",
     "homeScore": 1,
     "awayScore": 5,
-    "inningInfo": "5회초",
+    "inningInfo": "5회말",
     "liveState": {
       "pitcher": "Richard Gallardo",
-      "batter": "Roynier Hernandez",
+      "batter": "Franklin Barreto",
       "pitcherPid": "mlb:682620",
-      "batterPid": "mlb:800281",
-      "ball": 0,
-      "strike": 1,
-      "out": 3,
-      "bases": []
+      "batterPid": "mlb:620439",
+      "ball": 1,
+      "strike": 2,
+      "out": 1,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -702864,14 +702858,16 @@
     "awayScore": 1,
     "inningInfo": "5회말",
     "liveState": {
-      "pitcher": "Drake George",
-      "batter": "Justin DeCriscio",
-      "pitcherPid": "mlb:825095",
-      "batterPid": "mlb:813664",
+      "pitcher": "Maddox Long",
+      "batter": "Vance Honeycutt",
+      "pitcherPid": "mlb:843821",
+      "batterPid": "mlb:701689",
       "ball": 0,
-      "strike": 0,
-      "out": 0,
-      "bases": []
+      "strike": 1,
+      "out": 2,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -703017,10 +703013,17 @@
     "gameId": "ARGENTINA_ESPN_401841614",
     "status": "live",
     "matchPeriod": "전반",
-    "homeScore": 0,
+    "homeScore": 1,
     "awayScore": 2,
     "scorers": {
-      "home": [],
+      "home": [
+        {
+          "n": "Pedro Canelo",
+          "m": 37,
+          "nat": "Argentina",
+          "pid": "espn:167609"
+        }
+      ],
       "away": [
         {
           "n": "Gastón Ávila",
@@ -703043,6 +703046,13 @@
           "type": "Y",
           "m": 10,
           "pid": "espn:414543",
+          "nat": "Argentina"
+        },
+        {
+          "n": "Leonel Di Plácido",
+          "type": "Y",
+          "m": 38,
+          "pid": "espn:176379",
           "nat": "Argentina"
         }
       ],
@@ -703069,8 +703079,19 @@
     "gameId": "COLOMBIA_ESPN_401878048",
     "status": "live",
     "matchPeriod": "전반",
-    "homeScore": 0,
-    "awayScore": 0
+    "homeScore": 1,
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "Andrey Estupiñán",
+          "m": 34,
+          "nat": "Colombia",
+          "pid": "espn:277093"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-10-18",
@@ -703188,7 +703209,20 @@
     "stadium": "Estadio Tetelo Vargas",
     "timeTbd": false,
     "gameId": "LIDOM_MLBSTATS_851536",
-    "status": "scheduled"
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0,
+    "inningInfo": "1회초",
+    "liveState": {
+      "pitcher": "Jaime Barria",
+      "batter": "Vidal Bruján",
+      "pitcherPid": "mlb:642545",
+      "batterPid": "mlb:660644",
+      "ball": 0,
+      "strike": 0,
+      "out": 0,
+      "bases": []
+    }
   },
   {
     "date": "2026-10-18",
