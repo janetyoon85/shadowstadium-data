@@ -701946,14 +701946,14 @@
     "status": "live",
     "homeScore": 7,
     "awayScore": 4,
-    "inningInfo": "8회초",
+    "inningInfo": "8회말",
     "liveState": {
-      "pitcher": "Wilmer Flores",
-      "batter": "Rafael Ortega",
-      "pitcherPid": "mlb:695865",
-      "batterPid": "mlb:542364",
-      "ball": 1,
-      "strike": 1,
+      "pitcher": "Christian Cosby",
+      "batter": "Cooper Kinney",
+      "pitcherPid": "mlb:681797",
+      "batterPid": "mlb:695692",
+      "ball": 0,
+      "strike": 0,
       "out": 3,
       "bases": []
     }
@@ -702532,13 +702532,15 @@
     "inningInfo": "6회말",
     "liveState": {
       "pitcher": "Helcris Olivárez",
-      "batter": "Francisco Mejía",
+      "batter": "Jesús Made",
       "pitcherPid": "mlb:672487",
-      "batterPid": "mlb:642336",
-      "ball": 0,
-      "strike": 0,
-      "out": 0,
-      "bases": []
+      "batterPid": "mlb:815908",
+      "ball": 1,
+      "strike": 1,
+      "out": 1,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -702696,19 +702698,18 @@
     "gameId": "LIDOM_MLBSTATS_851558",
     "status": "live",
     "homeScore": 0,
-    "awayScore": 2,
+    "awayScore": 4,
     "inningInfo": "3회초",
     "liveState": {
       "pitcher": "Gerson Garabito",
-      "batter": "Jhonkensy Noel",
+      "batter": "Yairo Muñoz",
       "pitcherPid": "mlb:642520",
-      "batterPid": "mlb:678877",
-      "ball": 0,
-      "strike": 0,
-      "out": 1,
+      "batterPid": "mlb:622168",
+      "ball": 1,
+      "strike": 2,
+      "out": 2,
       "bases": [
-        2,
-        3
+        1
       ]
     }
   },
@@ -702725,17 +702726,17 @@
     "status": "live",
     "homeScore": 1,
     "awayScore": 5,
-    "inningInfo": "3회초",
+    "inningInfo": "3회말",
     "liveState": {
-      "pitcher": "Alex Valdez",
-      "batter": "Alfredo Duno",
-      "pitcherPid": "mlb:677678",
-      "batterPid": "mlb:806957",
-      "ball": 2,
-      "strike": 1,
-      "out": 2,
+      "pitcher": "Luis Palacios",
+      "batter": "César Izturis Jr.",
+      "pitcherPid": "mlb:672712",
+      "batterPid": "mlb:672544",
+      "ball": 0,
+      "strike": 0,
+      "out": 0,
       "bases": [
-        2
+        1
       ]
     }
   },
@@ -702752,18 +702753,16 @@
     "status": "live",
     "homeScore": 1,
     "awayScore": 4,
-    "inningInfo": "3회말",
+    "inningInfo": "4회초",
     "liveState": {
-      "pitcher": "Richard Gallardo",
-      "batter": "Símon Muzziotti",
-      "pitcherPid": "mlb:682620",
-      "batterPid": "mlb:665922",
+      "pitcher": "Luis Arejula",
+      "batter": "René Pinto",
+      "pitcherPid": "mlb:700728",
+      "batterPid": "mlb:650907",
       "ball": 0,
-      "strike": 0,
-      "out": 2,
-      "bases": [
-        1
-      ]
+      "strike": 1,
+      "out": 0,
+      "bases": []
     }
   },
   {
@@ -702819,13 +702818,13 @@
     "awayScore": 0,
     "inningInfo": "3회초",
     "liveState": {
-      "pitcher": "Kannon Kemp",
-      "batter": "Jett Williams",
-      "pitcherPid": "mlb:807748",
-      "batterPid": "mlb:702518",
-      "ball": 0,
+      "pitcher": "Miguel Mendez",
+      "batter": "Cade McGee",
+      "pitcherPid": "mlb:700280",
+      "batterPid": "mlb:801629",
+      "ball": 2,
       "strike": 0,
-      "out": 1,
+      "out": 3,
       "bases": []
     }
   },
@@ -702936,7 +702935,18 @@
     "status": "live",
     "matchPeriod": "전반",
     "homeScore": 0,
-    "awayScore": 0
+    "awayScore": 1,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "Gastón Ávila",
+          "m": 3,
+          "nat": "Argentina",
+          "pid": "espn:285885"
+        }
+      ]
+    }
   },
   {
     "date": "2026-10-18",
@@ -702963,7 +702973,10 @@
     "stadium": "Estadio Corona",
     "timeTbd": false,
     "gameId": "LIGAMX_ESPN_401876942",
-    "status": "scheduled"
+    "status": "live",
+    "matchPeriod": "전반",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-10-18",
