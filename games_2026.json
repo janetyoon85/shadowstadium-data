@@ -695584,29 +695584,17 @@
     "stadium": "광주",
     "timeTbd": false,
     "gameId": "33331017LGHT02026",
-    "status": "live",
+    "status": "completed",
     "awayPitcher": "톨허스트",
     "homePitcher": "네일",
     "awayPitcherPid": "kbo:b:55130",
     "homePitcherPid": "kbo:b:54640",
     "awayScore": 1,
     "homeScore": 5,
-    "inningInfo": "9회초",
-    "liveState": {
-      "pitcher": "전상현",
-      "pitcherPid": "kbo:p:66609",
-      "batter": "박동원",
-      "batterPid": "kbo:b:79365",
-      "ball": 3,
-      "strike": 2,
-      "out": 3,
-      "bases": [
-        3
-      ],
-      "pitchCount": 26
-    },
-    "savePitcher": "전상현",
-    "savePitcherPid": "kbo:p:66609",
+    "winPitcher": "네일",
+    "losePitcher": "톨허스트",
+    "winPitcherPid": "kbo:p:54640",
+    "losePitcherPid": "kbo:p:55130",
     "highlights": {
       "home": [
         {
@@ -695894,11 +695882,11 @@
     "inningInfo": "8회말",
     "liveState": {
       "pitcher": "바바",
-      "batter": "치카모토",
+      "batter": "나카노",
       "pitcherPid": "npb:1700077",
-      "batterPid": "npb:1800065",
+      "batterPid": "npb:2000056",
       "ball": 1,
-      "strike": 0,
+      "strike": 2,
       "out": 2,
       "bases": [],
       "pitchCount": 4
@@ -696169,7 +696157,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "후반 2'",
+    "matchPeriod": "후반 3'",
     "cards": {
       "home": [
         {
@@ -696196,7 +696184,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 0,
-    "matchPeriod": "전반 42'",
+    "matchPeriod": "전반 43'",
     "scorers": {
       "home": [],
       "away": [
@@ -696221,7 +696209,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 42'",
+    "matchPeriod": "전반 43'",
     "cards": {
       "home": [],
       "away": [
@@ -696246,10 +696234,17 @@
     "gameId": "202610173640228",
     "status": "live",
     "awayScore": 1,
-    "homeScore": 0,
-    "matchPeriod": "전반 42'",
+    "homeScore": 1,
+    "matchPeriod": "전반 43'",
     "scorers": {
-      "home": [],
+      "home": [
+        {
+          "n": "파울리뇨",
+          "m": 41,
+          "pk": true,
+          "pid": "naver:20230316"
+        }
+      ],
       "away": [
         {
           "n": "홍정운",
@@ -696268,6 +696263,16 @@
         }
       ],
       "away": []
+    },
+    "assists": {
+      "home": [],
+      "away": [
+        {
+          "n": "보르하 바스톤",
+          "count": 1,
+          "pid": "naver:20260288"
+        }
+      ]
     }
   },
   {
@@ -696282,8 +696287,8 @@
     "gameId": "202610174232227",
     "status": "live",
     "awayScore": 0,
-    "homeScore": 0,
-    "matchPeriod": "전반 42'"
+    "homeScore": 1,
+    "matchPeriod": "전반 43'"
   },
   {
     "date": "2026-10-17",
@@ -697966,7 +697971,9 @@
     "gameId": "33331018LGHT02026",
     "status": "scheduled",
     "round": "ps_sp",
-    "rn": 2
+    "rn": 2,
+    "serH": 1,
+    "serA": 0
   },
   {
     "date": "2026-10-18",
