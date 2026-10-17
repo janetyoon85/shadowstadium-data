@@ -108,25 +108,29 @@
       "Igor Thiago"
     ],
     "awayAssists": [
-      "Florian Wirtz"
+      "Florian Wirtz",
+      "Bradley Barcola"
     ],
     "homeNats": [
       "England"
     ],
     "awayNats": [
-      "Spain"
+      "Spain",
+      "Sweden"
     ],
     "homeANats": [
       "Brazil"
     ],
     "awayANats": [
-      "Germany"
+      "Germany",
+      "France"
     ],
     "homePids": [
       "espn:284490"
     ],
     "awayPids": [
-      "espn:397545"
+      "espn:397545",
+      "espn:235662"
     ],
     "homeAPids": [
       "espn:301894"
@@ -135,10 +139,12 @@
       false
     ],
     "awayPks": [
+      false,
       false
     ],
     "awayAPids": [
-      "espn:303748"
+      "espn:303748",
+      "espn:328238"
     ],
     "final": false,
     "sv": 4,
@@ -494,27 +500,39 @@
     "homeAssists": [
       null
     ],
-    "awayAssists": [],
+    "awayAssists": [
+      null
+    ],
     "homeNats": [
       "England"
     ],
-    "awayNats": [],
+    "awayNats": [
+      "Scotland"
+    ],
     "homeANats": [
       null
     ],
-    "awayANats": [],
+    "awayANats": [
+      null
+    ],
     "homePids": [
       "espn:406335"
     ],
-    "awayPids": [],
+    "awayPids": [
+      "espn:288579"
+    ],
     "homeAPids": [
       null
     ],
     "homePks": [
       false
     ],
-    "awayPks": [],
-    "awayAPids": [],
+    "awayPks": [
+      false
+    ],
+    "awayAPids": [
+      null
+    ],
     "final": false,
     "sv": 4,
     "r": 1
@@ -573,77 +591,6 @@
     "awayAPids": [
       null,
       null
-    ],
-    "final": false,
-    "sv": 4,
-    "r": 1
-  },
-  "qR0Ero2vkyPPnt6": {
-    "homeAssists": [
-      null,
-      "Maurice Krattenmacher",
-      "Felix Keidel",
-      "Lukas Petkov"
-    ],
-    "awayAssists": [
-      null,
-      null,
-      "Hennes Behrens"
-    ],
-    "homeNats": [
-      "Bulgaria",
-      "Germany",
-      "Germany",
-      "Germany"
-    ],
-    "awayNats": [
-      "Switzerland",
-      "Austria",
-      "Germany"
-    ],
-    "homeANats": [
-      null,
-      "Germany",
-      "Germany",
-      "Bulgaria"
-    ],
-    "awayANats": [
-      null,
-      null,
-      "Germany"
-    ],
-    "homePids": [
-      "espn:310692",
-      "espn:321061",
-      "espn:190167",
-      "espn:386454"
-    ],
-    "awayPids": [
-      "espn:308908",
-      "espn:146804",
-      "espn:359207"
-    ],
-    "homeAPids": [
-      null,
-      "espn:358496",
-      "espn:340739",
-      "espn:310692"
-    ],
-    "homePks": [
-      false,
-      false,
-      false,
-      false
-    ],
-    "awayPks": [
-      true,
-      true,
-      false
-    ],
-    "awayAPids": [
-      null,
-      null,
-      "espn:399214"
     ],
     "final": false,
     "sv": 4,
@@ -720,6 +667,77 @@
     "homePks": [],
     "awayPks": [],
     "awayAPids": [],
+    "final": true,
+    "sv": 4,
+    "r": 1
+  },
+  "qR0Ero2vkyPPnt6": {
+    "homeAssists": [
+      null,
+      "Maurice Krattenmacher",
+      "Felix Keidel",
+      "Lukas Petkov"
+    ],
+    "awayAssists": [
+      null,
+      null,
+      "Hennes Behrens"
+    ],
+    "homeNats": [
+      "Bulgaria",
+      "Germany",
+      "Germany",
+      "Germany"
+    ],
+    "awayNats": [
+      "Switzerland",
+      "Austria",
+      "Germany"
+    ],
+    "homeANats": [
+      null,
+      "Germany",
+      "Germany",
+      "Bulgaria"
+    ],
+    "awayANats": [
+      null,
+      null,
+      "Germany"
+    ],
+    "homePids": [
+      "espn:310692",
+      "espn:321061",
+      "espn:190167",
+      "espn:386454"
+    ],
+    "awayPids": [
+      "espn:308908",
+      "espn:146804",
+      "espn:359207"
+    ],
+    "homeAPids": [
+      null,
+      "espn:358496",
+      "espn:340739",
+      "espn:310692"
+    ],
+    "homePks": [
+      false,
+      false,
+      false,
+      false
+    ],
+    "awayPks": [
+      true,
+      true,
+      false
+    ],
+    "awayAPids": [
+      null,
+      null,
+      "espn:399214"
+    ],
     "final": true,
     "sv": 4,
     "r": 1
