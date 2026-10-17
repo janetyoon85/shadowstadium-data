@@ -701189,7 +701189,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 1,
-    "matchPeriod": "후반 47'",
+    "matchPeriod": "후반 49'",
     "scorers": {
       "home": [
         {
@@ -701526,7 +701526,7 @@
     "status": "live",
     "awayScore": 2,
     "homeScore": 3,
-    "matchPeriod": "후반 31'",
+    "matchPeriod": "후반 32'",
     "scorers": {
       "home": [
         {
@@ -701592,6 +701592,13 @@
           "type": "Y",
           "m": 70,
           "pid": "espn:200194",
+          "nat": "Netherlands"
+        },
+        {
+          "n": "Thomas Verheydt",
+          "type": "Y",
+          "m": 75,
+          "pid": "espn:195865",
           "nat": "Netherlands"
         }
       ]
@@ -701659,7 +701666,7 @@
     "status": "live",
     "awayScore": 2,
     "homeScore": 2,
-    "matchPeriod": "후반 32'",
+    "matchPeriod": "후반 33'",
     "scorers": {
       "home": [
         {
@@ -701698,9 +701705,24 @@
           "m": 68,
           "pid": "espn:271166",
           "nat": "Scotland"
+        },
+        {
+          "n": "Ashley Hay",
+          "type": "Y",
+          "m": 77,
+          "pid": "espn:398284",
+          "nat": "England"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Dujon Sterling",
+          "type": "Y",
+          "m": 77,
+          "pid": "espn:231170",
+          "nat": "England"
+        }
+      ]
     }
   },
   {
@@ -701745,13 +701767,16 @@
     "inningInfo": "4회초",
     "liveState": {
       "pitcher": "Fernando Perez",
-      "batter": "Yassel Soler",
+      "batter": "Andy Perez",
       "pitcherPid": "mlb:800125",
-      "batterPid": "mlb:807957",
+      "batterPid": "mlb:700321",
       "ball": 2,
       "strike": 1,
-      "out": 0,
-      "bases": []
+      "out": 1,
+      "bases": [
+        1,
+        2
+      ]
     }
   },
   {
@@ -701806,13 +701831,13 @@
     "awayScore": 0,
     "inningInfo": "2회초",
     "liveState": {
-      "pitcher": "Roman Angelo",
-      "batter": "Damon Dues",
-      "pitcherPid": "mlb:809109",
-      "batterPid": "mlb:680815",
-      "ball": 3,
-      "strike": 1,
-      "out": 1,
+      "pitcher": "Ricardo Sánchez",
+      "batter": "Samuel Zavala",
+      "pitcherPid": "mlb:645307",
+      "batterPid": "mlb:694214",
+      "ball": 1,
+      "strike": 2,
+      "out": 3,
       "bases": []
     }
   },
@@ -701920,7 +701945,15 @@
       "away": []
     },
     "cards": {
-      "home": [],
+      "home": [
+        {
+          "n": "Guillermo Ortiz",
+          "type": "Y",
+          "m": 31,
+          "pid": "espn:168919",
+          "nat": "Argentina"
+        }
+      ],
       "away": [
         {
           "n": "Ezequiel Martín Gnemmi",
