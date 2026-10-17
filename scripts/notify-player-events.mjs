@@ -158,7 +158,11 @@ async function main() {
       const name = key === 'home' ? g.homePitcher : g.awayPitcher;
       if (!name) continue;
       const dedupKey = `${g.gameId}:${key}:startingPitcher`;
-      if (!sent[dedupKey]) pending.push({ dedupKey, name, pid: undefined, game: g, team, opp, icon: '⚾', label: '선발 등판', labelKey: 'sp', preGame: true });
+      // 2026-10-17 "임찬규 선발인데 알람 안온듯" — 이름 토픽으로만 보내서, 선수 화면에서 pid로 즐겨찾기한 사람(토픽=pid)은 선발 알림을 못 받았다.
+      // 선발 pid가 있으면 그 pid 토픽으로도 보낸다. KBO는 같은 사람이 투수(kbo:p:)·타자(kbo:b:) 두 id로 색인돼 있어 짝 id 토픽에도 보낸다.
+      const spPid = key === 'home' ? g.homePitcherPid : g.awayPitcherPid;
+      const altPids = typeof spPid === 'string' ? [spPid.replace(/^kbo:([bp]):/, (_, c) => `kbo:${c === 'b' ? 'p' : 'b'}:`)].filter((x) => x !== spPid) : [];
+      if (!sent[dedupKey]) pending.push({ dedupKey, name, pid: spPid || undefined, altPids, game: g, team, opp, icon: '⚾', label: '선발 등판', labelKey: 'sp', preGame: true });
     }
     // 구원 등판(2026-10-07): 진행중 경기 liveState.pitcher가 수비팀 선발이 아닌 새 투수로 바뀌면 1회 알림.
     // 1회 MLB/NPB는 첫 관측 투수를 선발로 기록해 교체만 감지. 선발과 이름/pid가 같으면 제외.
@@ -221,7 +225,7 @@ async function main() {
     // 항상 같이 보내서 이 기능이 ID 도입 전부터 "이름"으로 즐겨찾기해둔 기존 구독이 계속
     // 작동하게 함(2026-09-28, 무마이그레이션 하위호환). ID가 없으면(아직 못 붙인 소스) 기존과
     // 완전히 동일하게 이름 토픽 1건만.
-    const targets = pid && pid !== name ? [pid, name] : [name];
+    const targets = [...new Set([pid && pid !== name ? pid : null, ...(item.altPids || []), name].filter(Boolean))];
     let anyOk = false;
     for (const target of targets) {
       try {
