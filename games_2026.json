@@ -703706,8 +703706,8 @@
           "m": 26,
           "a": "Carles Gil",
           "nat": "USA",
-          "pid": "espn:216609",
           "aNat": "Spain",
+          "pid": "espn:216609",
           "apid": "espn:152168"
         }
       ],
@@ -703748,28 +703748,41 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 4,
-    "matchPeriod": "후반 50'",
+    "matchPeriod": "후반 51'",
     "scorers": {
       "home": [
         {
           "n": "그리에즈만",
           "m": 15,
-          "pid": "espn:140416"
+          "a": "Martín Ojeda",
+          "nat": "France",
+          "pid": "espn:140416",
+          "aNat": "Argentina",
+          "apid": "espn:233401"
         },
         {
           "n": "오제다",
           "m": 22,
-          "pid": "espn:233401"
+          "a": "Antoine Griezmann",
+          "nat": "Argentina",
+          "pid": "espn:233401",
+          "aNat": "France",
+          "apid": "espn:140416"
         },
         {
           "n": "그리에즈만",
           "m": 50,
+          "nat": "France",
           "pid": "espn:140416"
         },
         {
           "n": "마르코 파샬리치",
           "m": 90,
-          "pid": "espn:324270"
+          "a": "Justin Ellis",
+          "nat": "Croatia",
+          "pid": "espn:324270",
+          "aNat": "USA",
+          "apid": "espn:403425"
         }
       ],
       "away": [
@@ -704096,14 +704109,16 @@
     "inningInfo": "6회초",
     "liveState": {
       "pitcher": "에스피노",
-      "batter": "아란다",
-      "ball": 3,
-      "strike": 1,
+      "batter": "심슨",
+      "ball": 1,
+      "strike": 0,
       "out": 0,
-      "bases": [],
-      "pitchCount": 10,
+      "bases": [
+        1
+      ],
+      "pitchCount": 13,
       "pitcherPid": "mlb:682982",
-      "batterPid": "mlb:666018"
+      "batterPid": "mlb:802415"
     },
     "highlights": {
       "home": [
@@ -704350,6 +704365,18 @@
           "pid": "espn:93184"
         }
       ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Jhohan Romaña",
+          "type": "Y",
+          "m": 28,
+          "pid": "espn:235956",
+          "nat": "Colombia"
+        }
+      ],
+      "away": []
     }
   },
   {
@@ -704538,7 +704565,10 @@
     "stadium": "Estadio Alejandro Villanueva",
     "timeTbd": false,
     "gameId": "PERU_ESPN_401886166",
-    "status": "scheduled"
+    "status": "live",
+    "matchPeriod": "전반",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-10-18",
