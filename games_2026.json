@@ -711835,7 +711835,7 @@
     "stadium": "Complejo Deportivo Socialista",
     "timeTbd": false,
     "gameId": "VENEZUELA_ESPN_401903435",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 3,
     "awayScore": 3,
@@ -711893,7 +711893,7 @@
     "stadium": "Estadio Metropolitano de Mérida",
     "timeTbd": false,
     "gameId": "VENEZUELA_ESPN_401903431",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 2,
     "awayScore": 2,
@@ -711979,7 +711979,7 @@
     "stadium": "Estadio Olímpico de la UCV",
     "timeTbd": false,
     "gameId": "VENEZUELA_ESPN_401903430",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 0,
     "awayScore": 0,
@@ -712021,7 +712021,7 @@
     "stadium": "Estadio José Encarnación Romero",
     "timeTbd": false,
     "gameId": "VENEZUELA_ESPN_401903436",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 1,
     "awayScore": 2,
@@ -712318,6 +712318,13 @@
           "m": 6,
           "pid": "espn:143522",
           "nat": "Argentina"
+        },
+        {
+          "n": "Carlos Romaña",
+          "type": "Y",
+          "m": 23,
+          "pid": "espn:272875",
+          "nat": "Colombia"
         }
       ],
       "away": []
@@ -712336,7 +712343,19 @@
     "status": "live",
     "matchPeriod": "전반",
     "homeScore": 0,
-    "awayScore": 1
+    "awayScore": 1,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "Federico Andrada",
+          "m": 19,
+          "pk": true,
+          "nat": "Argentina",
+          "pid": "espn:185979"
+        }
+      ]
+    }
   },
   {
     "date": "2026-10-19",
@@ -712458,7 +712477,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 14'",
+    "matchPeriod": "전반 16'",
     "phaseCode": "LEAGUE"
   },
   {
@@ -712481,14 +712500,14 @@
     "inningInfo": "1회말",
     "liveState": {
       "pitcher": "라스무센",
-      "batter": "콴",
-      "ball": 2,
+      "batter": "드라우터",
+      "ball": 1,
       "strike": 2,
-      "out": 1,
+      "out": 2,
       "bases": [],
-      "pitchCount": 7,
+      "pitchCount": 15,
       "pitcherPid": "mlb:656876",
-      "batterPid": "mlb:680757"
+      "batterPid": "mlb:800050"
     },
     "highlights": {
       "home": [],
