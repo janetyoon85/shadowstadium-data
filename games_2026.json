@@ -712020,6 +712020,13 @@
           "m": 13,
           "pid": "espn:48246",
           "nat": "Venezuela"
+        },
+        {
+          "n": "Junior Colina",
+          "type": "Y",
+          "m": 85,
+          "pid": "espn:372139",
+          "nat": "Venezuela"
         }
       ],
       "away": [
@@ -712067,13 +712074,15 @@
     "inningInfo": "4회말",
     "liveState": {
       "pitcher": "Connor Van Scoyoc",
-      "batter": "Omar Alfonzo",
+      "batter": "Carlos Mendoza",
       "pitcherPid": "mlb:681854",
-      "batterPid": "mlb:692657",
-      "ball": 1,
-      "strike": 1,
-      "out": 0,
-      "bases": []
+      "batterPid": "mlb:685332",
+      "ball": 2,
+      "strike": 2,
+      "out": 1,
+      "bases": [
+        2
+      ]
     }
   },
   {
@@ -712121,7 +712130,7 @@
         {
           "n": "Raúl Cabral",
           "type": "Y",
-          "m": 52,
+          "m": 51,
           "pid": "espn:339190",
           "nat": "Argentina"
         }
@@ -712141,7 +712150,7 @@
     "status": "live",
     "matchPeriod": "전반",
     "homeScore": 0,
-    "awayScore": 2,
+    "awayScore": 3,
     "cards": {
       "home": [
         {
@@ -712184,6 +712193,12 @@
           "m": 23,
           "nat": "Peru",
           "pid": "espn:204904"
+        },
+        {
+          "n": "Alex Valera",
+          "m": 45,
+          "nat": "Peru",
+          "pid": "espn:301930"
         }
       ]
     }
@@ -712215,8 +712230,32 @@
     "gameId": "ARGENTINA_ESPN_401841623",
     "status": "live",
     "matchPeriod": "전반",
-    "homeScore": 0,
-    "awayScore": 0
+    "homeScore": 1,
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "Edwin Cetre",
+          "m": 14,
+          "pk": true,
+          "nat": "Colombia",
+          "pid": "espn:264844"
+        }
+      ],
+      "away": []
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "José Devecchi",
+          "type": "Y",
+          "m": 12,
+          "pid": "espn:195679",
+          "nat": "Argentina"
+        }
+      ]
+    }
   },
   {
     "date": "2026-10-19",
@@ -712273,19 +712312,16 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 0,
-    "inningInfo": "1회초",
+    "inningInfo": "1회말",
     "liveState": {
-      "pitcher": "Jhordany Mezquita",
-      "batter": "Aristides Aquino",
-      "pitcherPid": "mlb:674245",
-      "batterPid": "mlb:606157",
+      "pitcher": "Jared Wetherbee",
+      "batter": "Victor Scott II",
+      "pitcherPid": "mlb:695244",
+      "batterPid": "mlb:687363",
       "ball": 0,
       "strike": 0,
-      "out": 1,
-      "bases": [
-        1,
-        2
-      ]
+      "out": 0,
+      "bases": []
     }
   },
   {
@@ -712301,16 +712337,18 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 0,
-    "inningInfo": "1회초",
+    "inningInfo": "1회말",
     "liveState": {
-      "pitcher": "Jose Quintana",
-      "batter": "Sócrates Brito",
-      "pitcherPid": "mlb:500779",
-      "batterPid": "mlb:593647",
-      "ball": 1,
-      "strike": 2,
-      "out": 2,
-      "bases": []
+      "pitcher": "Victor Santos",
+      "batter": "Cristhian Adames",
+      "pitcherPid": "mlb:673257",
+      "batterPid": "mlb:542436",
+      "ball": 2,
+      "strike": 0,
+      "out": 0,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -712326,18 +712364,16 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 0,
-    "inningInfo": "1회초",
+    "inningInfo": "1회말",
     "liveState": {
-      "pitcher": "Enny Romero",
-      "batter": "Jhonkensy Noel",
-      "pitcherPid": "mlb:544836",
-      "batterPid": "mlb:678877",
+      "pitcher": "Spencer Turnbull",
+      "batter": "Ismael Munguia",
+      "pitcherPid": "mlb:605513",
+      "batterPid": "mlb:665998",
       "ball": 2,
       "strike": 1,
-      "out": 2,
-      "bases": [
-        2
-      ]
+      "out": 0,
+      "bases": []
     }
   },
   {
@@ -712352,19 +712388,17 @@
     "gameId": "LVBP_MLBSTATS_870080",
     "status": "live",
     "homeScore": 0,
-    "awayScore": 1,
+    "awayScore": 3,
     "inningInfo": "1회초",
     "liveState": {
-      "pitcher": "José Davila",
-      "batter": "Carlos Pérez",
-      "pitcherPid": "mlb:692369",
-      "batterPid": "mlb:656024",
+      "pitcher": "Félix Doubront",
+      "batter": "Chris Roller",
+      "pitcherPid": "mlb:467094",
+      "batterPid": "mlb:676896",
       "ball": 2,
       "strike": 1,
-      "out": 1,
-      "bases": [
-        1
-      ]
+      "out": 3,
+      "bases": []
     }
   },
   {
@@ -712377,7 +712411,10 @@
     "stadium": "TQL 스타디움",
     "timeTbd": false,
     "gameId": "7BSe49yY5p85VvV",
-    "status": "scheduled",
+    "status": "live",
+    "awayScore": 0,
+    "homeScore": 0,
+    "matchPeriod": "전반 4'",
     "phaseCode": "LEAGUE"
   },
   {
@@ -712400,17 +712437,17 @@
     "inningInfo": "1회초",
     "liveState": {
       "pitcher": "메식",
-      "batter": "카미네로",
-      "ball": 1,
-      "strike": 1,
-      "out": 1,
+      "batter": "심슨",
+      "ball": 0,
+      "strike": 2,
+      "out": 2,
       "bases": [
         1,
         2
       ],
-      "pitchCount": 14,
+      "pitchCount": 19,
       "pitcherPid": "mlb:800048",
-      "batterPid": "mlb:691406"
+      "batterPid": "mlb:802415"
     },
     "highlights": {
       "home": [],
@@ -712439,7 +712476,10 @@
     "stadium": "Estadio Hernando Siles",
     "timeTbd": false,
     "gameId": "BOLIVIA_ESPN_401906303",
-    "status": "scheduled"
+    "status": "live",
+    "matchPeriod": "전반",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-10-19",
