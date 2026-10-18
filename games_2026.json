@@ -704073,14 +704073,16 @@
     "inningInfo": "8회말",
     "liveState": {
       "pitcher": "켈리",
-      "batter": "아델",
-      "ball": 2,
-      "strike": 2,
+      "batter": "로우",
+      "ball": 0,
+      "strike": 0,
       "out": 2,
-      "bases": [],
-      "pitchCount": 15,
+      "bases": [
+        1
+      ],
+      "pitchCount": 16,
       "pitcherPid": "mlb:608348",
-      "batterPid": "mlb:666176"
+      "batterPid": "mlb:664040"
     },
     "holds": {
       "home": [],
@@ -704763,7 +704765,7 @@
     "gameId": "PERU_ESPN_401886166",
     "status": "live",
     "matchPeriod": "후반",
-    "homeScore": 1,
+    "homeScore": 2,
     "awayScore": 1,
     "scorers": {
       "home": [
@@ -704772,6 +704774,12 @@
           "m": 11,
           "nat": "Peru",
           "pid": "espn:240043"
+        },
+        {
+          "n": "Erick Castillo",
+          "m": 50,
+          "nat": "Ecuador",
+          "pid": "espn:181208"
         }
       ],
       "away": [
@@ -704887,18 +704895,19 @@
     "gameId": "unacZTYgKcrgafO",
     "status": "live",
     "awayScore": 1,
-    "homeScore": 1,
-    "matchPeriod": "전반 10'",
+    "homeScore": 2,
+    "matchPeriod": "전반 12'",
     "scorers": {
       "home": [
         {
           "n": "조앙 클라우스",
           "m": 4,
-          "a": "Sergi Roberto",
-          "nat": "Brazil",
-          "pid": "espn:150409",
-          "aNat": "Spain",
-          "apid": "espn:150225"
+          "pid": "espn:150409"
+        },
+        {
+          "n": "조앙 클라우스",
+          "m": 12,
+          "pid": "espn:150409"
         }
       ],
       "away": [
@@ -704926,7 +704935,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 10'",
+    "matchPeriod": "전반 12'",
     "phaseCode": "LEAGUE"
   },
   {
@@ -704942,7 +704951,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 10'",
+    "matchPeriod": "전반 12'",
     "phaseCode": "LEAGUE"
   },
   {
@@ -704958,7 +704967,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 10'",
+    "matchPeriod": "전반 12'",
     "phaseCode": "LEAGUE"
   },
   {
