@@ -712296,7 +712296,22 @@
       "away": []
     },
     "cards": {
-      "home": [],
+      "home": [
+        {
+          "n": "Gastón Benedetti",
+          "type": "Y",
+          "m": 30,
+          "pid": "espn:301955",
+          "nat": "Argentina"
+        },
+        {
+          "n": "Miguel Monsalve",
+          "type": "Y",
+          "m": 32,
+          "pid": "espn:307659",
+          "nat": "Colombia"
+        }
+      ],
       "away": [
         {
           "n": "José Devecchi",
@@ -712330,6 +712345,13 @@
           "m": 6,
           "pid": "espn:143522",
           "nat": "Argentina"
+        },
+        {
+          "n": "Carlos Romaña",
+          "type": "R",
+          "m": 26,
+          "pid": "espn:272875",
+          "nat": "Colombia"
         }
       ],
       "away": []
@@ -712480,7 +712502,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 17'",
+    "matchPeriod": "전반 22'",
     "phaseCode": "LEAGUE"
   },
   {
@@ -712500,17 +712522,19 @@
     "homePitcherPid": "mlb:800048",
     "awayScore": 1,
     "homeScore": 0,
-    "inningInfo": "1회말",
+    "inningInfo": "2회초",
     "liveState": {
-      "pitcher": "라스무센",
-      "batter": "윌리엄슨",
+      "pitcher": "메식",
+      "batter": "월스",
       "ball": 0,
-      "strike": 0,
+      "strike": 1,
       "out": 0,
-      "bases": [],
-      "pitchCount": 20,
-      "pitcherPid": "mlb:656876",
-      "batterPid": "mlb:810938"
+      "bases": [
+        1
+      ],
+      "pitchCount": 33,
+      "pitcherPid": "mlb:800048",
+      "batterPid": "mlb:670764"
     },
     "highlights": {
       "home": [],
@@ -712554,7 +712578,10 @@
     "stadium": "Arena Fonte Nova",
     "timeTbd": false,
     "gameId": "BRASILEIRAO_ESPN_401841269",
-    "status": "scheduled"
+    "status": "live",
+    "matchPeriod": "전반",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-10-19",
@@ -712566,8 +712593,11 @@
     "stadium": "Estadio Banco Pichincha",
     "timeTbd": false,
     "gameId": "ECUADOR_ESPN_401921348",
-    "status": "scheduled",
-    "phaseCode": "FR"
+    "status": "live",
+    "phaseCode": "FR",
+    "matchPeriod": "전반",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-10-19",
@@ -712579,7 +712609,10 @@
     "stadium": "Parque Alfredo Víctor Viera",
     "timeTbd": false,
     "gameId": "URUGUAY_ESPN_401929259",
-    "status": "scheduled"
+    "status": "live",
+    "matchPeriod": "전반",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-10-19",
