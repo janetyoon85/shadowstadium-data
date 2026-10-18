@@ -703170,7 +703170,7 @@
     "gameId": "COLOMBIA_ESPN_401878048",
     "status": "live",
     "matchPeriod": "후반",
-    "homeScore": 2,
+    "homeScore": 3,
     "awayScore": 1,
     "scorers": {
       "home": [
@@ -703185,6 +703185,12 @@
           "m": 40,
           "nat": "Colombia",
           "pid": "espn:121216"
+        },
+        {
+          "n": "Andrey Estupiñán",
+          "m": 63,
+          "nat": "Colombia",
+          "pid": "espn:277093"
         }
       ],
       "away": [
@@ -703250,7 +703256,7 @@
     "gameId": "LIGAMX_ESPN_401876942",
     "status": "live",
     "matchPeriod": "후반",
-    "homeScore": 2,
+    "homeScore": 3,
     "awayScore": 0,
     "cards": {
       "home": [
@@ -703285,6 +703291,12 @@
           "m": 44,
           "nat": "Mexico",
           "pid": "espn:228358"
+        },
+        {
+          "n": "Tahiel Jiménez",
+          "m": 63,
+          "nat": "Mexico",
+          "pid": "espn:376557"
         }
       ],
       "away": []
@@ -703474,9 +703486,18 @@
     "timeTbd": false,
     "gameId": "zCdh4v6lMMYhA8W",
     "status": "live",
-    "awayScore": 0,
+    "awayScore": 1,
     "homeScore": 0,
-    "matchPeriod": "전반 45'",
+    "matchPeriod": "전반 47'",
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "발타",
+          "m": 45
+        }
+      ]
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -703492,7 +703513,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 1,
-    "matchPeriod": "전반 46'",
+    "matchPeriod": "전반종료",
     "scorers": {
       "home": [
         {
@@ -703520,9 +703541,9 @@
     "timeTbd": false,
     "gameId": "jmGnIGDQ2GvIXEj",
     "status": "live",
-    "awayScore": 0,
+    "awayScore": 1,
     "homeScore": 2,
-    "matchPeriod": "전반 46'",
+    "matchPeriod": "전반 48'",
     "scorers": {
       "home": [
         {
@@ -703544,7 +703565,15 @@
           "apid": "espn:140416"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "바리보",
+          "m": 45,
+          "pk": true,
+          "nat": "Israel",
+          "pid": "espn:313068"
+        }
+      ]
     },
     "cards": {
       "home": [
@@ -703573,7 +703602,19 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 43'",
+    "matchPeriod": "전반 45'",
+    "cards": {
+      "home": [
+        {
+          "n": "Tomás Jacob",
+          "type": "Y",
+          "m": 44,
+          "pid": "espn:330082",
+          "nat": "Argentina"
+        }
+      ],
+      "away": []
+    },
     "phaseCode": "LEAGUE"
   },
   {
@@ -703589,16 +703630,14 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 0,
-    "matchPeriod": "전반 46'",
+    "matchPeriod": "전반 48'",
     "scorers": {
       "home": [],
       "away": [
         {
           "n": "체",
           "m": 3,
-          "og": true,
-          "nat": "USA",
-          "pid": "espn:282582"
+          "og": true
         }
       ]
     },
