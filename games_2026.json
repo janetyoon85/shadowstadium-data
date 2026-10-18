@@ -702718,18 +702718,19 @@
     "gameId": "LVBP_MLBSTATS_870078",
     "status": "live",
     "homeScore": 9,
-    "awayScore": 7,
+    "awayScore": 8,
     "inningInfo": "9회초",
     "liveState": {
       "pitcher": "Saul Teran",
-      "batter": "Brainer Bonaci",
+      "batter": "Yonathan Daza",
       "pitcherPid": "mlb:699703",
-      "batterPid": "mlb:682900",
-      "ball": 1,
-      "strike": 0,
+      "batterPid": "mlb:602074",
+      "ball": 0,
+      "strike": 2,
       "out": 2,
       "bases": [
         1,
+        2,
         3
       ]
     }
@@ -702744,23 +702745,9 @@
     "stadium": "Estadio Universitario",
     "timeTbd": false,
     "gameId": "LVBP_MLBSTATS_870079",
-    "status": "live",
+    "status": "completed",
     "homeScore": 6,
-    "awayScore": 7,
-    "inningInfo": "10회말",
-    "liveState": {
-      "pitcher": "Tyler Jeans",
-      "batter": "Juniel Querecuto",
-      "pitcherPid": "mlb:802975",
-      "batterPid": "mlb:578570",
-      "ball": 0,
-      "strike": 0,
-      "out": 1,
-      "bases": [
-        1,
-        2
-      ]
-    }
+    "awayScore": 7
   },
   {
     "date": "2026-10-18",
@@ -703599,19 +703586,17 @@
     "gameId": "LIDOM_MLBSTATS_851536",
     "status": "live",
     "homeScore": 5,
-    "awayScore": 0,
+    "awayScore": 1,
     "inningInfo": "6회초",
     "liveState": {
-      "pitcher": "Luis Moreno",
-      "batter": "John Gil",
-      "pitcherPid": "mlb:691032",
-      "batterPid": "mlb:808535",
-      "ball": 1,
-      "strike": 0,
-      "out": 1,
-      "bases": [
-        3
-      ]
+      "pitcher": "Hector Perez",
+      "batter": "Magneuris Sierra",
+      "pitcherPid": "mlb:660431",
+      "batterPid": "mlb:642423",
+      "ball": 2,
+      "strike": 1,
+      "out": 3,
+      "bases": []
     }
   },
   {
@@ -703634,8 +703619,8 @@
           "m": 59,
           "a": "Nicolás Fernández Mercau",
           "nat": "USA",
-          "pid": "espn:259199",
           "aNat": "Argentina",
+          "pid": "espn:259199",
           "apid": "espn:108107"
         }
       ],
@@ -703745,8 +703730,8 @@
           "m": 15,
           "a": "Martín Ojeda",
           "nat": "France",
-          "pid": "espn:140416",
           "aNat": "Argentina",
+          "pid": "espn:140416",
           "apid": "espn:233401"
         },
         {
@@ -703754,8 +703739,8 @@
           "m": 22,
           "a": "Antoine Griezmann",
           "nat": "Argentina",
-          "pid": "espn:233401",
           "aNat": "France",
+          "pid": "espn:233401",
           "apid": "espn:140416"
         },
         {
@@ -703769,8 +703754,8 @@
           "m": 90,
           "a": "Justin Ellis",
           "nat": "Croatia",
-          "pid": "espn:324270",
           "aNat": "USA",
+          "pid": "espn:324270",
           "apid": "espn:403425"
         }
       ],
@@ -703778,9 +703763,9 @@
         {
           "n": "바리보",
           "m": 45,
-          "pk": true,
           "nat": "Israel",
-          "pid": "espn:313068"
+          "pid": "espn:313068",
+          "pk": true
         }
       ]
     },
@@ -703833,7 +703818,7 @@
     "status": "live",
     "awayScore": 3,
     "homeScore": 1,
-    "matchPeriod": "후반 51'",
+    "matchPeriod": "후반 53'",
     "scorers": {
       "home": [
         {
@@ -703905,6 +703890,13 @@
           "m": 89,
           "pid": "espn:310279",
           "nat": "Uruguay"
+        },
+        {
+          "n": "Lionel Messi",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:45843",
+          "nat": "Argentina"
         }
       ]
     },
@@ -703938,8 +703930,8 @@
           "m": 82,
           "a": "Jonathan Osorio",
           "nat": "Hungary",
-          "pid": "espn:233050",
           "aNat": "Canada",
+          "pid": "espn:233050",
           "apid": "espn:184221"
         }
       ]
@@ -704041,12 +704033,12 @@
     "inningInfo": "5회말",
     "liveState": {
       "pitcher": "Roque Gutierrez",
-      "batter": "Emmanuel Avila",
+      "batter": "Jose Alvarez",
       "pitcherPid": "mlb:692262",
-      "batterPid": "mlb:500869",
-      "ball": 0,
+      "batterPid": "mlb:518402",
+      "ball": 1,
       "strike": 2,
-      "out": 1,
+      "out": 2,
       "bases": []
     }
   },
@@ -704065,16 +704057,14 @@
     "awayScore": 2,
     "inningInfo": "4회말",
     "liveState": {
-      "pitcher": "Luis Cohen",
-      "batter": "Victor Arias",
-      "pitcherPid": "mlb:800324",
-      "batterPid": "mlb:692478",
+      "pitcher": "Elwis Mijares",
+      "batter": "Edward Olivares",
+      "pitcherPid": "mlb:808274",
+      "batterPid": "mlb:658668",
       "ball": 0,
-      "strike": 0,
-      "out": 2,
-      "bases": [
-        2
-      ]
+      "strike": 3,
+      "out": 3,
+      "bases": []
     }
   },
   {
@@ -704097,15 +704087,17 @@
     "inningInfo": "6회초",
     "liveState": {
       "pitcher": "에스피노",
-      "ball": 4,
+      "batter": "힉스",
+      "ball": 0,
       "strike": 2,
       "out": 0,
       "bases": [
-        1,
-        2
+        2,
+        3
       ],
-      "pitchCount": 18,
-      "pitcherPid": "mlb:682982"
+      "pitchCount": 22,
+      "pitcherPid": "mlb:682982",
+      "batterPid": "mlb:689414"
     },
     "highlights": {
       "home": [
@@ -704133,6 +704125,13 @@
           "player": "디아즈",
           "inn": "3회초",
           "pid": "mlb:553869"
+        },
+        {
+          "how": "2루타",
+          "text": "카미네로 좌전 2루타",
+          "player": "카미네로",
+          "inn": "6회초",
+          "pid": "mlb:691406"
         }
       ]
     },
@@ -704340,7 +704339,7 @@
     "status": "live",
     "matchPeriod": "전반",
     "homeScore": 0,
-    "awayScore": 1,
+    "awayScore": 2,
     "scorers": {
       "home": [],
       "away": [
@@ -704350,6 +704349,12 @@
           "pk": true,
           "nat": "Mexico",
           "pid": "espn:93184"
+        },
+        {
+          "n": "Carlos Álvarez",
+          "m": 34,
+          "nat": "Spain",
+          "pid": "espn:3731"
         }
       ]
     },
@@ -704394,19 +704399,16 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 0,
-    "inningInfo": "3회초",
+    "inningInfo": "3회말",
     "liveState": {
-      "pitcher": "Brennen Oxford",
-      "batter": "Julian Ornelas",
-      "pitcherPid": "mlb:680986",
-      "batterPid": "mlb:676140",
-      "ball": 1,
-      "strike": 2,
-      "out": 2,
-      "bases": [
-        1,
-        2
-      ]
+      "pitcher": "Patrick Murphy",
+      "batter": "Aldo Nunez",
+      "pitcherPid": "mlb:641907",
+      "batterPid": "mlb:800096",
+      "ball": 2,
+      "strike": 1,
+      "out": 1,
+      "bases": []
     }
   },
   {
@@ -704424,16 +704426,14 @@
     "awayScore": 0,
     "inningInfo": "3회초",
     "liveState": {
-      "pitcher": "Fabian Cota",
-      "batter": "Poncho Ruiz",
-      "pitcherPid": "mlb:601978",
-      "batterPid": "mlb:695000",
-      "ball": 0,
-      "strike": 0,
-      "out": 0,
-      "bases": [
-        1
-      ]
+      "pitcher": "Ricardo Estrada",
+      "batter": "Christopher Escarrega",
+      "pitcherPid": "mlb:698962",
+      "batterPid": "mlb:692473",
+      "ball": 3,
+      "strike": 3,
+      "out": 3,
+      "bases": []
     }
   },
   {
@@ -704452,12 +704452,12 @@
     "inningInfo": "3회말",
     "liveState": {
       "pitcher": "Dominic Pipkin",
-      "batter": "Alex D. Mejia",
+      "batter": "Norberto Obeso",
       "pitcherPid": "mlb:669421",
-      "batterPid": "mlb:622270",
-      "ball": 2,
-      "strike": 0,
-      "out": 0,
+      "batterPid": "mlb:650995",
+      "ball": 0,
+      "strike": 2,
+      "out": 2,
       "bases": []
     }
   },
@@ -704474,15 +704474,15 @@
     "status": "live",
     "homeScore": 1,
     "awayScore": 0,
-    "inningInfo": "2회초",
+    "inningInfo": "2회말",
     "liveState": {
-      "pitcher": "Nick Horvath",
-      "batter": "Miguel Guzman",
-      "pitcherPid": "mlb:681282",
-      "batterPid": "mlb:634739",
-      "ball": 0,
-      "strike": 0,
-      "out": 2,
+      "pitcher": "Nick Margevicius",
+      "batter": "Aldo Gaxiola",
+      "pitcherPid": "mlb:676606",
+      "batterPid": "mlb:815220",
+      "ball": 1,
+      "strike": 2,
+      "out": 1,
       "bases": []
     }
   },
@@ -704533,18 +704533,16 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 1,
-    "inningInfo": "1회초",
+    "inningInfo": "1회말",
     "liveState": {
-      "pitcher": "Luke Fox",
-      "batter": "Paxton Kling",
-      "pitcherPid": "mlb:803183",
-      "batterPid": "mlb:702265",
+      "pitcher": "Peyton Prescott",
+      "batter": "Caleb Bonemer",
+      "pitcherPid": "mlb:807290",
+      "batterPid": "mlb:815352",
       "ball": 1,
-      "strike": 2,
+      "strike": 1,
       "out": 2,
-      "bases": [
-        2
-      ]
+      "bases": []
     }
   },
   {
