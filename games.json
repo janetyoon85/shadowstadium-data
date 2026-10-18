@@ -711544,9 +711544,17 @@
     "phaseCode": "FR",
     "matchPeriod": "후반",
     "homeScore": 1,
-    "awayScore": 0,
+    "awayScore": 1,
     "cards": {
-      "home": [],
+      "home": [
+        {
+          "n": "Alexis Nicolás Monserrat",
+          "type": "Y",
+          "m": 61,
+          "pid": "espn:316311",
+          "nat": "Argentina"
+        }
+      ],
       "away": [
         {
           "n": "Francisco Pizzini",
@@ -711566,7 +711574,15 @@
           "pid": "espn:358894"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Ronie Carrillo",
+          "m": 62,
+          "pk": true,
+          "nat": "Ecuador",
+          "pid": "espn:214113"
+        }
+      ]
     }
   },
   {
@@ -711638,7 +711654,7 @@
     "timeTbd": false,
     "gameId": "VENEZUELA_ESPN_401903435",
     "status": "live",
-    "matchPeriod": "전반",
+    "matchPeriod": "하프타임",
     "homeScore": 2,
     "awayScore": 1,
     "scorers": {
