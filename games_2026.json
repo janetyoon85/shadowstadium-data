@@ -703636,7 +703636,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 1,
-    "matchPeriod": "후반 46'",
+    "matchPeriod": "후반 48'",
     "scorers": {
       "home": [
         {
@@ -703696,10 +703696,9 @@
     "stadium": "질레트 스타디움",
     "timeTbd": false,
     "gameId": "hRIvQVIZhpQa3gG",
-    "status": "live",
+    "status": "completed",
     "awayScore": 0,
     "homeScore": 1,
-    "matchPeriod": "후반 49'",
     "scorers": {
       "home": [
         {
@@ -703748,33 +703747,29 @@
     "gameId": "jmGnIGDQ2GvIXEj",
     "status": "live",
     "awayScore": 1,
-    "homeScore": 3,
-    "matchPeriod": "후반 48'",
+    "homeScore": 4,
+    "matchPeriod": "후반 50'",
     "scorers": {
       "home": [
         {
           "n": "그리에즈만",
           "m": 15,
-          "a": "Martín Ojeda",
-          "nat": "France",
-          "pid": "espn:140416",
-          "aNat": "Argentina",
-          "apid": "espn:233401"
+          "pid": "espn:140416"
         },
         {
           "n": "오제다",
           "m": 22,
-          "a": "Antoine Griezmann",
-          "nat": "Argentina",
-          "pid": "espn:233401",
-          "aNat": "France",
-          "apid": "espn:140416"
+          "pid": "espn:233401"
         },
         {
           "n": "그리에즈만",
           "m": 50,
-          "nat": "France",
           "pid": "espn:140416"
+        },
+        {
+          "n": "마르코 파샬리치",
+          "m": 90,
+          "pid": "espn:324270"
         }
       ],
       "away": [
@@ -703836,7 +703831,7 @@
     "status": "live",
     "awayScore": 3,
     "homeScore": 1,
-    "matchPeriod": "후반 45'",
+    "matchPeriod": "후반 47'",
     "scorers": {
       "home": [
         {
@@ -703926,7 +703921,7 @@
     "status": "live",
     "awayScore": 2,
     "homeScore": 0,
-    "matchPeriod": "후반 46'",
+    "matchPeriod": "후반 48'",
     "scorers": {
       "home": [],
       "away": [
@@ -703988,7 +703983,7 @@
     "gameId": "BRASILEIRAO_ESPN_401841273",
     "status": "live",
     "matchPeriod": "후반",
-    "homeScore": 0,
+    "homeScore": 1,
     "awayScore": 0,
     "cards": {
       "home": [
@@ -704016,6 +704011,17 @@
           "nat": "Brazil"
         }
       ]
+    },
+    "scorers": {
+      "home": [
+        {
+          "n": "Artur",
+          "m": 68,
+          "nat": "Brazil",
+          "pid": "espn:236596"
+        }
+      ],
+      "away": []
     }
   },
   {
@@ -704091,11 +704097,11 @@
     "liveState": {
       "pitcher": "에스피노",
       "batter": "아란다",
-      "ball": 0,
-      "strike": 0,
+      "ball": 3,
+      "strike": 1,
       "out": 0,
       "bases": [],
-      "pitchCount": 6,
+      "pitchCount": 10,
       "pitcherPid": "mlb:682982",
       "batterPid": "mlb:666018"
     },
@@ -704483,6 +704489,13 @@
           "type": "Y",
           "m": 17,
           "pid": "espn:180635",
+          "nat": "Colombia"
+        },
+        {
+          "n": "Andres Colorado",
+          "type": "Y",
+          "m": 21,
+          "pid": "espn:266037",
           "nat": "Colombia"
         }
       ]
