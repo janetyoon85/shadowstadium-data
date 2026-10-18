@@ -711746,35 +711746,35 @@
         {
           "n": "귈러",
           "m": 30,
+          "pid": "espn:310452",
           "a": "Yan Diomande",
           "nat": "Türkiye",
           "aNat": "Ivory Coast",
-          "pid": "espn:310452",
           "apid": "espn:402479"
         },
         {
           "n": "음바페",
           "m": 37,
+          "pid": "espn:231388",
           "a": "Jude Bellingham",
           "nat": "France",
           "aNat": "England",
-          "pid": "espn:231388",
           "apid": "espn:291281"
         },
         {
           "n": "음바페",
           "m": 63,
-          "nat": "France",
           "pid": "espn:231388",
+          "nat": "France",
           "pk": true
         },
         {
           "n": "디오망데",
           "m": 82,
+          "pid": "espn:402479",
           "a": "Aurélien Tchouaméni",
           "nat": "Ivory Coast",
           "aNat": "France",
-          "pid": "espn:402479",
           "apid": "espn:265919"
         }
       ],
@@ -712107,14 +712107,16 @@
     "inningInfo": "6회말",
     "liveState": {
       "pitcher": "Luarbert Arias",
-      "batter": "Carlos Mendoza",
+      "batter": "Hernán Pérez",
       "pitcherPid": "mlb:678215",
-      "batterPid": "mlb:685332",
-      "ball": 3,
-      "strike": 2,
+      "batterPid": "mlb:541650",
+      "ball": 0,
+      "strike": 0,
       "out": 2,
       "bases": [
-        1
+        1,
+        2,
+        3
       ]
     }
   },
@@ -712128,7 +712130,7 @@
     "stadium": "Estadio ueno La Nueva Olla",
     "timeTbd": false,
     "gameId": "PARAGUAY_ESPN_401888584",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 2,
     "awayScore": 2,
@@ -712427,7 +712429,7 @@
     "timeTbd": false,
     "gameId": "ELSALVADOR_ESPN_401899777",
     "status": "live",
-    "matchPeriod": "전반",
+    "matchPeriod": "하프타임",
     "homeScore": 0,
     "awayScore": 1,
     "scorers": {
@@ -712456,19 +712458,16 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 1,
-    "inningInfo": "2회말",
+    "inningInfo": "3회초",
     "liveState": {
-      "pitcher": "Jared Wetherbee",
-      "batter": "Steward Berroa",
-      "pitcherPid": "mlb:695244",
-      "batterPid": "mlb:672642",
-      "ball": 2,
-      "strike": 2,
-      "out": 1,
-      "bases": [
-        1,
-        2
-      ]
+      "pitcher": "Jhordany Mezquita",
+      "batter": "Roldy Brito",
+      "pitcherPid": "mlb:674245",
+      "batterPid": "mlb:821041",
+      "ball": 0,
+      "strike": 0,
+      "out": 0,
+      "bases": []
     }
   },
   {
@@ -712486,17 +712485,14 @@
     "awayScore": 2,
     "inningInfo": "2회말",
     "liveState": {
-      "pitcher": "Juan Mercedes",
-      "batter": "Maikel Franco",
-      "pitcherPid": "mlb:675195",
-      "batterPid": "mlb:596748",
-      "ball": 0,
-      "strike": 2,
-      "out": 2,
-      "bases": [
-        1,
-        2
-      ]
+      "pitcher": "Jose Quintana",
+      "batter": "Sócrates Brito",
+      "pitcherPid": "mlb:500779",
+      "batterPid": "mlb:593647",
+      "ball": 2,
+      "strike": 3,
+      "out": 3,
+      "bases": []
     }
   },
   {
@@ -712512,18 +712508,16 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 5,
-    "inningInfo": "2회말",
+    "inningInfo": "3회초",
     "liveState": {
-      "pitcher": "Spencer Turnbull",
-      "batter": "Christian Cerda",
-      "pitcherPid": "mlb:605513",
-      "batterPid": "mlb:692416",
+      "pitcher": "Geison Urbaez",
+      "batter": "Wilmer Difo",
+      "pitcherPid": "mlb:696064",
+      "batterPid": "mlb:594694",
       "ball": 1,
       "strike": 1,
-      "out": 2,
-      "bases": [
-        1
-      ]
+      "out": 1,
+      "bases": []
     }
   },
   {
@@ -712539,16 +712533,19 @@
     "status": "live",
     "homeScore": 1,
     "awayScore": 3,
-    "inningInfo": "3회초",
+    "inningInfo": "3회말",
     "liveState": {
       "pitcher": "Félix Doubront",
-      "batter": "Jesus Hernandez",
+      "batter": "Chris Roller",
       "pitcherPid": "mlb:467094",
-      "batterPid": "mlb:698929",
+      "batterPid": "mlb:676896",
       "ball": 0,
-      "strike": 2,
-      "out": 3,
-      "bases": []
+      "strike": 0,
+      "out": 0,
+      "bases": [
+        1,
+        2
+      ]
     }
   },
   {
@@ -712564,7 +712561,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 0,
-    "matchPeriod": "전반 46'",
+    "matchPeriod": "전반 48'",
     "scorers": {
       "home": [],
       "away": [
@@ -712615,21 +712612,19 @@
     "homePitcher": "파커 메식",
     "awayPitcherPid": "mlb:656876",
     "homePitcherPid": "mlb:800048",
-    "awayScore": 2,
+    "awayScore": 3,
     "homeScore": 0,
-    "inningInfo": "3회초",
+    "inningInfo": "3회말",
     "liveState": {
-      "pitcher": "헤린",
-      "batter": "힉스",
-      "ball": 1,
-      "strike": 1,
-      "out": 1,
-      "bases": [
-        3
-      ],
-      "pitchCount": 12,
-      "pitcherPid": "mlb:682120",
-      "batterPid": "mlb:689414"
+      "pitcher": "라스무센",
+      "batter": "할핀",
+      "ball": 0,
+      "strike": 0,
+      "out": 0,
+      "bases": [],
+      "pitchCount": 33,
+      "pitcherPid": "mlb:656876",
+      "batterPid": "mlb:690984"
     },
     "highlights": {
       "home": [],
