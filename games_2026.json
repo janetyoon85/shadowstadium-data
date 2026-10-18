@@ -711838,7 +711838,7 @@
     "status": "live",
     "matchPeriod": "후반",
     "homeScore": 3,
-    "awayScore": 2,
+    "awayScore": 3,
     "scorers": {
       "home": [
         {
@@ -711873,6 +711873,12 @@
           "m": 77,
           "nat": "Venezuela",
           "pid": "espn:142307"
+        },
+        {
+          "n": "Andrés Romero",
+          "m": 83,
+          "nat": "Uruguay",
+          "pid": "espn:103282"
         }
       ]
     }
@@ -712082,13 +712088,20 @@
     "gameId": "PARAGUAY_ESPN_401888584",
     "status": "live",
     "matchPeriod": "후반",
-    "homeScore": 1,
+    "homeScore": 2,
     "awayScore": 0,
     "scorers": {
       "home": [
         {
           "n": "Jorge Morel",
           "m": 40,
+          "nat": "Paraguay",
+          "pid": "espn:228565"
+        },
+        {
+          "n": "Jorge Morel",
+          "m": 53,
+          "pk": true,
           "nat": "Paraguay",
           "pid": "espn:228565"
         }
@@ -712137,6 +712150,13 @@
           "m": 8,
           "pid": "espn:333280",
           "nat": "Peru"
+        },
+        {
+          "n": "Ariel Muñoz",
+          "type": "Y",
+          "m": 42,
+          "pid": "espn:276306",
+          "nat": "Argentina"
         }
       ],
       "away": [
@@ -712380,15 +712400,17 @@
     "inningInfo": "1회초",
     "liveState": {
       "pitcher": "메식",
-      "batter": "빌라드",
-      "ball": 3,
+      "batter": "카미네로",
+      "ball": 1,
       "strike": 1,
       "out": 1,
       "bases": [
+        1,
         2
       ],
-      "pitchCount": 9,
-      "pitcherPid": "mlb:800048"
+      "pitchCount": 14,
+      "pitcherPid": "mlb:800048",
+      "batterPid": "mlb:691406"
     },
     "highlights": {
       "home": [],
