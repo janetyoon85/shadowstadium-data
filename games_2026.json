@@ -712738,17 +712738,26 @@
     "homeScore": 1,
     "inningInfo": "8회말",
     "liveState": {
-      "pitcher": "부저",
+      "pitcher": "웰스",
       "batter": "라미레즈",
-      "ball": 0,
-      "strike": 0,
+      "ball": 1,
+      "strike": 1,
       "out": 2,
       "bases": [
         1
       ],
-      "pitchCount": 10,
-      "batterPid": "mlb:608070",
-      "pitcherPid": "mlb:592155"
+      "pitchCount": 1,
+      "pitcherPid": "mlb:669224",
+      "batterPid": "mlb:608070"
+    },
+    "holds": {
+      "home": [],
+      "away": [
+        {
+          "n": "부저",
+          "pid": "mlb:592155"
+        }
+      ]
     },
     "highlights": {
       "home": [],
@@ -713071,7 +713080,17 @@
     "status": "live",
     "matchPeriod": "후반",
     "homeScore": 0,
-    "awayScore": 1
+    "awayScore": 2,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "Daniel Alberto González Pérez",
+          "m": 68,
+          "pid": "espn:3097949"
+        }
+      ]
+    }
   },
   {
     "date": "2026-10-19",
@@ -713109,7 +713128,22 @@
           "nat": "Argentina"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Lucas Sanabria",
+          "type": "Y",
+          "m": 58,
+          "pid": "espn:230580",
+          "nat": "Uruguay"
+        },
+        {
+          "n": "Gustavo Aguilar",
+          "type": "Y",
+          "m": 58,
+          "pid": "espn:286981",
+          "nat": "Paraguay"
+        }
+      ]
     }
   },
   {
