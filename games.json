@@ -707068,7 +707068,7 @@
     "status": "live",
     "matchPeriod": "후반",
     "homeScore": 1,
-    "awayScore": 1,
+    "awayScore": 0,
     "cards": {
       "home": [
         {
@@ -707104,14 +707104,7 @@
           "pid": "espn:416653"
         }
       ],
-      "away": [
-        {
-          "n": "Jacob Bergstrom",
-          "m": 70,
-          "nat": "Sweden",
-          "pid": "espn:293925"
-        }
-      ]
+      "away": []
     }
   },
   {
@@ -707126,13 +707119,19 @@
     "gameId": "SWEDEN_ESPN_401842843",
     "status": "live",
     "matchPeriod": "후반",
-    "homeScore": 1,
+    "homeScore": 2,
     "awayScore": 1,
     "scorers": {
       "home": [
         {
           "n": "Joakim Persson",
           "m": 70,
+          "nat": "Sweden",
+          "pid": "espn:22706"
+        },
+        {
+          "n": "Joakim Persson",
+          "m": 73,
           "nat": "Sweden",
           "pid": "espn:22706"
         }
