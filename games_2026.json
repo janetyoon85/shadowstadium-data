@@ -711196,16 +711196,16 @@
         {
           "n": "슐츠",
           "m": 32,
-          "nat": "Czechia",
-          "pid": "espn:305545"
+          "pid": "espn:305545",
+          "nat": "Czechia"
         },
         {
           "n": "테스만",
           "m": 36,
+          "pid": "espn:303308",
           "a": "Zachary Athekame",
           "nat": "USA",
           "aNat": "Switzerland",
-          "pid": "espn:303308",
           "apid": "espn:370758"
         }
       ],
@@ -711213,10 +711213,10 @@
         {
           "n": "와히",
           "m": 18,
+          "pid": "espn:311118",
           "a": "Jonathan Clauss",
           "nat": "Ivory Coast",
           "aNat": "France",
-          "pid": "espn:311118",
           "apid": "espn:232089"
         }
       ]
@@ -711282,19 +711282,19 @@
         {
           "n": "프롭스트",
           "m": 37,
+          "pid": "espn:333311",
           "a": "Mattia Zaccagni",
           "nat": "Denmark",
           "aNat": "Italy",
-          "pid": "espn:333311",
           "apid": "espn:204669"
         },
         {
           "n": "이삭센",
           "m": 66,
+          "pid": "espn:291550",
           "a": "Nuno Tavares",
           "nat": "Denmark",
           "aNat": "Portugal",
-          "pid": "espn:291550",
           "apid": "espn:288901"
         },
         {
@@ -711572,7 +711572,7 @@
     "gameId": "COLOMBIA_ESPN_401877774",
     "status": "live",
     "matchPeriod": "후반",
-    "homeScore": 1,
+    "homeScore": 2,
     "awayScore": 1,
     "scorers": {
       "home": [
@@ -711581,6 +711581,13 @@
           "m": 14,
           "nat": "Argentina",
           "pid": "espn:195525"
+        },
+        {
+          "n": "Jorge Soto",
+          "m": 90,
+          "pk": true,
+          "nat": "Colombia",
+          "pid": "espn:216564"
         }
       ],
       "away": [
@@ -711727,7 +711734,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 4,
-    "matchPeriod": "후반 45'",
+    "matchPeriod": "후반 48'",
     "scorers": {
       "home": [
         {
@@ -712008,14 +712015,15 @@
     "inningInfo": "4회초",
     "liveState": {
       "pitcher": "Jose Rodriguez",
-      "batter": "Leandro Cedeño",
+      "batter": "José Rondon",
       "pitcherPid": "mlb:673648",
-      "batterPid": "mlb:660681",
-      "ball": 1,
-      "strike": 0,
-      "out": 0,
+      "batterPid": "mlb:602922",
+      "ball": 2,
+      "strike": 2,
+      "out": 1,
       "bases": [
-        2
+        2,
+        3
       ]
     }
   },
