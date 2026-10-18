@@ -46,6 +46,8 @@ export const ASIA_TEAMS = {
   INDIA: {
     "mohunbagansupergiant": { ko: "모훈 바간 슈퍼 자이언트", venueId: "salt_lake_stadium_kolkata", en: "Mohun Bagan Super Giant" },
     "sceastbengal": { ko: "SC 이스트벵골", venueId: "salt_lake_stadium_kolkata", en: "SC East Bengal" },
+    // 2026-10-18: ESPN 이 같은 클럽을 "East Bengal FC"로도 내려줌 — ACL2/네이버 표기("이스트 벵갈")로 통일(로고·영문명이 이미 있음).
+    "eastbengalfc": { ko: "이스트 벵갈", venueId: "salt_lake_stadium_kolkata", en: "East Bengal" },
     "fcgoa": { ko: "FC 고아", venueId: "jawaharlal_nehru_goa", en: "FC Goa" },
     "jamshedpurfc": { ko: "잠셰드푸르 FC", venueId: "jrd_tata_sports_complex", en: "Jamshedpur FC" },
     "bengalurufc": { ko: "벵갈루루 FC", venueId: "sree_kanteerava_stadium", en: "Bengaluru FC" },
