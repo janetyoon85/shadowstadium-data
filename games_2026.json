@@ -710591,13 +710591,17 @@
     "inningInfo": "6회말",
     "liveState": {
       "pitcher": "Ramon Santos",
-      "batter": "Leobaldo Piña",
+      "batter": "Lorenzo Cedrola",
       "pitcherPid": "mlb:622353",
-      "batterPid": "mlb:600951",
+      "batterPid": "mlb:661411",
       "ball": 1,
-      "strike": 0,
-      "out": 0,
-      "bases": []
+      "strike": 1,
+      "out": 2,
+      "bases": [
+        1,
+        2,
+        3
+      ]
     }
   },
   {
@@ -710701,7 +710705,7 @@
     "status": "live",
     "matchPeriod": "후반",
     "homeScore": 1,
-    "awayScore": 0,
+    "awayScore": 1,
     "cards": {
       "home": [
         {
@@ -710724,6 +710728,13 @@
           "m": 49,
           "pid": "espn:400994",
           "nat": "Argentina"
+        },
+        {
+          "n": "Gonzalo Escudero",
+          "type": "Y",
+          "m": 64,
+          "pid": "espn:361553",
+          "nat": "Argentina"
         }
       ],
       "away": []
@@ -710737,7 +710748,15 @@
           "pid": "espn:241988"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Maximiliano Meza",
+          "m": 65,
+          "pk": true,
+          "nat": "Argentina",
+          "pid": "espn:172539"
+        }
+      ]
     }
   },
   {
@@ -710753,7 +710772,7 @@
     "status": "live",
     "awayScore": 2,
     "homeScore": 1,
-    "matchPeriod": "후반 7'",
+    "matchPeriod": "후반 14'",
     "scorers": {
       "home": [
         {
@@ -710796,6 +710815,13 @@
           "m": 38,
           "pid": "espn:338120",
           "nat": "Netherlands"
+        },
+        {
+          "n": "Rodrigo Guth",
+          "type": "Y",
+          "m": 54,
+          "pid": "espn:266669",
+          "nat": "Brazil"
         }
       ]
     }
@@ -710813,7 +710839,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 1,
-    "matchPeriod": "후반 10'",
+    "matchPeriod": "후반 16'",
     "scorers": {
       "home": [
         {
@@ -710835,6 +710861,18 @@
           "pid": "espn:357698",
           "aNat": "France",
           "apid": "espn:266190"
+        }
+      ]
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Siebe Horemans",
+          "type": "Y",
+          "m": 57,
+          "pid": "espn:240351",
+          "nat": "Belgium"
         }
       ]
     }
@@ -710919,8 +710957,8 @@
     "gameId": "d3eikY7XfnXY3Ra",
     "status": "live",
     "awayScore": 0,
-    "homeScore": 1,
-    "matchPeriod": "후반 12'",
+    "homeScore": 2,
+    "matchPeriod": "후반 17'",
     "scorers": {
       "home": [
         {
@@ -710928,6 +710966,12 @@
           "m": 33,
           "nat": "Slovakia",
           "pid": "espn:194966"
+        },
+        {
+          "n": "캉가",
+          "m": 60,
+          "nat": "France",
+          "pid": "espn:241689"
         }
       ],
       "away": []
@@ -710948,7 +710992,15 @@
           "pid": "espn:3141529"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Ali Al Shaafi",
+          "type": "Y",
+          "m": 58,
+          "pid": "espn:367631",
+          "nat": "Saudi Arabia"
+        }
+      ]
     }
   },
   {
@@ -710962,7 +711014,7 @@
     "timeTbd": false,
     "gameId": "URUGUAY_ESPN_401929242",
     "status": "live",
-    "matchPeriod": "하프타임",
+    "matchPeriod": "후반",
     "homeScore": 0,
     "awayScore": 0
   },
@@ -710993,10 +711045,17 @@
     "gameId": "pUtSCoX5B2pdXOr",
     "status": "live",
     "awayScore": 1,
-    "homeScore": 0,
-    "matchPeriod": "전반 28'",
+    "homeScore": 1,
+    "matchPeriod": "전반 34'",
     "scorers": {
-      "home": [],
+      "home": [
+        {
+          "n": "슐츠",
+          "m": 33,
+          "nat": "Czechia",
+          "pid": "espn:305545"
+        }
+      ],
       "away": [
         {
           "n": "와히",
@@ -711035,7 +711094,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 27'"
+    "matchPeriod": "전반 33'"
   },
   {
     "date": "2026-10-19",
@@ -711105,8 +711164,31 @@
     "gameId": "COLOMBIA_ESPN_401877774",
     "status": "live",
     "matchPeriod": "전반",
-    "homeScore": 0,
-    "awayScore": 0
+    "homeScore": 1,
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "Matías Ramírez",
+          "m": 14,
+          "nat": "Argentina",
+          "pid": "espn:195525"
+        }
+      ],
+      "away": []
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Brayan Rovira",
+          "type": "Y",
+          "m": 12,
+          "pid": "espn:197407",
+          "nat": "Colombia"
+        }
+      ]
+    }
   },
   {
     "date": "2026-10-19",
@@ -711122,7 +711204,19 @@
     "phaseCode": "FR",
     "matchPeriod": "전반",
     "homeScore": 0,
-    "awayScore": 0
+    "awayScore": 0,
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Francisco Pizzini",
+          "type": "Y",
+          "m": 14,
+          "pid": "espn:166477",
+          "nat": "Argentina"
+        }
+      ]
+    }
   },
   {
     "date": "2026-10-19",
@@ -711137,7 +711231,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 9'"
+    "matchPeriod": "전반 15'"
   },
   {
     "date": "2026-10-19",
