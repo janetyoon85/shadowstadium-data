@@ -709262,7 +709262,7 @@
     "stadium": "Aker Stadion",
     "timeTbd": false,
     "gameId": "NORWAY_ESPN_401843463",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 6,
     "awayScore": 1,
@@ -709416,7 +709416,7 @@
     "stadium": "Jotun Arena",
     "timeTbd": false,
     "gameId": "NORWAY_ESPN_401843462",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 0,
     "awayScore": 2,
@@ -709446,6 +709446,13 @@
           "m": 45,
           "pid": "espn:255219",
           "nat": "Angola"
+        },
+        {
+          "n": "Gustav Nyheim",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:363001",
+          "nat": "Norway"
         }
       ]
     }
@@ -709461,9 +709468,9 @@
     "timeTbd": false,
     "gameId": "61V0HB7HxiVjCY7",
     "status": "live",
-    "awayScore": 1,
+    "awayScore": 2,
     "homeScore": 2,
-    "matchPeriod": "후반 28'",
+    "matchPeriod": "후반 30'",
     "scorers": {
       "home": [
         {
@@ -709489,6 +709496,13 @@
         {
           "n": "르폴",
           "m": 29,
+          "pk": true,
+          "nat": "France",
+          "pid": "espn:323850"
+        },
+        {
+          "n": "르폴",
+          "m": 74,
           "pk": true,
           "nat": "France",
           "pid": "espn:323850"
@@ -709557,7 +709571,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 1,
-    "matchPeriod": "후반 36'",
+    "matchPeriod": "후반 38'",
     "scorers": {
       "home": [
         {
@@ -709632,7 +709646,7 @@
     "status": "live",
     "awayScore": 3,
     "homeScore": 1,
-    "matchPeriod": "후반 36'",
+    "matchPeriod": "후반 38'",
     "scorers": {
       "home": [
         {
@@ -709783,7 +709797,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "후반 20'",
+    "matchPeriod": "후반 22'",
     "cards": {
       "home": [
         {
@@ -709816,7 +709830,7 @@
     "timeTbd": false,
     "gameId": "RUSSIA_ESPN_401879838",
     "status": "live",
-    "matchPeriod": "하프타임",
+    "matchPeriod": "후반",
     "homeScore": 2,
     "awayScore": 0,
     "cards": {
@@ -710015,7 +710029,7 @@
     "status": "live",
     "phaseCode": "FR",
     "matchPeriod": "전반",
-    "homeScore": 0,
+    "homeScore": 1,
     "awayScore": 0,
     "cards": {
       "home": [],
@@ -710023,11 +710037,22 @@
         {
           "n": "Jefferson Troya",
           "type": "Y",
-          "m": 21,
+          "m": 20,
           "pid": "espn:312139",
           "nat": "Ecuador"
         }
       ]
+    },
+    "scorers": {
+      "home": [
+        {
+          "n": "Franco Ayunta",
+          "m": 22,
+          "nat": "Argentina",
+          "pid": "espn:292183"
+        }
+      ],
+      "away": []
     }
   },
   {
