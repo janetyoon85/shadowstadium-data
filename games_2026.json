@@ -704039,14 +704039,15 @@
     "inningInfo": "9회초",
     "liveState": {
       "pitcher": "Pedro Rodriguez",
-      "batter": "Carlos Pérez",
+      "batter": "Jose Herrera",
       "pitcherPid": "mlb:466463",
-      "batterPid": "mlb:656024",
-      "ball": 0,
-      "strike": 0,
-      "out": 1,
+      "batterPid": "mlb:645444",
+      "ball": 1,
+      "strike": 2,
+      "out": 2,
       "bases": [
-        1
+        1,
+        3
       ]
     }
   },
@@ -704060,25 +704061,16 @@
     "stadium": "프로그레시브 필드",
     "timeTbd": false,
     "gameId": "20261018TBCL0",
-    "status": "live",
+    "status": "completed",
     "awayPitcher": "닉 마르티네즈",
     "homePitcher": "숀 암스트롱",
     "awayPitcherPid": "mlb:607259",
     "homePitcherPid": "mlb:542888",
     "awayScore": 7,
     "homeScore": 3,
-    "inningInfo": "9회말",
-    "liveState": {
-      "pitcher": "베이커",
-      "batter": "마르티네스",
-      "ball": 0,
-      "strike": 0,
-      "out": 0,
-      "bases": [],
-      "pitchCount": 12,
-      "pitcherPid": "mlb:641329",
-      "batterPid": "mlb:682657"
-    },
+    "winPitcher": "마르티네즈",
+    "losePitcher": "에스피노",
+    "winPitcherPid": "mlb:607259",
     "holds": {
       "home": [],
       "away": [
@@ -704638,19 +704630,19 @@
     "gameId": "LMP_MLBSTATS_850554",
     "status": "live",
     "homeScore": 0,
-    "awayScore": 5,
+    "awayScore": 6,
     "inningInfo": "9회초",
     "liveState": {
-      "pitcher": "Gil Luna",
-      "batter": "Daniel Castro",
-      "pitcherPid": "mlb:669431",
-      "batterPid": "mlb:593495",
+      "pitcher": "Luis Ochoa",
+      "batter": "Christian Morales",
+      "pitcherPid": "mlb:806461",
+      "batterPid": "mlb:806157",
       "ball": 0,
-      "strike": 0,
-      "out": 1,
+      "strike": 1,
+      "out": 2,
       "bases": [
         1,
-        2
+        3
       ]
     }
   },
@@ -704670,13 +704662,15 @@
     "inningInfo": "8회말",
     "liveState": {
       "pitcher": "Miguel Vazquez",
-      "batter": "Eric Filia",
+      "batter": "Jayson Bass",
       "pitcherPid": "mlb:703722",
-      "batterPid": "mlb:596107",
-      "ball": 0,
+      "batterPid": "mlb:814188",
+      "ball": 2,
       "strike": 0,
-      "out": 0,
-      "bases": []
+      "out": 1,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -704690,16 +704684,16 @@
     "timeTbd": false,
     "gameId": "LMP_MLBSTATS_850552",
     "status": "live",
-    "homeScore": 0,
+    "homeScore": 1,
     "awayScore": 0,
     "inningInfo": "8회말",
     "liveState": {
       "pitcher": "Edwin Fierro",
-      "batter": "Phillip Evans",
+      "batter": "Clay Dungan",
       "pitcherPid": "mlb:616623",
-      "batterPid": "mlb:595943",
-      "ball": 0,
-      "strike": 0,
+      "batterPid": "mlb:687867",
+      "ball": 1,
+      "strike": 2,
       "out": 0,
       "bases": []
     }
@@ -704719,16 +704713,17 @@
     "awayScore": 4,
     "inningInfo": "7회말",
     "liveState": {
-      "pitcher": "Matt Foster",
-      "batter": "Samar Leyva",
-      "pitcherPid": "mlb:641582",
-      "batterPid": "mlb:653001",
-      "ball": 1,
-      "strike": 0,
-      "out": 0,
+      "pitcher": "Augusto Mendieta",
+      "batter": "Jose Gaitan",
+      "pitcherPid": "mlb:800078",
+      "batterPid": "mlb:668165",
+      "ball": 4,
+      "strike": 1,
+      "out": 1,
       "bases": [
         1,
-        2
+        2,
+        3
       ]
     }
   },
@@ -704824,20 +704819,17 @@
     "gameId": "AFL_MLBSTATS_867702",
     "status": "live",
     "homeScore": 0,
-    "awayScore": 8,
-    "inningInfo": "7회초",
+    "awayScore": 10,
+    "inningInfo": "7회말",
     "liveState": {
-      "pitcher": "Nick Altermatt",
-      "batter": "Zion Rose",
-      "pitcherPid": "mlb:805892",
-      "batterPid": "mlb:805799",
-      "ball": 3,
+      "pitcher": "Magnus Ellerts",
+      "batter": "Caleb Bonemer",
+      "pitcherPid": "mlb:701884",
+      "batterPid": "mlb:815352",
+      "ball": 1,
       "strike": 1,
-      "out": 2,
-      "bases": [
-        2,
-        3
-      ]
+      "out": 0,
+      "bases": []
     }
   },
   {
@@ -705023,7 +705015,7 @@
     "status": "live",
     "awayScore": 2,
     "homeScore": 2,
-    "matchPeriod": "전반 44'",
+    "matchPeriod": "전반 46'",
     "scorers": {
       "home": [
         {
@@ -705062,7 +705054,15 @@
       ]
     },
     "cards": {
-      "home": [],
+      "home": [
+        {
+          "n": "João Klauss",
+          "type": "Y",
+          "m": 45,
+          "pid": "espn:150409",
+          "nat": "Brazil"
+        }
+      ],
       "away": [
         {
           "n": "Aníbal Godoy",
@@ -705088,7 +705088,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 0,
-    "matchPeriod": "전반 44'",
+    "matchPeriod": "전반 46'",
     "scorers": {
       "home": [],
       "away": [
@@ -705126,7 +705126,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 0,
-    "matchPeriod": "전반 44'",
+    "matchPeriod": "전반 46'",
     "scorers": {
       "home": [],
       "away": [
@@ -705152,7 +705152,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 44'",
+    "matchPeriod": "전반 46'",
     "cards": {
       "home": [
         {
@@ -706507,7 +706507,9 @@
     "awayPitcherPid": "mlb:656876",
     "homePitcherPid": "mlb:656492",
     "round": "ps_alcs",
-    "rn": 5
+    "rn": 5,
+    "serH": 2,
+    "serA": 2
   },
   {
     "date": "2026-10-19",
