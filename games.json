@@ -706522,18 +706522,6 @@
     "date": "2026-10-18",
     "time": "19:33",
     "league": "LMP",
-    "venueId": "estadio_manuel_ciclon_echeverria",
-    "home": "마요스 데 나보호아",
-    "away": "나랑헤로스 데 에르모시요",
-    "stadium": "Estadio Manuel Ciclon Echeverria",
-    "timeTbd": true,
-    "gameId": "LMP_MLBSTATS_850559",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-10-18",
-    "time": "19:33",
-    "league": "LMP",
     "venueId": "estadio_teodoro_mariscal",
     "home": "베나도스 데 마사틀란",
     "away": "알고도네로스 데 과사베",
@@ -712558,16 +712546,18 @@
     "status": "live",
     "homeScore": 3,
     "awayScore": 1,
-    "inningInfo": "7회초",
+    "inningInfo": "7회말",
     "liveState": {
-      "pitcher": "Jonathan Aro",
-      "batter": "Emil Morales",
-      "pitcherPid": "mlb:608167",
-      "batterPid": "mlb:815896",
-      "ball": 2,
-      "strike": 3,
-      "out": 2,
-      "bases": []
+      "pitcher": "José Lopez",
+      "batter": "Mason McCoy",
+      "pitcherPid": "mlb:673111",
+      "batterPid": "mlb:669200",
+      "ball": 0,
+      "strike": 0,
+      "out": 0,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -712586,14 +712576,15 @@
     "inningInfo": "6회말",
     "liveState": {
       "pitcher": "Luis Guerrero",
-      "batter": "Jesús Made",
+      "batter": "Maikel Franco",
       "pitcherPid": "mlb:692285",
-      "batterPid": "mlb:815908",
-      "ball": 3,
-      "strike": 1,
-      "out": 1,
+      "batterPid": "mlb:596748",
+      "ball": 0,
+      "strike": 2,
+      "out": 2,
       "bases": [
-        1
+        1,
+        2
       ]
     }
   },
@@ -712612,14 +712603,16 @@
     "awayScore": 5,
     "inningInfo": "7회초",
     "liveState": {
-      "pitcher": "Junior Santos",
-      "batter": "Jhonkensy Noel",
-      "pitcherPid": "mlb:681744",
-      "batterPid": "mlb:678877",
+      "pitcher": "Richard Guasch",
+      "batter": "Eguy Rosario",
+      "pitcherPid": "mlb:683014",
+      "batterPid": "mlb:666703",
       "ball": 0,
-      "strike": 0,
+      "strike": 1,
       "out": 0,
-      "bases": []
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -712638,13 +712631,15 @@
     "inningInfo": "7회말",
     "liveState": {
       "pitcher": "Will Changarotty",
-      "batter": "Keiner Delgado",
+      "batter": "Juan Villavicencio",
       "pitcherPid": "mlb:642570",
-      "batterPid": "mlb:700731",
+      "batterPid": "mlb:800276",
       "ball": 0,
       "strike": 0,
-      "out": 0,
-      "bases": []
+      "out": 1,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -713253,22 +713248,18 @@
     "timeTbd": false,
     "gameId": "LMP_MLBSTATS_850556",
     "status": "live",
-    "homeScore": 0,
+    "homeScore": 3,
     "awayScore": 0,
-    "inningInfo": "2회말",
+    "inningInfo": "3회초",
     "liveState": {
-      "pitcher": "Samuel Zazueta",
-      "batter": "Marco Jaime",
-      "pitcherPid": "mlb:650980",
-      "batterPid": "mlb:668616",
-      "ball": 2,
-      "strike": 2,
-      "out": 2,
-      "bases": [
-        1,
-        2,
-        3
-      ]
+      "pitcher": "Daniel Nunez",
+      "batter": "Marco Vargas",
+      "pitcherPid": "mlb:805982",
+      "batterPid": "mlb:804614",
+      "ball": 1,
+      "strike": 1,
+      "out": 0,
+      "bases": []
     }
   },
   {
@@ -713286,13 +713277,13 @@
     "awayScore": 0,
     "inningInfo": "2회말",
     "liveState": {
-      "pitcher": "Max Castillo",
-      "batter": "Damon Dues",
-      "pitcherPid": "mlb:666721",
-      "batterPid": "mlb:680815",
+      "pitcher": "Williander Moreno",
+      "batter": "Yojhan Quevedo",
+      "pitcherPid": "mlb:678981",
+      "batterPid": "mlb:605101",
       "ball": 0,
       "strike": 0,
-      "out": 1,
+      "out": 3,
       "bases": []
     }
   },
@@ -713417,6 +713408,31 @@
       "batter": "Jacob Robson",
       "pitcherPid": "mlb:801461",
       "batterPid": "mlb:615699",
+      "ball": 0,
+      "strike": 0,
+      "out": 0,
+      "bases": []
+    }
+  },
+  {
+    "date": "2026-10-19",
+    "time": "09:00",
+    "league": "LMP",
+    "venueId": "estadio_yaquis_obregon",
+    "home": "마요스 데 나보호아",
+    "away": "나랑헤로스 데 에르모시요",
+    "stadium": "Estadio de los Yaquis",
+    "timeTbd": false,
+    "gameId": "LMP_MLBSTATS_850559",
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0,
+    "inningInfo": "1회초",
+    "liveState": {
+      "pitcher": "Elian Leyva",
+      "batter": "Luis Durango",
+      "pitcherPid": "mlb:673140",
+      "batterPid": "mlb:691411",
       "ball": 0,
       "strike": 0,
       "out": 0,
