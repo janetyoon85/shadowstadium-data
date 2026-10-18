@@ -711912,8 +711912,19 @@
     "gameId": "PARAGUAY_ESPN_401888584",
     "status": "live",
     "matchPeriod": "전반",
-    "homeScore": 0,
-    "awayScore": 0
+    "homeScore": 1,
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "Jorge Morel",
+          "m": 40,
+          "nat": "Paraguay",
+          "pid": "espn:228565"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-10-19",
@@ -711930,7 +711941,15 @@
     "homeScore": 0,
     "awayScore": 0,
     "cards": {
-      "home": [],
+      "home": [
+        {
+          "n": "Stefano Fernández",
+          "type": "Y",
+          "m": 8,
+          "pid": "espn:333280",
+          "nat": "Peru"
+        }
+      ],
       "away": [
         {
           "n": "Horacio Calcaterra",
