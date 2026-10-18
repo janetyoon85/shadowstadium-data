@@ -711838,7 +711838,7 @@
     "status": "live",
     "matchPeriod": "후반",
     "homeScore": 3,
-    "awayScore": 1,
+    "awayScore": 2,
     "scorers": {
       "home": [
         {
@@ -711865,6 +711865,12 @@
           "n": "Luis González",
           "m": 17,
           "pk": true,
+          "nat": "Venezuela",
+          "pid": "espn:142307"
+        },
+        {
+          "n": "Luis González",
+          "m": 77,
           "nat": "Venezuela",
           "pid": "espn:142307"
         }
@@ -712052,18 +712058,16 @@
     "status": "live",
     "homeScore": 3,
     "awayScore": 2,
-    "inningInfo": "4회초",
+    "inningInfo": "4회말",
     "liveState": {
-      "pitcher": "Jose Rodriguez",
-      "batter": "Alfredo Duno",
-      "pitcherPid": "mlb:673648",
-      "batterPid": "mlb:806957",
-      "ball": 3,
-      "strike": 2,
-      "out": 2,
-      "bases": [
-        2
-      ]
+      "pitcher": "Connor Van Scoyoc",
+      "batter": "Omar Alfonzo",
+      "pitcherPid": "mlb:681854",
+      "batterPid": "mlb:692657",
+      "ball": 1,
+      "strike": 1,
+      "out": 0,
+      "bases": []
     }
   },
   {
@@ -712100,6 +712104,13 @@
           "m": 45,
           "pid": "espn:134247",
           "nat": "Paraguay"
+        },
+        {
+          "n": "Raúl Cabral",
+          "type": "Y",
+          "m": 52,
+          "pid": "espn:339190",
+          "nat": "Argentina"
         }
       ]
     }
@@ -712200,7 +712211,19 @@
     "status": "live",
     "matchPeriod": "전반",
     "homeScore": 0,
-    "awayScore": 0
+    "awayScore": 0,
+    "cards": {
+      "home": [
+        {
+          "n": "Luciano Pons",
+          "type": "Y",
+          "m": 6,
+          "pid": "espn:143522",
+          "nat": "Argentina"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-10-19",
@@ -712233,13 +712256,16 @@
     "inningInfo": "1회초",
     "liveState": {
       "pitcher": "Jhordany Mezquita",
-      "batter": "Noelvi Marte",
+      "batter": "Aristides Aquino",
       "pitcherPid": "mlb:674245",
-      "batterPid": "mlb:682622",
+      "batterPid": "mlb:606157",
       "ball": 0,
       "strike": 0,
-      "out": 0,
-      "bases": []
+      "out": 1,
+      "bases": [
+        1,
+        2
+      ]
     }
   },
   {
@@ -712258,12 +712284,12 @@
     "inningInfo": "1회초",
     "liveState": {
       "pitcher": "Jose Quintana",
-      "batter": "Vidal Bruján",
+      "batter": "Sócrates Brito",
       "pitcherPid": "mlb:500779",
-      "batterPid": "mlb:660644",
-      "ball": 0,
-      "strike": 0,
-      "out": 0,
+      "batterPid": "mlb:593647",
+      "ball": 1,
+      "strike": 2,
+      "out": 2,
       "bases": []
     }
   },
@@ -712283,13 +712309,15 @@
     "inningInfo": "1회초",
     "liveState": {
       "pitcher": "Enny Romero",
-      "batter": "Gilberto Celestino",
+      "batter": "Jhonkensy Noel",
       "pitcherPid": "mlb:544836",
-      "batterPid": "mlb:665482",
-      "ball": 0,
-      "strike": 0,
-      "out": 0,
-      "bases": []
+      "batterPid": "mlb:678877",
+      "ball": 2,
+      "strike": 1,
+      "out": 2,
+      "bases": [
+        2
+      ]
     }
   },
   {
@@ -712304,17 +712332,19 @@
     "gameId": "LVBP_MLBSTATS_870080",
     "status": "live",
     "homeScore": 0,
-    "awayScore": 0,
+    "awayScore": 1,
     "inningInfo": "1회초",
     "liveState": {
       "pitcher": "José Davila",
-      "batter": "Edward Olivares",
+      "batter": "Carlos Pérez",
       "pitcherPid": "mlb:692369",
-      "batterPid": "mlb:658668",
-      "ball": 3,
-      "strike": 0,
-      "out": 0,
-      "bases": []
+      "batterPid": "mlb:656024",
+      "ball": 2,
+      "strike": 1,
+      "out": 1,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -712350,16 +712380,15 @@
     "inningInfo": "1회초",
     "liveState": {
       "pitcher": "메식",
-      "batter": "아란다",
-      "ball": 0,
+      "batter": "빌라드",
+      "ball": 3,
       "strike": 1,
-      "out": 0,
+      "out": 1,
       "bases": [
         2
       ],
-      "pitchCount": 4,
-      "pitcherPid": "mlb:800048",
-      "batterPid": "mlb:666018"
+      "pitchCount": 9,
+      "pitcherPid": "mlb:800048"
     },
     "highlights": {
       "home": [],
