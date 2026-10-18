@@ -706291,7 +706291,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 0,
-    "matchPeriod": "전반 46'",
+    "matchPeriod": "전반종료",
     "scorers": {
       "home": [],
       "away": [
@@ -706315,9 +706315,9 @@
     "timeTbd": false,
     "gameId": "qdTtCVAtVQCdtdh",
     "status": "live",
-    "awayScore": 1,
+    "awayScore": 2,
     "homeScore": 0,
-    "matchPeriod": "전반 31'",
+    "matchPeriod": "전반 35'",
     "scorers": {
       "home": [],
       "away": [
@@ -706329,6 +706329,15 @@
           "pid": "espn:318604",
           "aNat": "Italy",
           "apid": "espn:277441"
+        },
+        {
+          "n": "엔드리",
+          "m": 33,
+          "a": "Tiago Gabriel",
+          "nat": "Ivory Coast",
+          "pid": "espn:286582",
+          "aNat": "Portugal",
+          "apid": "espn:379865"
         }
       ]
     }
@@ -706345,7 +706354,7 @@
     "gameId": "TURKEY_ESPN_401888276",
     "status": "live",
     "matchPeriod": "전반",
-    "homeScore": 1,
+    "homeScore": 2,
     "awayScore": 0,
     "scorers": {
       "home": [
@@ -706354,6 +706363,12 @@
           "m": 26,
           "nat": "Brazil",
           "pid": "espn:159052"
+        },
+        {
+          "n": "Adem Arous",
+          "m": 31,
+          "nat": "Tunisia",
+          "pid": "espn:410358"
         }
       ],
       "away": []
@@ -706429,7 +706444,10 @@
     "stadium": "Workers' Stadium",
     "timeTbd": false,
     "gameId": "CHINA_ESPN_401861481",
-    "status": "scheduled"
+    "status": "live",
+    "matchPeriod": "전반",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-10-18",
@@ -719373,6 +719391,18 @@
   },
   {
     "date": "2026-11-02",
+    "time": "05:00",
+    "league": "PARAGUAY",
+    "venueId": "estadio_la_nueva_olla",
+    "home": "세로 포르테뇨",
+    "away": "클루브 올림피아",
+    "stadium": "Estadio ueno La Nueva Olla",
+    "timeTbd": false,
+    "gameId": "PARAGUAY_ESPN_401888574",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-02",
     "time": "05:15",
     "league": "CHILE",
     "venueId": "estadio_san_carlos_apoquindo",
@@ -721832,18 +721862,6 @@
     "gameId": "rYBv8qtKK4ClcwU",
     "status": "scheduled",
     "phaseCode": "LEAGUE"
-  },
-  {
-    "date": "2026-11-06",
-    "time": "05:00",
-    "league": "PARAGUAY",
-    "venueId": "estadio_la_nueva_olla",
-    "home": "세로 포르테뇨",
-    "away": "클루브 올림피아",
-    "stadium": "",
-    "timeTbd": true,
-    "gameId": "PARAGUAY_ESPN_401888574",
-    "status": "scheduled"
   },
   {
     "date": "2026-11-06",
