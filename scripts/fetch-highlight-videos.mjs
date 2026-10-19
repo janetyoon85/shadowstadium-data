@@ -36,7 +36,7 @@ export const CHANNELS = [
   { name: 'NBA', id: 'UCWJ2lWNubArHWmf3FIHbfcQ', src: 'bk', leagues: ['NBA'], must: /full game highlights/i },
   // 정규시즌 제목은 "[A vs B] 10.12(월) 야구 하이라이트｜…"인데 포스트시즌은 "[A vs B] 10.14(수) WC 1차전 하이라이트｜…"로 "야구"가 빠진다(2026-10-14 두산-LG 와일드카드 영상이 7시간 늦게 붙음).
   // 그래서 "[A vs B] … 하이라이트"로 시작하는 풀 하이라이트면 모두 받는다(크보모먼트·선수 클립은 이 형식이 아니라 제외).
-  { name: 'KBO', id: 'UCoVz66yWHzVsXAFG8WhJK9g', src: 'g', leagues: ['KBO'], must: /^\[[^\]]+ vs [^\]]+\].*하이라이트/ },
+  { name: 'KBO', id: 'UCoVz66yWHzVsXAFG8WhJK9g', src: 'g', leagues: ['KBO'], must: /^\[?[^\]|｜[]{1,24} vs [^\]|｜[]{1,24}\].*하이라이트/ }, // 2026-10-18: 공식 영상 제목이 "LG트윈스 vs KIA타이거즈] …"처럼 여는 "["를 빠뜨린 채 올라와 24시간 뒤에야 붙었다 — 여는 대괄호는 선택.
   { name: 'NPB Pacific', id: 'UC0v-pxTo1XamIDE-f__Ad0Q', src: 'g', leagues: ['NPB'], must: /試合ハイライト/ },
   // 2026-10-13: 일본어 J.League 공식 채널 영상은 한국에서 거의 전부 재생 불가(J1 82건 중 81건) — 영문 채널(J.LEAGUE International)은 한국에서 열린다(사용자 확인). 같은 경기의 대체 후보(alts)로 쓰인다.
   { name: 'J.LEAGUE International', handle: 'JLEAGUEInternational', src: 'g', leagues: ['J1'], must: /highlights/i, not: /shorts|classic|top goals|goal of|best of|preview|press|interview|mid-season|awards/i, script: 'latin' },
