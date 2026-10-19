@@ -713339,7 +713339,7 @@
     "stadium": "Estadio Bello Horizonte - Rey Pele",
     "timeTbd": false,
     "gameId": "COLOMBIA_ESPN_401877840",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 1,
     "awayScore": 0,
@@ -713479,10 +713479,18 @@
     "gameId": "BOLIVIA_ESPN_401906464",
     "status": "live",
     "matchPeriod": "후반",
-    "homeScore": 0,
+    "homeScore": 1,
     "awayScore": 1,
     "scorers": {
-      "home": [],
+      "home": [
+        {
+          "n": "Milton Maciel",
+          "m": 78,
+          "pk": true,
+          "nat": "Paraguay",
+          "pid": "espn:269861"
+        }
+      ],
       "away": [
         {
           "n": "Mizael",
@@ -713529,6 +713537,13 @@
           "type": "Y",
           "m": 62,
           "pid": "espn:3100013"
+        },
+        {
+          "n": "Alejandro Torres",
+          "type": "Y",
+          "m": 77,
+          "pid": "espn:306888",
+          "nat": "Bolivia"
         }
       ]
     }
@@ -713740,7 +713755,10 @@
     "stadium": "Estadio BBVA",
     "timeTbd": false,
     "gameId": "LIGAMX_ESPN_401876938",
-    "status": "scheduled"
+    "status": "live",
+    "matchPeriod": "전반",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-10-19",
