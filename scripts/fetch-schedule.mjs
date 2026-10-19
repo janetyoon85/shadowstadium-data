@@ -9,6 +9,7 @@ import { parseBaseballHighlights, parseKboRelayHighlights, parseMlbNpbRelayHighl
 import { selectUniqueScoreMatch } from './espn-match-select.mjs';
 import { assignSeriesRecord, assignLegOneResult } from './series-record.mjs';
 import { canonTeamName } from './team-name-canon.mjs';
+import { GENERIC_TBC_VENUE_ID, isTbcStadium } from './venue-tbc.mjs';
 import { getMlbNationality, getMlbPitcherDecisionNats, getMlbHoldNats, getMlbProbableStarterPid } from './mlb-nationality.mjs';
 import { staleSuspendedStatus } from './live-staleness.mjs';
 import { mlbLivePitcherPid } from './mlb-live-pid.mjs';
@@ -369,7 +370,7 @@ function convertGame(n, cat, stadiumMap, mapFailures) {
   const time = dt.includes('T') ? dt.split('T')[1].slice(0, 5) : '00:00';
   const catMap = stadiumMap[cat.categoryId] || {};
   const stadium = n.stadium || '';
-  const venueId = catMap[stadium] || '';
+  const venueId = catMap[stadium] || (isTbcStadium(stadium) ? GENERIC_TBC_VENUE_ID : '');
   if (!venueId && stadium) {
     mapFailures.push({ categoryId: cat.categoryId, stadium });
   }
