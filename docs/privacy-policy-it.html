@@ -54,6 +54,17 @@
   <tr><td>Cache del calendario partite</td><td>Supporto all'uso offline</td></tr>
 </table>
 
+<h3>Cookie e tecnologie simili sul dispositivo</h3>
+<p>Questa app è un'applicazione mobile e non usa cookie del browser, ma memorizza informazioni sul dispositivo e vi accede (come fanno i servizi di terze parti che utilizziamo) tramite tecnologie simili:</p>
+<ul>
+  <li><strong>Archiviazione locale sul dispositivo</strong> (AsyncStorage / preferenze dell'app): preferiti, impostazioni degli avvisi e cache delle partite (vedi la tabella sopra). Resta sul dispositivo e viene rimossa disinstallando l'app o cancellandone i dati.</li>
+  <li><strong>Token delle notifiche push e identificatore di installazione</strong> (Firebase Cloud Messaging): memorizzati sul dispositivo ed elaborati da Google/Apple per consegnare gli avvisi (sezione 3.3).</li>
+  <li><strong>Identificatore pubblicitario e identificatori simili</strong> (Google AdMob): l'SDK di AdMob può accedere a identificatori del dispositivo e memorizzarli (sezione 3.1). Su iOS vengono richiesti solo annunci non personalizzati.</li>
+  <li><strong>Dati dei report di arresto anomalo</strong> (Sentry): informazioni tecniche su errori, modello del dispositivo e sistema operativo (sezione 3.4).</li>
+  <li><strong>YouTube:</strong> l'app non incorpora lettori YouTube e non imposta cookie di YouTube. Toccando un link video si apre YouTube nell'app o nel browser, dove YouTube/Google possono usare cookie e tecnologie simili secondo l'Informativa sulla privacy di Google.</li>
+</ul>
+<p>Puoi controllarli: cancella i dati dell'app o disinstallala, reimposta o limita l'identificatore pubblicitario nelle impostazioni del dispositivo, disattiva le notifiche e gestisci i cookie nel browser o nell'account YouTube/Google. La pagina web di presentazione dell'app non usa cookie di tracciamento.</p>
+
 <h2>3. Utilizzo di servizi di terze parti</h2>
 <p>Questa App utilizza i seguenti servizi di terze parti, che potrebbero raccogliere autonomamente alcune informazioni.</p>
 
@@ -85,7 +96,7 @@
 <p>Questa app utilizza Sentry per ricevere report di crash e misurazioni di base delle prestazioni, al fine di correggere i problemi. Un report contiene informazioni tecniche come l'errore e lo stack trace, il modello del dispositivo, la versione del sistema operativo e la versione dell'app. L'app è configurata per non inviare dati personali (né nome, né e-mail, né identificatori di account). Maggiori informazioni: <a href="https://sentry.io/privacy/" target="_blank">Informativa sulla privacy di Sentry</a></p>
 
 <h3>3.5 Servizi API di YouTube</h3>
-<p>Questa app utilizza i servizi API di YouTube (YouTube Data API) per collegare video di highlights delle partite e cori dei tifosi. Le chiamate vengono effettuate solo dai nostri server; nessuna informazione personale o dell'account Google degli utenti viene inviata a YouTube o raccolta. Conserviamo solo ID e titoli dei video. Aprendo un video si accede a YouTube (app o browser), dove si applicano i <a href="https://www.youtube.com/t/terms" target="_blank">Termini di servizio di YouTube</a> e l'<a href="https://policies.google.com/privacy" target="_blank">Informativa sulla privacy di Google</a>. Non conserviamo dati degli utenti di YouTube, quindi non ci sono dati da eliminare. Puoi revocare le autorizzazioni concesse al tuo account Google nelle <a href="https://security.google.com/settings/security/permissions" target="_blank">impostazioni di sicurezza di Google</a>.</p>
+<p>Questa app utilizza i servizi API di YouTube (YouTube Data API) per collegare video di highlights delle partite e cori dei tifosi. Le chiamate vengono effettuate solo dai nostri server; nessuna informazione personale o dell'account Google degli utenti viene inviata a YouTube o raccolta. Conserviamo solo ID e titoli dei video. Aprendo un video si accede a YouTube (app o browser), dove si applicano i <a href="https://www.youtube.com/t/terms" target="_blank">Termini di servizio di YouTube</a> e l'<a href="https://policies.google.com/privacy" target="_blank">Informativa sulla privacy di Google</a>. Non conserviamo dati degli utenti di YouTube, quindi non ci sono dati da eliminare. Puoi revocare le autorizzazioni concesse al tuo account Google nelle <a href="https://security.google.com/settings/security/permissions" target="_blank">impostazioni di sicurezza di Google</a>. Aggiorniamo le informazioni video memorizzate (ID e titolo) tramite l'API di YouTube almeno ogni 7 giorni e le eliminiamo quando il video non è più disponibile, quindi nessun dato dell'API di YouTube viene conservato oltre 30 giorni senza aggiornamento. Usando i link a sintesi e cori accetti di essere vincolato dai <a href="https://www.youtube.com/t/terms" target="_blank">Termini di servizio di YouTube</a>.</p>
 
 <h2>4. Notifiche</h2>
 <p>

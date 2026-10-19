@@ -58,6 +58,17 @@
   <tr><td>試合日程キャッシュ</td><td>オフライン利用のサポート</td></tr>
 </table>
 
+<h3>端末のCookieおよび類似技術</h3>
+<p>本アプリはモバイルアプリのためアプリ自体でブラウザのCookieは使用しませんが、以下のとおり端末に情報を保存し、端末上の情報にアクセス・収集します。利用する第三者サービスも類似技術を使用します。</p>
+<ul>
+  <li><strong>端末内ローカルストレージ</strong>（AsyncStorage／アプリ設定）：お気に入り、通知設定、試合データのキャッシュ（上の表を参照）。端末内にのみ保存され、アプリの削除またはデータ消去で削除されます。</li>
+  <li><strong>プッシュ通知トークンとインストール識別子</strong>（Firebase Cloud Messaging）：端末に保存され、通知配信のためGoogle／Appleが処理します（3.3節）。</li>
+  <li><strong>広告識別子および類似識別子</strong>（Google AdMob）：AdMob SDKが端末の識別子にアクセスまたは保存する場合があります（3.1節）。iOSでは非パーソナライズ広告のみを要求します。</li>
+  <li><strong>クラッシュレポートデータ</strong>（Sentry）：エラーや端末モデル・OSに関する技術情報（3.4節）。</li>
+  <li><strong>YouTube：</strong>本アプリはYouTubeプレーヤーを埋め込まず、YouTubeのCookieも設定しません。動画リンクをタップするとYouTubeアプリまたはブラウザが開き、そこではGoogleプライバシーポリシーに基づきYouTube／GoogleがCookieや類似技術を使用する場合があります。</li>
+</ul>
+<p>アプリのデータ消去またはアンインストール、端末設定での広告IDのリセット・制限や通知オフ、ブラウザやYouTube／Googleアカウント設定でのCookie管理が可能です。本アプリの紹介ウェブページは追跡用Cookieを使用しません。</p>
+
 <h2>3. 第三者サービスの利用</h2>
 <p>本アプリは以下の第三者サービスを利用しており、当該サービスが自ら一部の情報を収集する場合があります。</p>
 
@@ -89,7 +100,7 @@
 <p>本アプリは問題を修正するために、Sentryでクラッシュレポートと基本的なパフォーマンス測定値を受け取ります。レポートにはエラー内容とスタックトレース、端末モデル、OSバージョン、アプリバージョンなどの技術情報が含まれます。氏名、メールアドレス、アカウント識別子などの個人情報は送信しないよう設定されています。 詳細：<a href="https://sentry.io/privacy/" target="_blank">Sentryプライバシーポリシー</a></p>
 
 <h3>3.5 YouTube APIサービス</h3>
-<p>本アプリは、試合ハイライトおよび応援歌の動画をリンクするためにYouTube APIサービス（YouTube Data API）を使用します。呼び出しは当社サーバーからのみ行われ、アプリ利用者の個人情報やGoogleアカウント情報がYouTubeに送信・収集されることはありません。保存するのは動画IDとタイトルのみです。動画を開くとYouTube（アプリまたはブラウザ）に移動し、<a href="https://www.youtube.com/t/terms" target="_blank">YouTube利用規約</a>および<a href="https://policies.google.com/privacy" target="_blank">Googleプライバシーポリシー</a>が適用されます。当社はYouTubeユーザーデータを保存しないため、削除対象のデータはありません。Googleアカウントに付与した権限は<a href="https://security.google.com/settings/security/permissions" target="_blank">Googleのセキュリティ設定</a>で取り消せます。</p>
+<p>本アプリは、試合ハイライトおよび応援歌の動画をリンクするためにYouTube APIサービス（YouTube Data API）を使用します。呼び出しは当社サーバーからのみ行われ、アプリ利用者の個人情報やGoogleアカウント情報がYouTubeに送信・収集されることはありません。保存するのは動画IDとタイトルのみです。動画を開くとYouTube（アプリまたはブラウザ）に移動し、<a href="https://www.youtube.com/t/terms" target="_blank">YouTube利用規約</a>および<a href="https://policies.google.com/privacy" target="_blank">Googleプライバシーポリシー</a>が適用されます。当社はYouTubeユーザーデータを保存しないため、削除対象のデータはありません。Googleアカウントに付与した権限は<a href="https://security.google.com/settings/security/permissions" target="_blank">Googleのセキュリティ設定</a>で取り消せます。 保存している動画情報（IDとタイトル）はYouTube APIで少なくとも7日ごとに再確認して更新し、動画が提供されなくなった場合は削除するため、更新なしで30日を超えて保持するYouTube APIデータはありません。ハイライト・応援歌のリンクを利用することで、<a href="https://www.youtube.com/t/terms" target="_blank">YouTube利用規約</a>に同意したものとみなされます。</p>
 
 <h2>4. 通知（Notifications）</h2>
 <p>

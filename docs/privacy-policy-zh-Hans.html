@@ -54,6 +54,17 @@
   <tr><td>比赛日程缓存</td><td>支持离线使用</td></tr>
 </table>
 
+<h3>设备上的 Cookie 及类似技术</h3>
+<p>本应用是移动应用，自身不使用浏览器 Cookie，但会通过类似技术在您的设备上存储信息并访问设备上的信息（我们使用的第三方服务也是如此）：</p>
+<ul>
+  <li><strong>设备本地存储</strong>（AsyncStorage／应用偏好）：收藏、提醒设置和赛程缓存（见上表）。仅保存在您的设备上，卸载应用或清除应用数据后即被删除。</li>
+  <li><strong>推送通知令牌和安装标识符</strong>（Firebase Cloud Messaging）：存储在设备上，由 Google/Apple 处理以送达通知（第 3.3 节）。</li>
+  <li><strong>广告标识符及类似标识符</strong>（Google AdMob）：AdMob SDK 可能访问并存储设备上的标识符（第 3.1 节）。在 iOS 上仅请求非个性化广告。</li>
+  <li><strong>崩溃报告数据</strong>（Sentry）：有关错误、设备型号和操作系统的技术信息（第 3.4 节）。</li>
+  <li><strong>YouTube：</strong>本应用不嵌入 YouTube 播放器，也不设置 YouTube Cookie。点击视频链接后会在 YouTube 应用或浏览器中打开，YouTube/Google 可能依据 Google 隐私权政策在那里使用 Cookie 及类似技术。</li>
+</ul>
+<p>您可以自行控制：清除应用数据或卸载应用，在设备设置中重置或限制广告标识符，关闭通知，并在浏览器或 YouTube/Google 账号设置中管理 Cookie。本应用的介绍网页不使用追踪类 Cookie。</p>
+
 <h2>3. 第三方服务的使用</h2>
 <p>本应用使用以下第三方服务，这些服务可能会自行收集某些信息。</p>
 
@@ -85,7 +96,7 @@
 <p>本应用使用 Sentry 接收崩溃报告和基本性能测量数据，以便修复问题。报告包含错误和堆栈跟踪、设备型号、操作系统版本、应用版本等技术信息。应用已设置为不发送姓名、电子邮件、账户标识符等个人信息。 详细信息：<a href="https://sentry.io/privacy/" target="_blank">Sentry 隐私政策</a></p>
 
 <h3>3.5 YouTube API 服务</h3>
-<p>本应用使用 YouTube API 服务（YouTube Data API）来链接比赛集锦和加油歌曲视频。调用仅由我们的服务器发出；不会向 YouTube 发送或从中收集应用用户的个人信息或 Google 账号信息。我们仅存储视频 ID 和标题。打开视频时会跳转到 YouTube（应用或浏览器），适用 <a href="https://www.youtube.com/t/terms" target="_blank">YouTube 服务条款</a> 和 <a href="https://policies.google.com/privacy" target="_blank">Google 隐私权政策</a>。我们不存储 YouTube 用户数据，因此没有需要删除的数据。您可以在 <a href="https://security.google.com/settings/security/permissions" target="_blank">Google 安全设置</a> 中撤销授予 Google 账号的权限。</p>
+<p>本应用使用 YouTube API 服务（YouTube Data API）来链接比赛集锦和加油歌曲视频。调用仅由我们的服务器发出；不会向 YouTube 发送或从中收集应用用户的个人信息或 Google 账号信息。我们仅存储视频 ID 和标题。打开视频时会跳转到 YouTube（应用或浏览器），适用 <a href="https://www.youtube.com/t/terms" target="_blank">YouTube 服务条款</a> 和 <a href="https://policies.google.com/privacy" target="_blank">Google 隐私权政策</a>。我们不存储 YouTube 用户数据，因此没有需要删除的数据。您可以在 <a href="https://security.google.com/settings/security/permissions" target="_blank">Google 安全设置</a> 中撤销授予 Google 账号的权限。 我们至少每 7 天通过 YouTube API 更新一次已存储的视频信息（ID 和标题），视频不再可用时即删除，因此不会有未经更新而保存超过 30 天的 YouTube API 数据。使用精彩集锦和加油歌链接即表示您同意受 <a href="https://www.youtube.com/t/terms" target="_blank">YouTube 服务条款</a>约束。</p>
 
 <h2>4. 通知</h2>
 <p>

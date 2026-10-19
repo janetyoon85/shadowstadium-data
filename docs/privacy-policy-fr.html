@@ -54,6 +54,17 @@
   <tr><td>Cache du calendrier des matchs</td><td>Prise en charge de l'utilisation hors ligne</td></tr>
 </table>
 
+<h3>Cookies et technologies similaires sur votre appareil</h3>
+<p>Cette application est une application mobile et n'utilise pas de cookies de navigateur par elle-même, mais elle stocke des informations sur votre appareil et y accède (comme les services tiers que nous utilisons) au moyen de technologies similaires :</p>
+<ul>
+  <li><strong>Stockage local sur l'appareil</strong> (AsyncStorage / préférences de l'application) : favoris, réglages d'alertes et cache des matchs (voir le tableau ci-dessus). Il reste sur votre appareil et est supprimé à la désinstallation ou à l'effacement des données.</li>
+  <li><strong>Jeton de notifications push et identifiant d'installation</strong> (Firebase Cloud Messaging) : stockés sur l'appareil et traités par Google/Apple pour livrer les alertes (section 3.3).</li>
+  <li><strong>Identifiant publicitaire et identifiants similaires</strong> (Google AdMob) : le SDK AdMob peut accéder à des identifiants de l'appareil et les stocker (section 3.1). Sur iOS, seules des publicités non personnalisées sont demandées.</li>
+  <li><strong>Données de rapports de plantage</strong> (Sentry) : informations techniques sur les erreurs, le modèle de l'appareil et l'OS (section 3.4).</li>
+  <li><strong>YouTube :</strong> l'application n'intègre pas de lecteur YouTube et ne dépose pas de cookies YouTube. En touchant un lien vidéo, YouTube s'ouvre dans son application ou le navigateur, où YouTube/Google peuvent utiliser des cookies et technologies similaires selon les Règles de confidentialité de Google.</li>
+</ul>
+<p>Vous pouvez les contrôler : effacer les données de l'application ou la désinstaller, réinitialiser ou limiter l'identifiant publicitaire dans les réglages de l'appareil, désactiver les notifications et gérer les cookies dans le navigateur ou le compte YouTube/Google. La page web de présentation de l'application n'utilise pas de cookies de suivi.</p>
+
 <h2>3. Utilisation de services tiers</h2>
 <p>Cette Application utilise les services tiers suivants, qui peuvent collecter certaines informations de leur propre chef.</p>
 
@@ -85,7 +96,7 @@
 <p>Cette application utilise Sentry pour recevoir des rapports de plantage et des mesures de performance de base afin de corriger les problèmes. Un rapport contient des informations techniques telles que l'erreur et la trace d'appels, le modèle de l'appareil, la version du système et la version de l'application. L'application est configurée pour ne pas envoyer d'informations personnelles (ni nom, ni e-mail, ni identifiants de compte). Pour en savoir plus : <a href="https://sentry.io/privacy/" target="_blank">Politique de confidentialité de Sentry</a></p>
 
 <h3>3.5 Services d'API YouTube</h3>
-<p>Cette application utilise les services d'API YouTube (YouTube Data API) pour lier des vidéos de résumés de matchs et de chants de supporters. Les appels sont effectués uniquement depuis nos serveurs ; aucune information personnelle ni aucune information de compte Google des utilisateurs n'est envoyée à YouTube ni collectée. Nous ne conservons que les identifiants et titres des vidéos. L'ouverture d'une vidéo vous mène à YouTube (application ou navigateur), où les <a href="https://www.youtube.com/t/terms" target="_blank">Conditions d'utilisation de YouTube</a> et les <a href="https://policies.google.com/privacy" target="_blank">Règles de confidentialité de Google</a> s'appliquent. Nous ne stockons aucune donnée d'utilisateur YouTube ; il n'y a donc rien à supprimer. Vous pouvez révoquer les accès accordés à votre compte Google dans les <a href="https://security.google.com/settings/security/permissions" target="_blank">paramètres de sécurité Google</a>.</p>
+<p>Cette application utilise les services d'API YouTube (YouTube Data API) pour lier des vidéos de résumés de matchs et de chants de supporters. Les appels sont effectués uniquement depuis nos serveurs ; aucune information personnelle ni aucune information de compte Google des utilisateurs n'est envoyée à YouTube ni collectée. Nous ne conservons que les identifiants et titres des vidéos. L'ouverture d'une vidéo vous mène à YouTube (application ou navigateur), où les <a href="https://www.youtube.com/t/terms" target="_blank">Conditions d'utilisation de YouTube</a> et les <a href="https://policies.google.com/privacy" target="_blank">Règles de confidentialité de Google</a> s'appliquent. Nous ne stockons aucune donnée d'utilisateur YouTube ; il n'y a donc rien à supprimer. Vous pouvez révoquer les accès accordés à votre compte Google dans les <a href="https://security.google.com/settings/security/permissions" target="_blank">paramètres de sécurité Google</a>. Nous actualisons les informations vidéo stockées (ID et titre) via l'API YouTube au moins tous les 7 jours et les supprimons lorsque la vidéo n'est plus disponible ; aucune donnée de l'API YouTube n'est donc conservée plus de 30 jours sans actualisation. En utilisant les liens de résumés et de chants, vous acceptez d'être lié par les <a href="https://www.youtube.com/t/terms" target="_blank">Conditions d'utilisation de YouTube</a>.</p>
 
 <h2>4. Notifications</h2>
 <p>

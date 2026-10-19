@@ -54,6 +54,17 @@
   <tr><td>Bộ nhớ đệm lịch thi đấu</td><td>Hỗ trợ sử dụng ngoại tuyến</td></tr>
 </table>
 
+<h3>Cookie và công nghệ tương tự trên thiết bị của bạn</h3>
+<p>Ứng dụng này là ứng dụng di động và tự nó không dùng cookie trình duyệt, nhưng lưu thông tin trên thiết bị và truy cập thông tin từ thiết bị (cũng như các dịch vụ bên thứ ba mà chúng tôi dùng) thông qua các công nghệ tương tự:</p>
+<ul>
+  <li><strong>Bộ nhớ cục bộ trên thiết bị</strong> (AsyncStorage / tùy chọn ứng dụng): mục yêu thích, cài đặt thông báo và bộ nhớ đệm lịch thi đấu (xem bảng trên). Chỉ nằm trên thiết bị và bị xóa khi gỡ ứng dụng hoặc xóa dữ liệu ứng dụng.</li>
+  <li><strong>Mã thông báo đẩy và mã định danh cài đặt</strong> (Firebase Cloud Messaging): lưu trên thiết bị và do Google/Apple xử lý để gửi thông báo (mục 3.3).</li>
+  <li><strong>ID quảng cáo và mã định danh tương tự</strong> (Google AdMob): SDK AdMob có thể truy cập và lưu mã định danh trên thiết bị (mục 3.1). Trên iOS chỉ yêu cầu quảng cáo không cá nhân hóa.</li>
+  <li><strong>Dữ liệu báo cáo sự cố</strong> (Sentry): thông tin kỹ thuật về lỗi, mẫu thiết bị và hệ điều hành (mục 3.4).</li>
+  <li><strong>YouTube:</strong> ứng dụng không nhúng trình phát YouTube và không đặt cookie YouTube. Khi bạn chạm vào liên kết video, YouTube mở trong ứng dụng hoặc trình duyệt, nơi YouTube/Google có thể dùng cookie và công nghệ tương tự theo Chính sách quyền riêng tư của Google.</li>
+</ul>
+<p>Bạn có thể kiểm soát: xóa dữ liệu ứng dụng hoặc gỡ cài đặt, đặt lại hoặc hạn chế ID quảng cáo trong cài đặt thiết bị, tắt thông báo và quản lý cookie trong trình duyệt hoặc tài khoản YouTube/Google. Trang web giới thiệu ứng dụng không dùng cookie theo dõi.</p>
+
 <h2>3. Sử dụng dịch vụ của bên thứ ba</h2>
 <p>Ứng dụng này sử dụng các dịch vụ của bên thứ ba sau, và các dịch vụ này có thể tự thu thập một số thông tin nhất định.</p>
 
@@ -85,7 +96,7 @@
 <p>Ứng dụng này sử dụng Sentry để nhận báo cáo sự cố và các số đo hiệu suất cơ bản nhằm khắc phục vấn đề. Báo cáo chứa thông tin kỹ thuật như lỗi và dấu vết ngăn xếp, mẫu thiết bị, phiên bản hệ điều hành và phiên bản ứng dụng. Ứng dụng được cấu hình để không gửi thông tin cá nhân (không có tên, email hay mã định danh tài khoản). Chi tiết: <a href="https://sentry.io/privacy/" target="_blank">Chính sách quyền riêng tư của Sentry</a></p>
 
 <h3>3.5 Dịch vụ API YouTube</h3>
-<p>Ứng dụng này sử dụng dịch vụ API YouTube (YouTube Data API) để liên kết video tổng hợp trận đấu và bài cổ vũ. Các lệnh gọi chỉ được thực hiện từ máy chủ của chúng tôi; không có thông tin cá nhân hay thông tin tài khoản Google của người dùng được gửi đến hoặc thu thập từ YouTube. Chúng tôi chỉ lưu ID và tiêu đề video. Khi mở video, bạn được chuyển đến YouTube (ứng dụng hoặc trình duyệt), nơi áp dụng <a href="https://www.youtube.com/t/terms" target="_blank">Điều khoản dịch vụ của YouTube</a> và <a href="https://policies.google.com/privacy" target="_blank">Chính sách quyền riêng tư của Google</a>. Chúng tôi không lưu dữ liệu người dùng YouTube nên không có dữ liệu cần xóa. Bạn có thể thu hồi quyền đã cấp cho tài khoản Google trong <a href="https://security.google.com/settings/security/permissions" target="_blank">cài đặt bảo mật của Google</a>.</p>
+<p>Ứng dụng này sử dụng dịch vụ API YouTube (YouTube Data API) để liên kết video tổng hợp trận đấu và bài cổ vũ. Các lệnh gọi chỉ được thực hiện từ máy chủ của chúng tôi; không có thông tin cá nhân hay thông tin tài khoản Google của người dùng được gửi đến hoặc thu thập từ YouTube. Chúng tôi chỉ lưu ID và tiêu đề video. Khi mở video, bạn được chuyển đến YouTube (ứng dụng hoặc trình duyệt), nơi áp dụng <a href="https://www.youtube.com/t/terms" target="_blank">Điều khoản dịch vụ của YouTube</a> và <a href="https://policies.google.com/privacy" target="_blank">Chính sách quyền riêng tư của Google</a>. Chúng tôi không lưu dữ liệu người dùng YouTube nên không có dữ liệu cần xóa. Bạn có thể thu hồi quyền đã cấp cho tài khoản Google trong <a href="https://security.google.com/settings/security/permissions" target="_blank">cài đặt bảo mật của Google</a>. Chúng tôi cập nhật thông tin video đã lưu (ID và tiêu đề) qua YouTube API ít nhất mỗi 7 ngày và xóa khi video không còn khả dụng, vì vậy không có dữ liệu YouTube API nào được giữ quá 30 ngày mà không cập nhật. Khi sử dụng liên kết video nổi bật và bài cổ vũ, bạn đồng ý bị ràng buộc bởi <a href="https://www.youtube.com/t/terms" target="_blank">Điều khoản dịch vụ của YouTube</a>.</p>
 
 <h2>4. Thông báo</h2>
 <p>

@@ -54,6 +54,17 @@
   <tr><td>比賽賽程快取</td><td>支援離線使用</td></tr>
 </table>
 
+<h3>裝置上的 Cookie 及類似技術</h3>
+<p>本應用程式為行動應用程式，本身不使用瀏覽器 Cookie，但會透過類似技術在您的裝置上儲存資訊並存取裝置上的資訊（我們使用的第三方服務亦同）：</p>
+<ul>
+  <li><strong>裝置本機儲存</strong>（AsyncStorage／應用程式偏好）：收藏、提醒設定與賽程快取（見上表）。僅保存在您的裝置上，解除安裝應用程式或清除應用程式資料後即刪除。</li>
+  <li><strong>推播通知權杖與安裝識別碼</strong>（Firebase Cloud Messaging）：儲存在裝置上，由 Google/Apple 處理以送達通知（第 3.3 節）。</li>
+  <li><strong>廣告識別碼及類似識別碼</strong>（Google AdMob）：AdMob SDK 可能存取並儲存裝置上的識別碼（第 3.1 節）。在 iOS 上僅請求非個人化廣告。</li>
+  <li><strong>當機報告資料</strong>（Sentry）：有關錯誤、裝置型號與作業系統的技術資訊（第 3.4 節）。</li>
+  <li><strong>YouTube：</strong>本應用程式不嵌入 YouTube 播放器，也不設定 YouTube Cookie。點選影片連結後會在 YouTube 應用程式或瀏覽器中開啟，YouTube/Google 可能依 Google 隱私權政策在該處使用 Cookie 及類似技術。</li>
+</ul>
+<p>您可自行控制：清除應用程式資料或解除安裝、在裝置設定中重設或限制廣告識別碼、關閉通知，並在瀏覽器或 YouTube/Google 帳戶設定中管理 Cookie。本應用程式的介紹網頁不使用追蹤型 Cookie。</p>
+
 <h2>3. 第三方服務的使用</h2>
 <p>本應用使用以下第三方服務，這些服務可能會自行收集某些資訊。</p>
 
@@ -85,7 +96,7 @@
 <p>本應用程式使用 Sentry 接收當機報告和基本效能量測資料，以便修正問題。報告包含錯誤與堆疊追蹤、裝置型號、作業系統版本、應用程式版本等技術資訊。應用程式已設定為不傳送姓名、電子郵件、帳號識別碼等個人資訊。 詳細資訊：<a href="https://sentry.io/privacy/" target="_blank">Sentry 隱私權政策</a></p>
 
 <h3>3.5 YouTube API 服務</h3>
-<p>本應用程式使用 YouTube API 服務（YouTube Data API）連結比賽精華與加油歌曲影片。呼叫僅由我們的伺服器發出；不會向 YouTube 傳送或從中收集應用程式使用者的個人資訊或 Google 帳戶資訊。我們僅儲存影片 ID 與標題。開啟影片時會前往 YouTube（應用程式或瀏覽器），適用 <a href="https://www.youtube.com/t/terms" target="_blank">YouTube 服務條款</a> 與 <a href="https://policies.google.com/privacy" target="_blank">Google 隱私權政策</a>。我們不儲存 YouTube 使用者資料，因此沒有需要刪除的資料。您可在 <a href="https://security.google.com/settings/security/permissions" target="_blank">Google 安全性設定</a> 中撤銷授予 Google 帳戶的權限。</p>
+<p>本應用程式使用 YouTube API 服務（YouTube Data API）連結比賽精華與加油歌曲影片。呼叫僅由我們的伺服器發出；不會向 YouTube 傳送或從中收集應用程式使用者的個人資訊或 Google 帳戶資訊。我們僅儲存影片 ID 與標題。開啟影片時會前往 YouTube（應用程式或瀏覽器），適用 <a href="https://www.youtube.com/t/terms" target="_blank">YouTube 服務條款</a> 與 <a href="https://policies.google.com/privacy" target="_blank">Google 隱私權政策</a>。我們不儲存 YouTube 使用者資料，因此沒有需要刪除的資料。您可在 <a href="https://security.google.com/settings/security/permissions" target="_blank">Google 安全性設定</a> 中撤銷授予 Google 帳戶的權限。 我們至少每 7 天透過 YouTube API 更新一次已儲存的影片資訊（ID 與標題），影片不再可用時即刪除，因此不會有未經更新而保存超過 30 天的 YouTube API 資料。使用精彩片段與加油歌連結即表示您同意受 <a href="https://www.youtube.com/t/terms" target="_blank">YouTube 服務條款</a>約束。</p>
 
 <h2>4. 通知</h2>
 <p>

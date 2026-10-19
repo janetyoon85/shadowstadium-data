@@ -54,6 +54,17 @@
   <tr><td>Cache jadwal pertandingan</td><td>Dukungan penggunaan luring (offline)</td></tr>
 </table>
 
+<h3>Cookie dan teknologi serupa di perangkat Anda</h3>
+<p>Aplikasi ini adalah aplikasi seluler dan tidak menggunakan cookie peramban sendiri, tetapi menyimpan informasi di perangkat Anda dan mengakses informasi darinya (begitu pula layanan pihak ketiga yang kami gunakan) melalui teknologi serupa:</p>
+<ul>
+  <li><strong>Penyimpanan lokal di perangkat</strong> (AsyncStorage / preferensi aplikasi): favorit, pengaturan notifikasi, dan cache jadwal pertandingan (lihat tabel di atas). Hanya ada di perangkat Anda dan dihapus saat aplikasi dihapus atau datanya dibersihkan.</li>
+  <li><strong>Token notifikasi push dan pengenal instalasi</strong> (Firebase Cloud Messaging): disimpan di perangkat dan diproses oleh Google/Apple untuk mengirim notifikasi (bagian 3.3).</li>
+  <li><strong>ID iklan dan pengenal serupa</strong> (Google AdMob): SDK AdMob dapat mengakses dan menyimpan pengenal di perangkat (bagian 3.1). Di iOS hanya iklan non-personalisasi yang diminta.</li>
+  <li><strong>Data laporan kerusakan</strong> (Sentry): informasi teknis tentang kesalahan, model perangkat, dan OS (bagian 3.4).</li>
+  <li><strong>YouTube:</strong> aplikasi tidak menyematkan pemutar YouTube dan tidak menempatkan cookie YouTube. Saat Anda mengetuk tautan video, YouTube terbuka di aplikasinya atau peramban, tempat YouTube/Google dapat menggunakan cookie dan teknologi serupa sesuai Kebijakan Privasi Google.</li>
+</ul>
+<p>Anda dapat mengendalikannya: hapus data aplikasi atau copot pemasangannya, setel ulang atau batasi ID iklan di pengaturan perangkat, matikan notifikasi, dan kelola cookie di peramban atau akun YouTube/Google. Halaman web pengenalan aplikasi tidak menggunakan cookie pelacakan.</p>
+
 <h2>3. Penggunaan Layanan Pihak Ketiga</h2>
 <p>Aplikasi ini menggunakan layanan pihak ketiga berikut, yang mungkin mengumpulkan informasi tertentu secara mandiri.</p>
 
@@ -85,7 +96,7 @@
 <p>Aplikasi ini menggunakan Sentry untuk menerima laporan crash dan pengukuran performa dasar agar kami dapat memperbaiki masalah. Laporan berisi informasi teknis seperti error dan stack trace, model perangkat, versi OS, dan versi aplikasi. Aplikasi dikonfigurasi agar tidak mengirim informasi pribadi (tanpa nama, email, atau ID akun). Detail lebih lanjut: <a href="https://sentry.io/privacy/" target="_blank">Kebijakan Privasi Sentry</a></p>
 
 <h3>3.5 Layanan API YouTube</h3>
-<p>Aplikasi ini menggunakan layanan API YouTube (YouTube Data API) untuk menautkan video sorotan pertandingan dan lagu dukungan. Panggilan hanya dilakukan dari server kami; tidak ada informasi pribadi atau akun Google pengguna yang dikirim ke atau dikumpulkan dari YouTube. Kami hanya menyimpan ID dan judul video. Saat Anda membuka video, Anda diarahkan ke YouTube (aplikasi atau peramban) yang tunduk pada <a href="https://www.youtube.com/t/terms" target="_blank">Ketentuan Layanan YouTube</a> dan <a href="https://policies.google.com/privacy" target="_blank">Kebijakan Privasi Google</a>. Kami tidak menyimpan data pengguna YouTube sehingga tidak ada data yang perlu dihapus. Anda dapat mencabut akses ke akun Google di <a href="https://security.google.com/settings/security/permissions" target="_blank">pengaturan keamanan Google</a>.</p>
+<p>Aplikasi ini menggunakan layanan API YouTube (YouTube Data API) untuk menautkan video sorotan pertandingan dan lagu dukungan. Panggilan hanya dilakukan dari server kami; tidak ada informasi pribadi atau akun Google pengguna yang dikirim ke atau dikumpulkan dari YouTube. Kami hanya menyimpan ID dan judul video. Saat Anda membuka video, Anda diarahkan ke YouTube (aplikasi atau peramban) yang tunduk pada <a href="https://www.youtube.com/t/terms" target="_blank">Ketentuan Layanan YouTube</a> dan <a href="https://policies.google.com/privacy" target="_blank">Kebijakan Privasi Google</a>. Kami tidak menyimpan data pengguna YouTube sehingga tidak ada data yang perlu dihapus. Anda dapat mencabut akses ke akun Google di <a href="https://security.google.com/settings/security/permissions" target="_blank">pengaturan keamanan Google</a>. Kami memperbarui informasi video yang disimpan (ID dan judul) lewat YouTube API setidaknya setiap 7 hari dan menghapusnya jika video tidak tersedia lagi, sehingga tidak ada data YouTube API yang disimpan lebih dari 30 hari tanpa diperbarui. Dengan menggunakan tautan sorotan dan lagu dukungan, Anda setuju terikat pada <a href="https://www.youtube.com/t/terms" target="_blank">Ketentuan Layanan YouTube</a>.</p>
 
 <h2>4. Notifikasi</h2>
 <p>

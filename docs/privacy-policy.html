@@ -67,8 +67,8 @@
 
 <div class="meta">
   <strong>시행일:</strong> 2026년 6월 1일<br>
-  <strong>최종 수정일:</strong> 2026년 10월 10일<br>
-  <strong>버전:</strong> 1.1
+  <strong>최종 수정일:</strong> 2026년 10월 20일<br>
+  <strong>버전:</strong> 1.2
 </div>
 
 <p>
@@ -99,6 +99,17 @@
   <tr><td>알림 ON/OFF 상태</td><td>경기별 알림 관리</td></tr>
   <tr><td>경기 일정 캐시</td><td>오프라인 사용 지원</td></tr>
 </table>
+
+<h3>기기의 쿠키 및 유사 기술</h3>
+<p>이 앱은 모바일 앱이라 앱 자체에서 브라우저 쿠키를 쓰지는 않지만, 아래와 같이 기기에 정보를 저장하거나 기기의 정보에 접근·수집하며, 이용하는 제3자 서비스도 유사한 기술을 사용합니다.</p>
+<ul>
+  <li><strong>기기 내 로컬 저장소</strong>(AsyncStorage/앱 설정): 즐겨찾기, 알림 설정, 경기 데이터 캐시(위 표 참조). 기기 안에만 있으며 앱을 삭제하거나 데이터를 지우면 사라집니다.</li>
+  <li><strong>푸시 알림 토큰과 설치 식별자</strong>(Firebase Cloud Messaging): 기기에 저장되며 알림 전달을 위해 Google/Apple이 처리합니다(3.3절).</li>
+  <li><strong>광고 식별자 및 유사 식별자</strong>(Google AdMob): AdMob SDK가 기기의 식별자에 접근하거나 저장할 수 있습니다(3.1절). iOS에서는 개인 맞춤이 아닌 광고만 요청합니다.</li>
+  <li><strong>오류 보고 데이터</strong>(Sentry): 오류와 기기 모델·OS에 관한 기술 정보(3.4절).</li>
+  <li><strong>YouTube:</strong> 앱은 YouTube 플레이어를 내장하지 않고 YouTube 쿠키도 설정하지 않습니다. 영상 링크를 누르면 YouTube 앱 또는 브라우저가 열리며, 그곳에서는 Google 개인정보처리방침에 따라 YouTube/Google이 쿠키와 유사 기술을 사용할 수 있습니다.</li>
+</ul>
+<p>앱 데이터를 지우거나 앱을 삭제하고, 기기 설정에서 광고 식별자를 재설정·제한하거나 알림을 끄고, 브라우저 또는 YouTube/Google 계정 설정에서 쿠키를 관리할 수 있습니다. 이 앱의 소개 웹페이지는 추적용 쿠키를 사용하지 않습니다.</p>
 
 <h2>3. 제3자 서비스 이용</h2>
 <p>본 앱은 다음 제3자 서비스를 이용하며, 해당 서비스가 자체적으로 일부 정보를 수집할 수 있습니다.</p>
@@ -142,7 +153,7 @@
 <p>본 앱은 문제를 고치기 위해 Sentry로 비정상 종료 보고와 기본 성능 측정값을 받습니다. 보고에는 오류 내용과 호출 기록, 기기 모델, OS 버전, 앱 버전 같은 기술 정보가 담깁니다. 이름·이메일·계정 식별자 등 개인정보는 보내지 않도록 설정되어 있습니다. 자세한 내용: <a href="https://sentry.io/privacy/" target="_blank">Sentry 개인정보처리방침</a></p>
 
 <h3>3.5 YouTube API 서비스</h3>
-<p>이 앱은 경기 하이라이트 및 응원가 영상을 연결하기 위해 YouTube API 서비스(YouTube Data API)를 사용합니다. 호출은 당사 서버에서만 이루어지며, 앱 사용자의 개인정보나 Google 계정 정보는 YouTube로 전송되거나 수집되지 않습니다. 영상 ID와 제목만 저장하며, 영상을 열면 YouTube(앱 또는 브라우저)로 이동하고 이때는 <a href="https://www.youtube.com/t/terms" target="_blank">YouTube 서비스 약관</a>과 <a href="https://policies.google.com/privacy" target="_blank">Google 개인정보처리방침</a>이 적용됩니다. 당사는 YouTube 사용자 데이터를 저장하지 않으므로 별도로 삭제할 데이터가 없습니다. Google 계정에 부여한 권한은 <a href="https://security.google.com/settings/security/permissions" target="_blank">Google 보안 설정</a>에서 철회할 수 있습니다.</p>
+<p>이 앱은 경기 하이라이트 및 응원가 영상을 연결하기 위해 YouTube API 서비스(YouTube Data API)를 사용합니다. 호출은 당사 서버에서만 이루어지며, 앱 사용자의 개인정보나 Google 계정 정보는 YouTube로 전송되거나 수집되지 않습니다. 영상 ID와 제목만 저장하며, 영상을 열면 YouTube(앱 또는 브라우저)로 이동하고 이때는 <a href="https://www.youtube.com/t/terms" target="_blank">YouTube 서비스 약관</a>과 <a href="https://policies.google.com/privacy" target="_blank">Google 개인정보처리방침</a>이 적용됩니다. 당사는 YouTube 사용자 데이터를 저장하지 않으므로 별도로 삭제할 데이터가 없습니다. Google 계정에 부여한 권한은 <a href="https://security.google.com/settings/security/permissions" target="_blank">Google 보안 설정</a>에서 철회할 수 있습니다. 저장한 영상 정보(ID와 제목)는 YouTube API로 최소 7일마다 다시 확인해 갱신하고, 영상이 더 이상 제공되지 않으면 삭제하므로 갱신 없이 30일을 넘겨 보관하는 YouTube API 데이터는 없습니다. 하이라이트·응원가 링크를 이용하면 <a href="https://www.youtube.com/t/terms" target="_blank">YouTube 서비스 약관</a>에도 동의하는 것으로 봅니다.</p>
 
 <h2>4. 알림 (Notifications)</h2>
 <p>

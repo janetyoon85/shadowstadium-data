@@ -54,6 +54,17 @@
   <tr><td>Cache van wedstrijdschema</td><td>Ondersteuning voor offline gebruik</td></tr>
 </table>
 
+<h3>Cookies en vergelijkbare technologieën op je apparaat</h3>
+<p>Deze app is een mobiele app en gebruikt zelf geen browsercookies, maar slaat informatie op je apparaat op en benadert informatie daarvan (net als de externe diensten die we gebruiken) via vergelijkbare technologieën:</p>
+<ul>
+  <li><strong>Lokale opslag op het apparaat</strong> (AsyncStorage / app-voorkeuren): favorieten, meldingsinstellingen en cache van het wedstrijdschema (zie de tabel hierboven). Dit blijft op je apparaat en wordt verwijderd als je de app verwijdert of de gegevens wist.</li>
+  <li><strong>Pushmeldingstoken en installatie-ID</strong> (Firebase Cloud Messaging): opgeslagen op het apparaat en door Google/Apple verwerkt om meldingen te bezorgen (sectie 3.3).</li>
+  <li><strong>Advertentie-ID en vergelijkbare ID's</strong> (Google AdMob): de AdMob-SDK kan ID's op het apparaat benaderen en opslaan (sectie 3.1). Op iOS worden alleen niet-gepersonaliseerde advertenties aangevraagd.</li>
+  <li><strong>Crashrapportgegevens</strong> (Sentry): technische informatie over fouten, apparaatmodel en besturingssysteem (sectie 3.4).</li>
+  <li><strong>YouTube:</strong> de app sluit geen YouTube-spelers in en plaatst geen YouTube-cookies. Als je op een videolink tikt, opent YouTube in de YouTube-app of browser, waar YouTube/Google volgens het Privacybeleid van Google cookies en vergelijkbare technologieën kunnen gebruiken.</li>
+</ul>
+<p>Je kunt dit beheren: wis de app-gegevens of verwijder de app, reset of beperk de advertentie-ID in de apparaatinstellingen, zet meldingen uit en beheer cookies in je browser of YouTube-/Google-account. De introductiewebpagina van de app gebruikt geen trackingcookies.</p>
+
 <h2>3. Gebruik van diensten van derden</h2>
 <p>Deze App maakt gebruik van de volgende diensten van derden, die mogelijk zelf bepaalde informatie verzamelen.</p>
 
@@ -85,7 +96,7 @@
 <p>Deze app gebruikt Sentry om crashrapporten en basisprestatiemetingen te ontvangen, zodat we problemen kunnen oplossen. Een rapport bevat technische informatie zoals de fout en de stacktrace, het apparaatmodel, de versie van het besturingssysteem en de appversie. De app is zo ingesteld dat er geen persoonsgegevens (geen naam, e-mailadres of account-ID's) worden verzonden. Meer informatie: <a href="https://sentry.io/privacy/" target="_blank">Sentry-privacybeleid</a></p>
 
 <h3>3.5 YouTube API-services</h3>
-<p>Deze app gebruikt de YouTube API-services (YouTube Data API) om video's met wedstrijdsamenvattingen en supportersliedjes te koppelen. Aanroepen gebeuren alleen vanaf onze servers; er worden geen persoonlijke gegevens of Google-accountgegevens van gebruikers naar YouTube verzonden of daar verzameld. We slaan alleen video-ID's en titels op. Als je een video opent, ga je naar YouTube (app of browser), waar de <a href="https://www.youtube.com/t/terms" target="_blank">YouTube-servicevoorwaarden</a> en het <a href="https://policies.google.com/privacy" target="_blank">privacybeleid van Google</a> gelden. We slaan geen YouTube-gebruikersgegevens op, dus er zijn geen gegevens te verwijderen. Je kunt toegang tot je Google-account intrekken in de <a href="https://security.google.com/settings/security/permissions" target="_blank">beveiligingsinstellingen van Google</a>.</p>
+<p>Deze app gebruikt de YouTube API-services (YouTube Data API) om video's met wedstrijdsamenvattingen en supportersliedjes te koppelen. Aanroepen gebeuren alleen vanaf onze servers; er worden geen persoonlijke gegevens of Google-accountgegevens van gebruikers naar YouTube verzonden of daar verzameld. We slaan alleen video-ID's en titels op. Als je een video opent, ga je naar YouTube (app of browser), waar de <a href="https://www.youtube.com/t/terms" target="_blank">YouTube-servicevoorwaarden</a> en het <a href="https://policies.google.com/privacy" target="_blank">privacybeleid van Google</a> gelden. We slaan geen YouTube-gebruikersgegevens op, dus er zijn geen gegevens te verwijderen. Je kunt toegang tot je Google-account intrekken in de <a href="https://security.google.com/settings/security/permissions" target="_blank">beveiligingsinstellingen van Google</a>. We vernieuwen de opgeslagen video-informatie (ID en titel) via de YouTube-API minstens elke 7 dagen en verwijderen die als de video niet meer beschikbaar is, zodat er geen YouTube-API-gegevens langer dan 30 dagen zonder vernieuwing worden bewaard. Door de links naar samenvattingen en aanmoedigingsliederen te gebruiken, ga je ermee akkoord gebonden te zijn aan de <a href="https://www.youtube.com/t/terms" target="_blank">Servicevoorwaarden van YouTube</a>.</p>
 
 <h2>4. Meldingen</h2>
 <p>

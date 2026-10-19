@@ -37,6 +37,46 @@ export function entryFromItem(item, now) {
   return b.length ? { b, t: now, v: REGIONS_VER } : { t: now, v: REGIONS_VER };
 }
 
+// 2026-10-20 YouTube 심사 지적(III.E.4a, "저장한 API 데이터를 얼마나 자주 갱신·삭제하는가") 대응 — 저장하는 영상 정보(ID·제목)도 이 확인 때 같이 갱신한다:
+//  · 제목: videos.list 가 돌려준 최신 제목으로 덮어쓴다.
+//  · 삭제·비공개·업로드 실패 영상: 하이라이트 항목에서 빼고(대표 영상이면 다음 후보를 올림, 후보가 없으면 항목 삭제), 응원가 항목은 null 로 비운다.
+// 모든 저장 영상은 REFRESH_MS(기본 7일)마다 이 경로를 지나므로 30일 기준을 넘기지 않는다.
+export function applyRefresh(hl, cs, checks) {
+  // checks: Map<videoId, { title?: string, gone: boolean }>
+  let titles = 0, removed = 0;
+  const upd = (o) => { const c = checks.get(o.v); if (c?.title && o.t !== c.title) { o.t = c.title; titles++; } };
+  for (const key of Object.keys(hl)) {
+    const e = hl[key];
+    if (!e || typeof e !== 'object') continue;
+    const all = [e, ...(Array.isArray(e.alts) ? e.alts : [])].filter((o) => o?.v);
+    const alive = all.filter((o) => !checks.get(o.v)?.gone);
+    removed += all.length - alive.length;
+    if (alive.length === all.length) { for (const o of all) upd(o); continue; }
+    if (alive.length === 0) { delete hl[key]; continue; }
+    const [first, ...rest] = alive;
+    const next = { ...e, v: first.v, t: first.t };
+    if (rest.length) next.alts = rest.map((o) => ({ v: o.v, t: o.t })); else delete next.alts;
+    upd(next); for (const a of next.alts || []) upd(a);
+    hl[key] = next;
+  }
+  for (const key of Object.keys(cs)) {
+    const e = cs[key];
+    if (!e || typeof e !== 'object' || !e.v) continue;
+    if (checks.get(e.v)?.gone) { cs[key] = null; removed++; continue; }
+    upd(e);
+  }
+  return { titles, removed };
+}
+
+// 원본 파일의 줄바꿈(CRLF)·들여쓰기를 유지해 저장(불필요한 대량 diff 방지).
+function formatLike(raw, obj) {
+  const crlf = raw.includes('\r\n');
+  const ind = raw.replace(/\r\n/g, '\n').match(/\n( +)"/)?.[1].length;
+  let out = JSON.stringify(obj, null, ind);
+  if (crlf) out = out.replace(/\n/g, '\r\n');
+  return out + (/\n$/.test(raw) ? (crlf ? '\r\n' : '\n') : '');
+}
+
 async function collectIds() {
   const ids = new Set();
   const hl = JSON.parse(await fs.readFile(path.join(ROOT, 'highlights-video.json'), 'utf8').catch(() => '{}'));
@@ -62,11 +102,12 @@ async function main() {
   const todo = ids.filter((id) => stale(id) || now - (avail[id].t || 0) >= REFRESH_MS).sort((a, b) => (stale(b) - stale(a)) || ((avail[a]?.t || 0) - (avail[b]?.t || 0)));
   console.log(`[avail] ids=${ids.length} todo=${todo.length} maxCalls=${MAX_CALLS}`);
   let calls = 0, checked = 0, gone = 0, blocked = 0, stop = '';
+  const checks = new Map();
   for (let i = 0; i < todo.length && calls < MAX_CALLS; i += 50) {
     const batch = todo.slice(i, i + 50);
     const url = 'https://www.googleapis.com/youtube/v3/videos?' + new URLSearchParams({
-      part: 'contentDetails,status', id: batch.join(','), maxResults: '50',
-      fields: 'items(id,contentDetails/regionRestriction,status/privacyStatus,status/uploadStatus)', key: API_KEY,
+      part: 'snippet,contentDetails,status', id: batch.join(','), maxResults: '50',
+      fields: 'items(id,snippet/title,contentDetails/regionRestriction,status/privacyStatus,status/uploadStatus)', key: API_KEY,
     });
     let res;
     try { res = await fetch(url, { signal: AbortSignal.timeout(20000) }); } catch { stop = '네트워크 오류 — 중단'; break; }
@@ -75,15 +116,30 @@ async function main() {
     if (!res.ok) { stop = `HTTP ${res.status} — 중단`; break; }
     const j = await res.json().catch(() => null);
     if (!j || !Array.isArray(j.items)) { stop = '응답 형식 오류 — 중단'; break; }
+    if (j.items.length === 0 && batch.length >= 10) { stop = `빈 응답(${batch.length}건 요청) — 이상 응답으로 보고 중단`; break; }
     const byId = new Map(j.items.map((it) => [it.id, it]));
     for (const id of batch) {
       const e = entryFromItem(byId.get(id), now); // 응답에 없으면 삭제된 영상
+      const prevGone = !!avail[id]?.g;
       avail[id] = e; checked++;
+      // 저장 파일에서 지우는 건 연속 두 번 gone 으로 확인됐을 때만(API 일시 오류로 멀쩡한 항목이 영구 삭제되는 것 방지). 한 번 gone 이면 앱은 숨기기만 한다.
+      checks.set(id, { title: byId.get(id)?.snippet?.title, gone: !!e.g && prevGone });
       if (e.g) gone++; else if (e.b) blocked++;
     }
     await new Promise((r) => setTimeout(r, 300));
   }
   await fs.writeFile(OUT, JSON.stringify(avail) + '\n', 'utf8');
+  if (checks.size) {
+    const HL = path.join(ROOT, 'highlights-video.json'), CS = path.join(ROOT, 'cheer-songs.json');
+    const rawH = await fs.readFile(HL, 'utf8').catch(() => '{}'), rawC = await fs.readFile(CS, 'utf8').catch(() => '{}');
+    const hl = JSON.parse(rawH), cs = JSON.parse(rawC);
+    const r = applyRefresh(hl, cs, checks);
+    if (r.titles || r.removed) {
+      await fs.writeFile(HL, formatLike(rawH, hl), 'utf8');
+      await fs.writeFile(CS, formatLike(rawC, cs), 'utf8');
+    }
+    console.log(`[avail] 저장 영상 정보 갱신: 제목 ${r.titles}건 수정, 삭제/비공개 ${r.removed}건 제거`);
+  }
   console.log(`[avail] calls=${calls} checked=${checked} gone=${gone} blockedSomewhere=${blocked}${stop ? ' STOP: ' + stop : ''}`);
 }
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main().catch((e) => { console.error(e); process.exit(1); });

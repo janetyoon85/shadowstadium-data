@@ -67,8 +67,8 @@
 
 <div class="meta">
   <strong>Effective Date:</strong> June 1, 2026<br>
-  <strong>Last Modified:</strong> October 10, 2026<br>
-  <strong>Version:</strong> 1.1
+  <strong>Last Modified:</strong> October 20, 2026<br>
+  <strong>Version:</strong> 1.2
 </div>
 
 <p>
@@ -99,6 +99,17 @@
   <tr><td>Alert on/off status</td><td>Per-game alert management</td></tr>
   <tr><td>Cached game schedule</td><td>Support for offline use</td></tr>
 </table>
+
+<h3>Cookies and similar technologies on your device</h3>
+<p>This App is a mobile app and does not use browser cookies itself, but it stores information on your device and accesses information from it (as do the third-party services we use) through similar technologies:</p>
+<ul>
+  <li><strong>Local storage on your device</strong> (AsyncStorage / app preferences): your favorites, alert settings and cached game data (see the table above). It stays on your device and is removed when you uninstall the App or clear its data.</li>
+  <li><strong>Push notification token and installation identifier</strong> (Firebase Cloud Messaging): stored on your device and processed by Google/Apple to deliver notifications (Section 3.3).</li>
+  <li><strong>Advertising identifier and similar identifiers</strong> (Google AdMob): the AdMob SDK may access and store identifiers on your device (Section 3.1). On iOS only non-personalized ads are requested.</li>
+  <li><strong>Crash-report data</strong> (Sentry): technical information about errors, device model and OS (Section 3.4).</li>
+  <li><strong>YouTube:</strong> the App does not embed YouTube players and does not place YouTube cookies. When you tap a video link, YouTube opens in the YouTube app or your browser, where YouTube/Google may use cookies and similar technologies under the Google Privacy Policy.</li>
+</ul>
+<p>You can control these: clear the App's data or uninstall it, reset or limit your advertising identifier in device settings, turn off notifications, and manage cookies in your browser or YouTube/Google account settings. The App's introduction web page does not use tracking cookies.</p>
 
 <h2>3. Use of Third-Party Services</h2>
 <p>This App uses the following third-party services, which may collect certain information on their own.</p>
@@ -142,7 +153,7 @@
 <p>This App uses Sentry to receive crash reports and basic performance measurements so we can fix problems. A report contains technical information such as the error and stack trace, device model, OS version, and App version. The App is configured not to send personal information (no name, email, or account identifiers). For more details: <a href="https://sentry.io/privacy/" target="_blank">Sentry Privacy Policy</a>.</p>
 
 <h3>3.5 YouTube API Services</h3>
-<p>This App uses YouTube API Services (YouTube Data API) to link match-highlight and cheer-song videos. Calls are made only from our servers; no personal information or Google account information of App users is sent to or collected from YouTube. We store only video IDs and titles. When you open a video you are taken to YouTube (app or browser), where the <a href="https://www.youtube.com/t/terms" target="_blank">YouTube Terms of Service</a> and the <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a> apply. We do not store YouTube user data, so there is no such data to delete. You can revoke any access granted to your Google account in the <a href="https://security.google.com/settings/security/permissions" target="_blank">Google security settings</a>.</p>
+<p>This App uses YouTube API Services (YouTube Data API) to link match-highlight and cheer-song videos. Calls are made only from our servers; no personal information or Google account information of App users is sent to or collected from YouTube. We store only video IDs and titles. When you open a video you are taken to YouTube (app or browser), where the <a href="https://www.youtube.com/t/terms" target="_blank">YouTube Terms of Service</a> and the <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a> apply. We do not store YouTube user data, so there is no such data to delete. You can revoke any access granted to your Google account in the <a href="https://security.google.com/settings/security/permissions" target="_blank">Google security settings</a>. We refresh the stored video information (ID and title) from the YouTube API at least every 7 days and remove it when the video is no longer available, so no YouTube API data is kept for more than 30 days without being refreshed. By using the highlight and cheer-song links you also agree to be bound by the <a href="https://www.youtube.com/t/terms" target="_blank">YouTube Terms of Service</a>.</p>
 
 <h2>4. Notifications</h2>
 <p>

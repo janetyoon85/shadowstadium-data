@@ -54,6 +54,17 @@
   <tr><td>Maç programı önbelleği</td><td>Çevrimdışı kullanım desteği</td></tr>
 </table>
 
+<h3>Cihazınızdaki çerezler ve benzeri teknolojiler</h3>
+<p>Bu uygulama bir mobil uygulamadır ve kendisi tarayıcı çerezi kullanmaz; ancak (kullandığımız üçüncü taraf hizmetler gibi) benzeri teknolojilerle cihazınızda bilgi depolar ve cihazınızdaki bilgilere erişir:</p>
+<ul>
+  <li><strong>Cihazdaki yerel depolama</strong> (AsyncStorage / uygulama tercihleri): favoriler, uyarı ayarları ve maç programı önbelleği (yukarıdaki tabloya bakın). Yalnızca cihazınızda kalır; uygulama kaldırıldığında veya verileri temizlendiğinde silinir.</li>
+  <li><strong>Anlık bildirim jetonu ve kurulum tanımlayıcısı</strong> (Firebase Cloud Messaging): cihazda saklanır ve bildirimleri iletmek için Google/Apple tarafından işlenir (bölüm 3.3).</li>
+  <li><strong>Reklam kimliği ve benzeri tanımlayıcılar</strong> (Google AdMob): AdMob SDK cihaz tanımlayıcılarına erişebilir ve bunları saklayabilir (bölüm 3.1). iOS'ta yalnızca kişiselleştirilmemiş reklamlar istenir.</li>
+  <li><strong>Çökme raporu verileri</strong> (Sentry): hatalar, cihaz modeli ve işletim sistemi hakkında teknik bilgiler (bölüm 3.4).</li>
+  <li><strong>YouTube:</strong> Uygulama YouTube oynatıcıları gömmez ve YouTube çerezi yerleştirmez. Bir video bağlantısına dokunduğunuzda YouTube kendi uygulamasında veya tarayıcıda açılır; orada YouTube/Google, Google Gizlilik Politikası uyarınca çerezler ve benzeri teknolojiler kullanabilir.</li>
+</ul>
+<p>Bunları kontrol edebilirsiniz: uygulama verilerini temizleyin veya uygulamayı kaldırın, cihaz ayarlarında reklam kimliğini sıfırlayın veya sınırlayın, bildirimleri kapatın ve çerezleri tarayıcıdan veya YouTube/Google hesabınızdan yönetin. Uygulamanın tanıtım web sayfası izleme çerezi kullanmaz.</p>
+
 <h2>3. Üçüncü Taraf Hizmetlerinin Kullanımı</h2>
 <p>Bu Uygulama, kendi başlarına bazı bilgileri toplayabilecek aşağıdaki üçüncü taraf hizmetleri kullanır.</p>
 
@@ -85,7 +96,7 @@
 <p>Bu uygulama, sorunları düzeltebilmek için çökme raporlarını ve temel performans ölçümlerini almak üzere Sentry kullanır. Bir rapor; hata ve yığın izi, cihaz modeli, işletim sistemi sürümü ve uygulama sürümü gibi teknik bilgiler içerir. Uygulama, kişisel bilgi (ad, e-posta, hesap kimlikleri) göndermeyecek şekilde yapılandırılmıştır. Daha fazla bilgi: <a href="https://sentry.io/privacy/" target="_blank">Sentry Gizlilik Politikası</a></p>
 
 <h3>3.5 YouTube API Hizmetleri</h3>
-<p>Bu uygulama, maç özeti ve tezahürat şarkısı videolarını bağlamak için YouTube API Hizmetlerini (YouTube Data API) kullanır. Çağrılar yalnızca sunucularımızdan yapılır; kullanıcıların kişisel bilgileri veya Google hesap bilgileri YouTube'a gönderilmez ve oradan toplanmaz. Yalnızca video kimliklerini ve başlıklarını saklarız. Bir videoyu açtığınızda YouTube'a (uygulama veya tarayıcı) yönlendirilirsiniz; orada <a href="https://www.youtube.com/t/terms" target="_blank">YouTube Hizmet Şartları</a> ve <a href="https://policies.google.com/privacy" target="_blank">Google Gizlilik Politikası</a> geçerlidir. YouTube kullanıcı verilerini saklamıyoruz; dolayısıyla silinecek veri yoktur. Google hesabınıza verilen izinleri <a href="https://security.google.com/settings/security/permissions" target="_blank">Google güvenlik ayarlarından</a> iptal edebilirsiniz.</p>
+<p>Bu uygulama, maç özeti ve tezahürat şarkısı videolarını bağlamak için YouTube API Hizmetlerini (YouTube Data API) kullanır. Çağrılar yalnızca sunucularımızdan yapılır; kullanıcıların kişisel bilgileri veya Google hesap bilgileri YouTube'a gönderilmez ve oradan toplanmaz. Yalnızca video kimliklerini ve başlıklarını saklarız. Bir videoyu açtığınızda YouTube'a (uygulama veya tarayıcı) yönlendirilirsiniz; orada <a href="https://www.youtube.com/t/terms" target="_blank">YouTube Hizmet Şartları</a> ve <a href="https://policies.google.com/privacy" target="_blank">Google Gizlilik Politikası</a> geçerlidir. YouTube kullanıcı verilerini saklamıyoruz; dolayısıyla silinecek veri yoktur. Google hesabınıza verilen izinleri <a href="https://security.google.com/settings/security/permissions" target="_blank">Google güvenlik ayarlarından</a> iptal edebilirsiniz. Saklanan video bilgilerini (kimlik ve başlık) YouTube API üzerinden en az 7 günde bir yeniler, video artık mevcut değilse sileriz; bu nedenle yenilenmeden 30 günü aşan YouTube API verisi tutulmaz. Özet ve tezahürat bağlantılarını kullanarak <a href="https://www.youtube.com/t/terms" target="_blank">YouTube Hizmet Şartları</a>'na bağlı olmayı kabul edersiniz.</p>
 
 <h2>4. Bildirimler</h2>
 <p>
