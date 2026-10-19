@@ -713392,7 +713392,7 @@
     "stadium": "Mario Alberto Kempes",
     "timeTbd": false,
     "gameId": "ARGENTINA_ESPN_401841628",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 0,
     "awayScore": 3,
@@ -713425,6 +713425,13 @@
           "type": "Y",
           "m": 67,
           "pid": "espn:280381",
+          "nat": "Argentina"
+        },
+        {
+          "n": "Lucas Martínez Quarta",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:219086",
           "nat": "Argentina"
         }
       ]
@@ -713748,8 +713755,19 @@
     "gameId": "LIGAMX_ESPN_401876938",
     "status": "live",
     "matchPeriod": "전반",
-    "homeScore": 0,
-    "awayScore": 0
+    "homeScore": 1,
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "Ricardo Chávez",
+          "m": 13,
+          "nat": "Mexico",
+          "pid": "espn:202106"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-10-19",
