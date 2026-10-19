@@ -14,6 +14,9 @@ on:
       avail_calls:
         description: '영상 지역 확인 호출 상한(1호출=50개=1유닛, 백필은 60)'
         default: '6'
+      avail_refresh_days:
+        description: '이 일수가 지난 영상만 다시 확인(기본 7). 0 = 전부 즉시 확인(저장 영상 제목 갱신·삭제 영상 정리 점검용)'
+        default: '7'
 
 permissions:
   contents: write
@@ -52,6 +55,7 @@ jobs:
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           AVAIL_MAX_CALLS: ${{ github.event.inputs.avail_calls || '6' }}
+          AVAIL_REFRESH_DAYS: ${{ github.event.inputs.avail_refresh_days || '7' }}
         run: node scripts/youtube-availability.mjs
 
       - name: Check for changes
