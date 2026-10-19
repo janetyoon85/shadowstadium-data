@@ -83,7 +83,7 @@ const TEAM_SEARCH_NAME_OVERRIDES = {
 
 async function fetchTeamBadge(englishName, sportLabel) {
   try {
-    const res = await fetch(`https://www.thesportsdb.com/api/v1/json/3/searchteams.php?t=${encodeURIComponent(englishName)}`);
+    const res = await fetch(`https://www.thesportsdb.com/api/v1/json/123/searchteams.php?t=${encodeURIComponent(englishName)}`);
     if (!res.ok) return null;
     const j = await res.json();
     const teams = j.teams || [];

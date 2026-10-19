@@ -86,7 +86,7 @@ async function fetchWithTimeout(url, options) {
 async function fetchVenuePhoto(englishTeamName, sportLabel) {
   let res;
   try {
-    res = await fetchWithTimeout(`https://www.thesportsdb.com/api/v1/json/3/searchteams.php?t=${encodeURIComponent(englishTeamName)}`);
+    res = await fetchWithTimeout(`https://www.thesportsdb.com/api/v1/json/123/searchteams.php?t=${encodeURIComponent(englishTeamName)}`);
   } catch {
     return undefined;
   }
@@ -109,7 +109,7 @@ async function fetchVenuePhoto(englishTeamName, sportLabel) {
   await sleep(REQUEST_DELAY_MS);
   let vres;
   try {
-    vres = await fetchWithTimeout(`https://www.thesportsdb.com/api/v1/json/3/lookupvenue.php?id=${team.idVenue}`);
+    vres = await fetchWithTimeout(`https://www.thesportsdb.com/api/v1/json/123/lookupvenue.php?id=${team.idVenue}`);
   } catch {
     return undefined;
   }

@@ -70,7 +70,7 @@ async function main() {
     if (done >= BUDGET) break;
     let res;
     try {
-      res = await fetch('https://www.thesportsdb.com/api/v1/json/3/searchplayers.php?p=' + encodeURIComponent(c.n), { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(20000) });
+      res = await fetch('https://www.thesportsdb.com/api/v1/json/123/searchplayers.php?p=' + encodeURIComponent(c.n), { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(20000) });
     } catch { fails++; if (fails >= 5) { stop = '연속 네트워크 실패'; break; } await sleep(DELAY_MS * 2); continue; }
     if (res.status === 429 || res.status === 403) { stop = `HTTP ${res.status} — 차단 방지를 위해 즉시 중단`; break; }
     if (!res.ok) { fails++; if (fails >= 5) { stop = `연속 HTTP ${res.status}`; break; } await sleep(DELAY_MS * 2); continue; }
