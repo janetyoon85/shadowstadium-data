@@ -63,8 +63,16 @@ function proxiedUrl(url) {
 const SCRAPERAPI_MONTHLY_BUDGET = 900;
 const MIN_REFETCH_INTERVAL_MS = 2 * 3600 * 1000;
 const BUDGET_STATE_PATH = path.join(REPO_ROOT, '.wbsc-scraperapi-budget.json');
+// 2026-10-19: ScraperAPI 크레딧은 달력월이 아니라 결제주기(매월 19일 갱신, 10/4 확인 시 "15일 뒤 갱신")로 갱신된다. 예산 카운터를 달력월(1일)에 리셋하면
+// 한 주기(19일~다음 달 18일) 안에 카운터가 두 번 0이 돼 1,000건을 넘겨 쓰게 된다(10월 사고의 원인). 주기 시작일(YYYY-MM-DD, 매월 19일)을 키로 쓴다.
+export const BILLING_DAY = 19;
+export function budgetCycleKey(date = new Date()) {
+  const y = date.getUTCFullYear(), m = date.getUTCMonth(), d = date.getUTCDate();
+  const start = d >= BILLING_DAY ? new Date(Date.UTC(y, m, BILLING_DAY)) : new Date(Date.UTC(y, m - 1, BILLING_DAY));
+  return start.toISOString().slice(0, 10);
+}
 async function loadBudgetState() {
-  const nowMonth = new Date().toISOString().slice(0, 7); // "YYYY-MM"
+  const nowMonth = budgetCycleKey(); // 예전 이름 유지(상태 파일의 month 필드) — 값은 이제 주기 시작일
   try {
     const raw = JSON.parse(await fs.readFile(BUDGET_STATE_PATH, 'utf-8'));
     if (raw.month === nowMonth) return raw;
@@ -464,6 +472,13 @@ async function main() {
   if (Date.now() < Date.parse('2026-10-19T00:00:00Z')) { console.log('[wbsc-baseball] ScraperAPI 크레딧 소진(10/19 갱신 예정) — 전부 스킵'); return; }
   const budget = await loadBudgetState();
   const nowMs = Date.now();
+  // 2026-10-19: 크레딧 소진·프록시 차단으로 모든 요청이 실패하는 동안 매 실행이 대회를 줄줄이 두드려 예산 카운터와 재조회 간격만 소모했다 —
+  // 연속 3건 실패하면 그 실행을 멈추고 3시간 동안은 아예 건너뛴다.
+  if (budget.backoffUntil && Date.parse(budget.backoffUntil) > nowMs) {
+    console.log(`[wbsc-baseball] 연속 실패 백오프 중(${budget.backoffUntil}까지) — 스킵`);
+    return;
+  }
+  let consecutiveFails = 0;
   if (budget.requestsUsed >= SCRAPERAPI_MONTHLY_BUDGET) {
     console.log(`[wbsc-baseball] 이번 달 ScraperAPI 예산(${SCRAPERAPI_MONTHLY_BUDGET}건) 소진 — 전부 스킵, 다음 달 자동 재개.`);
     return;
@@ -496,8 +511,15 @@ async function main() {
     } catch (e) {
       console.warn(`  failed: ${e.message}`);
       failedTournaments.push({ league, tournamentkey, error: e.message });
+      if (++consecutiveFails >= 3) {
+        budget.backoffUntil = new Date(nowMs + 3 * 3600e3).toISOString();
+        console.warn('[wbsc-baseball] 연속 3건 실패 — 이번 실행 중단, 3시간 백오프');
+        break;
+      }
       continue;
     }
+    consecutiveFails = 0;
+    delete budget.backoffUntil;
     console.log(`  -> ${gs.length} games`);
     allNew.push(...gs);
   }
@@ -532,7 +554,9 @@ async function main() {
   console.log(`[wbsc-baseball] added=${added} updated=${updated} total=${games.length}`);
 }
 
-main().catch((e) => {
-  console.error('[wbsc-baseball] fatal:', e);
-  process.exit(1);
-});
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  main().catch((e) => {
+    console.error('[wbsc-baseball] fatal:', e);
+    process.exit(1);
+  });
+}
