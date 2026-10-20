@@ -4,7 +4,7 @@
 // 입력: 앱 설정 제목 길게 누르기로 공유한 메시지 전체(token=, favs= 줄 포함)를 FCM_TOKEN 에 붙여 넣는다.
 // 해제 대상: 즐겨찾기 선수·팀·경기의 "KEEP_LANG 가 아닌 모든 언어" 토픽 + 언어 없는 옛 토픽 + (선수 ID 즐겨찾기의) 이름 토픽 전 언어.
 import admin from 'firebase-admin';
-import { playerTopic, playerLangTopic, teamFinalTopic, gameLangTopic, gameTopic } from './topic.mjs';
+import { playerTopic, playerLangTopic, teamFinalTopic, teamLiveTopic, gameLangTopic, gameTopic } from './topic.mjs';
 
 const rawIn = process.env.FCM_TOKEN || '';
 const token = ((/token=([^\s]+)/.exec(rawIn)?.[1]) || rawIn.split(/\s+/)[0] || '').trim();
@@ -36,7 +36,7 @@ catch (e) { console.error('token check failed:', e.code, e.message); process.exi
 const topics = new Set();
 for (const id of ids) { topics.add(playerTopic(id)); for (const l of LANGS) if (l !== keep) topics.add(playerLangTopic(id, l)); }
 for (const n of names) { topics.add(playerTopic(n)); for (const l of LANGS) topics.add(playerLangTopic(n, l)); }
-for (const k of teams) for (const l of LANGS) if (l !== keep) topics.add(teamFinalTopic(k, l));
+for (const k of teams) for (const l of LANGS) if (l !== keep) { topics.add(teamFinalTopic(k, l)); topics.add(teamLiveTopic(k, l)); } // 경기 종료 + 경기 중(골/이닝/쿼터) 알림 토픽(2026-10-20)
 for (const g of games) for (const lead of LEADS) { topics.add(gameTopic(g, lead)); for (const l of LANGS) if (l !== keep) topics.add(gameLangTopic(g, lead, l)); }
 console.log(`candidate topics to unsubscribe: ${topics.size}${dry ? ' (dry run — nothing changed)' : ''}`);
 if (!dry) {
