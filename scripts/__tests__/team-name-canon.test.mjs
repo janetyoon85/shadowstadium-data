@@ -24,3 +24,8 @@ test('정본 표기는 team-name-en.json / team-logos.json 에 이미 있어야 
     }
   }
 });
+
+test('ACL2 Tai Po → 타이포 (다른 리그는 그대로)', () => {
+  assert.equal(canonTeamName('ACL2', 'Tai Po'), '타이포');
+  assert.equal(canonTeamName('ACL', 'Tai Po'), 'Tai Po');
+});

@@ -4,7 +4,8 @@
 export const TEAM_NAME_CANON = {
   // 이라크 알 쿠와 알 자위야(공군 클럽) — 2026-27 시즌부터 네이버가 "Air Force"로 내려줌(이전엔 "알 쿠와").
   ACL: { 'Air Force': '알 쿠와' },
-  ACL2: { 'Air Force': '알 쿠와' },
+  // 홍콩 타이포 FC — 2026-27 ACL2 에서 네이버가 영문 "Tai Po"로 내려줌(한글명 없음) → 한글 표기로 통일.
+  ACL2: { 'Air Force': '알 쿠와', 'Tai Po': '타이포' },
 };
 
 export function canonTeamName(league, name) {
