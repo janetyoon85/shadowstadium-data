@@ -715525,6 +715525,18 @@
           "pid": "espn:379359"
         }
       ]
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Renê",
+          "type": "Y",
+          "m": 53,
+          "pid": "espn:379359",
+          "nat": "Brazil"
+        }
+      ]
     }
   },
   {
@@ -715543,13 +715555,15 @@
     "inningInfo": "4회초",
     "liveState": {
       "pitcher": "Adrian Almeida",
-      "batter": "Angel Reyes",
+      "batter": "Breyvic Valera",
       "pitcherPid": "mlb:622426",
-      "batterPid": "mlb:622580",
-      "ball": 0,
-      "strike": 0,
+      "batterPid": "mlb:591971",
+      "ball": 2,
+      "strike": 2,
       "out": 0,
-      "bases": []
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -715621,19 +715635,16 @@
     "homePitcherPid": "mlb:642547",
     "awayScore": 0,
     "homeScore": 0,
-    "inningInfo": "1회초",
+    "inningInfo": "1회말",
     "liveState": {
-      "pitcher": "페랄타",
-      "batter": "아델",
-      "ball": 2,
-      "strike": 2,
-      "out": 2,
-      "bases": [
-        1
-      ],
-      "pitchCount": 12,
-      "pitcherPid": "mlb:642547",
-      "batterPid": "mlb:666176"
+      "pitcher": "암스트롱",
+      "batter": "디아즈",
+      "ball": 0,
+      "strike": 0,
+      "out": 0,
+      "bases": [],
+      "pitcherPid": "mlb:542888",
+      "batterPid": "mlb:650490"
     },
     "round": "ps_alcs",
     "rn": 6,
@@ -715650,7 +715661,10 @@
     "stadium": "Guillermo Laza",
     "timeTbd": false,
     "gameId": "ARGENTINA_ESPN_401841625",
-    "status": "scheduled"
+    "status": "live",
+    "matchPeriod": "전반",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-10-20",
