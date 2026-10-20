@@ -715513,10 +715513,18 @@
     "gameId": "BRASILEIRAO_ESPN_401841272",
     "status": "live",
     "matchPeriod": "후반",
-    "homeScore": 0,
+    "homeScore": 1,
     "awayScore": 1,
     "scorers": {
-      "home": [],
+      "home": [
+        {
+          "n": "Yuri Alberto",
+          "m": 66,
+          "pk": true,
+          "nat": "Brazil",
+          "pid": "espn:266666"
+        }
+      ],
       "away": [
         {
           "n": "Renê",
@@ -715649,14 +715657,16 @@
     "inningInfo": "2회말",
     "liveState": {
       "pitcher": "암스트롱",
-      "batter": "카미네로",
+      "batter": "심슨",
       "ball": 0,
       "strike": 0,
       "out": 0,
-      "bases": [],
-      "pitchCount": 7,
+      "bases": [
+        1
+      ],
+      "pitchCount": 9,
       "pitcherPid": "mlb:542888",
-      "batterPid": "mlb:691406"
+      "batterPid": "mlb:802415"
     },
     "round": "ps_alcs",
     "rn": 6,
