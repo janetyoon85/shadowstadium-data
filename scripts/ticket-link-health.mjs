@@ -1,7 +1,7 @@
 // 예매 링크(ticket-links.json) 자동 점검·복구(2026-10-21) — 구단 홈페이지 개편으로 주소가 죽는 일이 반복돼(삼성·포르투·리가 데 키토·카리베스·우니베르시타리오) 매일 점검한다.
 // 원칙(보수적):
 //  1) "확실히 죽은" 경우만 센다 — HTTP 404/410 이거나, 200 이어도 본문 첫머리가 "페이지를 찾을 수 없음/404 Not Found" 류. 봇 차단(403·401·429·Cloudflare·대기열)·접속 오류·5xx 는 판정 불가(unknown)라 건드리지 않는다.
-//  2) 연속 2회(하루 1번이면 이틀) 죽어 있어야 고친다 — 일시 장애로 멀쩡한 링크를 바꾸지 않기 위해.
+//  2) 연속 2회(12시간 주기면 약 12시간 간격) 죽어 있어야 고친다 — 일시 장애로 멀쩡한 링크를 바꾸지 않기 위해.
 //  3) 고치는 순서: 같은 사이트 첫 화면에서 "티켓/예매/bilhetes/entradas…" 링크를 찾아 점검을 통과하면 그걸로 교체 → 없으면 사이트 첫 화면(origin)으로 후퇴 → 그것도 안 되면 그대로 두고 알림만.
 //  4) 바꾼 내용·고치지 못한 죽은 링크는 Discord 로 알린다(자동 교체가 틀릴 수 있어 사람이 확인).
 import fs from 'node:fs/promises';
@@ -132,7 +132,7 @@ async function main() {
     if (st.fails < 2) continue;
     const fix = await tryFix(r.url);
     if (fix) { setAt(links, r.path, fix.url); fixed.push(`• ${keyOf(r.path)}: ${r.url} → ${fix.url} (${fix.kind})`); delete state[key]; }
-    else stuck.push(`• ${keyOf(r.path)}: ${r.url} (죽어 있는데 대체 주소를 못 찾음)`);
+    else if (!st.notified || Date.now() - Date.parse(st.notified) >= 24 * 3600e3) { stuck.push(`• ${keyOf(r.path)}: ${r.url} (죽어 있는데 대체 주소를 못 찾음)`); st.notified = now; } // 같은 알림은 24시간에 한 번만
   }
   console.log(`[ticket-links] 총 ${all.length}개 · 정상 ${all.length - dead - unknown} · 죽은 의심 ${dead} · 판정 불가 ${unknown} · 교체 ${fixed.length}`);
   if (!dry) {
