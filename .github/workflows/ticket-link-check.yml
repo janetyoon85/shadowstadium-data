@@ -1,0 +1,62 @@
+name: Ticket Link Check
+
+# 예매 링크(ticket-links.json) 점검·자동 복구(2026-10-21). 구단 홈페이지 개편으로 죽은 링크를 연속 2회(이틀) 확인하면 같은 사이트의 예매 링크로 교체하고 Discord 로 알린다.
+# 판정 불가(봇 차단·접속 오류)는 건드리지 않는다. 자세한 규칙은 scripts/ticket-link-health.mjs 머리말 참고.
+on:
+  schedule:
+    - cron: '30 21 * * *'  # UTC 21:30 = KST 06:30, 하루 1회
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ticket-link-check
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Check ticket links
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: node scripts/ticket-link-health.mjs
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if [[ -n "$(git status --porcelain ticket-links.json ticket-link-state.json)" ]]; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "changed=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add ticket-links.json ticket-link-state.json
+          git commit -m "chore(data): 예매 링크 점검 ($(date +'%Y-%m-%d'))"
+          for i in $(seq 1 20); do
+            if git push; then
+              exit 0
+            fi
+            echo "push rejected, rebasing onto origin/main and retrying ($i/20)"
+            git pull --rebase --autostash origin main || { git rebase --abort 2>/dev/null || true; echo "rebase failed, retrying"; }
+            sleep $((RANDOM % 30 + 1))
+          done
+          echo "push failed after 20 retries"
+          exit 1
