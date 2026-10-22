@@ -2133,9 +2133,12 @@ async function main() {
     const manualGames = JSON.parse(await fs.readFile(manualPath, 'utf-8'));
     manualTotal = manualGames.length;
     const crawledSlots = new Set(allGames.map((g) => `${g.date}|${g.venueId}|${g.league}`));
+    // 2026-10-23: 경기장이 미정인 채로 먼저 넣은 수동 경기(대한민국 11월 평가전)는 Naver 가 나중에 실제 경기장으로 올리면 슬롯 키(날짜+구장+리그)가 달라 중복 2건이 됐을 것이다 —
+    // 같은 날짜·리그·두 팀이면 크롤링 데이터를 우선한다.
+    const crawledMatchups = new Set(allGames.flatMap((g) => [`${g.date}|${g.league}|${g.home}|${g.away}`, `${g.date}|${g.league}|${g.away}|${g.home}`])); // 홈/원정 표기 순서가 달라도 같은 경기
     for (const m of manualGames) {
       const slot = `${m.date}|${m.venueId}|${m.league}`;
-      if (crawledSlots.has(slot)) {
+      if (crawledSlots.has(slot) || crawledMatchups.has(`${m.date}|${m.league}|${m.home}|${m.away}`)) {
         console.warn(`[manual] slot ${slot} already crawled — skipping manual entry (gameId=${m.gameId})`);
         continue;
       }
