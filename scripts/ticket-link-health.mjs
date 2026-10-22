@@ -118,7 +118,7 @@ async function main() {
   const all = collectLinks(links);
   const results = await mapLimit(all, 6, async (l) => ({ ...l, ...(await probe(l.url)) }));
   const now = new Date().toISOString();
-  const fixed = [], stuck = [];
+  const fixed = [], stuck = [], originOk = {};
   let dead = 0, unknown = 0;
   for (const r of results) {
     const key = keyOf(r.path);
@@ -126,6 +126,21 @@ async function main() {
     st.checked = now;
     if (r.verdict === 'ok') { st.fails = 0; st.lastOk = now; delete st.url; continue; }
     if (r.verdict === 'unknown') { unknown++; continue; } // 판정 불가는 연속 실패로 세지 않고 그대로 둔다
+    // 2026-10-23: 바이아·알라후엘렌세·사프리사가 "죽음"으로 알림 왔지만 브라우저에서는 정상이었다 — GitHub 서버(해외 IP)에서만 사이트 전체가 차단·오류였다.
+    // 사이트 첫 화면도 안 열리면 "그 페이지가 죽었다"고 말할 수 없으니(차단/점검/폐쇄 구분 불가) 죽은 링크로 세지 않고, 14번 연속(약 7일)이면 "사이트 전체가 안 열림"으로 따로 알린다.
+    let origin = null;
+    try { origin = new URL(r.url).origin + '/'; } catch { /* 잘못된 URL 은 아래에서 그대로 죽은 것으로 처리 */ }
+    if (origin) {
+      if (!(origin in originOk)) originOk[origin] = (await probe(origin)).verdict === 'ok';
+      if (!originOk[origin]) {
+        unknown++;
+        st.siteDown = (st.siteDown || 0) + 1;
+        st.fails = 0;
+        if (st.siteDown >= 14 && (!st.notified || Date.now() - Date.parse(st.notified) >= 24 * 3600e3)) { stuck.push(`• ${keyOf(r.path)}: ${r.url} (사이트 전체가 7일째 안 열림 — 접속 차단이거나 폐쇄, 직접 확인 필요)`); st.notified = now; }
+        continue;
+      }
+    }
+    delete st.siteDown;
     dead++;
     if (st.url !== r.url) { st.url = r.url; st.fails = 0; } // 주소가 바뀌었으면 처음부터 다시 센다
     st.fails++;
