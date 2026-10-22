@@ -16,8 +16,8 @@ export const FIXED = { china_venue_tbc: 'cn', argentina_venue_tbc: 'ar', ecuador
 for (const id of 'beijing_guoan_workers,phoenix_mountain_sports_park_chengdu,chongqing_longxing_stadium,tianhe_stadium_guangzhou,dalian_suoyuwan_football_stadium,hanghai_stadium_zhengzhou,tiexi_stadium_shenyang,qingdao_youth_football_stadium,qingdao_westcoast_university_stadium,jinan_olympic_sports_center,shanghai_port_pudong,shanghai_stadium,shenzhen_stadium_xinpengcheng,teda_football_stadium_tianjin,wuhan_sports_center_stadium,yuxi_plateau_sports_center,huanglong_sports_center_hangzhou,xiamen_egret_stadium,tongliang_long_stadium,shenzhen_universiade_sports_centre_stadium,tianjin_olympic_center_stadium,shenyang_olympic_sports_center_stadium,hangzhou_olympic_sports_center_stadium,bao_an_stadium,shenzhen_youth_football_training_base_center_stadium,longhua_cultural_and_sports_center_stadium,shenzhen_youth_football_training_base_pitch_1,suzhou_taihu_football_center,suzhou_sports_center_stadium'.split(',')) FIXED[id] = 'cn';
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-export async function reverseCountry(lat, lon) {
-  const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&zoom=3&addressdetails=1&accept-language=en&lat=${lat}&lon=${lon}`;
+export async function reverseCountry(lat, lon, zoom = 3) {
+  const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&zoom=${zoom}&addressdetails=1&accept-language=en&lat=${lat}&lon=${lon}`;
   for (let i = 0; i < 3; i++) {
     try {
       const res = await fetch(url, { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(20000) });
@@ -25,7 +25,10 @@ export async function reverseCountry(lat, lon) {
       if (!res.ok) return undefined;
       const j = await res.json();
       const cc = j?.address?.country_code;
-      return typeof cc === 'string' && /^[a-z]{2}$/.test(cc) ? cc : null;
+      if (typeof cc === 'string' && /^[a-z]{2}$/.test(cc)) return cc;
+      // zoom=3 에서 "Unable to geocode"(아제르바이잔 바쿠 등 OSM 국경 처리 때문)가 나오면 더 자세한 단위로 한 번 더 물어본다.
+      if (zoom === 3) return reverseCountry(lat, lon, 10);
+      return null;
     } catch { await sleep(3000); }
   }
   return undefined;
