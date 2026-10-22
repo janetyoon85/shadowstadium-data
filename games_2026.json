@@ -718501,18 +718501,6 @@
     "status": "scheduled"
   },
   {
-    "date": "2026-10-21",
-    "time": "19:33",
-    "league": "LMP",
-    "venueId": "estadio_yaquis_obregon",
-    "home": "야키스 데 오브레곤",
-    "away": "베나도스 데 마사틀란",
-    "stadium": "Estadio de los Yaquis",
-    "timeTbd": true,
-    "gameId": "LMP_MLBSTATS_850534",
-    "status": "scheduled"
-  },
-  {
     "date": "2026-10-22",
     "time": "01:45",
     "league": "UCL",
@@ -719354,18 +719342,16 @@
     "status": "live",
     "homeScore": 6,
     "awayScore": 5,
-    "inningInfo": "6회초",
+    "inningInfo": "6회말",
     "liveState": {
-      "pitcher": "Reid Birlingmair",
-      "batter": "Jorge Barrosa",
-      "pitcherPid": "mlb:679304",
-      "batterPid": "mlb:678489",
+      "pitcher": "Jhon Romero",
+      "batter": "Jose Gomez",
+      "pitcherPid": "mlb:664584",
+      "batterPid": "mlb:650506",
       "ball": 0,
-      "strike": 1,
-      "out": 2,
-      "bases": [
-        1
-      ]
+      "strike": 0,
+      "out": 0,
+      "bases": []
     }
   },
   {
@@ -719384,15 +719370,16 @@
     "inningInfo": "7회말",
     "liveState": {
       "pitcher": "Daniel Juarez",
-      "batter": "Keiner Delgado",
+      "batter": "Juan Villavicencio",
       "pitcherPid": "mlb:684483",
-      "batterPid": "mlb:700731",
+      "batterPid": "mlb:800276",
       "ball": 1,
-      "strike": 2,
+      "strike": 0,
       "out": 2,
       "bases": [
         1,
-        2
+        2,
+        3
       ]
     }
   },
@@ -719409,15 +719396,15 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 2,
-    "inningInfo": "8회초",
+    "inningInfo": "8회말",
     "liveState": {
-      "pitcher": "Moises Diaz",
-      "batter": "Jose Martinez",
-      "pitcherPid": "mlb:681626",
-      "batterPid": "mlb:642686",
-      "ball": 2,
-      "strike": 3,
-      "out": 3,
+      "pitcher": "Yorvin Pantoja",
+      "batter": "Ramón Flores",
+      "pitcherPid": "mlb:660671",
+      "batterPid": "mlb:570717",
+      "ball": 0,
+      "strike": 2,
+      "out": 1,
       "bases": []
     }
   },
@@ -719634,16 +719621,17 @@
     "awayScore": 1,
     "inningInfo": "6회초",
     "liveState": {
-      "pitcher": "Wilian Bormie",
-      "batter": "Cristhian Adames",
-      "pitcherPid": "mlb:693781",
-      "batterPid": "mlb:542436",
-      "ball": 1,
+      "pitcher": "Angel Felipe",
+      "batter": "Kevin Alcántara",
+      "pitcherPid": "mlb:665734",
+      "batterPid": "mlb:682634",
+      "ball": 0,
       "strike": 0,
-      "out": 0,
+      "out": 1,
       "bases": [
         1,
-        2
+        2,
+        3
       ]
     }
   },
@@ -719686,7 +719674,19 @@
     "status": "live",
     "matchPeriod": "전반",
     "homeScore": 0,
-    "awayScore": 0
+    "awayScore": 0,
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Franco Rossano",
+          "type": "Y",
+          "m": 22,
+          "pid": "espn:386254",
+          "nat": "Mexico"
+        }
+      ]
+    }
   },
   {
     "date": "2026-10-22",
@@ -719774,6 +719774,31 @@
       "batter": "Norberto Obeso",
       "pitcherPid": "mlb:642574",
       "batterPid": "mlb:650995",
+      "ball": 0,
+      "strike": 0,
+      "out": 0,
+      "bases": []
+    }
+  },
+  {
+    "date": "2026-10-22",
+    "time": "11:10",
+    "league": "LMP",
+    "venueId": "estadio_yaquis_obregon",
+    "home": "야키스 데 오브레곤",
+    "away": "베나도스 데 마사틀란",
+    "stadium": "Estadio de los Yaquis",
+    "timeTbd": false,
+    "gameId": "LMP_MLBSTATS_850534",
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0,
+    "inningInfo": "1회초",
+    "liveState": {
+      "pitcher": "Odrisamer Despaigne",
+      "batter": "Nick Lucky",
+      "pitcherPid": "mlb:628333",
+      "batterPid": "mlb:681879",
       "ball": 0,
       "strike": 0,
       "out": 0,
