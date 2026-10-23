@@ -720110,18 +720110,6 @@
   },
   {
     "date": "2026-10-22",
-    "time": "19:33",
-    "league": "LMP",
-    "venueId": "estadio_tomateros_culiacan",
-    "home": "토마테로스 데 쿨리아칸",
-    "away": "마요스 데 나보호아",
-    "stadium": "Estadio de los Tomateros",
-    "timeTbd": true,
-    "gameId": "LMP_MLBSTATS_850532",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-10-22",
     "time": "22:40",
     "league": "SAUDI",
     "venueId": "al_hazem_stadium",
@@ -722944,19 +722932,18 @@
     "gameId": "LIDOM_MLBSTATS_851515",
     "status": "live",
     "homeScore": 5,
-    "awayScore": 4,
+    "awayScore": 5,
     "inningInfo": "9회초",
     "liveState": {
       "pitcher": "Anderson Pilar",
-      "batter": "Mike Rosario",
+      "batter": "George Valera",
       "pitcherPid": "mlb:666768",
-      "batterPid": "mlb:695230",
+      "batterPid": "mlb:671655",
       "ball": 0,
       "strike": 0,
-      "out": 0,
+      "out": 2,
       "bases": [
-        1,
-        2
+        3
       ]
     }
   },
@@ -722973,16 +722960,18 @@
     "status": "live",
     "homeScore": 12,
     "awayScore": 7,
-    "inningInfo": "8회초",
+    "inningInfo": "8회말",
     "liveState": {
       "pitcher": "Will Kincanon",
-      "batter": "Jesús Bastidas",
+      "batter": "Diego Castillo",
       "pitcherPid": "mlb:670267",
-      "batterPid": "mlb:665846",
-      "ball": 1,
-      "strike": 3,
-      "out": 3,
-      "bases": []
+      "batterPid": "mlb:660636",
+      "ball": 2,
+      "strike": 0,
+      "out": 2,
+      "bases": [
+        2
+      ]
     }
   },
   {
@@ -722995,20 +722984,9 @@
     "stadium": "Estadio Jose Bernardo Perez",
     "timeTbd": false,
     "gameId": "LVBP_MLBSTATS_870062",
-    "status": "live",
+    "status": "completed",
     "homeScore": 4,
-    "awayScore": 1,
-    "inningInfo": "9회초",
-    "liveState": {
-      "pitcher": "Felipe Vázquez",
-      "batter": "José Sánchez",
-      "pitcherPid": "mlb:553878",
-      "batterPid": "mlb:672566",
-      "ball": 0,
-      "strike": 2,
-      "out": 1,
-      "bases": []
-    }
+    "awayScore": 1
   },
   {
     "date": "2026-10-23",
@@ -723021,17 +722999,17 @@
     "timeTbd": false,
     "gameId": "LVBP_MLBSTATS_870063",
     "status": "live",
-    "homeScore": 8,
+    "homeScore": 9,
     "awayScore": 4,
     "inningInfo": "8회말",
     "liveState": {
       "pitcher": "Yapson Gomez",
-      "batter": "Lizandro Espinoza",
+      "batter": "Jose Martinez",
       "pitcherPid": "mlb:642857",
-      "batterPid": "mlb:692371",
+      "batterPid": "mlb:642686",
       "ball": 2,
-      "strike": 1,
-      "out": 1,
+      "strike": 2,
+      "out": 2,
       "bases": []
     }
   },
@@ -723089,13 +723067,15 @@
     "inningInfo": "2회말",
     "liveState": {
       "pitcher": "Briggs McKenzie",
-      "batter": "Aaron Parker",
+      "batter": "Juan Cabada",
       "pitcherPid": "mlb:828987",
-      "batterPid": "mlb:801590",
-      "ball": 3,
-      "strike": 2,
-      "out": 0,
-      "bases": []
+      "batterPid": "mlb:829040",
+      "ball": 0,
+      "strike": 0,
+      "out": 2,
+      "bases": [
+        3
+      ]
     }
   },
   {
@@ -723114,11 +723094,39 @@
     "inningInfo": "2회초",
     "liveState": {
       "pitcher": "Jonathan Lopez",
-      "batter": "Luis Santos",
+      "batter": "Chuckie Robinson",
       "pitcherPid": "mlb:803167",
-      "batterPid": "mlb:676021",
+      "batterPid": "mlb:642020",
+      "ball": 1,
+      "strike": 2,
+      "out": 2,
+      "bases": [
+        1,
+        3
+      ]
+    }
+  },
+  {
+    "date": "2026-10-23",
+    "time": "11:05",
+    "league": "LMP",
+    "venueId": "estadio_tomateros_culiacan",
+    "home": "토마테로스 데 쿨리아칸",
+    "away": "마요스 데 나보호아",
+    "stadium": "Estadio de los Tomateros",
+    "timeTbd": false,
+    "gameId": "LMP_MLBSTATS_850532",
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0,
+    "inningInfo": "1회초",
+    "liveState": {
+      "pitcher": "Luis Cessa",
+      "batter": "River Town",
+      "pitcherPid": "mlb:570666",
+      "batterPid": "mlb:701817",
       "ball": 0,
-      "strike": 1,
+      "strike": 0,
       "out": 0,
       "bases": []
     }
