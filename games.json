@@ -723343,7 +723343,7 @@
     "timeTbd": false,
     "gameId": "SWEDEN_ESPN_401842851",
     "status": "live",
-    "matchPeriod": "전반",
+    "matchPeriod": "하프타임",
     "homeScore": 0,
     "awayScore": 0,
     "cards": {
@@ -723371,8 +723371,19 @@
     "gameId": "SWEDEN_ESPN_401842852",
     "status": "live",
     "matchPeriod": "전반",
-    "homeScore": 0,
-    "awayScore": 0
+    "homeScore": 1,
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "Jonathan Karlsson",
+          "m": 45,
+          "nat": "Sweden",
+          "pid": "espn:399509"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-10-24",
@@ -723385,7 +723396,7 @@
     "timeTbd": false,
     "gameId": "TURKEY_ESPN_401888268",
     "status": "live",
-    "matchPeriod": "전반",
+    "matchPeriod": "하프타임",
     "homeScore": 0,
     "awayScore": 2,
     "scorers": {
@@ -723404,6 +723415,18 @@
           "pid": "espn:269467"
         }
       ]
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Emir Ortakaya",
+          "type": "Y",
+          "m": 45,
+          "pid": "espn:310848",
+          "nat": "Türkiye"
+        }
+      ]
     }
   },
   {
@@ -723419,7 +723442,19 @@
     "status": "live",
     "matchPeriod": "전반",
     "homeScore": 0,
-    "awayScore": 0
+    "awayScore": 0,
+    "cards": {
+      "home": [
+        {
+          "n": "Yann Litawumba",
+          "type": "Y",
+          "m": 16,
+          "pid": "espn:356868",
+          "nat": "France"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-10-24",
