@@ -730598,7 +730598,7 @@
     "stadium": "Estadio La Portada",
     "timeTbd": false,
     "gameId": "CHILE_ESPN_401850674",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 3,
     "awayScore": 1,
@@ -730860,7 +730860,7 @@
     "status": "live",
     "matchPeriod": "후반",
     "homeScore": 0,
-    "awayScore": 0,
+    "awayScore": 1,
     "cards": {
       "home": [
         {
@@ -730894,6 +730894,18 @@
           "nat": "Sweden"
         }
       ]
+    },
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "Luc Mares",
+          "m": 69,
+          "og": true,
+          "nat": "Netherlands",
+          "pid": "espn:223775"
+        }
+      ]
     }
   },
   {
@@ -730907,9 +730919,9 @@
     "timeTbd": false,
     "gameId": "od59IAzCjZIY7Oy",
     "status": "live",
-    "awayScore": 0,
+    "awayScore": 2,
     "homeScore": 2,
-    "matchPeriod": "후반 24'",
+    "matchPeriod": "후반 28'",
     "scorers": {
       "home": [
         {
@@ -730928,7 +730940,17 @@
           "apid": "espn:188306"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "소울레",
+          "m": 69,
+          "pid": "espn:323974"
+        },
+        {
+          "n": "발레르디",
+          "m": 74
+        }
+      ]
     },
     "cards": {
       "home": [
@@ -730978,7 +731000,7 @@
     "status": "live",
     "matchPeriod": "후반",
     "homeScore": 1,
-    "awayScore": 0,
+    "awayScore": 1,
     "cards": {
       "home": [
         {
@@ -731057,7 +731079,15 @@
           "pid": "espn:305194"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Gift Orban",
+          "m": 73,
+          "pk": true,
+          "nat": "Nigeria",
+          "pid": "espn:356402"
+        }
+      ]
     }
   },
   {
@@ -731126,7 +731156,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반종료"
+    "matchPeriod": "후반 1'"
   },
   {
     "date": "2026-10-25",
@@ -731201,7 +731231,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반종료"
+    "matchPeriod": "후반 1'"
   },
   {
     "date": "2026-10-25",
@@ -731357,7 +731387,7 @@
     "status": "live",
     "awayScore": 3,
     "homeScore": 0,
-    "matchPeriod": "전반 43'",
+    "matchPeriod": "전반종료",
     "scorers": {
       "home": [],
       "away": [
@@ -731389,6 +731419,18 @@
           "apid": "espn:337056"
         }
       ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Jaden Slory",
+          "type": "Y",
+          "m": 45,
+          "pid": "espn:344195",
+          "nat": "Netherlands"
+        }
+      ],
+      "away": []
     }
   },
   {
@@ -731491,7 +731533,10 @@
     "stadium": "Allianz Stadion",
     "timeTbd": false,
     "gameId": "AUSTRIA_ESPN_401881765",
-    "status": "scheduled"
+    "status": "live",
+    "matchPeriod": "전반",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-10-25",
