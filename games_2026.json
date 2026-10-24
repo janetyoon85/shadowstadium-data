@@ -733928,6 +733928,13 @@
           "m": 44,
           "pid": "espn:335360",
           "nat": "Argentina"
+        },
+        {
+          "n": "Alix Vinicius",
+          "type": "Y",
+          "m": 81,
+          "pid": "espn:257335",
+          "nat": "Brazil"
         }
       ]
     }
@@ -733947,7 +733954,15 @@
     "homeScore": 3,
     "awayScore": 2,
     "cards": {
-      "home": [],
+      "home": [
+        {
+          "n": "Marino Hinestroza",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:285203",
+          "nat": "Colombia"
+        }
+      ],
       "away": [
         {
           "n": "Rodrigo Garro",
@@ -733976,6 +733991,12 @@
         {
           "n": "Marino Hinestroza",
           "m": 88,
+          "nat": "Colombia",
+          "pid": "espn:285203"
+        },
+        {
+          "n": "Marino Hinestroza",
+          "m": 90,
           "nat": "Colombia",
           "pid": "espn:285203"
         }
@@ -734049,7 +734070,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 1,
-    "matchPeriod": "후반 39'",
+    "matchPeriod": "후반 41'",
     "scorers": {
       "home": [
         {
@@ -734179,15 +734200,15 @@
     "awayScore": 2,
     "inningInfo": "4회초",
     "liveState": {
-      "pitcher": "Alfred Morillo",
-      "batter": "José Barrero",
-      "pitcherPid": "mlb:801219",
-      "batterPid": "mlb:676480",
-      "ball": 0,
-      "strike": 0,
-      "out": 1,
+      "pitcher": "Leandro Lopez",
+      "batter": "Gustavo Nunez",
+      "pitcherPid": "mlb:699214",
+      "batterPid": "mlb:516631",
+      "ball": 2,
+      "strike": 1,
+      "out": 2,
       "bases": [
-        2,
+        1,
         3
       ]
     }
@@ -734205,15 +734226,15 @@
     "status": "live",
     "homeScore": 1,
     "awayScore": 3,
-    "inningInfo": "4회초",
+    "inningInfo": "4회말",
     "liveState": {
-      "pitcher": "Justin Lopez",
-      "batter": "Jorbit Vivas",
-      "pitcherPid": "mlb:672358",
-      "batterPid": "mlb:678391",
-      "ball": 1,
-      "strike": 1,
-      "out": 3,
+      "pitcher": "Robert Colina",
+      "batter": "Edgardo Fermin",
+      "pitcherPid": "mlb:678783",
+      "batterPid": "mlb:660662",
+      "ball": 0,
+      "strike": 0,
+      "out": 2,
       "bases": []
     }
   },
@@ -734233,15 +734254,16 @@
     "inningInfo": "4회초",
     "liveState": {
       "pitcher": "Luis Arejula",
-      "batter": "Gabriel Gonzalez",
+      "batter": "Balbino Fuenmayor",
       "pitcherPid": "mlb:700728",
-      "batterPid": "mlb:694224",
+      "batterPid": "mlb:515768",
       "ball": 0,
       "strike": 0,
       "out": 0,
       "bases": [
         1,
-        2
+        2,
+        3
       ]
     }
   },
@@ -734404,16 +734426,18 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 0,
-    "inningInfo": "3회초",
+    "inningInfo": "3회말",
     "liveState": {
       "pitcher": "Peyton Prescott",
-      "batter": "Teo Banks",
+      "batter": "Dax Kilby",
       "pitcherPid": "mlb:807290",
-      "batterPid": "mlb:695493",
+      "batterPid": "mlb:828076",
       "ball": 0,
-      "strike": 3,
-      "out": 3,
-      "bases": []
+      "strike": 0,
+      "out": 1,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -734473,17 +734497,19 @@
     "gameId": "LVBP_MLBSTATS_870068",
     "status": "live",
     "homeScore": 3,
-    "awayScore": 0,
+    "awayScore": 1,
     "inningInfo": "3회초",
     "liveState": {
       "pitcher": "Félix Doubront",
-      "batter": "Aeverson Arteaga",
+      "batter": "Aron Estrada",
       "pitcherPid": "mlb:467094",
-      "batterPid": "mlb:692348",
-      "ball": 1,
-      "strike": 1,
-      "out": 0,
-      "bases": []
+      "batterPid": "mlb:800406",
+      "ball": 0,
+      "strike": 0,
+      "out": 1,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -734569,6 +734595,18 @@
         }
       ],
       "away": []
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Rafael Carrascal",
+          "type": "Y",
+          "m": 16,
+          "pid": "espn:171514",
+          "nat": "Colombia"
+        }
+      ],
+      "away": []
     }
   },
   {
@@ -734593,7 +734631,20 @@
     "stadium": "Estadio Tetelo Vargas",
     "timeTbd": false,
     "gameId": "LIDOM_MLBSTATS_851539",
-    "status": "scheduled"
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0,
+    "inningInfo": "1회초",
+    "liveState": {
+      "pitcher": "Jaime Barria",
+      "batter": "Eddinson Paulino",
+      "pitcherPid": "mlb:642545",
+      "batterPid": "mlb:682796",
+      "ball": 0,
+      "strike": 0,
+      "out": 0,
+      "bases": []
+    }
   },
   {
     "date": "2026-10-25",
