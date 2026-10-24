@@ -733883,7 +733883,7 @@
     "gameId": "ECUADOR_ESPN_401921346",
     "status": "live",
     "phaseCode": "FR",
-    "matchPeriod": "전반",
+    "matchPeriod": "하프타임",
     "homeScore": 0,
     "awayScore": 1,
     "scorers": {
@@ -734094,10 +734094,17 @@
     "gameId": "VENEZUELA_ESPN_401930957",
     "status": "live",
     "matchPeriod": "전반",
-    "homeScore": 0,
+    "homeScore": 1,
     "awayScore": 1,
     "scorers": {
-      "home": [],
+      "home": [
+        {
+          "n": "Michael Covea",
+          "m": 25,
+          "nat": "Venezuela",
+          "pid": "espn:200295"
+        }
+      ],
       "away": [
         {
           "n": "Luis Zúñiga",
