@@ -421270,7 +421270,8 @@
         },
         {
           "n": "멘사",
-          "m": 56
+          "m": 56,
+          "pid": "espn:376223"
         }
       ]
     }
@@ -732282,8 +732283,8 @@
     "gameId": "a3yqfPfaIBwJRWT",
     "status": "live",
     "awayScore": 0,
-    "homeScore": 1,
-    "matchPeriod": "후반 31'",
+    "homeScore": 2,
+    "matchPeriod": "후반 33'",
     "scorers": {
       "home": [
         {
@@ -732291,6 +732292,12 @@
           "m": 39,
           "nat": "France",
           "pid": "espn:255773"
+        },
+        {
+          "n": "멘사",
+          "m": 76,
+          "nat": "Ghana",
+          "pid": "espn:376223"
         }
       ],
       "away": []
@@ -732531,7 +732538,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 0,
-    "matchPeriod": "전반 37'",
+    "matchPeriod": "전반 39'",
     "scorers": {
       "home": [],
       "away": [
@@ -732560,7 +732567,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 36'",
+    "matchPeriod": "전반 39'",
     "cards": {
       "home": [
         {
@@ -732620,17 +732627,19 @@
     "gameId": "AFL_MLBSTATS_867684",
     "status": "live",
     "homeScore": 0,
-    "awayScore": 0,
+    "awayScore": 1,
     "inningInfo": "1회초",
     "liveState": {
       "pitcher": "Fernando Perez",
-      "batter": "Tai Peete",
+      "batter": "Brandon Eike",
       "pitcherPid": "mlb:800125",
-      "batterPid": "mlb:806191",
-      "ball": 3,
+      "batterPid": "mlb:694806",
+      "ball": 4,
       "strike": 1,
-      "out": 0,
-      "bases": []
+      "out": 2,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -732675,8 +732684,20 @@
     "gameId": "BRASILEIRAO_ESPN_401841284",
     "status": "live",
     "matchPeriod": "전반",
-    "homeScore": 0,
-    "awayScore": 0
+    "homeScore": 1,
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "Rafael",
+          "m": 7,
+          "og": true,
+          "nat": "Brazil",
+          "pid": "espn:199013"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-10-25",
