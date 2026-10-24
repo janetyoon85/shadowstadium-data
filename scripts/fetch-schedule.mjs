@@ -312,17 +312,37 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 // naverStadiumMap.json에 없는 새 stadium 텍스트를 Discord로 능동 알림(빌드 실패로 안 만들어
 // 다른 리그 업데이트는 그대로 진행). 웹훅 미설정 시(로컬 실행 등) 조용히 스킵.
+// 같은 미매핑 구장을 크롤 주기(2~5분)마다 다시 보내 Discord 가 도배되던 문제(2026-10-25) — 마지막 발송 시각을 unmapped-venue-alerts.json 에 남겨 같은 항목은
+// UNMAPPED_REALERT_MS(기본 1시간) 안에는 다시 알리지 않는다. 새로 생긴 항목은 즉시 알린다(워크플로가 이 파일을 커밋해 실행 간에 유지).
+const UNMAPPED_ALERTS_PATH = path.join(REPO_ROOT, 'unmapped-venue-alerts.json');
+const UNMAPPED_REALERT_MS = Number(process.env.UNMAPPED_REALERT_HOURS || 1) * 3600000;
+export function pickFreshFailures(uniqueFails, state, now, windowMs = UNMAPPED_REALERT_MS) {
+  return uniqueFails.filter((f) => !(now - (state[`${f.categoryId}::${f.stadium}`] || 0) < windowMs));
+}
+
 async function notifyMappingFailures(uniqueFails) {
-  const webhook = alertWebhook();
+  const webhook = alertWebhook() ?? (process.env.DISCORD_WEBHOOK_URL || undefined); // 시간 창 대신 항목별 1시간 기록으로 중복을 막는다
   if (!webhook) return;
-  const lines = uniqueFails.map((f) => `• ${f.categoryId} → "${f.stadium}"`).join('\n');
-  const content = `🟡 ShadeSide — 미매핑 구장 발견 (${uniqueFails.length}건)\n승격/강등·개축으로 새 구장이 생겼을 수 있어요. naverStadiumMap.json에 추가하고 App.tsx VENUES도 확인해주세요.\n${lines}`;
+  let state = {};
+  try { state = JSON.parse(await fs.readFile(UNMAPPED_ALERTS_PATH, 'utf-8')); } catch { /* 첫 실행 */ }
+  const now = Date.now();
+  const fresh = pickFreshFailures(uniqueFails, state, now);
+  if (!fresh.length) return;
+  const lines = fresh.map((f) => `• ${f.categoryId} → "${f.stadium}"`).join(String.fromCharCode(10));
+  const content = `🟡 ShadeSide — 미매핑 구장 발견 (${fresh.length}건)${String.fromCharCode(10)}승격/강등·개축으로 새 구장이 생겼을 수 있어요. naverStadiumMap.json에 추가하고 App.tsx VENUES도 확인해주세요.${String.fromCharCode(10)}${lines}`;
   try {
-    await fetch(webhook, {
+    const res = await fetch(webhook, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ content }),
     });
+    if (res.ok) {
+      for (const f of fresh) state[`${f.categoryId}::${f.stadium}`] = now;
+      // 지금도 미매핑인 항목만 남겨 파일이 커지지 않게 한다.
+      const live = new Set(uniqueFails.map((f) => `${f.categoryId}::${f.stadium}`));
+      for (const k of Object.keys(state)) if (!live.has(k)) delete state[k];
+      await fs.writeFile(UNMAPPED_ALERTS_PATH, JSON.stringify(state, null, 2) + String.fromCharCode(10), 'utf-8');
+    }
   } catch (e) {
     console.warn('[discord] mapping-failure notify failed:', e.message);
   }
