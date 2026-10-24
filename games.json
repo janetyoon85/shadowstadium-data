@@ -730815,7 +730815,7 @@
     "timeTbd": false,
     "gameId": "NORWAY_ESPN_401843371",
     "status": "live",
-    "matchPeriod": "하프타임",
+    "matchPeriod": "후반",
     "homeScore": 0,
     "awayScore": 0,
     "cards": {
@@ -730895,7 +730895,7 @@
     "timeTbd": false,
     "gameId": "TURKEY_ESPN_401888375",
     "status": "live",
-    "matchPeriod": "하프타임",
+    "matchPeriod": "후반",
     "homeScore": 1,
     "awayScore": 0,
     "cards": {
@@ -731076,7 +731076,15 @@
     "homeScore": 0,
     "awayScore": 0,
     "cards": {
-      "home": [],
+      "home": [
+        {
+          "n": "Dimitris Laskaris",
+          "type": "Y",
+          "m": 31,
+          "pid": "espn:347622",
+          "nat": "Greece"
+        }
+      ],
       "away": [
         {
           "n": "Ioannis Tsivelekidis",
@@ -731091,6 +731099,13 @@
           "m": 16,
           "pid": "espn:222587",
           "nat": "Serbia"
+        },
+        {
+          "n": "Octavian Popescu",
+          "type": "Y",
+          "m": 29,
+          "pid": "espn:308084",
+          "nat": "Romania"
         }
       ]
     }
@@ -731196,7 +731211,10 @@
     "stadium": "OPAP Arena",
     "timeTbd": false,
     "gameId": "GREECE_ESPN_401896744",
-    "status": "scheduled"
+    "status": "live",
+    "matchPeriod": "전반",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-10-25",
@@ -731208,7 +731226,10 @@
     "stadium": "Complexo Desportivo FC Alverca",
     "timeTbd": false,
     "gameId": "PORTUGAL_ESPN_401885420",
-    "status": "scheduled"
+    "status": "live",
+    "matchPeriod": "전반",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-10-25",
