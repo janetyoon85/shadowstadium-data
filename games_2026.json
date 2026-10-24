@@ -732396,6 +732396,13 @@
           "m": 45,
           "pid": "espn:122779",
           "nat": "Belgium"
+        },
+        {
+          "n": "Bruno Godeau",
+          "type": "Y",
+          "m": 62,
+          "pid": "espn:178364",
+          "nat": "Belgium"
         }
       ]
     }
@@ -732463,10 +732470,20 @@
     "gameId": "r2S7Px3kHvsRqgA",
     "status": "live",
     "awayScore": 1,
-    "homeScore": 0,
-    "matchPeriod": "후반 18'",
+    "homeScore": 1,
+    "matchPeriod": "후반 20'",
     "scorers": {
-      "home": [],
+      "home": [
+        {
+          "n": "토빈",
+          "m": 63,
+          "a": "Thorgan Hazard",
+          "nat": "France",
+          "pid": "espn:156898",
+          "aNat": "Belgium",
+          "apid": "espn:158066"
+        }
+      ],
       "away": [
         {
           "n": "콜레오쇼",
@@ -732520,7 +732537,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 2,
-    "matchPeriod": "후반 22'",
+    "matchPeriod": "후반 24'",
     "scorers": {
       "home": [
         {
@@ -732572,7 +732589,7 @@
     "gameId": "ECUADOR_ESPN_401921375",
     "status": "live",
     "phaseCode": "FR",
-    "matchPeriod": "하프타임",
+    "matchPeriod": "후반",
     "homeScore": 2,
     "awayScore": 0,
     "scorers": {
@@ -732626,7 +732643,7 @@
     "status": "live",
     "awayScore": 2,
     "homeScore": 0,
-    "matchPeriod": "후반 7'",
+    "matchPeriod": "후반 9'",
     "scorers": {
       "home": [],
       "away": [
@@ -732664,7 +732681,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 1,
-    "matchPeriod": "후반 5'",
+    "matchPeriod": "후반 7'",
     "scorers": {
       "home": [
         {
@@ -732745,16 +732762,18 @@
     "status": "live",
     "homeScore": 2,
     "awayScore": 1,
-    "inningInfo": "2회초",
+    "inningInfo": "2회말",
     "liveState": {
       "pitcher": "Kannon Kemp",
-      "batter": "Mason White",
+      "batter": "Jake Casey",
       "pitcherPid": "mlb:807748",
-      "batterPid": "mlb:702517",
-      "ball": 3,
-      "strike": 2,
-      "out": 3,
-      "bases": []
+      "batterPid": "mlb:814457",
+      "ball": 2,
+      "strike": 1,
+      "out": 1,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -732842,7 +732861,7 @@
     "status": "live",
     "matchPeriod": "전반",
     "homeScore": 1,
-    "awayScore": 0,
+    "awayScore": 1,
     "scorers": {
       "home": [
         {
@@ -732853,7 +732872,14 @@
           "pid": "espn:199013"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Pedro Lima",
+          "m": 39,
+          "nat": "Brazil",
+          "pid": "espn:376489"
+        }
+      ]
     },
     "cards": {
       "home": [],
@@ -732888,7 +732914,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 2,
-    "matchPeriod": "전반 30'",
+    "matchPeriod": "전반 32'",
     "scorers": {
       "home": [
         {
@@ -732960,12 +732986,12 @@
     "inningInfo": "1회초",
     "liveState": {
       "pitcher": "Radhames Liz",
-      "batter": "Gilberto Celestino",
+      "batter": "Juan Brito",
       "pitcherPid": "mlb:467785",
-      "batterPid": "mlb:665482",
-      "ball": 0,
+      "batterPid": "mlb:682877",
+      "ball": 1,
       "strike": 0,
-      "out": 0,
+      "out": 2,
       "bases": []
     }
   },
