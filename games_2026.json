@@ -732483,7 +732483,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 1,
-    "matchPeriod": "후반 32'",
+    "matchPeriod": "후반 34'",
     "scorers": {
       "home": [
         {
@@ -732556,7 +732556,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 2,
-    "matchPeriod": "후반 36'",
+    "matchPeriod": "후반 38'",
     "scorers": {
       "home": [
         {
@@ -732670,7 +732670,7 @@
     "status": "live",
     "awayScore": 3,
     "homeScore": 1,
-    "matchPeriod": "후반 21'",
+    "matchPeriod": "후반 23'",
     "scorers": {
       "home": [
         {
@@ -732702,8 +732702,11 @@
         {
           "n": "트렌스코",
           "m": 66,
+          "a": "Maxence Rivera",
           "nat": "Denmark",
-          "pid": "espn:308051"
+          "pid": "espn:308051",
+          "aNat": "France",
+          "apid": "espn:301323"
         }
       ]
     },
@@ -732733,7 +732736,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 1,
-    "matchPeriod": "후반 19'",
+    "matchPeriod": "후반 21'",
     "scorers": {
       "home": [
         {
@@ -732774,7 +732777,7 @@
     "status": "live",
     "matchPeriod": "후반",
     "homeScore": 3,
-    "awayScore": 1,
+    "awayScore": 2,
     "scorers": {
       "home": [
         {
@@ -732803,6 +732806,13 @@
           "m": 8,
           "nat": "Uruguay",
           "pid": "espn:200071"
+        },
+        {
+          "n": "Sebastián Da Silva",
+          "m": 62,
+          "pk": true,
+          "nat": "Uruguay",
+          "pid": "espn:419394"
         }
       ]
     }
@@ -732823,14 +732833,15 @@
     "inningInfo": "3회초",
     "liveState": {
       "pitcher": "Fernando Perez",
-      "batter": "Ike Irish",
+      "batter": "Carlos Sanchez",
       "pitcherPid": "mlb:800125",
-      "batterPid": "mlb:702610",
-      "ball": 0,
-      "strike": 0,
-      "out": 0,
+      "batterPid": "mlb:800176",
+      "ball": 2,
+      "strike": 1,
+      "out": 2,
       "bases": [
-        1
+        1,
+        3
       ]
     }
   },
@@ -733000,7 +733011,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 2,
-    "matchPeriod": "전반 44'",
+    "matchPeriod": "전반 46'",
     "scorers": {
       "home": [
         {
@@ -733083,13 +733094,13 @@
     "awayScore": 0,
     "inningInfo": "2회초",
     "liveState": {
-      "pitcher": "Radhames Liz",
-      "batter": "Jesús Sánchez",
-      "pitcherPid": "mlb:467785",
-      "batterPid": "mlb:660821",
-      "ball": 0,
-      "strike": 2,
-      "out": 0,
+      "pitcher": "Evan Grills",
+      "batter": "Junior Lake",
+      "pitcherPid": "mlb:592361",
+      "batterPid": "mlb:516809",
+      "ball": 1,
+      "strike": 0,
+      "out": 3,
       "bases": []
     }
   },
@@ -733132,8 +733143,19 @@
     "gameId": "PERU_ESPN_401886132",
     "status": "live",
     "matchPeriod": "전반",
-    "homeScore": 0,
-    "awayScore": 0
+    "homeScore": 1,
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "Facundo Callejo",
+          "m": 9,
+          "nat": "Argentina",
+          "pid": "espn:164426"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-10-25",
