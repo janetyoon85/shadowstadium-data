@@ -31,7 +31,7 @@ const PAGE_DELAY_MS = 500; // 카테고리 다중 페이지 조회 전용(enrich
 // 전역 fetch 타임아웃(2026-09-30) — 개별 호출에 AbortController가 없어 요청 하나가 멎으면 잡 전체가 정지했음.
 const __origFetch = globalThis.fetch;
 globalThis.fetch = (url, opts = {}) => (opts.signal ? __origFetch(url, opts) : __origFetch(url, { ...opts, signal: AbortSignal.timeout(20000) }));
-const USER_AGENT = 'shadowstadium-crawler/1.0 (+https://github.com/janetyoon85/shadowstadium-data)';
+const USER_AGENT = 'Mozilla/5.0 (compatible; shadowstadium; +https://github.com/janetyoon85/shadowstadium-data)';
 const API_BASE = 'https://api-gw.sports.naver.com/schedule/games';
 const RECORD_API = (gameId) => `${API_BASE}/${gameId}/record`;
 const RELAY_API = (gameId) => `${API_BASE}/${gameId}/relay`;

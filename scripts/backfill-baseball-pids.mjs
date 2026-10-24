@@ -12,7 +12,7 @@ const REPO_ROOT = path.resolve(__dirname, '..');
 const OUT = path.join(REPO_ROOT, 'game-player-pids.json');
 const BUDGET = Number(process.env.PID_BACKFILL_BUDGET || 300);
 const DELAY_MS = Number(process.env.PID_BACKFILL_DELAY_MS || 1200);
-const UA = 'shadowstadium-crawler/1.0 (+https://github.com/janetyoon85/shadowstadium-data)';
+const UA = 'Mozilla/5.0 (compatible; shadowstadium; +https://github.com/janetyoon85/shadowstadium-data)';
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 const startersMissing = (g) => (g.homePitcher && !g.homePitcherPid) || (g.awayPitcher && !g.awayPitcherPid);

@@ -7,7 +7,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const DIR = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'basketball');
-const UA = 'Mozilla/5.0 (compatible; shadeside-crawler)';
+const UA = 'Mozilla/5.0 (compatible; shadowstadium; +https://github.com/janetyoon85/shadowstadium-data)';
 const FORCE = process.argv.includes('--force');
 const r1 = (v) => (typeof v === 'number' && Number.isFinite(v) ? Math.round(v * 10) / 10 : undefined);
 

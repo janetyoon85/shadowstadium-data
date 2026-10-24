@@ -14,7 +14,7 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
-const USER_AGENT = 'shadowstadium-crawler/1.0 (+https://github.com/janetyoon85/shadowstadium-data)';
+const USER_AGENT = 'Mozilla/5.0 (compatible; shadowstadium; +https://github.com/janetyoon85/shadowstadium-data)';
 const BASE = 'https://api-gw.sports.naver.com/statistics/categories';
 const REQUEST_DELAY_MS = 250;
 const STANDINGS_PATH = path.join(REPO_ROOT, 'standings.json');
