@@ -729019,7 +729019,7 @@
     "stadium": "Bosuilstadion",
     "timeTbd": false,
     "gameId": "BELGIUM_ESPN_401878968",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 3,
     "awayScore": 0,
@@ -730376,9 +730376,17 @@
     "status": "live",
     "matchPeriod": "전반",
     "homeScore": 1,
-    "awayScore": 0,
+    "awayScore": 1,
     "cards": {
-      "home": [],
+      "home": [
+        {
+          "n": "Francis Mac Allister",
+          "type": "Y",
+          "m": 20,
+          "pid": "espn:233905",
+          "nat": "Argentina"
+        }
+      ],
       "away": [
         {
           "n": "Yonatan Rodríguez",
@@ -730398,7 +730406,14 @@
           "pid": "espn:253929"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Jorge Henríquez",
+          "m": 21,
+          "nat": "Chile",
+          "pid": "espn:213401"
+        }
+      ]
     }
   },
   {
@@ -730414,7 +730429,18 @@
     "status": "live",
     "matchPeriod": "전반",
     "homeScore": 0,
-    "awayScore": 0
+    "awayScore": 1,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "Anton Kurochkin",
+          "m": 21,
+          "nat": "Sweden",
+          "pid": "espn:357143"
+        }
+      ]
+    }
   },
   {
     "date": "2026-10-25",
