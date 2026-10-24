@@ -3,3 +3,6 @@
 // 매핑표에 이미 있는 라벨(나라별 자리표시 등)은 그쪽이 우선한다.
 export const GENERIC_TBC_VENUE_ID = 'venue_tbc';
 export const isTbcStadium = (s) => /^\s*TBC\b/i.test(s || '');
+// 2026-10-25 — 대한민국 A매치(amatch)는 경기장이 확정 전이면 stadium 이 빈 문자열로 온다(11/13 사우디전). 빈 값이면 venueId 가 없어 경기가 통째로 걸러지고,
+// 같은 경기를 넣어 둔 수동 일정도 "이미 크롤링됨"으로 빠져 경기가 사라지므로, 이 경우도 자리표시 구장에 연결한다. 다른 리그의 빈 경기장은 그대로 거른다.
+export const tbcVenueFor = (stadium, categoryId) => (isTbcStadium(stadium) || (!(stadium || '').trim() && categoryId === 'amatch') ? GENERIC_TBC_VENUE_ID : '');
