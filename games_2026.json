@@ -739778,25 +739778,32 @@
     "stadium": "SNP 아레나",
     "timeTbd": false,
     "gameId": "lgjP5uINdYU5LXH",
-    "status": "live",
+    "status": "completed",
     "awayScore": 0,
     "homeScore": 3,
-    "matchPeriod": "후반 55'",
     "scorers": {
       "home": [
         {
           "n": "크라마리치",
           "m": 79,
+          "pk": true,
+          "nat": "Croatia",
           "pid": "espn:139520"
         },
         {
           "n": "프라스",
           "m": 89,
-          "pid": "espn:320939"
+          "a": "Andrej Kramaric",
+          "nat": "Austria",
+          "pid": "espn:320939",
+          "aNat": "Croatia",
+          "apid": "espn:139520"
         },
         {
           "n": "뫼르스테트",
-          "m": 90
+          "m": 90,
+          "nat": "Germany",
+          "pid": "espn:372035"
         }
       ],
       "away": []
@@ -739922,7 +739929,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 4,
-    "matchPeriod": "후반 26'",
+    "matchPeriod": "후반 28'",
     "scorers": {
       "home": [
         {
@@ -740172,7 +740179,7 @@
     "timeTbd": false,
     "gameId": "SWEDEN_ESPN_401842854",
     "status": "live",
-    "matchPeriod": "하프타임",
+    "matchPeriod": "후반",
     "homeScore": 0,
     "awayScore": 0,
     "cards": {
@@ -740200,10 +740207,20 @@
     "gameId": "zbXfw9vUOzry8Dj",
     "status": "live",
     "awayScore": 1,
-    "homeScore": 0,
-    "matchPeriod": "전반 43'",
+    "homeScore": 1,
+    "matchPeriod": "전반 45'",
     "scorers": {
-      "home": [],
+      "home": [
+        {
+          "n": "토른스트라",
+          "m": 43,
+          "a": "Isaac Babadi",
+          "nat": "Netherlands",
+          "pid": "espn:142517",
+          "aNat": "Netherlands",
+          "apid": "espn:318782"
+        }
+      ],
       "away": [
         {
           "n": "우아잔",
@@ -740472,10 +740489,17 @@
     "gameId": "URUGUAY_ESPN_401930337",
     "status": "live",
     "matchPeriod": "전반",
-    "homeScore": 0,
+    "homeScore": 1,
     "awayScore": 1,
     "scorers": {
-      "home": [],
+      "home": [
+        {
+          "n": "Eduardo Agüero",
+          "m": 31,
+          "nat": "Uruguay",
+          "pid": "espn:335308"
+        }
+      ],
       "away": [
         {
           "n": "Agustín Miranda",
@@ -740499,7 +740523,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 16'"
+    "matchPeriod": "전반 18'"
   },
   {
     "date": "2026-10-26",
@@ -740514,7 +740538,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 16'"
+    "matchPeriod": "전반 18'"
   },
   {
     "date": "2026-10-26",
@@ -740529,7 +740553,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 16'"
+    "matchPeriod": "전반 18'"
   },
   {
     "date": "2026-10-26",
@@ -740544,7 +740568,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 15'"
+    "matchPeriod": "전반 17'"
   },
   {
     "date": "2026-10-26",
@@ -740559,7 +740583,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 1,
-    "matchPeriod": "전반 15'",
+    "matchPeriod": "전반 17'",
     "scorers": {
       "home": [
         {
@@ -740600,8 +740624,11 @@
     "stadium": "Estadio Olímpico de Ibarra",
     "timeTbd": false,
     "gameId": "ECUADOR_ESPN_401921335",
-    "status": "scheduled",
-    "phaseCode": "FR"
+    "status": "live",
+    "phaseCode": "FR",
+    "matchPeriod": "전반",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-10-26",
@@ -740613,7 +740640,10 @@
     "stadium": "스타디움 오브 라이트",
     "timeTbd": false,
     "gameId": "BETZNuw2ns6RQvK",
-    "status": "scheduled"
+    "status": "live",
+    "awayScore": 0,
+    "homeScore": 0,
+    "matchPeriod": "전반 1'"
   },
   {
     "date": "2026-10-26",
