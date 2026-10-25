@@ -155,8 +155,53 @@ const SEARCH_RUN = Number(process.env.HL_SEARCH_RUN || 6);
 const HL_WORD = /highlight|하이라이트|ハイライト|resumen|resumo|resume|résumé|samenvatting|özet|sintesi|zusammenfassung|melhores momentos|all goals|goles|gols|\btore\b|\bbuts\b/i;
 const HL_NOT = /shorts|preview|prediction|predict|reaction|efootball|fifa \d|pes \d|simulation|gameplay|live stream|watchalong|press conference|interview/i;
 
+// 2026-10-25 "검색 한도가 낮 동안 바닥나 16시(미국 태평양 자정)에 초기화될 때까지 하이라이트가 9시간 넘게 늦게 붙는다"(라리가 알림 지연) — 검색(100유닛)에서 실제로 하이라이트를 찾아 준 채널을 리그별로 학습해 두고,
+// 다음부터는 그 채널의 업로드 목록(RSS·playlist, 사실상 무료)을 직접 훑는다. 같은 채널이 반복해 나오는 리그(검색 성공률 90%+)는 검색 없이도 영상이 올라오는 즉시 붙는다.
+// 학습은 영문(라틴) 제목만, 리그당 상위 3채널·2회 이상 성공한 채널만 쓴다(한글·일본어·중국어 채널은 별칭 매칭이 달라 제외).
+const LEARN_LATIN = /^[ -~À-ɏ'’‘“”–—|·&]+$/;
+function learnChannel(st, lg, channelId, channelTitle, videoTitle) {
+  if (!channelId || !videoTitle || !LEARN_LATIN.test(videoTitle.normalize('NFC'))) return;
+  const L = ((st.learn ??= {})[lg] ??= {});
+  const e = (L[channelId] ??= { n: 0, name: channelTitle || '' });
+  e.n += 1; if (channelTitle) e.name = channelTitle;
+}
+async function learnedChannels() {
+  const st = await readJson(SEARCH_F, {});
+  const known = new Set(CHANNELS.map((c) => c.id).filter(Boolean));
+  const out = [];
+  for (const [lg, L] of Object.entries(st.learn || {})) {
+    const top = Object.entries(L).filter(([id, e]) => e.n >= 2 && !known.has(id)).sort((a, b) => b[1].n - a[1].n).slice(0, 3);
+    for (const [id, e] of top) out.push({ name: `learned:${e.name || id}`, id, src: 'g', leagues: [lg], must: HL_WORD, not: HL_NOT, script: 'latin' });
+  }
+  return out;
+}
+// 처음 한 번 — 이미 붙어 있는 최근 14일 영상의 채널을 videos.list(50개=1유닛)로 알아내 학습 통계를 채운다(그래야 오늘부터 바로 효과가 난다).
+async function seedLearn(st, out, games) {
+  if (st.learnSeeded || !API_KEY) return;
+  const now = Date.now();
+  const byId = new Map(games.map((g) => [g.gameId, g]));
+  const vid2lg = new Map();
+  for (const [id, e] of Object.entries(out)) {
+    const g = byId.get(id); if (!g || !e?.v) continue;
+    const ts = Date.parse(`${g.date}T${g.time && /^\d\d:\d\d$/.test(g.time) ? g.time : '12:00'}:00Z`) - KST;
+    if (ts >= now - 14 * 86400e3) vid2lg.set(e.v, g.league);
+  }
+  const ids = [...vid2lg.keys()];
+  let calls = 0;
+  for (let i = 0; i < ids.length && calls < 12; i += 50, calls++) {
+    try {
+      const r = await fetch('https://www.googleapis.com/youtube/v3/videos?' + new URLSearchParams({ part: 'snippet', id: ids.slice(i, i + 50).join(','), fields: 'items(id,snippet(channelId,channelTitle,title))', key: API_KEY }), { signal: AbortSignal.timeout(20000) });
+      if (!r.ok) { console.error(`[hl] seedLearn api ${r.status}`); return; }
+      for (const it of (await r.json()).items || []) learnChannel(st, vid2lg.get(it.id), it.snippet?.channelId, it.snippet?.channelTitle, it.snippet?.title);
+    } catch (e) { console.error('[hl] seedLearn fail', e.message); return; }
+  }
+  st.learnSeeded = true;
+  console.log(`[hl] seedLearn videos=${ids.length} calls=${calls}`);
+}
+
 async function searchFallback({ out, games, bk, bkTeams, teamEn, tAl, aliasG, aliasS, aliasBk }) {
   const st = await readJson(SEARCH_F, { day: '', used: 0, tried: {} });
+  await seedLearn(st, out, games).catch((e) => console.error('[hl] seedLearn', e.message));
   const day = new Date(Date.now() - 7 * 3600e3).toISOString().slice(0, 10);
   if (st.day !== day) { st.day = day; st.used = 0; }
   // 리그별 검색 성공률 통계(2026-10-09 검색 한도 절약) — 처음엔 최근 시도 기록(tried)과 결과(out)로 1회 시드한다.
@@ -199,6 +244,7 @@ async function searchFallback({ out, games, bk, bkTeams, teamEn, tAl, aliasG, al
     });
     const hit = hits[0];
     if (hit) ls.h += 1;
+    if (hit) learnChannel(st, c.lg, hit.snippet?.channelId, hit.snippet?.channelTitle, hit.snippet?.title);
     if (hit) {
       const fix = (t) => (t || '').replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/&quot;/g, '"');
       out[c.id] = { v: hit.id.videoId, t: fix(hit.snippet.title) };
@@ -260,7 +306,9 @@ async function main() {
   const aliasBk = (k) => { const t = bkTeams[k]; if (!t) return []; const w = (t.en || '').split(' '); if (t.lg === 'KBL' && t.ko) return [t.ko, t.ko.split(' ').slice(-1)[0]]; return [t.en, w.slice(-1)[0], w.slice(-2).join(' '), t.ko, t.ja].filter(Boolean); };
 
   let added = 0, altAdded = 0;
-  for (const ch of CHANNELS) {
+  const learned = await learnedChannels().catch(() => []);
+  if (learned.length) console.log(`[hl] learned channels: ${learned.map((c) => c.name + '@' + c.leagues[0]).join(', ')}`);
+  for (const ch of [...CHANNELS, ...learned]) {
     if (!ch.id) { console.error(`[hl] ${ch.name} skipped (no channel id)`); continue; }
     let vids = [];
     try { vids = await listVideos(ch); } catch (e) { console.error(`[hl] ${ch.name} fail`, e.message); continue; }
