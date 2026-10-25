@@ -12,6 +12,7 @@ import fs from 'node:fs/promises';
 import zlib from 'node:zlib';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { dropDuplicateNaverNba } from './nba-dedupe.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const OUT = path.join(path.resolve(__dirname, '..'), 'basketball');
@@ -639,6 +640,7 @@ async function main() {
     }
     for (const a of grp.values()) a.sort((x, y) => x.t - y.t).forEach((g, i) => { g.rn = i + 1; });
   }
+  { const dn = dropDuplicateNaverNba(byId, teams); if (dn) console.log('[basketball] dropped ' + dn + ' naver NBA games duplicated by ESPN'); }
   const games = [...byId.values()].filter((g) => g.date >= cutoff).sort((a, b) => a.t - b.t || a.id.localeCompare(b.id)).map(({ _cfg, ...g }) => g);
   // 시리즈 전적(2026-10-14 "준결승전 승패"): 이 경기 직전까지 홈/원정 팀의 시리즈 승수(sh/sa, 2차전 이후만). 보수적 — 앞 경기 중 하나라도 종료+점수가 아니거나
   // 차수(rn)가 순번과 안 맞으면(앞 경기가 수집 범위 밖) 생략한다.
