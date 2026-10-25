@@ -734845,12 +734845,12 @@
     "inningInfo": "9회초",
     "liveState": {
       "pitcher": "Patrick Weigel",
-      "batter": "Eddinson Paulino",
+      "batter": "Nomar Mazara",
       "pitcherPid": "mlb:622256",
-      "batterPid": "mlb:682796",
+      "batterPid": "mlb:608577",
       "ball": 0,
       "strike": 0,
-      "out": 0,
+      "out": 2,
       "bases": [
         1
       ]
@@ -735358,20 +735358,9 @@
     "stadium": "Estadio Manuel Ciclon Echeverria",
     "timeTbd": false,
     "gameId": "LMP_MLBSTATS_850524",
-    "status": "live",
+    "status": "completed",
     "homeScore": 5,
-    "awayScore": 7,
-    "inningInfo": "9회말",
-    "liveState": {
-      "pitcher": "Erick Rodriguez",
-      "batter": "Nick Senzel",
-      "pitcherPid": "mlb:692601",
-      "batterPid": "mlb:669222",
-      "ball": 2,
-      "strike": 2,
-      "out": 2,
-      "bases": []
-    }
+    "awayScore": 7
   },
   {
     "date": "2026-10-25",
@@ -735398,19 +735387,20 @@
     "timeTbd": false,
     "gameId": "LVBP_MLBSTATS_870058",
     "status": "live",
-    "homeScore": 9,
+    "homeScore": 10,
     "awayScore": 1,
     "inningInfo": "8회말",
     "liveState": {
       "pitcher": "Luis Martinez",
-      "batter": "Alfredo Duno",
+      "batter": "Wilfredo Tovar",
       "pitcherPid": "mlb:644403",
-      "batterPid": "mlb:806957",
+      "batterPid": "mlb:541600",
       "ball": 0,
       "strike": 0,
       "out": 2,
       "bases": [
-        2
+        1,
+        3
       ]
     }
   },
@@ -735435,13 +735425,13 @@
     "liveState": {
       "pitcher": "애쉬비",
       "batter": "윌리엄슨",
-      "ball": 0,
-      "strike": 0,
-      "out": 1,
+      "ball": 3,
+      "strike": 2,
+      "out": 2,
       "bases": [
-        2
+        3
       ],
-      "pitchCount": 16,
+      "pitchCount": 22,
       "pitcherPid": "mlb:676879",
       "batterPid": "mlb:810938"
     },
@@ -735895,15 +735885,15 @@
     "status": "live",
     "homeScore": 6,
     "awayScore": 3,
-    "inningInfo": "8회초",
+    "inningInfo": "8회말",
     "liveState": {
-      "pitcher": "Ozzie Mendez",
-      "batter": "Chuckie Robinson",
-      "pitcherPid": "mlb:510552",
-      "batterPid": "mlb:642020",
+      "pitcher": "Joel Ibarra",
+      "batter": "Javier Salazar",
+      "pitcherPid": "mlb:684169",
+      "batterPid": "mlb:665745",
       "ball": 0,
       "strike": 0,
-      "out": 3,
+      "out": 2,
       "bases": []
     }
   },
@@ -735920,16 +735910,18 @@
     "status": "live",
     "homeScore": 3,
     "awayScore": 5,
-    "inningInfo": "8회초",
+    "inningInfo": "8회말",
     "liveState": {
-      "pitcher": "Seth Shuman",
-      "batter": "Jorge Flores",
-      "pitcherPid": "mlb:670234",
-      "batterPid": "mlb:592312",
-      "ball": 2,
-      "strike": 1,
-      "out": 2,
-      "bases": []
+      "pitcher": "Nate Antone",
+      "batter": "Ichiro Cano",
+      "pitcherPid": "mlb:802591",
+      "batterPid": "mlb:802560",
+      "ball": 4,
+      "strike": 2,
+      "out": 0,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -735947,16 +735939,17 @@
     "awayScore": 5,
     "inningInfo": "8회초",
     "liveState": {
-      "pitcher": "Samuel Zazueta",
-      "batter": "Alejandro Urias",
-      "pitcherPid": "mlb:650980",
-      "batterPid": "mlb:703060",
+      "pitcher": "Efrain Contreras",
+      "batter": "Christopher Escarrega",
+      "pitcherPid": "mlb:678713",
+      "batterPid": "mlb:692473",
       "ball": 0,
-      "strike": 0,
+      "strike": 2,
       "out": 2,
       "bases": [
         1,
-        2
+        2,
+        3
       ]
     }
   },
@@ -736075,16 +736068,18 @@
     "status": "live",
     "homeScore": 4,
     "awayScore": 4,
-    "inningInfo": "6회말",
+    "inningInfo": "7회초",
     "liveState": {
-      "pitcher": "Brandon Cain",
-      "batter": "John Peck",
-      "pitcherPid": "mlb:827610",
-      "batterPid": "mlb:807726",
-      "ball": 0,
-      "strike": 2,
-      "out": 3,
-      "bases": []
+      "pitcher": "Garrett Wright",
+      "batter": "Nathan Flewelling",
+      "pitcherPid": "mlb:695057",
+      "batterPid": "mlb:807083",
+      "ball": 4,
+      "strike": 1,
+      "out": 1,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -736360,7 +736355,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "후반 2'",
+    "matchPeriod": "후반 4'",
     "phaseCode": "LEAGUE"
   },
   {
@@ -736378,7 +736373,15 @@
     "homeScore": 0,
     "awayScore": 0,
     "cards": {
-      "home": [],
+      "home": [
+        {
+          "n": "Pablo Bennevendo",
+          "type": "Y",
+          "m": 29,
+          "pid": "espn:286879",
+          "nat": "Mexico"
+        }
+      ],
       "away": [
         {
           "n": "Jesús Garza",
@@ -737950,6 +737953,10 @@
     "timeTbd": false,
     "gameId": "55551026HTSS02026",
     "status": "scheduled",
+    "awayPitcher": "네일",
+    "homePitcher": "페덱",
+    "awayPitcherPid": "kbo:b:54640",
+    "homePitcherPid": "kbo:b:56459",
     "round": "ps_po",
     "rn": 1
   },
