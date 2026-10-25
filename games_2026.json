@@ -735409,26 +735409,18 @@
     "stadium": "아메리칸 패밀리 필드",
     "timeTbd": false,
     "gameId": "20261025TBMI0",
-    "status": "live",
+    "status": "completed",
     "awayPitcher": "드류 라스무센",
     "homePitcher": "로건 핸더슨",
     "awayPitcherPid": "mlb:656876",
     "homePitcherPid": "mlb:701656",
     "awayScore": 4,
     "homeScore": 5,
-    "inningInfo": "9회초",
-    "liveState": {
-      "pitcher": "애쉬비",
-      "batter": "디아즈",
-      "ball": 0,
-      "strike": 0,
-      "out": 0,
-      "bases": [],
-      "pitchCount": 28,
-      "pitcherPid": "mlb:676879",
-      "batterPid": "mlb:650490"
-    },
+    "winPitcher": "유리베",
+    "losePitcher": "웰스",
     "savePitcher": "애쉬비",
+    "winPitcherPid": "mlb:682842",
+    "losePitcherPid": "mlb:669330",
     "savePitcherPid": "mlb:676879",
     "highlights": {
       "home": [
@@ -736280,7 +736272,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 2,
-    "matchPeriod": "후반 6'",
+    "matchPeriod": "후반 8'",
     "scorers": {
       "home": [
         {
@@ -736349,19 +736341,24 @@
     "status": "live",
     "awayScore": 2,
     "homeScore": 0,
-    "matchPeriod": "후반 10'",
+    "matchPeriod": "후반 12'",
     "scorers": {
       "home": [],
       "away": [
         {
           "n": "조벨리치",
           "m": 50,
+          "nat": "Serbia",
           "pid": "espn:240110"
         },
         {
           "n": "고메즈",
           "m": 55,
-          "pid": "espn:399948"
+          "a": "Hassani Dotson",
+          "nat": "USA",
+          "pid": "espn:399948",
+          "aNat": "USA",
+          "apid": "espn:245570"
         }
       ]
     },
@@ -738331,7 +738328,9 @@
     "awayPitcherPid": "mlb:688107",
     "homePitcherPid": "mlb:642547",
     "round": "ps_ws",
-    "rn": 3
+    "rn": 3,
+    "serH": 0,
+    "serA": 2
   },
   {
     "date": "2026-10-27",
