@@ -734207,14 +734207,14 @@
     "inningInfo": "6회초",
     "liveState": {
       "pitcher": "Génesis Cabrera",
-      "batter": "Maikel Franco",
+      "batter": "Francisco Mejía",
       "pitcherPid": "mlb:650893",
-      "batterPid": "mlb:596748",
+      "batterPid": "mlb:642336",
       "ball": 1,
       "strike": 2,
-      "out": 0,
+      "out": 1,
       "bases": [
-        1
+        2
       ]
     }
   },
@@ -734233,13 +734233,13 @@
     "awayScore": 3,
     "inningInfo": "6회말",
     "liveState": {
-      "pitcher": "Robert Colina",
-      "batter": "Gorkys Hernández",
-      "pitcherPid": "mlb:678783",
-      "batterPid": "mlb:491676",
-      "ball": 2,
-      "strike": 2,
-      "out": 0,
+      "pitcher": "Christian Mejias",
+      "batter": "Rafael Ortega",
+      "pitcherPid": "mlb:671781",
+      "batterPid": "mlb:542364",
+      "ball": 0,
+      "strike": 1,
+      "out": 3,
       "bases": []
     }
   },
@@ -734258,13 +734258,13 @@
     "awayScore": 6,
     "inningInfo": "5회말",
     "liveState": {
-      "pitcher": "Leonard Garcia",
-      "batter": "Daniel Montano",
-      "pitcherPid": "mlb:692623",
-      "batterPid": "mlb:665914",
-      "ball": 2,
-      "strike": 1,
-      "out": 0,
+      "pitcher": "Johan Moreno",
+      "batter": "Hernán Pérez",
+      "pitcherPid": "mlb:808052",
+      "batterPid": "mlb:541650",
+      "ball": 3,
+      "strike": 2,
+      "out": 3,
       "bases": []
     }
   },
@@ -734398,7 +734398,7 @@
     "stadium": "Estadio Pedro Bidegain",
     "timeTbd": false,
     "gameId": "ARGENTINA_ESPN_401841632",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 0,
     "awayScore": 0,
@@ -734505,16 +734505,17 @@
     "awayScore": 3,
     "inningInfo": "5회초",
     "liveState": {
-      "pitcher": "Antonio Gomez",
-      "batter": "Brooks Bryan",
-      "pitcherPid": "mlb:682625",
-      "batterPid": "mlb:804871",
+      "pitcher": "John West",
+      "batter": "Paxton Kling",
+      "pitcherPid": "mlb:802482",
+      "batterPid": "mlb:702265",
       "ball": 2,
-      "strike": 1,
+      "strike": 2,
       "out": 2,
       "bases": [
         1,
-        2
+        2,
+        3
       ]
     }
   },
@@ -734589,16 +734590,18 @@
     "status": "live",
     "homeScore": 5,
     "awayScore": 1,
-    "inningInfo": "4회말",
+    "inningInfo": "5회초",
     "liveState": {
       "pitcher": "Félix Doubront",
-      "batter": "Aeverson Arteaga",
+      "batter": "Ali Castillo",
       "pitcherPid": "mlb:467094",
-      "batterPid": "mlb:692348",
-      "ball": 3,
-      "strike": 1,
-      "out": 3,
-      "bases": []
+      "batterPid": "mlb:542419",
+      "ball": 1,
+      "strike": 0,
+      "out": 0,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -734717,7 +734720,7 @@
     "timeTbd": false,
     "gameId": "COLOMBIA_ESPN_401878057",
     "status": "live",
-    "matchPeriod": "하프타임",
+    "matchPeriod": "후반",
     "homeScore": 2,
     "awayScore": 1,
     "scorers": {
@@ -734818,12 +734821,12 @@
     "inningInfo": "2회초",
     "liveState": {
       "pitcher": "Jaime Barria",
-      "batter": "Eddinson Paulino",
+      "batter": "Noelvi Marte",
       "pitcherPid": "mlb:642545",
-      "batterPid": "mlb:682796",
+      "batterPid": "mlb:682622",
       "ball": 0,
-      "strike": 1,
-      "out": 1,
+      "strike": 2,
+      "out": 2,
       "bases": [
         1,
         3
@@ -734843,7 +734846,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 30'",
+    "matchPeriod": "전반 32'",
     "phaseCode": "LEAGUE"
   },
   {
@@ -734858,19 +734861,20 @@
     "gameId": "pIqOTre6Gm5cKxB",
     "status": "live",
     "awayScore": 1,
-    "homeScore": 0,
-    "matchPeriod": "전반 30'",
+    "homeScore": 1,
+    "matchPeriod": "전반 32'",
     "scorers": {
-      "home": [],
+      "home": [
+        {
+          "n": "그리에즈만",
+          "m": 32,
+          "pid": "espn:140416"
+        }
+      ],
       "away": [
         {
           "n": "마르티네스",
-          "m": 18,
-          "a": "Hannes Wolf",
-          "nat": "Costa Rica",
-          "pid": "espn:310827",
-          "aNat": "Austria",
-          "apid": "espn:250852"
+          "m": 18
         }
       ]
     },
@@ -734887,22 +734891,24 @@
     "timeTbd": false,
     "gameId": "pv2fnQuOGCJK0a5",
     "status": "live",
-    "awayScore": 0,
+    "awayScore": 1,
     "homeScore": 1,
-    "matchPeriod": "전반 29'",
+    "matchPeriod": "전반 31'",
     "scorers": {
       "home": [
         {
           "n": "자콥",
           "m": 4,
-          "a": "Miguel Almirón",
-          "nat": "Argentina",
-          "pid": "espn:330082",
-          "aNat": "Paraguay",
-          "apid": "espn:48128"
+          "pid": "espn:330082"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "살레트로스",
+          "m": 30,
+          "pid": "espn:193105"
+        }
+      ]
     },
     "phaseCode": "LEAGUE"
   },
@@ -734919,7 +734925,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 30'",
+    "matchPeriod": "전반 32'",
     "phaseCode": "LEAGUE"
   },
   {
@@ -734977,14 +734983,14 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 0,
-    "inningInfo": "1회초",
+    "inningInfo": "1회말",
     "liveState": {
-      "pitcher": "Elian Leyva",
-      "batter": "Carlos Sepulveda",
-      "pitcherPid": "mlb:673140",
-      "batterPid": "mlb:661148",
-      "ball": 2,
-      "strike": 2,
+      "pitcher": "Yoanner Negrin",
+      "batter": "River Town",
+      "pitcherPid": "mlb:594582",
+      "batterPid": "mlb:701817",
+      "ball": 0,
+      "strike": 1,
       "out": 0,
       "bases": []
     }
@@ -735002,18 +735008,16 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 0,
-    "inningInfo": "1회초",
+    "inningInfo": "1회말",
     "liveState": {
-      "pitcher": "Raul Carrillo",
-      "batter": "Reynaldo Rodriguez",
-      "pitcherPid": "mlb:585132",
-      "batterPid": "mlb:471906",
-      "ball": 1,
-      "strike": 2,
-      "out": 2,
-      "bases": [
-        1
-      ]
+      "pitcher": "Luis Payan",
+      "batter": "Ramon Rios",
+      "pitcherPid": "mlb:674478",
+      "batterPid": "mlb:540204",
+      "ball": 2,
+      "strike": 1,
+      "out": 1,
+      "bases": []
     }
   },
   {
@@ -735032,13 +735036,16 @@
     "inningInfo": "1회초",
     "liveState": {
       "pitcher": "Nic Swanson",
-      "batter": "Luis Torrens",
+      "batter": "Angel Reyes",
       "pitcherPid": "mlb:702462",
-      "batterPid": "mlb:620443",
-      "ball": 1,
-      "strike": 0,
+      "batterPid": "mlb:622580",
+      "ball": 3,
+      "strike": 1,
       "out": 1,
-      "bases": []
+      "bases": [
+        1,
+        2
+      ]
     }
   },
   {
@@ -735051,11 +735058,25 @@
     "stadium": "아메리칸 패밀리 필드",
     "timeTbd": false,
     "gameId": "20261025TBMI0",
-    "status": "scheduled",
+    "status": "live",
     "awayPitcher": "드류 라스무센",
     "homePitcher": "로건 핸더슨",
     "awayPitcherPid": "mlb:656876",
     "homePitcherPid": "mlb:701656",
+    "awayScore": 0,
+    "homeScore": 0,
+    "inningInfo": "1회초",
+    "liveState": {
+      "pitcher": "핸더슨",
+      "batter": "디아즈",
+      "ball": 2,
+      "strike": 2,
+      "out": 0,
+      "bases": [],
+      "pitchCount": 5,
+      "pitcherPid": "mlb:701656",
+      "batterPid": "mlb:650490"
+    },
     "round": "ps_ws",
     "rn": 2,
     "serH": 1,
