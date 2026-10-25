@@ -735312,14 +735312,17 @@
     "inningInfo": "4회말",
     "liveState": {
       "pitcher": "라스무센",
-      "batter": "프랫",
-      "ball": 3,
-      "strike": 2,
+      "batter": "프렐릭",
+      "ball": 1,
+      "strike": 0,
       "out": 1,
-      "bases": [],
-      "pitchCount": 75,
+      "bases": [
+        1,
+        3
+      ],
+      "pitchCount": 79,
       "pitcherPid": "mlb:656876",
-      "batterPid": "mlb:806198"
+      "batterPid": "mlb:686217"
     },
     "highlights": {
       "home": [],
@@ -735358,7 +735361,7 @@
     "timeTbd": false,
     "gameId": "ARGENTINA_ESPN_401841633",
     "status": "live",
-    "matchPeriod": "하프타임",
+    "matchPeriod": "후반",
     "homeScore": 1,
     "awayScore": 0,
     "scorers": {
@@ -735449,7 +735452,18 @@
     "status": "live",
     "matchPeriod": "전반",
     "homeScore": 0,
-    "awayScore": 1
+    "awayScore": 1,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "Roberto Alvarado",
+          "m": 9,
+          "nat": "Mexico",
+          "pid": "espn:194308"
+        }
+      ]
+    }
   },
   {
     "date": "2026-10-25",
