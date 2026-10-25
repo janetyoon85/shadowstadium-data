@@ -738107,7 +738107,18 @@
     "status": "live",
     "matchPeriod": "후반",
     "homeScore": 0,
-    "awayScore": 0
+    "awayScore": 1,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "Nahuel López",
+          "m": 59,
+          "nat": "Uruguay",
+          "pid": "espn:270269"
+        }
+      ]
+    }
   },
   {
     "date": "2026-10-25",
@@ -738122,7 +738133,7 @@
     "status": "live",
     "matchPeriod": "전반",
     "homeScore": 1,
-    "awayScore": 0,
+    "awayScore": 1,
     "cards": {
       "home": [
         {
@@ -738130,6 +738141,13 @@
           "type": "R",
           "m": 45,
           "pid": "espn:374533",
+          "nat": "Slovenia"
+        },
+        {
+          "n": "Jon Gorenc Stankovic",
+          "type": "Y",
+          "m": 45,
+          "pid": "espn:214012",
           "nat": "Slovenia"
         }
       ],
@@ -738414,7 +738432,7 @@
         {
           "n": "Gustavo Sá",
           "type": "Y",
-          "m": 15,
+          "m": 16,
           "pid": "espn:347406",
           "nat": "Portugal"
         }
