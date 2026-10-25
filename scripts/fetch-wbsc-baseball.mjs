@@ -369,6 +369,8 @@ async function fetchWbscBaseballTournament(tournamentkey, league, unknownTeams, 
     if (EXHIBITION_TEAM_LABELS.has(homeEn) || EXHIBITION_TEAM_LABELS.has(awayEn)) continue;
     const homeKo = TEAM_KO[homeEn];
     const awayKo = TEAM_KO[awayEn];
+    // 같은 구단의 스폰서명 변형(BBC GROSSETO / BIG MAT BSCGROSSETO)을 한 이름으로 병합한 결과 홈=원정이 되는 원본 오류 경기는 버린다(2026-10-26 전수 점검: 그로세토 2경기).
+    if (homeKo && awayKo && homeKo === awayKo) continue;
     if (!homeKo) unknownTeams.add(`${league}:${homeEn}`);
     if (!awayKo) unknownTeams.add(`${league}:${awayEn}`);
     const stadiumName = g.stadium || TEAM_HOME_VENUE_FALLBACK[homeEn] || g.stadium;

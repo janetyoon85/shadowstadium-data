@@ -16,7 +16,8 @@ import { execSync } from 'node:child_process';
 import { ASIA_TEAMS, normalizeTeamName, lookupTeam } from './espn-asia-soccer-teams.mjs';
 import { fillDetailsFromSummary } from './espn-summary-details.mjs';
 import { getAthleteNationality } from './espn-nationality.mjs';
-import { sameScorers, carryAssists, enrichEspnAssists } from './espn-assists.mjs';
+import { sameScorers, enrichEspnAssists } from './espn-assists.mjs';
+import { reconcileScorers, mergeGame } from './espn-reconcile.mjs';
 import { espnStage } from './espn-stage.mjs';
 import { assignLegOneResult } from './series-record.mjs';
 
@@ -285,6 +286,7 @@ async function main() {
   let added = 0;
   let updated = 0;
   for (const g of allNew) {
+    reconcileScorers(g); // 종료 경기 득점자를 스코어에 맞춘 뒤 비교/병합한다(원본 중복·취소된 골)
     const key = g.gameId;
     if (existingIds.has(key)) {
       const idx = games.findIndex((x) => x.gameId === key);
@@ -293,7 +295,7 @@ async function main() {
         // 킥오프 시각/구장 변경 감지 추가(2026-09-29) — [[project fetch-espn-soccer-leagues.mjs와
         // 동일 버그]] 시각만 바뀐 경기는 이 비교에 안 걸려 예전 시각이 영구 고정되던 문제 수정.
         if (prev.status !== g.status || prev.matchPeriod !== g.matchPeriod || prev.phaseCode !== g.phaseCode || prev.leg !== g.leg || prev.homeAggregateScore !== g.homeAggregateScore || prev.awayAggregateScore !== g.awayAggregateScore || prev.homeScore !== g.homeScore || prev.awayScore !== g.awayScore || prev.date !== g.date || prev.time !== g.time || prev.timeTbd !== g.timeTbd || prev.venueId !== g.venueId || prev.stadium !== g.stadium || !sameScorers(prev.scorers, g.scorers) || JSON.stringify(prev.cards) !== JSON.stringify(g.cards)) {
-          games[idx] = carryAssists(prev, { ...prev, ...g });
+          games[idx] = mergeGame(prev, g);
           updated++;
         }
       }

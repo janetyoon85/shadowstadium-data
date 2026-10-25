@@ -175,6 +175,28 @@ const ALIAS_SETS = [['인터','인테르'],['아랍에미리트','UAE'],['USVI',
   }
 }
 
+// 14) 데이터 정합성(2026-10-26 전수 점검에서 추가) — 앱에 그대로 보이는 모순을 즉시 잡는다.
+{
+  const BASEBALL = /BASEBALL|^(KBO|MLB|NPB|LMB|LMP|LVBP|LIDOM|AFL|PWL|ABL|AAA|CARIBBEANSERIES|PREMIER12)$/;
+  const seen = new Map();
+  for (const g of games) {
+    const id = g.gameId || `${g.date}${g.home}${g.away}`;
+    if (g.home && g.home === g.away) add('경기 팀 모순(홈=원정)', id, `${g.date} ${g.league} ${g.home} [${id}]`, true);
+    if (g.status === 'completed' && !BASEBALL.test(g.league) && g.scorers && Number.isFinite(g.homeScore) && Number.isFinite(g.awayScore)
+      && ((g.scorers.home || []).length > g.homeScore || (g.scorers.away || []).length > g.awayScore)) {
+      add('득점자 수가 스코어보다 많음', id, `${g.date} ${g.league} ${g.home} ${g.homeScore}-${g.awayScore} ${g.away}`, true);
+    }
+    // 같은 리그·같은 날·같은 두 팀·킥오프 30분 이내·같은 스코어면 이중 등록(더블헤더는 시각이 달라 제외)
+    if (g.date >= addDays(kstToday, -14) && g.date <= addDays(kstToday, 14)) {
+      const k = `${g.league}|${g.date}|${[g.home, g.away].sort().join('~')}|${g.homeScore ?? ''}-${g.awayScore ?? ''}`;
+      const min = Number(g.time?.slice(0, 2)) * 60 + Number(g.time?.slice(3, 5));
+      const prev = seen.get(k);
+      if (prev !== undefined && Math.abs(prev - min) <= 30) add('같은 경기 이중 등록', id, `${g.date} ${g.league} ${g.home} vs ${g.away} [${id}]`, true);
+      else seen.set(k, min);
+    }
+  }
+}
+
 // 6) 리그별 경기 수 급감(직전 실행 대비 20%↓, 10건 이상 리그)
 {
   const cnt = {};

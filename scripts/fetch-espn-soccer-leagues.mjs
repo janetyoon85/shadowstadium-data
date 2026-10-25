@@ -15,7 +15,8 @@ import { execSync } from 'node:child_process';
 import { TEAMS, normalizeTeamName, lookupTeam } from './espn-soccer-teams.mjs';
 import { fillDetailsFromSummary } from './espn-summary-details.mjs';
 import { getAthleteNationality } from './espn-nationality.mjs';
-import { sameScorers, carryAssists, enrichEspnAssists } from './espn-assists.mjs';
+import { sameScorers, enrichEspnAssists } from './espn-assists.mjs';
+import { reconcileScorers, mergeGame } from './espn-reconcile.mjs';
 import { espnStage } from './espn-stage.mjs';
 import { assignLegOneResult } from './series-record.mjs';
 
@@ -300,6 +301,7 @@ async function main() {
   let added = 0;
   let updated = 0;
   for (const g of allNew) {
+    reconcileScorers(g); // 종료 경기 득점자를 스코어에 맞춘 뒤 비교/병합한다(원본 중복·취소된 골)
     const key = g.gameId;
     if (existingIds.has(key)) {
       const idx = games.findIndex((x) => x.gameId === key);
@@ -311,7 +313,7 @@ async function main() {
         // 버리고 예전 값을 영구히 유지하는 버그였음(사용자 리포트: "3시경기는왜경기중이아니지?" —
         // 실제 ESPN 킥오프는 08:00인데 games.json엔 예전 03:00이 그대로 남아있어서 발생).
         if (prev.status !== g.status || prev.matchPeriod !== g.matchPeriod || prev.phaseCode !== g.phaseCode || prev.leg !== g.leg || prev.homeAggregateScore !== g.homeAggregateScore || prev.awayAggregateScore !== g.awayAggregateScore || prev.homeScore !== g.homeScore || prev.awayScore !== g.awayScore || prev.date !== g.date || prev.time !== g.time || prev.timeTbd !== g.timeTbd || prev.venueId !== g.venueId || prev.stadium !== g.stadium || !sameScorers(prev.scorers, g.scorers) || JSON.stringify(prev.cards) !== JSON.stringify(g.cards)) {
-          games[idx] = carryAssists(prev, { ...prev, ...g });
+          games[idx] = mergeGame(prev, g);
           updated++;
         }
       }
