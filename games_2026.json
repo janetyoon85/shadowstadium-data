@@ -735435,11 +735435,13 @@
     "liveState": {
       "pitcher": "애쉬비",
       "batter": "데루카",
-      "ball": 0,
-      "strike": 0,
+      "ball": 1,
+      "strike": 1,
       "out": 0,
-      "bases": [],
-      "pitchCount": 9,
+      "bases": [
+        2
+      ],
+      "pitchCount": 12,
       "pitcherPid": "mlb:676879",
       "batterPid": "mlb:676356"
     },
@@ -736260,6 +736262,12 @@
           "m": 52,
           "nat": "Costa Rica",
           "pid": "espn:229883"
+        },
+        {
+          "n": "Elías Aguilar",
+          "m": 73,
+          "nat": "Costa Rica",
+          "pid": "espn:210206"
         }
       ],
       "away": [
@@ -736418,13 +736426,12 @@
     "stadium": "대구",
     "timeTbd": false,
     "gameId": "55551025HTSS02026",
-    "status": "scheduled",
+    "status": "cancelled",
     "awayPitcher": "네일",
     "homePitcher": "페덱",
     "awayPitcherPid": "kbo:b:54640",
     "homePitcherPid": "kbo:b:56459",
-    "round": "ps_po",
-    "rn": 1
+    "round": "ps_po"
   },
   {
     "date": "2026-10-25",
@@ -737946,7 +737953,7 @@
     "gameId": "55551026HTSS02026",
     "status": "scheduled",
     "round": "ps_po",
-    "rn": 2
+    "rn": 1
   },
   {
     "date": "2026-10-26",
@@ -738337,6 +738344,20 @@
     "status": "scheduled",
     "round": "js",
     "rn": 3
+  },
+  {
+    "date": "2026-10-27",
+    "time": "18:30",
+    "league": "KBO",
+    "venueId": "daegu",
+    "home": "삼성",
+    "away": "KIA",
+    "stadium": "대구",
+    "timeTbd": false,
+    "gameId": "55551027HTSS02026",
+    "status": "scheduled",
+    "round": "ps_po",
+    "rn": 2
   },
   {
     "date": "2026-10-27",
@@ -738925,20 +738946,6 @@
     "status": "scheduled",
     "round": "js",
     "rn": 4
-  },
-  {
-    "date": "2026-10-28",
-    "time": "18:30",
-    "league": "KBO",
-    "venueId": "gwangju",
-    "home": "KIA",
-    "away": "삼성",
-    "stadium": "광주",
-    "timeTbd": false,
-    "gameId": "55551028SSHT02026",
-    "status": "scheduled",
-    "round": "ps_po",
-    "rn": 3
   },
   {
     "date": "2026-10-28",
@@ -740042,7 +740049,7 @@
     "gameId": "55551029SSHT02026",
     "status": "scheduled",
     "round": "ps_po",
-    "rn": 4
+    "rn": 3
   },
   {
     "date": "2026-10-29",
@@ -740469,6 +740476,20 @@
     "timeTbd": false,
     "gameId": "AUSTRALIA_ESPN_401892150",
     "status": "scheduled"
+  },
+  {
+    "date": "2026-10-30",
+    "time": "18:30",
+    "league": "KBO",
+    "venueId": "gwangju",
+    "home": "KIA",
+    "away": "삼성",
+    "stadium": "광주",
+    "timeTbd": false,
+    "gameId": "55551030SSHT02026",
+    "status": "scheduled",
+    "round": "ps_po",
+    "rn": 4
   },
   {
     "date": "2026-10-30",
@@ -741123,20 +741144,6 @@
     "timeTbd": false,
     "gameId": "RXmO0gjKYpFRum3",
     "status": "scheduled"
-  },
-  {
-    "date": "2026-10-31",
-    "time": "14:00",
-    "league": "KBO",
-    "venueId": "daegu",
-    "home": "삼성",
-    "away": "KIA",
-    "stadium": "대구",
-    "timeTbd": false,
-    "gameId": "55551031HTSS02026",
-    "status": "scheduled",
-    "round": "ps_po",
-    "rn": 5
   },
   {
     "date": "2026-10-31",
@@ -742786,6 +742793,20 @@
     "timeTbd": false,
     "gameId": "V3UB6PMnzsb8X8v",
     "status": "scheduled"
+  },
+  {
+    "date": "2026-11-01",
+    "time": "14:00",
+    "league": "KBO",
+    "venueId": "daegu",
+    "home": "삼성",
+    "away": "KIA",
+    "stadium": "대구",
+    "timeTbd": false,
+    "gameId": "55551101HTSS02026",
+    "status": "scheduled",
+    "round": "ps_po",
+    "rn": 5
   },
   {
     "date": "2026-11-01",
