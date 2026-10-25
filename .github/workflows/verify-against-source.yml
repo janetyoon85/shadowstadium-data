@@ -1,0 +1,44 @@
+name: Verify Against Source
+
+# 원본 대조(2026-10-26) — 우리 games.json 을 ESPN 스코어보드(독립 원본)와 매시간 비교해, 결과 미반영·스코어 불일치·킥오프 시각 불일치·경기 누락·연기/취소 미반영을
+# Discord 로 알린다. 크롤러 반영 지연 오탐을 막으려고 같은 불일치가 연속 2회 보일 때만, 같은 알림은 24시간에 1회만 보낸다.
+
+on:
+  schedule:
+    - cron: '23 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write   # verify-source-state.json commit
+
+concurrency:
+  group: verify-against-source
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Verify against ESPN
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: node scripts/verify-against-source.mjs
+
+      - name: Commit state
+        run: |
+          git add verify-source-state.json
+          git diff --cached --quiet && exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore(ops): update verify-source state [skip ci]"
+          for i in $(seq 1 20); do
+            git pull --rebase --autostash origin main && git push origin main && exit 0 || sleep $((RANDOM % 30 + 1))
+          done
+          exit 1
