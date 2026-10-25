@@ -740079,7 +740079,7 @@
     "gameId": "CHILE_ESPN_401850675",
     "status": "live",
     "matchPeriod": "후반",
-    "homeScore": 1,
+    "homeScore": 2,
     "awayScore": 1,
     "scorers": {
       "home": [
@@ -740089,6 +740089,12 @@
           "pk": true,
           "nat": "Chile",
           "pid": "espn:312417"
+        },
+        {
+          "n": "Diego Sanhueza",
+          "m": 81,
+          "nat": "Chile",
+          "pid": "espn:320556"
         }
       ],
       "away": [
@@ -740279,9 +740285,17 @@
     "status": "live",
     "matchPeriod": "후반",
     "homeScore": 0,
-    "awayScore": 1,
+    "awayScore": 2,
     "cards": {
-      "home": [],
+      "home": [
+        {
+          "n": "Ian Hoffman",
+          "type": "Y",
+          "m": 88,
+          "pid": "espn:306519",
+          "nat": "USA"
+        }
+      ],
       "away": [
         {
           "n": "Hampus Skoglund",
@@ -740321,6 +740335,12 @@
           "m": 68,
           "nat": "Iraq",
           "pid": "espn:312880"
+        },
+        {
+          "n": "Oscar Johansson Schellhas",
+          "m": 89,
+          "nat": "Sweden",
+          "pid": "espn:205374"
         }
       ]
     }
@@ -740338,7 +740358,7 @@
     "status": "live",
     "awayScore": 2,
     "homeScore": 1,
-    "matchPeriod": "후반 24'",
+    "matchPeriod": "후반 27'",
     "scorers": {
       "home": [
         {
@@ -740465,6 +740485,13 @@
           "m": 26,
           "pid": "espn:117809",
           "nat": "Uruguay"
+        },
+        {
+          "n": "Hamza Mendyl",
+          "type": "Y",
+          "m": 51,
+          "pid": "espn:241663",
+          "nat": "Morocco"
         }
       ],
       "away": []
@@ -740516,7 +740543,15 @@
           "nat": "Norway"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Joachim Soltvedt",
+          "type": "Y",
+          "m": 57,
+          "pid": "espn:205582",
+          "nat": "Norway"
+        }
+      ]
     }
   },
   {
@@ -740677,6 +740712,13 @@
           "m": 26,
           "pid": "espn:267501",
           "nat": "Peru"
+        },
+        {
+          "n": "Gonzalo Aguirre",
+          "type": "Y",
+          "m": 54,
+          "pid": "espn:241548",
+          "nat": "Peru"
         }
       ]
     },
@@ -740763,7 +740805,7 @@
     "gameId": "URUGUAY_ESPN_401930337",
     "status": "live",
     "matchPeriod": "후반",
-    "homeScore": 1,
+    "homeScore": 2,
     "awayScore": 1,
     "scorers": {
       "home": [
@@ -740772,6 +740814,12 @@
           "m": 31,
           "nat": "Uruguay",
           "pid": "espn:335308"
+        },
+        {
+          "n": "Alexander Da Silva",
+          "m": 57,
+          "nat": "Uruguay",
+          "pid": "espn:155032"
         }
       ],
       "away": [
@@ -740797,7 +740845,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반종료"
+    "matchPeriod": "후반 2'"
   },
   {
     "date": "2026-10-26",
@@ -740812,7 +740860,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반종료"
+    "matchPeriod": "후반 1'"
   },
   {
     "date": "2026-10-26",
@@ -740869,7 +740917,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반종료"
+    "matchPeriod": "후반 2'"
   },
   {
     "date": "2026-10-26",
@@ -740884,7 +740932,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 2,
-    "matchPeriod": "전반종료",
+    "matchPeriod": "후반 1'",
     "scorers": {
       "home": [
         {
@@ -740912,7 +740960,7 @@
     "status": "live",
     "awayScore": 2,
     "homeScore": 0,
-    "matchPeriod": "전반 46'",
+    "matchPeriod": "전반 49'",
     "scorers": {
       "home": [],
       "away": [
@@ -740996,7 +741044,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 45'",
+    "matchPeriod": "전반종료",
     "cards": {
       "home": [
         {
@@ -741031,7 +741079,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 1,
-    "matchPeriod": "전반 14'",
+    "matchPeriod": "전반 17'",
     "scorers": {
       "home": [
         {
@@ -741057,19 +741105,16 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 0,
-    "inningInfo": "1회초",
+    "inningInfo": "1회말",
     "liveState": {
-      "pitcher": "Brander Guevara",
-      "batter": "Omar Alfonzo",
-      "pitcherPid": "mlb:842334",
-      "batterPid": "mlb:692657",
-      "ball": 1,
+      "pitcher": "Bryan Caceres",
+      "batter": "Jorge Barrosa",
+      "pitcherPid": "mlb:678409",
+      "batterPid": "mlb:678489",
+      "ball": 0,
       "strike": 0,
-      "out": 1,
-      "bases": [
-        1,
-        2
-      ]
+      "out": 0,
+      "bases": []
     }
   },
   {
@@ -741085,7 +741130,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 10'"
+    "matchPeriod": "전반 13'"
   },
   {
     "date": "2026-10-26",
