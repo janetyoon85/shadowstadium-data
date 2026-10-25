@@ -524,6 +524,47 @@ async function syncAllTeams(now) {
   return res.flatMap((r) => r || []);
 }
 
+// ---------- 유로리그(공식 라이브 API) ----------
+// ESPN 은 유로리그 경기를 한 번도 내려준 적이 없어(2025·2026 모든 날짜 0건, 2026-10-26 확인) 앱의 유로리그 탭이 항상 비어 있었다.
+// 리그 공식 개발자 API(api-live.euroleague.net v2, 로그인·키 없음, robots.txt 없음)의 시즌 전체 일정 1회 호출로 일정·스코어·쿼터 점수·경기장·팀 엠블럼을 받는다.
+// 팀은 이미 등록된 ESPN 유로리그 팀(번역·로고 데이터가 붙어 있음)에 공식 클럽 코드로 대응시키고, 로고가 없는 팀(7개)만 공식 엠블럼으로 채운다.
+const EL_SEASON = process.env.EUROLEAGUE_SEASON || 'E2026';
+const EL_TEAM = { BAR: 125618, PAR: 126416, OLY: 125614, PAM: 126418, BES: 133462, VIR: 126417, DUB: 133463, ASV: 125706, PRS: 130149, MUN: 125617, PAN: 125632, MAD: 125611, TEL: 125613, BAS: 125621, RED: 125633, MIL: 125615, IST: 125612, HTA: 132589, ZAL: 125610, ULK: 125631 };
+const titleCase = (t) => String(t || '').toLowerCase().replace(/(^|[\s-])([a-zà-ÿ])/g, (m, a, b) => a + b.toUpperCase());
+async function fetchEuroleague(now) {
+  const j = await getJson(`https://api-live.euroleague.net/v2/competitions/E/seasons/${EL_SEASON}/games?limit=500`);
+  if (!j) return j;
+  const out = [];
+  for (const x of j.data || []) {
+    const t = Date.parse(x.utcDate);
+    if (!Number.isFinite(t)) continue;
+    const side = (o) => {
+      const c = o.club;
+      const id = EL_TEAM[c.code];
+      if (!id) return null;
+      const key = `espn:EUROLEAGUE:${id}`;
+      addTeam('espn', 'EUROLEAGUE', String(id), { en: c.name, ...(teams[key]?.logo || !c.images?.crest ? {} : { logo: c.images.crest }) });
+      return key;
+    };
+    const hk = side(x.local), ak = side(x.road);
+    if (!hk || !ak) continue; // 모르는 클럽(코드 매핑 없음)은 건너뛴다 — 로그로 남긴다
+    const played = x.played === true;
+    const hs = Number(x.local.score), as = Number(x.road.score);
+    const live = !played && now >= t && now < t + 3.5 * 3600e3 && (hs > 0 || as > 0);
+    const ls = (o) => { const p = o.partials || {}; return [p.partials1, p.partials2, p.partials3, p.partials4, ...Object.values(p.extraPeriods || {})].filter(Number.isFinite); };
+    const vn = x.venue?.name ? titleCase(x.venue.name) : undefined;
+    const city = /\d{4,6}\s+(.+)$/.exec(x.venue?.address || '')?.[1]?.trim();
+    const vid = addVenue('el', 'EUROLEAGUE', vn, city, hk, vn);
+    const ot = Object.keys(x.local.partials?.extraPeriods || {}).length;
+    out.push({
+      id: `el:${x.identifier}`, src: 'el', lg: 'EUROLEAGUE', date: kstDate(t), t, st: played ? 'final' : live ? 'live' : 'scheduled', per: played ? (ot ? 'Final/OT' : 'Final') : undefined,
+      h: { k: hk, s: played || live ? hs : undefined, ls: played || live ? ls(x.local) : undefined }, a: { k: ak, s: played || live ? as : undefined, ls: played || live ? ls(x.road) : undefined },
+      venue: vn, vid, rd: undefined, att: x.audienceConfirmed ? x.audience || undefined : undefined,
+    });
+  }
+  return out;
+}
+
 async function main() {
   await fs.mkdir(OUT, { recursive: true });
   const now = Date.now();
@@ -561,6 +602,8 @@ async function main() {
   if (ag === undefined) { failed++; console.log('[basketball] FAIL ASIAD'); } else if (ag) { ok++; fresh.push(...ag); }
   const bl = await fetchBleague(now, doSync);
   if (bl === undefined) { failed++; console.log('[basketball] FAIL BLEAGUE'); } else if (bl) { ok++; fresh.push(...bl); }
+  const el = await fetchEuroleague(now);
+  if (el === undefined) { failed++; console.log('[basketball] FAIL EUROLEAGUE'); } else if (el) { ok++; fresh.push(...el); console.log(`[basketball] euroleague games=${el.length}`); }
   fresh.push(...syncGames);
   for (const [cfg, r] of results) {
     if (r === undefined) { failed++; console.log('[basketball] FAIL', cfg.lg); continue; }
