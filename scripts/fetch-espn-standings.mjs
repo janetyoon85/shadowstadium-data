@@ -8,7 +8,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { TEAMS as BATCH1_TEAMS, normalizeTeamName } from './espn-soccer-teams.mjs';
+import { TEAMS as BATCH1_TEAMS, normalizeTeamName, lookupTeam } from './espn-soccer-teams.mjs';
 import { BATCH2_TEAMS } from './espn-world-soccer-teams.mjs';
 import { ASIA_TEAMS } from './espn-asia-soccer-teams.mjs';
 
@@ -78,7 +78,7 @@ function statValue(stats, name) {
 function pickRow(entry, fallbackRank, teamMap, groupName) {
   const stats = entry.stats || [];
   const enName = entry.team?.displayName || entry.team?.name || '';
-  const info = teamMap[normalizeTeamName(enName)];
+  const info = lookupTeam(teamMap, enName);
   const row = {
     team: info?.ko || enName,
     rank: statValue(stats, 'rank') ?? fallbackRank,
@@ -100,7 +100,7 @@ function pickRow(entry, fallbackRank, teamMap, groupName) {
 function pickTeamRecord(entry, teamMap) {
   const stats = entry.stats || [];
   const enName = entry.team?.displayName || entry.team?.name || '';
-  const info = teamMap[normalizeTeamName(enName)];
+  const info = lookupTeam(teamMap, enName);
   return {
     team: info?.ko || enName,
     goals: statValue(stats, 'pointsFor'),

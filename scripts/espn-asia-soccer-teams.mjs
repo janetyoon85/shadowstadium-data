@@ -1,8 +1,8 @@
 // ESPN(site.api.espn.com) 소스 아시아축구 3개리그(태국/인도네시아/인도) 팀명→한글/venueId 매핑.
 // 나머지 요청국(베트남/UAE/카타르/우즈베키스탄/이란)은 네이버·ESPN 둘 다 데이터 없어 미포함.
 // 키는 정규화된 이름 — fetchEspnSoccerLeagues.mjs 의 normalizeTeamName() 과 동일 로직 적용 필요.
-import { normalizeTeamName } from "./espn-soccer-teams.mjs";
-export { normalizeTeamName };
+import { normalizeTeamName, lookupTeam } from "./espn-soccer-teams.mjs";
+export { normalizeTeamName, lookupTeam };
 
 export const ASIA_TEAMS = {
   THAILAND: {

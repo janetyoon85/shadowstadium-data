@@ -2,6 +2,17 @@
 // 키는 정규화된 이름(억양기호 제거+소문자+영숫자만) — ESPN이 /teams 와 /scoreboard 두 엔드포인트에서
 // 같은 팀을 다르게 표기하는 경우(악센트 유무, 'FC' 접미사 등)가 실측 확인되어 원문 그대로 비교하면 놓침.
 // normalizeTeamName() 을 fetchEspnSoccerLeagues.mjs 와 동일하게 적용해서 조회해야 함.
+// 2026-10-25: ESPN 이 팀 표시명에 'FC' 를 붙여 내려주기 시작해(Shanghai Port FC·Western Sydney Wanderers FC·Brisbane Roar FC…) 정규화 키와 안 맞아 그 경기들이 통째로 건너뛰어 '예정'으로 남았다.
+// 정확히 일치하는 키가 먼저이고, 없을 때만 앞뒤 FC/CF/SC/AFC 를 떼거나 붙인 변형을 시도한다.
+export function lookupTeam(map, name) {
+  const n = normalizeTeamName(name || '');
+  if (!n) return undefined;
+  if (map[n]) return map[n];
+  const noSuffix = n.replace(/fc$/, ''); // 'afc' 를 한 번에 떼면 shenhua+fc 의 a 까지 지워지므로 접미사는 하나씩 따로 시도한다.
+  const alts = [noSuffix, n.replace(/cf$/, ''), n.replace(/sc$/, ''), n.replace(/^(afc|fc|cf|sc)/, ''), noSuffix.replace(/^(afc|fc|cf|sc)/, ''), n + 'fc'];
+  for (const a of alts) if (a && a !== n && map[a]) return map[a];
+  return undefined;
+}
 export function normalizeTeamName(s) {
   return s
     .replace(/\u00f8/gi, 'o').replace(/\u00d8/g, 'O')
