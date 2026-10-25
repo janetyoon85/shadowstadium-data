@@ -734984,20 +734984,58 @@
     "gameId": "pIqOTre6Gm5cKxB",
     "status": "live",
     "awayScore": 1,
-    "homeScore": 1,
+    "homeScore": 2,
     "matchPeriod": "후반",
     "scorers": {
       "home": [
         {
           "n": "그리에즈만",
           "m": 32,
-          "pid": "espn:140416"
+          "a": "Martín Ojeda",
+          "nat": "France",
+          "pid": "espn:140416",
+          "aNat": "Argentina",
+          "apid": "espn:233401"
+        },
+        {
+          "n": "오제다",
+          "m": 49,
+          "a": "Vinícius Nogueira",
+          "nat": "Argentina",
+          "pid": "espn:233401",
+          "aNat": "Brazil",
+          "apid": "espn:357210"
         }
       ],
       "away": [
         {
           "n": "마르티네스",
-          "m": 18
+          "m": 18,
+          "a": "Hannes Wolf",
+          "nat": "Costa Rica",
+          "pid": "espn:310827",
+          "aNat": "Austria",
+          "apid": "espn:250852"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Vinícius Nogueira",
+          "type": "Y",
+          "m": 38,
+          "pid": "espn:357210",
+          "nat": "Brazil"
+        }
+      ],
+      "away": [
+        {
+          "n": "James Sands",
+          "type": "Y",
+          "m": 44,
+          "pid": "espn:258855",
+          "nat": "USA"
         }
       ]
     },
@@ -735014,7 +735052,7 @@
     "timeTbd": false,
     "gameId": "pv2fnQuOGCJK0a5",
     "status": "live",
-    "awayScore": 1,
+    "awayScore": 2,
     "homeScore": 1,
     "matchPeriod": "후반",
     "scorers": {
@@ -735030,6 +735068,10 @@
           "n": "살레트로스",
           "m": 30,
           "pid": "espn:193105"
+        },
+        {
+          "n": "메크바비시빌리",
+          "m": 51
         }
       ]
     },
@@ -735076,7 +735118,7 @@
     "timeTbd": false,
     "gameId": "BRASILEIRAO_ESPN_401841282",
     "status": "live",
-    "matchPeriod": "전반",
+    "matchPeriod": "하프타임",
     "homeScore": 0,
     "awayScore": 1,
     "scorers": {
@@ -735100,7 +735142,15 @@
           "nat": "Brazil"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Nicolás Acevedo",
+          "type": "Y",
+          "m": 44,
+          "pid": "espn:285757",
+          "nat": "Uruguay"
+        }
+      ]
     }
   },
   {
@@ -735255,19 +735305,17 @@
     "homePitcherPid": "mlb:701656",
     "awayScore": 4,
     "homeScore": 2,
-    "inningInfo": "2회초",
+    "inningInfo": "2회말",
     "liveState": {
-      "pitcher": "핸더슨",
-      "batter": "아란다",
-      "ball": 1,
+      "pitcher": "라스무센",
+      "batter": "프렐릭",
+      "ball": 0,
       "strike": 0,
-      "out": 2,
-      "bases": [
-        2
-      ],
-      "pitchCount": 46,
-      "pitcherPid": "mlb:701656",
-      "batterPid": "mlb:666018"
+      "out": 0,
+      "bases": [],
+      "pitchCount": 29,
+      "pitcherPid": "mlb:656876",
+      "batterPid": "mlb:686217"
     },
     "highlights": {
       "home": [],
