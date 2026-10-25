@@ -66,14 +66,16 @@ export async function attachAssists(game, slug) {
     }
   }
   game.assistsChecked = true;
+  game.assistsAt = Date.now(); // 종료 후 48시간은 2시간마다 다시 확인한다(ESPN 이 도움을 나중에 채우는 경우, 2026-10-26 원본 대조에서 발견)
   return n;
 }
 
 // games: games.json 배열(제자리 수정). slugByCode: { 리그코드: ESPN 슬러그 }. 최근 sinceDays 일 안의 종료 경기 중 아직 확인 안 한 것을 최신순으로 maxPerRun 건까지.
 export async function enrichEspnAssists(games, slugByCode, { maxPerRun = 25, sinceDays = 14 } = {}) {
   const cutoff = new Date(Date.now() - sinceDays * 86400000).toISOString().slice(0, 10);
+  const recheckFrom = new Date(Date.now() - 2 * 86400000).toISOString().slice(0, 10);
   const todo = games
-    .filter((g) => slugByCode[g.league] && /_ESPN_/.test(g.gameId || '') && g.status === 'completed' && !g.assistsChecked && g.date >= cutoff
+    .filter((g) => slugByCode[g.league] && /_ESPN_/.test(g.gameId || '') && g.status === 'completed' && (!g.assistsChecked || (g.date >= recheckFrom && Date.now() - (g.assistsAt || 0) >= 2 * 3600e3)) && g.date >= cutoff
       && ['home', 'away'].some((s) => (g.scorers?.[s] || []).length > 0))
     .sort((a, b) => (a.date + a.time < b.date + b.time ? 1 : -1))
     .slice(0, maxPerRun);

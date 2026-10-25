@@ -14,7 +14,10 @@
 // 우니온베를린도 4-0 아우크스부르크). "스코어까지 일치하는 후보"가 유일해야만 채택하고,
 // 2개 이상 동률이면 무엇도 확신할 수 없으므로 미매칭(undefined) 처리 — 오귀속보다 미부착이 낫다는
 // 원칙.
-export function selectUniqueScoreMatch(events, kickoffMs, homeScore, awayScore) {
+//
+// 2026-10-26(원본 대조에서 발견): 토요일 오후 3시처럼 같은 시각·같은 스코어(1-0 등)인 경기가 여럿이면 위 규칙이 "유일하지 않다"며 매칭을 포기해, 그 경기들은 도움·카드·선수 ID 가
+// 영원히 비어 있었다(EFL 카디프-버밍엄 등). hint(event) 가 주어지면 — 팀 이름이 맞는 개수(0~2) — 스코어까지 같은 후보가 여럿일 때 이름이 더 많이 맞는 하나(1개 이상, 동률이면 포기)를 고른다.
+export function selectUniqueScoreMatch(events, kickoffMs, homeScore, awayScore, hint) {
   const timeCandidates = events.filter((e) => Math.abs(Date.parse(e.date) - kickoffMs) <= 5 * 60 * 1000);
   const scoreCandidates =
     timeCandidates.length <= 1
@@ -25,5 +28,10 @@ export function selectUniqueScoreMatch(events, kickoffMs, homeScore, awayScore) 
           const a = comp?.competitors?.find((c) => c.homeAway === 'away');
           return h && a && Number(h.score) === homeScore && Number(a.score) === awayScore;
         });
-  return scoreCandidates.length === 1 ? scoreCandidates[0] : undefined;
+  if (scoreCandidates.length === 1) return scoreCandidates[0];
+  if (scoreCandidates.length > 1 && typeof hint === 'function') {
+    const ranked = scoreCandidates.map((e) => ({ e, n: hint(e) })).sort((x, y) => y.n - x.n);
+    if (ranked[0].n >= 1 && ranked[0].n > ranked[1].n) return ranked[0].e;
+  }
+  return undefined;
 }

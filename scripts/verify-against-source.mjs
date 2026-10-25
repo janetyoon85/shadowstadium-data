@@ -5,9 +5,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { TEAMS, normalizeTeamName } from './espn-soccer-teams.mjs';
-import { ASIA_TEAMS } from './espn-asia-soccer-teams.mjs';
-import { BATCH2_TEAMS } from './espn-world-soccer-teams.mjs';
+import { buildKoIndex } from './espn-team-index.mjs';
+import { parseEspnEvents, compareSoccerEvents, compareMlbDecisions, compareNaverTimeline } from './verify-events.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dry = process.argv.includes('--dry');
@@ -66,19 +65,14 @@ async function main() {
   for (const f of ['fetch-espn-soccer-leagues', 'fetch-espn-world-soccer-leagues', 'fetch-espn-asia-soccer-leagues']) for (const m of fs.readFileSync(path.join(ROOT, `scripts/${f}.mjs`), 'utf8').matchAll(/code: '([A-Z0-9_]+)', slug: '([^']+)'/g)) { slugByCode[m[1]] = m[2]; espnOriginCodes.add(m[1]); }
   // 2026-10-26: 컵·유럽대항전·국가대표·친선·여자부까지 ESPN 이 다루는 축구는 전부 대조한다(승부차기 등 정의 차이는 compareGame 에서 보정).
   const codes = process.env.VERIFY_ONLY === 'mlb' ? [] : Object.keys(slugByCode); // 점검용: VERIFY_ONLY=mlb 이면 MLB 단계만
-  // ESPN 영문 팀명 → 우리 한글 팀명 후보(네이버 출처 리그 매칭용)
-  const byEn = new Map();
-  const addEn = (en, ko) => { const k = normalizeTeamName(en || ''); if (k && ko) (byEn.get(k) ?? byEn.set(k, new Set()).get(k)).add(ko); };
-  for (const [ko, en] of Object.entries(rj('team-name-en.json', {}))) if (!ko.startsWith('bk:') && !ko.includes('|')) addEn(en, ko);
-  // 위키데이터 기반 별칭(team-aliases.json: 한글 → 여러 언어 표기)의 영문(라틴) 표기도 역색인에 넣는다.
-  for (const [ko, arr] of Object.entries(rj('team-aliases.json', {}))) for (const al of arr) if (/^[ -~À-ɏ]+$/.test(al) && al.length >= 4) addEn(al, ko);
-  for (const grp of [TEAMS, ASIA_TEAMS, BATCH2_TEAMS]) for (const lg of Object.values(grp)) for (const [k, v] of Object.entries(lg || {})) if (v?.ko) { (byEn.get(k) ?? byEn.set(k, new Set()).get(k)).add(v.ko); if (v.en) addEn(v.en, v.ko); }
-  const koSet = (en) => byEn.get(normalizeTeamName(en || '')) || new Set();
+  // ESPN 영문 팀명 → 우리 한글 팀명 후보(네이버 출처 리그 매칭용) — fetch-schedule.mjs 의 ESPN 경기 매칭과 같은 색인을 쓴다.
+  const koSet = buildKoIndex(ROOT);
 
   const byId = new Map(games.map((g) => [g.gameId, g]));
   const BACK = Number(process.env.VERIFY_BACK_DAYS || 3); // 과거 며칠을 대조할지(기본 3일, 점검용으로 늘릴 수 있음)
   const recent = games.filter((g) => ourTs(g) > now - (BACK + 1) * 86400e3 && ourTs(g) < now + 2 * 86400e3);
   const found = {};
+  const eventPairs = []; // 이벤트(득점·도움·카드) 대조 대상: ESPN 과 매칭된 종료 경기
   const stats = { leagues: 0, events: 0, matched: 0, unmatched: 0 };
   const days = Array.from({ length: BACK + 2 }, (_, i) => i - BACK).map((d) => ymd(now + d * 86400e3));
   for (const code of codes) {
@@ -115,16 +109,36 @@ async function main() {
         }
         stats.matched++;
         for (const m of compareGame(ours, ev, now)) { const k = `${m.kind}|${ours.gameId}`; found[k] = { key: k, ...m }; }
+        if (ev.completed) eventPairs.push({ ours, slug, eventId: e.id, espnOrigin: String(ours.gameId).includes('_ESPN_') });
       }
       await new Promise((r) => setTimeout(r, 80));
     }
+  }
+
+  // ── 축구 선수 이벤트(득점·도움·카드): ESPN 경기 요약(keyEvents)과 선수 ID·분 단위로 비교 ───────────────────────
+  // 최근 EVENT_BACK 일(기본 2일) 안에 끝난 매칭 경기만, 최신순으로 EVENT_MAX 건까지(실행당 요청 수 상한). ESPN 이벤트 수가 최종 스코어와 안 맞는 경기(원본 중복 기록)는 건너뛴다.
+  {
+    const EVENT_BACK = Number(process.env.VERIFY_EVENT_BACK_DAYS || 2), EVENT_MAX = Number(process.env.VERIFY_EVENT_MAX || 220);
+    const cand = eventPairs.filter((p) => ourTs(p.ours) > now - EVENT_BACK * 86400e3).sort((a, b) => ourTs(b.ours) - ourTs(a.ours)).slice(0, EVENT_MAX);
+    let done = 0, skipped = 0, items = 0;
+    for (const p of cand) {
+      let sj;
+      try { const r = await fetch(`https://site.api.espn.com/apis/site/v2/sports/soccer/${p.slug}/summary?event=${p.eventId}`, { signal: AbortSignal.timeout(15000) }); if (!r.ok) continue; sj = await r.json(); } catch { continue; }
+      done++;
+      const res = compareSoccerEvents(p.ours, parseEspnEvents(sj), { tol: p.espnOrigin ? 1 : 3 });
+      if (res.skipped) { skipped++; continue; }
+      for (const m of res.items) { const k = `${m.kind}|${p.ours.gameId}|${m.key}`; found[k] = { key: k, kind: m.kind, text: m.text }; items++; }
+      await new Promise((r) => setTimeout(r, 100));
+    }
+    stats.eventGames = done; stats.eventSkipped = skipped;
+    console.log(`[verify] 선수 이벤트 대조(ESPN) 경기 ${done}/${cand.length}건 (원본 불안정 제외 ${skipped}), 불일치 ${items}건`);
   }
 
   // ── MLB: 우리는 네이버 출처, 대조 원본은 MLB 공식 StatsAPI(독립) ─────────────────────────
   // KBO·NPB 는 StatsAPI 에 종목은 있으나 경기 데이터가 비어 있고(2026-10-26 확인), 공식 사이트는 robots.txt 로 자동 수집을 막아 독립 원본이 없다(=> 내부 정합성 규칙으로만 점검).
   try {
     const lo = new Date(now - BACK * 86400e3).toISOString().slice(0, 10), hi = new Date(now + 86400e3).toISOString().slice(0, 10);
-    const r = await fetch(`https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=${lo}&endDate=${hi}&hydrate=linescore`, { signal: AbortSignal.timeout(20000) });
+    const r = await fetch(`https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=${lo}&endDate=${hi}&hydrate=linescore,decisions`, { signal: AbortSignal.timeout(20000) });
     const j = r.ok ? await r.json() : { dates: [] };
     const ourMlb = recent.filter((g) => g.league === 'MLB');
     const teamEn = rj('team-name-en.json', {});
@@ -138,7 +152,7 @@ async function main() {
     const evs = [];
     for (const d of j.dates || []) for (const x of d.games || []) {
       if (x.gameType && !/^[RFDLWP]$/.test(x.gameType)) continue; // 시범경기·올스타 제외(정규·포스트시즌만)
-      evs.push({ id: String(x.gamePk), startMs: Date.parse(x.gameDate), completed: x.status?.abstractGameState === 'Final' && !/postponed|cancel/i.test(x.status?.detailedState || ''), state: ({ Final: 'post', Live: 'in', Preview: 'pre' })[x.status?.abstractGameState] || 'pre', status: x.status?.detailedState || '', home: { name: x.teams?.home?.team?.name, score: x.teams?.home?.score }, away: { name: x.teams?.away?.team?.name, score: x.teams?.away?.score } });
+      evs.push({ id: String(x.gamePk), startMs: Date.parse(x.gameDate), completed: x.status?.abstractGameState === 'Final' && !/postponed|cancel/i.test(x.status?.detailedState || ''), state: ({ Final: 'post', Live: 'in', Preview: 'pre' })[x.status?.abstractGameState] || 'pre', status: x.status?.detailedState || '', home: { name: x.teams?.home?.team?.name, score: x.teams?.home?.score }, away: { name: x.teams?.away?.team?.name, score: x.teams?.away?.score }, decisions: x.decisions });
     }
     // 더블헤더: (MLB 경기, 우리 경기) 후보를 시각 차이순으로 1:1 배정 — 같은 날 같은 두 팀의 1·2차전을 서로 바꿔 짝짓지 않게 한다.
     const pairs = [];
@@ -155,6 +169,10 @@ async function main() {
       if (usedEv.has(p.ev.id) || usedG.has(p.g.gameId)) continue;
       usedEv.add(p.ev.id); usedG.add(p.g.gameId); mlbM++; stats.matched++; stats.events++;
       for (const m of compareGame(p.g, p.ev, now)) { const k = `${m.kind}|${p.g.gameId}`; found[k] = { key: k, ...m, text: m.text.replace('ESPN', 'MLB') }; }
+      // 승·패·세이브 투수: 공식 결정 기록과 선수 ID 로 비교(종료 경기, 최근 EVENT_BACK 일)
+      if (p.ev.completed && p.g.status === 'completed' && ourTs(p.g) > now - Number(process.env.VERIFY_EVENT_BACK_DAYS || 2) * 86400e3) {
+        for (const m of compareMlbDecisions(p.g, p.ev.decisions)) { const k = `${m.kind}|${p.g.gameId}|${m.key}`; found[k] = { key: k, kind: m.kind, text: m.text }; }
+      }
     }
     stats.unmatched += evs.length - mlbM;
     console.log(`[verify] MLB statsapi games=${evs.length} matched=${mlbM}`);
@@ -166,7 +184,7 @@ async function main() {
   try {
     const UA = 'Mozilla/5.0 (compatible; shadowstadium; +https://github.com/janetyoon85/shadowstadium-data)'; // 'crawler' 가 든 UA 는 네이버가 무응답 처리한다
     const bkNaver = (rj('basketball/games.json', { games: [] }).games || []).filter((g) => g.src === 'naver' && g.t > now - (BACK + 1) * 86400e3 && g.t < now + 86400e3).map((g) => ({ id: g.id.replace(/^nv:/, ''), label: `${g.date} ${g.lg} ${g.h.k}-${g.a.k}`, completed: g.st === 'final', hs: g.h.s, as: g.a.s, t: g.t, key: g.id }));
-    const soccerBaseball = recent.filter((g) => g.gameId && !String(g.gameId).includes('_') && (g.status === 'completed' || g.status === 'live' || ourTs(g) < now - 3 * 3600e3)).map((g) => ({ id: g.gameId, label: `${g.date} ${g.league} ${g.home} vs ${g.away}`, completed: g.status === 'completed', hs: g.homeScore, as: g.awayScore, t: ourTs(g), key: g.gameId, status: g.status }));
+    const soccerBaseball = recent.filter((g) => g.gameId && !String(g.gameId).includes('_') && (g.status === 'completed' || g.status === 'live' || ourTs(g) < now - 3 * 3600e3)).map((g) => ({ id: g.gameId, label: `${g.date} ${g.league} ${g.home} vs ${g.away}`, completed: g.status === 'completed', hs: g.homeScore, as: g.awayScore, t: ourTs(g), key: g.gameId, status: g.status, ours: g }));
     const targets = [...soccerBaseball, ...bkNaver].slice(0, 260);
     let n = 0, bad = 0;
     for (const t of targets) {
@@ -178,6 +196,17 @@ async function main() {
       const nh = det.homeTeamScore, na = det.awayTeamScore;
       if (nCompleted && !t.completed && now - t.t > 3.5 * 3600e3) { const k = `결과 미반영(네이버 상세)|${t.key}`; found[k] = { key: k, kind: '결과 미반영(네이버 상세)', text: `${t.label} — 네이버 상세는 종료 ${nh}-${na}, 우리는 미종료`, }; bad++; }
       else if (nCompleted && t.completed && Number.isFinite(nh) && Number.isFinite(na) && Number.isFinite(t.hs) && Number.isFinite(t.as) && (nh !== t.hs || na !== t.as)) { const k = `스코어 불일치(네이버 상세)|${t.key}`; found[k] = { key: k, kind: '스코어 불일치(네이버 상세)', text: `${t.label} — 우리 ${t.hs}-${t.as} / 네이버 상세 ${nh}-${na}` }; bad++; }
+      // K리그: 네이버 /record 의 이벤트 타임라인(골·자책골·경고·퇴장)을 새로 받아 우리 득점자·카드와 비교
+      if (t.ours && /^K리그/.test(t.ours.league) && t.completed && now - t.t > 2 * 3600e3 && now - t.t < 2 * 86400e3 && (t.ours.scorers || t.ours.cards)) {
+        try {
+          const rr = await fetch(`https://api-gw.sports.naver.com/schedule/games/${t.id}/record`, { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(15000) });
+          const rec = rr.ok ? (await rr.json()).result?.recordData : null;
+          if (rec && Array.isArray(rec.timeline) && rec.timeline.length) {
+            for (const m of compareNaverTimeline(t.ours, rec.timeline)) { const k = `${m.kind}|${t.key}|${m.key}`; found[k] = { key: k, kind: m.kind, text: m.text }; bad++; }
+            stats.naverTimeline = (stats.naverTimeline || 0) + 1;
+          }
+        } catch { /* 일시 오류는 건너뛴다 */ }
+      }
       await new Promise((r) => setTimeout(r, 120));
     }
     stats.naverDetail = n;

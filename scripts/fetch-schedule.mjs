@@ -7,6 +7,9 @@ import { validateDataset } from './validators.mjs';
 import { getAthleteNationality, getAthleteDisplayName } from './espn-nationality.mjs';
 import { parseBaseballHighlights, parseKboRelayHighlights, parseMlbNpbRelayHighlights, extractPitcherDecisions, parseLiveState } from './baseball-highlight-parse.mjs';
 import { selectUniqueScoreMatch } from './espn-match-select.mjs';
+import { buildKoIndex } from './espn-team-index.mjs';
+let _koIndex = null; // 동률 가르기용 한글↔영문 팀명 색인(처음 쓸 때 한 번 만든다)
+const koSetOf = (en) => (_koIndex ??= buildKoIndex(REPO_ROOT))(en);
 import { assignSeriesRecord, assignLegOneResult } from './series-record.mjs';
 import { canonTeamName } from './team-name-canon.mjs';
 import { tbcVenueFor } from './venue-tbc.mjs';
@@ -158,6 +161,7 @@ const EURO_ASSISTS_PATH = path.join(REPO_ROOT, 'euro_assists.json');
 // 같은 경기에 fetchEspnSummary를 호출하니 그 summary를 그대로 재사용해 카드도 같이 추출.
 // 골 득점자가 있는 경기만 대상(현재 매칭 로직 제약) — 0-0 무득점 경기는 카드 미지원(추후 보완).
 const EURO_CARDS_PATH = path.join(REPO_ROOT, 'euro_cards.json');
+const EURO_REVAL_PATH = path.join(REPO_ROOT, 'euro-reval.json'); // 종료 후 재검증 마지막 시각(2026-10-26)
 const EURO_SHOOTOUT_PATH = path.join(REPO_ROOT, 'euro_shootout.json');
 // 즐겨찾기 선수 알림(2026-09-28)용 자동 확장 선수명 사전 — 득점자(네이버 원문 한글)가 ESPN
 // athleteId로 정확히 매칭되면(zip 성공), 그 선수의 실제 영문명(displayName)을 자동으로 여기 축적.
@@ -1699,6 +1703,13 @@ async function enrichEuroAssists(allGames) {
     if (e.code !== 'ENOENT') throw e;
     console.log('[euroCards] no euro_cards.json yet — backfilling from scratch');
   }
+  // 종료 후 재검증(2026-10-26, 원본 대조에서 발견) — 네이버가 경기를 "종료"로 바꾸는 시점에 ESPN keyEvents 가 아직 다 안 올라와 있으면 그때의 불완전한 값(후반 카드·도움 누락, 득점자 미정정)이
+  // final:true 로 굳어 영영 안 고쳐졌다(올랜도-NYCFC 카드 3장·도움 2개 누락, 포틀랜드-샬럿 득점자 정정 미반영 등). 종료 후 REVAL_WINDOW_MS(48시간) 동안은 REVAL_INTERVAL_MS(2시간)마다 다시 받는다.
+  // 마지막 재조회 시각은 euro-reval.json 에 남긴다(실행 간 유지). 실행당 REVAL_BUDGET 건까지만.
+  let reval = {};
+  try { reval = JSON.parse(await fs.readFile(EURO_REVAL_PATH, 'utf-8')); } catch (e) { if (e.code !== 'ENOENT') throw e; }
+  const REVAL_WINDOW_MS = 48 * 3600e3, REVAL_INTERVAL_MS = 2 * 3600e3, REVAL_BUDGET = bud(30);
+  let revalUsed = 0;
   // 승부차기 킥별 기록(2026-09-29) — PK 스코어가 있는 경기만 대상, 카드와 동일하게 이미 받아온
   // summary 재사용(추가 fetch 없음).
   let shootoutCache = {};
@@ -1777,7 +1788,7 @@ async function enrichEuroAssists(allGames) {
     // 같은 예산 풀에 넣어서 과거 미완료분처럼 여러 실행에 걸쳐 나눠 처리되게 함.
     // 옛 확정 스텁 재시도(2026-09-30): 날짜후보 3개 로직 도입 전에 noMatch/개수불일치로 빈 스텁이 확정된 경기 중
     // 득점자가 있는 것(1,600건+)은 pid가 영구히 비어 있었음. sv(스텁 버전) 없는 옛 스텁만 1회 재시도. 2026-10-02: ESPN keyEvents가 경기 직후 비어있다 나중에 채워지는 경우(J1 이나가키 등) — sv<3 스텁 1회 + 36h 후 1회 재시도(r=1이면 종료).
-    const isStaleStub = !!cached && (!cached.sv || cached.sv < 4 || (cached.sv === 4 && !cached.r && Date.now() - (cached.at || 0) > 36 * 3600e3)) && cached.final !== false && !(cached.homePids || []).some(Boolean) && !(cached.awayPids || []).some(Boolean) &&
+    const isStaleStub = !!cached && (!cached.sv || cached.sv < 5 || (cached.sv === 5 && !cached.r && Date.now() - (cached.at || 0) > 36 * 3600e3)) && cached.final !== false && !(cached.homePids || []).some(Boolean) && !(cached.awayPids || []).some(Boolean) &&
       ((g.scorers?.home || []).length + (g.scorers?.away || []).length) > 0;
     const isBackfillOnly = g.status !== 'live' && (
       !cached || isStaleStub ||
@@ -1791,13 +1802,20 @@ async function enrichEuroAssists(allGames) {
     // 자체가 스킵됨 — pid 백필(신규) 예산 부족이 이미 확정된 국적(기존) 표시까지 매 실행마다 지워버리는
     // 구조였음. "새로 fetch할지"만 예산으로 막고, "이미 있는 캐시 재적용"은 예산과 무관하게 항상 수행.
     const budgetExhausted = isBackfillOnly && backfillUsed >= BACKFILL_BUDGET;
-    const needsFetch = !budgetExhausted && (!cached || g.status === 'live' || (g.status === 'completed' && cached.final === false) || isBackfillOnly);
+    const kickoffForReval = naverKickoffUtcMs(g);
+    const sinceKick = Date.now() - kickoffForReval;
+    const wantsReval = g.status === 'completed' && !!cached && cached.final !== false && Number.isFinite(kickoffForReval) && sinceKick > 2.5 * 3600e3 && sinceKick < REVAL_WINDOW_MS
+      && Date.now() - (reval[g.gameId] || 0) >= REVAL_INTERVAL_MS && revalUsed < REVAL_BUDGET;
+    const needsFetch = !budgetExhausted && (!cached || g.status === 'live' || (g.status === 'completed' && cached.final === false) || isBackfillOnly || wantsReval);
+    if (wantsReval && needsFetch) { revalUsed++; reval[g.gameId] = Date.now(); }
+    let prevSnap = null, restoredFromReval = false;
     if (isBackfillOnly && !budgetExhausted) backfillUsed++;
     if (budgetExhausted && !cached) continue; // 완전 신규(재적용할 캐시 자체가 없음)만 다음 실행으로 미룸.
     if (needsFetch) {
       try {
         const slug = ESPN_LEAGUE_SLUG[g.league];
         const kickoffMs = naverKickoffUtcMs(g);
+        if (wantsReval) { prevSnap = { cache: cache[g.gameId], cards: cardCache[g.gameId] }; } // 재검증 결과가 더 빈약하면 되돌리려고 기존 값을 보관
         // 날짜 후보 3개(2026-09-30, "구스만"/"버홀터" 리포트로 발견 — MLB KST/ET 시차 버그와 동일
         // 클래스) — 예전엔 킥오프 UTC 날짜 딱 하나만 ESPN에 조회했는데, 특히 미주 지역에서 열리는
         // 친선/MLS 경기는 현지 저녁 킥오프가 ESPN 쪽 "dates=" 그룹핑 기준(현지/ET 날짜로 추정)과
@@ -1818,7 +1836,10 @@ async function enrichEuroAssists(allGames) {
           }
           // 동시킥오프+동일스코어 오매칭 방지 로직 — espn-match-select.mjs 참고(2026-09-28,
           // backfill-player-name-auto.mjs와 공유하도록 분리됨).
-          match = selectUniqueScoreMatch(events, kickoffMs, g.homeScore, g.awayScore);
+          match = selectUniqueScoreMatch(events, kickoffMs, g.homeScore, g.awayScore, (ev) => {
+            const cp = ev.competitions?.[0]; const hc = cp?.competitors?.find((c) => c.homeAway === 'home'), ac = cp?.competitors?.find((c) => c.homeAway === 'away');
+            return (koSetOf(hc?.team?.displayName).has(g.home) ? 1 : 0) + (koSetOf(ac?.team?.displayName).has(g.away) ? 1 : 0);
+          });
           if (match) break;
         }
         if (!match) {
@@ -1826,7 +1847,7 @@ async function enrichEuroAssists(allGames) {
           // completed 인데 이벤트 자체를 못 찾으면(ESPN 미중계 등) 영구 불가로 보고 확정 캐시 —
           // live 는 다음 run 에 스코어보드가 갱신될 수 있어 재시도 유지(캐시 안 함).
           if (g.status === 'completed') {
-            cache[g.gameId] = { homeAssists: [], awayAssists: [], homeNats: [], awayNats: [], homeANats: [], awayANats: [], homePids: [], awayPids: [], homeAPids: [], awayAPids: [], final: true, sv: 4, at: Date.now(), r: cached && cached.sv >= 4 ? 1 : 0 };
+            cache[g.gameId] = { homeAssists: [], awayAssists: [], homeNats: [], awayNats: [], homeANats: [], awayANats: [], homePids: [], awayPids: [], homeAPids: [], awayAPids: [], final: true, sv: 5, at: Date.now(), r: cached && cached.sv >= 5 ? 1 : 0 };
             // 카드 캐시도 같이 확정 스텁 처리 — 안 그러면 needsCardBackfill이 영원히 true로 남아
             // ESPN 미중계 경기(군소리그에 흔함)가 매 실행마다 예산을 계속 잡아먹어 다른(특히
             // 신규 38개국) 리그의 백필이 굶는 문제 발생(2026-09-26 실측 발견 — 신규 확장 리그들
@@ -1860,7 +1881,7 @@ async function enrichEuroAssists(allGames) {
             // completed 인데 골 개수가 계속 안 맞으면(팀명 매칭 실패 등 구조적 문제) 매 10분 재시도해도
             // 안 맞을 확률이 높음 — 확정 캐시로 고정해 무한 재시도 방지(live 는 계속 재시도).
             if (g.status === 'completed') {
-              cache[g.gameId] = { homeAssists: [], awayAssists: [], homeNats: [], awayNats: [], homeANats: [], awayANats: [], homePids: [], awayPids: [], homeAPids: [], awayAPids: [], final: true, sv: 4, at: Date.now(), r: cached && cached.sv >= 4 ? 1 : 0 };
+              cache[g.gameId] = { homeAssists: [], awayAssists: [], homeNats: [], awayNats: [], homeANats: [], awayANats: [], homePids: [], awayPids: [], homeAPids: [], awayAPids: [], final: true, sv: 5, at: Date.now(), r: cached && cached.sv >= 5 ? 1 : 0 };
             }
             if (!cached) continue;
           } else {
@@ -1917,7 +1938,7 @@ async function enrichEuroAssists(allGames) {
               awayPks: (g.scorers?.away || []).map((s) => !!s.pk),
               awayAPids: (g.scorers?.away || []).map((s) => s.apid || null),
               final: g.status === 'completed',
-              sv: 4, r: 1,
+              sv: 5, r: 1,
             };
             fetched++;
           }
@@ -1927,12 +1948,19 @@ async function enrichEuroAssists(allGames) {
         console.warn(`[euroAssists] fetch failed ${g.gameId}: ${e.message}`);
         if (!cached) continue;
       }
+      // 종료 후 재검증이 기존보다 빈약한 결과(ESPN 일시 불안정으로 매칭 실패·이벤트 수 불일치)를 내면 멀쩡한 기존 값을 덮어쓰지 않고 되돌린다.
+      if (wantsReval && prevSnap) {
+        const rich = (c) => ((c?.homePids || []).concat(c?.awayPids || [], c?.homeAssists || [], c?.awayAssists || []).filter(Boolean).length);
+        const richCards = (c) => ((c?.home || []).length + (c?.away || []).length);
+        const worse = (rich(cache[g.gameId]) === 0 && rich(prevSnap.cache) > 0) || (richCards(cardCache[g.gameId]) === 0 && richCards(prevSnap.cards) > 0); // 새 결과가 통째로 빈 경우(매칭 실패·일시 오류)만 되돌린다
+        if (worse) { if (prevSnap.cache) cache[g.gameId] = prevSnap.cache; if (prevSnap.cards) cardCache[g.gameId] = prevSnap.cards; restoredFromReval = true; }
+      }
     } else {
       fromCache++;
     }
     // 캐시 적중(또는 방금 실패해 이전 캐시로 폴백)이면 캐시된 이름/국적을 원본 순서 그대로 재적용.
     const c = cache[g.gameId];
-    if (c && !needsFetch) {
+    if (c && (!needsFetch || restoredFromReval)) {
       (g.scorers?.home || []).forEach((s, i) => {
         if (c.homeAssists?.[i]) s.a = c.homeAssists[i];
         if (c.homeNats?.[i]) s.nat = c.homeNats[i];
@@ -1972,6 +2000,12 @@ async function enrichEuroAssists(allGames) {
     if (Object.prototype.hasOwnProperty.call(cardCache, id)) prunedCards[id] = cardCache[id];
   }
   await fs.writeFile(EURO_CARDS_PATH, JSON.stringify(prunedCards, null, 2) + '\n', 'utf-8');
+
+  // 재검증 시각 기록 — 윈도(48시간) 지난 항목은 정리
+  const prunedReval = {};
+  for (const [id, t] of Object.entries(reval)) if (Date.now() - t < 3 * 86400e3) prunedReval[id] = t;
+  await fs.writeFile(EURO_REVAL_PATH, JSON.stringify(prunedReval) + '\n', 'utf-8');
+  if (revalUsed) console.log(`[euroAssists] 종료 후 재검증 ${revalUsed}/${REVAL_BUDGET}건`);
 
   const prunedShootout = {};
   for (const id of validIds) {

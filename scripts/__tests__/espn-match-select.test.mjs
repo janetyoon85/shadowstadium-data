@@ -70,3 +70,14 @@ test('selectUniqueScoreMatch - 시각후보가 여럿인데 스코어가 아무 
   const match = selectUniqueScoreMatch(events, kickoffMs, 4, 0);
   assert.equal(match, undefined);
 });
+
+test('같은 시각·같은 스코어 경기가 여럿이면 팀 이름 힌트로 가른다(힌트가 없거나 동률이면 포기)', () => {
+  const ev = (id, h, a, hs, as) => ({ id, date: '2026-10-24T14:00:00Z', competitions: [{ competitors: [{ homeAway: 'home', score: String(hs), team: { displayName: h } }, { homeAway: 'away', score: String(as), team: { displayName: a } }] }] });
+  const events = [ev('1', 'Cardiff City', 'Birmingham City', 1, 0), ev('2', 'Stoke City', 'Bristol City', 1, 0), ev('3', 'Lincoln City', 'Burnley', 1, 0)];
+  const kick = Date.parse('2026-10-24T14:00:00Z');
+  assert.equal(selectUniqueScoreMatch(events, kick, 1, 0), undefined); // 힌트 없으면 기존 동작(포기)
+  const hint = (e) => (e.competitions[0].competitors[0].team.displayName === 'Cardiff City' ? 2 : 0);
+  assert.equal(selectUniqueScoreMatch(events, kick, 1, 0, hint).id, '1');
+  assert.equal(selectUniqueScoreMatch(events, kick, 1, 0, () => 1), undefined); // 모두 같은 점수면 포기
+  assert.equal(selectUniqueScoreMatch(events, kick, 1, 0, () => 0), undefined); // 이름이 하나도 안 맞으면 포기
+});
