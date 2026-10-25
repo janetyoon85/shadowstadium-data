@@ -713680,7 +713680,8 @@
           "n": "Franco Vázquez",
           "type": "Y",
           "m": 51,
-          "pid": "espn:118787"
+          "pid": "espn:118787",
+          "nat": "Argentina"
         },
         {
           "n": "Lisandro López",
@@ -741693,14 +741694,17 @@
     "awayScore": 2,
     "inningInfo": "6회말",
     "liveState": {
-      "pitcher": "Gabriel Yanez",
-      "batter": "Símon Muzziotti",
-      "pitcherPid": "mlb:673394",
-      "batterPid": "mlb:665922",
+      "pitcher": "Gabriel Jaramillo",
+      "batter": "Sebastián Rivero",
+      "pitcherPid": "mlb:682974",
+      "batterPid": "mlb:665861",
       "ball": 0,
       "strike": 0,
-      "out": 0,
-      "bases": []
+      "out": 1,
+      "bases": [
+        1,
+        2
+      ]
     }
   },
   {
@@ -741722,18 +741726,18 @@
         {
           "n": "맥케니",
           "m": 29,
+          "pid": "espn:256715",
           "a": "Douglas Luiz",
           "nat": "USA",
-          "pid": "espn:256715",
           "aNat": "Brazil",
           "apid": "espn:320074"
         },
         {
           "n": "더글라스 루이즈",
           "m": 41,
+          "pid": "espn:320074",
           "a": "Federico Gatti",
           "nat": "Brazil",
-          "pid": "espn:320074",
           "aNat": "Italy",
           "apid": "espn:323147"
         }
@@ -741821,6 +741825,13 @@
           "m": 64,
           "pid": "espn:410536",
           "nat": "Belgium"
+        },
+        {
+          "n": "Mihajlo Cvetkovic",
+          "type": "Y",
+          "m": 70,
+          "pid": "espn:369978",
+          "nat": "Serbia"
         }
       ]
     }
@@ -741902,7 +741913,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 2,
-    "matchPeriod": "후반 28'",
+    "matchPeriod": "후반 32'",
     "scorers": {
       "home": [
         {
@@ -741943,7 +741954,15 @@
           "nat": "Spain"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Manu Sánchez",
+          "type": "Y",
+          "m": 75,
+          "pid": "espn:300985",
+          "nat": "Spain"
+        }
+      ]
     }
   },
   {
@@ -742145,6 +742164,18 @@
           "pid": "espn:346520"
         }
       ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Nohim Chibani",
+          "type": "Y",
+          "m": 40,
+          "pid": "espn:356478",
+          "nat": "France"
+        }
+      ],
+      "away": []
     }
   },
   {
@@ -742244,7 +742275,10 @@
     "stadium": "Metropolitano de Techo",
     "timeTbd": false,
     "gameId": "COLOMBIA_ESPN_401877906",
-    "status": "scheduled"
+    "status": "live",
+    "matchPeriod": "전반",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-10-26",
@@ -742275,7 +742309,19 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 4'"
+    "matchPeriod": "전반 6'",
+    "cards": {
+      "home": [
+        {
+          "n": "Ro-Zangelo Daal",
+          "type": "Y",
+          "m": 4,
+          "pid": "espn:338775",
+          "nat": "Netherlands"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-10-26",
@@ -742287,7 +742333,10 @@
     "stadium": "Estadio Arquitecto Antonio Eleuterio Ubilla",
     "timeTbd": false,
     "gameId": "URUGUAY_ESPN_401930336",
-    "status": "scheduled"
+    "status": "live",
+    "matchPeriod": "전반",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-10-26",
