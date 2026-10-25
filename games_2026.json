@@ -744362,7 +744362,7 @@
     "status": "live",
     "awayScore": 2,
     "homeScore": 0,
-    "matchPeriod": "후반 43'",
+    "matchPeriod": "후반 45'",
     "scorers": {
       "home": [],
       "away": [
@@ -744473,7 +744473,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 1,
-    "matchPeriod": "후반 23'",
+    "matchPeriod": "후반 24'",
     "scorers": {
       "home": [
         {
@@ -744574,7 +744574,7 @@
     "gameId": "PERU_ESPN_401886157",
     "status": "live",
     "matchPeriod": "전반",
-    "homeScore": 1,
+    "homeScore": 2,
     "awayScore": 1,
     "scorers": {
       "home": [
@@ -744582,6 +744582,12 @@
           "n": "Christian Cueva",
           "m": 44,
           "pk": true,
+          "nat": "Peru",
+          "pid": "espn:118425"
+        },
+        {
+          "n": "Christian Cueva",
+          "m": 45,
           "nat": "Peru",
           "pid": "espn:118425"
         }
@@ -744619,7 +744625,7 @@
     "timeTbd": false,
     "gameId": "PORTUGAL_ESPN_401885413",
     "status": "live",
-    "matchPeriod": "전반",
+    "matchPeriod": "하프타임",
     "homeScore": 0,
     "awayScore": 1,
     "cards": {
@@ -744691,7 +744697,14 @@
           "pid": "espn:392084"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Víctor Landazuri",
+          "m": 25,
+          "nat": "Colombia",
+          "pid": "espn:347540"
+        }
+      ]
     }
   },
   {
@@ -744860,8 +744873,11 @@
     "stadium": "Estadio Gonzalo Pozo Ripalda",
     "timeTbd": false,
     "gameId": "ECUADOR_ESPN_401921329",
-    "status": "scheduled",
-    "phaseCode": "FR"
+    "status": "live",
+    "phaseCode": "FR",
+    "matchPeriod": "전반",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-10-26",
@@ -744873,7 +744889,10 @@
     "stadium": "Estadio General José Antonio Páez",
     "timeTbd": false,
     "gameId": "VENEZUELA_ESPN_401930960",
-    "status": "scheduled"
+    "status": "live",
+    "matchPeriod": "전반",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-10-26",
