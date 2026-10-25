@@ -741904,7 +741904,7 @@
     "timeTbd": false,
     "gameId": "ARGENTINA_ESPN_401841629",
     "status": "live",
-    "matchPeriod": "하프타임",
+    "matchPeriod": "후반",
     "homeScore": 1,
     "awayScore": 0,
     "scorers": {
@@ -741943,7 +741943,7 @@
     "gameId": "CHILE_ESPN_401850669",
     "status": "live",
     "matchPeriod": "전반",
-    "homeScore": 0,
+    "homeScore": 1,
     "awayScore": 1,
     "cards": {
       "home": [
@@ -741958,7 +741958,14 @@
       "away": []
     },
     "scorers": {
-      "home": [],
+      "home": [
+        {
+          "n": "Sebastián Sáez",
+          "m": 45,
+          "nat": "Argentina",
+          "pid": "espn:174701"
+        }
+      ],
       "away": [
         {
           "n": "Fernando Zampedri",
@@ -742099,7 +742106,7 @@
     "gameId": "NORWAY_ESPN_401843368",
     "status": "live",
     "matchPeriod": "전반",
-    "homeScore": 2,
+    "homeScore": 3,
     "awayScore": 1,
     "cards": {
       "home": [
@@ -742126,6 +742133,12 @@
           "m": 17,
           "nat": "Norway",
           "pid": "espn:415427"
+        },
+        {
+          "n": "Emil Breivik",
+          "m": 35,
+          "nat": "Norway",
+          "pid": "espn:280801"
         }
       ],
       "away": [
