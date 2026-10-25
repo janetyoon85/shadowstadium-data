@@ -735014,39 +735014,95 @@
         {
           "n": "자콥",
           "m": 4,
-          "pid": "espn:330082"
+          "pid": "espn:330082",
+          "a": "Miguel Almirón",
+          "nat": "Argentina",
+          "aNat": "Paraguay",
+          "apid": "espn:48128"
         },
         {
           "n": "엠볼로",
           "m": 67,
-          "pid": "espn:202099"
+          "pid": "espn:202099",
+          "nat": "Switzerland",
+          "aNat": "Argentina",
+          "apid": "espn:361498"
         }
       ],
       "away": [
         {
           "n": "살레트로스",
           "m": 30,
-          "pid": "espn:193105"
+          "pid": "espn:193105",
+          "nat": "Sweden"
         },
         {
           "n": "메크바비시빌리",
-          "m": 51
+          "m": 51,
+          "nat": "Georgia",
+          "pid": "espn:305447"
         },
         {
           "n": "싱커나헬",
           "m": 60,
-          "pid": "espn:186466"
+          "pid": "espn:186466",
+          "nat": "Denmark",
+          "aNat": "Sweden",
+          "apid": "espn:193105"
         }
       ]
     },
     "cards": {
-      "home": [],
+      "home": [
+        {
+          "n": "Lucas Hoyos",
+          "type": "Y",
+          "m": 59,
+          "pid": "espn:109193",
+          "nat": "Argentina"
+        },
+        {
+          "n": "Paulo Díaz",
+          "type": "Y",
+          "m": 74,
+          "pid": "espn:184465",
+          "nat": "Chile"
+        },
+        {
+          "n": "Júnior Alonso",
+          "type": "Y",
+          "m": 84,
+          "pid": "espn:181657",
+          "nat": "Paraguay"
+        }
+      ],
       "away": [
         {
           "n": "D'Avilla Dje Tah",
           "type": "Y",
           "m": 38,
           "pid": "espn:335605"
+        },
+        {
+          "n": "Anzor Mekvabishvili",
+          "type": "Y",
+          "m": 79,
+          "pid": "espn:305447",
+          "nat": "Georgia"
+        },
+        {
+          "n": "Mbekezeli Mbokazi",
+          "type": "Y",
+          "m": 81,
+          "pid": "espn:400594",
+          "nat": "South Africa"
+        },
+        {
+          "n": "Johan Gómez",
+          "type": "Y",
+          "m": 84,
+          "pid": "espn:364592",
+          "nat": "USA"
         }
       ]
     },
@@ -735381,15 +735437,17 @@
     "homeScore": 3,
     "inningInfo": "6회초",
     "liveState": {
-      "pitcher": "메이",
-      "batter": "힉스",
+      "pitcher": "홀",
+      "batter": "팔라시오스",
       "ball": 0,
       "strike": 0,
       "out": 0,
-      "bases": [],
-      "pitchCount": 12,
-      "pitcherPid": "mlb:669160",
-      "batterPid": "mlb:689414"
+      "bases": [
+        1
+      ],
+      "pitchCount": 3,
+      "pitcherPid": "mlb:669084",
+      "batterPid": "mlb:680700"
     },
     "highlights": {
       "home": [],
@@ -735468,7 +735526,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 1,
-    "matchPeriod": "후반 21'",
+    "matchPeriod": "후반 24'",
     "scorers": {
       "home": [
         {
@@ -735553,7 +735611,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "후반 19'",
+    "matchPeriod": "후반 22'",
     "phaseCode": "LEAGUE"
   },
   {
@@ -735569,7 +735627,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "후반 25'",
+    "matchPeriod": "후반 28'",
     "phaseCode": "LEAGUE"
   },
   {
@@ -735707,7 +735765,7 @@
     "timeTbd": false,
     "gameId": "COLOMBIA_ESPN_401877895",
     "status": "live",
-    "matchPeriod": "전반",
+    "matchPeriod": "하프타임",
     "homeScore": 0,
     "awayScore": 0
   },
@@ -735753,7 +735811,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 26'",
+    "matchPeriod": "전반 29'",
     "phaseCode": "LEAGUE"
   },
   {
@@ -735769,7 +735827,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 26'",
+    "matchPeriod": "전반 29'",
     "phaseCode": "LEAGUE"
   },
   {
