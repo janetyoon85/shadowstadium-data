@@ -89,6 +89,10 @@ const VENUE_MAP = {
   'Estadio Fernando Valenzuela': 'estadio_fernando_valenzuela',
   'Estadio de los Tomateros': 'estadio_tomateros_culiacan',
   'Estadio Angel Flores': 'estadio_tomateros_culiacan',
+  // 2026-10-25 LMP 구장 별칭(MLB API 가 후원사·개명 이름으로 내려줌) — 도시(Culiacan/Los Mochis/Guasave)로 기존 등록 구장에 연결.
+  'Estadio Juan Ley Fong': 'estadio_tomateros_culiacan',
+  'Chevron Park': 'estadio_emilio_ibarra_almada',
+  'Kuroda Park': 'estadio_francisco_carranza_limon',
   'Estadio Teodoro Mariscal': 'estadio_teodoro_mariscal',
   'Estadio de los Yaquis': 'estadio_yaquis_obregon',
   'Estadio Francisco Carranza Limon': 'estadio_francisco_carranza_limon',
