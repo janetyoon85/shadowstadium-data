@@ -741691,7 +741691,7 @@
     "gameId": "LVBP_MLBSTATS_870050",
     "status": "live",
     "homeScore": 2,
-    "awayScore": 2,
+    "awayScore": 3,
     "inningInfo": "8회초",
     "liveState": {
       "pitcher": "Alex Carrillo",
@@ -741699,11 +741699,11 @@
       "pitcherPid": "mlb:692024",
       "batterPid": "mlb:607439",
       "ball": 3,
-      "strike": 0,
+      "strike": 1,
       "out": 2,
       "bases": [
-        1,
-        2
+        2,
+        3
       ]
     }
   },
@@ -742119,7 +742119,7 @@
     "gameId": "GREECE_ESPN_401896740",
     "status": "live",
     "matchPeriod": "후반",
-    "homeScore": 1,
+    "homeScore": 2,
     "awayScore": 0,
     "scorers": {
       "home": [
@@ -742128,6 +742128,13 @@
           "m": 38,
           "nat": "Greece",
           "pid": "espn:183154"
+        },
+        {
+          "n": "Thanasis Androutsos",
+          "m": 83,
+          "pk": true,
+          "nat": "Greece",
+          "pid": "espn:241991"
         }
       ],
       "away": []
@@ -742202,7 +742209,15 @@
           "nat": "Portugal"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Sergio Barcia",
+          "type": "Y",
+          "m": 79,
+          "pid": "espn:310231",
+          "nat": "Spain"
+        }
+      ]
     }
   },
   {
@@ -742218,7 +742233,7 @@
     "status": "live",
     "matchPeriod": "후반",
     "homeScore": 0,
-    "awayScore": 2,
+    "awayScore": 3,
     "cards": {
       "home": [
         {
@@ -742350,6 +742365,13 @@
           "m": 2,
           "pid": "espn:280651",
           "nat": "Ivory Coast"
+        },
+        {
+          "n": "Martin Linnes",
+          "type": "Y",
+          "m": 70,
+          "pid": "espn:146381",
+          "nat": "Norway"
         }
       ],
       "away": [
@@ -742474,6 +742496,19 @@
           "type": "R",
           "m": 37,
           "pid": "espn:235834"
+        },
+        {
+          "n": "Adán Alexis Bravo",
+          "type": "Y",
+          "m": 45,
+          "pid": "espn:200543"
+        },
+        {
+          "n": "Angel Quiñonez",
+          "type": "Y",
+          "m": 45,
+          "pid": "espn:259892",
+          "nat": "Ecuador"
         }
       ]
     }
@@ -742508,6 +742543,13 @@
           "type": "Y",
           "m": 18,
           "pid": "espn:178817",
+          "nat": "Colombia"
+        },
+        {
+          "n": "Gustavo Cuéllar",
+          "type": "Y",
+          "m": 42,
+          "pid": "espn:196719",
           "nat": "Colombia"
         }
       ]
@@ -742581,7 +742623,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 44'",
+    "matchPeriod": "전반 46'",
     "cards": {
       "home": [
         {
@@ -742599,7 +742641,15 @@
           "nat": "Netherlands"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Robin Pröpper",
+          "type": "Y",
+          "m": 43,
+          "pid": "espn:169050",
+          "nat": "Netherlands"
+        }
+      ]
     }
   },
   {
@@ -742627,7 +742677,10 @@
     "stadium": "스타디오 프리울리",
     "timeTbd": false,
     "gameId": "zHgjBvtVxhUh5Kl",
-    "status": "scheduled"
+    "status": "live",
+    "awayScore": 0,
+    "homeScore": 0,
+    "matchPeriod": "전반 2'"
   },
   {
     "date": "2026-10-26",
