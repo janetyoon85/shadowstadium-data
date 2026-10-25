@@ -160,6 +160,30 @@ async function main() {
     console.log(`[verify] MLB statsapi games=${evs.length} matched=${mlbM}`);
   } catch (e) { console.warn('[verify] MLB 대조 실패:', e.message); }
 
+  // ── 네이버 출처 전 리그(KBO·NPB·K리그·MLB·EPL·KBL·WKBL …): 독립 원본이 없는 리그의 보완책 ─────────────────────────────
+  // KBO·NPB·K리그·KBL·WKBL 은 공식 사이트가 robots.txt 로 자동 수집을 막고 StatsAPI 에도 경기 데이터가 없어 독립 원본이 없다.
+  // 대신 같은 네이버의 "경기 상세"를 경기마다 새로 받아 우리 값과 비교한다 — 제공처 자체 오류는 못 잡지만, 우리 크롤러의 버그·오래된 값(제프 치바 건처럼 0-0 정정이 막혀 1-0 으로 남은 경우)은 잡는다.
+  try {
+    const UA = 'Mozilla/5.0 (compatible; shadowstadium; +https://github.com/janetyoon85/shadowstadium-data)'; // 'crawler' 가 든 UA 는 네이버가 무응답 처리한다
+    const bkNaver = (rj('basketball/games.json', { games: [] }).games || []).filter((g) => g.src === 'naver' && g.t > now - (BACK + 1) * 86400e3 && g.t < now + 86400e3).map((g) => ({ id: g.id.replace(/^nv:/, ''), label: `${g.date} ${g.lg} ${g.h.k}-${g.a.k}`, completed: g.st === 'final', hs: g.h.s, as: g.a.s, t: g.t, key: g.id }));
+    const soccerBaseball = recent.filter((g) => g.gameId && !String(g.gameId).includes('_') && (g.status === 'completed' || g.status === 'live' || ourTs(g) < now - 3 * 3600e3)).map((g) => ({ id: g.gameId, label: `${g.date} ${g.league} ${g.home} vs ${g.away}`, completed: g.status === 'completed', hs: g.homeScore, as: g.awayScore, t: ourTs(g), key: g.gameId, status: g.status }));
+    const targets = [...soccerBaseball, ...bkNaver].slice(0, 260);
+    let n = 0, bad = 0;
+    for (const t of targets) {
+      let det;
+      try { const r = await fetch(`https://api-gw.sports.naver.com/schedule/games/${t.id}`, { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(15000) }); if (!r.ok) continue; const jj = await r.json(); det = jj.result?.game || jj.result; } catch { continue; }
+      if (!det) continue;
+      n++;
+      const nCompleted = det.statusCode === 'RESULT' && !det.cancel;
+      const nh = det.homeTeamScore, na = det.awayTeamScore;
+      if (nCompleted && !t.completed && now - t.t > 3.5 * 3600e3) { const k = `결과 미반영(네이버 상세)|${t.key}`; found[k] = { key: k, kind: '결과 미반영(네이버 상세)', text: `${t.label} — 네이버 상세는 종료 ${nh}-${na}, 우리는 미종료`, }; bad++; }
+      else if (nCompleted && t.completed && Number.isFinite(nh) && Number.isFinite(na) && Number.isFinite(t.hs) && Number.isFinite(t.as) && (nh !== t.hs || na !== t.as)) { const k = `스코어 불일치(네이버 상세)|${t.key}`; found[k] = { key: k, kind: '스코어 불일치(네이버 상세)', text: `${t.label} — 우리 ${t.hs}-${t.as} / 네이버 상세 ${nh}-${na}` }; bad++; }
+      await new Promise((r) => setTimeout(r, 120));
+    }
+    stats.naverDetail = n;
+    console.log(`[verify] 네이버 상세 재조회 ${n}/${targets.length}건, 불일치 ${bad}건`);
+  } catch (e) { console.warn('[verify] 네이버 상세 대조 실패:', e.message); }
+
   // ── NBA: 네이버·ESPN 두 독립 소스를 농구 크롤러가 비교해 남긴 결과(basketball/xsource-mismatch.json) ──────────
   // 갱신이 6시간 넘게 멈췄으면(크롤러 정체) 그 자체도 알린다.
   try {
