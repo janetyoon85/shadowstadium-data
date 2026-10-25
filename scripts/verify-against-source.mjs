@@ -65,7 +65,7 @@ async function main() {
   const espnOriginCodes = new Set();
   for (const f of ['fetch-espn-soccer-leagues', 'fetch-espn-world-soccer-leagues', 'fetch-espn-asia-soccer-leagues']) for (const m of fs.readFileSync(path.join(ROOT, `scripts/${f}.mjs`), 'utf8').matchAll(/code: '([A-Z0-9_]+)', slug: '([^']+)'/g)) { slugByCode[m[1]] = m[2]; espnOriginCodes.add(m[1]); }
   // 2026-10-26: 컵·유럽대항전·국가대표·친선·여자부까지 ESPN 이 다루는 축구는 전부 대조한다(승부차기 등 정의 차이는 compareGame 에서 보정).
-  const codes = Object.keys(slugByCode);
+  const codes = process.env.VERIFY_ONLY === 'mlb' ? [] : Object.keys(slugByCode); // 점검용: VERIFY_ONLY=mlb 이면 MLB 단계만
   // ESPN 영문 팀명 → 우리 한글 팀명 후보(네이버 출처 리그 매칭용)
   const byEn = new Map();
   const addEn = (en, ko) => { const k = normalizeTeamName(en || ''); if (k && ko) (byEn.get(k) ?? byEn.set(k, new Set()).get(k)).add(ko); };
@@ -119,6 +119,57 @@ async function main() {
       await new Promise((r) => setTimeout(r, 80));
     }
   }
+
+  // ── MLB: 우리는 네이버 출처, 대조 원본은 MLB 공식 StatsAPI(독립) ─────────────────────────
+  // KBO·NPB 는 StatsAPI 에 종목은 있으나 경기 데이터가 비어 있고(2026-10-26 확인), 공식 사이트는 robots.txt 로 자동 수집을 막아 독립 원본이 없다(=> 내부 정합성 규칙으로만 점검).
+  try {
+    const lo = new Date(now - BACK * 86400e3).toISOString().slice(0, 10), hi = new Date(now + 86400e3).toISOString().slice(0, 10);
+    const r = await fetch(`https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=${lo}&endDate=${hi}&hydrate=linescore`, { signal: AbortSignal.timeout(20000) });
+    const j = r.ok ? await r.json() : { dates: [] };
+    const ourMlb = recent.filter((g) => g.league === 'MLB');
+    const teamEn = rj('team-name-en.json', {});
+    // 우리 MLB 영문명은 도시 이름("San Francisco")이거나 약칭("NY Yankees"·"LA Dodgers")이라, 공식 팀명("San Francisco Giants")이 그 이름으로 시작하는지로 맞춘다(NY/LA 는 풀네임으로 확장).
+    const mlbSame = (ours, officialName) => {
+      if (!ours) return false;
+      const a = ours.toLowerCase().replace(/^ny /, 'new york ').replace(/^la /, 'los angeles ').trim();
+      const b = String(officialName || '').toLowerCase();
+      return b.startsWith(a) || (a === 'athletics' && /athletics/.test(b));
+    };
+    const evs = [];
+    for (const d of j.dates || []) for (const x of d.games || []) {
+      if (x.gameType && !/^[RFDLWP]$/.test(x.gameType)) continue; // 시범경기·올스타 제외(정규·포스트시즌만)
+      evs.push({ id: String(x.gamePk), startMs: Date.parse(x.gameDate), completed: x.status?.abstractGameState === 'Final' && !/postponed|cancel/i.test(x.status?.detailedState || ''), state: ({ Final: 'post', Live: 'in', Preview: 'pre' })[x.status?.abstractGameState] || 'pre', status: x.status?.detailedState || '', home: { name: x.teams?.home?.team?.name, score: x.teams?.home?.score }, away: { name: x.teams?.away?.team?.name, score: x.teams?.away?.score } });
+    }
+    // 더블헤더: (MLB 경기, 우리 경기) 후보를 시각 차이순으로 1:1 배정 — 같은 날 같은 두 팀의 1·2차전을 서로 바꿔 짝짓지 않게 한다.
+    const pairs = [];
+    for (const ev of evs) for (const g of ourMlb) {
+      const dt = Math.abs(ourTs(g) - ev.startMs);
+      if (dt > 8 * 3600e3) continue;
+      const is = (ko, evName) => mlbSame(teamEn[ko], evName);
+      if ((is(g.home, ev.home.name) && is(g.away, ev.away.name)) || (is(g.home, ev.away.name) && is(g.away, ev.home.name))) pairs.push({ ev, g, dt });
+    }
+    pairs.sort((p, q) => p.dt - q.dt);
+    const usedEv = new Set(), usedG = new Set();
+    let mlbM = 0;
+    for (const p of pairs) {
+      if (usedEv.has(p.ev.id) || usedG.has(p.g.gameId)) continue;
+      usedEv.add(p.ev.id); usedG.add(p.g.gameId); mlbM++; stats.matched++; stats.events++;
+      for (const m of compareGame(p.g, p.ev, now)) { const k = `${m.kind}|${p.g.gameId}`; found[k] = { key: k, ...m, text: m.text.replace('ESPN', 'MLB') }; }
+    }
+    stats.unmatched += evs.length - mlbM;
+    console.log(`[verify] MLB statsapi games=${evs.length} matched=${mlbM}`);
+  } catch (e) { console.warn('[verify] MLB 대조 실패:', e.message); }
+
+  // ── NBA: 네이버·ESPN 두 독립 소스를 농구 크롤러가 비교해 남긴 결과(basketball/xsource-mismatch.json) ──────────
+  // 갱신이 6시간 넘게 멈췄으면(크롤러 정체) 그 자체도 알린다.
+  try {
+    const xs = rj('basketball/xsource-mismatch.json', null);
+    if (xs && Array.isArray(xs.items)) {
+      for (const it of xs.items) { const k = `${it.kind}|${it.id}`; found[k] = { key: k, kind: it.kind, text: it.text }; }
+      stats.xsource = xs.items.length;
+      if (now - (xs.updated || 0) > 6 * 3600e3) { const k = '농구 소스 대조 정체|xsource'; found[k] = { key: k, kind: '농구 소스 대조 정체', text: `basketball/xsource-mismatch.json 이 ${Math.round((now - (xs.updated || 0)) / 3600e3)}시간째 갱신되지 않음(농구 크롤러 정체)` }; }
+    }
+  } catch (e) { console.warn('[verify] 농구 교차검증 읽기 실패:', e.message); }
 
   const stateFile = path.join(ROOT, 'verify-source-state.json');
   const state = rj('verify-source-state.json', { pending: {}, alerted: {} });

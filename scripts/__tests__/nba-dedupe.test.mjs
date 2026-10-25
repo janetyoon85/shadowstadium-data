@@ -18,3 +18,15 @@ test('ESPN 에 없는 네이버 경기·다른 날짜·다른 리그는 남긴�
   assert.equal(dropDuplicateNaverNba(m, teams), 0);
   assert.equal(m.size, 4);
 });
+
+import { crossCheckNaverVsEspnNba } from '../nba-dedupe.mjs';
+test('네이버·ESPN 이 같은 NBA 경기를 다른 스코어로 주면 불일치로 돌려준다', () => {
+  const T = { 'espn:NBA:26': { abbr: 'UTAH' }, 'espn:NBA:13': { abbr: 'LAL' }, 'naver:NBA:UTA': { abbr: 'UTA' }, 'naver:NBA:LAL': { abbr: 'LAL' } };
+  const mk = (id, src, h, a, hs, as, st = 'final') => [id, { id, src, lg: 'NBA', date: '2026-10-26', t: 1000, st, h: { k: h, s: hs }, a: { k: a, s: as } }];
+  const same = new Map([mk('e', 'espn', 'espn:NBA:26', 'espn:NBA:13', 100, 90), mk('n', 'naver', 'naver:NBA:UTA', 'naver:NBA:LAL', 100, 90)]);
+  assert.deepEqual(crossCheckNaverVsEspnNba(same, T), []);
+  const diff = new Map([mk('e', 'espn', 'espn:NBA:26', 'espn:NBA:13', 100, 90), mk('n', 'naver', 'naver:NBA:UTA', 'naver:NBA:LAL', 100, 92)]);
+  const r = crossCheckNaverVsEspnNba(diff, T);
+  assert.equal(r.length, 1);
+  assert.match(r[0].kind, /스코어 불일치/);
+});
