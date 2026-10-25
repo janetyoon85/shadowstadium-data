@@ -742369,10 +742369,17 @@
     "gameId": "BOLIVIA_ESPN_401930000",
     "status": "live",
     "matchPeriod": "전반",
-    "homeScore": 0,
+    "homeScore": 1,
     "awayScore": 1,
     "scorers": {
-      "home": [],
+      "home": [
+        {
+          "n": "Enrique Triverio",
+          "m": 26,
+          "nat": "Argentina",
+          "pid": "espn:165374"
+        }
+      ],
       "away": [
         {
           "n": "Leandro Corulo",
@@ -742391,6 +742398,13 @@
           "type": "Y",
           "m": 24,
           "pid": "espn:235834"
+        },
+        {
+          "n": "Ademar Rivera",
+          "type": "Y",
+          "m": 26,
+          "pid": "espn:416601",
+          "nat": "Bolivia"
         }
       ]
     }
