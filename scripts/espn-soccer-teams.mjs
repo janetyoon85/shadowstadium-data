@@ -106,7 +106,7 @@ export const TEAMS = {
     "arouca": { ko: "아로우카", venueId: "estadio_municipal_arouca", en: "Arouca" },
     "benfica": { ko: "벤피카", venueId: "benfica_da_luz", en: "Benfica" },
     "braga": { ko: "브라가", venueId: "braga_municipal", en: "Braga" },
-    "cdnacional": { ko: "나시오나우 (마데이라)", venueId: "estadio_da_madeira_funchal", en: "C.D. Nacional" },
+    "cdnacional": { ko: "CD 나시오날", venueId: "estadio_da_madeira_funchal", en: "C.D. Nacional" },
     "casapia": { ko: "카사 피아", venueId: "estadio_rio_maior", en: "Casa Pia" },
     "estoril": { ko: "이스토릴", venueId: "estadio_antonio_coimbra_da_mota", en: "Estoril" },
     "estrela": { ko: "이스트렐라 (아마도라)", venueId: "estadio_jose_gomes", en: "Estrela" },
