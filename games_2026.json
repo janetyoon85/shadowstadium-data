@@ -744574,7 +744574,7 @@
     "stadium": "Estadio Miguel Grau del Callao",
     "timeTbd": false,
     "gameId": "PERU_ESPN_401886157",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 4,
     "awayScore": 2,
@@ -744639,7 +744639,8 @@
         }
       ],
       "away": []
-    }
+    },
+    "assistsChecked": true
   },
   {
     "date": "2026-10-26",
@@ -745165,8 +745166,19 @@
     "gameId": "COSTARICA_ESPN_401876835",
     "status": "live",
     "matchPeriod": "전반",
-    "homeScore": 0,
-    "awayScore": 0
+    "homeScore": 1,
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "Kenneth Cerdas",
+          "m": 39,
+          "nat": "Costa Rica",
+          "pid": "espn:217560"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-10-26",
