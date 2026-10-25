@@ -610,6 +610,38 @@ async function main() {
     }
   }));
 
+  { // 박스스코어 재확인(2026-10-26 원본 대조에서 발견): 박스스코어는 종료 직후 한 번만 받아 영구 저장했는데, ESPN 은 경기 후 스탯 정정(스틸·블록·리바운드 귀속, 뒤늦게 채워지는 선수 기록)을 계속 내린다.
+    // 그래서 ① 종료 후 3일 안 경기는 2시간마다 ② 선수 득점 합이 경기 점수와 안 맞는 경기(부분 기록으로 저장된 프리시즌 등)는 30일 안에서 하루 1번 다시 받는다. 마지막 확인 시각은 box-recheck.json.
+    const state = await readJson('box-recheck.json', {});
+    const sumBad = (g, d) => ['h', 'a'].some((s) => d?.pl?.[s]?.length && Number.isFinite(g[s]?.s) && d.pl[s].reduce((a, p) => a + (p.pts || 0), 0) !== g[s].s);
+    const cfgFor = (g) => g._cfg || (g.src === 'espn' ? ESPN.find((c) => c.lg === g.lg) : g.src === 'naver' ? NAVER.find((c) => c.lg === g.lg) : undefined);
+    const due = [];
+    for (const g of byId.values()) {
+      if (g.st !== 'final' || !g.boxed || (g.src !== 'espn' && g.src !== 'naver') || !cfgFor(g)) continue;
+      const d = (await box(g))[g.id];
+      if (!d) continue;
+      const last = state[g.id] || 0;
+      if ((now - g.t < 3 * 86400e3 && now - last >= 2 * 3600e3) || (now - g.t < 30 * 86400e3 && now - last >= 24 * 3600e3 && sumBad(g, d))) due.push(g);
+    }
+    due.sort((a, b) => b.t - a.t);
+    let rechecked = 0, changed = 0;
+    for (const g of due.slice(0, Number(process.env.BASKETBALL_RECHECK_MAX || 10))) {
+      g._cfg ||= cfgFor(g);
+      const d = g.src === 'naver' ? await naverDetail(g) : await espnDetail(g);
+      if (d === undefined) continue; // 일시 오류 — 다음 실행에 재시도
+      state[g.id] = now;
+      rechecked++;
+      if (d && d.pl && (d.pl.h.length || d.pl.a.length)) {
+        const f = `box-${g.date.slice(0, 7)}.json`;
+        if (JSON.stringify(boxFiles[f][g.id]?.pl) !== JSON.stringify(d.pl)) changed++;
+        boxFiles[f][g.id] = d;
+      }
+    }
+    for (const id of Object.keys(state)) if (now - state[id] > 40 * 86400e3) delete state[id];
+    await writeJson('box-recheck.json', state);
+    if (due.length) console.log(`[basketball] box recheck due=${due.length} rechecked=${rechecked} changed=${changed}`);
+  }
+
   await Promise.all(ESPN.filter((c) => ['NBA', 'WNBA', 'NBL'].includes(c.lg)).map(async (cfg) => {
     const s = await espnStandings(cfg);
     if (s) standings[`espn:${cfg.lg}`] = { updated: now, rows: s };

@@ -133,3 +133,42 @@ export function compareNaverBatters(ours, battersBoxscore) { // battersBoxscore:
   }
   return out;
 }
+
+// MLB 공식 StatsAPI 박스스코어(/game/{pk}/boxscore)와 우리 highlights(홈런·도루)를 선수 ID(pid=mlb:<personId>)로 비교(독립 원본).
+// flip: 우리 홈/원정이 공식 홈/원정과 뒤바뀐 경우(중립 경기). 공식에 있는데 우리에 없는 홈런·도루는 '누락', 개수가 다르면 '개수 불일치'.
+export function compareMlbBoxscore(ours, box, flip = false) {
+  const out = [];
+  if (!ours.highlights || !box?.teams) return out;
+  const label = `${ours.date} ${ours.league} ${ours.home} vs ${ours.away}`;
+  for (const side of ['home', 'away']) {
+    const official = box.teams[flip ? (side === 'home' ? 'away' : 'home') : side]?.players;
+    if (!official) continue;
+    const offHr = {}, offSb = {}, name = {};
+    for (const p of Object.values(official)) {
+      const b = p.stats?.batting;
+      if (!b || !p.person?.id) continue;
+      const id = `mlb:${p.person.id}`;
+      name[id] = p.person.fullName;
+      if (b.homeRuns > 0) offHr[id] = b.homeRuns;
+      if (b.stolenBases > 0) offSb[id] = b.stolenBases;
+    }
+    const ourHr = {}, ourSb = {}, ourName = {};
+    for (const h of ours.highlights[side] || []) {
+      if (!h.pid) continue;
+      ourName[h.pid] = h.player;
+      const cnt = (String(h.text).match(/(\d+)개/) || [])[1];
+      if (h.how === '홈런') ourHr[h.pid] = (ourHr[h.pid] || 0) + (cnt ? Number(cnt) : Math.max(1, (String(h.text).match(/\d+호/g) || []).length));
+      else if (h.how === '도루') ourSb[h.pid] = (ourSb[h.pid] || 0) + (cnt ? Number(cnt) : 1);
+    }
+    for (const [what, off, mine] of [['홈런', offHr, ourHr], ['도루', offSb, ourSb]]) {
+      for (const id of new Set([...Object.keys(off), ...Object.keys(mine)])) {
+        const a = mine[id] || 0, b = off[id] || 0;
+        if (a === b) continue;
+        // 우리 쪽에만 있고 공식 박스스코어에 해당 선수가 아예 없으면(다른 팀 표기 등) 선수 단위 비교 불가 → 총수 비교에 맡기고 건너뛴다
+        if (b === 0 && !name[id]) continue;
+        out.push({ kind: `MLB ${what} 불일치(공식 박스스코어)`, key: `${side}|${what}|${id}`, text: `${label} — ${ourName[id] || name[id] || id} ${what} 우리 ${a} / 공식 ${b}` });
+      }
+    }
+  }
+  return out;
+}

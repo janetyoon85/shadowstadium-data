@@ -6,7 +6,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildKoIndex } from './espn-team-index.mjs';
-import { parseEspnEvents, compareSoccerEvents, compareMlbDecisions, compareNaverTimeline, compareNaverBatters } from './verify-events.mjs';
+import { parseEspnEvents, compareSoccerEvents, compareMlbDecisions, compareNaverTimeline, compareNaverBatters, compareMlbBoxscore } from './verify-events.mjs';
+import { boxInternalCheck, compareBoxFresh, parseEspnBox, parseNaverBox, compareNbaNaverVsOurs } from './verify-basketball.mjs';
+import { norm as nbaNorm } from './nba-dedupe.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dry = process.argv.includes('--dry');
@@ -172,6 +174,15 @@ async function main() {
       // 승·패·세이브 투수: 공식 결정 기록과 선수 ID 로 비교(종료 경기, 최근 EVENT_BACK 일)
       if (p.ev.completed && p.g.status === 'completed' && ourTs(p.g) > now - Number(process.env.VERIFY_EVENT_BACK_DAYS || 2) * 86400e3) {
         for (const m of compareMlbDecisions(p.g, p.ev.decisions)) { const k = `${m.kind}|${p.g.gameId}|${m.key}`; found[k] = { key: k, kind: m.kind, text: m.text }; }
+        // 홈런·도루: 공식 박스스코어의 선수별 기록과 비교
+        try {
+          const br = await fetch(`https://statsapi.mlb.com/api/v1/game/${p.ev.id}/boxscore`, { signal: AbortSignal.timeout(15000) });
+          if (br.ok) {
+            const flip = !mlbSame(teamEn[p.g.home], p.ev.home.name);
+            for (const m of compareMlbBoxscore(p.g, await br.json(), flip)) { const k = `${m.kind}|${p.g.gameId}|${m.key}`; found[k] = { key: k, kind: m.kind, text: m.text }; }
+            stats.mlbBox = (stats.mlbBox || 0) + 1;
+          }
+        } catch { /* 일시 오류는 건너뛴다 */ }
       }
     }
     stats.unmatched += evs.length - mlbM;
@@ -221,6 +232,76 @@ async function main() {
     stats.naverDetail = n;
     console.log(`[verify] 네이버 상세 재조회 ${n}/${targets.length}건 (K리그 타임라인 ${stats.naverTimeline || 0}, 야구 타자 기록 ${stats.naverBatters || 0}), 불일치 ${bad}건`);
   } catch (e) { console.warn('[verify] 네이버 상세 대조 실패:', e.message); }
+
+  // ── 농구 선수 기록(박스스코어) ───────────────────────────────────────────
+  // ① 내부 정합성: 최근 14일 종료 경기 전부(로컬 계산, 요청 0) — 선수 득점 합 = 경기 점수, 선수 득점 = 필드골·3점·자유투 구성, 쿼터 합 = 최종.
+  // ② 새로 받은 같은 제공처 박스스코어와 비교(최근 EVENT_BACK 일): ESPN 출처(NBA·WNBA·NBL·FIBA)는 ESPN summary, 네이버 출처(KBL·WKBL)는 네이버 /record.
+  // ③ NBA: 네이버(독립) 선수 득점 분포 ↔ 우리(ESPN). 네이버 NBA 는 우리 목록에서 중복 제거돼 있어 네이버 일정을 따로 받아 맞춘다.
+  try {
+    const UA = 'Mozilla/5.0 (compatible; shadowstadium; +https://github.com/janetyoon85/shadowstadium-data)';
+    const bkGames = (rj('basketball/games.json', { games: [] }).games || []).filter((g) => g.st === 'final' && g.boxed);
+    const bkTeams = rj('basketball/teams.json', {});
+    const boxCache = {};
+    const boxOf = (g) => { const f = `basketball/box-${g.date.slice(0, 7)}.json`; return (boxCache[f] ||= rj(f, {}))[g.id]; };
+    const EV_BACK = Number(process.env.VERIFY_EVENT_BACK_DAYS || 2);
+    let nInt = 0, nFresh = 0, nNba = 0;
+    for (const g of bkGames) {
+      if (g.t < now - 14 * 86400e3) continue;
+      const box = boxOf(g);
+      if (!box) continue;
+      nInt++;
+      const label = `${g.date} ${g.lg} ${bkTeams[g.h.k]?.ko || g.h.k} vs ${bkTeams[g.a.k]?.ko || g.a.k}`;
+      for (const m of boxInternalCheck(g, box, label)) { const k = `${m.kind}|${g.id}|${m.key}`; found[k] = { key: k, kind: m.kind, text: m.text }; }
+    }
+    const fresh = bkGames.filter((g) => g.t > now - EV_BACK * 86400e3 && g.t < now - 2 * 3600e3 && (g.src === 'espn' || g.src === 'naver')).sort((a, b) => b.t - a.t).slice(0, Number(process.env.VERIFY_BK_MAX || 60));
+    for (const g of fresh) {
+      const ours = boxOf(g);
+      if (!ours) continue;
+      const label = `${g.date} ${g.lg} ${bkTeams[g.h.k]?.ko || bkTeams[g.h.k]?.en || g.h.k} vs ${bkTeams[g.a.k]?.ko || bkTeams[g.a.k]?.en || g.a.k}`;
+      try {
+        let fb;
+        if (g.src === 'espn') {
+          const slug = { NBA: 'nba', WNBA: 'wnba', NBL: 'nbl', FIBA: null }[g.lg];
+          if (!slug) continue;
+          const r = await fetch(`https://site.api.espn.com/apis/site/v2/sports/basketball/${slug}/summary?event=${g.id.split(':')[2]}`, { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(15000) });
+          if (!r.ok) continue;
+          fb = parseEspnBox(await r.json(), g.h.k.split(':')[2]);
+        } else {
+          const r = await fetch(`https://api-gw.sports.naver.com/schedule/games/${g.id.slice(3)}/record`, { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(15000) });
+          if (!r.ok) continue;
+          fb = parseNaverBox((await r.json()).result?.recordData);
+        }
+        if (!fb) continue;
+        nFresh++;
+        for (const m of compareBoxFresh(g, ours, fb, label)) { const k = `${m.kind}|${g.id}|${m.key}`; found[k] = { key: k, kind: m.kind, text: m.text }; }
+      } catch { /* 일시 오류는 건너뛴다 */ }
+      await new Promise((r) => setTimeout(r, 120));
+    }
+    // ③ NBA 네이버 ↔ ESPN
+    try {
+      const nbaMine = bkGames.filter((g) => g.lg === 'NBA' && g.src === 'espn' && g.t > now - EV_BACK * 86400e3 && g.t < now - 2 * 3600e3);
+      if (nbaMine.length) {
+        const from = new Date(now - (EV_BACK + 1) * 86400e3).toISOString().slice(0, 10), to = new Date(now + 86400e3).toISOString().slice(0, 10);
+        const sr = await fetch(`https://api-gw.sports.naver.com/schedule/games?fields=basic&upperCategoryId=wbasketball&categoryId=nba&fromDate=${from}&toDate=${to}&size=500`, { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(20000) });
+        const nGames = sr.ok ? ((await sr.json()).result?.games || []).filter((x) => x.statusCode === 'RESULT' && !x.cancel) : [];
+        for (const g of nbaMine) {
+          const ha = nbaNorm(bkTeams[g.h.k]?.abbr), aa = nbaNorm(bkTeams[g.a.k]?.abbr);
+          const hit = nGames.find((x) => x.gameDate === g.date && new Set([nbaNorm(x.homeTeamCode), nbaNorm(x.awayTeamCode)]).has(ha) && new Set([nbaNorm(x.homeTeamCode), nbaNorm(x.awayTeamCode)]).has(aa));
+          const ours = boxOf(g);
+          if (!hit || !ours) continue;
+          const rr = await fetch(`https://api-gw.sports.naver.com/schedule/games/${hit.gameId}/record`, { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(15000) });
+          const nb = rr.ok ? parseNaverBox((await rr.json()).result?.recordData) : null;
+          if (!nb) continue;
+          nNba++;
+          const label = `${g.date} NBA ${bkTeams[g.h.k]?.abbr}-${bkTeams[g.a.k]?.abbr}`;
+          for (const m of compareNbaNaverVsOurs(g, ours, nb, nbaNorm(hit.homeTeamCode) !== ha, label)) { const k = `${m.kind}|${g.id}|${m.key}`; found[k] = { key: k, kind: m.kind, text: m.text }; }
+          await new Promise((r) => setTimeout(r, 120));
+        }
+      }
+    } catch (e) { console.warn('[verify] NBA 선수 기록 네이버 대조 실패:', e.message); }
+    stats.bkBox = { internal: nInt, fresh: nFresh, nba: nNba };
+    console.log(`[verify] 농구 박스스코어: 내부정합성 ${nInt}경기, 재조회 ${nFresh}경기, NBA 네이버↔ESPN ${nNba}경기`);
+  } catch (e) { console.warn('[verify] 농구 박스스코어 대조 실패:', e.message); }
 
   // ── NBA: 네이버·ESPN 두 독립 소스를 농구 크롤러가 비교해 남긴 결과(basketball/xsource-mismatch.json) ──────────
   // 갱신이 6시간 넘게 멈췄으면(크롤러 정체) 그 자체도 알린다.
