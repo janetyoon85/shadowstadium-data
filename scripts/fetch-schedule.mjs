@@ -2339,7 +2339,11 @@ async function main() {
       if (!pv || (g.status !== 'live' && g.status !== 'completed')) continue;
       if ((pv.status !== 'live' && pv.status !== 'completed') || !(pv.homeScore > 0 || pv.awayScore > 0)) continue;
       const zero = (g.homeScore === 0 || g.homeScore === undefined) && (g.awayScore === 0 || g.awayScore === undefined);
-      if (zero) { g.homeScore = pv.homeScore; g.awayScore = pv.awayScore; guarded++; }
+      // 2026-10-26: 종료된 지 오래된 경기(킥오프 12시간 초과)의 0-0 은 일시 오류가 아니라 VAR 등으로 골이 취소된 정정이다 — 이 안전장치가 그 정정을 영원히 막아
+      // 제프 치바-요코하마 F.M(네이버·ESPN 모두 0-0)이 9일째 1-0 으로 남아 있었다(원본 대조에서 발견). 일시 오류 방어는 진행중·막 끝난 경기에만 적용한다.
+      const kickoff = naverKickoffUtcMs(g);
+      const settled = g.status === 'completed' && Number.isFinite(kickoff) && Date.now() - kickoff > 12 * 3600e3;
+      if (zero && !settled) { g.homeScore = pv.homeScore; g.awayScore = pv.awayScore; guarded++; }
     }
     if (guarded) console.log(`[score-guard] 0-0 로 역행한 ${guarded}경기의 직전 스코어를 유지`);
   } catch (e) {

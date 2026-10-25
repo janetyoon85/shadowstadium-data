@@ -64,9 +64,8 @@ async function main() {
   for (const m of blk.matchAll(/^\s*([A-Z0-9_]+):\s*'([^']+)'/gm)) slugByCode[m[1]] = m[2];
   const espnOriginCodes = new Set();
   for (const f of ['fetch-espn-soccer-leagues', 'fetch-espn-world-soccer-leagues', 'fetch-espn-asia-soccer-leagues']) for (const m of fs.readFileSync(path.join(ROOT, `scripts/${f}.mjs`), 'utf8').matchAll(/code: '([A-Z0-9_]+)', slug: '([^']+)'/g)) { slugByCode[m[1]] = m[2]; espnOriginCodes.add(m[1]); }
-  // 국제대회·컵은 ESPN 경기 정의(중립 구장·승부차기 합산 등)가 달라 오탐이 많아 국내 리그만 대조
-  const SKIP = /FRIENDLY|CUP|^UCL$|^UEL$|^UECL$|^UNL$|^WORLDCUP|^WCQ|SUPERCUP|ASIAN|OLYMPIC|^ACL2?$|AFRICA|COMMUNITY|U\d\d|WOMEN/;
-  const codes = Object.keys(slugByCode).filter((c) => !SKIP.test(c));
+  // 2026-10-26: 컵·유럽대항전·국가대표·친선·여자부까지 ESPN 이 다루는 축구는 전부 대조한다(승부차기 등 정의 차이는 compareGame 에서 보정).
+  const codes = Object.keys(slugByCode);
   // ESPN 영문 팀명 → 우리 한글 팀명 후보(네이버 출처 리그 매칭용)
   const byEn = new Map();
   const addEn = (en, ko) => { const k = normalizeTeamName(en || ''); if (k && ko) (byEn.get(k) ?? byEn.set(k, new Set()).get(k)).add(ko); };
@@ -77,10 +76,11 @@ async function main() {
   const koSet = (en) => byEn.get(normalizeTeamName(en || '')) || new Set();
 
   const byId = new Map(games.map((g) => [g.gameId, g]));
-  const recent = games.filter((g) => ourTs(g) > now - 4 * 86400e3 && ourTs(g) < now + 2 * 86400e3);
+  const BACK = Number(process.env.VERIFY_BACK_DAYS || 3); // 과거 며칠을 대조할지(기본 3일, 점검용으로 늘릴 수 있음)
+  const recent = games.filter((g) => ourTs(g) > now - (BACK + 1) * 86400e3 && ourTs(g) < now + 2 * 86400e3);
   const found = {};
   const stats = { leagues: 0, events: 0, matched: 0, unmatched: 0 };
-  const days = [-3, -2, -1, 0, 1].map((d) => ymd(now + d * 86400e3));
+  const days = Array.from({ length: BACK + 2 }, (_, i) => i - BACK).map((d) => ymd(now + d * 86400e3));
   for (const code of codes) {
     const slug = slugByCode[code];
     const ourLeague = recent.filter((g) => g.league === code);
