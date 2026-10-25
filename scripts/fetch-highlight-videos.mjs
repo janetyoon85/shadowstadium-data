@@ -47,6 +47,8 @@ export const CHANNELS = [
   // 같은 채널의 한국어 제목(2026-10-14: "[ACLE] 상하이 하이강 vs 대전 2분 하이라이트" 가 영문 별칭(latin)으로는 안 맞아 누락) — 한국어 팀명으로 따로 매칭. 먼저 붙은 영문 영상이 있으면 대체 후보(alts)로 들어가고, 앱은 한국어 설정이면 한국어 제목을 우선한다.
   { name: 'Coupang Play (ko)', id: 'UCnBht7BrOx-A328KFXgysqQ', src: 'g', leagues: ['EPL', 'LALIGA', 'BUNDESLIGA', 'ACL', 'ACL2'], must: /하이라이트/, not: /shorts|women|femenil|여자/i, script: 'ko' },
   { name: 'SPOTV', id: 'UCtm_QoN2SIxwCE-59shX7Qg', src: 'g', leagues: ['UCL', 'UEL', 'UECL', 'SERIEA', 'UNL', 'ASIANGAMESFOOTBALL'], must: /하이라이트/, not: /shorts|mlb|kbo|nba/i, script: 'ko' },
+  // 2026-10-25 라리가 공식 채널 추가 — 아틀레티코-데포르티보 하이라이트가 공식 영상(07:00 KST)보다 9시간 반 늦은 16:30 에 붙어 알림이 늦었다(LALIGA 는 쿠팡플레이 채널만 훑었고, 훑지 못한 영상은 12시간 뒤 검색 보강에 맡겨졌다).
+  { name: 'LALIGA EA SPORTS', id: 'UCTv-XvfzLX3i4IGWAm4sbmA', src: 'g', leagues: ['LALIGA'], must: /resumen/i, not: /rueda de prensa|previa|femenino|shorts|mejores jugadas|goles de la jornada|top \d|an[aá]lisis/i, script: 'latin' },
   { name: 'Serie A', id: 'UCBJeMCIeLQos7wacox4hmLQ', src: 'g', leagues: ['SERIEA', 'COPPAITALIA'], must: /highlights/i, not: /classic|full match|shorts/i, script: 'latin' },
   { name: 'Bundesliga', id: 'UC6UL29enLNe4mqwTfAyeNuw', src: 'g', leagues: ['BUNDESLIGA'], must: /highlights/i, not: /shorts/i, script: 'latin' },
   { name: 'beIN Turkiye', id: 'UCPe9vNjHF1kEExT5kHwc7aw', src: 'g', leagues: ['TURKEY'], must: /highlights|özet/i, not: /shorts/i, script: 'latin' },
