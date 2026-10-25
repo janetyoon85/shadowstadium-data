@@ -727660,36 +727660,12 @@
     "date": "2026-10-24",
     "time": "19:33",
     "league": "LMP",
-    "venueId": "estadio_nido_de_los_aguilas_mexicali",
-    "home": "아길라스 데 멕시칼리",
-    "away": "나랑헤로스 데 에르모시요",
-    "stadium": "Estadio Nido de los Aguilas",
-    "timeTbd": true,
-    "gameId": "LMP_MLBSTATS_850518",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-10-24",
-    "time": "19:33",
-    "league": "LMP",
     "venueId": "estadio_tomateros_culiacan",
     "home": "토마테로스 데 쿨리아칸",
     "away": "알고도네로스 데 과사베",
     "stadium": "Estadio de los Tomateros",
     "timeTbd": true,
     "gameId": "LMP_MLBSTATS_850525",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-10-24",
-    "time": "19:33",
-    "league": "LMP",
-    "venueId": "estadio_yaquis_obregon",
-    "home": "야키스 데 오브레곤",
-    "away": "카녜로스 데 로스모치스",
-    "stadium": "Estadio de los Yaquis",
-    "timeTbd": true,
-    "gameId": "LMP_MLBSTATS_850527",
     "status": "scheduled"
   },
   {
@@ -729033,18 +729009,18 @@
           "pid": "espn:3098700"
         },
         {
-          "n": "Arthur Vermeeren",
-          "type": "Y",
-          "m": 88,
-          "pid": "espn:345805",
-          "nat": "Belgium"
-        },
-        {
           "n": "Christopher Scott",
           "type": "Y",
           "m": 87,
           "pid": "espn:43199",
           "nat": "Germany"
+        },
+        {
+          "n": "Arthur Vermeeren",
+          "type": "Y",
+          "m": 88,
+          "pid": "espn:345805",
+          "nat": "Belgium"
         }
       ],
       "away": [
@@ -734204,18 +734180,16 @@
     "status": "live",
     "homeScore": 2,
     "awayScore": 4,
-    "inningInfo": "7회초",
+    "inningInfo": "7회말",
     "liveState": {
-      "pitcher": "Justin Martinez",
-      "batter": "Elier Hernandez",
-      "pitcherPid": "mlb:679885",
-      "batterPid": "mlb:609274",
-      "ball": 1,
-      "strike": 1,
-      "out": 2,
-      "bases": [
-        2
-      ]
+      "pitcher": "Javy Guerra",
+      "batter": "Alberto Rodriguez",
+      "pitcherPid": "mlb:642770",
+      "batterPid": "mlb:679754",
+      "ball": 0,
+      "strike": 2,
+      "out": 0,
+      "bases": []
     }
   },
   {
@@ -734229,17 +734203,17 @@
     "timeTbd": false,
     "gameId": "LVBP_MLBSTATS_870070",
     "status": "live",
-    "homeScore": 1,
+    "homeScore": 2,
     "awayScore": 4,
     "inningInfo": "8회말",
     "liveState": {
-      "pitcher": "Christian Cosby",
-      "batter": "Lorenzo Cedrola",
-      "pitcherPid": "mlb:681797",
-      "batterPid": "mlb:661411",
-      "ball": 1,
-      "strike": 1,
-      "out": 0,
+      "pitcher": "Jose Campos",
+      "batter": "David Rodríguez",
+      "pitcherPid": "mlb:553883",
+      "batterPid": "mlb:630034",
+      "ball": 0,
+      "strike": 0,
+      "out": 1,
       "bases": [
         1,
         3
@@ -734262,13 +734236,15 @@
     "inningInfo": "7회초",
     "liveState": {
       "pitcher": "Adisyn Coffey",
-      "batter": "José Sánchez",
+      "batter": "Herlis Rodriguez",
       "pitcherPid": "mlb:676249",
-      "batterPid": "mlb:672566",
-      "ball": 0,
-      "strike": 0,
-      "out": 1,
-      "bases": []
+      "batterPid": "mlb:607439",
+      "ball": 3,
+      "strike": 1,
+      "out": 2,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -734525,17 +734501,17 @@
     "timeTbd": false,
     "gameId": "AFL_MLBSTATS_867685",
     "status": "live",
-    "homeScore": 1,
+    "homeScore": 2,
     "awayScore": 5,
     "inningInfo": "7회말",
     "liveState": {
       "pitcher": "Irving Cota",
-      "batter": "Kyle West",
+      "batter": "Yassel Soler",
       "pitcherPid": "mlb:806522",
-      "batterPid": "mlb:823918",
-      "ball": 1,
-      "strike": 1,
-      "out": 0,
+      "batterPid": "mlb:807957",
+      "ball": 0,
+      "strike": 0,
+      "out": 1,
       "bases": []
     }
   },
@@ -734621,13 +734597,16 @@
     "inningInfo": "7회말",
     "liveState": {
       "pitcher": "Yorlin Calderon",
-      "batter": "David Peralta",
+      "batter": "Ramon Ramirez",
       "pitcherPid": "mlb:683583",
-      "batterPid": "mlb:444482",
+      "batterPid": "mlb:808675",
       "ball": 0,
-      "strike": 0,
+      "strike": 2,
       "out": 0,
-      "bases": []
+      "bases": [
+        1,
+        2
+      ]
     }
   },
   {
@@ -734707,7 +734686,7 @@
     "stadium": "Estadio León",
     "timeTbd": false,
     "gameId": "LIGAMX_ESPN_401876926",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 1,
     "awayScore": 1,
@@ -734726,6 +734705,20 @@
           "m": 39,
           "pid": "espn:201538",
           "nat": "Mexico"
+        },
+        {
+          "n": "Jesús Lara",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:372142",
+          "nat": "Venezuela"
+        },
+        {
+          "n": "Juan Guevara",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:88781",
+          "nat": "Colombia"
         }
       ],
       "away": [
@@ -734897,13 +734890,15 @@
     "inningInfo": "3회말",
     "liveState": {
       "pitcher": "Jake Eder",
-      "batter": "Ismael Munguia",
+      "batter": "Oscar Gonzalez",
       "pitcherPid": "mlb:671109",
-      "batterPid": "mlb:665998",
-      "ball": 2,
-      "strike": 2,
-      "out": 0,
-      "bases": []
+      "batterPid": "mlb:660757",
+      "ball": 0,
+      "strike": 0,
+      "out": 2,
+      "bases": [
+        3
+      ]
     }
   },
   {
@@ -735060,18 +735055,36 @@
         {
           "n": "자콥",
           "m": 4,
-          "pid": "espn:330082"
+          "a": "Miguel Almirón",
+          "nat": "Argentina",
+          "pid": "espn:330082",
+          "aNat": "Paraguay",
+          "apid": "espn:48128"
         }
       ],
       "away": [
         {
           "n": "살레트로스",
           "m": 30,
+          "nat": "Sweden",
           "pid": "espn:193105"
         },
         {
           "n": "메크바비시빌리",
-          "m": 51
+          "m": 51,
+          "nat": "Georgia",
+          "pid": "espn:305447"
+        }
+      ]
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "D'Avilla Dje Tah",
+          "type": "Y",
+          "m": 38,
+          "pid": "espn:335605"
         }
       ]
     },
@@ -735229,13 +735242,15 @@
     "inningInfo": "3회말",
     "liveState": {
       "pitcher": "Yoanner Negrin",
-      "batter": "Missael Rivera",
+      "batter": "Nelson Quiroz",
       "pitcherPid": "mlb:594582",
-      "batterPid": "mlb:668992",
-      "ball": 0,
-      "strike": 0,
-      "out": 0,
-      "bases": []
+      "batterPid": "mlb:685716",
+      "ball": 2,
+      "strike": 2,
+      "out": 1,
+      "bases": [
+        2
+      ]
     }
   },
   {
@@ -735251,16 +735266,18 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 2,
-    "inningInfo": "3회말",
+    "inningInfo": "4회초",
     "liveState": {
-      "pitcher": "Luis Payan",
-      "batter": "Ramon Rios",
-      "pitcherPid": "mlb:674478",
-      "batterPid": "mlb:540204",
+      "pitcher": "Raul Carrillo",
+      "batter": "Connor Hollis",
+      "pitcherPid": "mlb:585132",
+      "batterPid": "mlb:667442",
       "ball": 2,
-      "strike": 2,
-      "out": 1,
-      "bases": []
+      "strike": 0,
+      "out": 0,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -735279,13 +735296,16 @@
     "inningInfo": "3회초",
     "liveState": {
       "pitcher": "Nic Swanson",
-      "batter": "Cooper Kinney",
+      "batter": "Tucupita Marcano",
       "pitcherPid": "mlb:702462",
-      "batterPid": "mlb:695692",
+      "batterPid": "mlb:672779",
       "ball": 0,
       "strike": 0,
       "out": 1,
-      "bases": []
+      "bases": [
+        1,
+        2
+      ]
     }
   },
   {
@@ -735440,6 +735460,56 @@
     "timeTbd": false,
     "gameId": "LIGAMX_ESPN_401876925",
     "status": "scheduled"
+  },
+  {
+    "date": "2026-10-25",
+    "time": "10:00",
+    "league": "LMP",
+    "venueId": "estadio_nido_de_los_aguilas_mexicali",
+    "home": "아길라스 데 멕시칼리",
+    "away": "나랑헤로스 데 에르모시요",
+    "stadium": "Estadio Nido de los Aguilas",
+    "timeTbd": false,
+    "gameId": "LMP_MLBSTATS_850518",
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0,
+    "inningInfo": "1회초",
+    "liveState": {
+      "pitcher": "Daniel Nunez",
+      "batter": "Luis Durango",
+      "pitcherPid": "mlb:805982",
+      "batterPid": "mlb:691411",
+      "ball": 0,
+      "strike": 0,
+      "out": 0,
+      "bases": []
+    }
+  },
+  {
+    "date": "2026-10-25",
+    "time": "10:10",
+    "league": "LMP",
+    "venueId": "estadio_yaquis_obregon",
+    "home": "야키스 데 오브레곤",
+    "away": "카녜로스 데 로스모치스",
+    "stadium": "Estadio de los Yaquis",
+    "timeTbd": false,
+    "gameId": "LMP_MLBSTATS_850527",
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0,
+    "inningInfo": "1회초",
+    "liveState": {
+      "pitcher": "Jesus Luna",
+      "batter": "Isaac Rodriguez",
+      "pitcherPid": "mlb:680628",
+      "batterPid": "mlb:665455",
+      "ball": 0,
+      "strike": 0,
+      "out": 0,
+      "bases": []
+    }
   },
   {
     "date": "2026-10-25",
