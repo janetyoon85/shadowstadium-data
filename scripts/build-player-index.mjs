@@ -162,6 +162,35 @@ async function main() {
     }
   }
 
+  // 해외 한국 선수 시드(2026-10-26, "송민규 누락처럼 전수조사") — 이 색인은 골·어시스트·카드 이벤트에 나온 선수만 담아서, 아직 이벤트가 없던 한국 선수(김지수·황의조 등)는
+  // 즐겨찾기 검색에도 알림에도 안 잡혔다. 선수단(team-rosters)에 있는 한국 국적 선수는 이벤트가 없어도 색인에 넣는다(이미 이벤트로 들어온 선수는 건드리지 않는다).
+  try {
+    const cnt = new Map();
+    for (const g of games) {
+      if (!g.league || /FRIENDLY|CUP|^UCL$|^UEL$|^UECL$|^ACL2?$/.test(g.league) || /BASEBALL|^(KBO|MLB|NPB|LMB|LMP|LVBP|LIDOM|AFL|PWL|ABL|AAA|CARIBBEANSERIES|PREMIER12)$/.test(g.league)) continue; // 야구 팀 이름(시애틀 등)과 겹치지 않게 축구 리그만
+      for (const t of [g.home, g.away]) if (t) cnt.set(`${t}|${g.league}`, (cnt.get(`${t}|${g.league}`) || 0) + 1);
+    }
+    const teamLeague = new Map();
+    for (const [k, n] of cnt) { const [t, l] = k.split('|'); const cur = teamLeague.get(t); if (!cur || n > cur.n) teamLeague.set(t, { l, n }); }
+    const rdir = path.join(REPO_ROOT, 'team-rosters');
+    let seeded = 0;
+    for (const f of await fs.readdir(rdir)) {
+      if (!f.endsWith('.json')) continue;
+      const j = JSON.parse(await fs.readFile(path.join(rdir, f), 'utf-8'));
+      for (const [team, arr] of Object.entries(j)) {
+        for (const p of Array.isArray(arr) ? arr : []) {
+          if (!/^KOR/i.test(p.nat || '') || !p.n || !String(p.id || '').startsWith('espn:')) continue; // 'wk:팀:번호'(위키 로스터 임시 ID)는 실제 이벤트 ID(espn:/naver:)와 안 맞아 알림이 안 오므로 제외
+          if (map.has(`soccer:pid:${p.id}`)) continue;
+          upsertPlayer(map, canonicalPlayerName(p.n), 'soccer', '2000-01-01', { team, league: teamLeague.get(team)?.l || 'CLUBFRIENDLY', nat: 'South Korea' }, p.id);
+          seeded++;
+        }
+      }
+    }
+    console.log(`[build-player-index] seeded Korean roster players=${seeded}`);
+  } catch (e) {
+    console.warn('[build-player-index] roster seed skipped:', e.message);
+  }
+
   const players = Array.from(map.values()).sort((a, b) => a.name.localeCompare(b.name));
   await fs.writeFile(PLAYERS_FILE, JSON.stringify(players, null, 2) + '\n', 'utf-8');
   console.log(`[build-player-index] players=${players.length}`);
