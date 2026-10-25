@@ -16,6 +16,10 @@ on:
         description: '실제 크롤링 없이 미매핑 구장 Discord 알림만 테스트 발송'
         type: boolean
         default: false
+      full_run:
+        description: '전체 모드(백필·종료 후 재검증 예산 사용)로 실행 — 평소엔 매시 0~9분에만 자동'
+        type: boolean
+        default: false
 
 permissions:
   contents: write   # commit + push
@@ -53,6 +57,7 @@ jobs:
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
           TEST_DISCORD: ${{ inputs.test_discord }}
+          FULL_RUN: ${{ inputs.full_run && '1' || '' }}
           PRIVATE_DATA_TOKEN: ${{ secrets.PRIVATE_DATA_TOKEN }}
         run: node scripts/fetch-schedule.mjs
 
