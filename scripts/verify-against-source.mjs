@@ -6,7 +6,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildKoIndex } from './espn-team-index.mjs';
-import { parseEspnEvents, compareSoccerEvents, compareMlbDecisions, compareNaverTimeline } from './verify-events.mjs';
+import { parseEspnEvents, compareSoccerEvents, compareMlbDecisions, compareNaverTimeline, compareNaverBatters } from './verify-events.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dry = process.argv.includes('--dry');
@@ -197,20 +197,29 @@ async function main() {
       if (nCompleted && !t.completed && now - t.t > 3.5 * 3600e3) { const k = `결과 미반영(네이버 상세)|${t.key}`; found[k] = { key: k, kind: '결과 미반영(네이버 상세)', text: `${t.label} — 네이버 상세는 종료 ${nh}-${na}, 우리는 미종료`, }; bad++; }
       else if (nCompleted && t.completed && Number.isFinite(nh) && Number.isFinite(na) && Number.isFinite(t.hs) && Number.isFinite(t.as) && (nh !== t.hs || na !== t.as)) { const k = `스코어 불일치(네이버 상세)|${t.key}`; found[k] = { key: k, kind: '스코어 불일치(네이버 상세)', text: `${t.label} — 우리 ${t.hs}-${t.as} / 네이버 상세 ${nh}-${na}` }; bad++; }
       // K리그: 네이버 /record 의 이벤트 타임라인(골·자책골·경고·퇴장)을 새로 받아 우리 득점자·카드와 비교
-      if (t.ours && /^K리그/.test(t.ours.league) && t.completed && now - t.t > 2 * 3600e3 && now - t.t < 2 * 86400e3 && (t.ours.scorers || t.ours.cards)) {
+      const isK = t.ours && /^K리그/.test(t.ours.league) && (t.ours.scorers || t.ours.cards);
+      const isBase = t.ours && /^(KBO|NPB|MLB)$/.test(t.ours.league) && t.ours.highlights;
+      if ((isK || isBase) && t.completed && now - t.t > 2 * 3600e3 && now - t.t < 2 * 86400e3) {
         try {
           const rr = await fetch(`https://api-gw.sports.naver.com/schedule/games/${t.id}/record`, { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(15000) });
           const rec = rr.ok ? (await rr.json()).result?.recordData : null;
-          if (rec && Array.isArray(rec.timeline) && rec.timeline.length) {
+          if (isK && rec && Array.isArray(rec.timeline) && rec.timeline.length) {
             for (const m of compareNaverTimeline(t.ours, rec.timeline)) { const k = `${m.kind}|${t.key}|${m.key}`; found[k] = { key: k, kind: m.kind, text: m.text }; bad++; }
             stats.naverTimeline = (stats.naverTimeline || 0) + 1;
+          }
+          if (isBase && rec) {
+            const box = rec.battersBoxscore || (rec.homeBatter || rec.awayBatter ? { home: rec.homeBatter, away: rec.awayBatter } : null);
+            if (box) {
+              for (const m of compareNaverBatters(t.ours, box)) { const k = `${m.kind}|${t.key}|${m.key}`; found[k] = { key: k, kind: m.kind, text: m.text }; bad++; }
+              stats.naverBatters = (stats.naverBatters || 0) + 1;
+            }
           }
         } catch { /* 일시 오류는 건너뛴다 */ }
       }
       await new Promise((r) => setTimeout(r, 120));
     }
     stats.naverDetail = n;
-    console.log(`[verify] 네이버 상세 재조회 ${n}/${targets.length}건, 불일치 ${bad}건`);
+    console.log(`[verify] 네이버 상세 재조회 ${n}/${targets.length}건 (K리그 타임라인 ${stats.naverTimeline || 0}, 야구 타자 기록 ${stats.naverBatters || 0}), 불일치 ${bad}건`);
   } catch (e) { console.warn('[verify] 네이버 상세 대조 실패:', e.message); }
 
   // ── NBA: 네이버·ESPN 두 독립 소스를 농구 크롤러가 비교해 남긴 결과(basketball/xsource-mismatch.json) ──────────

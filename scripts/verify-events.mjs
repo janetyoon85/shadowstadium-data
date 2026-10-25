@@ -111,3 +111,25 @@ export function compareNaverTimeline(ours, timeline) {
   if (ours.cards) cmp('카드', ours.cards, cardsN, (c) => ({ name: c.n, m: c.m }));
   return out;
 }
+
+// 야구(KBO·NPB·MLB): 네이버 /record 의 타자별 기록(battersBoxscore: name·hr·sb)을 새로 받아 우리 하이라이트의 홈런·도루와 선수 단위로 비교한다.
+// 우리 홈런 항목은 "나성범1호2호(…)"처럼 한 항목에 여러 개가 들어올 수 있어 "N호" 개수로 센다. 도루는 항목 하나가 한 개.
+export function compareNaverBatters(ours, battersBoxscore) { // battersBoxscore: KBO 는 recordData.battersBoxscore, NPB·MLB 는 { home: recordData.homeBatter, away: recordData.awayBatter }
+  const out = [];
+  if (!ours.highlights || !battersBoxscore) return out;
+  const label = `${ours.date} ${ours.league} ${ours.home} vs ${ours.away}`;
+  for (const side of ['home', 'away']) {
+    const rows = battersBoxscore[side] || battersBoxscore[side + 'Batter']; // KBO: battersBoxscore.home/away, NPB·MLB: recordData.homeBatter/awayBatter
+    if (!Array.isArray(rows)) continue;
+    const hrN = {}, sbN = {}, hrO = {}, sbO = {};
+    for (const b of rows) { if (b.name) { if (b.hr) hrN[b.name] = (hrN[b.name] || 0) + b.hr; if (b.sb) sbN[b.name] = (sbN[b.name] || 0) + b.sb; } }
+    for (const h of ours.highlights[side] || []) {
+      const cnt = (String(h.text).match(/(\d+)개/) || [])[1]; // NPB·MLB 표기: "미모리 2개"
+      if (h.how === '홈런') hrO[h.player] = (hrO[h.player] || 0) + (cnt ? Number(cnt) : Math.max(1, (String(h.text).match(/\d+호/g) || []).length));
+      else if (h.how === '도루') sbO[h.player] = (sbO[h.player] || 0) + (cnt ? Number(cnt) : 1);
+    }
+    const cmp = (kind, n, o) => { for (const name of new Set([...Object.keys(n), ...Object.keys(o)])) if ((n[name] || 0) !== (o[name] || 0)) out.push({ kind: `${kind} 불일치(네이버 기록)`, key: `${kind}|${side}|${name}`, text: `${label} — ${name} ${kind} 우리 ${o[name] || 0} / 네이버 기록 ${n[name] || 0}` }); };
+    cmp('홈런', hrN, hrO); cmp('도루', sbN, sbO);
+  }
+  return out;
+}

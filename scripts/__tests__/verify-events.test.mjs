@@ -54,3 +54,19 @@ test('네이버 퇴장(dismissal)도 카드로 센다', () => {
   assert.deepEqual(compareNaverTimeline(ours, [{ side: 'away', eventType: 'dismissal', time: "64'", text: '유인수 퇴장' }]), []);
   assert.equal(compareNaverTimeline({ ...ours, cards: { home: [], away: [] } }, [{ side: 'away', eventType: 'dismissal', time: "64'", text: '유인수 퇴장' }])[0].kind, '카드 누락(네이버)');
 });
+
+import { compareNaverBatters } from '../verify-events.mjs';
+test('야구 타자 기록: 홈런·도루를 선수 단위로 비교(한 항목에 N호가 여럿이면 N 으로 센다)', () => {
+  const ours = { date: 'd', league: 'KBO', home: '가', away: '나', highlights: { home: [{ how: '도루', player: '최유빈', text: '최유빈(6회)' }], away: [{ how: '홈런', player: '나성범', text: '나성범1호2호(2회1점 6회1점 카라스코 우강훈)' }, { how: '홈런', player: '김도영', text: '김도영3호(2회4점 케네디)' }] } };
+  const box = { home: [{ name: '최유빈', hr: 0, sb: 1 }], away: [{ name: '나성범', hr: 2, sb: 0 }, { name: '김도영', hr: 1, sb: 0 }] };
+  assert.deepEqual(compareNaverBatters(ours, box), []);
+  const bad = { home: [{ name: '최유빈', hr: 0, sb: 2 }], away: [{ name: '나성범', hr: 2, sb: 0 }, { name: '김도영', hr: 1, sb: 0 }, { name: '박정우', hr: 1, sb: 0 }] };
+  const r = compareNaverBatters(ours, bad).map((i) => i.kind + ':' + i.key);
+  assert.ok(r.includes('도루 불일치(네이버 기록):도루|home|최유빈') && r.includes('홈런 불일치(네이버 기록):홈런|away|박정우'));
+});
+
+test("야구 타자 기록: NPB·MLB 의 '미모리 2개' 표기를 개수로 센다", () => {
+  const ours = { date: 'd', league: 'NPB', home: '가', away: '나', highlights: { home: [{ how: '도루', player: '미모리', text: '미모리 2개' }], away: [] } };
+  assert.deepEqual(compareNaverBatters(ours, { home: [{ name: '미모리', hr: 0, sb: 2 }], away: [] }), []);
+  assert.equal(compareNaverBatters(ours, { home: [{ name: '미모리', hr: 0, sb: 3 }], away: [] })[0].kind, '도루 불일치(네이버 기록)');
+});
