@@ -737986,7 +737986,7 @@
     "timeTbd": false,
     "gameId": "SWEDEN_ESPN_401842857",
     "status": "live",
-    "matchPeriod": "하프타임",
+    "matchPeriod": "후반",
     "homeScore": 1,
     "awayScore": 0,
     "cards": {
@@ -738117,7 +738117,15 @@
     "homeScore": 1,
     "awayScore": 0,
     "cards": {
-      "home": [],
+      "home": [
+        {
+          "n": "Arjan Malic",
+          "type": "R",
+          "m": 45,
+          "pid": "espn:374533",
+          "nat": "Slovenia"
+        }
+      ],
       "away": [
         {
           "n": "Luka Capan",
@@ -738265,7 +738273,7 @@
     "gameId": "NORWAY_ESPN_401843373",
     "status": "live",
     "matchPeriod": "전반",
-    "homeScore": 2,
+    "homeScore": 3,
     "awayScore": 0,
     "scorers": {
       "home": [
@@ -738280,6 +738288,12 @@
           "m": 31,
           "nat": "Norway",
           "pid": "espn:303977"
+        },
+        {
+          "n": "Erik Botheim",
+          "m": 45,
+          "nat": "Norway",
+          "pid": "espn:239925"
         }
       ],
       "away": []
@@ -738377,7 +738391,19 @@
     "status": "live",
     "matchPeriod": "전반",
     "homeScore": 0,
-    "awayScore": 0
+    "awayScore": 0,
+    "cards": {
+      "home": [
+        {
+          "n": "Gustavo Sá",
+          "type": "Y",
+          "m": 15,
+          "pid": "espn:347406",
+          "nat": "Portugal"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-10-25",
