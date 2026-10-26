@@ -225,7 +225,9 @@ async function main() {
     // 항상 같이 보내서 이 기능이 ID 도입 전부터 "이름"으로 즐겨찾기해둔 기존 구독이 계속
     // 작동하게 함(2026-09-28, 무마이그레이션 하위호환). ID가 없으면(아직 못 붙인 소스) 기존과
     // 완전히 동일하게 이름 토픽 1건만.
-    const targets = [...new Set([pid && pid !== name ? pid : null, ...(item.altPids || []), name].filter(Boolean))];
+    // KBO 는 같은 사람이 타자(kbo:b:N)·투수(kbo:p:N) 두 id 로 색인돼 있어, 어느 쪽으로 즐겨찾기했든 모든 이벤트(홈런·승리투수·선발 등)를 받도록 짝 id 토픽에도 보낸다(2026-10-26 선수단 중복 표기 점검에서 보강).
+    const pairPid = typeof pid === 'string' && /^kbo:[bp]:/.test(pid) ? pid.replace(/^kbo:([bp]):/, (_, c) => `kbo:${c === 'b' ? 'p' : 'b'}:`) : null;
+    const targets = [...new Set([pid && pid !== name ? pid : null, pairPid, ...(item.altPids || []), name].filter(Boolean))];
     let anyOk = false;
     for (const target of targets) {
       try {
