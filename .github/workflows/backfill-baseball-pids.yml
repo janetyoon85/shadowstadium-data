@@ -22,6 +22,7 @@ jobs:
   # 어느 러너에서 돌릴지 정한다(GitHub 서버에서 네이버가 응답하면 GitHub 서버, 아니면 집 PC) — .github/workflows/pick-runner.yml
   pick:
     uses: ./.github/workflows/pick-runner.yml
+    secrets: inherit
   fetch:
     needs: pick
     runs-on: ${{ needs.pick.outputs.runner }}
