@@ -36,9 +36,12 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # 어느 러너에서 돌릴지 정한다(GitHub 서버에서 네이버가 응답하면 GitHub 서버, 아니면 집 PC) — .github/workflows/pick-runner.yml
+  pick:
+    uses: ./.github/workflows/pick-runner.yml
   fetch:
-    # 네이버 API 가 GitHub 호스티드 러너(Azure IP)를 막은 동안(2026-10-26~) 집 PC 의 셀프호스트 러너(home-crawler)에서 돌린다. 저장소 변수 CRAWLER_RUNNER 가 없으면 예전처럼 ubuntu-latest.
-    runs-on: ${{ vars.CRAWLER_RUNNER || 'ubuntu-latest' }}
+    needs: pick
+    runs-on: ${{ needs.pick.outputs.runner }}
     defaults:
       run:
         shell: bash

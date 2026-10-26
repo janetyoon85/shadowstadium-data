@@ -1,0 +1,30 @@
+name: pick-runner
+# 네이버 의존 크롤러가 어느 러너에서 돌지 매 실행마다 고른다(2026-10-26 페일오버).
+#  - GitHub 서버에서 네이버 API 가 응답하면 → ubuntu-latest (집 PC 의존 없음)
+#  - 막혀 있으면 → home-crawler (집 PC 셀프호스트 러너)
+#  - 저장소 변수 CRAWLER_RUNNER 가 'ubuntu-latest' 또는 'home-crawler' 이면 그 값으로 강제(수동 고정), 비었거나 'auto' 면 위 규칙.
+# 호출: 각 크롤러 워크플로우의 첫 잡이 `uses: ./.github/workflows/pick-runner.yml` 로 부르고, 본 잡은 `needs: pick` + `runs-on: ${{ needs.pick.outputs.runner }}`.
+on:
+  workflow_call:
+    outputs:
+      runner:
+        description: 본 잡이 쓸 러너 라벨
+        value: ${{ jobs.pick.outputs.runner }}
+jobs:
+  pick:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    outputs:
+      runner: ${{ steps.r.outputs.runner }}
+    steps:
+      - id: r
+        env:
+          FORCE: ${{ vars.CRAWLER_RUNNER }}
+        run: |
+          if [ -n "$FORCE" ] && [ "$FORCE" != "auto" ]; then echo "runner=$FORCE" >> "$GITHUB_OUTPUT"; echo "고정: $FORCE"; exit 0; fi
+          U='https://api-gw.sports.naver.com/schedule/games?fromDate=2026-10-26&toDate=2026-10-26&upperCategoryId=kbaseball&categoryId=kbo&size=3'
+          if curl -sf -m 8 -o /dev/null -A "Mozilla/5.0 (compatible; shadowstadium; +https://github.com/janetyoon85/shadowstadium-data)" "$U"; then
+            echo "runner=ubuntu-latest" >> "$GITHUB_OUTPUT"; echo "네이버 응답 OK → GitHub 서버"
+          else
+            echo "runner=home-crawler" >> "$GITHUB_OUTPUT"; echo "네이버 응답 없음 → 집 PC 러너"
+          fi
