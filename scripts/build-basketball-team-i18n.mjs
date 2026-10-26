@@ -72,5 +72,8 @@ const KO_BL = JSON.parse(await fs.readFile(new URL('./basketball-ko-bl.json', im
 for (const [k, tm] of Object.entries(teams)) {
   if (tm.src === 'bl' && KO_BL[tm.code]) out[k] = { ...(out[k] || {}), ko: KO_BL[tm.code] };
 }
+// 수작업 확정 번역(team-i18n-curated.json) — 위키데이터 라벨이 엉뚱하거나("men's basketball team" 등) 비어 있는 팀(유로리그 20팀). 항상 위키데이터 값을 덮어쓴다.
+const curated = JSON.parse(await fs.readFile(path.join(DIR, 'team-i18n-curated.json'), 'utf8').catch(() => '{}'));
+for (const [k, v] of Object.entries(curated)) out[k] = { ...(out[k] || {}), ...v };
 await fs.writeFile(OUT, JSON.stringify(out));
 console.log('team-i18n', Object.keys(out).length, 'found', Object.values(out).filter(Boolean).length, 'of', Object.keys(teams).length);

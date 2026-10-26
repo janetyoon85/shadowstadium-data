@@ -531,7 +531,9 @@ async function syncAllTeams(now) {
 const EL_SEASON = process.env.EUROLEAGUE_SEASON || 'E2026';
 const EL_TEAM = { BAR: 125618, PAR: 126416, OLY: 125614, PAM: 126418, BES: 133462, VIR: 126417, DUB: 133463, ASV: 125706, PRS: 130149, MUN: 125617, PAN: 125632, MAD: 125611, TEL: 125613, BAS: 125621, RED: 125633, MIL: 125615, IST: 125612, HTA: 132589, ZAL: 125610, ULK: 125631 };
 const EL_HOME_CITY = { BAR: 'Barcelona', PAR: 'Belgrade', OLY: 'Piraeus', PAM: 'Valencia', BES: 'Istanbul', VIR: 'Bologna', DUB: 'Dubai', ASV: 'Villeurbanne', PRS: 'Paris', MUN: 'Munich', PAN: 'Athens', MAD: 'Madrid', TEL: 'Tel Aviv', BAS: 'Vitoria-Gasteiz', RED: 'Belgrade', MIL: 'Milan', IST: 'Istanbul', HTA: 'Tel Aviv', ZAL: 'Kaunas', ULK: 'Istanbul' };
-const EL_VENUE_CITY = { AUF4: 'Belgrade', AVK1: 'Sofia', AVN2: 'Botevgrad' }; // 이스라엘 팀의 임시 홈구장 — 주소 파싱이 안 되거나 연고지와 다른 곳
+// ESPN/위키 로고가 깨졌거나(바르셀로나 404) 가로로 긴 워드마크라 앱에서 점처럼 작게 보이는 팀(레알 마드리드 250x91·바스코니아 250x100·밀라노 250x87·발렌시아 250x150)은 공식 정사각 엠블럼으로 강제 교체.
+const EL_CREST_FORCE = new Set(['BAR', 'MAD', 'BAS', 'MIL', 'PAM']);
+const EL_VENUE_CITY ={ AUF4: 'Belgrade', AVK1: 'Sofia', AVN2: 'Botevgrad' }; // 이스라엘 팀의 임시 홈구장 — 주소 파싱이 안 되거나 연고지와 다른 곳
 const titleCase =(t) => String(t || '').toLowerCase().replace(/(^|[\s-])([a-zà-ÿ])/g, (m, a, b) => a + b.toUpperCase());
 async function fetchEuroleague(now) {
   const j = await getJson(`https://api-live.euroleague.net/v2/competitions/E/seasons/${EL_SEASON}/games?limit=500`);
@@ -545,7 +547,7 @@ async function fetchEuroleague(now) {
       const id = EL_TEAM[c.code];
       if (!id) return null;
       const key = `espn:EUROLEAGUE:${id}`;
-      addTeam('espn', 'EUROLEAGUE', String(id), { en: c.name, ...(teams[key]?.logo || !c.images?.crest ? {} : { logo: c.images.crest }) });
+      addTeam('espn', 'EUROLEAGUE', String(id), { en: c.name, ...((teams[key]?.logo && !EL_CREST_FORCE.has(c.code)) || !c.images?.crest ? {} : { logo: c.images.crest }) });
       return key;
     };
     const hk = side(x.local), ak = side(x.road);
