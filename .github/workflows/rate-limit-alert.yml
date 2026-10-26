@@ -8,6 +8,10 @@ on:
   schedule:
     - cron: '17,47 * * * *'  # 안전망(30분 간격)
   workflow_dispatch:
+    inputs:
+      simulate:
+        description: '1 = 429 를 시뮬레이션해 기록·알림 경로 전체를 시험(Discord 에 시험 알림이 감)'
+        default: ''
 
 permissions:
   contents: write   # ops-logs 브랜치에 상태 기록
@@ -26,6 +30,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+
+      - name: Simulate 429 (시험용)
+        if: inputs.simulate == '1'
+        env:
+          GITHUB_WORKFLOW: 'simulate-429(시험)'
+        run: node scripts/simulate-429.mjs
 
       - name: Report 429
         env:
