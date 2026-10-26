@@ -50,17 +50,23 @@ jobs:
         run: node scripts/warm-weather.mjs
 
       - name: Commit sent state
+        timeout-minutes: 4  # git 이 응답 없이 멈추면 흐름이 막히므로 짧게 끊는다(2026-10-26)
         run: |
-          git add sent-reminders.json
+          FILES="sent-reminders.json"
+          git add $FILES
           # 변경 없으면 step 성공 종료
           git diff --cached --quiet && exit 0
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "chore(reminders): update sent state [skip ci]"
-          # 동시 push race (예: fetch-schedule cron이 main에 push) 대비 rebase + retry
-          # (크롤러 개수 증가로 동시 writer가 늘어난 만큼 3회에서 상향, 2026-09-20).
+          # 2026-10-26(1분 주기): 줄 단위 rebase 가 한 줄짜리 큰 JSON 에서 충돌해 20번 모두 실패 → 발송 기록이 안 남아 리마인더 중복 발송 위험.
+          # 기록은 추가만 되므로: 내 파일을 따로 두고 → 원격 최신으로 리셋 → 합집합으로 합쳐 → 커밋·푸시(충돌 불가). fcm-player-alerts 와 같은 방식.
+          rm -rf "$RUNNER_TEMP/mine" && mkdir -p "$RUNNER_TEMP/mine" && cp $FILES "$RUNNER_TEMP/mine/"
           for i in $(seq 1 20); do
-            git pull --rebase --autostash origin main && git push origin main && exit 0 || sleep $((RANDOM % 30 + 1))
+            timeout 60 git fetch -q origin main && git reset -q --hard origin/main \
+              && node scripts/merge-sent-state.mjs "$RUNNER_TEMP/mine" $FILES \
+              && git add $FILES \
+              && { git diff --cached --quiet && exit 0; git commit -q -m "chore(reminders): update sent state [skip ci]" && timeout 60 git push -q origin main && exit 0; } \
+              || sleep $((RANDOM % 10 + 1))
           done
           echo "::error::Failed to push sent-reminders.json after 20 retries"
           exit 1
