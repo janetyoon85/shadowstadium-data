@@ -20,3 +20,8 @@ test('잘못된 서비스 계정은 cert() 가 즉시 오류 — 조용히 통�
 test('초기화 없이 messaging() 은 오류(앱이 없음)', () => {
   assert.throws(() => admin.messaging());
 });
+
+test('토픽 구독 해제 헬퍼를 내보낸다(v14 SDK 권한 문제 폴백 포함)', async () => {
+  const mod = await import('../firebase-admin-compat.mjs');
+  assert.equal(typeof mod.unsubscribeFromTopic, 'function');
+});
