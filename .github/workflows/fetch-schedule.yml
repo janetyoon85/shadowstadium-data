@@ -24,6 +24,7 @@ on:
 permissions:
   contents: write   # commit + push
   issues: write     # 실패 시 issue 생성
+  actions: read     # 직전 실행 결과 조회(연속 실패 알림 도배 방지)
 
 # 동시성 제어(2026-09-27 추가) — 백필 컷오프 확장(3일→35일) 직후 처리량이 늘면서 한 실행이
 # 평소 5분보다 훨씬 오래 걸리자, cron-job.org 5분 트리거가 매번 새 병렬 실행을 만들어 같은
@@ -111,8 +112,20 @@ jobs:
           echo "push failed after 20 retries"
           exit 1
 
-      - name: Create issue on failure
+      # 연속 실패 알림 도배 방지(2026-10-26) — 네이버 접속이 몇십 분 막히자 2분마다 실패 이슈 100여 개와 Discord 알림이 쌓였다.
+      # 직전 실행이 성공이었을 때(= 새로 실패하기 시작했을 때)만 이슈·Discord 로 알린다. 이미 실패가 이어지는 중이면 조용히 넘어간다.
+      - name: Check previous run
+        id: prev
         if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const runs = await github.rest.actions.listWorkflowRuns({ owner: context.repo.owner, repo: context.repo.repo, workflow_id: 'fetch-schedule.yml', status: 'completed', per_page: 5 });
+            const prev = runs.data.workflow_runs.find((r) => r.id !== context.runId && r.run_number < context.runNumber);
+            core.setOutput('prev_failed', prev && prev.conclusion === 'failure' ? 'true' : 'false');
+
+      - name: Create issue on failure
+        if: failure() && steps.prev.outputs.prev_failed != 'true'
         uses: actions/github-script@v7
         with:
           script: |
@@ -125,7 +138,7 @@ jobs:
               labels: ['bug', 'crawler']
             });
       - name: Discord 알림 (실패 시)
-        if: failure()
+        if: failure() && steps.prev.outputs.prev_failed != 'true'
         run: |
           curl -H "Content-Type: application/json" \
             -d "{\"content\":\"🔴 ShadeSide 크롤러 실패\n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}\"}" \
