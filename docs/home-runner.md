@@ -3,8 +3,8 @@
 2026-10-26 09:14(UTC)부터 네이버 API 게이트웨이(`api-gw.sports.naver.com`)가 GitHub 호스티드 러너(Azure IP)의 요청에 응답하지 않아(연결은 되고 응답이 없음), 네이버에 의존하는 워크플로우를 집 PC 러너에서 돌린다.
 
 ## 구성
-- **우선순위: GitHub 서버 → NAS → PC.** 네이버가 GitHub 서버에서 응답하면 GitHub 서버, 아니면 NAS 러너(`nas` 라벨)가 온라인일 때 NAS, NAS 가 모두 꺼져 있으면 `home-crawler`(PC).
-  NAS 온라인 확인은 secret `RUNNER_STATUS_TOKEN`(이 저장소 Administration:read 만 가진 fine-grained 토큰, 만료일 주의)으로 한다. 토큰이 없거나 만료면 "집 러너 아무나"로 폴백.
+- **우선순위: NAS → GitHub 서버 → PC (2026-10-26 재정렬).** NAS 러너(`nas` 라벨)가 온라인이면 항상 NAS(집 회선이라 네이버가 안 막고 한 바퀴 30~40초), NAS 가 없으면 네이버가 GitHub 서버에서 응답할 때 GitHub 서버, 둘 다 아니면 `home-crawler`(PC).
+  NAS 온라인 확인은 secret `RUNNER_STATUS_TOKEN`(이 저장소 Administration:read 만 가진 fine-grained 토큰, 만료일 주의)으로 한다. 토큰이 없거나 만료면 NAS 확인을 건너뛰고 예전 규칙(GitHub 응답하면 GitHub, 아니면 home-crawler)으로 폴백. 강제 고정은 변수 `CRAWLER_RUNNER`(`nas`/`ubuntu-latest`/`home-crawler`).
 - **NAS 러너 3개**(`nas-1~3`, 라벨 `home-crawler,nas`) — Synology SA6400 Container Manager 프로젝트 `shadeside-runner`(이미지 myoung34/github-runner). compose 의 `RUNNER_TOKEN` 은 1시간짜리 등록 토큰이라, 컨테이너를 새로 만들 때마다 `POST /repos/{repo}/actions/runners/registration-token` 으로 새로 받아 넣는다.
 - 러너 3개(`home-pc-1~3`, 라벨 `home-crawler`) — `D:\actions-runner\r1~r3`. 동시에 3개 작업(일정·농구·순위표 등)이 돈다.
 - 대상 워크플로우(`runs-on: ${{ vars.CRAWLER_RUNNER || 'ubuntu-latest' }}`, bash 셸): `fetch-schedule`, `fetch-basketball`, `fetch-basketball-stats`, `fetch-standings`, `backfill-baseball-pids`.
