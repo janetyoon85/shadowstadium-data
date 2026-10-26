@@ -747279,7 +747279,7 @@
     "stadium": "Estadio Municipal Alcaldesa Ester Roa Rebolledo",
     "timeTbd": false,
     "gameId": "CHILE_ESPN_401850670",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 0,
     "awayScore": 1,
@@ -747328,7 +747328,9 @@
           "pid": "espn:257627"
         }
       ]
-    }
+    },
+    "assistsChecked": true,
+    "assistsAt": 1792976639961
   },
   {
     "date": "2026-10-26",
@@ -747340,7 +747342,7 @@
     "stadium": "Estadio Jalisco",
     "timeTbd": false,
     "gameId": "LIGAMX_ESPN_401876923",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 4,
     "awayScore": 3,
@@ -747350,25 +747352,37 @@
           "n": "Florián Monzón",
           "m": 1,
           "nat": "Argentina",
-          "pid": "espn:309574"
+          "pid": "espn:309574",
+          "a": "Jorge Rodríguez",
+          "apid": "espn:312586",
+          "aNat": "Mexico"
         },
         {
           "n": "Kevin Zenón",
           "m": 63,
           "nat": "Argentina",
-          "pid": "espn:290593"
+          "pid": "espn:290593",
+          "a": "Luís Esteves",
+          "apid": "espn:312549",
+          "aNat": "Portugal"
         },
         {
           "n": "José Martín",
           "m": 68,
           "nat": "Mexico",
-          "pid": "espn:407291"
+          "pid": "espn:407291",
+          "a": "Kevin Zenón",
+          "apid": "espn:290593",
+          "aNat": "Argentina"
         },
         {
           "n": "José Martín",
           "m": 79,
           "nat": "Mexico",
-          "pid": "espn:407291"
+          "pid": "espn:407291",
+          "a": "Luís Esteves",
+          "apid": "espn:312549",
+          "aNat": "Portugal"
         }
       ],
       "away": [
@@ -747389,7 +747403,10 @@
           "n": "Omar Moreno",
           "m": 84,
           "nat": "Mexico",
-          "pid": "espn:357211"
+          "pid": "espn:357211",
+          "a": "Alejandro Organista",
+          "apid": "espn:284658",
+          "aNat": "Mexico"
         }
       ]
     },
@@ -747418,7 +747435,9 @@
           "nat": "Mexico"
         }
       ]
-    }
+    },
+    "assistsChecked": true,
+    "assistsAt": 1792976639754
   },
   {
     "date": "2026-10-26",
