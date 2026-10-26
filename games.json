@@ -747671,7 +747671,7 @@
     "stadium": "Atanasio Girardot",
     "timeTbd": false,
     "gameId": "COLOMBIA_ESPN_401878052",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 2,
     "awayScore": 1,
@@ -747715,13 +747715,19 @@
           "n": "Edwin Cardona",
           "m": 53,
           "nat": "Colombia",
-          "pid": "espn:196767"
+          "pid": "espn:196767",
+          "a": "Elías Cabrera",
+          "apid": "espn:339197",
+          "aNat": "Argentina"
         },
         {
           "n": "Andrés Sarmiento",
           "m": 73,
           "nat": "Colombia",
-          "pid": "espn:70721"
+          "pid": "espn:70721",
+          "a": "Samuel Velásquez",
+          "apid": "espn:336455",
+          "aNat": "Colombia"
         }
       ],
       "away": [
@@ -747729,10 +747735,15 @@
           "n": "Alfonso Simarra",
           "m": 29,
           "nat": "Colombia",
-          "pid": "espn:323854"
+          "pid": "espn:323854",
+          "a": "Carlos Lucumí",
+          "apid": "espn:115717",
+          "aNat": "Colombia"
         }
       ]
-    }
+    },
+    "assistsChecked": true,
+    "assistsAt": 1792977030262
   },
   {
     "date": "2026-10-26",
@@ -748088,7 +748099,19 @@
     "status": "live",
     "matchPeriod": "전반",
     "homeScore": 0,
-    "awayScore": 0
+    "awayScore": 0,
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Amaury García",
+          "type": "Y",
+          "m": 4,
+          "pid": "espn:291186",
+          "nat": "Mexico"
+        }
+      ]
+    }
   },
   {
     "date": "2026-10-26",
@@ -748113,7 +748136,10 @@
     "stadium": "Estadio Banorte",
     "timeTbd": false,
     "gameId": "LIGAMX_ESPN_401876922",
-    "status": "scheduled"
+    "status": "live",
+    "matchPeriod": "전반",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-10-26",
