@@ -33,7 +33,16 @@ jobs:
         with:
           node-version: '20'
 
+      # 1분 주기(2026-10-26): 매 실행 npm 설치가 45~50초(크롤링은 10초)라 한 바퀴가 1분을 넘겼다 → node_modules 를 캐시하고 없을 때만 설치.
+      - name: Cache PDF parser
+        id: pdfcache
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: pdfjs-dist-3.11.174-${{ runner.os }}
+
       - name: Install PDF parser (Asian Games box scores)
+        if: steps.pdfcache.outputs.cache-hit != 'true'
         run: npm i --no-save --no-package-lock pdfjs-dist@3.11.174
 
       - name: Run basketball crawler
