@@ -13,7 +13,11 @@ permissions:
 
 jobs:
   fetch:
-    runs-on: ubuntu-latest
+    # 네이버 API 가 GitHub 호스티드 러너(Azure IP)를 막은 동안(2026-10-26~) 집 PC 의 셀프호스트 러너(home-crawler)에서 돌린다. 저장소 변수 CRAWLER_RUNNER 가 없으면 예전처럼 ubuntu-latest.
+    runs-on: ${{ vars.CRAWLER_RUNNER || 'ubuntu-latest' }}
+    defaults:
+      run:
+        shell: bash
     steps:
       - name: Checkout
         uses: actions/checkout@v4

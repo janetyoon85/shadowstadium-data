@@ -37,7 +37,11 @@ concurrency:
 
 jobs:
   fetch:
-    runs-on: ubuntu-latest
+    # 네이버 API 가 GitHub 호스티드 러너(Azure IP)를 막은 동안(2026-10-26~) 집 PC 의 셀프호스트 러너(home-crawler)에서 돌린다. 저장소 변수 CRAWLER_RUNNER 가 없으면 예전처럼 ubuntu-latest.
+    runs-on: ${{ vars.CRAWLER_RUNNER || 'ubuntu-latest' }}
+    defaults:
+      run:
+        shell: bash
     # 잡 레벨 타임아웃(2026-09-30 긴급 추가) — 실측 확인: 한 실행이 "in_progress" 상태로 20분+
     # 멈춰있는 걸 GitHub Actions API로 직접 발견(스크립트 안 fetch 호출들에 타임아웃/
     # AbortController가 전혀 없어서 하나만 멎어도 잡 전체가 GH Actions 기본값인 6시간까지
