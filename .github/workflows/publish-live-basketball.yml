@@ -1,0 +1,38 @@
+name: Publish Live Basketball
+
+# 농구 크롤러(Fetch Basketball)가 끝나는 즉시 라이브 점수만 Firebase Realtime Database 에 게시한다(2026-10-27).
+# 앱은 GitHub raw(저장소보다 1~1.5분 늦음)를 거치지 않고 이 몇 KB 짜리 데이터를 바로 읽는다. 저장소 변수 FIREBASE_DATABASE_URL 이 없으면 아무것도 하지 않는다.
+# 비밀(서비스 계정)이 NAS 러너로 가지 않게 GitHub 서버(ubuntu-latest)에서 돌린다.
+
+on:
+  workflow_run:
+    workflows: ['Fetch Basketball']
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-live-basketball
+  cancel-in-progress: true   # 최신 값만 의미가 있으므로 밀린 실행은 취소
+
+jobs:
+  publish:
+    if: vars.FIREBASE_DATABASE_URL != '' && (github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success')
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+      - run: npm ci
+      - name: Publish live basketball
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          FIREBASE_DATABASE_URL: ${{ vars.FIREBASE_DATABASE_URL }}
+        run: node scripts/publish-live.mjs basketball
