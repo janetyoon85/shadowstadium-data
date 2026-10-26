@@ -13,6 +13,7 @@ import zlib from 'node:zlib';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { dropDuplicateNaverNba, crossCheckNaverVsEspnNba } from './nba-dedupe.mjs';
+import { EL_SEASON, EL_API, EL_TEAM, elName } from './euroleague-common.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const OUT = path.join(path.resolve(__dirname, '..'), 'basketball');
@@ -528,17 +529,33 @@ async function syncAllTeams(now) {
 // ESPN 은 유로리그 경기를 한 번도 내려준 적이 없어(2025·2026 모든 날짜 0건, 2026-10-26 확인) 앱의 유로리그 탭이 항상 비어 있었다.
 // 리그 공식 개발자 API(api-live.euroleague.net v2, 로그인·키 없음, robots.txt 없음)의 시즌 전체 일정 1회 호출로 일정·스코어·쿼터 점수·경기장·팀 엠블럼을 받는다.
 // 팀은 이미 등록된 ESPN 유로리그 팀(번역·로고 데이터가 붙어 있음)에 공식 클럽 코드로 대응시키고, 로고가 없는 팀(7개)만 공식 엠블럼으로 채운다.
-const EL_SEASON = process.env.EUROLEAGUE_SEASON || 'E2026';
-const EL_TEAM = { BAR: 125618, PAR: 126416, OLY: 125614, PAM: 126418, BES: 133462, VIR: 126417, DUB: 133463, ASV: 125706, PRS: 130149, MUN: 125617, PAN: 125632, MAD: 125611, TEL: 125613, BAS: 125621, RED: 125633, MIL: 125615, IST: 125612, HTA: 132589, ZAL: 125610, ULK: 125631 };
 const EL_HOME_CITY = { BAR: 'Barcelona', PAR: 'Belgrade', OLY: 'Piraeus', PAM: 'Valencia', BES: 'Istanbul', VIR: 'Bologna', DUB: 'Dubai', ASV: 'Villeurbanne', PRS: 'Paris', MUN: 'Munich', PAN: 'Athens', MAD: 'Madrid', TEL: 'Tel Aviv', BAS: 'Vitoria-Gasteiz', RED: 'Belgrade', MIL: 'Milan', IST: 'Istanbul', HTA: 'Tel Aviv', ZAL: 'Kaunas', ULK: 'Istanbul' };
 // ESPN/위키 로고가 깨졌거나(바르셀로나 404) 가로로 긴 워드마크라 앱에서 점처럼 작게 보이는 팀(레알 마드리드 250x91·바스코니아 250x100·밀라노 250x87·발렌시아 250x150)은 공식 정사각 엠블럼으로 강제 교체.
 const EL_CREST_FORCE = new Set(['BAR', 'MAD', 'BAS', 'MIL', 'PAM']);
 const EL_VENUE_CITY ={ AUF4: 'Belgrade', AVK1: 'Sofia', AVN2: 'Botevgrad' }; // 이스라엘 팀의 임시 홈구장 — 주소 파싱이 안 되거나 연고지와 다른 곳
 const titleCase =(t) => String(t || '').toLowerCase().replace(/(^|[\s-])([a-zà-ÿ])/g, (m, a, b) => a + b.toUpperCase());
+let elLastRound = 0;
+// 순위표: 공식 라운드별 순위(마지막으로 경기가 열린 라운드). ESPN 순위표와 같은 행 형태로 standings['espn:EUROLEAGUE'] 에 담는다.
+async function fetchEuroleagueStandings() {
+  if (!elLastRound) return null;
+  const j = await getJson(`${EL_API}/v2/competitions/E/seasons/${EL_SEASON}/rounds/${elLastRound}/standings`);
+  const rows = j?.[0]?.standings;
+  if (!rows?.length) return null;
+  const lead = rows.find((r) => r.data.position === 1)?.data || rows[0].data;
+  const out = [];
+  for (const r of rows) {
+    const k = EL_TEAM[r.club.code] ? `espn:EUROLEAGUE:${EL_TEAM[r.club.code]}` : null;
+    if (!k) continue;
+    const d = r.data, gp = d.gamesWon + d.gamesLost;
+    out.push({ k, rank: d.position, w: d.gamesWon, l: d.gamesLost, gp, pct: gp ? Math.round((d.gamesWon / gp) * 1000) / 1000 : 0, gb: String(((lead.gamesWon - d.gamesWon) + (d.gamesLost - lead.gamesLost)) / 2 || '-'), pf: String(d.pointsFavour), pa: String(d.pointsAgainst), ...(d.qualified ? { q: 1 } : {}) });
+  }
+  return out.sort((a, b) => a.rank - b.rank);
+}
 async function fetchEuroleague(now) {
-  const j = await getJson(`https://api-live.euroleague.net/v2/competitions/E/seasons/${EL_SEASON}/games?limit=500`);
+  const j = await getJson(`${EL_API}/v2/competitions/E/seasons/${EL_SEASON}/games?limit=500`);
   if (!j) return j;
   const out = [];
+  elLastRound = Math.max(0, ...(j.data || []).filter((x) => x.played === true).map((x) => Number(x.round) || 0));
   for (const x of j.data || []) {
     const t = Date.parse(x.utcDate);
     if (!Number.isFinite(t)) continue;
@@ -572,7 +589,6 @@ async function fetchEuroleague(now) {
 }
 
 // 유로리그 박스스코어: 공식 v2 stats(홈 local/원정 road, 선수별 공식 기록). 선수 이름은 "AYAYI, JOEL" 형식이라 "Joel Ayayi" 로 바꾼다.
-const elName = (raw) => { const [sur, giv] = String(raw || '').split(',').map((x) => x.trim()); return String(giv ? giv + ' ' + sur : sur).toLowerCase().replace(/(^|[\s\-'.])([a-zà-ÿ])/g, (m, a, b) => a + b.toUpperCase()).replace(/\bMc([a-z])/g, (m, c) => 'Mc' + c.toUpperCase()).replace(/\b(Ii|Iii|Iv)\b/g, (m) => m.toUpperCase()); };
 async function elDetail(game) {
   const code = game.id.split('_')[1];
   const j = await getJson(`https://api-live.euroleague.net/v2/competitions/E/seasons/${EL_SEASON}/games/${code}/stats`);
@@ -583,7 +599,7 @@ async function elDetail(game) {
   const pl = (o, side) => (o.players || []).filter((p) => p.stats?.timePlayed > 0 || p.stats?.points > 0).map((p) => {
     const x = p.stats, pe = p.player.person, pid = `elbk:${pe.code}`, name = elName(pe.name);
     addPlayer(pid, name, game[side].k, game.lg, game.date);
-    return { pid, n: name, no: String(x.dorsal ?? p.player.dorsal ?? ''), pos: p.player.positionName, min: mmss(x.timePlayed), pts: x.points, reb: x.totalRebounds, ast: x.assistances, stl: x.steals, blk: x.blocksFavour, to: x.turnovers, pf: x.foulsCommited, fg: [x.fieldGoalsMadeTotal, x.fieldGoalsAttemptedTotal], tp: [x.fieldGoalsMade3, x.fieldGoalsAttempted3], ft: [x.freeThrowsMade, x.freeThrowsAttempted], pm: Number.isFinite(x.plusMinus) ? (x.plusMinus > 0 ? '+' : '') + x.plusMinus : undefined, gs: x.startFive ? 1 : 0 };
+    return { pid, n: name, no: String(x.dorsal ?? p.player.dorsal ?? ''), pos: p.player.positionName, img: p.player.images?.headshot, min: mmss(x.timePlayed), pts: x.points, reb: x.totalRebounds, ast: x.assistances, stl: x.steals, blk: x.blocksFavour, to: x.turnovers, pf: x.foulsCommited, fg: [x.fieldGoalsMadeTotal, x.fieldGoalsAttemptedTotal], tp: [x.fieldGoalsMade3, x.fieldGoalsAttempted3], ft: [x.freeThrowsMade, x.freeThrowsAttempted], pm: Number.isFinite(x.plusMinus) ? (x.plusMinus > 0 ? '+' : '') + x.plusMinus : undefined, gs: x.startFive ? 1 : 0 };
   });
   return { ls: { h: game.h.ls, a: game.a.ls }, tm: { h: team(j.local), a: team(j.road) }, pl: { h: pl(j.local, 'h'), a: pl(j.road, 'a') } };
 }
@@ -628,6 +644,7 @@ async function main() {
   const el = await fetchEuroleague(now);
   if (el === undefined) { failed++; console.log('[basketball] FAIL EUROLEAGUE'); } else if (el) { ok++; fresh.push(...el); console.log(`[basketball] euroleague games=${el.length}`); }
   fresh.push(...syncGames);
+  if (el) { const elSt = await fetchEuroleagueStandings(); if (elSt) standings['espn:EUROLEAGUE'] = { updated: now, rows: elSt }; }
   for (const [cfg, r] of results) {
     if (r === undefined) { failed++; console.log('[basketball] FAIL', cfg.lg); continue; }
     ok++; fresh.push(...(r || []));

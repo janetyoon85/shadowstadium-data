@@ -22,6 +22,42 @@ async function getJson(url) {
   return null;
 }
 
+import { EL_SEASON, EL_API, elTeamKey, elName } from './euroleague-common.mjs';
+const EL_SEASON_LABEL = (() => { const y = Number(EL_SEASON.replace(/^E/, '')); return `${y}-${String(y + 1).slice(2)}`; })();
+const pct = (m, a) => (a > 0 ? r1((100 * m) / a) : undefined);
+// 유로리그(공식 API): 팀·선수 경기당 평균. 선수 사진(headshot)은 player-wd.json 에 {img} 로 넣어 앱 선수단 화면이 쓰게 한다.
+async function euroleagueStats() {
+  const tj = await getJson(`${EL_API}/v3/competitions/E/statistics/teams/traditional?seasonMode=Single&seasonCode=${EL_SEASON}&limit=40`);
+  const pj = await getJson(`${EL_API}/v3/competitions/E/statistics/players/traditional?seasonMode=Single&seasonCode=${EL_SEASON}&limit=400`);
+  const std = await fs.readFile(path.join(DIR, 'standings.json'), 'utf8').then(JSON.parse).catch(() => ({}));
+  const gpOpp = Object.fromEntries((std['espn:EUROLEAGUE']?.rows || []).map((r) => [r.k, r.gp && r.pa ? r1(Number(r.pa) / r.gp) : undefined]));
+  const out = {};
+  if (tj?.teams?.length) {
+    const team = tj.teams.map((e) => {
+      const k = elTeamKey(e.team.code);
+      return k && { k, gp: e.gamesPlayed, pts: r1(e.pointsScored), opp: gpOpp[k], reb: r1(e.totalRebounds), ast: r1(e.assists), stl: r1(e.steals), blk: r1(e.blocks), to: r1(e.turnovers), fg: pct(e.twoPointersMade + e.threePointersMade, e.twoPointersAttempted + e.threePointersAttempted), tp: pct(e.threePointersMade, e.threePointersAttempted), ft: pct(e.freeThrowsMade, e.freeThrowsAttempted) };
+    }).filter((x) => x && x.gp > 0).sort((a, b) => (b.pts || 0) - (a.pts || 0));
+    if (team.length) { out.team = team; out.season = EL_SEASON_LABEL; }
+  }
+  const photos = {};
+  if (pj?.players?.length) {
+    const player = pj.players.map((e) => {
+      const p = e.player, k = elTeamKey(p.team?.code), id = `elbk:${p.code}`;
+      if (p.imageUrl) photos[id] = { img: p.imageUrl, en: elName(p.name), src: 'euroleague' };
+      return { id, n: elName(p.name), k: k || undefined, gp: e.gamesPlayed, min: r1(e.minutesPlayed), pts: r1(e.pointsScored), reb: r1(e.totalRebounds), ast: r1(e.assists), stl: r1(e.steals), blk: r1(e.blocks), to: r1(e.turnovers), fg: pct(e.twoPointersMade + e.threePointersMade, e.twoPointersAttempted + e.threePointersAttempted), tp: pct(e.threePointersMade, e.threePointersAttempted), ft: pct(e.freeThrowsMade, e.freeThrowsAttempted) };
+    }).filter((x) => x.gp >= 3).sort((a, b) => (b.pts || 0) - (a.pts || 0)).slice(0, 150);
+    if (player.length) { out.player = player; out.season ||= EL_SEASON_LABEL; }
+  }
+  if (Object.keys(photos).length) {
+    const wdFile = path.join(DIR, 'player-wd.json');
+    const wd = await fs.readFile(wdFile, 'utf8').then(JSON.parse).catch(() => ({}));
+    let n = 0;
+    for (const [id, v] of Object.entries(photos)) if (!wd[id]?.img) { wd[id] = { ...(wd[id] || {}), ...v }; n++; }
+    if (n) await fs.writeFile(wdFile, JSON.stringify(wd));
+  }
+  return out.team || out.player ? out : null;
+}
+
 const NAVER = [{ lg: 'KBL', cat: 'kbl' }, { lg: 'WKBL', cat: 'wkbl' }];
 async function naverTeams(cfg) {
   const base = `https://api-gw.sports.naver.com/statistics/categories/${cfg.cat}`;
@@ -136,5 +172,6 @@ for (const cfg of ESPN) {
   if (r) leagues[cfg.lg] = { ...(leagues[cfg.lg] || {}), ...r };
   else console.log('[bk-stats] espn miss', cfg.lg);
 }
+{ const r = await euroleagueStats(); if (r) leagues.EUROLEAGUE = { ...(leagues.EUROLEAGUE || {}), ...r }; else console.log('[bk-stats] euroleague miss'); }
 await fs.writeFile(file, JSON.stringify({ updated: now, leagues }));
 console.log('[bk-stats]', Object.entries(leagues).map(([k, v]) => `${k}: team=${v.team?.length || 0} player=${v.player?.length || 0} ${v.season || ''}`).join(' | '));
