@@ -15,7 +15,7 @@
 
 import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import fs from 'node:fs/promises';
-import { fetchLogoByEnTitle } from './team-logo-wikipedia.mjs';
+import { fetchLogoByEnTitle, WIKI_UA } from './team-logo-wikipedia.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execSync } from 'node:child_process';
@@ -34,6 +34,19 @@ const WIKI_BUDGET = 250;
 const TITLES_PATH = path.join(REPO_ROOT, 'team-logo-wiki-titles.json');
 const TITLES_TRIED_PATH = path.join(REPO_ROOT, 'team-logos-titles-tried.json');
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+// 위키백과 요청 예절(2026-10-27, ko.wikipedia.org 429 가 하루 수십 회 — 운영 알림이 잡음): User-Agent 없이 0.3초 간격(초당 3회+)으로 보내고 429 후에도 계속 요청하고 있었다.
+// → 설명적 User-Agent, 요청 사이 1초, 429 면 Retry-After(최대 20초)만큼 쉬고 한 번만 재시도, 그래도 429 면 이번 실행의 위키 조회는 중단(다음 실행에서 이어감).
+const WIKI_DELAY_MS = 1000;
+let wikiBlocked = false;
+async function wikiFetch(url) {
+  for (let attempt = 0; attempt < 2; attempt++) {
+    const res = await fetch(url, { headers: { 'User-Agent': WIKI_UA }, signal: AbortSignal.timeout(10000) });
+    if (res.status !== 429) return res;
+    if (attempt === 0) await sleep(Math.min(20, Number(res.headers.get('retry-after')) || 10) * 1000);
+  }
+  wikiBlocked = true;
+  return null;
+}
 
 // 야구 리그 판정(2026-09-30, "mlb인데축구장사진이있네" 리포트로 구장사진 백필에서 발견한 동일
 // 버그 클래스를 여기도 같이 수정 — "Houston" 검색이 야구팀 없이 무관한 스포츠 팀 1건만 반환하는
@@ -111,8 +124,8 @@ async function wikiTeamLookup(koName, sport) {
     exintro: '1', explaintext: '1', exchars: '300', origin: '*',
   });
   try {
-    const res = await fetch(url);
-    if (!res.ok) return undefined;
+    const res = await wikiFetch(url);
+    if (!res || !res.ok) return undefined;
     const pages = Object.values((await res.json()).query?.pages || {});
     const p = pages[0];
     if (!p || !TEAM_WORD_RE.test(p.extract || '')) return { en: null, logo: null };
@@ -184,12 +197,13 @@ async function main() {
   let wikiFound = 0;
   for (const cacheKey of koTeamNames) {
     if (wikiUsed >= WIKI_BUDGET) break;
+    if (wikiBlocked) { console.log('[team-logos] 위키백과 요청 제한(429) — 이번 실행의 위키 조회 중단'); break; }
     if (wikiTried[cacheKey]) continue;
     if (cache[cacheKey]) continue;
     const koName = keyToKo.get(cacheKey);
     const sport = koTeamSport.get(cacheKey);
     wikiUsed++;
-    await sleep(300);
+    await sleep(WIKI_DELAY_MS);
     const w = await wikiTeamLookup(koName, sport);
     if (w === undefined) continue;
     wikiTried[cacheKey] = true;
@@ -216,7 +230,7 @@ async function main() {
     const title = titles[keyToKo.get(cacheKey)];
     if (!title) continue;
     tUsed++;
-    await sleep(300);
+    await sleep(WIKI_DELAY_MS);
     const logo = await fetchLogoByEnTitle(title);
     if (logo === undefined) continue;
     titlesTried[cacheKey] = true;
