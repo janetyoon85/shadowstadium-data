@@ -1,5 +1,8 @@
 name: fetch-basketball-stats
 on:
+  schedule:
+    # 안전망 — 평소엔 cron-job.org 가 매시 workflow_dispatch 로 호출한다. GitHub 스케줄은 지연·누락이 잦아 보조로만 둔다(스크립트가 50분 안 재실행은 건너뜀).
+    - cron: '35 * * * *'
   workflow_dispatch:
 concurrency:
   group: fetch-basketball-stats
