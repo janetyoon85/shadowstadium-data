@@ -1,6 +1,6 @@
 name: naver-recovery-watch
 # 네이버 API 가 GitHub 호스티드 러너를 막은 동안(2026-10-26~) 30분마다 응답하는지 확인한다.
-# 응답이 돌아오면 Discord 로 한 번 알리고 이 워크플로우를 스스로 끈다. 크롤러는 pick-runner.yml 이 매 실행마다 알아서 GitHub 서버로 돌아간다(docs/home-runner.md).
+# 응답이 돌아오면 Discord 로 한 번 알리고 이 워크플로우를 스스로 끈다. 크롤러는 pick-runner.yml 이 매 실행마다 알아서 고른다(NAS 우선)(docs/home-runner.md).
 on:
   schedule:
     - cron: '7,37 * * * *'
@@ -29,5 +29,5 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           HOOK: ${{ secrets.DISCORD_WEBHOOK_URL }}
         run: |
-          curl -s -H "Content-Type: application/json" -d '{"content":"🟢 네이버 API 가 GitHub 서버에서 다시 응답해요. 크롤러는 다음 실행부터 자동으로 GitHub 서버에서 돌고, 집 PC 는 대기 상태가 됩니다(별도 조치 없음)."}' "$HOOK"
+          curl -s -H "Content-Type: application/json" -d '{"content":"🟢 네이버 API 가 GitHub 서버에서 다시 응답해요. 크롤러는 NAS 가 켜져 있는 동안 계속 NAS 에서 돌고(우선순위 NAS → GitHub → PC), NAS 가 꺼지면 GitHub 서버로 넘어가요(별도 조치 없음)."}' "$HOOK"
           gh api -X PUT "repos/${{ github.repository }}/actions/workflows/naver-recovery-watch.yml/disable"
