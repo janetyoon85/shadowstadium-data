@@ -33,10 +33,13 @@ jobs:
       - name: Run venue photos backfill
         run: node scripts/backfill-venue-photos.mjs
 
+      - name: 농구 구장 국가(국기) 백필
+        run: node scripts/backfill-bk-venue-country.mjs
+
       - name: Check for changes
         id: changes
         run: |
-          if [[ -n "$(git status --porcelain venue-photos.json venue-photos-commons-tried.json venues-meta.json venue-name-en.json)" ]]; then
+          if [[ -n "$(git status --porcelain venue-photos.json venue-photos-commons-tried.json venues-meta.json venue-name-en.json venue-country.json)" ]]; then
             echo "changed=true" >> $GITHUB_OUTPUT
           else
             echo "changed=false" >> $GITHUB_OUTPUT
@@ -47,7 +50,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add venue-photos.json venue-photos-commons-tried.json venues-meta.json venue-name-en.json
+          git add venue-photos.json venue-photos-commons-tried.json venues-meta.json venue-name-en.json venue-country.json
           git commit -m "chore(data): 경기장 사진 백필 ($(date +'%Y-%m-%d %H:%M'))"
           for i in $(seq 1 20); do
             if git push; then
