@@ -46,13 +46,20 @@ jobs:
 
       - name: Commit sent state
         run: |
-          git add sent-player-alerts.json sent-bk-alerts.json sent-team-final.json sent-team-highlights.json sent-team-live.json
+          FILES="sent-player-alerts.json sent-bk-alerts.json sent-team-final.json sent-team-highlights.json sent-team-live.json"
+          git add $FILES
           git diff --cached --quiet && exit 0
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "chore(player-alerts): update sent state [skip ci]"
+          # 1분 주기(2026-10-26)에서 줄 단위 rebase 가 큰 JSON 에서 충돌해 저장이 20번 모두 실패했다(알림 중복 발송 위험).
+          # 기록은 추가만 되므로: 내 파일을 따로 두고 → 원격 최신으로 리셋 → 합집합으로 합쳐 → 커밋·푸시. 충돌이 날 수 없다.
+          rm -rf "$RUNNER_TEMP/mine" && mkdir -p "$RUNNER_TEMP/mine" && cp $FILES "$RUNNER_TEMP/mine/"
           for i in $(seq 1 20); do
-            git pull --rebase --autostash origin main && git push origin main && exit 0 || sleep $((RANDOM % 30 + 1))
+            git fetch -q origin main && git reset -q --hard origin/main \
+              && node scripts/merge-sent-state.mjs "$RUNNER_TEMP/mine" $FILES \
+              && git add $FILES \
+              && { git diff --cached --quiet && exit 0; git commit -q -m "chore(player-alerts): update sent state [skip ci]" && git push -q origin main && exit 0; } \
+              || sleep $((RANDOM % 10 + 1))
           done
-          echo "::error::Failed to push sent-player-alerts.json after 20 retries"
+          echo "::error::Failed to push sent state after 20 retries"
           exit 1
