@@ -28,8 +28,12 @@ const SEASON_END = '2026-11-30';
 const PAGE_SIZE = 200;
 const REQUEST_DELAY_MS = 1100;
 // 빠른 모드(2026-10-01): 매시 첫 10분 구간(전체 모드) 외 실행은 백필 예산을 0으로 두고 라이브/신규만 처리해 실행시간 단축.
-const FULL_RUN = new Date().getUTCMinutes() < 10 || process.env.FULL_RUN === '1';
-const bud = (n) => (FULL_RUN ? n : 0);
+// 2026-10-26 개편(1분 주기): 전체 모드가 매시 0~9분 동안 "매 실행" 2~4분(ESPN 종료 후 재검증 30건 ≈ 145초가 대부분)씩 걸려 1분 트리거가 줄줄이 밀리고 취소됐다.
+// → 한꺼번에 몰아 하던 백필·재검증 예산을 매 실행에 1/BACKFILL_SLICE 씩 나눠 쓴다(시간당 처리량은 약 75% 로 충분 — 재검증 대상은 48시간 창 안의 경기뿐).
+//   매 실행 +15~20초 정도라 한 바퀴가 1분 안팎에 들어오고, 새 종료 경기도 매 실행 바로 채워진다. 수동 전체 실행(FULL_RUN=1)은 예전처럼 전체 예산.
+const FULL_RUN = process.env.FULL_RUN === '1';
+const BACKFILL_SLICE = Math.max(1, Number(process.env.BACKFILL_SLICE) || 8);
+const bud = (n) => (FULL_RUN ? n : Math.max(1, Math.ceil(n / BACKFILL_SLICE)));
 // 카테고리 사이 대기(65개 × 1.1초 ≈ 72초가 실행시간의 1/3이었음, 2026-09-30 실측). 페이지 간 대기는 그대로 유지.
 const CATEGORY_DELAY_MS = 300;
 const PAGE_DELAY_MS = 500; // 카테고리 다중 페이지 조회 전용(enrich의 ESPN 요청 대기는 REQUEST_DELAY_MS 유지)
