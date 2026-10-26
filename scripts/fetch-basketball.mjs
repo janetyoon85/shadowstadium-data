@@ -565,6 +565,23 @@ async function fetchEuroleague(now) {
   return out;
 }
 
+// 유로리그 박스스코어: 공식 v2 stats(홈 local/원정 road, 선수별 공식 기록). 선수 이름은 "AYAYI, JOEL" 형식이라 "Joel Ayayi" 로 바꾼다.
+const elName = (raw) => { const [sur, giv] = String(raw || '').split(',').map((x) => x.trim()); return String(giv ? giv + ' ' + sur : sur).toLowerCase().replace(/(^|[\s\-'.])([a-zà-ÿ])/g, (m, a, b) => a + b.toUpperCase()).replace(/\bMc([a-z])/g, (m, c) => 'Mc' + c.toUpperCase()).replace(/\b(Ii|Iii|Iv)\b/g, (m) => m.toUpperCase()); };
+async function elDetail(game) {
+  const code = game.id.split('_')[1];
+  const j = await getJson(`https://api-live.euroleague.net/v2/competitions/E/seasons/${EL_SEASON}/games/${code}/stats`);
+  if (!j) return j;
+  if (!j.local?.players?.length) return Date.now() - game.t > 3 * 86400e3 ? null : undefined;
+  const mmss = (sec) => (Number.isFinite(sec) ? String(Math.floor(sec / 60)).padStart(2, '0') + ':' + String(sec % 60).padStart(2, '0') : undefined);
+  const team = (o) => { const x = o?.total; return x && { pts: x.points, reb: x.totalRebounds, ast: x.assistances, stl: x.steals, blk: x.blocksFavour, to: x.turnovers, pf: x.foulsCommited, fg: [x.fieldGoalsMadeTotal, x.fieldGoalsAttemptedTotal], tp: [x.fieldGoalsMade3, x.fieldGoalsAttempted3], ft: [x.freeThrowsMade, x.freeThrowsAttempted] }; };
+  const pl = (o, side) => (o.players || []).filter((p) => p.stats?.timePlayed > 0 || p.stats?.points > 0).map((p) => {
+    const x = p.stats, pe = p.player.person, pid = `elbk:${pe.code}`, name = elName(pe.name);
+    addPlayer(pid, name, game[side].k, game.lg, game.date);
+    return { pid, n: name, no: String(x.dorsal ?? p.player.dorsal ?? ''), pos: p.player.positionName, min: mmss(x.timePlayed), pts: x.points, reb: x.totalRebounds, ast: x.assistances, stl: x.steals, blk: x.blocksFavour, to: x.turnovers, pf: x.foulsCommited, fg: [x.fieldGoalsMadeTotal, x.fieldGoalsAttemptedTotal], tp: [x.fieldGoalsMade3, x.fieldGoalsAttempted3], ft: [x.freeThrowsMade, x.freeThrowsAttempted], pm: Number.isFinite(x.plusMinus) ? (x.plusMinus > 0 ? '+' : '') + x.plusMinus : undefined, gs: x.startFive ? 1 : 0 };
+  });
+  return { ls: { h: game.h.ls, a: game.a.ls }, tm: { h: team(j.local), a: team(j.road) }, pl: { h: pl(j.local, 'h'), a: pl(j.road, 'a') } };
+}
+
 async function main() {
   await fs.mkdir(OUT, { recursive: true });
   const now = Date.now();
@@ -638,7 +655,7 @@ async function main() {
     if (g.st !== 'final' || g.boxed) continue;
     if ((await box(g))[g.id]) g.boxed = 1;
   }
-  const finals = [...byId.values()].filter((g) => g.st === 'final' && !g.boxed && (g._cfg || g.src === 'bl' || g.src === 'ag')).sort((a, b) => b.t - a.t);
+  const finals = [...byId.values()].filter((g) => g.st === 'final' && !g.boxed && (g._cfg || g.src === 'bl' || g.src === 'ag' || g.src === 'el')).sort((a, b) => b.t - a.t);
   const todo = finals.slice(0, DETAIL_BUDGET);
   for (const g of todo) await box(g);
   detail = todo.length;
@@ -646,7 +663,7 @@ async function main() {
   await Promise.all(Array.from({ length: 4 }, async () => {
     while (qi < todo.length) {
       const g = todo[qi++];
-      const d = g.src === 'naver' ? await naverDetail(g) : g.src === 'bl' ? await blDetail(g) : g.src === 'ag' ? await agDetail(g) : await espnDetail(g);
+      const d = g.src === 'naver' ? await naverDetail(g) : g.src === 'bl' ? await blDetail(g) : g.src === 'ag' ? await agDetail(g) : g.src === 'el' ? await elDetail(g) : await espnDetail(g);
       if (d === undefined) continue;
       if (d) boxFiles[`box-${g.date.slice(0, 7)}.json`][g.id] = d;
       g.boxed = 1;
@@ -657,10 +674,10 @@ async function main() {
     // 그래서 ① 종료 후 3일 안 경기는 2시간마다 ② 선수 득점 합이 경기 점수와 안 맞는 경기(부분 기록으로 저장된 프리시즌 등)는 30일 안에서 하루 1번 다시 받는다. 마지막 확인 시각은 box-recheck.json.
     const state = await readJson('box-recheck.json', {});
     const sumBad = (g, d) => ['h', 'a'].some((s) => d?.pl?.[s]?.length && Number.isFinite(g[s]?.s) && d.pl[s].reduce((a, p) => a + (p.pts || 0), 0) !== g[s].s);
-    const cfgFor = (g) => g._cfg || (g.src === 'espn' ? ESPN.find((c) => c.lg === g.lg) : g.src === 'naver' ? NAVER.find((c) => c.lg === g.lg) : undefined);
+    const cfgFor = (g) => g._cfg || (g.src === 'espn' ? ESPN.find((c) => c.lg === g.lg) : g.src === 'naver' ? NAVER.find((c) => c.lg === g.lg) : g.src === 'el' ? {} : undefined);
     const due = [];
     for (const g of byId.values()) {
-      if (g.st !== 'final' || !g.boxed || (g.src !== 'espn' && g.src !== 'naver') || !cfgFor(g)) continue;
+      if (g.st !== 'final' || !g.boxed || (g.src !== 'espn' && g.src !== 'naver' && g.src !== 'el') || !cfgFor(g)) continue;
       const d = (await box(g))[g.id];
       if (!d) continue;
       const last = state[g.id] || 0;
@@ -670,7 +687,7 @@ async function main() {
     let rechecked = 0, changed = 0;
     for (const g of due.slice(0, Number(process.env.BASKETBALL_RECHECK_MAX || 10))) {
       g._cfg ||= cfgFor(g);
-      const d = g.src === 'naver' ? await naverDetail(g) : await espnDetail(g);
+      const d = g.src === 'naver' ? await naverDetail(g) : g.src === 'el' ? await elDetail(g) : await espnDetail(g);
       if (d === undefined) continue; // 일시 오류 — 다음 실행에 재시도
       state[g.id] = now;
       rechecked++;

@@ -15,7 +15,7 @@ export function boxInternalCheck(game, box, label = `${game.date} ${game.lg} ${g
     if (!rows.length) continue;
     const sum = rows.reduce((a, p) => a + (Number.isFinite(p.pts) ? p.pts : 0), 0);
     if (Number.isFinite(game[s]?.s) && sum !== game[s].s) out.push({ key: `sum|${s}`, kind: '농구 박스스코어 득점 합계 불일치', text: `${label} — ${s === 'h' ? '홈' : '원정'} 선수 득점 합 ${sum} / 경기 점수 ${game[s].s} (선수 ${rows.length}명)` });
-    if (/^(espn|naver|bl)$/.test(game.src)) {
+    if (/^(espn|naver|bl|el)$/.test(game.src)) {
       for (const p of rows) {
         if (!Array.isArray(p.fg) || !Array.isArray(p.tp) || !Array.isArray(p.ft)) continue;
         const calc = 2 * p.fg[0] + p.tp[0] + p.ft[0];
