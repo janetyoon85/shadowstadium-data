@@ -724306,7 +724306,20 @@
     "stadium": "Estadio Cibao",
     "timeTbd": false,
     "gameId": "LIDOM_MLBSTATS_851559",
-    "status": "cancelled"
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0,
+    "inningInfo": "2회말",
+    "liveState": {
+      "pitcher": "Esmil Rogers",
+      "batter": "Aderlin Rodríguez",
+      "pitcherPid": "mlb:469134",
+      "batterPid": "mlb:573669",
+      "ball": 0,
+      "strike": 0,
+      "out": 0,
+      "bases": []
+    }
   },
   {
     "date": "2026-10-22",
@@ -745368,8 +745381,8 @@
           "n": "에데르송",
           "m": 33,
           "pid": "espn:278210",
-          "pk": true,
-          "nat": "Brazil"
+          "nat": "Brazil",
+          "pk": true
         },
         {
           "n": "크르스토비치",
@@ -745420,8 +745433,8 @@
           "m": 82,
           "a": "Farès Ghedjemis",
           "nat": "Serbia",
-          "pid": "espn:260005",
           "aNat": "Algeria",
+          "pid": "espn:260005",
           "apid": "espn:356536"
         }
       ]
@@ -752401,13 +752414,15 @@
     "inningInfo": "9회초",
     "liveState": {
       "pitcher": "Tanner Bauman",
-      "batter": "Arjun Nimmala",
+      "batter": "Juan Cabada",
       "pitcherPid": "mlb:703748",
-      "batterPid": "mlb:805796",
-      "ball": 3,
+      "batterPid": "mlb:829040",
+      "ball": 1,
       "strike": 1,
-      "out": 1,
-      "bases": []
+      "out": 2,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -752434,22 +752449,9 @@
     "stadium": "Salt River Fields at Talking Stick",
     "timeTbd": false,
     "gameId": "AFL_MLBSTATS_867676",
-    "status": "live",
+    "status": "completed",
     "homeScore": 20,
-    "awayScore": 4,
-    "inningInfo": "9회초",
-    "liveState": {
-      "pitcher": "Brian Zeldin",
-      "batter": "Brooks Bryan",
-      "pitcherPid": "mlb:823227",
-      "batterPid": "mlb:804871",
-      "ball": 0,
-      "strike": 0,
-      "out": 2,
-      "bases": [
-        3
-      ]
-    }
+    "awayScore": 4
   },
   {
     "date": "2026-10-27",
@@ -752843,7 +752845,7 @@
     "timeTbd": false,
     "gameId": "COLOMBIA_ESPN_401878065",
     "status": "live",
-    "matchPeriod": "전반",
+    "matchPeriod": "하프타임",
     "homeScore": 0,
     "awayScore": 0,
     "cards": {
@@ -752887,16 +752889,18 @@
     "status": "live",
     "homeScore": 1,
     "awayScore": 4,
-    "inningInfo": "2회초",
+    "inningInfo": "2회말",
     "liveState": {
-      "pitcher": "Connor Van Scoyoc",
-      "batter": "Mason Martin",
-      "pitcherPid": "mlb:681854",
-      "batterPid": "mlb:676733",
-      "ball": 2,
-      "strike": 2,
-      "out": 2,
-      "bases": []
+      "pitcher": "Ronnie Williams",
+      "batter": "Yonathan Daza",
+      "pitcherPid": "mlb:657122",
+      "batterPid": "mlb:602074",
+      "ball": 0,
+      "strike": 0,
+      "out": 1,
+      "bases": [
+        1
+      ]
     }
   },
   {
