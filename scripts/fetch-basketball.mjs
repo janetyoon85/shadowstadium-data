@@ -13,7 +13,7 @@ import zlib from 'node:zlib';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { dropDuplicateNaverNba, crossCheckNaverVsEspnNba } from './nba-dedupe.mjs';
-import { EL_SEASON, EL_API, EL_TEAM, elName } from './euroleague-common.mjs';
+import { EL_SEASON, EL_API, EL_TEAM, elLastPlayedRound, parseElGame, elStandingsRows, elBoxFromStats } from './euroleague-common.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const OUT = path.join(path.resolve(__dirname, '..'), 'basketball');
@@ -530,80 +530,48 @@ async function syncAllTeams(now) {
 // ESPN 은 유로리그 경기를 한 번도 내려준 적이 없어(2025·2026 모든 날짜 0건, 2026-10-26 확인) 앱의 유로리그 탭이 항상 비어 있었다.
 // 리그 공식 개발자 API(api-live.euroleague.net v2, 로그인·키 없음, robots.txt 없음)의 시즌 전체 일정 1회 호출로 일정·스코어·쿼터 점수·경기장·팀 엠블럼을 받는다.
 // 팀은 이미 등록된 ESPN 유로리그 팀(번역·로고 데이터가 붙어 있음)에 공식 클럽 코드로 대응시키고, 로고가 없는 팀(7개)만 공식 엠블럼으로 채운다.
-const EL_HOME_CITY = { BAR: 'Barcelona', PAR: 'Belgrade', OLY: 'Piraeus', PAM: 'Valencia', BES: 'Istanbul', VIR: 'Bologna', DUB: 'Dubai', ASV: 'Villeurbanne', PRS: 'Paris', MUN: 'Munich', PAN: 'Athens', MAD: 'Madrid', TEL: 'Tel Aviv', BAS: 'Vitoria-Gasteiz', RED: 'Belgrade', MIL: 'Milan', IST: 'Istanbul', HTA: 'Tel Aviv', ZAL: 'Kaunas', ULK: 'Istanbul' };
 // ESPN/위키 로고가 깨졌거나(바르셀로나 404) 가로로 긴 워드마크라 앱에서 점처럼 작게 보이는 팀(레알 마드리드 250x91·바스코니아 250x100·밀라노 250x87·발렌시아 250x150)은 공식 정사각 엠블럼으로 강제 교체.
 const EL_CREST_FORCE = new Set(['BAR', 'MAD', 'BAS', 'MIL', 'PAM']);
-const EL_VENUE_CITY ={ AUF4: 'Belgrade', AVK1: 'Sofia', AVN2: 'Botevgrad' }; // 이스라엘 팀의 임시 홈구장 — 주소 파싱이 안 되거나 연고지와 다른 곳
-const titleCase =(t) => String(t || '').toLowerCase().replace(/(^|[\s-])([a-zà-ÿ])/g, (m, a, b) => a + b.toUpperCase());
 let elLastRound = 0;
-// 순위표: 공식 라운드별 순위(마지막으로 경기가 열린 라운드). ESPN 순위표와 같은 행 형태로 standings['espn:EUROLEAGUE'] 에 담는다.
+// 순위표: 공식 라운드별 순위(마지막으로 경기가 열린 라운드). ESPN 순위표와 같은 행 형태로 standings['espn:EUROLEAGUE'] 에 담는다. 파싱은 euroleague-common.mjs(단위 테스트 대상).
 async function fetchEuroleagueStandings() {
   if (!elLastRound) return null;
-  const j = await getJson(`${EL_API}/v2/competitions/E/seasons/${EL_SEASON}/rounds/${elLastRound}/standings`);
-  const rows = j?.[0]?.standings;
-  if (!rows?.length) return null;
-  const lead = rows.find((r) => r.data.position === 1)?.data || rows[0].data;
-  const out = [];
-  for (const r of rows) {
-    const k = EL_TEAM[r.club.code] ? `espn:EUROLEAGUE:${EL_TEAM[r.club.code]}` : null;
-    if (!k) continue;
-    const d = r.data, gp = d.gamesWon + d.gamesLost;
-    out.push({ k, rank: d.position, w: d.gamesWon, l: d.gamesLost, gp, pct: gp ? Math.round((d.gamesWon / gp) * 1000) / 1000 : 0, gb: String(((lead.gamesWon - d.gamesWon) + (d.gamesLost - lead.gamesLost)) / 2 || '-'), pf: String(d.pointsFavour), pa: String(d.pointsAgainst), ...(d.qualified ? { q: 1 } : {}) });
-  }
-  return out.sort((a, b) => a.rank - b.rank);
+  return elStandingsRows(await getJson(`${EL_API}/v2/competitions/E/seasons/${EL_SEASON}/rounds/${elLastRound}/standings`));
 }
 async function fetchEuroleague(now) {
   const j = await getJson(`${EL_API}/v2/competitions/E/seasons/${EL_SEASON}/games?limit=500`);
   if (!j) return j;
   const out = [];
-  elLastRound = Math.max(0, ...(j.data || []).filter((x) => x.played === true).map((x) => Number(x.round) || 0));
+  elLastRound = elLastPlayedRound(j.data);
   for (const x of j.data || []) {
-    const t = Date.parse(x.utcDate);
-    if (!Number.isFinite(t)) continue;
-    const side = (o) => {
-      const c = o.club;
+    const g = parseElGame(x, now);
+    if (!g) continue;
+    const side = (c) => {
       const id = EL_TEAM[c.code];
       if (!id) return null;
       const key = `espn:EUROLEAGUE:${id}`;
       addTeam('espn', 'EUROLEAGUE', String(id), { en: c.name, ...((teams[key]?.logo && !EL_CREST_FORCE.has(c.code)) || !c.images?.crest ? {} : { logo: c.images.crest }) });
       return key;
     };
-    const hk = side(x.local), ak = side(x.road);
-    if (!hk || !ak) continue; // 모르는 클럽(코드 매핑 없음)은 건너뛴다 — 로그로 남긴다
-    const played = x.played === true;
-    const hs = Number(x.local.score), as = Number(x.road.score);
-    const live = !played && now >= t && now < t + 3.5 * 3600e3 && (hs > 0 || as > 0);
-    const ls = (o) => { const p = o.partials || {}; return [p.partials1, p.partials2, p.partials3, p.partials4, ...Object.values(p.extraPeriods || {})].filter(Number.isFinite); };
-    const vn = x.venue?.name ? titleCase(x.venue.name) : undefined;
-    // 주소 끝 도시에서 "Paris, France"·"Belgrade - Serbia" 같은 국가 꼬리를 떼고, 주소에 도시가 없으면 홈 클럽의 연고 도시로 채운다.
-    const rawCity = /\d{4,6}\s+(.+)$/.exec(x.venue?.address || '')?.[1]?.trim();
-    const city = EL_VENUE_CITY[x.venue?.code] || (rawCity ? rawCity.split(/\s+-\s+|,\s*/)[0].trim() : '') || (x.isNeutralVenue ? undefined : EL_HOME_CITY[x.local.club.code]);
-    const vid = addVenue('el', 'EUROLEAGUE', vn, city, hk, vn);
-    const ot = Object.keys(x.local.partials?.extraPeriods || {}).length;
+    const hk = side(g.localClub), ak = side(g.roadClub);
+    if (!hk || !ak) continue; // 모르는 클럽(코드 매핑 없음)은 건너뛴다
+    const vid = addVenue('el', 'EUROLEAGUE', g.venueName, g.city, hk, g.venueName);
     out.push({
-      id: `el:${x.identifier}`, src: 'el', lg: 'EUROLEAGUE', date: kstDate(t), t, st: played ? 'final' : live ? 'live' : 'scheduled', per: played ? (ot ? 'Final/OT' : 'Final') : live ? (ot ? 'OT' : `Q${Math.min(4, Math.max(1, ls(x.local).filter((v) => v > 0).length || 1))}`) : undefined, // 진행 중은 득점이 잡힌 쿼터 수로 Q1~Q4/OT(라이브 알림의 쿼터 종료 판정용, 실경기에서 확인 필요)
-     
-      h: { k: hk, s: played || live ? hs : undefined, ls: played || live ? ls(x.local) : undefined }, a: { k: ak, s: played || live ? as : undefined, ls: played || live ? ls(x.road) : undefined },
-      venue: vn, vid, rd: undefined, att: x.audienceConfirmed ? x.audience || undefined : undefined,
+      id: `el:${g.identifier}`, src: 'el', lg: 'EUROLEAGUE', date: kstDate(g.t), t: g.t, st: g.st, per: g.per,
+      h: { k: hk, ...g.h }, a: { k: ak, ...g.a }, venue: g.venueName, vid, att: g.att,
     });
   }
   return out;
 }
 
-// 유로리그 박스스코어: 공식 v2 stats(홈 local/원정 road, 선수별 공식 기록). 선수 이름은 "AYAYI, JOEL" 형식이라 "Joel Ayayi" 로 바꾼다.
+// 유로리그 박스스코어: 공식 v2 stats(홈 local/원정 road). 파싱은 euroleague-common.mjs elBoxFromStats.
 async function elDetail(game) {
   const code = game.id.split('_')[1];
-  const j = await getJson(`https://api-live.euroleague.net/v2/competitions/E/seasons/${EL_SEASON}/games/${code}/stats`);
+  const j = await getJson(`${EL_API}/v2/competitions/E/seasons/${EL_SEASON}/games/${code}/stats`);
   if (!j) return j;
-  if (!j.local?.players?.length) return Date.now() - game.t > 3 * 86400e3 ? null : undefined;
-  const mmss = (sec) => (Number.isFinite(sec) ? String(Math.floor(sec / 60)).padStart(2, '0') + ':' + String(sec % 60).padStart(2, '0') : undefined);
-  const team = (o) => { const x = o?.total; return x && { pts: x.points, reb: x.totalRebounds, ast: x.assistances, stl: x.steals, blk: x.blocksFavour, to: x.turnovers, pf: x.foulsCommited, fg: [x.fieldGoalsMadeTotal, x.fieldGoalsAttemptedTotal], tp: [x.fieldGoalsMade3, x.fieldGoalsAttempted3], ft: [x.freeThrowsMade, x.freeThrowsAttempted] }; };
-  const pl = (o, side) => (o.players || []).filter((p) => p.stats?.timePlayed > 0 || p.stats?.points > 0).map((p) => {
-    const x = p.stats, pe = p.player.person, pid = `elbk:${pe.code}`, name = elName(pe.name);
-    addPlayer(pid, name, game[side].k, game.lg, game.date);
-    return { pid, n: name, no: String(x.dorsal ?? p.player.dorsal ?? ''), pos: p.player.positionName, img: p.player.images?.headshot, min: mmss(x.timePlayed), pts: x.points, reb: x.totalRebounds, ast: x.assistances, stl: x.steals, blk: x.blocksFavour, to: x.turnovers, pf: x.foulsCommited, fg: [x.fieldGoalsMadeTotal, x.fieldGoalsAttemptedTotal], tp: [x.fieldGoalsMade3, x.fieldGoalsAttempted3], ft: [x.freeThrowsMade, x.freeThrowsAttempted], pm: Number.isFinite(x.plusMinus) ? (x.plusMinus > 0 ? '+' : '') + x.plusMinus : undefined, gs: x.startFive ? 1 : 0 };
-  });
-  return { ls: { h: game.h.ls, a: game.a.ls }, tm: { h: team(j.local), a: team(j.road) }, pl: { h: pl(j.local, 'h'), a: pl(j.road, 'a') } };
+  const box = elBoxFromStats(j, (side, pid, name) => addPlayer(pid, name, game[side].k, game.lg, game.date));
+  if (!box) return Date.now() - game.t > 3 * 86400e3 ? null : undefined;
+  return { ls: { h: game.h.ls, a: game.a.ls }, ...box };
 }
 
 async function main() {
@@ -708,7 +676,8 @@ async function main() {
       const d = (await box(g))[g.id];
       if (!d) continue;
       const last = state[g.id] || 0;
-      if ((now - g.t < 3 * 86400e3 && now - last >= 2 * 3600e3) || (now - g.t < 30 * 86400e3 && now - last >= 24 * 3600e3 && sumBad(g, d)) || (g.src === 'naver' && fgBug(d))) due.push(g);
+      // 종료 후 12시간은 30분마다(ESPN 스탯 정정이 몰리는 시간대 — 2시간 간격이면 원본 대조가 정정 반영 전 값을 두 번 연속 잡아 오알림을 냈다, 2026-10-26), 이후 3일까지는 2시간마다.
+      if ((now - g.t < 12 * 3600e3 && now - last >= 30 * 60e3) || (now - g.t < 3 * 86400e3 && now - last >= 2 * 3600e3) || (now - g.t < 30 * 86400e3 && now - last >= 24 * 3600e3 && sumBad(g, d)) || (g.src === 'naver' && fgBug(d))) due.push(g);
     }
     due.sort((a, b) => b.t - a.t);
     let rechecked = 0, changed = 0;
