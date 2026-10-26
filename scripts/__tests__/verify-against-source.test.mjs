@@ -37,3 +37,11 @@ test('연속 2회 + 24시간 중복 억제', () => {
   assert.equal(r4.toSend.length, 1); // 해결 안 되면 하루 뒤 재알림
   assert.equal(decideAlerts({}, { pending: r4.pending, alerted: r4.alerted }, NOW + 27 * 3600e3).pending.k1, undefined); // 해소되면 보류 목록에서 사라짐
 });
+
+test('시각 미정(timeTbd) 경기는 킥오프 시각 불일치로 보지 않는다', () => {
+  const now = Date.parse('2026-10-26T12:00:00Z');
+  const ours = { date: '2026-10-27', time: '18:33', league: 'LMP', home: 'A', away: 'B', status: 'scheduled', timeTbd: true };
+  const ev = { completed: false, state: 'pre', status: 'Scheduled', startMs: Date.parse('2026-10-28T01:30:00Z'), home: {}, away: {} };
+  assert.deepEqual(compareGame(ours, ev, now), []);
+  assert.equal(compareGame({ ...ours, timeTbd: false }, ev, now).length, 1);
+});

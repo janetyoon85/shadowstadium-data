@@ -31,7 +31,7 @@ export function compareGame(ours, ev, nowMs = Date.now()) {
       const flipped = ours.homeScore === ev.away.score && ours.awayScore === ev.home.score;
       if (!flipped) out.push({ kind: '스코어 불일치', text: `${label} — 우리 ${ours.homeScore}-${ours.awayScore} / ESPN ${ev.home.score}-${ev.away.score}` });
     }
-  } else if (ev.state === 'pre' && ours.status === 'scheduled') {
+  } else if (ev.state === 'pre' && ours.status === 'scheduled' && !ours.timeTbd) { // 시각 미정(timeTbd) 경기는 자리표시 시각이라 비교하지 않는다
     const diff = Math.abs(ev.startMs - kickoff);
     if (diff > 25 * 60e3 && ev.startMs - nowMs < 48 * 3600e3 && ev.startMs > nowMs) out.push({ kind: '킥오프 시각 불일치', text: `${label} — 우리 ${ours.time} / ESPN ${new Date(ev.startMs + KST).toISOString().slice(11, 16)} (차이 ${Math.round(diff / 60e3)}분)` });
   }
@@ -195,6 +195,41 @@ async function main() {
     stats.unmatched += evs.length - mlbM;
     console.log(`[verify] MLB statsapi games=${evs.length} matched=${mlbM}`);
   } catch (e) { console.warn('[verify] MLB 대조 실패:', e.message); }
+
+  // ── MLB StatsAPI 산하(AAA)·윈터리그(AFL·LMP·LIDOM·ABL·PWL·LVBP)·LMB: 우리 크롤러도 같은 API 가 출처라 "독립 원본"은 아니다.
+  // 대신 gamePk(gameId 끝 숫자)로 다시 받아 1:1 대조해 크롤러 쪽 문제(종료가 안 반영된 박제, 점수 불일치, 취소·연기 미반영, AAA 누락)를 잡는다.
+  try {
+    const lo = new Date(now - BACK * 86400e3).toISOString().slice(0, 10), hi = new Date(now + 86400e3).toISOString().slice(0, 10);
+    const byPk = new Map();
+    for (const sport of [11, 17, 23]) {
+      const r = await fetch(`https://statsapi.mlb.com/api/v1/schedule?sportId=${sport}&startDate=${lo}&endDate=${hi}&hydrate=linescore`, { signal: AbortSignal.timeout(25000) });
+      if (!r.ok) continue;
+      for (const d of (await r.json()).dates || []) for (const x of d.games || []) {
+        byPk.set(String(x.gamePk), { sport, startMs: Date.parse(x.gameDate), completed: x.status?.abstractGameState === 'Final' && !/postponed|cancel|suspended/i.test(x.status?.detailedState || ''), state: ({ Final: 'post', Live: 'in', Preview: 'pre' })[x.status?.abstractGameState] || 'pre', status: x.status?.detailedState || '', home: { score: x.teams?.home?.score }, away: { score: x.teams?.away?.score } });
+      }
+    }
+    const mine = recent.filter((g) => /^(AAA|AFL|LMP|LIDOM|ABL|PWL|LVBP|LMB)_MLBSTATS_\d+$/.test(g.gameId || ''));
+    const seen = new Set();
+    let n = 0;
+    for (const g of mine) {
+      const pk = g.gameId.split('_').pop();
+      const ev = byPk.get(pk);
+      seen.add(pk);
+      if (!ev) continue;
+      n++; stats.matched++; stats.events++;
+      for (const m of compareGame(g, ev, now)) { const k = `${m.kind}(StatsAPI 재조회)|${g.gameId}`; found[k] = { key: k, kind: `${m.kind}(StatsAPI 재조회)`, text: m.text.replace('ESPN', 'StatsAPI') }; }
+    }
+    // AAA 는 전체 경기를 받아 오므로 StatsAPI 에 있는데 우리에 없는 경기를 누락으로 본다(종료·진행 중·곧 시작하는 것만).
+    const ourPk = new Set(games.filter((g) => /^AAA_MLBSTATS_/.test(g.gameId || '')).map((g) => g.gameId.split('_').pop()));
+    for (const [pk, ev] of byPk) {
+      if (ev.sport !== 11 || ourPk.has(pk) || seen.has(pk)) continue;
+      if (!(ev.completed || ev.state === 'in') || ev.startMs < now - BACK * 86400e3) continue;
+      const k = `경기 누락(StatsAPI 재조회)|AAA|${pk}`;
+      found[k] = { key: k, kind: '경기 누락(StatsAPI 재조회)', text: `${new Date(ev.startMs + KST).toISOString().slice(0, 16).replace('T', ' ')} AAA gamePk ${pk} — StatsAPI 에는 있는데 우리 목록에 없음` };
+    }
+    stats.affil = { api: byPk.size, mine: mine.length, matched: n };
+    console.log(`[verify] StatsAPI 산하·윈터리그 재조회 api=${byPk.size} ours=${mine.length} matched=${n}`);
+  } catch (e) { console.warn('[verify] StatsAPI 산하·윈터리그 대조 실패:', e.message); }
 
   // ── 네이버 출처 전 리그(KBO·NPB·K리그·MLB·EPL·KBL·WKBL …): 독립 원본이 없는 리그의 보완책 ─────────────────────────────
   // KBO·NPB·K리그·KBL·WKBL 은 공식 사이트가 robots.txt 로 자동 수집을 막고 StatsAPI 에도 경기 데이터가 없어 독립 원본이 없다.
