@@ -9,6 +9,7 @@ import { buildKoIndex } from './espn-team-index.mjs';
 import { parseEspnEvents, compareSoccerEvents, compareMlbDecisions, compareNaverTimeline, compareNaverBatters, compareMlbBoxscore } from './verify-events.mjs';
 import { boxInternalCheck, compareBoxFresh, parseEspnBox, parseNaverBox, compareNbaNaverVsOurs } from './verify-basketball.mjs';
 import { norm as nbaNorm } from './nba-dedupe.mjs';
+import { compareStandings } from './verify-standings.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dry = process.argv.includes('--dry');
@@ -274,6 +275,15 @@ async function main() {
     stats.naverDetail = n;
     console.log(`[verify] 네이버 상세 재조회 ${n}/${targets.length}건 (K리그 타임라인 ${stats.naverTimeline || 0}, 야구 타자 기록 ${stats.naverBatters || 0}), 불일치 ${bad}건`);
   } catch (e) { console.warn('[verify] 네이버 상세 대조 실패:', e.message); }
+
+  // ── 순위표 ↔ 경기 결과(독립 원본이 없는 KBO·NPB·K리그·MLB 보완): 순위표의 팀별 경기수·승무패를 우리 경기 기록으로 다시 세어 비교 ──
+  try {
+    const stand = rj('standings.json', {});
+    let nStand = 0;
+    for (const lg of ['KBO', 'NPB', 'K리그1', 'K리그2', 'MLB']) for (const m of compareStandings(games, lg, stand[lg], { nowMs: now })) { const k = `${m.kind}|${m.key}`; found[k] = { key: k, kind: m.kind, text: m.text }; nStand++; }
+    stats.standingsMismatch = nStand;
+    console.log(`[verify] 순위표↔경기결과 불일치 ${nStand}건`);
+  } catch (e) { console.warn('[verify] 순위표 대조 실패:', e.message); }
 
   // ── 농구 선수 기록(박스스코어) ───────────────────────────────────────────
   // ① 내부 정합성: 최근 14일 종료 경기 전부(로컬 계산, 요청 0) — 선수 득점 합 = 경기 점수, 선수 득점 = 필드골·3점·자유투 구성, 쿼터 합 = 최종.

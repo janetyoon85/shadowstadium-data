@@ -21,6 +21,7 @@ import { attachPlayerPids } from './attach-player-pids.mjs';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
 
+// K리그는 2026-02-28 개막(1라운드 3경기가 3월 이전) — cat.from 으로 2월부터 받는다. 순위표↔경기결과 점검(verify-standings)이 개막전 누락을 잡았다(2026-10-26).
 const SEASON_START = '2026-03-01';
 const SEASON_END = '2026-11-30';
 const PAGE_SIZE = 200;
@@ -218,8 +219,8 @@ const STRUCTURED_SCORER_LEAGUES = new Set([
 
 const CATEGORIES = [
   { categoryId: 'kbo', upperCategoryId: 'kbaseball', league: 'KBO' },
-  { categoryId: 'kleague', upperCategoryId: 'kfootball', league: 'K리그1' },
-  { categoryId: 'kleague2', upperCategoryId: 'kfootball', league: 'K리그2' },
+  { categoryId: 'kleague', upperCategoryId: 'kfootball', league: 'K리그1', from: '2026-02-01' },
+  { categoryId: 'kleague2', upperCategoryId: 'kfootball', league: 'K리그2', from: '2026-02-01' },
   { categoryId: 'mlb', upperCategoryId: 'wbaseball', league: 'MLB' },
   { categoryId: 'npb', upperCategoryId: 'wbaseball', league: 'NPB' },
   { categoryId: 'epl', upperCategoryId: 'wfootball', league: 'EPL' },
@@ -357,7 +358,7 @@ async function fetchPage(cat, page) {
   // 이면 빈 문자열로 옴 → convertGame 에서 비어있으면 누락. K리그엔 해당 필드 없음(무시).
   // fields=all — basic,stadium,baseball 의 상위집합(실측 확인) + phaseCode/leg/aggregateScore 등
   // 토너먼트 라운드 정보 포함. 페이로드는 커지지만 별도 요청 없이 한 번에 확보 가능.
-  const url = `${API_BASE}?fromDate=${SEASON_START}&toDate=${SEASON_END}&upperCategoryId=${cat.upperCategoryId}&categoryId=${cat.categoryId}&fields=all&size=${PAGE_SIZE}&page=${page}`;
+  const url = `${API_BASE}?fromDate=${cat.from || SEASON_START}&toDate=${SEASON_END}&upperCategoryId=${cat.upperCategoryId}&categoryId=${cat.categoryId}&fields=all&size=${PAGE_SIZE}&page=${page}`;
   const res = await fetch(url, { headers: { 'User-Agent': USER_AGENT } });
   if (!res.ok) throw new Error(`HTTP ${res.status} for ${cat.categoryId} page=${page}`);
   const json = await res.json();
@@ -366,7 +367,7 @@ async function fetchPage(cat, page) {
 }
 
 async function fetchCategory(cat) {
-  console.log(`[${cat.categoryId}] fetching ${SEASON_START} ~ ${SEASON_END}`);
+  console.log(`[${cat.categoryId}] fetching ${cat.from || SEASON_START} ~ ${SEASON_END}`);
   const p1 = await fetchPage(cat, 1);
   const total = p1.gameTotalCount;
   const pages = Math.max(1, Math.ceil(total / PAGE_SIZE));
