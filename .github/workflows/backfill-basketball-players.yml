@@ -34,6 +34,6 @@ jobs:
             if ! git pull --rebase origin main; then
               node scripts/merge-json-conflicts.mjs && GIT_EDITOR=true git rebase --continue || { git rebase --abort; git reset --hard origin/main; exit 1; }
             fi
-            sleep $((RANDOM % 30 + 1))
+            sleep $((RANDOM % 8 + 1))
           done
           exit 1

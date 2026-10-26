@@ -71,7 +71,7 @@ jobs:
               echo "conflict, dropping this run's result"
               exit 1
             fi
-            sleep $((RANDOM % 30 + 1))
+            sleep $((RANDOM % 8 + 1))
           done
           echo "push failed after 20 retries"
           exit 1

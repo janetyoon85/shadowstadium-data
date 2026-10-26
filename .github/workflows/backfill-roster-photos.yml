@@ -72,7 +72,7 @@ jobs:
               git add team-rosters roster-photos-tried.json roster-photos.json
               git commit -m "chore(data): 선수 사진 보충 — 충돌 후 병합 ($(date +'%Y-%m-%d %H:%M'))" || exit 0
             fi
-            sleep $((RANDOM % 30 + 1))
+            sleep $((RANDOM % 8 + 1))
           done
           echo "push failed after 20 retries"
           exit 1
