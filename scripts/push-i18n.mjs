@@ -66,8 +66,11 @@ export const eventLabel = (lang, how, fallbackKey) => {
 };
 export const minuteLabel = (lang, m) => (typeof m === 'number' ? (MIN[lang] || ((x) => ` (${x}')`))(m) : '');
 
+// 한국어 표시 보정 — 네이버가 MLS 팀을 "갤럭시"로만 내려줘 삼성 갤럭시와 헷갈린다(2026-10-26 알림 "골! 갤럭시 1-0 LAFC"). 데이터 키(갤럭시)는 로고·즐겨찾기·구장 매핑이 쓰므로 바꾸지 않고 표시만 바꾼다. 앱 TEAM_NAME_KO_DISPLAY 와 같은 표.
+export const KO_TEAM_DISPLAY = { 갤럭시: 'LA 갤럭시' };
 export function localTeam(lang, name) {
-  if (!name || lang === 'ko') return name;
+  if (!name) return name;
+  if (lang === 'ko') return KO_TEAM_DISPLAY[name] || name;
   return TEAM_EN[name] || name;
 }
 export function localPlayer(lang, name, pid) {
