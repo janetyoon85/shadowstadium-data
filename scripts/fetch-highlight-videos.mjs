@@ -84,6 +84,8 @@ export const CHANNELS = [
   { name: 'Pro League', id: 'UCZYeLruZnUvYvO6QRTiy88Q', src: 'g', leagues: ["BELGIUM"], must: /^samenvatting \|/i, not: /lwpl|doelpunten/i, script: 'latin' },
   { name: 'The AFC Hub', id: 'UCnj0TjaM0wyxkAWW_nz8_1g', src: 'g', leagues: ["ACL2"], must: /vs.*highlights.*acl two/i, not: /all highlights|top saves|top headers/i, script: 'latin' },
   { name: 'NBL Australia', id: 'UCQOt5-Mc5m03JCO_W9SWySA', src: 'bk', leagues: ["NBL"], must: /game highlights/i, not: /press conference|top 10|moments that mattered|full highlights/i },
+  // 유로리그 공식 채널(페이지 canonical 로 확인한 채널 ID, 2026-10-26). 경기 영상 제목은 "팀A - 팀B | Round N | …" 형식이라 highlights 가 든 것만, 톱플레이·MVP·프리뷰 등은 제외.
+  { name: 'EuroLeague Basketball', id: 'UCGr3nR_XH9r6E5b09ZJAT9w', src: 'bk', leagues: ['EUROLEAGUE'], must: /highlights/i, not: /top 10|top plays|mvp|press conference|preview|shorts|best of|full game|3x3/i },
   { name: 'FIBA Basketball', id: 'UCtInrnU3QbWqFGsdKT1GZtg', src: 'bk', leagues: ["FIBA"], must: /(extended )?highlights/i, not: /full basketball game|full game|3x3/i },
   { name: 'FIFA', id: 'UCpcTrCXblq78GZrTUTLWeBw', src: 'g', leagues: ["U20WOMENWORLDCUP","INTERCONTINENTALCUP"], must: /highlights/i, not: /world cup (19|20)\d\d.*(goals|volley)|1-min|throwback|sixty|60 seconds/i, script: 'latin' },
   { name: 'MLS', id: 'UCSZbXT5TLLW_i-5W8FZpFsg', src: 'g', leagues: ['MLS'], must: /highlights/i, not: /shorts/i },

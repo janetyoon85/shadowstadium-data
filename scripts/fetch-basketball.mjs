@@ -581,7 +581,8 @@ async function fetchEuroleague(now) {
     const vid = addVenue('el', 'EUROLEAGUE', vn, city, hk, vn);
     const ot = Object.keys(x.local.partials?.extraPeriods || {}).length;
     out.push({
-      id: `el:${x.identifier}`, src: 'el', lg: 'EUROLEAGUE', date: kstDate(t), t, st: played ? 'final' : live ? 'live' : 'scheduled', per: played ? (ot ? 'Final/OT' : 'Final') : undefined,
+      id: `el:${x.identifier}`, src: 'el', lg: 'EUROLEAGUE', date: kstDate(t), t, st: played ? 'final' : live ? 'live' : 'scheduled', per: played ? (ot ? 'Final/OT' : 'Final') : live ? (ot ? 'OT' : `Q${Math.min(4, Math.max(1, ls(x.local).filter((v) => v > 0).length || 1))}`) : undefined, // 진행 중은 득점이 잡힌 쿼터 수로 Q1~Q4/OT(라이브 알림의 쿼터 종료 판정용, 실경기에서 확인 필요)
+     
       h: { k: hk, s: played || live ? hs : undefined, ls: played || live ? ls(x.local) : undefined }, a: { k: ak, s: played || live ? as : undefined, ls: played || live ? ls(x.road) : undefined },
       venue: vn, vid, rd: undefined, att: x.audienceConfirmed ? x.audience || undefined : undefined,
     });
