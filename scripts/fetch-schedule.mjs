@@ -12,6 +12,7 @@ let _koIndex = null; // 동률 가르기용 한글↔영문 팀명 색인(처음
 const koSetOf = (en) => (_koIndex ??= buildKoIndex(REPO_ROOT))(en);
 import { assignSeriesRecord, assignLegOneResult } from './series-record.mjs';
 import { canonTeamName } from './team-name-canon.mjs';
+import { fallbackVenue, makeAutofixCtx, uniqueAuto } from './stadium-autofix.mjs';
 import { tbcVenueFor } from './venue-tbc.mjs';
 import { getMlbNationality, getMlbPitcherDecisionNats, getMlbHoldNats, getMlbProbableStarterPid } from './mlb-nationality.mjs';
 import { staleSuspendedStatus } from './live-staleness.mjs';
@@ -325,6 +326,28 @@ export function pickFreshFailures(uniqueFails, state, now, windowMs = UNMAPPED_R
   return uniqueFails.filter((f) => !(now - (state[`${f.categoryId}::${f.stadium}`] || 0) < windowMs));
 }
 
+// 자동 보정한 구장 표기를 알린다(처음 보정될 때 한 번, 같은 항목은 24시간에 한 번까지만) — 사람이 맞는지 보고 매핑표(naverStadiumMap)에 정식으로 추가한다.
+async function notifyAutoFixed(items) {
+  const webhook = alertWebhook() ?? (process.env.DISCORD_WEBHOOK_URL || undefined);
+  if (!webhook) return;
+  let state = {};
+  try { state = JSON.parse(await fs.readFile(UNMAPPED_ALERTS_PATH, 'utf-8')); } catch { /* 첫 실행 */ }
+  const now = Date.now();
+  const fresh = items.filter((a) => !(now - (state[`auto::${a.categoryId}::${a.stadium}`] || 0) < 24 * 3600000));
+  if (!fresh.length) return;
+  const lines = fresh.slice(0, 25).map((a) => `• ${a.categoryId} "${a.stadium}" → ${a.venueId}`).join(String.fromCharCode(10));
+  const content = `🔵 ShadeSide — 구장 표기 자동 보정 ${fresh.length}건${String.fromCharCode(10)}네이버가 구장 이름을 바꿔 매핑표에 없지만, 이전 경기와 같은 구장으로 연결해 경기가 빠지지 않았어요. 맞는지 확인 후 naverStadiumMap에 정식 추가해주세요(다른 구장으로 바뀐 거라면 수정).${String.fromCharCode(10)}${lines}${fresh.length > 25 ? String.fromCharCode(10) + '… 외 ' + (fresh.length - 25) + '건' : ''}`;
+  try {
+    const res = await fetch(webhook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ content }) });
+    if (res.ok) {
+      for (const a of fresh) state[`auto::${a.categoryId}::${a.stadium}`] = now;
+      const liveKeys = new Set(items.map((a) => `auto::${a.categoryId}::${a.stadium}`));
+      for (const k of Object.keys(state)) if (k.startsWith('auto::') && !liveKeys.has(k)) delete state[k];
+      await fs.writeFile(UNMAPPED_ALERTS_PATH, JSON.stringify(state, null, 2) + String.fromCharCode(10), 'utf-8');
+    }
+  } catch (e) { console.warn('[discord] autofix notify failed:', e.message); }
+}
+
 async function notifyMappingFailures(uniqueFails) {
   const webhook = alertWebhook() ?? (process.env.DISCORD_WEBHOOK_URL || undefined); // 시간 창 대신 항목별 1시간 기록으로 중복을 막는다
   if (!webhook) return;
@@ -345,7 +368,7 @@ async function notifyMappingFailures(uniqueFails) {
       for (const f of fresh) state[`${f.categoryId}::${f.stadium}`] = now;
       // 지금도 미매핑인 항목만 남겨 파일이 커지지 않게 한다.
       const live = new Set(uniqueFails.map((f) => `${f.categoryId}::${f.stadium}`));
-      for (const k of Object.keys(state)) if (!live.has(k)) delete state[k];
+      for (const k of Object.keys(state)) if (!live.has(k) && !k.startsWith('auto::')) delete state[k]; // 자동 보정 알림 기록(auto::)은 notifyAutoFixed 가 따로 정리
       await fs.writeFile(UNMAPPED_ALERTS_PATH, JSON.stringify(state, null, 2) + String.fromCharCode(10), 'utf-8');
     }
   } catch (e) {
@@ -389,13 +412,15 @@ function isTbdTeamName(name) {
   return !name || name === '미정';
 }
 
-function convertGame(n, cat, stadiumMap, mapFailures) {
+function convertGame(n, cat, stadiumMap, mapFailures, autofix) {
   if (isTbdTeamName(n.homeTeamName) || isTbdTeamName(n.awayTeamName)) return null;
   const dt = n.gameDateTime || '';
   const time = dt.includes('T') ? dt.split('T')[1].slice(0, 5) : '00:00';
   const catMap = stadiumMap[cat.categoryId] || {};
   const stadium = n.stadium || '';
-  const venueId = catMap[stadium] || tbcVenueFor(stadium, cat.categoryId);
+  let venueId = catMap[stadium] || tbcVenueFor(stadium, cat.categoryId);
+  // 매핑표에 없는 이름이면 이전 경기/이미 풀린 같은 이름으로 자동 보정(stadium-autofix.mjs) — 네이버 표기 일괄 변경 때 경기가 사라지지 않게.
+  if (!venueId && stadium) venueId = fallbackVenue({ gameId: n.gameId, categoryId: cat.categoryId, stadium }, autofix) || undefined;
   if (!venueId && stadium) {
     mapFailures.push({ categoryId: cat.categoryId, stadium });
   }
@@ -2132,6 +2157,12 @@ async function main() {
   }
 
   const stadiumMap = await loadStadiumMap();
+  // 자동 보정 준비: 직전에 커밋된 games.json(gameId→venueId)과 지난 실행에서 배운 이름→구장 표(stadium-auto-map.json).
+  let prevGamesForAutofix = [];
+  try { const pg = JSON.parse(await fs.readFile(path.join(REPO_ROOT, 'games.json'), 'utf-8')); prevGamesForAutofix = Array.isArray(pg) ? pg : pg.games || []; } catch { /* 첫 실행 */ }
+  let learnedStadiums = {};
+  try { learnedStadiums = JSON.parse(await fs.readFile(path.join(REPO_ROOT, 'stadium-auto-map.json'), 'utf-8')); } catch { /* 없으면 빈 표 */ }
+  const autofix = makeAutofixCtx(prevGamesForAutofix, learnedStadiums);
 
   const allGames = [];
   const mapFailures = [];
@@ -2146,7 +2177,7 @@ async function main() {
       const cat = CATEGORIES[i];
       const tc = Date.now();
       const raw = await fetchCategory(cat);
-      catResults[i] = { cat, converted: raw.map((g) => convertGame(g, cat, stadiumMap, mapFailures)).filter(Boolean) };
+      catResults[i] = { cat, converted: raw.map((g) => convertGame(g, cat, stadiumMap, mapFailures, autofix)).filter(Boolean) };
       console.log(`[timing] category ${cat.categoryId} ${((Date.now() - tc) / 1000).toFixed(1)}s`);
       await sleep(CATEGORY_DELAY_MS);
     }
@@ -2157,6 +2188,13 @@ async function main() {
   }
 
   console.log(`[timing] categories ${((Date.now() - startMs) / 1000).toFixed(1)}s`);
+  const autoFixed = uniqueAuto(autofix.auto);
+  if (autoFixed.length) {
+    console.warn(`[autofix] 매핑표에 없는 구장 표기 ${autoFixed.length}건을 이전 경기 기준으로 자동 보정`);
+    for (const a of autoFixed) console.warn(`  ${a.categoryId} "${a.stadium}" → ${a.venueId} (${a.via})`);
+    await notifyAutoFixed(autoFixed);
+  }
+  if (autofix.dirty) await fs.writeFile(path.join(REPO_ROOT, 'stadium-auto-map.json'), JSON.stringify(autofix.learned, null, 1) + String.fromCharCode(10), 'utf-8');
   const uniqueFails = Array.from(
     new Map(mapFailures.map((f) => [`${f.categoryId}::${f.stadium}`, f])).values(),
   );
