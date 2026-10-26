@@ -58,7 +58,7 @@ async function main() {
     info.set(g.gameId, {
       keys: [...softKeys(g.home, bb), ...softKeys(g.away, bb)],
       data: { gameId: String(g.gameId), venueId: String(g.venueId || ''), date: String(g.date), doubleheaderNum: '' },
-      title: (l) => `▶ ${localTeam(l, g.away)} vs ${localTeam(l, g.home)}`,
+      title: (l) => `▶ ${localTeam(l, g.away, g.league)} vs ${localTeam(l, g.home, g.league)}`,
       body: (l) => `${HL[l]}${g.league ? ' · ' + localLeague(l, g.league) : ''}`,
     });
   }

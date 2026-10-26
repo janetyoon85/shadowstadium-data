@@ -67,10 +67,20 @@ export const eventLabel = (lang, how, fallbackKey) => {
 export const minuteLabel = (lang, m) => (typeof m === 'number' ? (MIN[lang] || ((x) => ` (${x}')`))(m) : '');
 
 // 한국어 표시 보정 — 네이버가 MLS 팀을 "갤럭시"로만 내려줘 삼성 갤럭시와 헷갈린다(2026-10-26 알림 "골! 갤럭시 1-0 LAFC"). 데이터 키(갤럭시)는 로고·즐겨찾기·구장 매핑이 쓰므로 바꾸지 않고 표시만 바꾼다. 앱 TEAM_NAME_KO_DISPLAY 와 같은 표.
-export const KO_TEAM_DISPLAY = { 갤럭시: 'LA 갤럭시' };
-export function localTeam(lang, name) {
+// MLS 는 네이버가 도시·별명만 내려줘 한국어 알림은 풀네임으로 보여 준다. MLB 와 이름이 같은 9개(필라델피아·마이애미·신시내티·시애틀·미네소타·휴스턴·세인트루이스·토론토·콜로라도)는
+// league==='MLS' 를 넘긴 호출부에서만 바꾼다. 앱 App.tsx MLS_KO_FULL 과 같은 표.
+export const KO_MLS_FULL = {
+  갤럭시: 'LA 갤럭시', 내쉬빌: '내슈빌 SC', 뉴욕: '뉴욕 레드불스', 뉴잉글랜드: '뉴잉글랜드 레볼루션', 댈러스: 'FC 댈러스', 마이애미: '인터 마이애미',
+  몬트리얼: 'CF 몬트리올', 미네소타: '미네소타 유나이티드', 샌디에고: '샌디에이고 FC', 샬럿: '샬럿 FC', 세인트루이스: '세인트루이스 시티 SC', '솔트 레이크': '레알 솔트레이크',
+  'a스포팅 KC': '', '스포팅 KC': '스포팅 캔자스시티', 시애틀: '시애틀 사운더스', 시카고: '시카고 파이어', 신시내티: 'FC 신시내티', 애틀란타: '애틀랜타 유나이티드', 어스퀘이크: '새너제이 어스퀘이크',
+  오스틴: '오스틴 FC', '올랜도 시티': '올랜도 시티 SC', 콜로라도: '콜로라도 래피즈', 콜롬버스: '콜럼버스 크루', 토론토: '토론토 FC', 포틀랜드: '포틀랜드 팀버스',
+  필라델피아: '필라델피아 유니언', 화이트캡스: '밴쿠버 화이트캡스', 휴스턴: '휴스턴 다이너모',
+};
+delete KO_MLS_FULL['a스포팅 KC'];
+const MLB_SHARED = new Set(['필라델피아', '마이애미', '신시내티', '시애틀', '미네소타', '휴스턴', '세인트루이스', '토론토', '콜로라도', '뉴욕', '시카고', '애틀란타']);
+export function localTeam(lang, name, league) {
   if (!name) return name;
-  if (lang === 'ko') return KO_TEAM_DISPLAY[name] || name;
+  if (lang === 'ko') return (league === 'MLS' || !MLB_SHARED.has(name) ? KO_MLS_FULL[name] : undefined) || name;
   return TEAM_EN[name] || name;
 }
 export function localPlayer(lang, name, pid) {

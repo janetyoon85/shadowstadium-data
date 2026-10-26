@@ -108,7 +108,7 @@ async function main() {
     const cur = baseball
       ? { sport: 'baseball', live, inn: parseInning(g.inningInfo), goals: null }
       : { sport: 'football', live, goals: { home: sc('home'), away: sc('away') }, inn: null };
-    const score = (lang) => (typeof g.homeScore === 'number' && typeof g.awayScore === 'number' ? ` ${localTeam(lang, g.away)} ${g.awayScore}-${g.homeScore} ${localTeam(lang, g.home)}` : '');
+    const score = (lang) => (typeof g.homeScore === 'number' && typeof g.awayScore === 'number' ? ` ${localTeam(lang, g.away, g.league)} ${g.awayScore}-${g.homeScore} ${localTeam(lang, g.home, g.league)}` : '');
     items.push({
       id: g.gameId, cur, baseball,
       keys: [...softKeys(g.home, baseball), ...softKeys(g.away, baseball)],
@@ -117,7 +117,7 @@ async function main() {
         if (e.type === 'goal') {
           const sd = e.scorer || {};
           const team = e.side === 'home' ? g.home : g.away;
-          return { title: `⚽ ${eventLabel(lang, null, 'goal')}!${score(lang)}`, body: [`${localTeam(lang, team)}${sd.n ? ' · ' + localPlayer(lang, sd.n, sd.pid) : ''}${minuteLabel(lang, sd.m)}`, lg].filter(Boolean).join(' · ') };
+          return { title: `⚽ ${eventLabel(lang, null, 'goal')}!${score(lang)}`, body: [`${localTeam(lang, team, g.league)}${sd.n ? ' · ' + localPlayer(lang, sd.n, sd.pid) : ''}${minuteLabel(lang, sd.m)}`, lg].filter(Boolean).join(' · ') };
         }
         return { title: `⚾ ${(INNING_END[lang] || INNING_END.en)(e.n)}${score(lang)}`, body: lg };
       },

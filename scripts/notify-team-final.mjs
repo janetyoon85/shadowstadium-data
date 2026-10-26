@@ -61,7 +61,7 @@ for (const g of Array.isArray(games) ? games : []) {
     id: g.gameId, keys: [...softKeys(g.home, bb), ...softKeys(g.away, bb)],
     data: { gameId: String(g.gameId), venueId: String(g.venueId || ''), date: String(g.date), doubleheaderNum: '' },
     text: (lang) => ({
-      title: `🏁 ${localTeam(lang, g.away)} ${g.awayScore}-${g.homeScore} ${localTeam(lang, g.home)}`,
+      title: `🏁 ${localTeam(lang, g.away, g.league)} ${g.awayScore}-${g.homeScore} ${localTeam(lang, g.home, g.league)}`,
       body: `${FINAL[lang]}${g.league ? ' · ' + localLeague(lang, g.league) : ''}`,
     }),
   });
