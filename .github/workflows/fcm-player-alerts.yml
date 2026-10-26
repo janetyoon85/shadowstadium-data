@@ -45,6 +45,7 @@ jobs:
           node scripts/notify-team-live.mjs
 
       - name: Commit sent state
+        timeout-minutes: 4  # 2026-10-26: git 이 응답 없이 멈추면(서버 쪽 지연) 이 단계가 10분까지 흐름을 막았다 — 짧게 끊고 다음 실행이 이어가게 한다
         run: |
           FILES="sent-player-alerts.json sent-bk-alerts.json sent-team-final.json sent-team-highlights.json sent-team-live.json"
           git add $FILES
@@ -55,10 +56,10 @@ jobs:
           # 기록은 추가만 되므로: 내 파일을 따로 두고 → 원격 최신으로 리셋 → 합집합으로 합쳐 → 커밋·푸시. 충돌이 날 수 없다.
           rm -rf "$RUNNER_TEMP/mine" && mkdir -p "$RUNNER_TEMP/mine" && cp $FILES "$RUNNER_TEMP/mine/"
           for i in $(seq 1 20); do
-            git fetch -q origin main && git reset -q --hard origin/main \
+            timeout 60 git fetch -q origin main && git reset -q --hard origin/main \
               && node scripts/merge-sent-state.mjs "$RUNNER_TEMP/mine" $FILES \
               && git add $FILES \
-              && { git diff --cached --quiet && exit 0; git commit -q -m "chore(player-alerts): update sent state [skip ci]" && git push -q origin main && exit 0; } \
+              && { git diff --cached --quiet && exit 0; git commit -q -m "chore(player-alerts): update sent state [skip ci]" && timeout 60 git push -q origin main && exit 0; } \
               || sleep $((RANDOM % 10 + 1))
           done
           echo "::error::Failed to push sent state after 20 retries"
