@@ -13,6 +13,7 @@
 // 영문 약칭)를 그대로 재사용(team-name-en.json으로 1회 추출해 이 저장소에 커밋). 축약형
 // 영문("Samsung","Jeonbuk")도 TheSportsDB 검색이 fuzzy match라 정상 매칭됨(실측 확인).
 
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import fs from 'node:fs/promises';
 import { fetchLogoByEnTitle } from './team-logo-wikipedia.mjs';
 import path from 'node:path';

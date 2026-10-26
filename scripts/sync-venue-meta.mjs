@@ -3,6 +3,7 @@
 //  - venues-meta.json: { id, name(일정의 구장명), teams(가장 많이 홈으로 나온 팀), sport } — 사진 검색에 쓰인다.
 //  - venue-name-en.json: 구장명이 영문(라틴 글자만)일 때만 { name } 으로 추가한다(한글뿐인 구장은 영문명을 알 수 없어 건너뜀 → 운영 점검이 알려준다).
 // 앱의 구장 등록(좌표 포함)은 별개다. 이 스크립트는 좌표를 만들지 않는다.
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';

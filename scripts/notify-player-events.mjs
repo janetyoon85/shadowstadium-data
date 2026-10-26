@@ -15,6 +15,7 @@
 // 서버는 누가 그 선수를 즐겨찾기했는지 모름 — 구독자 0인 토픽에 발송해도 FCM에서 무해한
 // no-op이라, 매 경기의 모든 스코어러에 대해 그냥 다 발송한다(팀 리마인더와 동일 설계).
 
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';

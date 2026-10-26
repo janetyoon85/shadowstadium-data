@@ -2,6 +2,7 @@
 // 앱 런타임 무료 번역API(MyMemory 일일한도)에 사용자 수만큼 의존하지 않기 위함. 앱은 이걸 먼저 읽고 없을 때만 런타임 번역.
 // 출력: team-info-i18n/<lang>/<샤드>.json {팀키:{lead?,hist?,rival?,legends?,h}}, team-info-i18n/<lang>/comps.json {영문대회명:번역}
 // h = 원문 해시(원문이 바뀌면 재번역). 해당 언어 위키판이 있는 팀의 lead는 앱이 위키 원문을 쓰므로 건너뜀.
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';

@@ -16,6 +16,7 @@
 //
 // 테스트: WARM_FORCE=1 node scripts/warm-weather.mjs  (윈도우 무시, 오늘 경기 기준)
 
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import fs from 'node:fs';
 
 const SITE_URL = 'https://shadowstadium.vercel.app';

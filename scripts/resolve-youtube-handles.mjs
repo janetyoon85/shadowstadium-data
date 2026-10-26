@@ -1,4 +1,5 @@
 // 채널 핸들 후보를 channels.list(forHandle, 1유닛/건)로 확인해 채널 ID·이름·구독자·국가를 출력한다(2026-10-13 한국어 공식 채널 후보 조사용, 사람이 보고 허용 목록에 넣을지 결정).
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 const API_KEY = process.env.YOUTUBE_API_KEY;
 const handles = (process.env.HANDLES || '').split(',').map((h) => h.trim().replace(/^@/, '')).filter(Boolean);
 if (!API_KEY) { console.error('YOUTUBE_API_KEY required'); process.exit(1); }

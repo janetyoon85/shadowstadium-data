@@ -1,6 +1,7 @@
 // audit-roster-faces.py 가 "얼굴이 제대로 안 나온 사진"(0)으로 판정한 Commons 사진을 샤드(team-rosters)와 정본(roster-photos.json)에서 뺀다(2026-10-13).
 // 사진이 없으면 앱은 이니셜 아바타를 보여주므로, 몸통만 나오는 전신샷보다 낫다. 판정은 URL 단위라 사진이 바뀌면 다시 판정된다.
 // FACES_MERGE_DIR: 푸시 충돌 복구 시 보관해 둔 이번 실행의 roster-photo-faces.json 을 합친다(네트워크 없음).
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';

@@ -5,6 +5,7 @@
 // 팀명 매칭: ESPN 영문 팀명(displayName 등)을 정규화(normalizeTeamName)해 team-name-en.json(한글→영문)·ESPN 팀 매핑(TEAMS 등)의 키와 맞추고,
 // 정확 일치가 없으면 한쪽이 다른 쪽을 포함(길이 5 이상)하고 후보가 하나뿐일 때만 채택한다(틀린 팀에 붙이는 것보다 빠지는 편이 낫다).
 // 결과: team-rosters/<0-f>.json = { [팀한글명]: [{ id:'espn:<id>', n:'영문 풀네임', pos:'G|D|M|F', no:'등번호', nat:'국적코드' }] }
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';

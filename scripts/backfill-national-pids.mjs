@@ -7,6 +7,7 @@
 //  ④ 그 대표팀의 위키 선수단 데이터가 있으면 선수단에 같은 성이 있어야 함(없는 팀은 ①~③만)
 // 결과: national-pid-links.json {"팀|이름": {pid, at}} (탈락도 {pid:null, at}로 남겨 90일간 재조회 안 함). games.json 은 건드리지 않고
 // fetch-schedule 의 attachPlayerPids 가 이 표를 읽어 붙인다. 차단 방지: 요청 간격 0.4s, 실행당 예산, 429/403 즉시 중단.
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';

@@ -5,6 +5,7 @@
 // 결과 저장: roster-photos.json(id→사진 URL, 이 작업의 정본) + roster-photos-tried.json + team-rosters 샤드(앱이 읽는 곳, 정본에서 매번 재적용).
 // 푸시 충돌 복구(2026-10-12 — 30분·700건 결과가 마지막 충돌로 통째로 버려졌음): 충돌 시 워크플로우가 origin 으로 리셋한 뒤
 // ROSTER_PHOTO_MERGE_DIR 에 보관해 둔 이번 실행의 정본 두 파일을 합치고(사진=합집합, 시도=최신값) 샤드에 재적용한다. 이 모드는 네트워크 호출이 없다.
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';

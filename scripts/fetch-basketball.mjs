@@ -8,6 +8,7 @@
 //   basketball/players.json    선수 인덱스(players.json과 동일 형식 → backfill-player-photos가 같이 처리)
 //   basketball/venues.json     구장(venue-info/venue-photos 크롤러가 같이 처리)
 //   basketball/team-name-en.json 팀 영문명(team-info 크롤러가 같이 처리, 키 'bk:<src>:<lg>:<code>')
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import fs from 'node:fs/promises';
 import zlib from 'node:zlib';
 import path from 'node:path';

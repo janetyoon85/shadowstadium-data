@@ -8,6 +8,7 @@
 // (한글→영문 약칭, 팀 로고 백필과 동일 파일 재사용)이 필요. 팀 로고와 동일하게 하루 1회만
 // 실행해 venue-photos.json에 영구 캐시(런타임 API 호출 0회 원칙, 무료 공유키 절약).
 
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';

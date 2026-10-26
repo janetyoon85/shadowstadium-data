@@ -2,6 +2,7 @@
 // 결과: basketball/player-wd.json {pid: {q, nat?, dob?, img?, en?, labels?{lang}, m} | null}
 // 오매칭 방지: 사람(Q5)+직업 농구선수(Q3665646)+생존(P570 없음)+출생 1975년 이후, ESPN 생일이 있으면 정확히 일치,
 // 없으면(KBL/NBL) 위 조건을 만족하는 후보가 정확히 1명일 때만 채택(m='dob'|'uniq').
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';

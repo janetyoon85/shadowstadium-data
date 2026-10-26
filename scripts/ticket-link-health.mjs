@@ -4,6 +4,7 @@
 //  2) 연속 2회(12시간 주기면 약 12시간 간격) 죽어 있어야 고친다 — 일시 장애로 멀쩡한 링크를 바꾸지 않기 위해.
 //  3) 고치는 순서: 같은 사이트 첫 화면에서 "티켓/예매/bilhetes/entradas…" 링크를 찾아 점검을 통과하면 그걸로 교체 → 없으면 사이트 첫 화면(origin)으로 후퇴 → 그것도 안 되면 그대로 두고 알림만.
 //  4) 바꾼 내용·고치지 못한 죽은 링크는 Discord 로 알린다(자동 교체가 틀릴 수 있어 사람이 확인).
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';

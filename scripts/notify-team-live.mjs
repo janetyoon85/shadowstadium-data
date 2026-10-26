@@ -2,6 +2,7 @@
 // 앱 설정에서 이 알림을 켠 기기만 tlive_<hash>_<lang> 토픽을 구독한다(구독자 0이면 no-op). 경기 종료 알림(notify-team-final)과는 별개 토픽.
 // 상태(sent-team-live.json)에 경기별 마지막 관측(골 수·이닝·쿼터)을 저장해 두고, 다음 실행에서 늘어난 것만 알린다.
 // 처음 보는 경기는 기록만 하고 보내지 않는다(기능 시작·긴 공백 뒤 과거 사건 폭탄 방지). 예정 경기도 미리 기록해 두므로 킥오프 직후 골부터 잡힌다.
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';

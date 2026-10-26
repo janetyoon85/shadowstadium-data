@@ -3,6 +3,7 @@
 // - 직전 보고와의 증감은 backfill-report-state.json 에 저장한 수치로 계산(수치가 안 바뀌면 파일도 안 바뀌어 커밋 노이즈 없음).
 // - 24시간 이상 증가가 없는 항목은 "정체"로 따로 표시 — Actions 로그를 안 열어도 백필이 멈춘 걸 알 수 있게.
 // - 최근·예정 기준(-7일~+14일)과 제외 목록(중국 구장·올스타·국가대표 로고)은 ops-health-check 와 동일(ops-shared.mjs).
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';

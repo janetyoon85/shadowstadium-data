@@ -2,6 +2,7 @@
 //   KBL/WKBL 팀기록: Naver statistics API (선수기록은 Naver가 농구엔 미제공)
 //   NBA/WNBA 팀·선수기록: ESPN common v3 byteam/byathlete
 // 50분 이내 재실행이면 건너뜀.
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';

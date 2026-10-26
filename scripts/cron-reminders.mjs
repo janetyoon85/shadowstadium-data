@@ -21,6 +21,7 @@
 // 출력: sent-reminders.json (repo 커밋). 워크플로가 변경 있으면 push.
 // 정리: 게임 시작 24h 지난 sent 엔트리는 자동 삭제 (파일 크기 관리).
 
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';

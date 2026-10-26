@@ -2,6 +2,7 @@
 // 공식 리그 채널의 업로드 목록에서 "양 팀 이름이 제목에 들어간 하이라이트 영상"을 종료된 경기에 연결 → highlights-video.json.
 // 앱은 이 JSON만 읽음(런타임 YouTube 호출 0회). 출력: { [gameId]: { v: 영상ID, t: 제목 } } (농구는 basketball 경기 id).
 // 소스: 평시 무료 RSS(최근 15개, 쿼터 0). 마지막 딥스캔 후 6시간 지난 실행에서만(하루 4회, highlights-deep.json에 기록) uploads 플레이리스트(playlistItems.list 페이지당 1유닛)로 깊게 훑음(≈250유닛/일). HL_DEEP=1이면 강제.
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import { readFileSync, writeFileSync } from 'node:fs';
 import fs from 'node:fs/promises';
 import path from 'node:path';

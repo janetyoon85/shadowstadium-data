@@ -5,6 +5,7 @@
 // 주의: 이 엔드포인트는 브라우저 위장 UA(Mozilla/5.0 등)를 Akamai WAF가 403으로 차단하고, 이
 // 크롤러들이 이미 쓰는 커스텀 UA로만 통과됨(실측 확인, 기존 fetch-espn-*-soccer-leagues.mjs와
 // 동일 교훈).
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';

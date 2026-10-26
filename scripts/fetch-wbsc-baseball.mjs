@@ -15,6 +15,7 @@
 // 지정(생략 시 www.wbsc.org). Super Round처럼 아직 팀 미확정인 경기는 "1st Place After Super
 // Round" 같은 플레이스홀더가 오므로 TEAM_KO 미확인(unknown team) 경고 없이 조용히 스킵.
 
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import { alertWebhook } from './alert-throttle.mjs';
 import fs from 'node:fs/promises';
 import path from 'node:path';

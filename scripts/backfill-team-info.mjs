@@ -2,6 +2,7 @@
 // 영문 위키 문서를 찾고(클럽/팀 설명 키워드+제목 토큰 검증) Wikidata claims + 위키 본문 절(역사/우승/라이벌/레전드)
 // + Commons 사진을 team-info.json에 영구 캐시. 앱 런타임은 이 파일만 읽음(위키 호출 0회 원칙, 단 앱 언어판
 // 위키 요약은 팀 상세를 열 때 sitelink 제목으로 1회 조회). null=확정 없음, undefined=일시 실패(재시도).
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';

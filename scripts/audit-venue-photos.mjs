@@ -3,6 +3,7 @@
 // 차단 방지가 최우선: 직렬 요청 + 요청 간격 3s + 명확한 User-Agent(연락처 포함) + 실행당 요청 상한 +
 // 429/5xx/네트워크 오류가 한 번이라도 나오면 즉시 중단(다음 실행에서 이어감, 재시도 폭주 없음).
 // 판정: wrong(확실히 다른 곳 — 자동으로 "사진 없음" 처리) / suspect(이름이 전혀 안 겹침 — 운영 알림으로 사람이 확인) / ok.
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';

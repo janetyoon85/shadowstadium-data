@@ -3,6 +3,7 @@
 // videos.list 는 50개당 1유닛. 응답의 contentDetails.regionRestriction(allowed|blocked)으로 지역별 차단을 판정하고, 삭제·비공개 영상은 gone 으로 표시한다.
 // 이 작업은 YouTube API 정책의 "저장한 API 데이터는 30일 안에 다시 확인"도 같이 충족한다(여기서는 7일마다 갱신).
 // 출력(영상 ID 키): { b?: ["KR",…](지원 지역 중 차단된 곳), g?: 1(삭제/비공개), t: 확인 시각(ms) }. 앱은 이 파일만 읽는다(런타임 API 호출 0회).
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';

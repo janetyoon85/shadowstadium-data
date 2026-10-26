@@ -10,6 +10,7 @@
 // TEAM_KO, 구장 매핑 VENUE_MAP) — 앱 저장소는 한 번 확보한 히스토리 백필용, 이 파일은 저장소
 // 분리라 부득이 복사 유지. 새 국가/구장 나오면 양쪽 다 갱신해야 함.
 
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import { alertWebhook } from './alert-throttle.mjs';
 import fs from 'node:fs/promises';
 import { applyLive, liveChanged } from './statsapi-live.mjs';

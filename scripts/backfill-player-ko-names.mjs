@@ -1,6 +1,7 @@
 // 영문명으로만 인덱싱된 축구 선수(players.json)의 한글 이름을 Wikidata로 채워 player-name-ko.json(한글=영문)에 적립(fetch-schedule이 쓰는 player-name-auto.json과 분리해 git 충돌 방지)
 // (2026-10-01, "훌리안 알바레스 검색안됨"). 오매칭 방지: ESPN displayDOB와 Wikidata 생년월일(P569)이 정확히 같고
 // 사람(Q5)이며 한글 라벨/kowiki 제목이 있는 후보가 정확히 1명일 때만 채택. 시도 결과는 player-ko-tried.json에 기록.
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';

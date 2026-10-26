@@ -8,6 +8,7 @@
 //
 // fetch-schedule.mjs와 다른 별도 워크플로(몇 시간 주기) — 순위는 경기 하나 끝난다고 매번 안 바뀌니
 // 5분 주기 크론(스코어/카드/하이라이트)과 예산 경합시킬 이유가 없음.
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';

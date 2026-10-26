@@ -3,6 +3,7 @@
 //  5 날짜 지난 예정/진행중 경기(정체)  6 리그 경기 수 급감  8 워크플로 연속실패/정체(푸시 포함)  9 ScraperAPI 예산
 // 첫 실행은 현재 상태를 baseline으로 기록만 하고 알리지 않음 → 이후 "새로 생긴" 문제만 알림.
 // 실행: node scripts/ops-health-check.mjs [--dry]   (DISCORD_WEBHOOK_URL, GITHUB_TOKEN, GITHUB_REPOSITORY 환경변수)
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';

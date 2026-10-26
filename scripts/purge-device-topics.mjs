@@ -3,6 +3,7 @@
 // Admin SDK 의 unsubscribeFromTopic([token], topic) 으로 해제한다(구독돼 있지 않아도 오류 없이 성공하므로 안전).
 // 입력: 앱 설정 제목 길게 누르기로 공유한 메시지 전체(token=, favs= 줄 포함)를 FCM_TOKEN 에 붙여 넣는다.
 // 해제 대상: 즐겨찾기 선수·팀·경기의 "KEEP_LANG 가 아닌 모든 언어" 토픽 + 언어 없는 옛 토픽 + (선수 ID 즐겨찾기의) 이름 토픽 전 언어.
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import admin, { unsubscribeFromTopic } from './firebase-admin-compat.mjs';
 import { playerTopic, playerLangTopic, teamFinalTopic, teamLiveTopic, gameLangTopic, gameTopic } from './topic.mjs';
 

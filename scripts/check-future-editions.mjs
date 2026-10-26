@@ -15,6 +15,7 @@
 //
 // 새 대회 정보 알게 되면(WBSC 뉴스에 날짜 공지된 것 등) FUTURE_EDITIONS 에 추가/갱신할 것.
 
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 const REMINDER_WINDOW_DAYS = 90; // 대회 시작 예정일 이 만큼 전부터 알림 시작
 const REPEAT_EVERY_DAYS = 14; // 알림 창 안에서는 이 주기로 반복 알림(매주 돌아도 매주 안 쏘려고)
 

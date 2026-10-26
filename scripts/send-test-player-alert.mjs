@@ -1,3 +1,4 @@
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import { sendPlayerEvent } from './send-player-alert.mjs';
 
 // 즐겨찾기 선수 알림 수신 테스트. 기본은 "어느 언어 토픽을 구독 중인지" 진단용 — 언어별로 제목에 언어 코드를 붙여 모든 언어로 보낸다(tag 없음: 구독 중인 언어 수만큼 따로 보임).

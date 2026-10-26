@@ -20,6 +20,7 @@
 // 유지). 완료 경기 스코어 필드(Home/Away.Result) 포맷은 대회 시작 전이라 미검증 — 숫자 파싱
 // 가능하면 사용.
 
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import { alertWebhook } from './alert-throttle.mjs';
 import fs from 'node:fs/promises';
 import path from 'node:path';

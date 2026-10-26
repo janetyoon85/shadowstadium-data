@@ -1,6 +1,7 @@
 // 알림 발송 기록(sent-*.json)을 원격 최신본과 "합집합"으로 합친다. 사용: node scripts/merge-sent-state.mjs <내 파일이 있는 폴더> <파일명...>
 // 기록은 키가 추가만 되는 구조라 충돌할 이유가 없다 — git 줄 단위 rebase 가 큰 JSON 에서 충돌해 저장이 통째로 실패하던 것(2026-10-26, 1분 주기에서 발견)을 피한다.
 // 규칙: 객체는 키별로 재귀 병합, 배열은 합집합, 문자열(ISO 시각)은 더 늦은 값, 나머지는 내 값.
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';

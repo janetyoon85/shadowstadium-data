@@ -3,6 +3,7 @@
 // 경기 안의 모든 타자·투수 이름과 코드를 주므로(팀 안에서 이름이 유일) 경기 단위로 정확히 연결할 수 있다.
 // games.json 은 fetch-schedule 이 2분마다 다시 쓰므로 여기서 직접 고치지 않고 game-player-pids.json({gameId:{이름:{b?,p?}}})만 만든다.
 // fetch-schedule 의 attachPlayerPids 가 이 표를 읽어 붙인다. 차단 방지: 요청 간격 1.2s, 실행당 예산, 429/403 즉시 중단.
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';

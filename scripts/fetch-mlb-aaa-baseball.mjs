@@ -5,6 +5,7 @@
 // 원본 로직은 앱 저장소 scripts/fetchMlbAaaBaseball.mjs 와 동일(저장소 분리라 부득이 복사 유지).
 // 매일 1회 GitHub Actions 자동 실행(.github/workflows/fetch-mlb-aaa-baseball.yml).
 
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import { alertWebhook } from './alert-throttle.mjs';
 import fs from 'node:fs/promises';
 import { inningInfoFrom, liveStateFrom, applyLive, liveChanged } from './statsapi-live.mjs';

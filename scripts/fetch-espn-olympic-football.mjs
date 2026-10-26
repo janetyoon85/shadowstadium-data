@@ -13,6 +13,7 @@
 //
 // 원본 로직은 앱 저장소 scripts/fetchEspnOlympicFootball.mjs 와 동일(저장소 분리라 부득이 복사 유지).
 
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import { alertWebhook } from './alert-throttle.mjs';
 import fs from 'node:fs/promises';
 import path from 'node:path';

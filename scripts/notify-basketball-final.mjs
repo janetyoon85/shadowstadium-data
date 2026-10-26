@@ -1,5 +1,6 @@
 // 농구 즐겨찾기 선수 "경기 종료 기록 요약" 알림. 박스스코어(basketball/box-YYYY-MM.json)가 있는
 // 종료 경기만 대상 — 선수 고유ID(pid)로 player_<hash> 토픽에 발송(구독자 0이면 FCM no-op).
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';

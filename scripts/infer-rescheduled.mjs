@@ -15,6 +15,7 @@
 //
 // Exit: 0 정상, 1 에러 (JSON 손상 등)
 
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';

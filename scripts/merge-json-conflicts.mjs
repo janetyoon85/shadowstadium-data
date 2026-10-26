@@ -1,4 +1,5 @@
 // rebase 충돌 난 평면 JSON 객체 파일을 키 단위로 합침(업스트림 + 내 커밋, 같은 키는 내 커밋 우선).
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 

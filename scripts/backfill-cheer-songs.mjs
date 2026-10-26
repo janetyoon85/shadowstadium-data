@@ -4,6 +4,7 @@
 // NPB는 Naver 이름이 성만 있어(예: "군지") 검색 정확도가 낮아 제외.
 // 쿼터: search.list 1회=100유닛, 무료 하루 10,000유닛 → 하루 ~100건. 예산 95건/실행, 하루 1회.
 // 결과: {v,t}(찾음) | null(검색했지만 없음, 캐시) | 쿼터 초과/일시오류는 캐시 안 함(다음 실행 재시도).
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';

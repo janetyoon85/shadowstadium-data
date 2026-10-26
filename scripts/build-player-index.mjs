@@ -14,6 +14,7 @@
 // 매칭(notify-player-events.mjs)은 이름 문자열 단독이라 여기서 만드는 appearances는
 // 순전히 검색/동명이인 구분용 UI 메타데이터일 뿐, 매칭 범위에는 영향 없음.
 
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';

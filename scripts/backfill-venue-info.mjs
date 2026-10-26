@@ -2,6 +2,7 @@
 // 구장 구조화 정보(개장연도/수용인원/소유·운영/설계/표면)부터 시작). venue-name-en.json의 영문명으로
 // 위키 문서를 찾고(동명이인 방지: 구장 설명 키워드 검증) wikibase_item → Wikidata claims.
 // 결과는 venue-info.json 영구 캐시(앱 런타임 외부 호출 0회 원칙). null=확정 없음, undefined=일시 실패(재시도).
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';

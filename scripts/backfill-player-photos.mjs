@@ -16,6 +16,7 @@
 // TheSportsDB 무료 공유키를 쓰는 호출(ESPN/KBO 케이스)만 2.2초 간격(팀로고/경기장사진과 동일
 // 이유), 나머지 소스 자체 페이지 호출은 훨씬 짧은 간격으로 처리.
 
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';

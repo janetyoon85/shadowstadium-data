@@ -1,5 +1,6 @@
 // 즐겨찾기 팀 "경기 종료 + 최종 스코어" 알림(2026-10-03, 축구/야구/농구). 누가 구독했는지는 모르고
 // tfinal_<hash>_<lang> 토픽에 그냥 발송(구독자 0이면 no-op). 첫 실행은 기존 종료 경기를 발송 없이 기록만.
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';

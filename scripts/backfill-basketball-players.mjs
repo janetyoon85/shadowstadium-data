@@ -3,6 +3,7 @@
 // 대상: espnbk:nba|wnba|fiba(ESPN) + nbk:kbl(KBL 공식 API kbl-api.sports2i.com, pcode=네이버 선수ID, Referer 필요). nbl은 프로필 없음.
 // nat은 축구 scorers.nat과 같은 형식(영문 국가명, 예 'USA','Slovenia') — 앱 scorerNationalityFlag 재사용.
 // null=프로필 없음(확정), 일시 오류는 캐시 안 함.
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';

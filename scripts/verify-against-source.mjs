@@ -2,6 +2,7 @@
 // 점검: ① 결과 미반영(ESPN 종료인데 우리는 예정/진행중) ② 스코어 불일치 ③ 킥오프 시각 불일치 ④ 경기 누락(ESPN 출처 리그에 ESPN 경기가 우리에게 없음) ⑤ 상태 불일치(취소·연기)
 // 오탐 방지: 크롤러 반영 지연(2~5분)·ESPN 정정 지연 때문에 같은 불일치가 "연속 2회 실행"에서 보일 때만 알림, 같은 알림은 24시간에 1회.
 // 실행: node scripts/verify-against-source.mjs [--dry]   (DISCORD_WEBHOOK_URL)  — 상태: verify-source-state.json
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';

@@ -1,4 +1,5 @@
 // 팀 소개 우승 이력 대회별 트로피 사진(Commons) 백필 — trophy-photos.json: 대회명(영문) -> 파일URL | null(시도했으나 없음)
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';

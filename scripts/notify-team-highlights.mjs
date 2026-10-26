@@ -3,6 +3,7 @@
 // 지역 규칙: 언어마다 대표 지역(ko→KR, ja→JP …)을 정해, 그 지역에서 "실제로 열리는" 후보 영상이 있을 때만 그 언어 토픽으로 보낸다(한국에서 안 열리는 영상으로 알림을 보내지 않는다).
 // 영상 지역 확인 기록(video-availability.json)이 아직 없으면 보내지 않고 다음 실행(약 2분 뒤)에 다시 본다. 첫 실행은 기존 하이라이트를 발송 없이 기록만 한다.
 // 중복 방지: sent-team-highlights.json 에 `${경기}:${언어}` 별로 기록(처음엔 막혀 있다가 나중에 대체 후보가 열리면 그 시점에 한 번 보낸다).
+import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
