@@ -741062,8 +741062,8 @@
           "n": "카를레스 힐",
           "m": 90,
           "pid": "espn:152168",
-          "nat": "Spain",
-          "pk": true
+          "pk": true,
+          "nat": "Spain"
         }
       ]
     },
@@ -752397,20 +752397,18 @@
     "gameId": "AFL_MLBSTATS_867687",
     "status": "live",
     "homeScore": 9,
-    "awayScore": 5,
+    "awayScore": 8,
     "inningInfo": "6회초",
     "liveState": {
       "pitcher": "Samuel Carpio",
-      "batter": "Jake Casey",
+      "batter": "Jake Cook",
       "pitcherPid": "mlb:815704",
-      "batterPid": "mlb:814457",
-      "ball": 0,
+      "batterPid": "mlb:834404",
+      "ball": 1,
       "strike": 0,
-      "out": 0,
+      "out": 1,
       "bases": [
-        1,
-        2,
-        3
+        1
       ]
     }
   },
@@ -752430,13 +752428,15 @@
     "inningInfo": "7회말",
     "liveState": {
       "pitcher": "Joshua Quezada",
-      "batter": "Brandon Eike",
+      "batter": "Matthew Ellis",
       "pitcherPid": "mlb:808350",
-      "batterPid": "mlb:694806",
-      "ball": 2,
-      "strike": 2,
-      "out": 0,
-      "bases": []
+      "batterPid": "mlb:700815",
+      "ball": 0,
+      "strike": 0,
+      "out": 2,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -752452,16 +752452,18 @@
     "status": "live",
     "homeScore": 11,
     "awayScore": 2,
-    "inningInfo": "6회말",
+    "inningInfo": "7회초",
     "liveState": {
-      "pitcher": "Anthony Mena",
-      "batter": "Dante Nori",
-      "pitcherPid": "mlb:827768",
-      "batterPid": "mlb:807276",
-      "ball": 2,
+      "pitcher": "Hunter Mann",
+      "batter": "Zion Rose",
+      "pitcherPid": "mlb:815065",
+      "batterPid": "mlb:805799",
+      "ball": 3,
       "strike": 3,
-      "out": 3,
-      "bases": []
+      "out": 0,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -752624,7 +752626,18 @@
     "status": "live",
     "matchPeriod": "전반",
     "homeScore": 0,
-    "awayScore": 1
+    "awayScore": 1,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "Lucas Santiago",
+          "m": 40,
+          "og": true,
+          "pid": "espn:3109245"
+        }
+      ]
+    }
   },
   {
     "date": "2026-10-27",
