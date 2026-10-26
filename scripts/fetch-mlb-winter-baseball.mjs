@@ -244,7 +244,7 @@ async function notifyUnknowns(unknownTeams, unknownVenues) {
   if (unknownVenues.size) lines.push(`**미확인 구장(VENUE_MAP에 추가 필요)**\n${[...unknownVenues].map((x) => `• ${x}`).join('\n')}`);
   const content = `🟡 ShadeSide — MLB 윈터리그(LVBP/LIDOM/LMP/PWL/ABL/AFL)/LMB 미확인 항목\nscripts/fetch-mlb-winter-baseball.mjs 에서 매핑 추가해주세요. 올스타전 등 일회성 예외 경기는 무시해도 됩니다.\n${lines.join('\n\n')}`;
   try {
-    await fetch(webhook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ content }) });
+    await fetch(webhook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ allowed_mentions: { parse: [] }, content }) });
   } catch (e) {
     console.warn('[discord] mlb-winter unknown notify failed:', e.message);
   }

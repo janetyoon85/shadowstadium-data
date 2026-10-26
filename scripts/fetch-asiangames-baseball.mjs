@@ -139,7 +139,7 @@ async function notifyUnknowns(unknownTeams, unknownVenues) {
   if (unknownVenues.size) lines.push(`**미확인 구장(VENUE_MAP에 추가 필요)**\n${[...unknownVenues].map((x) => `• ${x}`).join('\n')}`);
   const content = `🟡 ShadeSide — 아시안게임 야구 미확인 항목\nscripts/fetch-asiangames-baseball.mjs 에서 매핑 추가해주세요.\n${lines.join('\n\n')}`;
   try {
-    await fetch(webhook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ content }) });
+    await fetch(webhook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ allowed_mentions: { parse: [] }, content }) });
   } catch (e) {
     console.warn('[discord] asiangames-baseball unknown notify failed:', e.message);
   }

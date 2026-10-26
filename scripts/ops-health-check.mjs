@@ -336,7 +336,7 @@ const sendDiscord = async (hook, text) => {
   let buf = '';
   const flush = async () => {
     if (!buf.trim()) return;
-    const r = await fetch(hook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ content: buf }) });
+    const r = await fetch(hook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ allowed_mentions: { parse: [] }, content: buf }) });
     if (!r.ok) { ok = false; console.error('discord 발송 실패', r.status); }
     buf = '';
     await new Promise((x) => setTimeout(x, 800));

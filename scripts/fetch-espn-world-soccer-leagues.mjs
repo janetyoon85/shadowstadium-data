@@ -239,7 +239,7 @@ async function notifyUnknowns(unknownTeams, unknownVenues) {
   if (unknownVenues.size) lines.push(`**미확인 구장(venueId 미매핑)**\n${[...unknownVenues].map((x) => `• ${x}`).join('\n')}`);
   const content = `🟡 ShadeSide — 전세계 21개리그(ESPN) 미확인 항목\nscripts/espn-world-soccer-teams.mjs 에서 매핑 추가해주세요. 승격/강등 등으로 새 팀이 생겼을 수 있습니다.\n${lines.join('\n\n')}`;
   try {
-    await fetch(webhook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ content }) });
+    await fetch(webhook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ allowed_mentions: { parse: [] }, content }) });
   } catch (e) {
     console.warn('[discord] espn-world-soccer unknown notify failed:', e.message);
   }
@@ -255,7 +255,7 @@ async function notifyFetchFailures(failed) {
   const lines = failed.map(({ code, slug, error }) => `• ${code} (${slug}): ${error}`);
   const content = `🔴 ShadeSide — 전세계 21개리그(ESPN) 일부 리그 조회 실패(워크플로는 success로 표시되지만 데이터 갱신 안 됨)\n${lines.join('\n')}`;
   try {
-    await fetch(webhook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ content }) });
+    await fetch(webhook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ allowed_mentions: { parse: [] }, content }) });
   } catch (e) {
     console.warn('[discord] espn-world-soccer fetch-failure notify failed:', e.message);
   }

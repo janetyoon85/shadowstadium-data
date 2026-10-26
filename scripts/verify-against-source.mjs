@@ -64,7 +64,7 @@ async function main() {
   if (process.argv.includes('--test-discord')) { // 알림 경로 점검용 — 대조는 건너뛰고 테스트 메시지 1건만
     const hook0 = process.env.DISCORD_WEBHOOK_URL;
     if (!hook0) { console.error('[verify] DISCORD_WEBHOOK_URL 없음'); process.exit(1); }
-    const r = await fetch(hook0, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ content: '✅ **ShadeSide 원본 대조 알림 테스트** — 이 메시지가 보이면 Discord 알림 경로 정상(실제 불일치 알림 아님)' }) });
+    const r = await fetch(hook0, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ allowed_mentions: { parse: [] }, content: '✅ **ShadeSide 원본 대조 알림 테스트** — 이 메시지가 보이면 Discord 알림 경로 정상(실제 불일치 알림 아님)' }) });
     console.log('[verify] discord test status', r.status);
     process.exit(r.ok ? 0 : 1);
   }
@@ -391,6 +391,6 @@ async function main() {
   for (const l of lines) { if ((buf + l + '\n').length > 1800) { await post(hook, buf); buf = ''; } buf += l + '\n'; }
   if (buf) await post(hook, buf);
 }
-async function post(hook, content) { try { await fetch(hook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ content }) }); } catch (e) { console.warn('[verify] discord 실패:', e.message); } }
+async function post(hook, content) { try { await fetch(hook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ allowed_mentions: { parse: [] }, content }) }); } catch (e) { console.warn('[verify] discord 실패:', e.message); } }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main().catch((e) => { console.error(e); process.exit(1); });

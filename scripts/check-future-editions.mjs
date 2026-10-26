@@ -178,7 +178,7 @@ async function main() {
   const content = `🔔 ShadeSide — 다음 대회 감시 알림\n\n${messages.join('\n\n')}`;
   console.log(content);
   if (webhook) {
-    await fetch(webhook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ content }) });
+    await fetch(webhook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ allowed_mentions: { parse: [] }, content }) });
   }
 }
 

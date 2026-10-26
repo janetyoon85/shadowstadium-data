@@ -407,7 +407,7 @@ async function notifyUnknowns(unknownTeams, unknownVenues) {
   if (unknownVenues.size) lines.push(`**미확인 구장(VENUE_MAP에 추가 필요)**\n${[...unknownVenues].map((x) => `• ${x}`).join('\n')}`);
   const content = `🟡 ShadeSide — WBSC 야구(U-18/U-15/U-23 월드컵·BFA 아시아선수권) 미확인 항목\nscripts/fetch-wbsc-baseball.mjs 에서 매핑 추가해주세요(구장 실좌표 리서치 필요할 수 있음).\n${lines.join('\n\n')}`;
   try {
-    await fetch(webhook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ content }) });
+    await fetch(webhook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ allowed_mentions: { parse: [] }, content }) });
   } catch (e) {
     console.warn('[discord] wbsc-baseball unknown notify failed:', e.message);
   }
@@ -439,7 +439,7 @@ async function notifyFetchFailures(failed) {
   const lines = toAlert.map(({ league, tournamentkey, error }) => `• ${league} (${tournamentkey}): ${error}`);
   const content = `🔴 ShadeSide — WBSC 야구 일부 대회 조회 실패(워크플로는 success로 표시되지만 데이터 갱신 안 됨, ${ALERT_COOLDOWN_MS / 3600000}시간 쿨다운)\n${lines.join('\n')}`;
   try {
-    await fetch(webhook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ content }) });
+    await fetch(webhook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ allowed_mentions: { parse: [] }, content }) });
   } catch (e) {
     console.warn('[discord] wbsc-baseball fetch-failure notify failed:', e.message);
   }

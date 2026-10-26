@@ -105,7 +105,7 @@ async function notify(lines) {
   const content = `🟡 ShadeSide — 예매 링크 점검\n${lines.join('\n')}`.slice(0, 1900);
   console.log(content);
   if (!hook || process.env.DRY_RUN) return;
-  try { await fetch(hook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ content }) }); } catch { /* 알림 실패는 무시 */ }
+  try { await fetch(hook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ allowed_mentions: { parse: [] }, content }) }); } catch { /* 알림 실패는 무시 */ }
 }
 
 function setAt(obj, p, v) { let o = obj; for (const k of p.slice(0, -1)) o = o[k]; o[p[p.length - 1]] = v; }

@@ -342,7 +342,7 @@ async function notifyAutoFixed(items) {
   const lines = fresh.slice(0, 25).map((a) => `• ${a.categoryId} "${a.stadium}" → ${a.venueId}`).join(String.fromCharCode(10));
   const content = `🔵 ShadeSide — 구장 표기 자동 보정 ${fresh.length}건${String.fromCharCode(10)}네이버가 구장 이름을 바꿔 매핑표에 없지만, 이전 경기와 같은 구장으로 연결해 경기가 빠지지 않았어요. 맞는지 확인 후 naverStadiumMap에 정식 추가해주세요(다른 구장으로 바뀐 거라면 수정).${String.fromCharCode(10)}${lines}${fresh.length > 25 ? String.fromCharCode(10) + '… 외 ' + (fresh.length - 25) + '건' : ''}`;
   try {
-    const res = await fetch(webhook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ content }) });
+    const res = await fetch(webhook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ allowed_mentions: { parse: [] }, content }) });
     if (res.ok) {
       for (const a of fresh) state[`auto::${a.categoryId}::${a.stadium}`] = now;
       const liveKeys = new Set(items.map((a) => `auto::${a.categoryId}::${a.stadium}`));
@@ -366,7 +366,7 @@ async function notifyMappingFailures(uniqueFails) {
     const res = await fetch(webhook, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ content }),
+      body: JSON.stringify({ allowed_mentions: { parse: [] }, content }),
     });
     if (res.ok) {
       for (const f of fresh) state[`${f.categoryId}::${f.stadium}`] = now;
