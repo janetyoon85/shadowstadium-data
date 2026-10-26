@@ -748641,7 +748641,7 @@
     "stadium": "Estadio Claudio Chiqui Tapia",
     "timeTbd": false,
     "gameId": "ARGENTINA_ESPN_401841640",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 2,
     "awayScore": 1,
@@ -748670,13 +748670,19 @@
           "n": "Enzo Taborda",
           "m": 66,
           "nat": "Argentina",
-          "pid": "espn:316295"
+          "pid": "espn:316295",
+          "a": "Tomás Porra",
+          "apid": "espn:315615",
+          "aNat": "Argentina"
         },
         {
           "n": "Rafael Barrios",
           "m": 74,
           "nat": "Argentina",
-          "pid": "espn:206618"
+          "pid": "espn:206618",
+          "a": "Gastón Campi",
+          "apid": "espn:194034",
+          "aNat": "Argentina"
         }
       ],
       "away": [
@@ -748687,7 +748693,9 @@
           "pid": "espn:287691"
         }
       ]
-    }
+    },
+    "assistsChecked": true,
+    "assistsAt": 1792981857529
   },
   {
     "date": "2026-10-26",
@@ -748886,6 +748894,13 @@
           "type": "Y",
           "m": 43,
           "pid": "espn:241474",
+          "nat": "Colombia"
+        },
+        {
+          "n": "Juan Mera",
+          "type": "Y",
+          "m": 51,
+          "pid": "espn:264205",
           "nat": "Colombia"
         }
       ],
