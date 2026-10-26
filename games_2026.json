@@ -746671,16 +746671,18 @@
     "status": "live",
     "homeScore": 9,
     "awayScore": 15,
-    "inningInfo": "8회초",
+    "inningInfo": "8회말",
     "liveState": {
-      "pitcher": "Kelly Austin",
-      "batter": "Juan Brito",
-      "pitcherPid": "mlb:675502",
-      "batterPid": "mlb:682877",
+      "pitcher": "Alex Colomé",
+      "batter": "Zoilo Almonte",
+      "pitcherPid": "mlb:517008",
+      "batterPid": "mlb:501660",
       "ball": 1,
       "strike": 0,
-      "out": 3,
-      "bases": []
+      "out": 1,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -746712,16 +746714,14 @@
     "awayScore": 9,
     "inningInfo": "9회말",
     "liveState": {
-      "pitcher": "Jonathan Aro",
-      "batter": "Francisco Mejía",
-      "pitcherPid": "mlb:608167",
-      "batterPid": "mlb:642336",
-      "ball": 1,
-      "strike": 1,
-      "out": 2,
-      "bases": [
-        2
-      ]
+      "pitcher": "Michel Otañez",
+      "batter": "Mason McCoy",
+      "pitcherPid": "mlb:671305",
+      "batterPid": "mlb:669200",
+      "ball": 2,
+      "strike": 2,
+      "out": 3,
+      "bases": []
     }
   },
   {
@@ -747347,7 +747347,7 @@
     "stadium": "Estadio Municipal Alcaldesa Ester Roa Rebolledo",
     "timeTbd": false,
     "gameId": "CHILE_ESPN_401850670",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 0,
     "awayScore": 1,
@@ -747396,7 +747396,9 @@
           "pid": "espn:257627"
         }
       ]
-    }
+    },
+    "assistsChecked": true,
+    "assistsAt": 1792976639961
   },
   {
     "date": "2026-10-26",
@@ -747408,7 +747410,7 @@
     "stadium": "Estadio Jalisco",
     "timeTbd": false,
     "gameId": "LIGAMX_ESPN_401876923",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 4,
     "awayScore": 3,
@@ -747418,25 +747420,37 @@
           "n": "Florián Monzón",
           "m": 1,
           "nat": "Argentina",
-          "pid": "espn:309574"
+          "pid": "espn:309574",
+          "a": "Jorge Rodríguez",
+          "apid": "espn:312586",
+          "aNat": "Mexico"
         },
         {
           "n": "Kevin Zenón",
           "m": 63,
           "nat": "Argentina",
-          "pid": "espn:290593"
+          "pid": "espn:290593",
+          "a": "Luís Esteves",
+          "apid": "espn:312549",
+          "aNat": "Portugal"
         },
         {
           "n": "José Martín",
           "m": 68,
           "nat": "Mexico",
-          "pid": "espn:407291"
+          "pid": "espn:407291",
+          "a": "Kevin Zenón",
+          "apid": "espn:290593",
+          "aNat": "Argentina"
         },
         {
           "n": "José Martín",
           "m": 79,
           "nat": "Mexico",
-          "pid": "espn:407291"
+          "pid": "espn:407291",
+          "a": "Luís Esteves",
+          "apid": "espn:312549",
+          "aNat": "Portugal"
         }
       ],
       "away": [
@@ -747457,7 +747471,10 @@
           "n": "Omar Moreno",
           "m": 84,
           "nat": "Mexico",
-          "pid": "espn:357211"
+          "pid": "espn:357211",
+          "a": "Alejandro Organista",
+          "apid": "espn:284658",
+          "aNat": "Mexico"
         }
       ]
     },
@@ -747486,7 +747503,9 @@
           "nat": "Mexico"
         }
       ]
-    }
+    },
+    "assistsChecked": true,
+    "assistsAt": 1792976639754
   },
   {
     "date": "2026-10-26",
@@ -747503,15 +747522,16 @@
     "awayScore": 3,
     "inningInfo": "7회말",
     "liveState": {
-      "pitcher": "Orlando Gonzalez",
-      "batter": "Javier Salazar",
-      "pitcherPid": "mlb:701432",
-      "batterPid": "mlb:665745",
+      "pitcher": "Jimmy Burnette",
+      "batter": "Norberto Obeso",
+      "pitcherPid": "mlb:694787",
+      "batterPid": "mlb:650995",
       "ball": 0,
       "strike": 0,
-      "out": 0,
+      "out": 2,
       "bases": [
-        1
+        1,
+        2
       ]
     }
   },
@@ -747530,16 +747550,14 @@
     "awayScore": 3,
     "inningInfo": "7회초",
     "liveState": {
-      "pitcher": "Alexandro Tovalin",
-      "batter": "Alfredo Duno",
-      "pitcherPid": "mlb:700071",
-      "batterPid": "mlb:806957",
-      "ball": 0,
-      "strike": 2,
-      "out": 0,
-      "bases": [
-        1
-      ]
+      "pitcher": "Wikelman González",
+      "batter": "Cooper Kinney",
+      "pitcherPid": "mlb:682790",
+      "batterPid": "mlb:695692",
+      "ball": 2,
+      "strike": 3,
+      "out": 3,
+      "bases": []
     }
   },
   {
@@ -747552,10 +747570,10 @@
     "stadium": "Estadio Inca Garcilaso de la Vega",
     "timeTbd": false,
     "gameId": "PERU_ESPN_401886156",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 4,
-    "awayScore": 0,
+    "awayScore": 1,
     "cards": {
       "home": [
         {
@@ -747631,8 +747649,17 @@
           "pid": "espn:34337"
         }
       ],
-      "away": []
-    }
+      "away": [
+        {
+          "n": "Jarlín Quintero",
+          "m": 90,
+          "nat": "Colombia",
+          "pid": "espn:222124"
+        }
+      ]
+    },
+    "assistsChecked": true,
+    "assistsAt": 1792976845527
   },
   {
     "date": "2026-10-26",
@@ -747743,6 +747770,12 @@
           "m": 66,
           "pid": "espn:183523",
           "nat": "Ecuador"
+        },
+        {
+          "n": "Juergueen Lev Vaca Ferreira",
+          "type": "Y",
+          "m": 76,
+          "pid": "espn:3144704"
         }
       ],
       "away": [
@@ -747874,7 +747907,7 @@
     "timeTbd": false,
     "gameId": "COSTARICA_ESPN_401876833",
     "status": "live",
-    "matchPeriod": "하프타임",
+    "matchPeriod": "후반",
     "homeScore": 0,
     "awayScore": 0
   },
@@ -747891,18 +747924,16 @@
     "status": "live",
     "homeScore": 1,
     "awayScore": 0,
-    "inningInfo": "4회초",
+    "inningInfo": "4회말",
     "liveState": {
-      "pitcher": "Eduardo Mares",
-      "batter": "Jose Manuel Orozco",
-      "pitcherPid": "mlb:700315",
-      "batterPid": "mlb:554031",
-      "ball": 1,
-      "strike": 2,
-      "out": 2,
-      "bases": [
-        1
-      ]
+      "pitcher": "Alex Delgado",
+      "batter": "Nick Senzel",
+      "pitcherPid": "mlb:604596",
+      "batterPid": "mlb:669222",
+      "ball": 3,
+      "strike": 1,
+      "out": 0,
+      "bases": []
     }
   },
   {
@@ -747921,14 +747952,15 @@
     "inningInfo": "3회말",
     "liveState": {
       "pitcher": "Luis Angel Rodriguez",
-      "batter": "Jose Alvarez",
+      "batter": "Carlos Arellano",
       "pitcherPid": "mlb:678296",
-      "batterPid": "mlb:518402",
+      "batterPid": "mlb:689161",
       "ball": 1,
-      "strike": 2,
-      "out": 1,
+      "strike": 1,
+      "out": 2,
       "bases": [
-        1
+        1,
+        2
       ]
     }
   },
@@ -747945,15 +747977,15 @@
     "status": "live",
     "homeScore": 2,
     "awayScore": 3,
-    "inningInfo": "4회초",
+    "inningInfo": "4회말",
     "liveState": {
-      "pitcher": "Norge Ruiz",
-      "batter": "Jorge Flores",
-      "pitcherPid": "mlb:650204",
-      "batterPid": "mlb:592312",
-      "ball": 1,
-      "strike": 1,
-      "out": 2,
+      "pitcher": "Saul Vazquez",
+      "batter": "Edgar Robles",
+      "pitcherPid": "mlb:678410",
+      "batterPid": "mlb:677977",
+      "ball": 0,
+      "strike": 0,
+      "out": 1,
       "bases": []
     }
   },
@@ -747973,13 +748005,15 @@
     "inningInfo": "4회말",
     "liveState": {
       "pitcher": "Omar Araujo",
-      "batter": "Luis Urías",
+      "batter": "Marco Vargas",
       "pitcherPid": "mlb:807586",
-      "batterPid": "mlb:649966",
-      "ball": 2,
-      "strike": 0,
-      "out": 0,
-      "bases": []
+      "batterPid": "mlb:804614",
+      "ball": 1,
+      "strike": 2,
+      "out": 1,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -748051,7 +748085,10 @@
     "stadium": "Estadio Corregidora",
     "timeTbd": false,
     "gameId": "LIGAMX_ESPN_401876921",
-    "status": "scheduled"
+    "status": "live",
+    "matchPeriod": "전반",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-10-26",
