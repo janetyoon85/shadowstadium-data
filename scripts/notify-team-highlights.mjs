@@ -6,7 +6,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import admin from 'firebase-admin';
+import admin from './firebase-admin-compat.mjs';
 import { teamFinalTopic } from './topic.mjs';
 import { LANGS, localTeam, flagTeam, localLeague } from './push-i18n.mjs';
 

@@ -75,7 +75,7 @@ function softKeys(name, baseball) {
 }
 
 async function main() {
-  const { default: admin } = await import('firebase-admin');
+  const { default: admin } = await import('./firebase-admin-compat.mjs');
   const DRY = !!process.env.DRY_RUN;
   const send = DRY ? async (m) => { if (process.env.DRY_RUN === '2') console.log(m.topic, m.notification.title); } : (m) => admin.messaging().send(m);
   if (!DRY && admin.apps.length === 0) admin.initializeApp({ credential: admin.credential.cert(JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT)) });
