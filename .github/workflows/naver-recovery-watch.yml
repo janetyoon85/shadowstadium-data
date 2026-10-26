@@ -1,0 +1,33 @@
+name: naver-recovery-watch
+# 네이버 API 가 GitHub 호스티드 러너를 막은 동안(2026-10-26~) 30분마다 응답하는지 확인한다.
+# 응답이 돌아오면 Discord 로 한 번 알리고 이 워크플로우를 스스로 끈다. 그때 저장소 변수 CRAWLER_RUNNER 를 지우면 크롤러가 GitHub 서버로 복귀한다(docs/home-runner.md).
+on:
+  schedule:
+    - cron: '7,37 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: write
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: 네이버 API 응답 확인
+        id: probe
+        run: |
+          U='https://api-gw.sports.naver.com/schedule/games?fromDate=2026-10-26&toDate=2026-10-26&upperCategoryId=kbaseball&categoryId=kbo&size=5'
+          if curl -sf -m 12 -o /dev/null -A "Mozilla/5.0 (compatible; shadowstadium; +https://github.com/janetyoon85/shadowstadium-data)" "$U"; then
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+            echo "아직 막혀 있음"
+          fi
+      - name: 복구 알림 후 감시 종료
+        if: steps.probe.outputs.ok == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          HOOK: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: |
+          curl -s -H "Content-Type: application/json" -d '{"content":"🟢 네이버 API 가 GitHub 서버에서 다시 응답해요. 집 PC 크롤러 대신 GitHub 서버로 되돌리려면 저장소 변수 CRAWLER_RUNNER 를 삭제하세요(docs/home-runner.md)."}' "$HOOK"
+          gh api -X PUT "repos/${{ github.repository }}/actions/workflows/naver-recovery-watch.yml/disable"
