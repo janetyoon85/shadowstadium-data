@@ -748001,23 +748001,9 @@
     "stadium": "Estadio Nido de los Aguilas",
     "timeTbd": false,
     "gameId": "LMP_MLBSTATS_850528",
-    "status": "live",
-    "homeScore": 5,
-    "awayScore": 5,
-    "inningInfo": "11회말",
-    "liveState": {
-      "pitcher": "Colten Brewer",
-      "batter": "Moises Gutierrez",
-      "pitcherPid": "mlb:605155",
-      "batterPid": "mlb:605011",
-      "ball": 2,
-      "strike": 2,
-      "out": 0,
-      "bases": [
-        1,
-        2
-      ]
-    }
+    "status": "completed",
+    "homeScore": 6,
+    "awayScore": 5
   },
   {
     "date": "2026-10-26",
@@ -748031,15 +748017,15 @@
     "gameId": "LVBP_MLBSTATS_870048",
     "status": "live",
     "homeScore": 3,
-    "awayScore": 4,
+    "awayScore": 5,
     "inningInfo": "10회초",
     "liveState": {
       "pitcher": "Enderson Franco",
-      "batter": "José Rondon",
+      "batter": "Lenyn Sosa",
       "pitcherPid": "mlb:575070",
-      "batterPid": "mlb:602922",
+      "batterPid": "mlb:672820",
       "ball": 0,
-      "strike": 0,
+      "strike": 1,
       "out": 2,
       "bases": [
         1,
@@ -748467,15 +748453,15 @@
     "status": "live",
     "homeScore": 3,
     "awayScore": 0,
-    "inningInfo": "7회초",
+    "inningInfo": "7회말",
     "liveState": {
-      "pitcher": "Edwin Zamudio",
-      "batter": "Marco Chicuate",
-      "pitcherPid": "mlb:692426",
-      "batterPid": "mlb:617918",
-      "ball": 1,
-      "strike": 3,
-      "out": 3,
+      "pitcher": "Diego Hernandez",
+      "batter": "River Town",
+      "pitcherPid": "mlb:800545",
+      "batterPid": "mlb:701817",
+      "ball": 2,
+      "strike": 1,
+      "out": 2,
       "bases": []
     }
   },
@@ -748494,13 +748480,13 @@
     "awayScore": 4,
     "inningInfo": "6회말",
     "liveState": {
-      "pitcher": "Irving Vazquez",
-      "batter": "Ricardo Valenzuela",
-      "pitcherPid": "mlb:802744",
-      "batterPid": "mlb:594020",
-      "ball": 3,
-      "strike": 2,
-      "out": 0,
+      "pitcher": "Cesar Gomez",
+      "batter": "Carlos Arellano",
+      "pitcherPid": "mlb:685461",
+      "batterPid": "mlb:689161",
+      "ball": 0,
+      "strike": 0,
+      "out": 1,
       "bases": []
     }
   },
@@ -748517,16 +748503,18 @@
     "status": "live",
     "homeScore": 2,
     "awayScore": 3,
-    "inningInfo": "8회초",
+    "inningInfo": "8회말",
     "liveState": {
-      "pitcher": "Jose Isidro Marquez",
-      "batter": "Jon Singleton",
-      "pitcherPid": "mlb:667904",
-      "batterPid": "mlb:572138",
+      "pitcher": "Isaac Jimenez",
+      "batter": "Ramiro Pena",
+      "pitcherPid": "mlb:645799",
+      "batterPid": "mlb:455369",
       "ball": 0,
       "strike": 0,
-      "out": 3,
-      "bases": []
+      "out": 1,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -748542,14 +748530,14 @@
     "status": "live",
     "homeScore": 1,
     "awayScore": 1,
-    "inningInfo": "9회초",
+    "inningInfo": "9회말",
     "liveState": {
-      "pitcher": "Samuel Zazueta",
-      "batter": "Yurisbel Gracial",
-      "pitcherPid": "mlb:650980",
-      "batterPid": "mlb:666968",
-      "ball": 2,
-      "strike": 1,
+      "pitcher": "Jonas Garibay",
+      "batter": "Jorge Alfaro",
+      "pitcherPid": "mlb:691388",
+      "batterPid": "mlb:595751",
+      "ball": 0,
+      "strike": 0,
       "out": 0,
       "bases": []
     }
@@ -748614,7 +748602,15 @@
           "nat": "Argentina"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Rodrigo Aliendro",
+          "type": "R",
+          "m": 88,
+          "pid": "espn:172387",
+          "nat": "Argentina"
+        }
+      ]
     }
   },
   {
@@ -748782,11 +748778,18 @@
     "timeTbd": false,
     "gameId": "LIGAMX_ESPN_401876922",
     "status": "live",
-    "matchPeriod": "하프타임",
-    "homeScore": 0,
+    "matchPeriod": "후반",
+    "homeScore": 1,
     "awayScore": 1,
     "scorers": {
-      "home": [],
+      "home": [
+        {
+          "n": "Henry Martín",
+          "m": 46,
+          "nat": "Mexico",
+          "pid": "espn:93184"
+        }
+      ],
       "away": [
         {
           "n": "Alan Bautista",
