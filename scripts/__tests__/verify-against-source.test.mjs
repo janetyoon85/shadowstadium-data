@@ -45,3 +45,17 @@ test('시각 미정(timeTbd) 경기는 킥오프 시각 불일치로 보지 않�
   assert.deepEqual(compareGame(ours, ev, now), []);
   assert.equal(compareGame({ ...ours, timeTbd: false }, ev, now).length, 1);
 });
+
+test('알림은 2회 + 최소 지속 시간(기본 45분, 농구 박스 2시간)이 지나야 나간다 — 실행이 몇 분 간격으로 겹쳐도 오알림 방지', async () => {
+  const { decideAlerts: da } = await import('../verify-against-source.mjs');
+  const T0 = Date.parse('2026-10-26T04:00:00Z');
+  const found = { a: { key: 'a', kind: '스코어 불일치', text: 'x' }, b: { key: 'b', kind: '농구 선수 기록 불일치', text: 'y' } };
+  const r1 = da(found, { pending: {}, alerted: {} }, T0);
+  assert.equal(r1.toSend.length, 0);
+  const r2 = da(found, { pending: r1.pending, alerted: r1.alerted }, T0 + 5 * 60e3); // 5분 뒤 2회째 — 아직 이르다
+  assert.equal(r2.toSend.length, 0);
+  const r3 = da(found, { pending: r2.pending, alerted: r2.alerted }, T0 + 50 * 60e3); // 50분: 일반 불일치만
+  assert.deepEqual(r3.toSend.map((x) => x.key), ['a']);
+  const r4 = da(found, { pending: r3.pending, alerted: r3.alerted }, T0 + 125 * 60e3); // 2시간+: 농구 박스도
+  assert.deepEqual(r4.toSend.map((x) => x.key), ['b']);
+});

@@ -41,6 +41,9 @@ export function compareGame(ours, ev, nowMs = Date.now()) {
 }
 
 // 두 번 연속 보인 것만 알림 + 24시간 중복 억제(순수 함수)
+// 같은 불일치가 "실행 2회"가 아니라 "일정 시간 이상" 이어질 때만 알린다 — 실행이 몇 분 간격으로 겹쳐 돌면(정시 호출 + GitHub 스케줄 + 수동) 2회가 금방 채워져, 경기 직후 ESPN 이 스탯을 정정하기 전 값을
+// 오알림했다(2026-10-26 NBA 파울 5→4 등). 박스스코어 기록은 크롤러가 30분마다 다시 받으므로 2시간, 그 외 45분.
+export const minAgeMs = (kind) => (/^농구 (선수 기록|박스스코어|NBA 선수)/.test(kind || '') ? 120 : 45) * 60e3;
 export function decideAlerts(found, state, nowMs = Date.now()) {
   const pending = {};
   const toSend = [];
@@ -48,7 +51,7 @@ export function decideAlerts(found, state, nowMs = Date.now()) {
     const prev = state.pending?.[key];
     pending[key] = { n: (prev?.n || 0) + 1, first: prev?.first || nowMs };
     const last = state.alerted?.[key] || 0;
-    if (pending[key].n >= 2 && nowMs - last >= 24 * 3600e3) toSend.push(item);
+    if (pending[key].n >= 2 && nowMs - pending[key].first >= minAgeMs(item.kind) && nowMs - last >= 24 * 3600e3) toSend.push(item);
   }
   const alerted = { ...(state.alerted || {}) };
   for (const it of toSend) alerted[it.key] = nowMs;
