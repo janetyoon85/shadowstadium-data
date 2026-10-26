@@ -7,6 +7,11 @@ on:
   schedule:
     - cron: '23 * * * *'
   workflow_dispatch:
+    inputs:
+      test_discord:
+        description: '실제 대조 없이 Discord 로 테스트 메시지 1건만 보내 알림 경로(웹훅)를 확인'
+        type: boolean
+        default: false
 
 permissions:
   contents: write   # verify-source-state.json commit
@@ -29,7 +34,7 @@ jobs:
       - name: Verify against ESPN
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
-        run: node scripts/verify-against-source.mjs
+        run: node scripts/verify-against-source.mjs ${{ inputs.test_discord && '--test-discord' || '' }}
 
       - name: Commit state
         run: |
