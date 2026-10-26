@@ -24,5 +24,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
+      # firebase-admin 을 import 하는 스크립트(호환 모듈 등)의 테스트가 패키지를 찾지 못해 계속 실패하고 있었다(설치 단계 없음) — 2026-10-27
+      - run: npm ci
       - run: npm test
