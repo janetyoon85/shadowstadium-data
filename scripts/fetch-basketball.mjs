@@ -150,11 +150,12 @@ async function naverDetail(game) {
   const r = j.result?.recordData;
   if (!r) return null;
   const lines = (side) => [1, 2, 3, 4].map((q) => r[`${side}Q${q}Score`]).concat(r[`${side}XScore`] ? [r[`${side}XScore`]] : []);
-  const team = (s) => { const x = r[s]; return x && { pts: x.score, reb: x.rebound, ast: x.aS, stl: x.sT, blk: x.bS, to: x.to, pf: x.foulTot, fg: [x.fg, x.fgA], tp: [x.threep, x.threepA], ft: [x.ft, x.ftA] }; };
+  // 네이버: 선수 fg=전체 필드골 성공(3점 포함)인데 fgA 는 성공수와 같게 내려와(예: 9/9) 시도수는 2점시도+3점시도로 계산. 팀 fg/fgA 는 2점 기록이라 normalFg/normalFgA(전체)를 쓴다.
+  const team = (s) => { const x = r[s]; return x && { pts: x.score, reb: x.rebound, ast: x.aS, stl: x.sT, blk: x.bS, to: x.to, pf: x.foulTot, fg: [x.normalFg ?? x.fg + x.threep, x.normalFgA ?? x.fgA + x.threepA], tp: [x.threep, x.threepA], ft: [x.ft, x.ftA] }; };
   const pl = (side) => (r[`${side}PlayerStats`] || []).filter((p) => p.playTimeSec > 0 || p.scoreTot > 0).map((p) => {
     const pid = `nbk:${game._cfg.cat}:${p.playerId}`;
     addPlayer(pid, p.playerName, game[side === 'home' ? 'h' : 'a'].k, game.lg, game.date);
-    return { pid, n: p.playerName, no: p.backNum, pos: p.position, min: p.playTimeStr, pts: p.scoreTot, reb: p.reboundTot, ast: p.as, stl: p.st, blk: p.bs, to: p.to, pf: p.foulTot, fg: [p.fg, p.fgA], tp: [p.threeP, p.threePA], ft: [p.ft, p.ftA], gs: p.startFlag ? 1 : 0 };
+    return { pid, n: p.playerName, no: p.backNum, pos: p.position, min: p.playTimeStr, pts: p.scoreTot, reb: p.reboundTot, ast: p.as, stl: p.st, blk: p.bs, to: p.to, pf: p.foulTot, fg: [p.fg, (p.twoPA ?? 0) + (p.threePA ?? 0)], tp: [p.threeP, p.threePA], ft: [p.ft, p.ftA], gs: p.startFlag ? 1 : 0 };
   });
   return { ls: { h: lines('home'), a: lines('away') }, tm: { h: team('home'), a: team('away') }, pl: { h: pl('home'), a: pl('away') } };
 }
@@ -697,6 +698,8 @@ async function main() {
     // 그래서 ① 종료 후 3일 안 경기는 2시간마다 ② 선수 득점 합이 경기 점수와 안 맞는 경기(부분 기록으로 저장된 프리시즌 등)는 30일 안에서 하루 1번 다시 받는다. 마지막 확인 시각은 box-recheck.json.
     const state = await readJson('box-recheck.json', {});
     const sumBad = (g, d) => ['h', 'a'].some((s) => d?.pl?.[s]?.length && Number.isFinite(g[s]?.s) && d.pl[s].reduce((a, p) => a + (p.pts || 0), 0) !== g[s].s);
+    // 네이버 fgA 오류(성공수와 같게 저장)로 저장된 옛 박스스코어 — 빗나간 3점이 빗나간 필드골보다 많은 불가능한 기록이 있으면 다시 받아 바로잡는다(2026-10-26).
+    const fgBug = (d) => ['h', 'a'].some((side) => (d?.pl?.[side] || []).some((p) => p.fg && p.tp && p.fg[1] - p.fg[0] < p.tp[1] - p.tp[0]));
     const cfgFor = (g) => g._cfg || (g.src === 'espn' ? ESPN.find((c) => c.lg === g.lg) : g.src === 'naver' ? NAVER.find((c) => c.lg === g.lg) : g.src === 'el' ? {} : undefined);
     const due = [];
     for (const g of byId.values()) {
@@ -704,7 +707,7 @@ async function main() {
       const d = (await box(g))[g.id];
       if (!d) continue;
       const last = state[g.id] || 0;
-      if ((now - g.t < 3 * 86400e3 && now - last >= 2 * 3600e3) || (now - g.t < 30 * 86400e3 && now - last >= 24 * 3600e3 && sumBad(g, d))) due.push(g);
+      if ((now - g.t < 3 * 86400e3 && now - last >= 2 * 3600e3) || (now - g.t < 30 * 86400e3 && now - last >= 24 * 3600e3 && sumBad(g, d)) || (g.src === 'naver' && fgBug(d))) due.push(g);
     }
     due.sort((a, b) => b.t - a.t);
     let rechecked = 0, changed = 0;

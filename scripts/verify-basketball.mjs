@@ -18,6 +18,8 @@ export function boxInternalCheck(game, box, label = `${game.date} ${game.lg} ${g
     if (/^(espn|naver|bl|el)$/.test(game.src)) {
       for (const p of rows) {
         if (!Array.isArray(p.fg) || !Array.isArray(p.tp) || !Array.isArray(p.ft)) continue;
+        // 시도수가 성공수보다 적거나, 빗나간 3점(3점시도−3점성공)이 빗나간 필드골 전체(FGA−FGM)보다 많으면 불가능한 기록(네이버가 fgA 를 성공수로 내려주던 오류가 이 규칙으로 잡힌다)
+        if (p.fg[1] < p.fg[0] || p.fg[1] - p.fg[0] < p.tp[1] - p.tp[0] || p.ft[1] < p.ft[0]) out.push({ key: `shot|${p.pid || p.n}`, kind: '농구 선수 슛 기록 모순', text: `${label} — ${p.n} FG ${p.fg[0]}/${p.fg[1]}, 3P ${p.tp[0]}/${p.tp[1]}, FT ${p.ft[0]}/${p.ft[1]}` });
         const calc = 2 * p.fg[0] + p.tp[0] + p.ft[0];
         if (Number.isFinite(p.pts) && calc !== p.pts) out.push({ key: `pl|${p.pid || p.n}`, kind: '농구 선수 득점 구성 불일치', text: `${label} — ${p.n} 득점 ${p.pts} / 필드골·3점·자유투로 계산 ${calc}` });
       }

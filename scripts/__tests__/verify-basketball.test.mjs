@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { boxInternalCheck, compareBoxFresh, parseEspnBox, parseNaverBox, compareNbaNaverVsOurs } from '../verify-basketball.mjs';
 import { compareMlbBoxscore } from '../verify-events.mjs';
 
-const pl = (n, pts, extra = {}) => ({ pid: 'espnbk:nba:' + n, n, pts, reb: 1, ast: 1, stl: 0, blk: 0, to: 0, pf: 0, fg: [Math.floor(pts / 2), 5], tp: [0, 0], ft: [pts % 2, pts % 2], ...extra });
+const pl = (n, pts, extra = {}) => ({ pid: 'espnbk:nba:' + n, n, pts, reb: 1, ast: 1, stl: 0, blk: 0, to: 0, pf: 0, fg: [Math.floor(pts / 2), 40], tp: [0, 0], ft: [pts % 2, pts % 2], ...extra });
 
 test('내부 정합성: 선수 득점 합이 경기 점수와 다르면 알린다(부분 기록)', () => {
   const g = { id: 'espn:NBA:1', lg: 'NBA', src: 'espn', date: '2026-10-17', h: { s: 30 }, a: { s: 20 } };
@@ -55,4 +55,12 @@ test('MLB 공식 박스스코어: 홈런·도루 개수/누락을 선수 ID 로 
   const box2 = { teams: { home: { players: { ID1: bp(1, 2, 0), ID2: bp(2, 0, 2) } }, away: { players: {} } } };
   assert.deepEqual(compareMlbBoxscore(ours, box2).map((m) => m.key), ['home|홈런|mlb:1']); // 개수 불일치
   assert.equal(compareMlbBoxscore(ours, { teams: { home: { players: { ID1: bp(1, 1, 0), ID2: bp(2, 0, 2) } }, away: { players: {} } } }).length, 0);
+});
+
+test('슛 기록 모순: 필드골 시도가 성공보다 적거나 3점 시도가 필드골 시도보다 많으면 알린다', () => {
+  const g = { id: 'x', lg: 'KBL', src: 'naver', date: 'd', h: { s: 25 }, a: { s: 0 } };
+  const bad = { pl: { h: [{ pid: 'p', n: 'N', pts: 25, fg: [9, 9], tp: [2, 7], ft: [5, 6] }], a: [] } };
+  assert.equal(boxInternalCheck(g, bad).filter((m) => m.kind === '농구 선수 슛 기록 모순').length, 1);
+  const ok = { pl: { h: [{ pid: 'p', n: 'N', pts: 25, fg: [9, 14], tp: [2, 7], ft: [5, 6] }], a: [] } };
+  assert.equal(boxInternalCheck(g, ok).length, 0);
 });
