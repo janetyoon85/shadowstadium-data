@@ -26,6 +26,8 @@ export function liveStateFrom(ls) {
 export function applyLive(prev, g) {
   const merged = { ...prev, ...g };
   if (g.status !== 'live') { delete merged.liveState; if (g.status === 'completed') delete merged.inningInfo; }
+  // 취소·연기·예정으로 바뀌면 진행 중이던 때 남은 점수·이닝이 붙어 있으면 안 된다(우천 취소된 AAA 경기가 "0-1 · 2회말" 로 남아 있던 문제, 2026-10-26).
+  if (g.status !== 'live' && g.status !== 'completed') { delete merged.homeScore; delete merged.awayScore; delete merged.inningInfo; }
   else if (!g.liveState) delete merged.liveState;
   return merged;
 }
