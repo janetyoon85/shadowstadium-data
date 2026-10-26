@@ -10,7 +10,7 @@
 // android.priority = 'high' — 알림 메시지라 즉시 표시 보장.
 // android.notification.channelId = 'game-alerts' — App.tsx NOTIF_CHANNEL_ID 와 일치 (HIGH importance 채널).
 
-import admin from 'firebase-admin';
+import admin from './firebase-admin-compat.mjs';
 import { gameTopic, gameLangTopic } from './topic.mjs';
 
 const NOTIF_CHANNEL_ID = 'game-alerts';

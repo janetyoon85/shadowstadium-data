@@ -7,7 +7,7 @@
 // 분리 — "고유id로해야겠네" 요청. id가 이름 그대로인 경우는 이전과 완전히 동일한 토픽이라
 // 기존에 이름으로 즐겨찾기해둔 구독도 그대로 유지됨, 하위호환 무마이그레이션).
 
-import admin from 'firebase-admin';
+import admin from './firebase-admin-compat.mjs';
 import { playerTopic, playerLangTopic } from './topic.mjs';
 
 const NOTIF_CHANNEL_ID = 'player-alerts';
