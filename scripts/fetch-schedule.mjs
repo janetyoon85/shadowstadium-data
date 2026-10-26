@@ -28,6 +28,8 @@ const SEASON_START = '2026-03-01';
 const SEASON_END = '2026-11-30';
 const PAGE_SIZE = 200;
 const REQUEST_DELAY_MS = 1100;
+// ESPN(site.api.espn.com) 보강 요청 사이 대기 — 네이버(1.1초, 차단 전례)와 달리 ESPN 은 여유가 있어 줄였다(2026-10-27, 1분 주기에서 이 구간이 23초). 429 가 나면 운영 알림(watch-429)이 알려 준다.
+const ESPN_DELAY_MS = Number(process.env.ESPN_DELAY_MS) || 400;
 // 빠른 모드(2026-10-01): 매시 첫 10분 구간(전체 모드) 외 실행은 백필 예산을 0으로 두고 라이브/신규만 처리해 실행시간 단축.
 // 2026-10-26 개편(1분 주기): 전체 모드가 매시 0~9분 동안 "매 실행" 2~4분(ESPN 종료 후 재검증 30건 ≈ 145초가 대부분)씩 걸려 1분 트리거가 줄줄이 밀리고 취소됐다.
 // → 한꺼번에 몰아 하던 백필·재검증 예산을 매 실행에 1/BACKFILL_SLICE(기본 16) 씩 나눠 쓴다(60회/시 × 1/16 ≈ 전체 모드 3.75회분/시 — 재검증 대상은 48시간 창 안의 경기뿐이라 충분).
@@ -1861,7 +1863,7 @@ async function enrichEuroAssists(allGames) {
           const sbKey = `${slug}:${yyyymmdd}`;
           let events = scoreboardCache.get(sbKey);
           if (!events) {
-            await sleep(REQUEST_DELAY_MS);
+            await sleep(ESPN_DELAY_MS);
             events = await fetchEspnScoreboard(slug, yyyymmdd);
             scoreboardCache.set(sbKey, events);
           }
@@ -1890,7 +1892,7 @@ async function enrichEuroAssists(allGames) {
           const comp = match.competitions?.[0];
           const homeC = comp?.competitors?.find((c) => c.homeAway === 'home');
           const awayC = comp?.competitors?.find((c) => c.homeAway === 'away');
-          await sleep(REQUEST_DELAY_MS);
+          await sleep(ESPN_DELAY_MS);
           const summary = await fetchEspnSummary(slug, match.id);
           // 카드는 골 개수 일치 여부와 무관하게 독립적으로 추출(zip 불필요라 더 안전).
           const espnCards = await extractEspnCardsBySide(summary, homeC?.team?.displayName, awayC?.team?.displayName, slug, homeC?.team?.id, awayC?.team?.id);

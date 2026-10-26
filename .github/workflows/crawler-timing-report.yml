@@ -1,0 +1,31 @@
+name: Crawler Timing Report
+
+# 1분 주기 크롤러의 최근 24시간 소요 시간을 집계해 Discord 운영 알림으로 보낸다(하루 1회, 2026-10-27).
+# 1분을 자주 넘는 크롤러를 찾아 분산·최적화 필요 여부를 판단하는 근거. GitHub schedule 은 하루 한 번이라 누락돼도 큰 문제가 없어 cron-job.org 등록은 선택.
+
+on:
+  schedule:
+    - cron: '23 0 * * *'   # 매일 09:23 KST
+  workflow_dispatch:
+
+permissions:
+  actions: read
+
+concurrency:
+  group: crawler-timing-report
+  cancel-in-progress: false
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Report
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: node scripts/crawler-timing-report.mjs
