@@ -25,5 +25,8 @@ for (const [vid, c] of Object.entries(coords)) {
   const ht = v('zh-hant') || v('zh-tw') || v('zh-hk') || v('zh'); if (ht) r['zh-Hant'] = ht;
   if (Object.keys(r).length) out[vid] = r;
 }
+// 수작업 확정(venue-i18n-curated.json: 유로리그 경기장 한·일 표기) — 위키데이터에 없는 구장용, 위키 라벨보다 우선.
+const curated = JSON.parse(await fs.readFile(path.join(DIR, 'venue-i18n-curated.json'), 'utf8').catch(() => '{}'));
+for (const [k, v] of Object.entries(curated)) out[k] = { ...(out[k] || {}), ...v };
 await fs.writeFile(path.join(DIR, 'venue-i18n.json'), JSON.stringify(out));
 console.log('venue-i18n', Object.keys(out).length, 'ko', Object.values(out).filter((x) => x.ko).length);
