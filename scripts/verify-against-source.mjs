@@ -314,6 +314,11 @@ async function main() {
     }
   } catch (e) { console.warn('[verify] 농구 교차검증 읽기 실패:', e.message); }
 
+  // 원본(ESPN 등) 자체가 틀렸다고 확인된 경기는 verify-source-exceptions.json 에 등록 — 고칠 수 없는 건이 매일 알림을 만들지 않게 제외하고, 제외 건수는 상태에 남긴다.
+  const exceptions = rj('verify-source-exceptions.json', []);
+  let suppressed = 0;
+  for (const k of Object.keys(found)) if (exceptions.some((e) => e.match && k.includes(e.match))) { delete found[k]; suppressed++; }
+  stats.suppressed = suppressed;
   const stateFile = path.join(ROOT, 'verify-source-state.json');
   const state = rj('verify-source-state.json', { pending: {}, alerted: {} });
   const { toSend, pending, alerted } = decideAlerts(found, state, now);
