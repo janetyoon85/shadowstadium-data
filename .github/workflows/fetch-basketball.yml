@@ -33,17 +33,16 @@ jobs:
         with:
           node-version: '20'
 
-      # 1분 주기(2026-10-26): 매 실행 npm 설치가 45~50초(크롤링은 10초)라 한 바퀴가 1분을 넘겼다 → node_modules 를 캐시하고 없을 때만 설치.
-      - name: Cache PDF parser
-        id: pdfcache
-        uses: actions/cache@v4
-        with:
-          path: node_modules
-          key: pdfjs-dist-3.11.174-${{ runner.os }}
-
+      # 1분 주기(2026-10-26): 매 실행 npm 설치가 45~50초(크롤링은 10초)라 한 바퀴가 1분을 넘겼다. actions/cache 는 NAS 에서 복원만 62초라 소용없었다 →
+      # 러너 머신의 영구 폴더(_tool 캐시)에 한 번만 설치해 두고 매번 연결만 한다(GitHub 서버 러너는 매번 새 머신이라 예전처럼 설치).
       - name: Install PDF parser (Asian Games box scores)
-        if: steps.pdfcache.outputs.cache-hit != 'true'
-        run: npm i --no-save --no-package-lock pdfjs-dist@3.11.174
+        run: |
+          D="${RUNNER_TOOL_CACHE:-$HOME}/shadeside-pdfjs-3.11.174"
+          if [ ! -d "$D/node_modules/pdfjs-dist" ]; then
+            mkdir -p "$D" && (cd "$D" && npm i --no-save --no-package-lock pdfjs-dist@3.11.174)
+          fi
+          rm -rf node_modules && ln -sfn "$D/node_modules" node_modules
+          test -d node_modules/pdfjs-dist
 
       - name: Run basketball crawler
         run: node scripts/fetch-basketball.mjs
@@ -71,7 +70,7 @@ jobs:
             fi
             echo "push rejected, rebasing onto origin/main and retrying ($i/20)"
             git pull --rebase -X theirs origin main || git rebase --abort
-            sleep $((RANDOM % 30 + 1))
+            sleep $((RANDOM % 6 + 1))
           done
           echo "push failed after 20 retries"
           exit 1
