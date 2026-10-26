@@ -1,5 +1,6 @@
 // 푸시 알림 다국어(2026-10-02): 앱이 언어별 토픽(player_<hash>_<lang>)을 구독하고, 서버는 언어별 문구로 각각 발송.
 // 앱 언어 목록/순서는 App.tsx와 동일. 이름·팀·리그는 가능한 한 해당 언어로, 없으면 영문 폴백.
+import { teamFlag } from './national-flag.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -82,6 +83,10 @@ export function localTeam(lang, name, league) {
   if (!name) return name;
   if (lang === 'ko') return (league === 'MLS' || !MLB_SHARED.has(name) ? KO_MLS_FULL[name] : undefined) || name;
   return TEAM_EN[name] || name;
+}
+// 국가대표 경기면 국기 이모지를 붙인 팀명("🇰🇷 한국"), 아니면 localTeam 과 같다. 국기는 한글 국가명으로 찾으므로 언어와 무관.
+export function flagTeam(lang, name, league) {
+  return teamFlag(name, league) + localTeam(lang, name, league);
 }
 export function localPlayer(lang, name, pid) {
   if (lang === 'ko') return name;

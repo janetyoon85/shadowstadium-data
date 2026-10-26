@@ -5,7 +5,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import admin from 'firebase-admin';
 import { teamFinalTopic } from './topic.mjs';
-import { LANGS, localTeam, localLeague } from './push-i18n.mjs';
+import { LANGS, localTeam, flagTeam, localLeague } from './push-i18n.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SENT_FILE = path.join(ROOT, 'sent-team-final.json');
@@ -61,7 +61,7 @@ for (const g of Array.isArray(games) ? games : []) {
     id: g.gameId, keys: [...softKeys(g.home, bb), ...softKeys(g.away, bb)],
     data: { gameId: String(g.gameId), venueId: String(g.venueId || ''), date: String(g.date), doubleheaderNum: '' },
     text: (lang) => ({
-      title: `🏁 ${localTeam(lang, g.away, g.league)} ${g.awayScore}-${g.homeScore} ${localTeam(lang, g.home, g.league)}`,
+      title: `🏁 ${flagTeam(lang, g.away, g.league)} ${g.awayScore}-${g.homeScore} ${flagTeam(lang, g.home, g.league)}`,
       body: `${FINAL[lang]}${g.league ? ' · ' + localLeague(lang, g.league) : ''}`,
     }),
   });

@@ -8,7 +8,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import admin from 'firebase-admin';
 import { teamFinalTopic } from './topic.mjs';
-import { LANGS, localTeam, localLeague } from './push-i18n.mjs';
+import { LANGS, localTeam, flagTeam, localLeague } from './push-i18n.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SENT_FILE = path.join(ROOT, 'sent-team-highlights.json');
@@ -58,7 +58,7 @@ async function main() {
     info.set(g.gameId, {
       keys: [...softKeys(g.home, bb), ...softKeys(g.away, bb)],
       data: { gameId: String(g.gameId), venueId: String(g.venueId || ''), date: String(g.date), doubleheaderNum: '' },
-      title: (l) => `▶ ${localTeam(l, g.away, g.league)} vs ${localTeam(l, g.home, g.league)}`,
+      title: (l) => `▶ ${flagTeam(l, g.away, g.league)} vs ${flagTeam(l, g.home, g.league)}`,
       body: (l) => `${HL[l]}${g.league ? ' · ' + localLeague(l, g.league) : ''}`,
     });
   }

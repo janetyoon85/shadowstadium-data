@@ -21,7 +21,7 @@ import { fileURLToPath } from 'node:url';
 import { sendPlayerEvent } from './send-player-alert.mjs';
 import { fnv1a32 } from './topic.mjs';
 import { canonicalPlayerName } from './player-name-canon.mjs';
-import { LANGS, eventLabel, minuteLabel, localTeam, localPlayer, localLeague } from './push-i18n.mjs';
+import { LANGS, eventLabel, minuteLabel, localTeam, flagTeam, localPlayer, localLeague } from './push-i18n.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -209,8 +209,8 @@ async function main() {
       let lb = item.labelKey ? eventLabel(lang, null, item.labelKey) : eventLabel(lang, label === '도루 실패' ? '도루자' : label);
       // 진루 알림: 한국어는 원문("폭투로 2루까지 진루"), 그 외 언어는 "진루(폭투)".
       if (item.advance) lb = lang === 'ko' ? (detail || '').replace(name, '').trim() || eventLabel(lang, null, 'adv') : `${eventLabel(lang, null, 'adv')} (${lb})`;
-      const tm = localTeam(lang, team, g.league), op = localTeam(lang, opp, g.league), lg = localLeague(lang, g.league);
-      const sc = typeof g.homeScore === 'number' && typeof g.awayScore === 'number' ? `${localTeam(lang, g.away, g.league)} ${g.awayScore}-${g.homeScore} ${localTeam(lang, g.home, g.league)}` : '';
+      const tm = flagTeam(lang, team, g.league), op = flagTeam(lang, opp, g.league), lg = localLeague(lang, g.league);
+      const sc = typeof g.homeScore === 'number' && typeof g.awayScore === 'number' ? `${flagTeam(lang, g.away, g.league)} ${g.awayScore}-${g.homeScore} ${flagTeam(lang, g.home, g.league)}` : '';
       // 하이라이트 알림은 그 이벤트가 난 이닝(h.inn)을 쓴다 — 현재 이닝(g.inningInfo)을 쓰면 7회말 사건이 "8회말"로 알려진다.
       const ctx = [lg, item.inn || g.inningInfo].filter(Boolean).join(' · ');
       byLang[lang] = {
