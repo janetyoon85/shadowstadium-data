@@ -66,6 +66,11 @@ export function fromDaumGame(g, nowMs = Date.now()) {
     awayScore: scoreOf(g.awayScore),
     status,
     periodType: g.periodType || '',
+    // 야구 진행 이닝 — 2026-10-27 KBO 플레이오프 실측: gameStatus=PLAY, periodType='B05'(B=말·T=초, 05=5회) → '5회말'. 축구 단계 값은 아직 미확인(비워 둠).
+    inningInfo: (() => {
+      const m = /^([TB])(\d{1,2})$/.exec(String(g.periodType || ''));
+      return m ? `${Number(m[2])}회${m[1] === 'T' ? '초' : '말'}` : '';
+    })(),
   };
 }
 

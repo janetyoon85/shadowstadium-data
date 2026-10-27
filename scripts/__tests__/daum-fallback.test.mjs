@@ -52,3 +52,15 @@ test('리그 사전 — 한국 핵심 리그 포함', () => {
   for (const l of ['KBO', 'K리그1', 'K리그2', 'NPB']) assert.ok(DAUM_LEAGUE[l]);
   assert.equal(DAUM_LEAGUE.SERIEA, 'seriea');
 });
+
+test('진행 중(PLAY) 야구 — periodType B05/T03 → 5회말/3회초, 점수 객체의 run, 패치에 반영', () => {
+  const live = fromDaumGame(dg({ gameStatus: 'PLAY', periodType: 'B05', homeScore: { run: 4 }, awayScore: { run: 1 } }));
+  assert.deepEqual([live.status, live.inningInfo, live.homeScore, live.awayScore], ['live', '5회말', 4, 1]);
+  assert.equal(fromDaumGame(dg({ gameStatus: 'PLAY', periodType: 'T03' })).inningInfo, '3회초');
+  const { changes } = applyDaum([game()], { KBO: [live] }, Date.parse('2026-10-27T10:30:00Z'));
+  assert.deepEqual(changes[0].patch, { status: 'live', homeScore: 4, awayScore: 1, inningInfo: '5회말' });
+  // 더 진행되면 이닝만 갱신, 점수는 큰 값 유지
+  const g2 = { ...game(), status: 'live', homeScore: 4, awayScore: 1, inningInfo: '5회말' };
+  const later = fromDaumGame(dg({ gameStatus: 'PLAY', periodType: 'T06', homeScore: { run: 4 }, awayScore: { run: 1 } }));
+  assert.deepEqual(applyDaum([g2], { KBO: [later] }, Date.parse('2026-10-27T10:40:00Z')).changes[0].patch, { inningInfo: '6회초' });
+});

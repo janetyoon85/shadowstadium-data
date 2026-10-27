@@ -122,7 +122,7 @@ export function buildPatch(game, m) {
   // 보조 원본이 점수 면에서 뒤처져 있으면(= 더 오래된 값) 진행 정보도 믿지 않는다 — 네이버가 최신일 때 단계가 거꾸로 가는 것 방지.
   const behind = (typeof m.homeScore === 'number' && typeof game.homeScore === 'number' && m.homeScore < game.homeScore) || (typeof m.awayScore === 'number' && typeof game.awayScore === 'number' && m.awayScore < game.awayScore);
   if (m.status === 'live' && !behind && (game.status === 'live' || patch.status === 'live')) {
-    if (m.source === 'mlb' && m.inningInfo && m.inningInfo !== game.inningInfo) patch.inningInfo = m.inningInfo;
+    if ((m.source === 'mlb' || m.source === 'daum') && m.inningInfo && m.inningInfo !== game.inningInfo) patch.inningInfo = m.inningInfo;
     if (m.source === 'espn') {
       const mp = espnPeriodKo(m);
       if (mp && mp !== game.matchPeriod) patch.matchPeriod = mp;
