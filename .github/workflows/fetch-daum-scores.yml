@@ -1,0 +1,70 @@
+name: Fetch Daum Scores
+
+# 네이버가 막혔을 때 KBO·K리그·NPB·유럽 축구 점수·상태를 다음스포츠(sports.daum.net, robots 허용 경로)로 "앞으로만" 보강(2026-10-27).
+# 진행·임박 경기가 있는 리그만 조회(없으면 요청 0건으로 종료). 네이버가 정상이면 같은 값이라 변경 0건. 실제 주기는 cron-job.org(2분 권장) — GitHub 자체 cron 은 안전망.
+on:
+  schedule:
+    - cron: '13,43 * * * *'
+  workflow_dispatch:
+    inputs:
+      dry:
+        description: '변경 목록만 출력(저장·커밋 안 함) — true/false'
+        default: 'false'
+      leagues:
+        description: '대상 리그 제한(쉼표, 예: KBO,K리그1) — 비우면 활성 리그 전부'
+        default: ''
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fetch-daum-scores
+  cancel-in-progress: false
+
+jobs:
+  daum:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Fetch crawler code (private)
+        uses: ./.github/actions/fetch-code
+        with:
+          token: ${{ secrets.PRIVATE_DATA_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Apply Daum scores
+        env:
+          DAUM_DRY: ${{ github.event.inputs.dry == 'true' && '1' || '' }}
+          DAUM_LEAGUES: ${{ github.event.inputs.leagues }}
+        run: node scripts/fetch-daum-scores.mjs
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if [[ -n "$(git status --porcelain games.json)" ]]; then echo "changed=true" >> $GITHUB_OUTPUT; else echo "changed=false" >> $GITHUB_OUTPUT; fi
+
+      - name: Commit and push
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          cp games.json games_2026.json
+          git add games.json games_2026.json
+          git commit -m "chore(data): 다음스포츠 점수·상태 보강 ($(date +'%Y-%m-%d %H:%M'))"
+          for i in $(seq 1 20); do
+            if git push; then
+              exit 0
+            fi
+            echo "push rejected, rebasing onto origin/main and retrying ($i/20)"
+            git pull --rebase --autostash -X theirs origin main || { git rebase --abort 2>/dev/null || true; echo "rebase failed, retrying"; }
+            sleep $((RANDOM % 6 + 1))
+          done
+          echo "push failed after 20 retries"
+          exit 1
