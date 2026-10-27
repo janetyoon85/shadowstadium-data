@@ -6,6 +6,7 @@
 // 매일 1회 GitHub Actions 자동 실행(.github/workflows/fetch-mlb-aaa-baseball.yml).
 
 import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
+import { LIVE_ONLY, activeLeagues, writeLiveSnapshot } from './lib/live-only.mjs'; // 라이브 전용 모드(NAS 폴러)
 import { alertWebhook } from './alert-throttle.mjs';
 import fs from 'node:fs/promises';
 import { inningInfoFrom, liveStateFrom, applyLive, liveChanged } from './statsapi-live.mjs';
@@ -177,8 +178,9 @@ async function notifyUnknowns(unknownTeams, unknownVenues) {
 
 async function main() {
   const now = new Date();
-  const start = new Date(now.getTime() - 7 * 86400000);
-  const end = new Date(now.getTime() + 30 * 86400000);
+  if (LIVE_ONLY && !(await activeLeagues(REPO_ROOT)).has('AAA')) { await writeLiveSnapshot(REPO_ROOT, 'mlb-aaa', [], now.getTime()); return; } // 활성 경기 없으면 요청 없이 종료
+  const start = new Date(now.getTime() - (LIVE_ONLY ? 1 : 7) * 86400000);
+  const end = new Date(now.getTime() + (LIVE_ONLY ? 1 : 30) * 86400000);
   const startDate = ymd(start);
   const endDate = ymd(end);
 
@@ -193,6 +195,7 @@ async function main() {
     process.exit(1);
   }
   console.log(`  -> ${allNew.length} games`);
+  if (LIVE_ONLY) { await writeLiveSnapshot(REPO_ROOT, 'mlb-aaa', allNew, now.getTime()); return; }
   await notifyUnknowns(unknownTeams, unknownVenues);
 
   const gamesPath = path.join(REPO_ROOT, 'games.json');

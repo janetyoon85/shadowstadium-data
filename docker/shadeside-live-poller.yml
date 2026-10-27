@@ -7,7 +7,7 @@ services:
     image: node:22-bookworm-slim
     container_name: shadeside-live-poller
     restart: unless-stopped
-    mem_limit: 512m
+    mem_limit: 1g
     environment:
       TZ: Asia/Seoul
       FIREBASE_DATABASE_URL: "https://shadowstadium-default-rtdb.asia-southeast1.firebasedatabase.app"

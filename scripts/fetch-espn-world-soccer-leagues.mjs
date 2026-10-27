@@ -13,6 +13,7 @@
 // 유지). 매일 1회 GitHub Actions 자동 실행(.github/workflows/fetch-espn-world-soccer-leagues.yml).
 
 import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
+import { LIVE_ONLY, activeLeagues, writeLiveSnapshot } from './lib/live-only.mjs'; // 라이브 전용 모드(NAS 폴러)
 import { alertWebhook } from './alert-throttle.mjs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -264,6 +265,7 @@ async function notifyFetchFailures(failed) {
 
 async function main() {
   const now = new Date();
+  const liveLeagues = LIVE_ONLY ? await activeLeagues(REPO_ROOT) : null; // 라이브 전용: 활성 리그만 조회
   // 카드/득점자 pid 소급(2026-09-30) — pid 부착 로직 추가 전에 저장된 옛 경기는 7일 창 밖이라 영영
   // 갱신 안 됐음. pid 없는 항목이 남은 완료 경기가 있으면 조회창을 45일로 넓혀 한 번에 채움(없으면 7일).
   let lookbackDays = 7;
@@ -275,7 +277,7 @@ async function main() {
     if (cur.some((g) => lg.has(g.league) && String(g.gameId).includes('_ESPN_') && g.status === 'completed' && g.date >= cutoff && noPid(g))) lookbackDays = 45;
   } catch {}
   // 빠른 모드(2026-10-01): 매시 첫 10분 구간(전체 갱신) 외엔 어제~내일만 조회해 실행시간 단축.
-  const fullRun = now.getUTCMinutes() < 10 || process.env.FULL_RUN === '1';
+  const fullRun = !LIVE_ONLY && (now.getUTCMinutes() < 10 || process.env.FULL_RUN === '1');
   const start = new Date(now.getTime() - (fullRun ? lookbackDays : 1) * 86400000);
   const end = new Date(now.getTime() + (fullRun ? 30 : 1) * 86400000);
   const startDate = ymd(start);
@@ -286,6 +288,7 @@ async function main() {
   const allNew = [];
   const failedLeagues = [];
   for (const { code, slug } of LEAGUES) {
+    if (liveLeagues && !liveLeagues.has(code)) continue;
     console.log(`Fetching ${code} (${slug}) ${startDate}~${endDate} ...`);
     let gs;
     try {
@@ -298,6 +301,7 @@ async function main() {
     console.log(`  -> ${gs.length} games`);
     allNew.push(...gs);
   }
+  if (LIVE_ONLY) { await writeLiveSnapshot(REPO_ROOT, 'espn-world-21', allNew, now.getTime()); return; } // 알림·병합·저장 없이 스냅샷만
   await notifyUnknowns(unknownTeams, unknownVenues);
   await notifyFetchFailures(failedLeagues);
 

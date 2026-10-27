@@ -3,12 +3,13 @@
 //
 // 동작: 저장소(공개, 읽기 전용 클론)를 받아 두고 15분마다 최신으로 맞춘다 → 매 주기마다
 //  · 농구: 진행/곧 시작 경기가 있으면 fetch-basketball.mjs 를 돌려(저장·커밋 없음) → basketball/games.json 에서 라이브 경기만 뽑아 live/basketball_fast 에 게시
-//  · 축구·야구: 진행/곧 시작 경기가 있으면 LIVE_ONLY=1 fetch-schedule.mjs(라이브 카테고리·어제~모레 범위만) → live-snapshot.json → live/games_fast 에 게시
+//  · 축구·야구 등: 진행/곧 시작 경기가 있는 리그만 — 네이버 기반은 LIVE_ONLY=1 fetch-schedule.mjs, ESPN 축구 39개 리그·MLB 마이너·윈터리그는 각 크롤러의 LIVE_ONLY 모드 → live-snapshot*.json 을 합쳐 live/games_fast 에 게시
 //  경기가 없으면 크롤링 요청을 한 건도 보내지 않는다. 429/차단 조짐이 보이면 해당 소스를 5분 쉬고 Discord 로 알린다.
 //
 // 쓰기 권한: Realtime Database 전용 비밀키(FIREBASE_DB_SECRET, REST ?auth=) — 서비스 계정(푸시 발송 가능)보다 권한이 훨씬 좁다(라이브 점수만 건드릴 수 있음).
 // 환경변수: FIREBASE_DATABASE_URL, FIREBASE_DB_SECRET, [LIVE_INTERVAL_S=20], [REPO_DIR], [DISCORD_WEBHOOK_URL], [DRY_RUN=1]
 import { spawn, execFileSync } from 'node:child_process';
+import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -52,8 +53,8 @@ async function alert(text) {
   try { await fetch(hook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ allowed_mentions: { parse: [] }, content: `🟠 ShadeSide — NAS 라이브 폴러\n${text}` }), signal: AbortSignal.timeout(8000) }); } catch { /* 알림 실패는 무시 */ }
 }
 
-const pausedUntil = { basketball: 0, games: 0 };
-const failures = { basketball: 0, games: 0 };
+const pausedUntil = { basketball: 0, naver: 0, espn: 0 };
+const failures = { basketball: 0, naver: 0, espn: 0 };
 const lastPublished = { games: {}, basketball: {} };
 const wasActive = { basketball: false, games: false };
 
@@ -61,9 +62,10 @@ function noteResult(src, res) {
   const limited = /HTTP 429|HTTP 403|too many requests/i.test(res.out);
   if (res.code === 0 && !limited) { failures[src] = 0; return false; }
   failures[src]++;
+  log(`크롤링 실패(${src}) code=${res.code}${limited ? ' [요청 제한]' : ''}: ${res.out.replace(/s+/g, ' ').slice(-160)}`);
   if (limited || failures[src] >= 5) {
     pausedUntil[src] = Date.now() + PAUSE_MS;
-    alert(`${src === 'games' ? '일정(네이버)' : '농구'} 크롤링이 ${limited ? '요청 제한(429/403)' : '연속 실패'}로 5분간 멈춥니다.`);
+    alert(`${src === 'naver' ? '일정(네이버)' : src === 'espn' ? 'ESPN·MLB 마이너' : '농구'} 크롤링이 ${limited ? '요청 제한(429/403)' : '연속 실패'}로 5분간 멈춥니다.`);
     failures[src] = 0;
   }
   return true;
@@ -88,25 +90,63 @@ async function cycleBasketball() {
   log(`농구 ${Object.keys(sel).length}경기 게시 (${((Date.now() - t0) / 1000).toFixed(1)}s)`);
 }
 
+// 축구·야구 등 일정류: 네이버 기반(KBO·K리그·MLB·NPB·유럽 주요 리그 등)은 fetch-schedule 라이브 전용, ESPN 축구(39개 리그)와 MLB 마이너·윈터리그는 각 크롤러의 라이브 전용 모드.
+// 각자 "활성 리그만" 조회하고 live-snapshot*.json 을 남기면 여기서 합쳐 live/games_fast 에 한 번에 게시한다(경기가 없으면 요청 없이 즉시 종료).
+const ESPN_FAMILY = [
+  ['fetch-espn-soccer-leagues', 'espn-soccer-15'],
+  ['fetch-espn-world-soccer-leagues', 'espn-world-21'],
+  ['fetch-espn-asia-soccer-leagues', 'espn-asia-3'],
+  ['fetch-mlb-aaa-baseball', 'mlb-aaa'],
+  ['fetch-mlb-winter-baseball', 'mlb-winter'],
+];
+
 async function cycleGames() {
-  if (Date.now() < pausedUntil.games) return;
+  const t0 = Date.now();
   const games = (() => { const j = readJson('games.json', []); return Array.isArray(j) ? j : j.games || []; })();
-  const active = gamesActive(games, Date.now());
-  if (!active) {
-    if (wasActive.games) { wasActive.games = false; await putFast('games_fast', { ts: Date.now(), games: {} }).catch(() => {}); }
+  const jobs = [];
+  const snaps = [];
+  const collect = (file) => {
+    const s = readJson(file, null);
+    if (s && typeof s.games === 'object' && typeof s.ts === 'number' && s.ts >= t0 - 1000) snaps.push(s.games);
+  };
+  if (Date.now() >= pausedUntil.naver && gamesActive(games, t0)) {
+    jobs.push((async () => {
+      const res = await run(['scripts/fetch-schedule.mjs'], { LIVE_ONLY: '1', BACKFILL_SLICE: '1000' }, 60000);
+      if (!noteResult('naver', res)) collect('live-snapshot.json');
+    })());
+  }
+  if (Date.now() >= pausedUntil.espn) {
+    // 서로 독립이고 대부분 "활성 리그 없음"으로 즉시 끝나므로 병렬로 돌린다(가장 느린 하나의 시간 ≈ 4~8초).
+    for (const [file, name] of ESPN_FAMILY) {
+      jobs.push((async () => {
+        const res = await run([`scripts/${file}.mjs`], { LIVE_ONLY: '1' }, 45000);
+        if (!noteResult('espn', res)) collect(`live-snapshot-${name}.json`);
+      })());
+    }
+  }
+  await Promise.all(jobs);
+  const merged = Object.assign({}, ...snaps);
+  const n = Object.keys(merged).length;
+  if (n === 0) {
+    if (wasActive.games) { wasActive.games = false; lastPublished.games = {}; await putFast('games_fast', { ts: Date.now(), games: {} }).catch(() => {}); }
     return;
   }
   wasActive.games = true;
-  const t0 = Date.now();
-  const res = await run(['scripts/fetch-schedule.mjs'], { LIVE_ONLY: '1', BACKFILL_SLICE: '1000' }, 60000);
-  if (noteResult('games', res)) return;
-  const snap = readJson('live-snapshot.json', null);
-  if (!snap || typeof snap.games !== 'object') return;
-  const guarded = guardScores(lastPublished.games, snap.games);
-  lastPublished.games = JSON.parse(JSON.stringify(snap.games));
-  await putFast('games_fast', { ts: t0, games: snap.games });
-  log(`일정 ${Object.keys(snap.games).length}경기 게시${guarded ? ` (0-0 역행 ${guarded}건 보정)` : ''} (${((Date.now() - t0) / 1000).toFixed(1)}s)`);
+  const guarded = guardScores(lastPublished.games, merged);
+  lastPublished.games = JSON.parse(JSON.stringify(merged));
+  await putFast('games_fast', { ts: t0, games: merged });
+  log(`일정 ${n}경기 게시${guarded ? ` (0-0 역행 ${guarded}건 보정)` : ''} (${((Date.now() - t0) / 1000).toFixed(1)}s)`);
 }
+
+// 데몬 자신의 코드(이 파일·lib)가 바뀌면 재시작해 새 코드를 쓴다 — 컨테이너가 restart: unless-stopped 라 종료하면 다시 뜨고, 시작 때 최신 코드로 맞춘다(사람이 NAS 를 만질 필요 없음).
+const codeHash = () => {
+  try {
+    const h = crypto.createHash('sha1');
+    for (const f of ['scripts/live-daemon.mjs', 'scripts/lib/live-select.mjs', 'scripts/lib/live-only.mjs']) h.update(fs.readFileSync(path.join(REPO, f)));
+    return h.digest('hex');
+  } catch { return ''; }
+};
+const START_HASH = codeHash();
 
 function syncRepo() {
   try {
@@ -114,6 +154,8 @@ function syncRepo() {
     execFileSync('git', ['fetch', '--depth', '1', 'origin', 'main'], { cwd: REPO, stdio: 'ignore', timeout: 60000 });
     execFileSync('git', ['reset', '--hard', 'FETCH_HEAD'], { cwd: REPO, stdio: 'ignore', timeout: 60000 });
     log('저장소 최신화 완료');
+    const now = codeHash();
+    if (START_HASH && now && now !== START_HASH) { log('데몬 코드가 바뀌어 재시작합니다'); process.exit(0); }
   } catch (e) {
     log('저장소 최신화 실패(다음 주기에 재시도):', String(e.message).slice(0, 80));
   }

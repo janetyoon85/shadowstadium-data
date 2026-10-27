@@ -13,6 +13,7 @@
 // 유지). 매일 1회 GitHub Actions 자동 실행(.github/workflows/fetch-mlb-winter-baseball.yml).
 
 import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
+import { LIVE_ONLY, activeLeagues, writeLiveSnapshot } from './lib/live-only.mjs'; // 라이브 전용 모드(NAS 폴러)
 import { alertWebhook } from './alert-throttle.mjs';
 import fs from 'node:fs/promises';
 import { inningInfoFrom, liveStateFrom, applyLive, liveChanged } from './statsapi-live.mjs';
@@ -253,8 +254,9 @@ async function notifyUnknowns(unknownTeams, unknownVenues) {
 
 async function main() {
   const now = new Date();
-  const start = new Date(now.getTime() - 7 * 86400000);
-  const end = new Date(now.getTime() + 30 * 86400000);
+  const liveLeagues = LIVE_ONLY ? await activeLeagues(REPO_ROOT) : null; // 라이브 전용: 활성 리그만 조회
+  const start = new Date(now.getTime() - (LIVE_ONLY ? 1 : 7) * 86400000);
+  const end = new Date(now.getTime() + (LIVE_ONLY ? 1 : 30) * 86400000);
   const startDate = ymd(start);
   const endDate = ymd(end);
 
@@ -262,6 +264,7 @@ async function main() {
   const unknownVenues = new Set();
   const allNew = [];
   for (const { leagueId, code, sportId } of LEAGUES) {
+    if (liveLeagues && !liveLeagues.has(code)) continue;
     console.log(`Fetching ${code} (league ${leagueId}) ${startDate}~${endDate} ...`);
     await sleep(REQUEST_DELAY_MS);
     let gs;
@@ -274,6 +277,7 @@ async function main() {
     console.log(`  -> ${gs.length} games`);
     allNew.push(...gs);
   }
+  if (LIVE_ONLY) { await writeLiveSnapshot(REPO_ROOT, 'mlb-winter', allNew, now.getTime()); return; }
   await notifyUnknowns(unknownTeams, unknownVenues);
 
   const gamesPath = path.join(REPO_ROOT, 'games.json');
