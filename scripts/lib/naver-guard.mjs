@@ -7,6 +7,7 @@
 // 사용: 네이버를 부르는 크롤러 스크립트 맨 위에 `import './lib/naver-guard.mjs';` (watch-429 와 같은 방식, 전역 fetch 를 감싼다).
 // 쿨다운 중 동작: 기본은 `NaverCooldownError` 를 던진다. 네이버만 쓰는 스크립트(EXIT_ON_OPEN 목록)는 실패 처리(워크플로우 빨간불·알림 폭주) 대신
 // "쿨다운 중 — 요청 생략" 로그를 남기고 정상 종료(0)한다.
+import './naver-tls.mjs';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';

@@ -35,6 +35,10 @@ concurrency:
   group: fetch-schedule
   cancel-in-progress: false
 
+# 네이버 API 호환(Node TLS1.3 핸드셰이크 후 멈춤 회피) — scripts/lib/naver-tls.mjs
+env:
+  NAVER_TLS12: '1'
+
 jobs:
   # 어느 러너에서 돌릴지 정한다(GitHub 서버에서 네이버가 응답하면 GitHub 서버, 아니면 집 PC) — .github/workflows/pick-runner.yml
   pick:

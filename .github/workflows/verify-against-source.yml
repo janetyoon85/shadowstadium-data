@@ -20,6 +20,10 @@ concurrency:
   group: verify-against-source
   cancel-in-progress: false
 
+# 네이버 API 호환(Node TLS1.3 핸드셰이크 후 멈춤 회피) — scripts/lib/naver-tls.mjs
+env:
+  NAVER_TLS12: '1'
+
 jobs:
   verify:
     runs-on: ubuntu-latest
