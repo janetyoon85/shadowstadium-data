@@ -2176,9 +2176,19 @@ async function main() {
     const prodFile = path.join(REPO_ROOT, 'games.json');
     const orig = JSON.parse(await fs.readFile(prodFile, 'utf-8'));
     const copy = JSON.parse(JSON.stringify(orig)); // 보강은 복사본에서 — 결과는 안전 병합 규칙(lib/euro-enrich-merge.mjs)으로만 반영
+    // ★ 2026-10-27 사고: 이 모드가 캐시·사전 파일을 저장하면서 player-name-auto.json 에 영문→영문 항목이 쌓이고 euro_assists.json 에 영구 실패 스텁이 생길 위험이 있었다
+    //   (득점자 한글명은 네이버 출처라 이 모드에선 알 수 없음). 그래서 이 모드는 아래 파일을 절대 남기지 않는다 — 실행 전 내용을 보관했다가 끝나면 그대로 복원한다.
+    const GUARDED = [EURO_ASSISTS_PATH, EURO_CARDS_PATH, EURO_REVAL_PATH, EURO_SHOOTOUT_PATH, PLAYER_NAME_AUTO_PATH];
+    const snapshot = new Map();
+    for (const f of GUARDED) { try { snapshot.set(f, await fs.readFile(f)); } catch { snapshot.set(f, null); } }
     const t0 = Date.now();
-    await enrichEuroAssists(copy);
-    const { games: merged, changed } = mergeEuroEnrichment(orig, copy);
+    let merged, changed;
+    try {
+      await enrichEuroAssists(copy);
+      ({ games: merged, changed } = mergeEuroEnrichment(orig, copy));
+    } finally {
+      for (const [f, buf] of snapshot) { if (buf === null) await fs.rm(f, { force: true }); else await fs.writeFile(f, buf); }
+    }
     console.log(`[euro-enrich-only] ESPN 보강 완료 (${((Date.now() - t0) / 1000).toFixed(1)}s) — 카드·승부차기 ${changed}경기 반영`);
     if (changed && process.env.EURO_ENRICH_DRY !== '1') await fs.writeFile(prodFile, JSON.stringify(merged, null, 2) + '\n', 'utf-8');
     return;

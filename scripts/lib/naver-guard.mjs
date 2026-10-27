@@ -44,20 +44,24 @@ export function createGuard({
   threshold = Number(process.env.NAVER_GUARD_THRESHOLD) || 3,
   baseCooldownMs = (Number(process.env.NAVER_GUARD_COOLDOWN_MIN) || 10) * 60e3,
   maxCooldownMs = 60 * 60e3,
-  concurrency = Number(process.env.NAVER_CONCURRENCY) || 2,
-  minGapMs = Number(process.env.NAVER_MIN_GAP_MS) || 400,
-  jitterMs = 300,
+  concurrency = Number(process.env.NAVER_CONCURRENCY) || 1,
+  minGapMs = Number(process.env.NAVER_MIN_GAP_MS) || 1000,
+  jitterMs = 500,
+  // 요청 예산(하드 상한, 컴퓨터 단위로 공유) — 2026-10-27 차단 재발 방지. 넘으면 실패가 아니라 "예산 초과"로 요청을 보내지 않는다.
+  limitPerMin = Number(process.env.NAVER_LIMIT_PER_MIN) || 25,
+  limitPer10Min = Number(process.env.NAVER_LIMIT_PER_10MIN) || 140,
+  limitPerHour = Number(process.env.NAVER_LIMIT_PER_HOUR) || 450,
   sleep = (ms) => new Promise((r) => setTimeout(r, ms)),
   log = (m) => console.log(m),
 } = {}) {
-  let state = { failures: 0, level: 0, openUntil: 0 };
+  let state = { failures: 0, level: 0, openUntil: 0, reqs: [] };
   const read = () => {
     try { state = { ...state, ...JSON.parse(fs.readFileSync(stateFile, 'utf8')) }; } catch { /* 파일 없음 */ }
     return state;
   };
   const write = () => { try { fs.writeFileSync(stateFile, JSON.stringify(state)); } catch { /* 쓰기 실패는 무시 */ } };
 
-  const stats = { n: 0, fail: 0, cooldownSkipped: 0 }; // 요청 계측(프로세스별) — 종료 시 로그 한 줄
+  const stats = { n: 0, fail: 0, cooldownSkipped: 0, budgetSkipped: 0 }; // 요청 계측(프로세스별) — 종료 시 로그 한 줄
   let active = 0;
   let lastStart = 0;
   const waiters = [];
@@ -91,16 +95,51 @@ export function createGuard({
     }
   };
 
+  // 최근 요청 기록(ms) — 1시간 창. 파일에 남겨 같은 컴퓨터의 여러 프로세스(러너·폴러)가 같은 예산을 쓴다.
+  const countSince = (ms) => { const t = now() - ms; return (state.reqs || []).filter((x) => x > t).length; };
+  const overBudget = () => {
+    read();
+    const m = countSince(60e3), t10 = countSince(600e3), h = countSince(3600e3);
+    if (m >= limitPerMin) return { until: now() + 30e3, why: `분당 ${m}/${limitPerMin}` };
+    if (t10 >= limitPer10Min) return { until: now() + 120e3, why: `10분 ${t10}/${limitPer10Min}` };
+    if (h >= limitPerHour) return { until: now() + 300e3, why: `시간당 ${h}/${limitPerHour}` };
+    return null;
+  };
+  const recordRequest = () => {
+    read();
+    const t = now();
+    state.reqs = [...(state.reqs || []).filter((x) => x > t - 3600e3), t].slice(-1500);
+    write();
+  };
+  // 브라우저처럼 보이는 헤더(헤더 없는 요청은 네이버가 응답하지 않는 것으로 확인 — 2026-10-27: 기본 curl/Node 요청은 무응답, 브라우저 UA·Referer 를 붙이면 즉시 200).
+  const BROWSER_UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
+  const withBrowserHeaders = (init) => {
+    try {
+      const h = new Headers(init?.headers || {});
+      const ua = h.get('user-agent');
+      if (!ua || !/mozilla/i.test(ua)) h.set('user-agent', BROWSER_UA);
+      if (!h.get('referer')) h.set('referer', 'https://sports.naver.com/');
+      if (!h.get('origin')) h.set('origin', 'https://sports.naver.com');
+      if (!h.get('accept-language')) h.set('accept-language', 'ko-KR,ko;q=0.9');
+      return { ...(init || {}), headers: h };
+    } catch { return init; }
+  };
+
   const guardedFetch = async (input, init) => {
     if (!isNaverUrl(input)) return realFetch(input, init);
     // 네이버 전면 정지 모드(NAVER_DISABLED=1, 2026-10-27): 네트워크 없이 즉시 쿨다운 오류 — ESPN 등 다른 원본만으로 도는 작업이 타임아웃을 기다리지 않게 한다.
     if (process.env.NAVER_DISABLED === '1') { stats.cooldownSkipped++; throw new NaverCooldownError(now() + 3600e3); }
     read();
     if (state.openUntil > now()) { stats.cooldownSkipped++; throw new NaverCooldownError(state.openUntil); }
+    const ob = overBudget();
+    if (ob) { stats.budgetSkipped = (stats.budgetSkipped || 0) + 1; log(`::warning title=네이버 요청 예산::${ob.why} — 요청 생략`); throw new NaverCooldownError(ob.until); }
     await acquire();
+    const ob2 = overBudget(); // 대기 중 다른 프로세스가 예산을 썼을 수 있음
+    if (ob2) { release(); stats.budgetSkipped = (stats.budgetSkipped || 0) + 1; throw new NaverCooldownError(ob2.until); }
+    recordRequest();
     stats.n++;
     try {
-      const res = await realFetch(input, init);
+      const res = await realFetch(input, withBrowserHeaders(init));
       if (isBlockSignal(null, res.status)) { stats.fail++; onFailure(); }
       else onSuccess();
       return res;
@@ -111,7 +150,8 @@ export function createGuard({
       release();
     }
   };
-  return { guardedFetch, read, getState: () => ({ ...state }), stats };
+  const remaining = () => { read(); return { perMin: limitPerMin - countSince(60e3), per10Min: limitPer10Min - countSince(600e3), perHour: limitPerHour - countSince(3600e3) }; };
+  return { guardedFetch, read, getState: () => ({ ...state }), stats, remaining };
 }
 
 // 네이버만 쓰는 스크립트: 쿨다운 중이면 실패가 아니라 정상 종료한다(워크플로우 빨간불·실패 알림 방지).
@@ -122,8 +162,8 @@ if (!globalThis.__naverGuard) {
   const guard = createGuard({ realFetch: globalThis.fetch });
   const exitOnOpen = EXIT_ON_OPEN.has(path.basename(process.argv[1] || ''));
   process.on('exit', () => {
-    const { n, fail, cooldownSkipped } = guard.stats;
-    if (n || cooldownSkipped) console.log(`[naver-guard] 네이버 요청 ${n}건(접속 실패 ${fail}건, 쿨다운으로 생략 ${cooldownSkipped}건) — ${path.basename(process.argv[1] || '')}`);
+    const { n, fail, cooldownSkipped, budgetSkipped } = guard.stats;
+    if (n || cooldownSkipped || budgetSkipped) console.log(`[naver-guard] 네이버 요청 ${n}건(접속 실패 ${fail}건, 쿨다운 생략 ${cooldownSkipped}건, 예산 초과 생략 ${budgetSkipped || 0}건) — ${path.basename(process.argv[1] || '')}`);
   });
   globalThis.fetch = async (input, init) => {
     try {

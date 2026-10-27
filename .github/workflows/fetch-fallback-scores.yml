@@ -56,7 +56,7 @@ jobs:
           STANDINGS_DRY: ${{ github.event.inputs.dry == 'true' && '1' || '' }}
         run: node scripts/fetch-standings-fallback.mjs || echo "순위표 보조 실패(무시)"
 
-      # 유럽 축구 ESPN 보강(카드·승부차기, 득점자가 이미 있는 경기의 어시스트) — 네이버 없이 ESPN 만 사용. 호출 위상과 무관하게 실행을 번갈아(약 4분에 1번) 돌리고, 자체 예산·캐시를 가진 기존 보강 함수를 재사용한다.
+      # 유럽 축구 ESPN 보강(카드·승부차기만 games.json 에 병합; euro_*.json·player-name-auto.json 은 이 모드가 저장하지 않고 복원 — 2026-10-27 사고 후) — 네이버 없이 ESPN 만 사용. 호출 위상과 무관하게 실행을 번갈아(약 4분에 1번) 돌리고, 자체 예산·캐시를 가진 기존 보강 함수를 재사용한다.
       - name: Euro ESPN enrichment (alternate runs)
         env:
           EURO_ENRICH_ONLY: '1'
@@ -67,7 +67,7 @@ jobs:
       - name: Check for changes
         id: changes
         run: |
-          if [[ -n "$(git status --porcelain games.json standings.json daum-venue-map.json euro_assists.json euro_cards.json euro_shootout.json euro-reval.json player-name-auto.json)" ]]; then echo "changed=true" >> $GITHUB_OUTPUT; else echo "changed=false" >> $GITHUB_OUTPUT; fi
+          if [[ -n "$(git status --porcelain games.json standings.json daum-venue-map.json)" ]]; then echo "changed=true" >> $GITHUB_OUTPUT; else echo "changed=false" >> $GITHUB_OUTPUT; fi
 
       - name: Commit and push
         if: steps.changes.outputs.changed == 'true'
@@ -75,7 +75,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           cp games.json games_2026.json
-          git add games.json games_2026.json standings.json daum-venue-map.json euro_assists.json euro_cards.json euro_shootout.json euro-reval.json player-name-auto.json
+          git add games.json games_2026.json standings.json daum-venue-map.json
           git commit -m "chore(data): 보조 원본 점수·상태 보강(ESPN·MLB·다음) ($(date +'%Y-%m-%d %H:%M'))"
           for i in $(seq 1 20); do
             if git push; then

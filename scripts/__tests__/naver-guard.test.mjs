@@ -78,7 +78,7 @@ test('요청 계측 — 요청·실패·쿨다운 생략 건수를 센다', asyn
   const { g } = mk(reset);
   for (let i = 0; i < 3; i++) await assert.rejects(g.guardedFetch(NAVER));
   await assert.rejects(g.guardedFetch(NAVER), NaverCooldownError);
-  assert.deepEqual(g.stats, { n: 3, fail: 3, cooldownSkipped: 1 });
+  assert.deepEqual(g.stats, { n: 3, fail: 3, cooldownSkipped: 1, budgetSkipped: 0 });
 });
 
 test('NAVER_DISABLED=1 — 네트워크 없이 즉시 쿨다운 오류, 다른 호스트는 영향 없음', async () => {
@@ -91,4 +91,36 @@ test('NAVER_DISABLED=1 — 네트워크 없이 즉시 쿨다운 오류, 다른 �
     await g.guardedFetch('https://site.api.espn.com/x');
     assert.equal(calls, 1);
   } finally { delete process.env.NAVER_DISABLED; }
+});
+
+test('요청 예산 — 분당 상한 초과 시 요청을 보내지 않고(실패로 세지 않음) 쿨다운 오류, 시간이 지나면 다시 허용', async () => {
+  let calls = 0;
+  const { g, clock } = mk(async () => { calls++; return { status: 200 }; }, { limitPerMin: 3 });
+  for (let i = 0; i < 3; i++) await g.guardedFetch(NAVER);
+  await assert.rejects(g.guardedFetch(NAVER), NaverCooldownError);
+  assert.equal(calls, 3);
+  assert.equal(g.read().failures, 0, '예산 초과는 접속 실패로 세지 않는다');
+  assert.equal(g.stats.budgetSkipped, 1);
+  clock.t += 61e3;
+  await g.guardedFetch(NAVER);
+  assert.equal(calls, 4);
+});
+test('요청 예산 — 시간당 상한과 상태 파일 공유(다른 인스턴스도 같은 예산)', async () => {
+  const a = mk(async () => ({ status: 200 }), { limitPerMin: 99, limitPer10Min: 99, limitPerHour: 4 });
+  for (let i = 0; i < 4; i++) await a.g.guardedFetch(NAVER);
+  const b = createGuard({ realFetch: async () => ({ status: 200 }), now: () => a.clock.t, stateFile: a.stateFile, sleep: async () => {}, log: () => {}, minGapMs: 0, jitterMs: 0, limitPerMin: 99, limitPer10Min: 99, limitPerHour: 4 });
+  await assert.rejects(b.guardedFetch(NAVER), NaverCooldownError);
+  assert.deepEqual(b.remaining(), { perMin: 95, per10Min: 95, perHour: 0 });
+});
+test('헤더 보정 — UA 없음/비브라우저 UA 는 브라우저 UA 로, Referer·Origin 추가, 이미 Mozilla UA 면 유지', async () => {
+  const seen = [];
+  const { g } = mk(async (u, init) => { seen.push(init.headers); return { status: 200 }; });
+  await g.guardedFetch(NAVER);
+  await g.guardedFetch(NAVER, { headers: { 'User-Agent': 'node' } });
+  await g.guardedFetch(NAVER, { headers: { 'User-Agent': 'Mozilla/5.0 (compatible; shadowstadium)' } });
+  assert.match(seen[0].get('user-agent'), /Mozilla\/5\.0 \(Windows/);
+  assert.equal(seen[0].get('referer'), 'https://sports.naver.com/');
+  assert.equal(seen[0].get('origin'), 'https://sports.naver.com');
+  assert.match(seen[1].get('user-agent'), /Chrome/);
+  assert.equal(seen[2].get('user-agent'), 'Mozilla/5.0 (compatible; shadowstadium)');
 });
