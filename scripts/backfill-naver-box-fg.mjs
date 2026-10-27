@@ -2,6 +2,7 @@
 // 네이버가 선수 fgA 를 성공수와 같게(9/9) 내려주고 팀 fg/fgA 는 2점 기록만 줘서, 저장된 박스스코어의 FG 시도수·팀 FG 가 틀렸다.
 // 새 크롤러(fetch-basketball.mjs naverDetail)는 올바르게 저장하므로 이 스크립트는 이미 저장된 경기만 /record 를 다시 받아 fg 필드만 고친다(다른 값은 건드리지 않음).
 import fs from 'node:fs/promises';
+import './lib/naver-guard.mjs'; // 네이버 요청 간격·동시성 제한 + 연속 접속 실패 시 쿨다운(차단 재발 방지)
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 

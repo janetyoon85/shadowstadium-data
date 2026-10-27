@@ -1,4 +1,5 @@
 import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
+import './lib/naver-guard.mjs'; // 네이버 요청 간격·동시성 제한 + 연속 접속 실패 시 쿨다운(차단 재발 방지)
 import { alertWebhook } from './alert-throttle.mjs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
