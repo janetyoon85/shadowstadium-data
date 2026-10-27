@@ -13,6 +13,8 @@ services:
       FIREBASE_DATABASE_URL: "https://shadowstadium-default-rtdb.asia-southeast1.firebasedatabase.app"
       FIREBASE_DB_SECRET: "여기에_데이터베이스_비밀키"
       LIVE_INTERVAL_S: "20"
+      # (비공개 크롤러 코드) shadowstadium-crawler 읽기 전용 토큰 — 공개 저장소에서 scripts/ 가 빠진 뒤에도 코드를 받는다. 비워 두면 공개 저장소의 scripts/ 를 그대로 쓴다.
+      CODE_TOKEN: ""
       REPO_DIR: /app/repo
       # DISCORD_WEBHOOK_URL: "여기에_웹훅"   # (선택) 429 로 멈출 때 Discord 알림
     command:
@@ -22,4 +24,14 @@ services:
         command -v git >/dev/null || (apt-get update -qq && apt-get install -y -qq --no-install-recommends git ca-certificates >/dev/null)
         [ -d /app/repo/.git ] || git clone -q --depth 1 https://github.com/janetyoon85/shadowstadium-data.git /app/repo
         cd /app/repo && git fetch -q --depth 1 origin main && git reset -q --hard FETCH_HEAD
+        if [ -n "$$CODE_TOKEN" ]; then
+          command -v curl >/dev/null || (apt-get update -qq && apt-get install -y -qq --no-install-recommends curl >/dev/null)
+          t=$$(mktemp -d)
+          if curl -fsSL --retry 3 -H "Authorization: Bearer $$CODE_TOKEN" https://api.github.com/repos/janetyoon85/shadowstadium-crawler/tarball/main -o $$t/c.tgz && mkdir $$t/s && tar -xzf $$t/c.tgz -C $$t/s --strip-components=1 && [ -d $$t/s/scripts ]; then
+            rm -rf /app/repo/scripts && cp -r $$t/s/scripts /app/repo/scripts && echo "비공개 코드 적용"
+          else
+            echo "비공개 코드 받기 실패 - 저장소의 scripts/ 사용"
+          fi
+          rm -rf $$t
+        fi
         exec node scripts/live-daemon.mjs

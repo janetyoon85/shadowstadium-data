@@ -27,3 +27,9 @@
 - **적용 범위(2026-10-27 확정)**: 농구 전체 / 네이버 일정(KBO·K리그·MLB·NPB·유럽 주요 리그 등) / ESPN 축구 39개 리그(`fetch-espn-soccer-leagues`·`-world-`·`-asia-`) / MLB 마이너·윈터리그 / 올림픽 축구 / ESPN 야구(WBC·카리브시리즈·올림픽 야구) / 아시안게임 야구·축구. 각 크롤러가 `LIVE_ONLY=1` 로 활성 리그만 어제~내일 범위로 조회한다.
 - **WBSC(`fetch-wbsc-baseball`)도 적용(2026-10-27)**: 예전엔 WBSC 계열 사이트가 GitHub 서버(데이터센터 IP)를 막아 유료 프록시(ScraperAPI, 무료 월 1,000건)를 썼다. 집 회선(NAS·PC)에서는 막지 않아(7개 도메인 실측 200) **프록시 없이 직접** 받는다 — 라이브 전용 모드와 일반 워크플로우(`runs-on: home-crawler`, `SCRAPERAPI_KEY` 미전달) 모두. **페일오버(2026-10-27)**: 직접 요청이 403/429/오류로 막히면 `SCRAPERAPI_KEY`(워크플로우에 연결됨)로 그 요청만 프록시 우회한다(월 900건 예산, 결제일 19일). 라이브 전용(NAS)은 직접만.
   - **페일오버 알림(Discord 🟠)이 오면 수동 조치**: cron-job.org 에서 **1분 주기 작업 → 2분**(Daily Schedule Fetch · Fetch Basketball · FCM Player Alerts · FCM Reminders · ESPN Soccer 15/World Soccer 21/Asia Soccer 3 Leagues Fetch · Asian Games Baseball/Football Fetch), **WBSC Baseball Fetch → 3시간 주기**로(**`scripts/trigger-gap-report.mjs`의 WATCHED 주기와 `scripts/ops-health-check.mjs`의 `fetch-wbsc-baseball` 정체 기준(540초)도 같이 바꿔야 한다 — Claude에게 "감시 주기도 바꿔줘" 요청**). 페일오버 알림은 5분 쿨다운(WBSC 실행마다) 바꿔 프록시 예산을 아낀다. 직접 요청이 풀리면(알림이 멈추면) 원래 주기로 복구.
+
+
+## 비공개 크롤러 코드(저장소 분리, 2026-10-27)
+- 크롤러 소스의 정본은 비공개 저장소 `shadowstadium-crawler`. GitHub Actions 는 `.github/actions/fetch-code` 로 실행 때마다 받는다(실패 시 공개 저장소의 scripts/ 로 폴백).
+- NAS 폴러(Docker)는 컴포즈의 `CODE_TOKEN`(shadowstadium-crawler 읽기 전용 토큰)을 넣으면 시작 때와 5분마다(`syncRepo`) 비공개 코드를 받는다. **공개 저장소에서 scripts/ 를 지우기(S3) 전에 반드시 `CODE_TOKEN` 을 넣고 컨테이너를 재시작해야 한다** — 안 넣으면 `git reset --hard` 가 scripts/ 를 지워 폴러가 멈춘다.
+- 토큰은 기존 fine-grained PAT(`shadowstadium-secrets`)를 재사용해도 되고(저장소 접근에 crawler 추가됨) 별도 읽기 전용 PAT 를 만들어도 된다. 새 PAT 를 권장(NAS 노출 최소화): Contents: Read-only, 저장소=shadowstadium-crawler 하나만.

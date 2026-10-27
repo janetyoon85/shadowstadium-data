@@ -14,6 +14,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { selectLive, gamesActive, basketballActive, guardScores } from './lib/live-select.mjs';
+import { fetchCode } from './lib/fetch-code.mjs';
 
 const REPO = process.env.REPO_DIR || path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DB = (process.env.FIREBASE_DATABASE_URL || '').replace(/\/+$/, '');
@@ -159,11 +160,16 @@ const codeHash = () => {
 };
 const START_HASH = codeHash();
 
-function syncRepo() {
+async function syncRepo() {
   try {
     if (!fs.existsSync(path.join(REPO, '.git'))) return;
     execFileSync('git', ['fetch', '--depth', '1', 'origin', 'main'], { cwd: REPO, stdio: 'ignore', timeout: 60000 });
     execFileSync('git', ['reset', '--hard', 'FETCH_HEAD'], { cwd: REPO, stdio: 'ignore', timeout: 60000 });
+    // 비공개 크롤러 코드(CODE_TOKEN 이 있을 때): 공개 저장소에서 scripts/ 가 빠진 뒤에도 최신 코드를 쓴다. 실패하면 기존 scripts/ 유지.
+    if (process.env.CODE_TOKEN) {
+      const r = await fetchCode({ token: process.env.CODE_TOKEN, dest: REPO });
+      if (!r.ok) log('비공개 코드 최신화 실패(기존 코드 유지):', r.reason);
+    }
     log('저장소 최신화 완료');
     const now = codeHash();
     if (START_HASH && now && now !== START_HASH) { log('데몬 코드가 바뀌어 재시작합니다'); process.exit(0); }
@@ -179,7 +185,7 @@ async function main() {
   for (;;) {
     const t0 = Date.now();
     try {
-      if (t0 - lastSync > SYNC_EVERY_MS) { syncRepo(); lastSync = Date.now(); }
+      if (t0 - lastSync > SYNC_EVERY_MS) { await syncRepo(); lastSync = Date.now(); }
       // 농구와 일정(네이버)은 서로 독립이라 동시에 돌린다.
       await Promise.all([cycleBasketball().catch((e) => log('농구 주기 오류:', String(e.message).slice(0, 100))), cycleGames().catch((e) => log('일정 주기 오류:', String(e.message).slice(0, 100)))]);
     } catch (e) {
