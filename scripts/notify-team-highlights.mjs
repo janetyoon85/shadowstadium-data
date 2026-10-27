@@ -4,6 +4,7 @@
 // 영상 지역 확인 기록(video-availability.json)이 아직 없으면 보내지 않고 다음 실행(약 2분 뒤)에 다시 본다. 첫 실행은 기존 하이라이트를 발송 없이 기록만 한다.
 // 중복 방지: sent-team-highlights.json 에 `${경기}:${언어}` 별로 기록(처음엔 막혀 있다가 나중에 대체 후보가 열리면 그 시점에 한 번 보낸다).
 import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
+import { loadGamesFresh, loadBasketballFresh } from './lib/live-overlay.mjs'; // NAS 가 올린 신선한 이벤트를 커밋된 데이터 위에 덮어씀(없으면 기존 동작)
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -52,7 +53,7 @@ async function main() {
 
   // 경기 정보: games.json(축구·야구) + 농구
   const info = new Map(); // id -> { keys, data, title(lang), body(lang) }
-  const games = await load(path.join(ROOT, 'games.json'), []);
+  const games = await loadGamesFresh(path.join(ROOT, 'games.json'), ROOT, []);
   for (const g of Array.isArray(games) ? games : []) {
     if (!g.gameId || !hl[g.gameId] || g.status !== 'completed' || g.date < cutDate) continue;
     const bb = isBaseball(g.league);
@@ -63,7 +64,7 @@ async function main() {
       body: (l) => `${HL[l]}${g.league ? ' · ' + localLeague(l, g.league) : ''}`,
     });
   }
-  const bk = (await load(path.join(ROOT, 'basketball/games.json'), {})).games || [];
+  const bk = await loadBasketballFresh(path.join(ROOT, 'basketball/games.json'), ROOT);
   const teams = await load(path.join(ROOT, 'basketball/teams.json'), {});
   const names = await load(path.join(ROOT, 'basketball/team-name-en.json'), {});
   const NAT = new Set(['FIBA', 'OLYMPICS_M', 'OLYMPICS_W', 'ASIAD_M', 'ASIAD_W', 'ASIAD3_M', 'ASIAD3_W']);

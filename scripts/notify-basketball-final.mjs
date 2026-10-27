@@ -1,6 +1,7 @@
 // 농구 즐겨찾기 선수 "경기 종료 기록 요약" 알림. 박스스코어(basketball/box-YYYY-MM.json)가 있는
 // 종료 경기만 대상 — 선수 고유ID(pid)로 player_<hash> 토픽에 발송(구독자 0이면 FCM no-op).
 import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
+import { loadBasketballFresh } from './lib/live-overlay.mjs'; // NAS 가 올린 신선한 상태를 덮어씀(없으면 기존 동작)
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -11,7 +12,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SENT_FILE = path.join(ROOT, 'sent-bk-alerts.json');
 const load = async (f, d) => { try { return JSON.parse(await fs.readFile(f, 'utf8')); } catch { return d; } };
 
-const games = (await load(path.join(ROOT, 'basketball/games.json'), {})).games || [];
+const games = await loadBasketballFresh(path.join(ROOT, 'basketball/games.json'), ROOT);
 const teams = await load(path.join(ROOT, 'basketball/teams.json'), {});
 const names = await load(path.join(ROOT, 'basketball/team-name-en.json'), {});
 const koRaw = await load(path.join(ROOT, 'player-name-ko.json'), {});

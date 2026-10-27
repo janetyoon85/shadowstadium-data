@@ -2223,9 +2223,11 @@ async function main() {
     // 라이브 전용: 알림·구장 학습·병합·직렬화 저장 없이 세이브/득점자(진행 중 경기의 liveState·득점자)만 보강하고 스냅샷만 남긴다.
     await enrichSaves(allGames);
     await enrichScorers(allGames);
-    const { selectLiveGames } = await import('./lib/live-select.mjs');
-    const snap = selectLiveGames(allGames.map(serializeGame), Date.now());
-    await fs.writeFile(path.join(REPO_ROOT, 'live-snapshot.json'), JSON.stringify({ ts: startMs, games: snap }) + '\n', 'utf-8');
+    const { selectLiveGames, selectEventGames } = await import('./lib/live-select.mjs');
+    const ser = allGames.map(serializeGame);
+    const snap = selectLiveGames(ser, Date.now());
+    const events = selectEventGames(ser, Date.now()); // 알림 감지용(비공개 events/games 로만 게시)
+    await fs.writeFile(path.join(REPO_ROOT, 'live-snapshot.json'), JSON.stringify({ ts: startMs, games: snap, events }) + '\n', 'utf-8');
     console.log(`[live-only] 스냅샷 ${Object.keys(snap).length}경기 (${((Date.now() - startMs) / 1000).toFixed(1)}s)`);
     return;
   }

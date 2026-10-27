@@ -3,6 +3,7 @@
 // 상태(sent-team-live.json)에 경기별 마지막 관측(골 수·이닝·쿼터)을 저장해 두고, 다음 실행에서 늘어난 것만 알린다.
 // 처음 보는 경기는 기록만 하고 보내지 않는다(기능 시작·긴 공백 뒤 과거 사건 폭탄 방지). 예정 경기도 미리 기록해 두므로 킥오프 직후 골부터 잡힌다.
 import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
+import { loadGamesFresh, loadBasketballFresh } from './lib/live-overlay.mjs'; // NAS 가 올린 신선한 이벤트를 커밋된 데이터 위에 덮어씀(없으면 기존 동작)
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -86,8 +87,8 @@ async function main() {
   const kst = (ms) => new Date(ms + 9 * 3600e3).toISOString().slice(0, 10);
   const minDate = kst(Date.now() - 36 * 3600e3), maxDate = kst(Date.now() + 36 * 3600e3);
 
-  const games = await load(path.join(ROOT, 'games.json'), []);
-  const bk = (await load(path.join(ROOT, 'basketball/games.json'), {})).games || [];
+  const games = await loadGamesFresh(path.join(ROOT, 'games.json'), ROOT, []);
+  const bk = await loadBasketballFresh(path.join(ROOT, 'basketball/games.json'), ROOT);
   const teams = await load(path.join(ROOT, 'basketball/teams.json'), {});
   const bkNames = await load(path.join(ROOT, 'basketball/team-name-en.json'), {});
   const NAT = new Set(['FIBA', 'OLYMPICS_M', 'OLYMPICS_W', 'ASIAD_M', 'ASIAD_W', 'ASIAD3_M', 'ASIAD3_W']);

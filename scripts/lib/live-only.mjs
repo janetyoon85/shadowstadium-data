@@ -2,7 +2,7 @@
 // 저장·알림·병합 없이 라이브 스냅샷(live-snapshot-<이름>.json)만 남긴 뒤 끝낸다. 평소(GitHub 워크플로우) 실행에는 영향이 없다.
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { selectLiveGames, gamesActive } from './live-select.mjs';
+import { selectLiveGames, selectEventGames, gamesActive } from './live-select.mjs';
 
 export const LIVE_ONLY = process.env.LIVE_ONLY === '1';
 
@@ -21,6 +21,7 @@ export async function activeLeagues(repoRoot) {
 // games: 크롤러가 만든 경기 객체들(games.json 항목과 같은 모양). 라이브 필드만 골라 스냅샷 파일로 남긴다.
 export async function writeLiveSnapshot(repoRoot, name, games, startMs) {
   const snap = selectLiveGames(games, Date.now());
-  await fs.writeFile(path.join(repoRoot, `live-snapshot-${name}.json`), JSON.stringify({ ts: startMs, games: snap }) + '\n', 'utf-8');
+  const events = selectEventGames(games, Date.now()); // 알림 감지용(비공개 events/games 로만 게시)
+  await fs.writeFile(path.join(repoRoot, `live-snapshot-${name}.json`), JSON.stringify({ ts: startMs, games: snap, events }) + '\n', 'utf-8');
   console.log(`[live-only] ${name}: ${Object.keys(snap).length}경기 스냅샷`);
 }

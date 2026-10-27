@@ -38,9 +38,9 @@ function run(args, env, timeoutMs) {
   });
 }
 
-async function putFast(node, payload) {
+async function putFast(node, payload, fullPath = '') {
   if (DRY || !DB || !SECRET) return;
-  const r = await fetch(`${DB}/live/${node}.json?auth=${encodeURIComponent(SECRET)}`, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload), signal: AbortSignal.timeout(8000) });
+  const r = await fetch(`${DB}/${fullPath || `live/${node}`}.json?auth=${encodeURIComponent(SECRET)}`, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload), signal: AbortSignal.timeout(8000) });
   if (!r.ok) throw new Error(`RTDB ${node} HTTP ${r.status}`);
 }
 
@@ -105,9 +105,13 @@ async function cycleGames() {
   const games = (() => { const j = readJson('games.json', []); return Array.isArray(j) ? j : j.games || []; })();
   const jobs = [];
   const snaps = [];
+  const evSnaps = [];
   const collect = (file) => {
     const s = readJson(file, null);
-    if (s && typeof s.games === 'object' && typeof s.ts === 'number' && s.ts >= t0 - 1000) snaps.push(s.games);
+    if (s && typeof s.games === 'object' && typeof s.ts === 'number' && s.ts >= t0 - 1000) {
+      snaps.push(s.games);
+      if (s.events && typeof s.events === 'object') evSnaps.push(s.events);
+    }
   };
   if (Date.now() >= pausedUntil.naver && gamesActive(games, t0)) {
     jobs.push((async () => {
@@ -135,6 +139,8 @@ async function cycleGames() {
   const guarded = guardScores(lastPublished.games, merged);
   lastPublished.games = JSON.parse(JSON.stringify(merged));
   await putFast('games_fast', { ts: t0, games: merged });
+  // 알림 감지용 전체 이벤트(득점자·카드·하이라이트·선발투수) — 앱이 읽지 않는 비공개 경로. 알림 작업(GitHub 서버)이 서비스 계정으로 읽어 커밋된 games.json 위에 덮어 감지한다.
+  await putFast('events_games', { ts: t0, games: Object.assign({}, ...evSnaps) }, 'events/games');
   log(`일정 ${n}경기 게시${guarded ? ` (0-0 역행 ${guarded}건 보정)` : ''} (${((Date.now() - t0) / 1000).toFixed(1)}s)`);
 }
 

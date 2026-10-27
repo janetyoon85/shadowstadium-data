@@ -16,6 +16,7 @@
 // no-op이라, 매 경기의 모든 스코어러에 대해 그냥 다 발송한다(팀 리마인더와 동일 설계).
 
 import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
+import { loadGamesFresh } from './lib/live-overlay.mjs'; // NAS 가 올린 신선한 이벤트를 커밋된 데이터 위에 덮어씀(없으면 기존 동작)
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -63,7 +64,7 @@ function makeIsSent(sent) {
 const nth = (m, nm) => { const n = (m.get(nm) || 0) + 1; m.set(nm, n); return n; };
 
 async function main() {
-  const games = await loadJson(GAMES_FILE, []);
+  const games = await loadGamesFresh(GAMES_FILE, REPO_ROOT, []);
   const sent = await loadJson(SENT_FILE, {});
   for (const k of Object.keys(sent)) if (k.includes(':cand:') && Date.now() - Date.parse(sent[k]) > 6 * 3600e3) delete sent[k]; // 구원 등판 확인용 임시 기록 정리
   if (!Array.isArray(games) || games.length === 0) {

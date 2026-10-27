@@ -69,3 +69,20 @@ export function guardScores(prev, next) {
   }
   return guarded;
 }
+
+// ── 알림 감지용 이벤트 데이터(비공개 events/games 로만 게시 — 앱은 읽지 않음) ──
+// selectLiveGames 와 같은 창(진행 중 · 최근 2시간 종료 · 45분 안 시작)의 경기에서 알림 스크립트가 쓰는 필드를 모두 담는다(득점자·카드·하이라이트(홈런 등)·선발투수·카운트).
+export const EVENT_FIELDS = ['status', 'homeScore', 'awayScore', 'inningInfo', 'matchPeriod', 'liveState', 'scorers', 'cards', 'highlights', 'homePitcher', 'awayPitcher', 'homePitcherPid', 'awayPitcherPid'];
+export function selectEventGames(games, nowMs) {
+  const win = selectLiveGames(games, nowMs); // 같은 창 판정 재사용
+  const out = {};
+  for (const g of games) {
+    if (!g || !g.gameId) continue;
+    const key = String(g.gameId).replace(/[.$#[\]/:]/g, '~');
+    if (!win[key]) continue;
+    const e = { gameId: g.gameId };
+    for (const k of EVENT_FIELDS) if (g[k] !== undefined && g[k] !== null) e[k] = g[k];
+    out[key] = e;
+  }
+  return out;
+}
