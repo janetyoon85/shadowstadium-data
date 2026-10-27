@@ -8,8 +8,6 @@ services:
     container_name: shadeside-live-poller
     restart: unless-stopped
     mem_limit: 1g
-    volumes:
-      - guard:/guard
     environment:
       TZ: Asia/Seoul
       FIREBASE_DATABASE_URL: "https://shadowstadium-default-rtdb.asia-southeast1.firebasedatabase.app"
@@ -19,11 +17,6 @@ services:
       NAVER_LIVE_INTERVAL_S: "30"
       # Node 의 TLS1.3 핸드셰이크 뒤 응답이 멈추는 현상 회피(scripts/lib/naver-tls.mjs) — 네이버 호출에 필요
       NAVER_TLS12: "1"
-      # NAS 전체 네이버 요청 예산 공유(러너 compose 와 같은 값·같은 볼륨) — 2026-10-28
-      NAVER_GUARD_STATE: "/guard/naver-guard.json"
-      NAVER_LIMIT_PER_MIN: "60"
-      NAVER_LIMIT_PER_10MIN: "400"
-      NAVER_LIMIT_PER_HOUR: "1500"
       # (비공개 크롤러 코드) shadowstadium-crawler 읽기 전용 토큰 — 공개 저장소에서 scripts/ 가 빠진 뒤에도 코드를 받는다. 비워 두면 공개 저장소의 scripts/ 를 그대로 쓴다.
       CODE_TOKEN: ""
       REPO_DIR: /app/repo
@@ -32,7 +25,6 @@ services:
       - sh
       - -c
       - |
-        mkdir -p /guard && touch /guard/naver-guard.json && chmod 1777 /guard && chmod 666 /guard/naver-guard.json
         command -v git >/dev/null || (apt-get update -qq && apt-get install -y -qq --no-install-recommends git ca-certificates >/dev/null)
         [ -d /app/repo/.git ] || git clone -q --depth 1 https://github.com/janetyoon85/shadowstadium-data.git /app/repo
         cd /app/repo && git fetch -q --depth 1 origin main && git reset -q --hard FETCH_HEAD
@@ -47,7 +39,3 @@ services:
           rm -rf $$t
         fi
         exec node scripts/live-daemon.mjs
-
-volumes:
-  guard:
-    name: shadeside-naver-guard   # 러너 프로젝트(shadeside-runner)와 같은 볼륨

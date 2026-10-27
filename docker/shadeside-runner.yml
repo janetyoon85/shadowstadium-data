@@ -13,8 +13,6 @@ x-runner: &runner
   restart: unless-stopped
   # 정각에 작업이 한꺼번에 몰리면(일정·농구·ESPN 등 10개 이상) 1g 로는 메모리 부족으로 컨테이너가 "예기치 않게 중지"될 수 있어 2g 로 올림(2026-10-28).
   mem_limit: 2g
-  volumes:
-    - guard:/guard   # 네이버 요청 예산 상태 파일을 러너 3개·폴러가 같이 쓴다(아래 NAVER_GUARD_STATE)
   environment: &runner-env
     REPO_URL: "https://github.com/janetyoon85/shadowstadium-data"
     RUNNER_SCOPE: repo
@@ -26,22 +24,8 @@ x-runner: &runner
     # ★ EPHEMERAL 변수는 아예 적지 않는다 — 이 이미지는 값이 "false" 여도 변수가 있으면 임시(ephemeral) 러너로 켜져서, 작업 1개를 끝내고 종료·등록 해제한다(2026-10-28 실측 로그 "Ephemeral option is enabled").
     RUN_AS_ROOT: "false"
     TZ: Asia/Seoul
-    # ★ NAS 전체가 네이버 요청 예산 하나를 공유한다(2026-10-28). 컨테이너마다 임시 폴더가 따로라 예산이 컨테이너별로만 지켜지던 문제 해결.
-    #   폴러(shadeside-live)에도 같은 3줄(NAVER_GUARD_STATE·LIMIT)을 똑같이 넣어야 한다. 값은 NAS 전체 합산 기준이라 예전(컨테이너별 25/140/450)보다 크다.
-    NAVER_GUARD_STATE: "/guard/naver-guard.json"
-    NAVER_LIMIT_PER_MIN: "60"
-    NAVER_LIMIT_PER_10MIN: "400"
-    NAVER_LIMIT_PER_HOUR: "1500"
 
 services:
-  # 공유 볼륨을 러너(일반 사용자)와 폴러(root)가 모두 쓸 수 있게 한 번 권한을 열고 끝나는 초기화용 컨테이너(실행 후 종료가 정상).
-  guard-init:
-    image: busybox:1.36
-    container_name: shadeside-guard-init
-    restart: "no"
-    volumes:
-      - guard:/guard
-    command: ["sh", "-c", "touch /guard/naver-guard.json && chmod 1777 /guard && chmod 666 /guard/naver-guard.json && echo guard-ready"]
   nas-1:
     <<: *runner
     container_name: shadeside-runner-1
@@ -63,7 +47,3 @@ services:
       <<: *runner-env
       RUNNER_NAME: nas-3
       RUNNER_WORKDIR: /tmp/runner/work3
-
-volumes:
-  guard:
-    name: shadeside-naver-guard   # 폴러 프로젝트에서도 같은 이름으로 선언해 같은 볼륨을 쓴다
