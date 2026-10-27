@@ -112,15 +112,14 @@ test('요청 예산 — 시간당 상한과 상태 파일 공유(다른 인스�
   await assert.rejects(b.guardedFetch(NAVER), NaverCooldownError);
   assert.deepEqual(b.remaining(), { perMin: 95, per10Min: 95, perHour: 0 });
 });
-test('헤더 보정 — UA 없음/비브라우저 UA 는 브라우저 UA 로, Referer·Origin 추가, 이미 Mozilla UA 면 유지', async () => {
+test('신원 헤더 — UA 가 없을 때만 우리 크롤러 UA 를 넣고, 있으면 그대로 두며, 브라우저 위장(Chrome UA·Referer·Origin)은 하지 않는다', async () => {
   const seen = [];
   const { g } = mk(async (u, init) => { seen.push(init.headers); return { status: 200 }; });
   await g.guardedFetch(NAVER);
-  await g.guardedFetch(NAVER, { headers: { 'User-Agent': 'node' } });
-  await g.guardedFetch(NAVER, { headers: { 'User-Agent': 'Mozilla/5.0 (compatible; shadowstadium)' } });
-  assert.match(seen[0].get('user-agent'), /Mozilla\/5\.0 \(Windows/);
-  assert.equal(seen[0].get('referer'), 'https://sports.naver.com/');
-  assert.equal(seen[0].get('origin'), 'https://sports.naver.com');
-  assert.match(seen[1].get('user-agent'), /Chrome/);
-  assert.equal(seen[2].get('user-agent'), 'Mozilla/5.0 (compatible; shadowstadium)');
+  await g.guardedFetch(NAVER, { headers: { 'User-Agent': 'MyBot/1.0' } });
+  assert.match(seen[0].get('user-agent'), /shadowstadium/);
+  assert.equal(seen[0].get('referer'), null);
+  assert.equal(seen[0].get('origin'), null);
+  assert.doesNotMatch(seen[0].get('user-agent'), /Chrome/);
+  assert.equal(seen[1].get('user-agent'), 'MyBot/1.0');
 });

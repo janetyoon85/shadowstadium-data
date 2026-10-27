@@ -111,16 +111,13 @@ export function createGuard({
     state.reqs = [...(state.reqs || []).filter((x) => x > t - 3600e3), t].slice(-1500);
     write();
   };
-  // 브라우저처럼 보이는 헤더(헤더 없는 요청은 네이버가 응답하지 않는 것으로 확인 — 2026-10-27: 기본 curl/Node 요청은 무응답, 브라우저 UA·Referer 를 붙이면 즉시 200).
-  const BROWSER_UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
-  const withBrowserHeaders = (init) => {
+  // User-Agent 가 없는 요청에는 우리 크롤러의 정직한 신원(UA)만 넣는다. 브라우저인 척하는 UA·Referer·Origin 위장은 하지 않는다 —
+  // 2026-10-27 확인: 네이버는 OpenSSL 계열 클라이언트(Node·파이썬·리눅스 curl)에 응답하지 않는 클라이언트 구분(TLS 방식)을 쓰는 것으로 보이며, 이를 헤더 위장으로 피하려 하지 않는다.
+  const CRAWLER_UA = 'Mozilla/5.0 (compatible; shadowstadium; +https://github.com/janetyoon85/shadowstadium-data)';
+  const withIdentity = (init) => {
     try {
       const h = new Headers(init?.headers || {});
-      const ua = h.get('user-agent');
-      if (!ua || !/mozilla/i.test(ua)) h.set('user-agent', BROWSER_UA);
-      if (!h.get('referer')) h.set('referer', 'https://sports.naver.com/');
-      if (!h.get('origin')) h.set('origin', 'https://sports.naver.com');
-      if (!h.get('accept-language')) h.set('accept-language', 'ko-KR,ko;q=0.9');
+      if (!h.get('user-agent')) h.set('user-agent', CRAWLER_UA);
       return { ...(init || {}), headers: h };
     } catch { return init; }
   };
@@ -139,7 +136,7 @@ export function createGuard({
     recordRequest();
     stats.n++;
     try {
-      const res = await realFetch(input, withBrowserHeaders(init));
+      const res = await realFetch(input, withIdentity(init));
       if (isBlockSignal(null, res.status)) { stats.fail++; onFailure(); }
       else onSuccess();
       return res;
