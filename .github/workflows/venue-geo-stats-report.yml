@@ -22,6 +22,11 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: main
+
+      - name: Fetch crawler code (private)
+        uses: ./.github/actions/fetch-code
+        with:
+          token: ${{ secrets.PRIVATE_DATA_TOKEN }}
       - uses: actions/setup-node@v4
         with:
           node-version: '22'

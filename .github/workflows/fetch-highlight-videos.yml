@@ -38,6 +38,11 @@ jobs:
           # (2026-10-13 백필 결과 하이라이트 1,028건·영상 확인 2,674건이 되돌려짐). 항상 최신 main 에서 시작한다.
           ref: main
 
+      - name: Fetch crawler code (private)
+        uses: ./.github/actions/fetch-code
+        with:
+          token: ${{ secrets.PRIVATE_DATA_TOKEN }}
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
