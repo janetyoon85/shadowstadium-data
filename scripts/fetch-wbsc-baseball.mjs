@@ -456,7 +456,10 @@ export async function notifyFailover(count, used, budget) {
   await fs.writeFile(ALERT_STATE_PATH, JSON.stringify(state, null, 2), 'utf-8');
   if (!webhook) return;
   const content = `🟠 ShadeSide — WBSC 직접 요청이 막혀 ScraperAPI 로 페일오버했습니다(이번 실행 ${count}회, 이번 주기 누적 ${used}/${budget}건).
-조치(cron-job.org): 1분 주기 작업은 2분으로, WBSC 작업은 3시간 주기로 바꿔 프록시 예산을 아끼세요. 직접 요청이 다시 풀리면 원래 주기로 되돌리면 됩니다.`;
+조치(cron-job.org, 호출 대상 워크플로우 이름 기준):
+① 1분 → 2분: Daily Schedule Fetch(fetch-schedule) · Fetch Basketball(fetch-basketball) · FCM Player Alerts(fcm-player-alerts) · FCM Reminders(fcm-reminders) · ESPN Soccer 15 Leagues Fetch · ESPN World Soccer 21 Leagues Fetch · ESPN Asia Soccer 3 Leagues Fetch · Asian Games Baseball Fetch · Asian Games Football Fetch
+② WBSC Baseball Fetch(fetch-wbsc-baseball) → 3시간 주기
+※ 주기를 바꾸면 '트리거 멈춤' 감시(trigger-gap-report)가 오탐하니 알려 주세요. 직접 요청이 다시 풀리면 원래 주기로 되돌리면 됩니다.`;
   try {
     await fetch(webhook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ allowed_mentions: { parse: [] }, content }) });
   } catch (e) {
