@@ -16,6 +16,7 @@
 // Round" 같은 플레이스홀더가 오므로 TEAM_KO 미확인(unknown team) 경고 없이 조용히 스킵.
 
 import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
+import { LIVE_ONLY, activeLeagues as liveActiveLeagues, writeLiveSnapshot } from './lib/live-only.mjs'; // 라이브 전용 모드(NAS 폴러)
 import { alertWebhook } from './alert-throttle.mjs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -53,7 +54,8 @@ const sleepMs = (ms) => new Promise((r) => setTimeout(r, ms));
 // 돌려도 한 달 안에 소진됨, 실제로 크레딧 다 써서 이번 사고 발생(사용자 리포트, "경기 안
 // 넘어가네" → 로그 확인해보니 15개 전부 HTTP 403, ScraperAPI 대시보드에서 "1,663 of 1,000
 // exhausted" 확인). 아래 예산·쓰로틀 로직으로 재발 방지.
-const SCRAPERAPI_KEY = process.env.SCRAPERAPI_KEY;
+// 집 회선(NAS·PC 러너)에서는 WBSC 계열 사이트가 막지 않아 프록시 없이 직접 받을 수 있다(2026-10-27 실측: 7개 도메인 모두 200). 키가 없으면(= NAS 실행·라이브 전용) 직접 요청하고 월 예산·2시간 쓰로틀은 적용하지 않는다.
+const SCRAPERAPI_KEY = LIVE_ONLY ? undefined : process.env.SCRAPERAPI_KEY;
 function proxiedUrl(url) {
   if (!SCRAPERAPI_KEY) return url;
   return `https://api.scraperapi.com/?api_key=${SCRAPERAPI_KEY}&url=${encodeURIComponent(url)}`;
@@ -452,6 +454,25 @@ function kstTodayStr() {
 }
 
 async function main() {
+  if (LIVE_ONLY) {
+    // 라이브 전용(NAS 폴러, 프록시 없음): 오늘 진행/곧 시작하는 경기가 있는 대회만 조회해 라이브 스냅샷만 남긴다(저장·알림·예산 로직 없음).
+    const t0 = Date.now();
+    const liveLeagues = await liveActiveLeagues(REPO_ROOT);
+    const unknownTeams = new Set();
+    const unknownVenues = new Set();
+    const live = [];
+    for (const { tournamentkey, league, domain, locale } of TOURNAMENTS) {
+      if (!liveLeagues.has(league)) continue;
+      console.log(`Fetching ${league} (${tournamentkey}) ...`);
+      try {
+        live.push(...(await fetchWbscBaseballTournament(tournamentkey, league, unknownTeams, unknownVenues, domain, locale)));
+      } catch (e) {
+        console.warn(`  failed: ${e.message}`);
+      }
+    }
+    await writeLiveSnapshot(REPO_ROOT, 'wbsc', live, t0);
+    return;
+  }
   const gamesPath = path.join(REPO_ROOT, 'games.json');
   // 여러 크롤러가 동시에 games.json을 읽고-고치고-쓰는 구조라, 이 스크립트가 체크아웃한 뒤 다른
   // 크롤러가 먼저 커밋한 최신 갱신분을 놓치면 병합 시 되돌리는 경합이 있었음(2026-09-27) —
@@ -482,7 +503,7 @@ async function main() {
     return;
   }
   let consecutiveFails = 0;
-  if (budget.requestsUsed >= SCRAPERAPI_MONTHLY_BUDGET) {
+  if (SCRAPERAPI_KEY && budget.requestsUsed >= SCRAPERAPI_MONTHLY_BUDGET) {
     console.log(`[wbsc-baseball] 이번 달 ScraperAPI 예산(${SCRAPERAPI_MONTHLY_BUDGET}건) 소진 — 전부 스킵, 다음 달 자동 재개.`);
     return;
   }
@@ -496,11 +517,11 @@ async function main() {
     const neverFetched = !budget.lastFetch[tournamentkey];
     // 날짜 지난 채 예정/진행중으로 남은 경기가 있는 대회는 결과 반영을 위해 24시간마다 재조회(대회 종료 후 최종결과가 영영 안 들어오던 정체 방지, 2026-10-04)
     const isActive = activeLeagues.has(league) || (staleLeagues.has(league) && nowMs - lastFetchAt >= 24 * 3600e3);
-    const throttleOk = nowMs - lastFetchAt >= MIN_REFETCH_INTERVAL_MS;
+    const throttleOk = nowMs - lastFetchAt >= (SCRAPERAPI_KEY ? MIN_REFETCH_INTERVAL_MS : 60e3); // 프록시(유료)면 2시간, 직접이면 1분
     // 대회 기간이 아니면(오늘 경기도 진행중 경기도 없음) 요청 자체를 건너뜀 — 신규 대회(한 번도
     // 안 가져와본 것)는 최소 한 번은 잡아서 일정을 파악해야 하니 예외로 허용.
     if (!neverFetched && !(isActive && throttleOk)) continue;
-    if (budget.requestsUsed >= SCRAPERAPI_MONTHLY_BUDGET) {
+    if (SCRAPERAPI_KEY && budget.requestsUsed >= SCRAPERAPI_MONTHLY_BUDGET) {
       console.log(`[wbsc-baseball] 예산 소진으로 ${league} 이후 대회 스킵`);
       break;
     }

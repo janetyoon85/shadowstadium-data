@@ -21,7 +21,11 @@ concurrency:
 
 jobs:
   fetch:
-    runs-on: ubuntu-latest
+    # 2026-10-27: WBSC 계열 사이트는 GitHub 서버(데이터센터 IP)를 막아 유료 프록시(ScraperAPI)를 썼다. 집 회선(NAS·PC 러너)에서는 막지 않아 프록시 없이 직접 받는다.
+    runs-on: home-crawler
+    defaults:
+      run:
+        shell: bash
     timeout-minutes: 10  # 2026-09-30 긴급 추가 — fetch-schedule.yml 무한대기 사고 재발 방지, 전체 크롤러 공통 적용
     steps:
       - name: Checkout
@@ -35,7 +39,7 @@ jobs:
       - name: Run WBSC baseball fetch
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
-          SCRAPERAPI_KEY: ${{ secrets.SCRAPERAPI_KEY }}
+          # SCRAPERAPI_KEY 는 일부러 넘기지 않는다(직접 요청). 집 회선이 막히면 이 줄을 되살리면 예전 프록시 방식으로 돌아간다.
         run: node scripts/fetch-wbsc-baseball.mjs
 
       - name: Check for changes

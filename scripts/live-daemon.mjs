@@ -102,7 +102,7 @@ const ESPN_FAMILY = [
   ['fetch-espn-baseball', 'espn-baseball'],
   ['fetch-asiangames-baseball', 'ag-baseball'],
   ['fetch-asiangames-football', 'ag-football'],
-  // WBSC(fetch-wbsc-baseball)는 일부러 제외 — 유료 프록시(ScraperAPI) 월 예산·백오프로 요청을 아끼는 구조라 20초 주기로 돌리면 한도를 바로 소진한다. 느린 경로(약 1분)로 처리.
+  ['fetch-wbsc-baseball', 'wbsc'], // 프록시 없이 직접(집 회선) — 오늘 진행/곧 시작하는 대회만 조회
 ];
 
 async function cycleGames() {
