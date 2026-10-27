@@ -45,9 +45,12 @@ async function main() {
   }
   const app = admin.initializeApp({ credential: admin.credential.cert(JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT)), databaseURL: url });
   const { getDatabase } = await import('firebase-admin/database');
-  await getDatabase(app).ref('live/' + sport).set(payload);
+  const db = getDatabase(app);
+  await db.ref('live/' + sport).set(payload);
   console.log(`[publish-live] ${sport} ${n}경기 게시 완료 (${JSON.stringify(payload).length}B)`);
-  await app.delete?.();
+  // 데이터베이스 연결을 닫지 않으면 프로세스가 끝나지 않아 워크플로우가 시간 제한까지 매달린다(2026-10-27 시험에서 발견).
+  db.goOffline();
+  process.exit(0);
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url))) await main();
