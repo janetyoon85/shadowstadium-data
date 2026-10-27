@@ -68,7 +68,7 @@ jobs:
               exit 0
             fi
             echo "push rejected, rebasing onto origin/main and retrying ($i/20)"
-            if ! git pull --rebase origin main; then
+            if ! git pull --rebase --autostash origin main; then
               # 충돌해도 이번 실행의 결과(30분·수백 건)를 버리지 않는다 — origin 으로 맞춘 뒤 보관해 둔 정본(사진·시도 기록)을 합쳐 샤드에 다시 적용한다(네트워크 호출 없음).
               git rebase --abort || true
               git reset --hard origin/main

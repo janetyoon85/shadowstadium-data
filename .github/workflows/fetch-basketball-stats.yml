@@ -48,7 +48,7 @@ jobs:
           git commit -m "chore(data): 농구 팀/선수기록 갱신 ($(date +'%Y-%m-%d %H:%M'))"
           for i in $(seq 1 20); do
             if git push; then exit 0; fi
-            git pull --rebase -X theirs origin main || git rebase --abort
+            git pull --rebase --autostash -X theirs origin main || git rebase --abort
             sleep $((RANDOM % 8 + 1))
           done
           exit 1

@@ -36,7 +36,7 @@ jobs:
           git commit -m "chore(data): 농구 위키데이터 백필 ($(date +'%Y-%m-%d %H:%M'))"
           for i in $(seq 1 20); do
             if git push; then exit 0; fi
-            if ! git pull --rebase origin main; then
+            if ! git pull --rebase --autostash origin main; then
               node scripts/merge-json-conflicts.mjs && GIT_EDITOR=true git rebase --continue || { git rebase --abort; git reset --hard origin/main; exit 1; }
             fi
             sleep $((RANDOM % 8 + 1))

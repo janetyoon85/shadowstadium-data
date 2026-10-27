@@ -76,7 +76,7 @@ jobs:
               exit 0
             fi
             echo "push rejected, rebasing onto origin/main and retrying ($i/20)"
-            if ! git pull --rebase origin main; then
+            if ! git pull --rebase --autostash origin main; then
               # 충돌해도 이번 실행의 판정을 버리지 않는다 — origin 으로 맞춘 뒤 판정 기록을 합쳐 다시 적용한다(네트워크 호출 없음).
               git rebase --abort || true
               git reset --hard origin/main

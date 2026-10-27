@@ -56,7 +56,7 @@ jobs:
               exit 0
             fi
             echo "push rejected, rebasing onto origin/main and retrying ($i/20)"
-            if ! git pull --rebase origin main; then
+            if ! git pull --rebase --autostash origin main; then
               node scripts/merge-json-conflicts.mjs && GIT_EDITOR=true git rebase --continue || { git rebase --abort; git reset --hard origin/main; echo "conflict unresolved, dropping this run's result"; exit 1; }
             fi
             sleep $((RANDOM % 8 + 1))
