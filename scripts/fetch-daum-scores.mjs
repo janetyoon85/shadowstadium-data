@@ -103,9 +103,11 @@ async function basketballPart() {
   await fs.writeFile(file, JSON.stringify(next) + '\n', 'utf-8');
 }
 
+// DAUM_PARTS=games,basketball(기본). 농구는 fetch-basketball 워크플로우 안에서(같은 체크아웃·같은 커밋) 돌려 basketball/games.json 을 통째로 다시 쓰는 그 작업과의 경합을 피한다.
+const PARTS = new Set((process.env.DAUM_PARTS || 'games,basketball').split(',').map((x) => x.trim()));
 async function main() {
-  try { await gamesPart(); } catch (e) { console.error('[daum] 일정 파트 오류:', String(e.message).slice(0, 80)); process.exitCode = 1; }
-  try { await basketballPart(); } catch (e) { console.error('[daum-bk] 오류:', String(e.message).slice(0, 80)); process.exitCode = 1; }
+  if (PARTS.has('games')) { try { await gamesPart(); } catch (e) { console.error('[daum] 일정 파트 오류:', String(e.message).slice(0, 80)); process.exitCode = 1; } }
+  if (PARTS.has('basketball')) { try { await basketballPart(); } catch (e) { console.error('[daum-bk] 오류:', String(e.message).slice(0, 80)); process.exitCode = 1; } }
 }
 
 main();

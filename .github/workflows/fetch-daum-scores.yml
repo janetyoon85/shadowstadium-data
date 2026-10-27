@@ -43,12 +43,13 @@ jobs:
         env:
           DAUM_DRY: ${{ github.event.inputs.dry == 'true' && '1' || '' }}
           DAUM_LEAGUES: ${{ github.event.inputs.leagues }}
+          DAUM_PARTS: games
         run: node scripts/fetch-daum-scores.mjs
 
       - name: Check for changes
         id: changes
         run: |
-          if [[ -n "$(git status --porcelain games.json basketball/games.json)" ]]; then echo "changed=true" >> $GITHUB_OUTPUT; else echo "changed=false" >> $GITHUB_OUTPUT; fi
+          if [[ -n "$(git status --porcelain games.json)" ]]; then echo "changed=true" >> $GITHUB_OUTPUT; else echo "changed=false" >> $GITHUB_OUTPUT; fi
 
       - name: Commit and push
         if: steps.changes.outputs.changed == 'true'
@@ -56,7 +57,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           cp games.json games_2026.json
-          git add games.json games_2026.json basketball/games.json
+          git add games.json games_2026.json
           git commit -m "chore(data): 다음스포츠 점수·상태 보강 ($(date +'%Y-%m-%d %H:%M'))"
           for i in $(seq 1 20); do
             if git push; then

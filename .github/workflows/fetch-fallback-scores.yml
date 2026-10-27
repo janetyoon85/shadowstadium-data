@@ -46,13 +46,14 @@ jobs:
       - name: Apply Daum scores
         env:
           DAUM_DRY: ${{ github.event.inputs.dry == 'true' && '1' || '' }}
+          DAUM_PARTS: games
         run: |
           node scripts/fetch-daum-scores.mjs || echo "다음스포츠 보조 실패(무시)"
 
       - name: Check for changes
         id: changes
         run: |
-          if [[ -n "$(git status --porcelain games.json basketball/games.json)" ]]; then echo "changed=true" >> $GITHUB_OUTPUT; else echo "changed=false" >> $GITHUB_OUTPUT; fi
+          if [[ -n "$(git status --porcelain games.json)" ]]; then echo "changed=true" >> $GITHUB_OUTPUT; else echo "changed=false" >> $GITHUB_OUTPUT; fi
 
       - name: Commit and push
         if: steps.changes.outputs.changed == 'true'
@@ -60,7 +61,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           cp games.json games_2026.json
-          git add games.json games_2026.json basketball/games.json
+          git add games.json games_2026.json
           git commit -m "chore(data): 보조 원본 점수·상태 보강(ESPN·MLB·다음) ($(date +'%Y-%m-%d %H:%M'))"
           for i in $(seq 1 20); do
             if git push; then

@@ -58,6 +58,12 @@ jobs:
         run: node scripts/fetch-basketball.mjs
 
 
+      # 다음스포츠 농구(KBL·WKBL) 보강 — 네이버 정지 중에도 점수·상태가 이어지게. 같은 체크아웃·같은 커밋에서 돌려 이 작업의 games.json 덮어쓰기와 경합하지 않는다(2026-10-27).
+      - name: Apply Daum basketball overlay
+        env:
+          DAUM_PARTS: basketball
+        run: node scripts/fetch-daum-scores.mjs || echo "다음스포츠 농구 보강 실패(무시)"
+
       - name: Check for changes
         id: changes
         run: |
