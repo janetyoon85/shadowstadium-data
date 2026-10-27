@@ -8,6 +8,7 @@ import { fileURLToPath } from 'node:url';
 import { applyDaum, fromDaumGame, DAUM_LEAGUE } from './lib/daum-fallback.mjs';
 import { kickoffMs } from './lib/fallback-match.mjs';
 import { applyDaumBasketball, fromDaumBasketball, DAUM_BASKETBALL_LEAGUE } from './lib/daum-basketball.mjs';
+import { NEWGAME_LEAGUES, learnVenues, planNewGames } from './lib/daum-newgames.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DRY = process.argv.includes('--dry') || process.env.DAUM_DRY === '1';
@@ -103,10 +104,58 @@ async function basketballPart() {
   await fs.writeFile(file, JSON.stringify(next) + '\n', 'utf-8');
 }
 
-// DAUM_PARTS=games,basketball(기본). 농구는 fetch-basketball 워크플로우 안에서(같은 체크아웃·같은 커밋) 돌려 basketball/games.json 을 통째로 다시 쓰는 그 작업과의 경합을 피한다.
+// 새 경기 추가·시간 변경(KBO·K리그1·2): 다음스포츠에는 있는데 games.json 에 없는 경기(예: 한국시리즈)를 채운다. 30분에 한 번만(분 % 30 < 3), 구장 표는 daum-venue-map.json 에 학습·보관.
+// DAUM_DISCOVER=1 이면 시간과 무관하게 실행, DAUM_LEARN_DAYS=60 이면 과거 N일 경기로 구장 표를 한 번에 학습(최초 1회용).
+async function discoverPart() {
+  const now = Date.now();
+  const force = process.env.DAUM_DISCOVER === '1';
+  if (!force && new Date(now).getUTCMinutes() % 30 >= 3) { console.log('[daum-new] 점검 시각 아님(30분 주기) — 건너뜀'); return; }
+  const gamesFile = path.join(ROOT, 'games.json');
+  const venueFile = path.join(ROOT, 'daum-venue-map.json');
+  const games = JSON.parse(await fs.readFile(gamesFile, 'utf-8'));
+  let venueMap = {};
+  try { venueMap = JSON.parse(await fs.readFile(venueFile, 'utf-8')); } catch { /* 첫 실행 */ }
+  const learnDays = Math.max(2, Number(process.env.DAUM_LEARN_DAYS) || 2);
+  const from = kstDay(now - learnDays * 86400e3), to = kstDay(now + 14 * 86400e3);
+  const cands = {};
+  let requests = 0;
+  for (const league of NEWGAME_LEAGUES) {
+    if (ONLY.length && !ONLY.includes(league)) continue;
+    cands[league] = [];
+    try {
+      for (let page = 1; page <= 12; page++) {
+        const j = await getJson(`https://sports.daum.net/api/hermes/game/list.json?leagueCode=${DAUM_LEAGUE[league]}&fromDate=${from}&toDate=${to}&page=${page}`);
+        requests++;
+        for (const x of j.list || []) { const m = fromDaumGame(x, now); if (m) cands[league].push(m); }
+        const p = j.pagingInfo || {};
+        if (!p.totalCount || page * (p.pageSize || 20) >= p.totalCount) break;
+        await sleep(GAP_MS);
+      }
+    } catch (e) { console.warn(`[daum-new] ${league} 조회 실패: ${String(e.message).slice(0, 60)}`); }
+    await sleep(GAP_MS);
+  }
+  // 구장 표 학습(매칭된 경기에서) → 병합
+  const learned = learnVenues(games, cands);
+  let venueChanged = false;
+  for (const [lg, m] of Object.entries(learned)) for (const [name, v] of Object.entries(m)) {
+    const cur = venueMap[lg]?.[name];
+    if (!cur || cur.venueId !== v.venueId || cur.stadium !== v.stadium) { (venueMap[lg] ||= {})[name] = v; venueChanged = true; }
+  }
+  const { games: out, added, retimed, unmapped } = planNewGames(games, cands, venueMap, now);
+  for (const a of added) console.log(`[daum-new] 추가 ${a.league} ${a.date} ${a.time} ${a.home}-${a.away} (${a.venueId}) id=${a.gameId}`);
+  for (const r of retimed) console.log(`[daum-new] 시간 변경 ${r.league} ${r.gameId} ${r.from} → ${r.to}`);
+  if (unmapped.length) console.warn(`[daum-new] 구장 매핑 없음(추가 보류): ${unmapped.join(', ')}`);
+  console.log(`[daum-new] 요청 ${requests}건, 추가 ${added.length}, 시간변경 ${retimed.length}, 구장표 ${venueChanged ? '갱신' : '유지'}${DRY ? ' [DRY — 저장 안 함]' : ''}`);
+  if (DRY) return;
+  if (venueChanged) await fs.writeFile(venueFile, JSON.stringify(venueMap, null, 1) + '\n', 'utf-8');
+  if (added.length || retimed.length) await fs.writeFile(gamesFile, JSON.stringify(out, null, 2) + '\n', 'utf-8');
+}
+
+// DAUM_PARTS=games,basketball(기본). 농구는 fetch-basketball 워크플로우 안에서(같은 체크아웃·같은 커밋) 돌려 basketball/games.json 을 통째로 다시 쓰는 그 작업과의 경합을 피한다. discover=새 경기·시간 변경.
 const PARTS = new Set((process.env.DAUM_PARTS || 'games,basketball').split(',').map((x) => x.trim()));
 async function main() {
   if (PARTS.has('games')) { try { await gamesPart(); } catch (e) { console.error('[daum] 일정 파트 오류:', String(e.message).slice(0, 80)); process.exitCode = 1; } }
+  if (PARTS.has('discover')) { try { await discoverPart(); } catch (e) { console.error('[daum-new] 오류:', String(e.message).slice(0, 80)); process.exitCode = 1; } }
   if (PARTS.has('basketball')) { try { await basketballPart(); } catch (e) { console.error('[daum-bk] 오류:', String(e.message).slice(0, 80)); process.exitCode = 1; } }
 }
 

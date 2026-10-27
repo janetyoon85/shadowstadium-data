@@ -63,6 +63,8 @@ export function fromDaumGame(g, nowMs = Date.now()) {
     kickoff,
     home: g.home.team.nameKo || g.home.team.name || '',
     away: g.away.team.nameKo || g.away.team.name || '',
+    cpGameId: g.cpGameId || '',
+    field: g.field?.nameKo || '',
     homeShort: g.home.team.shortNameKo || '',
     awayShort: g.away.team.shortNameKo || '',
     homeScore: scoreOf(g.homeScore),
