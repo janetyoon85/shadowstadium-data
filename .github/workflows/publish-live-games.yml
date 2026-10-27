@@ -1,0 +1,48 @@
+name: Publish Live Games
+
+# games.json 을 쓰는 크롤러(KBO·K리그 일정, ESPN 축구, MLB, WBSC 등)가 끝나는 즉시 라이브 필드만 Firebase Realtime Database(live/games)에 게시한다(2026-10-27).
+# 앱은 17MB 짜리 games.json(GitHub raw, 1~1.5분 지연)을 매분 통째로 받는 대신 이 몇 KB 를 15초마다 읽는다. 저장소 변수 FIREBASE_DATABASE_URL 이 없으면 아무것도 하지 않는다.
+# 비밀(서비스 계정)이 NAS 러너로 가지 않게 GitHub 서버에서 돌린다.
+
+on:
+  workflow_run:
+    workflows:
+      - 'Daily Schedule Fetch'
+      - 'ESPN Soccer 15 Leagues Fetch'
+      - 'ESPN World Soccer 21 Leagues Fetch'
+      - 'ESPN Asia Soccer 3 Leagues Fetch'
+      - 'ESPN Olympic Football Fetch'
+      - 'Asian Games Baseball Fetch'
+      - 'Asian Games Football Fetch'
+      - 'MLB AAA Baseball Fetch'
+      - 'MLB Winter Baseball Fetch'
+      - 'WBSC Baseball Fetch'
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-live-games
+  cancel-in-progress: true   # 최신 값만 의미가 있으므로 밀린 실행은 취소(크롤러 여러 개가 연달아 끝나도 마지막 것만 게시)
+
+jobs:
+  publish:
+    if: vars.FIREBASE_DATABASE_URL != '' && (github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success')
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+      - run: npm ci
+      - name: Publish live games
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          FIREBASE_DATABASE_URL: ${{ vars.FIREBASE_DATABASE_URL }}
+        run: node scripts/publish-live.mjs games

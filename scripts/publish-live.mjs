@@ -8,8 +8,31 @@ import admin from './firebase-admin-compat.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SOURCES = {
-  basketball: { file: 'basketball/games.json', pick: (j) => (Array.isArray(j) ? j : j.games || []) },
+  basketball: { file: 'basketball/games.json', pick: (j) => (Array.isArray(j) ? j : j.games || []), select: (games, now) => selectLive(games, now) },
+  // 축구·야구 등 games.json(17MB) — 앱이 매분 통째로 받던 것을 라이브 필드만 몇 KB 로 게시.
+  games: { file: 'games.json', pick: (j) => (Array.isArray(j) ? j : j.games || []), select: (games, now) => selectLiveGames(games, now) },
 };
+
+// games.json 의 경기 시작 시각(ms) — date/time 은 KST.
+const startMs = (g) => (g.date && g.time ? Date.parse(g.date + 'T' + g.time + ':00+09:00') : NaN);
+// 게시 대상: 진행 중(시작 14시간 안 — 'live' 로 남은 오래된 찌꺼기 제외) · 최근 2시간 안에 끝난 경기(최종 스코어를 빨리 전달) · 45분 안에 시작할 경기(live 전환을 빨리 전달).
+// 앱의 큰 목록(1분 주기 전체 받기) 위에 덮어쓰는 라이브 필드만 담는다.
+export function selectLiveGames(games, nowMs) {
+  const out = {};
+  for (const g of games) {
+    if (!g || !g.gameId) continue;
+    const t = startMs(g);
+    if (!Number.isFinite(t)) continue;
+    const live = g.status === 'live' && nowMs - t < 14 * 3600e3 && t - nowMs < 2 * 3600e3;
+    const recentDone = g.status === 'completed' && t < nowMs && nowMs - t < 2 * 3600e3;
+    const soon = g.status === 'scheduled' && t - nowMs < 45 * 60e3 && t - nowMs > -3 * 3600e3;
+    if (!(live || recentDone || soon)) continue;
+    const e = { gameId: g.gameId, status: g.status, homeScore: g.homeScore ?? null, awayScore: g.awayScore ?? null };
+    for (const k of ['inningInfo', 'matchPeriod', 'liveState', 'scorers', 'cards', 'homePitcher', 'awayPitcher', 'homePitcherPid', 'awayPitcherPid']) if (g[k] !== undefined && g[k] !== null) e[k] = g[k];
+    out[String(g.gameId).replace(/[.$#[\]/:]/g, '~')] = e;
+  }
+  return out;
+}
 
 export function selectLive(games, nowMs) {
   const out = {};
@@ -32,7 +55,7 @@ async function main() {
   const src = SOURCES[sport];
   if (!src) throw new Error('알 수 없는 종목: ' + sport);
   const games = src.pick(JSON.parse(fs.readFileSync(path.join(ROOT, src.file), 'utf8')));
-  const payload = { ts: Date.now(), games: selectLive(games, Date.now()) };
+  const payload = { ts: Date.now(), games: src.select(games, Date.now()) };
   const n = Object.keys(payload.games).length;
   if (dry) {
     console.log(`[publish-live] ${sport} 게시 대상 ${n}경기, 크기 ${JSON.stringify(payload).length}B`);
