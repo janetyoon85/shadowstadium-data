@@ -47,7 +47,9 @@ jobs:
           d=json.load(open('/tmp/b_%s.json'%c))
           print('errors:',d.get('errors'))
           for r in d.get('response',[]):
-              print('baseball', c, r.get('id'), r.get('name'), r.get('type'), '| seasons:', [s.get('season') for s in r.get('seasons',[])][-2:])
+              ss=sorted(r.get('seasons',[]), key=lambda x: x.get('season') or 0)
+              cur=[x for x in ss if x.get('current')]
+              print('baseball', c, r.get('id'), r.get('name'), r.get('type'), '| 시즌수:', len(ss), '| 최근:', [x.get('season') for x in ss][-3:], '| 현재시즌:', [x.get('season') for x in cur])
           PY
           done
       - name: 라이브 경기 응답 확인(1건씩)
