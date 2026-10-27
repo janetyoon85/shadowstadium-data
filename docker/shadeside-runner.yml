@@ -11,7 +11,8 @@
 x-runner: &runner
   image: myoung34/github-runner:latest
   restart: unless-stopped
-  mem_limit: 1g
+  # 정각에 작업이 한꺼번에 몰리면(일정·농구·ESPN 등 10개 이상) 1g 로는 메모리 부족으로 컨테이너가 "예기치 않게 중지"될 수 있어 2g 로 올림(2026-10-28).
+  mem_limit: 2g
   environment: &runner-env
     REPO_URL: "https://github.com/janetyoon85/shadowstadium-data"
     RUNNER_SCOPE: repo
