@@ -457,6 +457,12 @@ export async function notifyFailover(count, used, budget) {
   await fs.writeFile(ALERT_STATE_PATH, JSON.stringify(state, null, 2), 'utf-8');
   if (!webhook) return;
   const content = `🟠 ShadeSide — WBSC 직접 요청이 막혀 ScraperAPI 로 페일오버했습니다(이번 실행 ${count}회, 이번 주기 누적 ${used}/${budget}건).
+
+**수동 조치 체크리스트** (프록시 예산 절약)
+① cron-job.org 1분 → 2분: Daily Schedule Fetch(fetch-schedule) · Fetch Basketball(fetch-basketball) · FCM Player Alerts(fcm-player-alerts) · FCM Reminders(fcm-reminders) · ESPN Soccer 15 Leagues Fetch · ESPN World Soccer 21 Leagues Fetch · ESPN Asia Soccer 3 Leagues Fetch · Asian Games Baseball Fetch · Asian Games Football Fetch
+② cron-job.org WBSC Baseball Fetch(fetch-wbsc-baseball) → 3시간 주기
+③ Claude 에게 \"감시 주기도 바꿔줘\" 요청 — trigger-gap-report.mjs 의 WATCHED(60→120초, WBSC 3시간) 와 ops-health-check.mjs 의 fetch-wbsc-baseball 정체 기준(540초→약 3시간+여유) 을 같이 바꿔야 오탐 알림이 안 납니다.
+④ 직접 요청이 다시 풀려 이 알림이 멈추면 ①②③ 을 원래대로 복구.`;
 조치(cron-job.org, 호출 대상 워크플로우 이름 기준):
 ① 1분 → 2분: Daily Schedule Fetch(fetch-schedule) · Fetch Basketball(fetch-basketball) · FCM Player Alerts(fcm-player-alerts) · FCM Reminders(fcm-reminders) · ESPN Soccer 15 Leagues Fetch · ESPN World Soccer 21 Leagues Fetch · ESPN Asia Soccer 3 Leagues Fetch · Asian Games Baseball Fetch · Asian Games Football Fetch
 ② WBSC Baseball Fetch(fetch-wbsc-baseball) → 3시간 주기
