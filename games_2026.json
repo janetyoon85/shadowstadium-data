@@ -752848,6 +752848,18 @@
           "pid": "espn:245858"
         }
       ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Léo Pereira",
+          "type": "Y",
+          "m": 75,
+          "pid": "espn:145405",
+          "nat": "Brazil"
+        }
+      ],
+      "away": []
     }
   },
   {
@@ -752934,12 +752946,12 @@
     "inningInfo": "4회말",
     "liveState": {
       "pitcher": "Ronnie Williams",
-      "batter": "Brainer Bonaci",
+      "batter": "Alfredo Duno",
       "pitcherPid": "mlb:657122",
-      "batterPid": "mlb:682900",
-      "ball": 0,
-      "strike": 0,
-      "out": 0,
+      "batterPid": "mlb:806957",
+      "ball": 2,
+      "strike": 2,
+      "out": 1,
       "bases": []
     }
   },
@@ -752956,7 +752968,7 @@
     "status": "live",
     "matchPeriod": "전반",
     "homeScore": 0,
-    "awayScore": 0,
+    "awayScore": 1,
     "cards": {
       "home": [],
       "away": [
@@ -752966,6 +752978,17 @@
           "m": 32,
           "pid": "espn:257752",
           "nat": "Paraguay"
+        }
+      ]
+    },
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "Andrés Llano",
+          "m": 35,
+          "nat": "Colombia",
+          "pid": "espn:378659"
         }
       ]
     }
@@ -752990,14 +753013,16 @@
     "inningInfo": "2회초",
     "liveState": {
       "pitcher": "페랄타",
-      "batter": "미첼",
-      "ball": 3,
+      "batter": "프랫",
+      "ball": 0,
       "strike": 2,
-      "out": 0,
-      "bases": [],
-      "pitchCount": 28,
+      "out": 1,
+      "bases": [
+        1
+      ],
+      "pitchCount": 32,
       "pitcherPid": "mlb:642547",
-      "batterPid": "mlb:669003"
+      "batterPid": "mlb:806198"
     },
     "round": "ps_ws",
     "rn": 3,
