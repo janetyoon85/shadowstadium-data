@@ -18,6 +18,9 @@ jobs:
   pick:
     uses: ./.github/workflows/pick-runner.yml
     secrets: inherit
+    with:
+      # 네이버 정지 중에도 NBA·WNBA 등 ESPN 리그는 계속 갱신(GitHub 서버, 네이버 호출 금지). KBL·WKBL 은 기존 데이터 유지.
+      fallback_runner: ubuntu-latest
   fetch:
     needs: pick
     runs-on: ${{ needs.pick.outputs.runner }}
@@ -50,6 +53,8 @@ jobs:
           test -d node_modules/pdfjs-dist
 
       - name: Run basketball crawler
+        env:
+          NAVER_DISABLED: ${{ needs.pick.outputs.naver_disabled }}
         run: node scripts/fetch-basketball.mjs
 
 

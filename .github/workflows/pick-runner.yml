@@ -18,6 +18,10 @@ on:
         description: '수동 전체 실행·테스트 등은 간격과 무관하게 실행'
         type: string
         default: 'false'
+      fallback_runner:
+        description: '변수 CRAWLER_RUNNER 가 naver-cooldown-paused(네이버 호출 전면 정지) 일 때 대신 쓸 러너 라벨 — 네이버 없이도 도는 작업(농구 ESPN 등)용. 이때 naver_disabled=true 를 함께 낸다.'
+        type: string
+        default: ''
     outputs:
       runner:
         description: 본 잡이 쓸 러너 라벨
@@ -25,6 +29,9 @@ on:
       run:
         description: '본 잡을 실행할지(true/false) — every_min 간격에 걸리면 false'
         value: ${{ jobs.pick.outputs.run }}
+      naver_disabled:
+        description: '"1" 이면 네이버 호출 금지 모드(NAVER_DISABLED) — fallback_runner 로 돌 때'
+        value: ${{ jobs.pick.outputs.naver_disabled }}
 jobs:
   pick:
     runs-on: ubuntu-latest
@@ -32,6 +39,7 @@ jobs:
     outputs:
       runner: ${{ steps.r.outputs.runner }}
       run: ${{ steps.cadence.outputs.run }}
+      naver_disabled: ${{ steps.r.outputs.naver_disabled }}
     steps:
       # 네이버 요청량 절감(2026-10-27): 전체 시즌 수집(요청 97건)을 매분 돌리던 것을 every_min 분에 한 번으로 줄인다. GitHub 정기 실행(schedule)·force 는 항상 실행.
       - id: cadence
@@ -50,9 +58,13 @@ jobs:
       - id: r
         env:
           FORCE: ${{ vars.CRAWLER_RUNNER }}
+          FALLBACK: ${{ inputs.fallback_runner }}
           RTOKEN: ${{ secrets.RUNNER_STATUS_TOKEN }}
           REPO: ${{ github.repository }}
         run: |
+          echo "naver_disabled=" >> "$GITHUB_OUTPUT"
+          # 네이버 전면 정지(2026-10-27 차단 사건): 네이버 없이도 도는 작업은 fallback_runner(GitHub 서버)로, 네이버 호출은 금지(NAVER_DISABLED)
+          if [ "$FORCE" = "naver-cooldown-paused" ] && [ -n "$FALLBACK" ]; then echo "runner=$FALLBACK" >> "$GITHUB_OUTPUT"; echo "naver_disabled=1" >> "$GITHUB_OUTPUT"; echo "네이버 정지 → $FALLBACK (네이버 호출 금지)"; exit 0; fi
           if [ -n "$FORCE" ] && [ "$FORCE" != "auto" ]; then echo "runner=$FORCE" >> "$GITHUB_OUTPUT"; echo "고정: $FORCE"; exit 0; fi
           N=0
           if [ -n "$RTOKEN" ]; then

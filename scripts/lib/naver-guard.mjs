@@ -93,6 +93,8 @@ export function createGuard({
 
   const guardedFetch = async (input, init) => {
     if (!isNaverUrl(input)) return realFetch(input, init);
+    // 네이버 전면 정지 모드(NAVER_DISABLED=1, 2026-10-27): 네트워크 없이 즉시 쿨다운 오류 — ESPN 등 다른 원본만으로 도는 작업이 타임아웃을 기다리지 않게 한다.
+    if (process.env.NAVER_DISABLED === '1') { stats.cooldownSkipped++; throw new NaverCooldownError(now() + 3600e3); }
     read();
     if (state.openUntil > now()) { stats.cooldownSkipped++; throw new NaverCooldownError(state.openUntil); }
     await acquire();

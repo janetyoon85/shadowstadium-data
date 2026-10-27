@@ -80,3 +80,15 @@ test('요청 계측 — 요청·실패·쿨다운 생략 건수를 센다', asyn
   await assert.rejects(g.guardedFetch(NAVER), NaverCooldownError);
   assert.deepEqual(g.stats, { n: 3, fail: 3, cooldownSkipped: 1 });
 });
+
+test('NAVER_DISABLED=1 — 네트워크 없이 즉시 쿨다운 오류, 다른 호스트는 영향 없음', async () => {
+  let calls = 0;
+  const { g } = mk(async () => { calls++; return { status: 200 }; });
+  process.env.NAVER_DISABLED = '1';
+  try {
+    await assert.rejects(g.guardedFetch(NAVER), NaverCooldownError);
+    assert.equal(calls, 0);
+    await g.guardedFetch('https://site.api.espn.com/x');
+    assert.equal(calls, 1);
+  } finally { delete process.env.NAVER_DISABLED; }
+});
