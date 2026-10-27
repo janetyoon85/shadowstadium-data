@@ -444,6 +444,25 @@ async function notifyUnknowns(unknownTeams, unknownVenues) {
 // 재알림하지 않음(그래도 매 실행 로그엔 남으니 완전히 조용해지진 않음).
 const ALERT_STATE_PATH = path.join(REPO_ROOT, '.wbsc-alert-state.json');
 const ALERT_COOLDOWN_MS = 6 * 3600 * 1000;
+// 페일오버(유료 프록시 사용) 발생 알림 — 집 IP 가 막혔다는 신호라 크론잡 주기를 늘려 프록시 예산을 아끼라고 안내한다(6시간 쿨다운).
+export async function notifyFailover(count, used, budget) {
+  if (count === 0) return;
+  const webhook = alertWebhook();
+  let state = {};
+  try { state = JSON.parse(await fs.readFile(ALERT_STATE_PATH, 'utf-8')); } catch {}
+  const now = Date.now();
+  if (state.__failover && now - state.__failover < ALERT_COOLDOWN_MS) return;
+  state.__failover = now;
+  await fs.writeFile(ALERT_STATE_PATH, JSON.stringify(state, null, 2), 'utf-8');
+  if (!webhook) return;
+  const content = `🟠 ShadeSide — WBSC 직접 요청이 막혀 ScraperAPI 로 페일오버했습니다(이번 실행 ${count}회, 이번 주기 누적 ${used}/${budget}건).
+조치(cron-job.org): 1분 주기 작업은 2분으로, WBSC 작업은 3시간 주기로 바꿔 프록시 예산을 아끼세요. 직접 요청이 다시 풀리면 원래 주기로 되돌리면 됩니다.`;
+  try {
+    await fetch(webhook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ allowed_mentions: { parse: [] }, content }) });
+  } catch (e) {
+    console.warn('[discord] wbsc failover notify failed:', e.message);
+  }
+}
 async function notifyFetchFailures(failed) {
   if (failed.length === 0) return;
   const webhook = alertWebhook();
@@ -563,6 +582,7 @@ async function main() {
   await saveBudgetState(budget);
   console.log(`[wbsc-baseball] ScraperAPI 페일오버 ${proxyState.fallbacks}회 · 이번 주기 누적 ${budget.requestsUsed}/${SCRAPERAPI_MONTHLY_BUDGET}`);
   await notifyUnknowns(unknownTeams, unknownVenues);
+  await notifyFailover(proxyState.fallbacks, budget.requestsUsed, SCRAPERAPI_MONTHLY_BUDGET);
   await notifyFetchFailures(failedTournaments);
 
   const games = JSON.parse(await fs.readFile(gamesPath, 'utf-8'));
