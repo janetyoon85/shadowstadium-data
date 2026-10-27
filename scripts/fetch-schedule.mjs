@@ -1,4 +1,5 @@
 import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
+import { mergeEuroEnrichment } from './lib/euro-enrich-merge.mjs';
 import './lib/naver-guard.mjs'; // 네이버 요청 간격·동시성 제한 + 연속 접속 실패 시 쿨다운(차단 재발 방지)
 import { alertWebhook } from './alert-throttle.mjs';
 import fs from 'node:fs/promises';
@@ -2166,6 +2167,20 @@ async function main() {
       { categoryId: 'kleague', stadium: '(테스트) 새로생긴 어딘가 스타디움' },
     ]);
     console.log('[test] 알림 발송 완료 (webhook 미설정이면 조용히 스킵됨)');
+    return;
+  }
+
+  // 유럽 축구 ESPN 보강 전용 모드(2026-10-27, 네이버 차단 대응): 네이버를 전혀 부르지 않고 games.json 의 기존 경기에 ESPN 기반 카드·승부차기·어시스트(득점자가 이미 있는 경기)를 채운다.
+  // enrichEuroAssists 는 ESPN(site.api.espn.com)만 쓰고 자체 예산(BACKFILL)·캐시(euro_*.json)를 가지므로 그대로 재사용. 득점자 이름은 네이버 중계 출처라 새로 끝난 경기엔 없으면 어시스트는 못 붙는다(카드·승부차기는 붙음).
+  if (process.env.EURO_ENRICH_ONLY === '1') {
+    const prodFile = path.join(REPO_ROOT, 'games.json');
+    const orig = JSON.parse(await fs.readFile(prodFile, 'utf-8'));
+    const copy = JSON.parse(JSON.stringify(orig)); // 보강은 복사본에서 — 결과는 안전 병합 규칙(lib/euro-enrich-merge.mjs)으로만 반영
+    const t0 = Date.now();
+    await enrichEuroAssists(copy);
+    const { games: merged, changed } = mergeEuroEnrichment(orig, copy);
+    console.log(`[euro-enrich-only] ESPN 보강 완료 (${((Date.now() - t0) / 1000).toFixed(1)}s) — 카드·승부차기 ${changed}경기 반영`);
+    if (changed && process.env.EURO_ENRICH_DRY !== '1') await fs.writeFile(prodFile, JSON.stringify(merged, null, 2) + '\n', 'utf-8');
     return;
   }
 
