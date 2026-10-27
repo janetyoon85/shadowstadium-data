@@ -1,0 +1,63 @@
+name: Diag ApiSports
+
+# 상용 API(API-Sports) 무료 플랜 커버 검증 — KBO·K리그·NPB 리그 ID·라이브 지원·남은 호출 수만 출력(읽기 전용, 키는 로그에 남기지 않음). 수동 실행.
+# 사전: 저장소 시크릿 APISPORTS_KEY 등록. 무료 플랜은 하루 100건이라 이 진단은 요청 6건 이내로 끝낸다.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: 시크릿 확인
+        env:
+          K: ${{ secrets.APISPORTS_KEY }}
+        run: |
+          if [ -z "$K" ]; then echo "::error::시크릿 APISPORTS_KEY 가 없습니다"; exit 1; fi
+          echo "키 길이: ${#K}"
+      - name: 축구(API-Football) — 한국 리그
+        env:
+          K: ${{ secrets.APISPORTS_KEY }}
+        run: |
+          curl -sS -m 30 -D /tmp/h1 -H "x-apisports-key: $K" "https://v3.football.api-sports.io/leagues?country=South-Korea&current=true" -o /tmp/f.json
+          grep -iE "^x-ratelimit-(requests-)?(limit|remaining)|^HTTP" /tmp/h1 | tr -d '\r'
+          python3 - <<'PY'
+          import json
+          d=json.load(open('/tmp/f.json'))
+          print('errors:',d.get('errors'))
+          for r in d.get('response',[]):
+              l=r['league']; cur=[s for s in r.get('seasons',[]) if s.get('current')]
+              c=cur[0]['coverage'] if cur else {}
+              print('football', l['id'], l['name'], l['type'], '| fixtures:', c.get('fixtures',{}).get('events'), '| standings:', c.get('standings'), '| season', cur[0]['year'] if cur else '-')
+          PY
+      - name: 야구(API-Baseball) — 한국·일본 리그
+        env:
+          K: ${{ secrets.APISPORTS_KEY }}
+        run: |
+          for C in South-Korea Japan; do
+            curl -sS -m 30 -D /tmp/h2 -H "x-apisports-key: $K" "https://v1.baseball.api-sports.io/leagues?country=$C" -o /tmp/b_$C.json
+            grep -iE "^x-ratelimit-(requests-)?(limit|remaining)|^HTTP" /tmp/h2 | tr -d '\r'
+            C=$C python3 - <<'PY'
+          import json,os
+          c=os.environ['C']
+          d=json.load(open('/tmp/b_%s.json'%c))
+          print('errors:',d.get('errors'))
+          for r in d.get('response',[]):
+              print('baseball', c, r.get('id'), r.get('name'), r.get('type'), '| seasons:', [s.get('season') for s in r.get('seasons',[])][-2:])
+          PY
+          done
+      - name: 라이브 경기 응답 확인(1건씩)
+        env:
+          K: ${{ secrets.APISPORTS_KEY }}
+        run: |
+          curl -sS -m 30 -D /tmp/h3 -H "x-apisports-key: $K" "https://v3.football.api-sports.io/fixtures?live=all" -o /tmp/live.json
+          grep -iE "^x-ratelimit-requests-remaining" /tmp/h3 | tr -d '\r'
+          python3 - <<'PY'
+          import json
+          d=json.load(open('/tmp/live.json'))
+          print('지금 전 세계 진행 중 축구 경기 수(무료 플랜 응답):', len(d.get('response',[])), 'errors:', d.get('errors'))
+          PY
