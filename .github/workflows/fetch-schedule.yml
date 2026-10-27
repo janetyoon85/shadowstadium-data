@@ -40,9 +40,6 @@ env:
   NAVER_TLS12: '1'
   # 분당 한도에 걸려도 요청을 버리지 않고 창이 비기를 기다려 전체 수집을 끝까지 한다(scripts/lib/naver-guard.mjs, 2026-10-28)
   NAVER_WAIT_MINUTE_BUDGET_S: '120'
-  # 전체 시즌 수집(97건)만 천천히: 같은 컴퓨터 상태 파일을 쓰는 다른 작업(농구 1분 주기 등)은 기본 한도(30)를 쓰므로 영향 없다.
-  # 2026-10-28 실측: 분당 30건 속도에서 약 31번째 요청부터 네이버가 응답하지 않음(IP·URL 무관, 단독 요청은 즉시 200).
-  NAVER_LIMIT_PER_MIN: '12'
 
 jobs:
   # 어느 러너에서 돌릴지 정한다(GitHub 서버에서 네이버가 응답하면 GitHub 서버, 아니면 집 PC) — .github/workflows/pick-runner.yml
@@ -65,7 +62,7 @@ jobs:
     # AbortController가 전혀 없어서 하나만 멎어도 잡 전체가 GH Actions 기본값인 6시간까지
     # 무한 대기 가능 — cancel-in-progress:false라 그동안 뒤 트리거들도 전부 큐에 쌓여 파이프라인
     # 전체가 멈춤). 정상 실행은 5~6분대라 10분이면 충분히 여유 있고, 진짜 멎은 경우만 잘라냄.
-    timeout-minutes: 25
+    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@v4
