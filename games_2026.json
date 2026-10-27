@@ -628149,7 +628149,6 @@
       "home": [
         {
           "n": "에르세그",
-          "nat": "USA",
           "pid": "mlb:668674"
         }
       ],
@@ -753006,22 +753005,9 @@
     "stadium": "Monumental Simon Bolivar",
     "timeTbd": false,
     "gameId": "LVBP_MLBSTATS_870051",
-    "status": "live",
+    "status": "completed",
     "homeScore": 8,
-    "awayScore": 9,
-    "inningInfo": "9회말",
-    "liveState": {
-      "pitcher": "Daniel Juarez",
-      "batter": "Aldrem Corredor",
-      "pitcherPid": "mlb:684483",
-      "batterPid": "mlb:625506",
-      "ball": 0,
-      "strike": 0,
-      "out": 2,
-      "bases": [
-        3
-      ]
-    }
+    "awayScore": 9
   },
   {
     "date": "2026-10-27",
@@ -753129,25 +753115,19 @@
     "stadium": "트로피카나 필드",
     "timeTbd": false,
     "gameId": "20261027MITB0",
-    "status": "live",
+    "status": "completed",
     "awayPitcher": "로버트 개서",
     "homePitcher": "프레디 페랄타",
     "awayPitcherPid": "mlb:688107",
     "homePitcherPid": "mlb:642547",
     "awayScore": 10,
     "homeScore": 1,
-    "inningInfo": "9회말",
-    "liveState": {
-      "pitcher": "우드러프",
-      "batter": "아란다",
-      "ball": 0,
-      "strike": 0,
-      "out": 0,
-      "bases": [],
-      "pitchCount": 18,
-      "pitcherPid": "mlb:605540",
-      "batterPid": "mlb:666018"
-    },
+    "winPitcher": "개서",
+    "losePitcher": "페랄타",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "Dominican Republic",
+    "winPitcherPid": "mlb:688107",
+    "losePitcherPid": "mlb:642547",
     "highlights": {
       "home": [],
       "away": [
@@ -753927,7 +753907,9 @@
     "gameId": "20261028MITB0",
     "status": "scheduled",
     "round": "ps_ws",
-    "rn": 4
+    "rn": 4,
+    "serH": 0,
+    "serA": 3
   },
   {
     "date": "2026-10-28",
