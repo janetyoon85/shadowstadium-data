@@ -15,13 +15,13 @@ jobs:
     steps:
       - name: 시크릿 확인
         env:
-          K: ${{ secrets.APISPORTS_KEY }}
+          K: ${{ secrets.API_SPORTS_KEY || secrets.APISPORTS_KEY }}
         run: |
-          if [ -z "$K" ]; then echo "::error::시크릿 APISPORTS_KEY 가 없습니다"; exit 1; fi
+          if [ -z "$K" ]; then echo "::error::시크릿 API_SPORTS_KEY(또는 APISPORTS_KEY)가 없습니다"; exit 1; fi
           echo "키 길이: ${#K}"
       - name: 축구(API-Football) — 한국 리그
         env:
-          K: ${{ secrets.APISPORTS_KEY }}
+          K: ${{ secrets.API_SPORTS_KEY || secrets.APISPORTS_KEY }}
         run: |
           curl -sS -m 30 -D /tmp/h1 -H "x-apisports-key: $K" "https://v3.football.api-sports.io/leagues?country=South-Korea&current=true" -o /tmp/f.json
           grep -iE "^x-ratelimit-(requests-)?(limit|remaining)|^HTTP" /tmp/h1 | tr -d '\r'
@@ -36,7 +36,7 @@ jobs:
           PY
       - name: 야구(API-Baseball) — 한국·일본 리그
         env:
-          K: ${{ secrets.APISPORTS_KEY }}
+          K: ${{ secrets.API_SPORTS_KEY || secrets.APISPORTS_KEY }}
         run: |
           for C in South-Korea Japan; do
             curl -sS -m 30 -D /tmp/h2 -H "x-apisports-key: $K" "https://v1.baseball.api-sports.io/leagues?country=$C" -o /tmp/b_$C.json
@@ -52,7 +52,7 @@ jobs:
           done
       - name: 라이브 경기 응답 확인(1건씩)
         env:
-          K: ${{ secrets.APISPORTS_KEY }}
+          K: ${{ secrets.API_SPORTS_KEY || secrets.APISPORTS_KEY }}
         run: |
           curl -sS -m 30 -D /tmp/h3 -H "x-apisports-key: $K" "https://v3.football.api-sports.io/fixtures?live=all" -o /tmp/live.json
           grep -iE "^x-ratelimit-requests-remaining" /tmp/h3 | tr -d '\r'
