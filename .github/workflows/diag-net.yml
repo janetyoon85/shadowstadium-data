@@ -27,12 +27,9 @@ jobs:
           for i in 1 2 3; do curl -s -o /dev/null -m 20 -w "curl naver api: HTTP %{http_code} %{time_total}s\n" -H "User-Agent: Mozilla/5.0" "$U" || echo "curl naver api FAIL exit=$?"; done
           echo "--- TLS 변형별 curl (같은 러너)"
           curl -V | head -1
-          curl -s -o /dev/null -m 12 -w "tls1.2 제한: HTTP %{http_code} %{time_total}s
-" --tls-max 1.2 -H "User-Agent: Mozilla/5.0" "$U" || echo "tls1.2 제한 FAIL exit=$?"
-          curl -s -o /dev/null -m 12 -w "tls1.3 AES128만: HTTP %{http_code} %{time_total}s
-" --tls13-ciphers TLS_AES_128_GCM_SHA256 -H "User-Agent: Mozilla/5.0" "$U" || echo "tls1.3 AES128만 FAIL exit=$?"
-          curl -s -o /dev/null -m 12 -w "http1.1 강제: HTTP %{http_code} %{time_total}s
-" --http1.1 -H "User-Agent: Mozilla/5.0" "$U" || echo "http1.1 FAIL exit=$?"
+          curl -s -o /dev/null -m 12 -w "tls1.2 제한: HTTP %{http_code} %{time_total}s\n" --tls-max 1.2 -H "User-Agent: Mozilla/5.0" "$U" || echo "tls1.2 제한 FAIL exit=$?"
+          curl -s -o /dev/null -m 12 -w "tls1.3 AES128만: HTTP %{http_code} %{time_total}s\n" --tls13-ciphers TLS_AES_128_GCM_SHA256 -H "User-Agent: Mozilla/5.0" "$U" || echo "tls1.3 AES128만 FAIL exit=$?"
+          curl -s -o /dev/null -m 12 -w "http1.1 강제: HTTP %{http_code} %{time_total}s\n" --http1.1 -H "User-Agent: Mozilla/5.0" "$U" || echo "http1.1 FAIL exit=$?"
           node -e "
           const U='$U';
           (async()=>{for(let i=0;i<3;i++){const t=Date.now();try{const r=await fetch(U,{headers:{'User-Agent':'Mozilla/5.0'},signal:AbortSignal.timeout(20000)});console.log('node naver api: HTTP',r.status,Date.now()-t,'ms')}catch(e){console.log('node naver api FAIL',Date.now()-t,'ms',e.cause&&e.cause.code||e.message)}}})()"
