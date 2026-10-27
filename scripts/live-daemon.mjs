@@ -63,7 +63,7 @@ function noteResult(src, res) {
   const limited = /HTTP 429|HTTP 403|too many requests/i.test(res.out);
   if (res.code === 0 && !limited) { failures[src] = 0; return false; }
   failures[src]++;
-  log(`크롤링 실패(${src}) code=${res.code}${limited ? ' [요청 제한]' : ''}: ${res.out.replace(/s+/g, ' ').slice(-160)}`);
+  log(`크롤링 실패(${src}) code=${res.code}${limited ? ' [요청 제한]' : ''}: ${res.out.replace(/\s+/g, ' ').slice(-600)}`);
   if (limited || failures[src] >= 5) {
     pausedUntil[src] = Date.now() + PAUSE_MS;
     alert(`${src === 'naver' ? '일정(네이버)' : src === 'espn' ? 'ESPN·MLB 마이너' : '농구'} 크롤링이 ${limited ? '요청 제한(429/403)' : '연속 실패'}로 5분간 멈춥니다.`);
@@ -178,7 +178,23 @@ async function syncRepo() {
   }
 }
 
+// 시작 시 외부 접속 자가점검 — 크롤링이 연속 실패/시간 초과일 때 원인(DNS·차단·느림)을 로그로 바로 알 수 있게 한다.
+async function netSelfTest() {
+  const targets = [['github', 'https://api.github.com/'], ['espn', 'https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard'], ['naver', 'https://sports.naver.com/'], ['rtdb', `${DB || 'https://example.invalid'}/live/basketball/ts.json`]];
+  await Promise.all(targets.map(async ([name, url]) => {
+    const t = Date.now();
+    try {
+      const r = await fetch(url, { signal: AbortSignal.timeout(15000), headers: { 'User-Agent': 'Mozilla/5.0' } });
+      log(`[자가점검] ${name} HTTP ${r.status} ${Date.now() - t}ms`);
+    } catch (e) {
+      log(`[자가점검] ${name} 실패 ${Date.now() - t}ms: ${String(e.cause?.code || e.cause?.message || e.message).slice(0, 80)}`);
+    }
+  }));
+  log(`[자가점검] 메모리 RSS ${Math.round(process.memoryUsage().rss / 1048576)}MB, node ${process.version}`);
+}
+
 async function main() {
+  netSelfTest().catch(() => {});
   log(`시작: 주기 ${INTERVAL_MS / 1000}s, repo=${REPO}${DRY ? ' [DRY_RUN]' : ''}${DB && SECRET ? '' : ' [게시 설정 없음 — 게시 안 함]'}`);
   let lastSync = Date.now();
   let cycle = 0;
