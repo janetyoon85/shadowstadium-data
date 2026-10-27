@@ -21,6 +21,7 @@
 // 가능하면 사용.
 
 import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
+import { LIVE_ONLY, activeLeagues, writeLiveSnapshot } from './lib/live-only.mjs'; // 라이브 전용 모드(NAS 폴러)
 import { alertWebhook } from './alert-throttle.mjs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -147,6 +148,10 @@ async function notifyUnknowns(unknownTeams, unknownVenues) {
 }
 
 async function main() {
+  const t0 = Date.now();
+  if (LIVE_ONLY && !(await activeLeagues(REPO_ROOT)).has('ASIANGAMESBASEBALL')) { await writeLiveSnapshot(REPO_ROOT, 'ag-baseball', [], t0); return; } // 활성 경기 없으면 요청 없이 종료
+  // 라이브 전용: 어제~내일 날짜만 조회(대회 일정 전체를 훑지 않음)
+  const nearToday = (d) => { const s = String(d); const t = Date.parse(s.length === 8 ? `${s.slice(0, 4)}-${s.slice(4, 6)}-${s.slice(6)}` : s); return Number.isFinite(t) && Math.abs(t - Date.now()) < 36 * 3600e3; };
   const unknownTeams = new Set();
   const unknownVenues = new Set();
   const allNew = [];
@@ -157,7 +162,7 @@ async function main() {
     console.error('[asiangames-baseball] failed to fetch days:', e.message);
     process.exit(1);
   }
-  for (const d of days) {
+  for (const d of LIVE_ONLY ? days.filter(nearToday) : days) {
     console.log(`Fetching ${d} ...`);
     await sleep(REQUEST_DELAY_MS);
     let gs;
@@ -170,6 +175,7 @@ async function main() {
     console.log(`  -> ${gs.length} games`);
     allNew.push(...gs);
   }
+  if (LIVE_ONLY) { await writeLiveSnapshot(REPO_ROOT, 'ag-baseball', allNew, t0); return; }
   await notifyUnknowns(unknownTeams, unknownVenues);
 
   const gamesPath = path.join(REPO_ROOT, 'games.json');

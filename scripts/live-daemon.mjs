@@ -3,7 +3,7 @@
 //
 // 동작: 저장소(공개, 읽기 전용 클론)를 받아 두고 15분마다 최신으로 맞춘다 → 매 주기마다
 //  · 농구: 진행/곧 시작 경기가 있으면 fetch-basketball.mjs 를 돌려(저장·커밋 없음) → basketball/games.json 에서 라이브 경기만 뽑아 live/basketball_fast 에 게시
-//  · 축구·야구 등: 진행/곧 시작 경기가 있는 리그만 — 네이버 기반은 LIVE_ONLY=1 fetch-schedule.mjs, ESPN 축구 39개 리그·MLB 마이너·윈터리그는 각 크롤러의 LIVE_ONLY 모드 → live-snapshot*.json 을 합쳐 live/games_fast 에 게시
+//  · 축구·야구 등: 진행/곧 시작 경기가 있는 리그만 — 네이버 기반은 LIVE_ONLY=1 fetch-schedule.mjs, ESPN 축구 39개 리그·MLB 마이너·윈터리그·올림픽 축구·ESPN 야구·아시안게임은 각 크롤러의 LIVE_ONLY 모드 → live-snapshot*.json 을 합쳐 live/games_fast 에 게시
 //  경기가 없으면 크롤링 요청을 한 건도 보내지 않는다. 429/차단 조짐이 보이면 해당 소스를 5분 쉬고 Discord 로 알린다.
 //
 // 쓰기 권한: Realtime Database 전용 비밀키(FIREBASE_DB_SECRET, REST ?auth=) — 서비스 계정(푸시 발송 가능)보다 권한이 훨씬 좁다(라이브 점수만 건드릴 수 있음).
@@ -98,6 +98,11 @@ const ESPN_FAMILY = [
   ['fetch-espn-asia-soccer-leagues', 'espn-asia-3'],
   ['fetch-mlb-aaa-baseball', 'mlb-aaa'],
   ['fetch-mlb-winter-baseball', 'mlb-winter'],
+  ['fetch-espn-olympic-football', 'olympic-football'],
+  ['fetch-espn-baseball', 'espn-baseball'],
+  ['fetch-asiangames-baseball', 'ag-baseball'],
+  ['fetch-asiangames-football', 'ag-football'],
+  // WBSC(fetch-wbsc-baseball)는 일부러 제외 — 유료 프록시(ScraperAPI) 월 예산·백오프로 요청을 아끼는 구조라 20초 주기로 돌리면 한도를 바로 소진한다. 느린 경로(약 1분)로 처리.
 ];
 
 async function cycleGames() {

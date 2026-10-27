@@ -24,4 +24,5 @@
 
 ## 자동 갱신
 - 데몬은 15분마다 저장소를 최신으로 맞추고, 자신의 코드(`live-daemon.mjs`, `lib/live-*`)가 바뀌었으면 스스로 종료한다 → 컨테이너가 다시 떠서 새 코드를 받는다(사람이 NAS 를 만질 필요 없음).
-- 라이브 전용 모드가 있는 크롤러: `fetch-schedule`(네이버), `fetch-espn-soccer-leagues`·`-world-`·`-asia-`(ESPN 39개 리그), `fetch-mlb-aaa-baseball`, `fetch-mlb-winter-baseball`. 아직 느린 경로(약 1분)인 것: WBSC·아시안게임·올림픽 축구·ESPN 야구(하루 1회).
+- **적용 범위(2026-10-27 확정)**: 농구 전체 / 네이버 일정(KBO·K리그·MLB·NPB·유럽 주요 리그 등) / ESPN 축구 39개 리그(`fetch-espn-soccer-leagues`·`-world-`·`-asia-`) / MLB 마이너·윈터리그 / 올림픽 축구 / ESPN 야구(WBC·카리브시리즈·올림픽 야구) / 아시안게임 야구·축구. 각 크롤러가 `LIVE_ONLY=1` 로 활성 리그만 어제~내일 범위로 조회한다.
+- **WBSC(`fetch-wbsc-baseball`)만 일부러 제외**: 유료 프록시(ScraperAPI) 월 예산·백오프로 요청을 아끼는 구조라 20초 주기로 돌리면 한도를 바로 소진한다. WBSC 경기는 느린 경로(약 1분)로 처리된다.

@@ -14,6 +14,7 @@
 // 원본 로직은 앱 저장소 scripts/fetchEspnOlympicFootball.mjs 와 동일(저장소 분리라 부득이 복사 유지).
 
 import './lib/watch-429.mjs'; // HTTP 429 기록(운영 알림용) — 동작에는 영향 없음
+import { LIVE_ONLY, activeLeagues, writeLiveSnapshot } from './lib/live-only.mjs'; // 라이브 전용 모드(NAS 폴러)
 import { alertWebhook } from './alert-throttle.mjs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -223,8 +224,9 @@ function ymd(d) {
 
 async function main() {
   const now = new Date();
-  const start = new Date(now.getTime() - DAYS_BEFORE * 86400000);
-  const end = new Date(now.getTime() + DAYS_AFTER * 86400000);
+  if (LIVE_ONLY && !(await activeLeagues(REPO_ROOT)).has('OLYMPICFOOTBALL')) { await writeLiveSnapshot(REPO_ROOT, 'olympic-football', [], now.getTime()); return; } // 활성 경기 없으면 요청 없이 종료
+  const start = new Date(now.getTime() - (LIVE_ONLY ? 1 : DAYS_BEFORE) * 86400000);
+  const end = new Date(now.getTime() + (LIVE_ONLY ? 1 : DAYS_AFTER) * 86400000);
   const startDate = ymd(start);
   const endDate = ymd(end);
 
@@ -234,6 +236,7 @@ async function main() {
   console.log(`Fetching Olympic football ${startDate}~${endDate} ...`);
   const allNew = await fetchOlympicFootball(startDate, endDate, unknownTeams, unknownVenues, failedChunks);
   console.log(`  -> ${allNew.length} games`);
+  if (LIVE_ONLY) { await writeLiveSnapshot(REPO_ROOT, 'olympic-football', allNew, now.getTime()); return; }
   await notifyUnknowns(unknownTeams, unknownVenues);
   await notifyFetchFailures(failedChunks);
 
