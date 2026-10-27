@@ -21,7 +21,7 @@ x-runner: &runner
     RUNNER_TOKEN: ""          # ← B) 1시간짜리
     REPLACE_EXISTING_RUNNER: "true"   # 같은 이름이 서버에 남아 있어도(offline) 덮어쓰며 재등록
     DISABLE_AUTO_UPDATE: "1"
-    EPHEMERAL: "false"
+    # ★ EPHEMERAL 변수는 아예 적지 않는다 — 이 이미지는 값이 "false" 여도 변수가 있으면 임시(ephemeral) 러너로 켜져서, 작업 1개를 끝내고 종료·등록 해제한다(2026-10-28 실측 로그 "Ephemeral option is enabled").
     RUN_AS_ROOT: "false"
     TZ: Asia/Seoul
 
