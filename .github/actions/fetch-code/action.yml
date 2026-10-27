@@ -1,0 +1,40 @@
+name: Fetch crawler code
+description: 비공개 저장소(shadowstadium-crawler)의 scripts/ 를 받아 워크스페이스에 둔다. 실패하면 이 저장소에 남아 있는 scripts/ 로 폴백(전환 기간 안전장치).
+
+inputs:
+  token:
+    description: shadowstadium-crawler Contents:Read 권한 토큰
+    required: false
+    default: ''
+  ref:
+    description: 받을 브랜치/태그
+    required: false
+    default: main
+
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      env:
+        CODE_TOKEN: ${{ inputs.token }}
+        CODE_REF: ${{ inputs.ref }}
+      run: |
+        set -u
+        if [ -z "$CODE_TOKEN" ]; then
+          echo "::warning::fetch-code: 토큰 없음 - 저장소에 있는 scripts/ 사용"
+          exit 0
+        fi
+        tmp="$(mktemp -d)"
+        if curl -fsSL --retry 3 --retry-delay 2 -H "Authorization: Bearer $CODE_TOKEN" -H "Accept: application/vnd.github+json" \
+             "https://api.github.com/repos/janetyoon85/shadowstadium-crawler/tarball/$CODE_REF" -o "$tmp/code.tgz" \
+           && mkdir "$tmp/src" && tar -xzf "$tmp/code.tgz" -C "$tmp/src" --strip-components=1 && [ -d "$tmp/src/scripts" ] && [ "$(ls "$tmp/src/scripts" | wc -l)" -gt 20 ]; then
+          rm -rf scripts
+          cp -r "$tmp/src/scripts" scripts
+          # 의존성 목록도 비공개 저장소 기준(캐시 키는 package-lock.json)
+          [ -f "$tmp/src/package.json" ] && cp "$tmp/src/package.json" package.json
+          [ -f "$tmp/src/package-lock.json" ] && cp "$tmp/src/package-lock.json" package-lock.json
+          echo "fetch-code: 비공개 저장소 scripts/ 적용 ($(ls scripts | wc -l)개)"
+        else
+          echo "::warning::fetch-code: 비공개 코드 받기 실패(토큰 권한/네트워크) - 저장소에 있는 scripts/ 로 폴백"
+        fi
+        rm -rf "$tmp"

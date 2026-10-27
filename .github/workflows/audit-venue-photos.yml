@@ -31,6 +31,11 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Fetch crawler code (private)
+        uses: ./.github/actions/fetch-code
+        with:
+          token: ${{ secrets.PRIVATE_DATA_TOKEN }}
+
       - name: Audit venue photos
         env:
           VENUE_AUDIT_MAX_REQUESTS: ${{ github.event.inputs.budget || '20' }}
