@@ -1,7 +1,7 @@
 name: Fetch Fallback Scores
 
 # 네이버 의존도 절감 P2(2026-10-27) — 네이버가 막혀 일정 수집이 멈춰도 오늘 전후 경기의 진행·종료·점수가 이어지게 ESPN(축구)·MLB Stats API 로 games.json 을 "앞으로만" 보강한다.
-# 네이버가 정상이면 같은 값이라 변경 0건(커밋 없음). 실제 주기는 cron-job.org(2분 권장) — GitHub 자체 cron 은 안전망.
+# 네이버가 정상이면 같은 값이라 변경 0건(커밋 없음). 실제 주기는 cron-job.org(1분) — GitHub 자체 cron 은 안전망.
 on:
   schedule:
     - cron: '11,41 * * * *'
@@ -42,7 +42,7 @@ jobs:
         run: node scripts/fetch-fallback-scores.mjs
 
       # 다음스포츠 보조(KBO·K리그·NPB·유럽 축구)도 같은 실행에서 — 이 워크플로우가 cron-job.org 로 안정적으로 매분 호출되므로 별도 등록 없이 보조 경로가 이어진다(2026-10-27).
-      # 매 실행마다(현재 cron-job.org 가 2분 간격) 호출하되 진행·임박 경기가 있는 리그만 요청한다(없으면 0건). 실패해도 이 실행을 실패시키지 않는다.
+      # 매 실행마다(현재 cron-job.org 가 1분 간격) 호출하되 진행·임박 경기가 있는 리그만 요청한다(없으면 0건). 실패해도 이 실행을 실패시키지 않는다.
       - name: Apply Daum scores
         env:
           DAUM_DRY: ${{ github.event.inputs.dry == 'true' && '1' || '' }}
@@ -62,7 +62,7 @@ jobs:
           EURO_ENRICH_ONLY: '1'
           EURO_ENRICH_DRY: ${{ github.event.inputs.dry == 'true' && '1' || '' }}
         run: |
-          if [ $(( $(date +%s) / 120 % 2 )) -eq 0 ]; then node scripts/fetch-schedule.mjs || echo "유럽 보강 실패(무시)"; else echo "유럽 보강: 이번 실행은 건너뜀"; fi
+          if [ $(( $(date +%s) / 60 % 4 )) -eq 0 ]; then node scripts/fetch-schedule.mjs || echo "유럽 보강 실패(무시)"; else echo "유럽 보강: 이번 실행은 건너뜀"; fi
 
       - name: Check for changes
         id: changes
