@@ -4,7 +4,7 @@ name: Fetch Daum Scores
 # 진행·임박 경기가 있는 리그만 조회(없으면 요청 0건으로 종료). 네이버가 정상이면 같은 값이라 변경 0건. 실제 주기는 cron-job.org(2분 권장) — GitHub 자체 cron 은 안전망.
 on:
   schedule:
-    - cron: '13,43 * * * *'
+    - cron: '*/5 * * * *'
   workflow_dispatch:
     inputs:
       dry:
