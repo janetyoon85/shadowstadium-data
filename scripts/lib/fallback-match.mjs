@@ -106,6 +106,8 @@ export function buildPatch(game, m) {
   const patch = {};
   if (!m || m.status === 'skip') return patch;
   if (game.status === 'cancelled' || game.status === 'postponed') return patch;
+  // 취소·연기 반영(2026-10-27, 다음스포츠 CANCEL): "예정" 경기만 바꾼다(진행·종료는 건드리지 않음). 되돌리지는 않는다 — 네이버가 돌아오면 네이버가 정정.
+  if (m.status === 'cancelled' || m.status === 'postponed') return game.status === 'scheduled' ? { status: m.status } : patch;
   const cur = rank(game.status);
   const next = rank(m.status);
   if (next < cur) return patch; // 상태 퇴행 금지 (completed 인데 보조가 live 라고 해도 무시)

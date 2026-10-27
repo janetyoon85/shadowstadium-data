@@ -19,7 +19,9 @@ test('팀명 정규화·부분 일치(짧은 이름 보호)', () => {
 test('상태 매핑 — END/BEFORE/CANCEL 확인값, 미확인 진행 표기는 live', () => {
   assert.equal(daumStatus(dg({ gameStatus: 'END', periodType: 'END' })), 'completed');
   assert.equal(daumStatus(dg()), 'scheduled');
-  assert.equal(daumStatus(dg({ gameStatus: 'CANCEL', periodType: 'CANCEL' })), 'skip');
+  assert.equal(daumStatus(dg({ gameStatus: 'CANCEL', periodType: 'CANCEL' })), 'cancelled');
+  assert.equal(daumStatus(dg({ gameStatus: 'POSTPONE', periodType: 'POSTPONE' })), 'postponed');
+  assert.equal(daumStatus(dg({ gameStatus: 'DELAY', periodType: 'T01' })), 'skip');
   assert.equal(daumStatus(dg({ gameStatus: 'ING', periodType: 'FIRST_HALF' })), 'live');
   assert.equal(daumStatus(dg({ gameStatus: '', periodType: '' })), null);
 });
@@ -63,4 +65,17 @@ test('진행 중(PLAY) 야구 — periodType B05/T03 → 5회말/3회초, 점수
   const g2 = { ...game(), status: 'live', homeScore: 4, awayScore: 1, inningInfo: '5회말' };
   const later = fromDaumGame(dg({ gameStatus: 'PLAY', periodType: 'T06', homeScore: { run: 4 }, awayScore: { run: 1 } }));
   assert.deepEqual(applyDaum([g2], { KBO: [later] }, Date.parse('2026-10-27T10:40:00Z')).changes[0].patch, { inningInfo: '6회초' });
+});
+
+test('취소·연기 반영 — 예정만 바꾸고, 진행·종료·이미 취소된 경기는 건드리지 않음, 멱등', () => {
+  const now = Date.parse('2026-10-27T10:00:00Z');
+  const cancel = fromDaumGame(dg({ gameStatus: 'CANCEL', periodType: 'CANCEL' }));
+  const { games: out, changes } = applyDaum([game()], { KBO: [cancel] }, now);
+  assert.deepEqual(changes[0].patch, { status: 'cancelled' });
+  assert.equal(out[0].status, 'cancelled');
+  assert.equal(applyDaum(out, { KBO: [cancel] }, now).changes.length, 0); // 멱등
+  assert.equal(applyDaum([game({ status: 'live' })], { KBO: [cancel] }, now).changes.length, 0); // 진행 중은 무시
+  assert.equal(applyDaum([game({ status: 'completed' })], { KBO: [cancel] }, now).changes.length, 0);
+  const pp = fromDaumGame(dg({ gameStatus: 'POSTPONE', periodType: 'POSTPONE' }));
+  assert.deepEqual(applyDaum([game()], { KBO: [pp] }, now).changes[0].patch, { status: 'postponed' });
 });

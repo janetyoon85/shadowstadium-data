@@ -43,7 +43,9 @@ export function daumStatus(g, nowMs = Date.now()) {
   const s = String(g.gameStatus || '');
   if (s === 'END') return 'completed';
   if (s === 'BEFORE') return 'scheduled';
-  if (/CANCEL|POSTPONE|SUSPEND|DELAY/.test(s)) return 'skip';
+  if (/CANCEL/.test(s)) return 'cancelled'; // 확인된 값: CANCEL(+periodType CANCEL)
+  if (/POSTPONE/.test(s)) return 'postponed'; // 값 미확인 — 방어적 매핑
+  if (/SUSPEND|DELAY/.test(s)) return 'skip';
   if (s && g.periodType && g.periodType !== 'BEFORE' && g.periodType !== 'END') return 'live';
   return null;
 }
