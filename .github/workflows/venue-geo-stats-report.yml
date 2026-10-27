@@ -1,0 +1,35 @@
+name: Venue Geo Stats Report
+
+# 구장 보호 P-1 그림자 측정 요약을 읽어 합산 지표를 로그(+선택 시 Discord)로 낸다. 수동 실행 / 매일 1회(KST 09:00).
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+    inputs:
+      discord:
+        description: 'Discord 로 요약 전송 — true/false'
+        default: 'false'
+
+permissions:
+  contents: read
+
+jobs:
+  report:
+    if: vars.FIREBASE_DATABASE_URL != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+      - run: npm ci
+      - name: Report
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          FIREBASE_DATABASE_URL: ${{ vars.FIREBASE_DATABASE_URL }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: node scripts/venue-geo-stats-report.mjs ${{ (github.event_name == 'schedule' || inputs.discord == 'true') && '--discord' || '' }}
