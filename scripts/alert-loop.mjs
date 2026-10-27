@@ -60,6 +60,8 @@ async function refreshOverlay() {
       if (m) { out.bk = m.bk; out.bkTs = m.bkTs; }
     }
     await fs.writeFile(path.join(ROOT, OVERLAY_FILE), JSON.stringify(out));
+    const age = (ts) => (ts ? Math.round((Date.now() - ts) / 1000) + 's' : '없음');
+    log(`오버레이: 일정 ${Object.keys(out.games).length}경기(${age(out.ts)} 전) · 농구 ${Object.keys(out.bk).length}경기(${age(out.bkTs)} 전)`);
     return true;
   } catch (e) {
     log('오버레이 갱신 실패(기존 방식으로 진행):', String(e.message).slice(0, 80));
