@@ -57,6 +57,7 @@ export function createGuard({
   };
   const write = () => { try { fs.writeFileSync(stateFile, JSON.stringify(state)); } catch { /* 쓰기 실패는 무시 */ } };
 
+  const stats = { n: 0, fail: 0, cooldownSkipped: 0 }; // 요청 계측(프로세스별) — 종료 시 로그 한 줄
   let active = 0;
   let lastStart = 0;
   const waiters = [];
@@ -93,21 +94,22 @@ export function createGuard({
   const guardedFetch = async (input, init) => {
     if (!isNaverUrl(input)) return realFetch(input, init);
     read();
-    if (state.openUntil > now()) throw new NaverCooldownError(state.openUntil);
+    if (state.openUntil > now()) { stats.cooldownSkipped++; throw new NaverCooldownError(state.openUntil); }
     await acquire();
+    stats.n++;
     try {
       const res = await realFetch(input, init);
-      if (isBlockSignal(null, res.status)) onFailure();
+      if (isBlockSignal(null, res.status)) { stats.fail++; onFailure(); }
       else onSuccess();
       return res;
     } catch (e) {
-      if (isBlockSignal(e)) onFailure();
+      if (isBlockSignal(e)) { stats.fail++; onFailure(); }
       throw e;
     } finally {
       release();
     }
   };
-  return { guardedFetch, read, getState: () => ({ ...state }) };
+  return { guardedFetch, read, getState: () => ({ ...state }), stats };
 }
 
 // 네이버만 쓰는 스크립트: 쿨다운 중이면 실패가 아니라 정상 종료한다(워크플로우 빨간불·실패 알림 방지).
@@ -117,6 +119,10 @@ if (!globalThis.__naverGuard) {
   globalThis.__naverGuard = true;
   const guard = createGuard({ realFetch: globalThis.fetch });
   const exitOnOpen = EXIT_ON_OPEN.has(path.basename(process.argv[1] || ''));
+  process.on('exit', () => {
+    const { n, fail, cooldownSkipped } = guard.stats;
+    if (n || cooldownSkipped) console.log(`[naver-guard] 네이버 요청 ${n}건(접속 실패 ${fail}건, 쿨다운으로 생략 ${cooldownSkipped}건) — ${path.basename(process.argv[1] || '')}`);
+  });
   globalThis.fetch = async (input, init) => {
     try {
       return await guard.guardedFetch(input, init);

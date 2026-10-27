@@ -9,17 +9,44 @@ name: pick-runner
 # 호출: 각 크롤러 워크플로우의 첫 잡이 `uses: ./.github/workflows/pick-runner.yml` 로 부르고, 본 잡은 `needs: pick` + `runs-on: ${{ needs.pick.outputs.runner }}`.
 on:
   workflow_call:
+    inputs:
+      every_min:
+        description: '실제 수집을 N분에 한 번만 한다(정각 기준 분 % N == 0). 1 이면 매 호출 실행(기본). 네이버 요청량 절감(2026-10-27)용 — fetch-schedule 이 저장소 변수 NAVER_FULL_EVERY_MIN 으로 넘긴다.'
+        type: string
+        default: '1'
+      force:
+        description: '수동 전체 실행·테스트 등은 간격과 무관하게 실행'
+        type: string
+        default: 'false'
     outputs:
       runner:
         description: 본 잡이 쓸 러너 라벨
         value: ${{ jobs.pick.outputs.runner }}
+      run:
+        description: '본 잡을 실행할지(true/false) — every_min 간격에 걸리면 false'
+        value: ${{ jobs.pick.outputs.run }}
 jobs:
   pick:
     runs-on: ubuntu-latest
     timeout-minutes: 2
     outputs:
       runner: ${{ steps.r.outputs.runner }}
+      run: ${{ steps.cadence.outputs.run }}
     steps:
+      # 네이버 요청량 절감(2026-10-27): 전체 시즌 수집(요청 97건)을 매분 돌리던 것을 every_min 분에 한 번으로 줄인다. GitHub 정기 실행(schedule)·force 는 항상 실행.
+      - id: cadence
+        env:
+          EVERY: ${{ inputs.every_min }}
+          FORCE: ${{ inputs.force }}
+          EVENT: ${{ github.event_name }}
+        run: |
+          EVERY=${EVERY:-1}; case "$EVERY" in ''|*[!0-9]*) EVERY=1;; esac; [ "$EVERY" -lt 1 ] && EVERY=1
+          M=$((10#$(date -u +%M)))
+          if [ "$EVERY" -le 1 ] || [ "$FORCE" = "true" ] || [ "$EVENT" = "schedule" ] || [ $((M % EVERY)) -eq 0 ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"; echo "실행(분=$M, 간격=${EVERY}분)"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"; echo "건너뜀(분=$M, 간격=${EVERY}분) — 네이버 요청 절감"
+          fi
       - id: r
         env:
           FORCE: ${{ vars.CRAWLER_RUNNER }}

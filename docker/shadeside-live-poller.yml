@@ -13,6 +13,8 @@ services:
       FIREBASE_DATABASE_URL: "https://shadowstadium-default-rtdb.asia-southeast1.firebasedatabase.app"
       FIREBASE_DB_SECRET: "여기에_데이터베이스_비밀키"
       LIVE_INTERVAL_S: "20"
+      # 네이버 호출 간격(초) — 2026-10-27 차단 사건 후 기본 30초(농구·ESPN 은 LIVE_INTERVAL_S 그대로). 코드 기본값이 30 이라 비워 둬도 된다.
+      NAVER_LIVE_INTERVAL_S: "30"
       # (비공개 크롤러 코드) shadowstadium-crawler 읽기 전용 토큰 — 공개 저장소에서 scripts/ 가 빠진 뒤에도 코드를 받는다. 비워 두면 공개 저장소의 scripts/ 를 그대로 쓴다.
       CODE_TOKEN: ""
       REPO_DIR: /app/repo

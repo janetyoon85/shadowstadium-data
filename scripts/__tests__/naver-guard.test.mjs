@@ -73,3 +73,10 @@ test('상태 파일 공유 — 다른 인스턴스(다른 프로세스 흉내)�
   const b = createGuard({ realFetch: ok, now: () => clock.t, stateFile: a.stateFile, sleep: async () => {}, log: () => {}, minGapMs: 0, jitterMs: 0 });
   await assert.rejects(b.guardedFetch(NAVER), NaverCooldownError);
 });
+
+test('요청 계측 — 요청·실패·쿨다운 생략 건수를 센다', async () => {
+  const { g } = mk(reset);
+  for (let i = 0; i < 3; i++) await assert.rejects(g.guardedFetch(NAVER));
+  await assert.rejects(g.guardedFetch(NAVER), NaverCooldownError);
+  assert.deepEqual(g.stats, { n: 3, fail: 3, cooldownSkipped: 1 });
+});

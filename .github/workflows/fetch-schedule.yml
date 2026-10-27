@@ -40,8 +40,13 @@ jobs:
   pick:
     uses: ./.github/workflows/pick-runner.yml
     secrets: inherit
+    with:
+      # 네이버 요청량 절감(2026-10-27): 전체 시즌 수집은 요청 97건이라 매분 돌면 시간당 ~5,800건 — 변수 NAVER_FULL_EVERY_MIN(기본 5)분에 한 번만 실제 수집. 1 로 두면 예전처럼 매분.
+      every_min: ${{ vars.NAVER_FULL_EVERY_MIN || '5' }}
+      force: ${{ (inputs.full_run || inputs.test_discord) && 'true' || 'false' }}
   fetch:
     needs: pick
+    if: needs.pick.outputs.run == 'true'
     runs-on: ${{ needs.pick.outputs.runner }}
     defaults:
       run:

@@ -106,6 +106,10 @@ const ESPN_FAMILY = [
   ['fetch-wbsc-baseball', 'wbsc'], // 프록시 없이 직접(집 회선) — 오늘 진행/곧 시작하는 대회만 조회
 ];
 
+const NAVER_LIVE_EVERY_MS = Math.max(10, Number(process.env.NAVER_LIVE_INTERVAL_S) || 30) * 1000;
+let lastNaverAt = 0;
+let naverCache = null; // { games, events, ts } — 마지막 네이버 라이브 스냅샷(호출을 건너뛴 주기에 재사용)
+
 async function cycleGames() {
   const t0 = Date.now();
   const games = (() => { const j = readJson('games.json', []); return Array.isArray(j) ? j : j.games || []; })();
@@ -120,10 +124,22 @@ async function cycleGames() {
     }
   };
   if (Date.now() >= pausedUntil.naver && gamesActive(games, t0)) {
-    jobs.push((async () => {
-      const res = await run(['scripts/fetch-schedule.mjs'], { LIVE_ONLY: '1', BACKFILL_SLICE: '1000' }, 60000);
-      if (!noteResult('naver', res)) collect('live-snapshot.json');
-    })());
+    if (t0 - lastNaverAt >= NAVER_LIVE_EVERY_MS) {
+      // 네이버 호출 간격(기본 30초, 2026-10-27 차단 사건 후 20초→30초) — 사이 주기에는 직전 스냅샷을 그대로 합쳐 게시해 값이 깜빡이지 않게 한다.
+      lastNaverAt = t0;
+      jobs.push((async () => {
+        const res = await run(['scripts/fetch-schedule.mjs'], { LIVE_ONLY: '1', BACKFILL_SLICE: '1000' }, 60000);
+        if (!noteResult('naver', res)) {
+          const before = snaps.length;
+          const beforeEv = evSnaps.length;
+          collect('live-snapshot.json'); // (동기) — 바로 다음 줄에서 방금 추가된 항목만 집는다
+          if (snaps.length > before) naverCache = { games: snaps[snaps.length - 1], events: evSnaps.length > beforeEv ? evSnaps[evSnaps.length - 1] : null, ts: Date.now() };
+        }
+      })());
+    } else if (naverCache && Date.now() - naverCache.ts < 2 * NAVER_LIVE_EVERY_MS + 5000) {
+      snaps.push(naverCache.games);
+      if (naverCache.events) evSnaps.push(naverCache.events);
+    }
   }
   if (Date.now() >= pausedUntil.espn) {
     // 서로 독립이고 대부분 "활성 리그 없음"으로 즉시 끝나므로 병렬로 돌린다(가장 느린 하나의 시간 ≈ 4~8초).
