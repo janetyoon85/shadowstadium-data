@@ -10,3 +10,6 @@ node_modules/
 
 # NAS 라이브 폴러가 만드는 임시 스냅샷
 live-snapshot.json
+
+# 크롤러 코드는 비공개 저장소(shadowstadium-crawler)에서 워크플로우가 받아 쓴다 — 실수로 이 저장소에 커밋되지 않게(S3, 2026-10-28)
+/scripts/
