@@ -754175,6 +754175,13 @@
           "m": 24,
           "pid": "espn:275844",
           "nat": "Germany"
+        },
+        {
+          "n": "Arthur",
+          "type": "Y",
+          "m": 57,
+          "pid": "espn:334374",
+          "nat": "Brazil"
         }
       ]
     }
@@ -754287,7 +754294,7 @@
     "phaseCode": "T16",
     "homeScore": 1,
     "awayScore": 0,
-    "matchPeriod": "하프타임"
+    "matchPeriod": "후반"
   },
   {
     "date": "2026-10-28",
@@ -754302,7 +754309,19 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 0,
-    "matchPeriod": "후반"
+    "matchPeriod": "후반",
+    "cards": {
+      "home": [
+        {
+          "n": "Jack Carhuallanqui",
+          "type": "Y",
+          "m": 48,
+          "pid": "espn:365935",
+          "nat": "Peru"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-10-28",
@@ -754317,15 +754336,15 @@
     "status": "live",
     "homeScore": 1,
     "awayScore": 0,
-    "inningInfo": "3회초",
+    "inningInfo": "3회말",
     "liveState": {
       "pitcher": "Jarlin Susana",
-      "batter": "Easton Carmichael",
+      "batter": "Anson Aroz",
       "pitcherPid": "mlb:703186",
-      "batterPid": "mlb:702695",
-      "ball": 0,
-      "strike": 0,
-      "out": 3,
+      "batterPid": "mlb:695484",
+      "ball": 1,
+      "strike": 2,
+      "out": 1,
       "bases": []
     }
   },
@@ -754340,18 +754359,20 @@
     "timeTbd": false,
     "gameId": "AFL_MLBSTATS_867675",
     "status": "live",
-    "homeScore": 2,
+    "homeScore": 3,
     "awayScore": 1,
-    "inningInfo": "2회초",
+    "inningInfo": "2회말",
     "liveState": {
-      "pitcher": "Felix Arronde",
-      "batter": "Justin DeCriscio",
-      "pitcherPid": "mlb:702373",
-      "batterPid": "mlb:813664",
-      "ball": 3,
-      "strike": 3,
-      "out": 3,
-      "bases": []
+      "pitcher": "Ryan Dromboski",
+      "batter": "Brandon Butterworth",
+      "pitcherPid": "mlb:823804",
+      "batterPid": "mlb:822578",
+      "ball": 0,
+      "strike": 0,
+      "out": 1,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -754366,19 +754387,19 @@
     "gameId": "AFL_MLBSTATS_867679",
     "status": "live",
     "homeScore": 0,
-    "awayScore": 1,
+    "awayScore": 2,
     "inningInfo": "2회초",
     "liveState": {
       "pitcher": "Jhon Cabral",
-      "batter": "Narciso Polanco",
+      "batter": "Nathan Flewelling",
       "pitcherPid": "mlb:805093",
-      "batterPid": "mlb:800440",
-      "ball": 0,
-      "strike": 0,
-      "out": 0,
+      "batterPid": "mlb:807083",
+      "ball": 1,
+      "strike": 2,
+      "out": 1,
       "bases": [
-        1,
-        2
+        2,
+        3
       ]
     }
   },
