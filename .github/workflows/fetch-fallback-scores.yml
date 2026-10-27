@@ -50,10 +50,16 @@ jobs:
         run: |
           node scripts/fetch-daum-scores.mjs || echo "다음스포츠 보조 실패(무시)"
 
+      # 순위표 보조(K리그1·2, 다음스포츠) — 순위표가 완료 경기 수보다 뒤처졌을 때만 요청(평소 0건). 실패해도 이 실행을 실패시키지 않는다.
+      - name: Apply standings fallback
+        env:
+          STANDINGS_DRY: ${{ github.event.inputs.dry == 'true' && '1' || '' }}
+        run: node scripts/fetch-standings-fallback.mjs || echo "순위표 보조 실패(무시)"
+
       - name: Check for changes
         id: changes
         run: |
-          if [[ -n "$(git status --porcelain games.json)" ]]; then echo "changed=true" >> $GITHUB_OUTPUT; else echo "changed=false" >> $GITHUB_OUTPUT; fi
+          if [[ -n "$(git status --porcelain games.json standings.json)" ]]; then echo "changed=true" >> $GITHUB_OUTPUT; else echo "changed=false" >> $GITHUB_OUTPUT; fi
 
       - name: Commit and push
         if: steps.changes.outputs.changed == 'true'
@@ -61,7 +67,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           cp games.json games_2026.json
-          git add games.json games_2026.json
+          git add games.json games_2026.json standings.json
           git commit -m "chore(data): 보조 원본 점수·상태 보강(ESPN·MLB·다음) ($(date +'%Y-%m-%d %H:%M'))"
           for i in $(seq 1 20); do
             if git push; then
