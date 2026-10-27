@@ -30,6 +30,7 @@ const scoreOf = (v) => {
   if (typeof v === 'object') {
     if (typeof v.run === 'number') return v.run; // 야구
     if (typeof v.goal === 'number') return v.goal; // 축구
+    if (typeof v.total === 'number') return v.total; // 농구(쿼터 합계)
     if (typeof v.score === 'number') return v.score;
     if (typeof v.point === 'number') return v.point;
   }

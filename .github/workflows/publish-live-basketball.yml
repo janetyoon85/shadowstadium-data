@@ -6,7 +6,7 @@ name: Publish Live Basketball
 
 on:
   workflow_run:
-    workflows: ['Fetch Basketball']
+    workflows: ['Fetch Basketball', 'Fetch Fallback Scores', 'Fetch Daum Scores']
     types: [completed]
   workflow_dispatch:
 
