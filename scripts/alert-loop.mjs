@@ -80,20 +80,23 @@ function runScript(name) {
 async function main() {
   const end = Date.now() + TOTAL_MS;
   let i = 0;
+  const failed = {}; // 스크립트별 실패 횟수 — 반복의 절반 넘게 실패하면 워크플로우를 실패로 끝내 기존처럼 알림이 가게 한다
   for (;;) {
     const t0 = Date.now();
     i++;
     const ok = await refreshOverlay();
     for (const name of SCRIPTS) {
       const code = await runScript(name);
-      if (code !== 0) log(`${name} 종료 코드 ${code}`);
+      if (code !== 0) { failed[name] = (failed[name] || 0) + 1; log(`${name} 종료 코드 ${code}`); }
     }
     log(`반복 ${i} 완료 (${((Date.now() - t0) / 1000).toFixed(1)}s, 오버레이 ${ok ? '사용' : '없음'})`);
     if (Date.now() + EVERY_MS > end) break;
     await sleep(Math.max(1000, EVERY_MS - (Date.now() - t0)));
   }
   await fs.rm(path.join(ROOT, OVERLAY_FILE), { force: true }).catch(() => {});
-  process.exit(0);
+  const bad = Object.entries(failed).filter(([, n]) => n > i / 2).map(([k]) => k);
+  if (bad.length) log(`실패: ${bad.join(', ')}`);
+  process.exit(bad.length ? 1 : 0);
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url))) await main();

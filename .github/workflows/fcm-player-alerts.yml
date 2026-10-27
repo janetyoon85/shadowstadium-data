@@ -37,12 +37,10 @@ jobs:
       - name: Send player alerts
         env:
           FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
-        run: |
-          node scripts/notify-player-events.mjs
-          node scripts/notify-basketball-final.mjs
-          node scripts/notify-team-final.mjs
-          node scripts/notify-team-highlights.mjs
-          node scripts/notify-team-live.mjs
+          FIREBASE_DATABASE_URL: ${{ vars.FIREBASE_DATABASE_URL }}
+        # 2026-10-27: 알림 5종을 한 번 돌리고 끝내는 대신 약 55초 동안 10초마다 반복 확인한다(감시 루프). 매 반복마다 NAS 가 올린 신선한 이벤트를 받아 커밋된 데이터 위에
+        # 덮어써서 감지 → 이벤트 후 알림까지 평균 약 2분 → 20~40초 목표. 오버레이를 못 받으면 예전처럼 커밋된 파일만 쓴다. 되돌리려면 아래 한 줄을 예전 5줄로 바꾼다.
+        run: node scripts/alert-loop.mjs
 
       - name: Commit sent state
         timeout-minutes: 4  # 2026-10-26: git 이 응답 없이 멈추면(서버 쪽 지연) 이 단계가 10분까지 흐름을 막았다 — 짧게 끊고 다음 실행이 이어가게 한다
