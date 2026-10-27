@@ -743848,8 +743848,8 @@
           "n": "빌링",
           "m": 45,
           "pid": "espn:192660",
-          "pk": true,
-          "nat": "Denmark"
+          "nat": "Denmark",
+          "pk": true
         },
         {
           "n": "에팀",
@@ -753012,13 +753012,15 @@
     "inningInfo": "7회말",
     "liveState": {
       "pitcher": "Chester Pimentel",
-      "batter": "Victor Bericoto",
+      "batter": "José Rondon",
       "pitcherPid": "mlb:660435",
-      "batterPid": "mlb:682674",
+      "batterPid": "mlb:602922",
       "ball": 1,
-      "strike": 2,
-      "out": 0,
-      "bases": []
+      "strike": 1,
+      "out": 2,
+      "bases": [
+        2
+      ]
     }
   },
   {
@@ -753137,14 +753139,14 @@
     "inningInfo": "6회초",
     "liveState": {
       "pitcher": "술세르",
-      "batter": "옐리치",
-      "ball": 0,
-      "strike": 0,
-      "out": 0,
+      "batter": "콘트레라스",
+      "ball": 1,
+      "strike": 1,
+      "out": 1,
       "bases": [],
-      "pitchCount": 11,
+      "pitchCount": 15,
       "pitcherPid": "mlb:642121",
-      "batterPid": "mlb:592885"
+      "batterPid": "mlb:661388"
     },
     "highlights": {
       "home": [],
@@ -753229,10 +753231,11 @@
     "scorers": {
       "home": [
         {
-          "n": "Jonathan Galván",
-          "m": 75,
+          "n": "Jeremías Lázaro",
+          "m": 84,
+          "pk": true,
           "nat": "Argentina",
-          "pid": "espn:157500"
+          "pid": "espn:379598"
         }
       ],
       "away": []
