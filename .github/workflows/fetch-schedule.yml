@@ -71,8 +71,17 @@ jobs:
         with:
           node-version: '20'
 
+      # 활동 게이트(2026-10-27, 네이버 요청량 절감): 진행·임박 경기가 없으면 전체 시즌 수집(요청 97건)을 NAVER_IDLE_EVERY_MIN(기본 30)분에 한 번만 한다. 수동 전체 실행·테스트는 항상 통과.
+      - name: Activity gate
+        id: act
+        env:
+          FORCE: ${{ (inputs.full_run || inputs.test_discord) && '1' || '' }}
+          IDLE_EVERY_MIN: ${{ vars.NAVER_IDLE_EVERY_MIN || '30' }}
+        run: node scripts/naver-activity-gate.mjs
+
       - name: Run crawler
         id: crawler
+        if: steps.act.outputs.skip != 'true'
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
           TEST_DISCORD: ${{ inputs.test_discord }}
@@ -82,22 +91,26 @@ jobs:
 
       - name: Infer rescheduledTo
         id: infer
+        if: steps.act.outputs.skip != 'true'
         run: node scripts/infer-rescheduled.mjs
 
       # 즐겨찾기 선수 알림(2026-09-28) 검색 인덱스 — games.json은 이 크롤러 말고도
       # ESPN 해외축구 크롤러들도 scorers를 채우므로, 이 스텝에서 막 커밋 예정인 games.json을
       # 다시 읽어서 전체를 반영(단일 인메모리 상태만 보면 다른 크롤러 리그가 빠짐).
       - name: Build player search index
+        if: steps.act.outputs.skip != 'true'
         run: node scripts/build-player-index.mjs
 
       # games_2026.json → games.json 리네임 전환기 호환용 레거시 별칭(2026-09).
       # OTA 못 받은 구버전 앱이 여전히 옛 URL로 fetch하므로 당분간 병행 — TODO(2026-10초):
       # 신규 클라이언트 채택률 확인 후 이 스텝과 git add 목록의 games_2026.json 제거.
       - name: Write legacy filename alias (transition compat)
+        if: steps.act.outputs.skip != 'true'
         run: cp games.json games_2026.json
 
       - name: Check for changes
         id: changes
+        if: steps.act.outputs.skip != 'true'
         run: |
           if [[ -n "$(git status --porcelain games.json games_2026.json saves.json scorers.json assists.json euro_assists.json euro_shootout.json euro-reval.json players.json player-codes.json player-name-auto.json unmapped-venue-alerts.json stadium-auto-map.json)" ]]; then
             echo "changed=true" >> $GITHUB_OUTPUT

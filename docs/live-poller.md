@@ -33,3 +33,15 @@
 - 크롤러 소스의 정본은 비공개 저장소 `shadowstadium-crawler`. GitHub Actions 는 `.github/actions/fetch-code` 로 실행 때마다 받는다(실패 시 공개 저장소의 scripts/ 로 폴백).
 - NAS 폴러(Docker)는 컴포즈의 `CODE_TOKEN`(shadowstadium-crawler 읽기 전용 토큰)을 넣으면 시작 때와 5분마다(`syncRepo`) 비공개 코드를 받는다. **공개 저장소에서 scripts/ 를 지우기(S3) 전에 반드시 `CODE_TOKEN` 을 넣고 컨테이너를 재시작해야 한다** — 안 넣으면 `git reset --hard` 가 scripts/ 를 지워 폴러가 멈춘다.
 - 토큰은 기존 fine-grained PAT(`shadowstadium-secrets`)를 재사용해도 되고(저장소 접근에 crawler 추가됨) 별도 읽기 전용 PAT 를 만들어도 된다. 새 PAT 를 권장(NAS 노출 최소화): Contents: Read-only, 저장소=shadowstadium-crawler 하나만.
+
+## 네이버 요청량 조절 노브(2026-10-27 차단 사건 후)
+| 노브 | 위치 | 기본 | 의미 |
+|---|---|---|---|
+| `NAVER_FULL_EVERY_MIN` | 저장소 변수(Actions) | 5 | 일정 수집(전체 시즌, 요청 97건)을 N분에 한 번만 실제 수집. 1=예전처럼 매분 |
+| `NAVER_IDLE_EVERY_MIN` | 저장소 변수 | 30 | 진행·임박 경기가 없을 때 일정 수집 간격(분). 1=게이트 끔 |
+| `NAVER_LIVE_INTERVAL_S` | NAS 컴포즈 env | 30 | 폴러의 네이버 호출 간격(초). 농구·ESPN 은 `LIVE_INTERVAL_S` |
+| `NAVER_CONCURRENCY` / `NAVER_MIN_GAP_MS` | 스크립트 env | 2 / 400 | 한 프로세스의 동시 요청·요청 간격(naver-guard) |
+| `NAVER_GUARD_THRESHOLD` / `NAVER_GUARD_COOLDOWN_MIN` | 스크립트 env | 3 / 10 | 연속 접속 실패 N회 → 쿨다운(재차단 시 2배, 최대 60분) |
+| `CRAWLER_RUNNER` | 저장소 변수 | auto | `naver-cooldown-paused` = 네이버 호출 전면 정지(농구는 ESPN만) |
+- 예상 요청량(일정 수집만, 활동 시): 97건/5분 ≈ 시간당 1,160건(차단 직전 ≈ 5,800건), 활동 없을 때 97건/30분 ≈ 시간당 190건.
+- 재개 절차: ① 네이버 1건 응답 확인 ② `CRAWLER_RUNNER=auto` ③ NAS 폴러 재시작(`CODE_TOKEN` 은 필요 시 재설정) ④ 로그의 `[naver-guard] 네이버 요청 N건` 으로 실제 요청량 확인 ⑤ 안정되면 간격을 단계적으로 줄인다.
