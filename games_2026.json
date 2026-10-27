@@ -393492,7 +393492,7 @@
     "venueId": "kai_tak_sports_park",
     "home": "맨시티",
     "away": "인테르",
-    "stadium": "Kai Tak Sports Park",
+    "stadium": "Kai Tak Stadium",
     "timeTbd": false,
     "gameId": "1PMWt5DfRvSpiwS",
     "status": "completed",
@@ -402823,7 +402823,7 @@
     "venueId": "kai_tak_sports_park",
     "home": "첼시",
     "away": "유벤투스",
-    "stadium": "Kai Tak Sports Park",
+    "stadium": "Kai Tak Stadium",
     "timeTbd": false,
     "gameId": "5gTfwtbt7zuylGc",
     "status": "completed",
@@ -406285,7 +406285,7 @@
     "venueId": "kai_tak_sports_park",
     "home": "바이에른 뮌헨",
     "away": "애스턴 빌라",
-    "stadium": "Kai Tak Sports Park",
+    "stadium": "Kai Tak Stadium",
     "timeTbd": false,
     "gameId": "5nEYZ3XUTMEWulA",
     "status": "completed",
@@ -753756,7 +753756,29 @@
       "away": [
         {
           "n": "플라비우",
-          "m": 70
+          "m": 70,
+          "nat": "Brazil",
+          "pid": "espn:219003"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Juriën Gaari",
+          "type": "Y",
+          "m": 55,
+          "pid": "espn:246281",
+          "nat": "Curaçao"
+        }
+      ],
+      "away": [
+        {
+          "n": "Flávio",
+          "type": "Y",
+          "m": 41,
+          "pid": "espn:219003",
+          "nat": "Brazil"
         }
       ]
     }
@@ -753781,8 +753803,8 @@
           "m": 69,
           "a": "Sardar Azmoun",
           "nat": "Brazil",
-          "pid": "espn:315200",
           "aNat": "Iran",
+          "pid": "espn:315200",
           "apid": "espn:185827"
         },
         {
@@ -753790,8 +753812,8 @@
           "m": 84,
           "a": "Sardar Azmoun",
           "nat": "Brazil",
-          "pid": "espn:357322",
           "aNat": "Iran",
+          "pid": "espn:357322",
           "apid": "espn:185827"
         }
       ],
@@ -753839,6 +753861,39 @@
     "status": "completed",
     "awayScore": 0,
     "homeScore": 0,
+    "cards": {
+      "home": [
+        {
+          "n": "Fahad Khamis Juma Al Mukhaini",
+          "type": "Y",
+          "m": 48,
+          "pid": "espn:3141350"
+        }
+      ],
+      "away": [
+        {
+          "n": "Jay Gupta",
+          "type": "Y",
+          "m": 11,
+          "pid": "espn:369864",
+          "nat": "India"
+        },
+        {
+          "n": "Rohit Kumar",
+          "type": "Y",
+          "m": 61,
+          "pid": "espn:268084",
+          "nat": "India"
+        },
+        {
+          "n": "Edmund Lalrindika",
+          "type": "Y",
+          "m": 67,
+          "pid": "espn:268564",
+          "nat": "India"
+        }
+      ]
+    },
     "phaseCode": "GROUP"
   },
   {
@@ -754037,8 +754092,8 @@
         {
           "n": "라스무센",
           "m": 46,
-          "nat": "Denmark",
-          "pid": "espn:305588"
+          "pid": "espn:305588",
+          "nat": "Denmark"
         },
         {
           "n": "호프만",
@@ -754802,7 +754857,7 @@
     "venueId": "valley_parade_bradford",
     "home": "브래드퍼드",
     "away": "피터보로",
-    "stadium": "브래드포드 대학교 스타디움",
+    "stadium": "엠뱅크 밸리 파레이드",
     "timeTbd": false,
     "gameId": "7OyRUnAqudbbtXY",
     "status": "completed",
@@ -755294,16 +755349,14 @@
     "awayScore": 1,
     "inningInfo": "7회말",
     "liveState": {
-      "pitcher": "Calvin Ziegler",
-      "batter": "Ty Harvey",
-      "pitcherPid": "mlb:683349",
-      "batterPid": "mlb:829210",
-      "ball": 2,
-      "strike": 1,
-      "out": 0,
-      "bases": [
-        2
-      ]
+      "pitcher": "Joseph King",
+      "batter": "Kehden Hettiger",
+      "pitcherPid": "mlb:683165",
+      "batterPid": "mlb:800607",
+      "ball": 3,
+      "strike": 3,
+      "out": 3,
+      "bases": []
     }
   },
   {
@@ -755318,15 +755371,15 @@
     "gameId": "AFL_MLBSTATS_867679",
     "status": "live",
     "homeScore": 4,
-    "awayScore": 7,
+    "awayScore": 9,
     "inningInfo": "8회초",
     "liveState": {
-      "pitcher": "Jay Dill",
-      "batter": "Dakota Jordan",
-      "pitcherPid": "mlb:701839",
-      "batterPid": "mlb:702607",
+      "pitcher": "Nicholas Judice",
+      "batter": "Waner Luciano",
+      "pitcherPid": "mlb:700113",
+      "batterPid": "mlb:800294",
       "ball": 0,
-      "strike": 1,
+      "strike": 0,
       "out": 2,
       "bases": [
         1,
