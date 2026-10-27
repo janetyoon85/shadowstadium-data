@@ -1,0 +1,32 @@
+name: Diag Net
+
+# 집 러너(NAS/PC)에서 외부 접속 진단(읽기 전용) — 공인 IP, 네이버 API(curl·node), ESPN. 수동 실행.
+on:
+  workflow_dispatch:
+    inputs:
+      runner:
+        description: '러너 라벨 — nas 또는 home-crawler'
+        default: 'nas'
+
+permissions:
+  contents: read
+
+jobs:
+  diag:
+    runs-on: ${{ github.event.inputs.runner || 'nas' }}
+    timeout-minutes: 5
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Diagnose
+        run: |
+          echo "runner: $RUNNER_NAME"
+          echo "public ip: $(curl -s -m 10 https://api.ipify.org || echo fail)"
+          U='https://api-gw.sports.naver.com/schedule/games?fromDate=2026-10-27&toDate=2026-10-28&upperCategoryId=kbaseball&categoryId=kbo&size=5&page=1'
+          for i in 1 2 3; do curl -s -o /dev/null -m 20 -w "curl naver api: HTTP %{http_code} %{time_total}s\n" -H "User-Agent: Mozilla/5.0" "$U" || echo "curl naver api FAIL exit=$?"; done
+          node -e "
+          const U='$U';
+          (async()=>{for(let i=0;i<3;i++){const t=Date.now();try{const r=await fetch(U,{headers:{'User-Agent':'Mozilla/5.0'},signal:AbortSignal.timeout(20000)});console.log('node naver api: HTTP',r.status,Date.now()-t,'ms')}catch(e){console.log('node naver api FAIL',Date.now()-t,'ms',e.cause&&e.cause.code||e.message)}}})()"
+          curl -s -o /dev/null -m 15 -w "curl espn: HTTP %{http_code} %{time_total}s\n" https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard || echo "espn FAIL"
+          echo "node $(node -v 2>&1)"; uptime 2>/dev/null || true
