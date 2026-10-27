@@ -3,5 +3,7 @@
   "android": {
     "minVersion": "1.0.0",
     "storeUrl": "https://play.google.com/store/apps/details?id=com.shadowstadium.app"
-  }
+  },
+  "venueGeoRemote": true,
+  "_venueGeoRemote_comment": "구장 데이터 보호 P-1 그림자 측정 스위치 — true 면 앱이 서버(RTDB venues)와 번들 값을 비교·측정만 한다(화면 영향 없음). 끄려면 false."
 }
