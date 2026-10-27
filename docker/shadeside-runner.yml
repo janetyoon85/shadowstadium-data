@@ -1,0 +1,48 @@
+# NAS 셀프호스트 러너 3개 — Container Manager > 프로젝트 > 생성 에 붙여넣기(프로젝트 이름: shadeside-runner)
+# 러너 이름 nas-1~3, 라벨 home-crawler,nas. 네이버 API 가 GitHub 서버를 막아서 집 회선(NAS)에서 크롤링한다(docs/home-runner.md).
+#
+# ★ 인증 값은 둘 중 하나만 채운다 (나머지는 빈 문자열 그대로 둔다)
+#  A) ACCESS_TOKEN(권장) — 이 저장소 Administration:Read and write 권한만 가진 fine-grained PAT.
+#     러너가 시작할 때마다 스스로 새 등록 토큰을 받아 쓰므로 컨테이너가 재시작·재생성돼도 만료 문제가 없다.
+#  B) RUNNER_TOKEN — 1시간짜리 등록 토큰. 처음 등록할 때만 쓸 수 있고, 컨테이너가 재시작되면(설정 파일이 날아가 재등록 시도) 토큰이 만료돼
+#     `runner-registration 404` 를 반복하며 안 살아난다. 쓴다면 만든 직후 1시간 안에 프로젝트를 "빌드"하고, 그 뒤 컨테이너를 재생성하면 다시 새 토큰이 필요하다.
+#
+# 비밀(토큰)은 이 파일에 적어 저장소에 커밋하지 않는다. NAS 화면에 붙여넣을 때만 채운다.
+x-runner: &runner
+  image: myoung34/github-runner:latest
+  restart: unless-stopped
+  mem_limit: 1g
+  environment: &runner-env
+    REPO_URL: "https://github.com/janetyoon85/shadowstadium-data"
+    RUNNER_SCOPE: repo
+    LABELS: "home-crawler,nas"
+    ACCESS_TOKEN: ""          # ← A) 권장
+    RUNNER_TOKEN: ""          # ← B) 1시간짜리
+    REPLACE_EXISTING_RUNNER: "true"   # 같은 이름이 서버에 남아 있어도(offline) 덮어쓰며 재등록
+    DISABLE_AUTO_UPDATE: "1"
+    EPHEMERAL: "false"
+    RUN_AS_ROOT: "false"
+    TZ: Asia/Seoul
+
+services:
+  nas-1:
+    <<: *runner
+    container_name: shadeside-runner-1
+    environment:
+      <<: *runner-env
+      RUNNER_NAME: nas-1
+      RUNNER_WORKDIR: /tmp/runner/work1
+  nas-2:
+    <<: *runner
+    container_name: shadeside-runner-2
+    environment:
+      <<: *runner-env
+      RUNNER_NAME: nas-2
+      RUNNER_WORKDIR: /tmp/runner/work2
+  nas-3:
+    <<: *runner
+    container_name: shadeside-runner-3
+    environment:
+      <<: *runner-env
+      RUNNER_NAME: nas-3
+      RUNNER_WORKDIR: /tmp/runner/work3
