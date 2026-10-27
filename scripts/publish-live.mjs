@@ -5,6 +5,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import admin from './firebase-admin-compat.mjs';
+import { selectLive, selectLiveGames } from './lib/live-select.mjs';
+
+export { selectLive, selectLiveGames };
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SOURCES = {
@@ -13,41 +16,6 @@ const SOURCES = {
   games: { file: 'games.json', pick: (j) => (Array.isArray(j) ? j : j.games || []), select: (games, now) => selectLiveGames(games, now) },
 };
 
-// games.json 의 경기 시작 시각(ms) — date/time 은 KST.
-const startMs = (g) => (g.date && g.time ? Date.parse(g.date + 'T' + g.time + ':00+09:00') : NaN);
-// 게시 대상: 진행 중(시작 14시간 안 — 'live' 로 남은 오래된 찌꺼기 제외) · 최근 2시간 안에 끝난 경기(최종 스코어를 빨리 전달) · 45분 안에 시작할 경기(live 전환을 빨리 전달).
-// 앱의 큰 목록(1분 주기 전체 받기) 위에 덮어쓰는 라이브 필드만 담는다.
-export function selectLiveGames(games, nowMs) {
-  const out = {};
-  for (const g of games) {
-    if (!g || !g.gameId) continue;
-    const t = startMs(g);
-    if (!Number.isFinite(t)) continue;
-    const live = g.status === 'live' && nowMs - t < 14 * 3600e3 && t - nowMs < 2 * 3600e3;
-    const recentDone = g.status === 'completed' && t < nowMs && nowMs - t < 2 * 3600e3;
-    const soon = g.status === 'scheduled' && t - nowMs < 45 * 60e3 && t - nowMs > -3 * 3600e3;
-    if (!(live || recentDone || soon)) continue;
-    const e = { gameId: g.gameId, status: g.status, homeScore: g.homeScore ?? null, awayScore: g.awayScore ?? null };
-    for (const k of ['inningInfo', 'matchPeriod', 'liveState', 'scorers', 'cards', 'homePitcher', 'awayPitcher', 'homePitcherPid', 'awayPitcherPid']) if (g[k] !== undefined && g[k] !== null) e[k] = g[k];
-    out[String(g.gameId).replace(/[.$#[\]/:]/g, '~')] = e;
-  }
-  return out;
-}
-
-export function selectLive(games, nowMs) {
-  const out = {};
-  for (const g of games) {
-    if (!g || !g.id || !g.h || !g.a) continue;
-    const live = g.st === 'live';
-    const recentFinal = g.st === 'final' && nowMs - g.t < 6 * 3600e3 && nowMs - g.t > 0;
-    const soon = g.st === 'scheduled' && g.t - nowMs < 90 * 60e3 && g.t - nowMs > -3 * 3600e3;
-    if (!(live || recentFinal || soon)) continue;
-    // Firebase 키에는 . $ # [ ] / 를 쓸 수 없어 id 의 구분자를 바꿔 저장한다(앱이 같은 규칙으로 되돌림: '~' → ':').
-    const key = String(g.id).replace(/[.$#[\]/:]/g, '~');
-    out[key] = { id: g.id, st: g.st, per: g.per || '', h: { s: g.h.s, ls: g.h.ls || null }, a: { s: g.a.s, ls: g.a.ls || null } };
-  }
-  return out;
-}
 
 async function main() {
   const sport = process.argv[2];

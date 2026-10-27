@@ -35,6 +35,11 @@ const ESPN_DELAY_MS = Number(process.env.ESPN_DELAY_MS) || 400;
 // → 한꺼번에 몰아 하던 백필·재검증 예산을 매 실행에 1/BACKFILL_SLICE(기본 16) 씩 나눠 쓴다(60회/시 × 1/16 ≈ 전체 모드 3.75회분/시 — 재검증 대상은 48시간 창 안의 경기뿐이라 충분).
 //   8 로 시작했더니 크롤링 20→42초라 16 으로 키웠다. 새 종료 경기도 매 실행 바로 채워진다. 수동 전체 실행(FULL_RUN=1)은 예전처럼 전체 예산.
 const FULL_RUN = process.env.FULL_RUN === '1';
+// 라이브 전용 모드(NAS 상시 폴러가 15~20초 주기로 호출, 2026-10-27): 진행 중이거나 곧 시작한 경기가 있는 카테고리만 조회하고, 저장·알림·병합 없이 라이브 스냅샷(live-snapshot.json)만 남긴다.
+// 평소 실행(GitHub 워크플로우)에는 영향이 없다(LIVE_ONLY 가 켜졌을 때만 동작). 경기가 없으면 요청을 한 건도 보내지 않는다.
+const LIVE_ONLY = process.env.LIVE_ONLY === '1';
+// 라이브 전용에서는 시즌 전체가 아니라 어제~모레(KST) 범위만 조회한다 — MLB 같은 큰 카테고리가 10초 걸리던 것을 줄이고 네이버 부담도 낮춘다.
+let RANGE_OVERRIDE = null;
 const BACKFILL_SLICE = Math.max(1, Number(process.env.BACKFILL_SLICE) || 16);
 const bud = (n) => (FULL_RUN ? n : Math.max(1, Math.ceil(n / BACKFILL_SLICE)));
 // 카테고리 사이 대기(65개 × 1.1초 ≈ 72초가 실행시간의 1/3이었음, 2026-09-30 실측). 페이지 간 대기는 그대로 유지.
@@ -388,7 +393,7 @@ async function fetchPage(cat, page) {
   // 이면 빈 문자열로 옴 → convertGame 에서 비어있으면 누락. K리그엔 해당 필드 없음(무시).
   // fields=all — basic,stadium,baseball 의 상위집합(실측 확인) + phaseCode/leg/aggregateScore 등
   // 토너먼트 라운드 정보 포함. 페이로드는 커지지만 별도 요청 없이 한 번에 확보 가능.
-  const url = `${API_BASE}?fromDate=${cat.from || SEASON_START}&toDate=${SEASON_END}&upperCategoryId=${cat.upperCategoryId}&categoryId=${cat.categoryId}&fields=all&size=${PAGE_SIZE}&page=${page}`;
+  const url = `${API_BASE}?fromDate=${RANGE_OVERRIDE?.from ?? (cat.from || SEASON_START)}&toDate=${RANGE_OVERRIDE?.to ?? SEASON_END}&upperCategoryId=${cat.upperCategoryId}&categoryId=${cat.categoryId}&fields=all&size=${PAGE_SIZE}&page=${page}`;
   const res = await fetch(url, { headers: { 'User-Agent': USER_AGENT } });
   if (!res.ok) throw new Error(`HTTP ${res.status} for ${cat.categoryId} page=${page}`);
   const json = await res.json();
@@ -2163,7 +2168,8 @@ async function main() {
     return;
   }
 
-  const stadiumMap = await loadStadiumMap();
+  // 라이브 전용 모드는 구장 매핑이 필요 없다(라이브 필드만 쓰고, 이미 아는 경기는 이전 경기의 venueId 로 자동 보정됨) → 비공개 저장소 토큰 없이 돈다(NAS 에 비밀을 덜 둔다).
+  const stadiumMap = LIVE_ONLY ? {} : await loadStadiumMap();
   // 자동 보정 준비: 직전에 커밋된 games.json(gameId→venueId)과 지난 실행에서 배운 이름→구장 표(stadium-auto-map.json).
   let prevGamesForAutofix = [];
   try { const pg = JSON.parse(await fs.readFile(path.join(REPO_ROOT, 'games.json'), 'utf-8')); prevGamesForAutofix = Array.isArray(pg) ? pg : pg.games || []; } catch { /* 첫 실행 */ }
@@ -2176,12 +2182,30 @@ async function main() {
   const categoryCounts = {};
 
   // 카테고리 조회 4개 병렬(2026-10-01, 순차 65개가 실행시간 대부분) — 결과는 CATEGORIES 순서 유지.
-  const catResults = new Array(CATEGORIES.length);
+  let cats = CATEGORIES;
+  if (LIVE_ONLY) {
+    const now0 = Date.now();
+    const active = new Set();
+    for (const g of prevGamesForAutofix) {
+      if (!g || g.status === 'cancelled' || g.status === 'postponed') continue;
+      const t = naverKickoffUtcMs(g);
+      if (Number.isFinite(t) && t - now0 < 45 * 60e3 && now0 - t < 5 * 3600e3) active.add(g.league);
+    }
+    cats = CATEGORIES.filter((c) => active.has(c.league));
+    const kstDay = (ms) => new Date(ms + 9 * 3600e3).toISOString().slice(0, 10);
+    RANGE_OVERRIDE = { from: kstDay(now0 - 36 * 3600e3), to: kstDay(now0 + 36 * 3600e3) };
+    console.log(`[live-only] 활성 카테고리 ${cats.length}개: ${cats.map((c) => c.categoryId).join(',') || '(없음)'}`);
+    if (cats.length === 0) {
+      await fs.writeFile(path.join(REPO_ROOT, 'live-snapshot.json'), JSON.stringify({ ts: startMs, games: {} }) + '\n', 'utf-8');
+      return;
+    }
+  }
+  const catResults = new Array(cats.length);
   let catIdx = 0;
   await Promise.all(Array.from({ length: 4 }, async () => {
-    while (catIdx < CATEGORIES.length) {
+    while (catIdx < cats.length) {
       const i = catIdx++;
-      const cat = CATEGORIES[i];
+      const cat = cats[i];
       const tc = Date.now();
       const raw = await fetchCategory(cat);
       catResults[i] = { cat, converted: raw.map((g) => convertGame(g, cat, stadiumMap, mapFailures, autofix)).filter(Boolean) };
@@ -2195,6 +2219,16 @@ async function main() {
   }
 
   console.log(`[timing] categories ${((Date.now() - startMs) / 1000).toFixed(1)}s`);
+  if (LIVE_ONLY) {
+    // 라이브 전용: 알림·구장 학습·병합·직렬화 저장 없이 세이브/득점자(진행 중 경기의 liveState·득점자)만 보강하고 스냅샷만 남긴다.
+    await enrichSaves(allGames);
+    await enrichScorers(allGames);
+    const { selectLiveGames } = await import('./lib/live-select.mjs');
+    const snap = selectLiveGames(allGames.map(serializeGame), Date.now());
+    await fs.writeFile(path.join(REPO_ROOT, 'live-snapshot.json'), JSON.stringify({ ts: startMs, games: snap }) + '\n', 'utf-8');
+    console.log(`[live-only] 스냅샷 ${Object.keys(snap).length}경기 (${((Date.now() - startMs) / 1000).toFixed(1)}s)`);
+    return;
+  }
   const autoFixed = uniqueAuto(autofix.auto);
   if (autoFixed.length) {
     console.warn(`[autofix] 매핑표에 없는 구장 표기 ${autoFixed.length}건을 이전 경기 기준으로 자동 보정`);

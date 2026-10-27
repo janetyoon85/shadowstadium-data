@@ -1,0 +1,140 @@
+// NAS 상시 라이브 폴러(2026-10-27) — 진행 중인 경기가 있을 때 15~20초 주기로 크롤링해 Firebase Realtime Database 의 live/*_fast 에 직접 게시한다.
+// 앱은 GitHub 서버 경로(live/basketball·live/games, 1분 주기)와 이 빠른 경로를 함께 읽어 더 최신인 값을 쓴다. 이 프로그램이 멈추면 앱은 자동으로 느린 경로로 돌아간다.
+//
+// 동작: 저장소(공개, 읽기 전용 클론)를 받아 두고 15분마다 최신으로 맞춘다 → 매 주기마다
+//  · 농구: 진행/곧 시작 경기가 있으면 fetch-basketball.mjs 를 돌려(저장·커밋 없음) → basketball/games.json 에서 라이브 경기만 뽑아 live/basketball_fast 에 게시
+//  · 축구·야구: 진행/곧 시작 경기가 있으면 LIVE_ONLY=1 fetch-schedule.mjs(라이브 카테고리·어제~모레 범위만) → live-snapshot.json → live/games_fast 에 게시
+//  경기가 없으면 크롤링 요청을 한 건도 보내지 않는다. 429/차단 조짐이 보이면 해당 소스를 5분 쉬고 Discord 로 알린다.
+//
+// 쓰기 권한: Realtime Database 전용 비밀키(FIREBASE_DB_SECRET, REST ?auth=) — 서비스 계정(푸시 발송 가능)보다 권한이 훨씬 좁다(라이브 점수만 건드릴 수 있음).
+// 환경변수: FIREBASE_DATABASE_URL, FIREBASE_DB_SECRET, [LIVE_INTERVAL_S=20], [REPO_DIR], [DISCORD_WEBHOOK_URL], [DRY_RUN=1]
+import { spawn, execFileSync } from 'node:child_process';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { selectLive, gamesActive, basketballActive, guardScores } from './lib/live-select.mjs';
+
+const REPO = process.env.REPO_DIR || path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const DB = (process.env.FIREBASE_DATABASE_URL || '').replace(/\/+$/, '');
+const SECRET = process.env.FIREBASE_DB_SECRET || '';
+const INTERVAL_MS = Math.max(10, Number(process.env.LIVE_INTERVAL_S) || 20) * 1000;
+const DRY = process.env.DRY_RUN === '1';
+const SYNC_EVERY_MS = 15 * 60e3;
+const PAUSE_MS = 5 * 60e3;
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+const log = (...a) => console.log(new Date().toISOString().slice(11, 19), ...a);
+const readJson = (f, d) => { try { return JSON.parse(fs.readFileSync(path.join(REPO, f), 'utf8')); } catch { return d; } };
+
+function run(args, env, timeoutMs) {
+  return new Promise((resolve) => {
+    const child = spawn('node', args, { cwd: REPO, env: { ...process.env, ...env }, stdio: ['ignore', 'pipe', 'pipe'] });
+    let out = '';
+    const add = (b) => { out = (out + b.toString()).slice(-4000); };
+    child.stdout.on('data', add);
+    child.stderr.on('data', add);
+    const timer = setTimeout(() => { out += '\n[timeout]'; child.kill('SIGKILL'); }, timeoutMs);
+    child.on('close', (code) => { clearTimeout(timer); resolve({ code, out }); });
+  });
+}
+
+async function putFast(node, payload) {
+  if (DRY || !DB || !SECRET) return;
+  const r = await fetch(`${DB}/live/${node}.json?auth=${encodeURIComponent(SECRET)}`, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload), signal: AbortSignal.timeout(8000) });
+  if (!r.ok) throw new Error(`RTDB ${node} HTTP ${r.status}`);
+}
+
+let lastAlertAt = 0;
+async function alert(text) {
+  log('ALERT', text);
+  const hook = process.env.DISCORD_WEBHOOK_URL;
+  if (!hook || Date.now() - lastAlertAt < 30 * 60e3) return;
+  lastAlertAt = Date.now();
+  try { await fetch(hook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ allowed_mentions: { parse: [] }, content: `🟠 ShadeSide — NAS 라이브 폴러\n${text}` }), signal: AbortSignal.timeout(8000) }); } catch { /* 알림 실패는 무시 */ }
+}
+
+const pausedUntil = { basketball: 0, games: 0 };
+const failures = { basketball: 0, games: 0 };
+const lastPublished = { games: {}, basketball: {} };
+const wasActive = { basketball: false, games: false };
+
+function noteResult(src, res) {
+  const limited = /HTTP 429|HTTP 403|too many requests/i.test(res.out);
+  if (res.code === 0 && !limited) { failures[src] = 0; return false; }
+  failures[src]++;
+  if (limited || failures[src] >= 5) {
+    pausedUntil[src] = Date.now() + PAUSE_MS;
+    alert(`${src === 'games' ? '일정(네이버)' : '농구'} 크롤링이 ${limited ? '요청 제한(429/403)' : '연속 실패'}로 5분간 멈춥니다.`);
+    failures[src] = 0;
+  }
+  return true;
+}
+
+async function cycleBasketball() {
+  if (Date.now() < pausedUntil.basketball) return;
+  const games = (() => { const j = readJson('basketball/games.json', {}); return Array.isArray(j) ? j : j.games || []; })();
+  const active = basketballActive(games, Date.now());
+  if (!active) {
+    if (wasActive.basketball) { wasActive.basketball = false; await putFast('basketball_fast', { ts: Date.now(), games: {} }).catch(() => {}); }
+    return;
+  }
+  wasActive.basketball = true;
+  const t0 = Date.now();
+  const res = await run(['scripts/fetch-basketball.mjs'], { BASKETBALL_DETAIL_BUDGET: '2', BASKETBALL_RECHECK_MAX: '0' }, 60000);
+  if (noteResult('basketball', res)) return;
+  const fresh = readJson('basketball/games.json', {});
+  const list = Array.isArray(fresh) ? fresh : fresh.games || [];
+  const sel = selectLive(list, Date.now());
+  await putFast('basketball_fast', { ts: t0, games: sel });
+  log(`농구 ${Object.keys(sel).length}경기 게시 (${((Date.now() - t0) / 1000).toFixed(1)}s)`);
+}
+
+async function cycleGames() {
+  if (Date.now() < pausedUntil.games) return;
+  const games = (() => { const j = readJson('games.json', []); return Array.isArray(j) ? j : j.games || []; })();
+  const active = gamesActive(games, Date.now());
+  if (!active) {
+    if (wasActive.games) { wasActive.games = false; await putFast('games_fast', { ts: Date.now(), games: {} }).catch(() => {}); }
+    return;
+  }
+  wasActive.games = true;
+  const t0 = Date.now();
+  const res = await run(['scripts/fetch-schedule.mjs'], { LIVE_ONLY: '1', BACKFILL_SLICE: '1000' }, 60000);
+  if (noteResult('games', res)) return;
+  const snap = readJson('live-snapshot.json', null);
+  if (!snap || typeof snap.games !== 'object') return;
+  const guarded = guardScores(lastPublished.games, snap.games);
+  lastPublished.games = JSON.parse(JSON.stringify(snap.games));
+  await putFast('games_fast', { ts: t0, games: snap.games });
+  log(`일정 ${Object.keys(snap.games).length}경기 게시${guarded ? ` (0-0 역행 ${guarded}건 보정)` : ''} (${((Date.now() - t0) / 1000).toFixed(1)}s)`);
+}
+
+function syncRepo() {
+  try {
+    if (!fs.existsSync(path.join(REPO, '.git'))) return;
+    execFileSync('git', ['fetch', '--depth', '1', 'origin', 'main'], { cwd: REPO, stdio: 'ignore', timeout: 60000 });
+    execFileSync('git', ['reset', '--hard', 'FETCH_HEAD'], { cwd: REPO, stdio: 'ignore', timeout: 60000 });
+    log('저장소 최신화 완료');
+  } catch (e) {
+    log('저장소 최신화 실패(다음 주기에 재시도):', String(e.message).slice(0, 80));
+  }
+}
+
+async function main() {
+  log(`시작: 주기 ${INTERVAL_MS / 1000}s, repo=${REPO}${DRY ? ' [DRY_RUN]' : ''}${DB && SECRET ? '' : ' [게시 설정 없음 — 게시 안 함]'}`);
+  let lastSync = Date.now();
+  let cycle = 0;
+  for (;;) {
+    const t0 = Date.now();
+    try {
+      if (t0 - lastSync > SYNC_EVERY_MS) { syncRepo(); lastSync = Date.now(); }
+      // 농구와 일정(네이버)은 서로 독립이라 동시에 돌린다.
+      await Promise.all([cycleBasketball().catch((e) => log('농구 주기 오류:', String(e.message).slice(0, 100))), cycleGames().catch((e) => log('일정 주기 오류:', String(e.message).slice(0, 100)))]);
+    } catch (e) {
+      log('주기 오류:', String(e.message).slice(0, 100));
+    }
+    if (++cycle % 30 === 0) log(`동작 중 (${cycle}회, 농구 ${wasActive.basketball ? '활성' : '대기'}, 일정 ${wasActive.games ? '활성' : '대기'})`);
+    await sleep(Math.max(2000, INTERVAL_MS - (Date.now() - t0)));
+  }
+}
+
+if (process.argv[1] && path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url))) await main();

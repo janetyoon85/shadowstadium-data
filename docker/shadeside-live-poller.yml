@@ -1,0 +1,25 @@
+# NAS 라이브 폴러 — Container Manager > 프로젝트 > 생성 에 붙여넣기(프로젝트 이름: shadeside-live)
+# 진행 중인 경기가 있을 때만 20초 주기로 크롤링해 Firebase Realtime Database(live/*_fast)에 게시한다. 경기가 없으면 요청을 보내지 않는다.
+# 필요한 비밀은 FIREBASE_DB_SECRET 하나(Realtime Database 전용 비밀키 — 라이브 점수만 건드릴 수 있고 푸시는 못 보낸다). 아래 "여기에_" 부분만 바꾼다.
+# 저장소는 공개라 토큰 없이 클론한다. 컨테이너가 재시작돼도 최신 코드로 맞춘 뒤 실행한다.
+services:
+  live-poller:
+    image: node:22-bookworm-slim
+    container_name: shadeside-live-poller
+    restart: unless-stopped
+    mem_limit: 512m
+    environment:
+      TZ: Asia/Seoul
+      FIREBASE_DATABASE_URL: "https://shadowstadium-default-rtdb.asia-southeast1.firebasedatabase.app"
+      FIREBASE_DB_SECRET: "여기에_데이터베이스_비밀키"
+      LIVE_INTERVAL_S: "20"
+      REPO_DIR: /app/repo
+      # DISCORD_WEBHOOK_URL: "여기에_웹훅"   # (선택) 429 로 멈출 때 Discord 알림
+    command:
+      - sh
+      - -c
+      - |
+        command -v git >/dev/null || (apt-get update -qq && apt-get install -y -qq --no-install-recommends git ca-certificates >/dev/null)
+        [ -d /app/repo/.git ] || git clone -q --depth 1 https://github.com/janetyoon85/shadowstadium-data.git /app/repo
+        cd /app/repo && git fetch -q --depth 1 origin main && git reset -q --hard FETCH_HEAD
+        exec node scripts/live-daemon.mjs
