@@ -55,9 +55,9 @@ const sleepMs = (ms) => new Promise((r) => setTimeout(r, ms));
 // 넘어가네" → 로그 확인해보니 15개 전부 HTTP 403, ScraperAPI 대시보드에서 "1,663 of 1,000
 // exhausted" 확인). 아래 예산·쓰로틀 로직으로 재발 방지.
 // 집 회선(NAS·PC 러너)에서는 WBSC 계열 사이트가 막지 않아 프록시 없이 직접 받을 수 있다(2026-10-27 실측: 7개 도메인 모두 200). 키가 없으면(= NAS 실행·라이브 전용) 직접 요청하고 월 예산·2시간 쓰로틀은 적용하지 않는다.
+// 페일오버(2026-10-27): 항상 직접(집 IP) 먼저 요청하고, 403/429/네트워크 오류로 막힐 때만 ScraperAPI 로 1회 우회한다(키가 있고 월 예산이 남았을 때). 라이브 전용(NAS 20초 주기)은 직접만.
 const SCRAPERAPI_KEY = LIVE_ONLY ? undefined : process.env.SCRAPERAPI_KEY;
 function proxiedUrl(url) {
-  if (!SCRAPERAPI_KEY) return url;
   return `https://api.scraperapi.com/?api_key=${SCRAPERAPI_KEY}&url=${encodeURIComponent(url)}`;
 }
 // 월별 하드 예산(1,000건 한도에 여유 100건 남김) + 대회별 최소 재조회 간격(2시간) + "오늘 경기가
@@ -97,14 +97,34 @@ async function saveBudgetState(state) {
 // 403/429는 일시적인 봇 차단/레이트리밋일 수 있어 한 번 더 재시도(간격을 두고) — 완전한 IP
 // 차단이면 재시도해도 소용없지만, 일시적 챌린지라면 통과할 수 있음. ScraperAPI 프록시 경유일
 // 땐 재시도 자체가 크레딧을 한 번 더 쓰는 거라(예산이 빠듯할 땐 특히 손해) 1회만 시도.
-async function fetchWithRetry(url, attempts = SCRAPERAPI_KEY ? 1 : 2) {
-  let lastErr;
+// 프록시 우회 가능 여부 판단(순수 함수 — 테스트용): 키가 있고 예산이 남았고 실패가 차단성(403/429/네트워크)일 때만.
+export function shouldFailover({ hasKey, used, budget, status }) {
+  if (!hasKey || used >= budget) return false;
+  return status === undefined || status === 403 || status === 429 || status >= 500;
+}
+const proxyState = { used: 0, fallbacks: 0 }; // main 이 예산 상태와 동기화
+async function fetchWithRetry(url, attempts = 2) {
+  let lastErr, status;
   for (let i = 0; i < attempts; i++) {
     if (i > 0) await sleepMs(3000 + Math.random() * 2000);
-    const res = await fetch(proxiedUrl(url), SCRAPERAPI_KEY ? {} : { headers: BROWSER_HEADERS });
+    try {
+      const res = await fetch(url, { headers: BROWSER_HEADERS, signal: AbortSignal.timeout(30000) });
+      if (res.ok) return res;
+      status = res.status;
+      lastErr = new Error(`HTTP ${res.status}`);
+      if (res.status !== 403 && res.status !== 429) break;
+    } catch (e) {
+      status = undefined;
+      lastErr = e;
+    }
+  }
+  if (shouldFailover({ hasKey: !!SCRAPERAPI_KEY, used: proxyState.used, budget: SCRAPERAPI_MONTHLY_BUDGET, status })) {
+    proxyState.used++;
+    proxyState.fallbacks++;
+    console.warn(`  직접 요청 실패(${lastErr.message}) — ScraperAPI 로 페일오버 (${proxyState.used}/${SCRAPERAPI_MONTHLY_BUDGET})`);
+    const res = await fetch(proxiedUrl(url), { signal: AbortSignal.timeout(60000) });
     if (res.ok) return res;
-    lastErr = new Error(`HTTP ${res.status}`);
-    if (res.status !== 403 && res.status !== 429) break;
+    throw new Error(`HTTP ${res.status} (proxy)`);
   }
   throw lastErr;
 }
@@ -503,10 +523,7 @@ async function main() {
     return;
   }
   let consecutiveFails = 0;
-  if (SCRAPERAPI_KEY && budget.requestsUsed >= SCRAPERAPI_MONTHLY_BUDGET) {
-    console.log(`[wbsc-baseball] 이번 달 ScraperAPI 예산(${SCRAPERAPI_MONTHLY_BUDGET}건) 소진 — 전부 스킵, 다음 달 자동 재개.`);
-    return;
-  }
+  proxyState.used = budget.requestsUsed;
 
   const unknownTeams = new Set();
   const unknownVenues = new Set();
@@ -517,17 +534,12 @@ async function main() {
     const neverFetched = !budget.lastFetch[tournamentkey];
     // 날짜 지난 채 예정/진행중으로 남은 경기가 있는 대회는 결과 반영을 위해 24시간마다 재조회(대회 종료 후 최종결과가 영영 안 들어오던 정체 방지, 2026-10-04)
     const isActive = activeLeagues.has(league) || (staleLeagues.has(league) && nowMs - lastFetchAt >= 24 * 3600e3);
-    const throttleOk = nowMs - lastFetchAt >= (SCRAPERAPI_KEY ? MIN_REFETCH_INTERVAL_MS : 60e3); // 프록시(유료)면 2시간, 직접이면 1분
+    const throttleOk = nowMs - lastFetchAt >= 60e3; // 직접 요청(무료)이라 1분
     // 대회 기간이 아니면(오늘 경기도 진행중 경기도 없음) 요청 자체를 건너뜀 — 신규 대회(한 번도
     // 안 가져와본 것)는 최소 한 번은 잡아서 일정을 파악해야 하니 예외로 허용.
     if (!neverFetched && !(isActive && throttleOk)) continue;
-    if (SCRAPERAPI_KEY && budget.requestsUsed >= SCRAPERAPI_MONTHLY_BUDGET) {
-      console.log(`[wbsc-baseball] 예산 소진으로 ${league} 이후 대회 스킵`);
-      break;
-    }
     console.log(`Fetching ${league} (${tournamentkey}) ...`);
     await sleep(REQUEST_DELAY_MS);
-    budget.requestsUsed++;
     budget.lastFetch[tournamentkey] = new Date(nowMs).toISOString();
     let gs;
     try {
@@ -547,8 +559,9 @@ async function main() {
     console.log(`  -> ${gs.length} games`);
     allNew.push(...gs);
   }
+  budget.requestsUsed = proxyState.used;
   await saveBudgetState(budget);
-  console.log(`[wbsc-baseball] ScraperAPI 이번 달 사용량: ${budget.requestsUsed}/${SCRAPERAPI_MONTHLY_BUDGET}`);
+  console.log(`[wbsc-baseball] ScraperAPI 페일오버 ${proxyState.fallbacks}회 · 이번 주기 누적 ${budget.requestsUsed}/${SCRAPERAPI_MONTHLY_BUDGET}`);
   await notifyUnknowns(unknownTeams, unknownVenues);
   await notifyFetchFailures(failedTournaments);
 
