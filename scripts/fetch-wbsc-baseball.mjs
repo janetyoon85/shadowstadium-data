@@ -444,14 +444,15 @@ async function notifyUnknowns(unknownTeams, unknownVenues) {
 // 재알림하지 않음(그래도 매 실행 로그엔 남으니 완전히 조용해지진 않음).
 const ALERT_STATE_PATH = path.join(REPO_ROOT, '.wbsc-alert-state.json');
 const ALERT_COOLDOWN_MS = 6 * 3600 * 1000;
-// 페일오버(유료 프록시 사용) 발생 알림 — 집 IP 가 막혔다는 신호라 크론잡 주기를 늘려 프록시 예산을 아끼라고 안내한다(6시간 쿨다운).
+// 페일오버(유료 프록시 사용) 발생 알림 — 집 IP 가 막혔다는 신호라 크론잡 주기를 늘려 프록시 예산을 아끼라고 안내한다(5분 쿨다운 — 빨리 조치하도록 자주 알림).
+const FAILOVER_ALERT_COOLDOWN_MS = 5 * 60e3; // 페일오버는 사용자가 빨리 조치해야 하므로 실행마다(최소 5분 간격) 알림
 export async function notifyFailover(count, used, budget) {
   if (count === 0) return;
   const webhook = alertWebhook();
   let state = {};
   try { state = JSON.parse(await fs.readFile(ALERT_STATE_PATH, 'utf-8')); } catch {}
   const now = Date.now();
-  if (state.__failover && now - state.__failover < ALERT_COOLDOWN_MS) return;
+  if (state.__failover && now - state.__failover < FAILOVER_ALERT_COOLDOWN_MS) return;
   state.__failover = now;
   await fs.writeFile(ALERT_STATE_PATH, JSON.stringify(state, null, 2), 'utf-8');
   if (!webhook) return;
@@ -459,7 +460,7 @@ export async function notifyFailover(count, used, budget) {
 조치(cron-job.org, 호출 대상 워크플로우 이름 기준):
 ① 1분 → 2분: Daily Schedule Fetch(fetch-schedule) · Fetch Basketball(fetch-basketball) · FCM Player Alerts(fcm-player-alerts) · FCM Reminders(fcm-reminders) · ESPN Soccer 15 Leagues Fetch · ESPN World Soccer 21 Leagues Fetch · ESPN Asia Soccer 3 Leagues Fetch · Asian Games Baseball Fetch · Asian Games Football Fetch
 ② WBSC Baseball Fetch(fetch-wbsc-baseball) → 3시간 주기
-※ 주기를 바꾸면 '트리거 멈춤' 감시(trigger-gap-report)가 오탐하니 알려 주세요. 직접 요청이 다시 풀리면 원래 주기로 되돌리면 됩니다.`;
+※ 주기를 바꾸면 '트리거 멈춤' 감시(trigger-gap-report.mjs 의 WATCHED 주기)도 같이 바꿔야 오탐이 안 납니다 — Claude 에게 \"감시 주기도 바꿔줘\"라고 알려 주세요. 직접 요청이 다시 풀리면 원래 주기로 되돌리면 됩니다.`;
   try {
     await fetch(webhook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ allowed_mentions: { parse: [] }, content }) });
   } catch (e) {
