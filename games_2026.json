@@ -751779,7 +751779,7 @@
       "away": []
     },
     "assistsChecked": true,
-    "assistsAt": 1793152776125
+    "assistsAt": 1793160208748
   },
   {
     "date": "2026-10-27",
@@ -753150,7 +753150,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1793153107099
+    "assistsAt": 1793160316774
   },
   {
     "date": "2026-10-27",
@@ -754297,7 +754297,7 @@
     "venueId": "ruhrstadion_bochum",
     "home": "보훔",
     "away": "마인츠",
-    "stadium": "루르슈타디온",
+    "stadium": "루르스타디온",
     "timeTbd": false,
     "gameId": "kfcmnLfMnGOl58c",
     "status": "completed",
@@ -754363,7 +754363,7 @@
     "venueId": "volksparkstadion",
     "home": "함부르크",
     "away": "프랑크푸르트",
-    "stadium": "폴크스파르크슈타디온",
+    "stadium": "볼크스파르크스타디온",
     "timeTbd": false,
     "gameId": "cmv0m11emxpXd1M",
     "status": "completed",
@@ -754800,7 +754800,7 @@
     "venueId": "borussia_park",
     "home": "글라트바흐",
     "away": "카를스루에",
-    "stadium": "슈타디온 임 보루시아-파크",
+    "stadium": "이스타-보루시아 파크",
     "timeTbd": false,
     "gameId": "7JpPb3Rzia30iCz",
     "status": "completed",
@@ -754903,7 +754903,7 @@
     "venueId": "rheinenergiestadion",
     "home": "쾰른",
     "away": "우니온 베를린",
-    "stadium": "라인에네르기슈타디온",
+    "stadium": "쾰른 슈타디온",
     "timeTbd": false,
     "gameId": "AtVc8VGRWpCbLbD",
     "status": "completed",
@@ -755979,19 +755979,19 @@
     "homePitcher": "그리핀 잭스",
     "awayPitcherPid": "mlb:669160",
     "homePitcherPid": "mlb:643377",
-    "awayScore": 2,
+    "awayScore": 3,
     "homeScore": 2,
     "inningInfo": "12회초",
     "liveState": {
       "pitcher": "시모어",
-      "batter": "프랫",
-      "ball": 2,
+      "batter": "오티즈",
+      "ball": 3,
       "strike": 2,
-      "out": 0,
+      "out": 1,
       "bases": [],
-      "pitchCount": 4,
-      "batterPid": "mlb:806198",
-      "pitcherPid": "mlb:693855"
+      "pitchCount": 15,
+      "batterPid": "mlb:687401",
+      "pitcherPid": "mlb:622608"
     },
     "highlights": {
       "home": [
@@ -756012,6 +756012,14 @@
           "playerId": "9320",
           "nat": "USA",
           "pid": "mlb:592885"
+        },
+        {
+          "how": "홈런",
+          "text": "프랫",
+          "player": "프랫",
+          "playerId": "13204",
+          "nat": "USA",
+          "pid": "mlb:806198"
         },
         {
           "how": "홈런",
@@ -756114,13 +756122,16 @@
     "inningInfo": "7회말",
     "liveState": {
       "pitcher": "Jonas Garibay",
-      "batter": "Daniel Castro",
+      "batter": "Jacob Robson",
       "pitcherPid": "mlb:691388",
-      "batterPid": "mlb:593495",
-      "ball": 3,
-      "strike": 2,
+      "batterPid": "mlb:615699",
+      "ball": 0,
+      "strike": 0,
       "out": 0,
-      "bases": []
+      "bases": [
+        1,
+        2
+      ]
     }
   },
   {
@@ -756139,12 +756150,12 @@
     "inningInfo": "6회말",
     "liveState": {
       "pitcher": "Axel Sauceda",
-      "batter": "Marco Vargas",
+      "batter": "Victor Marquez",
       "pitcherPid": "mlb:806317",
-      "batterPid": "mlb:804614",
-      "ball": 0,
-      "strike": 0,
-      "out": 0,
+      "batterPid": "mlb:802888",
+      "ball": 1,
+      "strike": 2,
+      "out": 1,
       "bases": []
     }
   },
@@ -756161,18 +756172,16 @@
     "status": "live",
     "homeScore": 1,
     "awayScore": 0,
-    "inningInfo": "3회말",
+    "inningInfo": "4회초",
     "liveState": {
-      "pitcher": "Jake Garland",
-      "batter": "Manuel Boscan",
-      "pitcherPid": "mlb:687195",
-      "batterPid": "mlb:598724",
+      "pitcher": "Erick Rodriguez",
+      "batter": "Clay Dungan",
+      "pitcherPid": "mlb:692601",
+      "batterPid": "mlb:687867",
       "ball": 1,
-      "strike": 2,
-      "out": 2,
-      "bases": [
-        2
-      ]
+      "strike": 1,
+      "out": 1,
+      "bases": []
     }
   },
   {
@@ -756187,18 +756196,19 @@
     "gameId": "LMP_MLBSTATS_850514",
     "status": "live",
     "homeScore": 2,
-    "awayScore": 1,
+    "awayScore": 2,
     "inningInfo": "5회초",
     "liveState": {
       "pitcher": "Wilmer Rios",
-      "batter": "Leo German",
+      "batter": "Ramon Rios",
       "pitcherPid": "mlb:658140",
-      "batterPid": "mlb:634496",
-      "ball": 2,
+      "batterPid": "mlb:540204",
+      "ball": 0,
       "strike": 0,
       "out": 1,
       "bases": [
-        2
+        1,
+        3
       ]
     }
   },
@@ -756217,16 +756227,17 @@
     "awayScore": 0,
     "inningInfo": "5회초",
     "liveState": {
-      "pitcher": "Kevin Abel",
-      "batter": "Nick Senzel",
-      "pitcherPid": "mlb:674265",
-      "batterPid": "mlb:669222",
-      "ball": 0,
-      "strike": 0,
+      "pitcher": "Jose Isidro Marquez",
+      "batter": "Carlos De La Cruz",
+      "pitcherPid": "mlb:667904",
+      "batterPid": "mlb:678926",
+      "ball": 2,
+      "strike": 2,
       "out": 1,
       "bases": [
         1,
-        2
+        2,
+        3
       ]
     }
   },
@@ -756654,7 +756665,7 @@
     "venueId": "heinz_von_heiden_arena",
     "home": "하노버",
     "away": "카이저슬라우테른",
-    "stadium": "하인츠 폰 하이덴 아레나",
+    "stadium": "HDI-아레나",
     "timeTbd": false,
     "gameId": "WuUqd6EROQ1KjWf",
     "status": "scheduled",
