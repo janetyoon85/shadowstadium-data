@@ -35,5 +35,21 @@ jobs:
           node -e "
           const U='$U';
           (async()=>{for(let i=0;i<3;i++){const t=Date.now();try{const r=await fetch(U,{headers:{'User-Agent':'Mozilla/5.0'},signal:AbortSignal.timeout(20000)});console.log('node naver api: HTTP',r.status,Date.now()-t,'ms')}catch(e){console.log('node naver api FAIL',Date.now()-t,'ms',e.cause&&e.cause.code||e.message)}}})()"
+          cat > "$RUNNER_TEMP/tls.mjs" <<'JS'
+          import tls from 'node:tls';
+          const U = process.argv[2];
+          const modes = [['node 기본(TLS1.3)', null], ['node TLS1.2 제한', 'TLSv1.2']];
+          for (const [name, max] of modes) {
+            if (max) tls.DEFAULT_MAX_VERSION = max;
+            for (let i = 0; i < 2; i++) {
+              const t = Date.now();
+              try {
+                const r = await fetch(U, { headers: { 'User-Agent': 'Mozilla/5.0 (compatible; shadowstadium)' }, signal: AbortSignal.timeout(12000) });
+                console.log(name + ': HTTP ' + r.status + ' ' + (Date.now() - t) + 'ms');
+              } catch (e) { console.log(name + ': 실패 ' + (e.cause && e.cause.code || e.name) + ' ' + (Date.now() - t) + 'ms'); }
+            }
+          }
+JS
+          echo "--- node TLS 변형 (같은 러너)"; node "$RUNNER_TEMP/tls.mjs" "$U"
           curl -s -o /dev/null -m 15 -w "curl espn: HTTP %{http_code} %{time_total}s\n" https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard || echo "espn FAIL"
           echo "node $(node -v 2>&1)"; uptime 2>/dev/null || true
