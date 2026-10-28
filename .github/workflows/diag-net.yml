@@ -49,7 +49,7 @@ jobs:
               } catch (e) { console.log(name + ': 실패 ' + (e.cause && e.cause.code || e.name) + ' ' + (Date.now() - t) + 'ms'); }
             }
           }
-JS
+          JS
           echo "--- node TLS 변형 (같은 러너)"; node "$RUNNER_TEMP/tls.mjs" "$U"
           curl -s -o /dev/null -m 15 -w "curl espn: HTTP %{http_code} %{time_total}s\n" https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard || echo "espn FAIL"
           echo "node $(node -v 2>&1)"; uptime 2>/dev/null || true
