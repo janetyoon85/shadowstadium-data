@@ -38,6 +38,8 @@ jobs:
           node-version: '20'
 
       - name: Run team info backfill
+        env:
+          NAVER_TLS12: '1'   # 구글 번역(gtx)이 Node20 기본 TLS 에 429 → TLS1.2 로 제한(scripts/lib/naver-tls.mjs)
         run: node scripts/backfill-team-info-i18n.mjs
 
       - name: Check for changes
