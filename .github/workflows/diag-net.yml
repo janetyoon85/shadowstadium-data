@@ -22,8 +22,6 @@ jobs:
       - name: Diagnose
         run: |
           echo "runner: $RUNNER_NAME"
-          echo "--- NAVER 환경변수"; env | grep "^NAVER_" || echo "(없음)"
-          echo "--- /guard"; ls -l /guard 2>&1 | head -5
           echo "public ip: $(curl -s -m 10 https://api.ipify.org || echo fail)"
           U='https://api-gw.sports.naver.com/schedule/games?fromDate=2026-10-27&toDate=2026-10-28&upperCategoryId=kbaseball&categoryId=kbo&size=5&page=1'
           for i in 1 2 3; do curl -s -o /dev/null -m 20 -w "curl naver api: HTTP %{http_code} %{time_total}s\n" -H "User-Agent: Mozilla/5.0" "$U" || echo "curl naver api FAIL exit=$?"; done
