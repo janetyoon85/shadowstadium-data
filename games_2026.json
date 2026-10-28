@@ -628150,7 +628150,6 @@
       "home": [
         {
           "n": "에르세그",
-          "nat": "USA",
           "pid": "mlb:668674"
         }
       ],
@@ -752182,7 +752181,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1793154876758
+    "assistsAt": 1793162145568
   },
   {
     "date": "2026-10-27",
@@ -752850,7 +752849,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1793154876498
+    "assistsAt": 1793162145185
   },
   {
     "date": "2026-10-27",
@@ -755975,25 +755974,19 @@
     "stadium": "트로피카나 필드",
     "timeTbd": false,
     "gameId": "20261028MITB0",
-    "status": "live",
+    "status": "completed",
     "awayPitcher": "더스틴 메이",
     "homePitcher": "그리핀 잭스",
     "awayPitcherPid": "mlb:669160",
     "homePitcherPid": "mlb:643377",
     "awayScore": 3,
     "homeScore": 4,
-    "inningInfo": "12회말",
-    "liveState": {
-      "pitcher": "드로한",
-      "batter": "팔라시오스",
-      "ball": 0,
-      "strike": 0,
-      "out": 0,
-      "bases": [],
-      "pitchCount": 15,
-      "pitcherPid": "mlb:675660",
-      "batterPid": "mlb:680700"
-    },
+    "winPitcher": "시모어",
+    "losePitcher": "드로한",
+    "winPitcherNat": "USA",
+    "losePitcherNat": "USA",
+    "winPitcherPid": "mlb:693855",
+    "losePitcherPid": "mlb:675660",
     "highlights": {
       "home": [
         {
@@ -756034,7 +756027,7 @@
     },
     "round": "ps_ws",
     "rn": 4,
-    "serH": 0,
+    "serH": 1,
     "serA": 3
   },
   {
@@ -756123,13 +756116,16 @@
     "inningInfo": "9회초",
     "liveState": {
       "pitcher": "Dan Kubiuk",
-      "batter": "Christopher Escarrega",
+      "batter": "Yurisbel Gracial",
       "pitcherPid": "mlb:703655",
-      "batterPid": "mlb:692473",
-      "ball": 0,
+      "batterPid": "mlb:666968",
+      "ball": 1,
       "strike": 1,
-      "out": 0,
-      "bases": []
+      "out": 1,
+      "bases": [
+        1,
+        2
+      ]
     }
   },
   {
@@ -756145,15 +756141,15 @@
     "status": "live",
     "homeScore": 6,
     "awayScore": 1,
-    "inningInfo": "8회초",
+    "inningInfo": "8회말",
     "liveState": {
-      "pitcher": "Pedro Reyes",
-      "batter": "Jorge Alfaro",
-      "pitcherPid": "mlb:693804",
-      "batterPid": "mlb:595751",
-      "ball": 3,
+      "pitcher": "Baltazar Arredondo",
+      "batter": "Allen Córdoba",
+      "pitcherPid": "mlb:700718",
+      "batterPid": "mlb:642707",
+      "ball": 1,
       "strike": 1,
-      "out": 3,
+      "out": 1,
       "bases": []
     }
   },
@@ -756169,17 +756165,19 @@
     "gameId": "LMP_MLBSTATS_850515",
     "status": "live",
     "homeScore": 1,
-    "awayScore": 0,
+    "awayScore": 1,
     "inningInfo": "5회초",
     "liveState": {
       "pitcher": "Erick Rodriguez",
-      "batter": "Chuckie Robinson",
+      "batter": "Esteban Quiroz",
       "pitcherPid": "mlb:692601",
-      "batterPid": "mlb:642020",
-      "ball": 3,
-      "strike": 2,
-      "out": 0,
-      "bases": []
+      "batterPid": "mlb:606019",
+      "ball": 0,
+      "strike": 0,
+      "out": 1,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -756195,16 +756193,18 @@
     "status": "live",
     "homeScore": 4,
     "awayScore": 3,
-    "inningInfo": "5회말",
+    "inningInfo": "6회초",
     "liveState": {
-      "pitcher": "Luis Marquez",
-      "batter": "Austin Davis",
-      "pitcherPid": "mlb:700587",
-      "batterPid": "mlb:686689",
-      "ball": 2,
-      "strike": 3,
-      "out": 3,
-      "bases": []
+      "pitcher": "Angel Hernandez",
+      "batter": "Emmanuel Avila",
+      "pitcherPid": "mlb:805097",
+      "batterPid": "mlb:500869",
+      "ball": 0,
+      "strike": 0,
+      "out": 0,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -756223,13 +756223,15 @@
     "inningInfo": "6회말",
     "liveState": {
       "pitcher": "Daniel De La Fuente",
-      "batter": "Leo Heras",
+      "batter": "Julian Leon",
       "pitcherPid": "mlb:675880",
-      "batterPid": "mlb:511428",
+      "batterPid": "mlb:624645",
       "ball": 0,
-      "strike": 0,
-      "out": 0,
-      "bases": []
+      "strike": 1,
+      "out": 1,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -757106,7 +757108,9 @@
     "awayPitcher": "제이콥 미저라우스키",
     "awayPitcherPid": "mlb:694819",
     "round": "ps_ws",
-    "rn": 5
+    "rn": 5,
+    "serH": 1,
+    "serA": 3
   },
   {
     "date": "2026-10-29",
