@@ -487479,7 +487479,7 @@
     "venueId": "coventry_arena",
     "home": "코벤트리",
     "away": "헐 시티",
-    "stadium": "코번트리 빌딩 소사이어티 아레나",
+    "stadium": "코벤트리 빌딩 소사이어티 아레나",
     "timeTbd": false,
     "gameId": "JDBtVQYDR4CEixc",
     "status": "completed",
@@ -575443,7 +575443,7 @@
     "venueId": "coventry_arena",
     "home": "코벤트리",
     "away": "브라이턴",
-    "stadium": "코번트리 빌딩 소사이어티 아레나",
+    "stadium": "코벤트리 빌딩 소사이어티 아레나",
     "timeTbd": false,
     "gameId": "2po9195GOjpP0Jm",
     "status": "completed",
@@ -685946,7 +685946,7 @@
     "venueId": "coventry_arena",
     "home": "코벤트리",
     "away": "뉴캐슬",
-    "stadium": "코번트리 빌딩 소사이어티 아레나",
+    "stadium": "코벤트리 빌딩 소사이어티 아레나",
     "timeTbd": false,
     "gameId": "0Gpq2XLLE31ReqE",
     "status": "completed",
@@ -735359,7 +735359,7 @@
     "venueId": "coventry_arena",
     "home": "코벤트리",
     "away": "풀럼",
-    "stadium": "코번트리 빌딩 소사이어티 아레나",
+    "stadium": "코벤트리 빌딩 소사이어티 아레나",
     "timeTbd": false,
     "gameId": "ZaNTeIkBcCbSeTp",
     "status": "completed",
@@ -752301,7 +752301,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1793141379271
+    "assistsAt": 1793148644195
   },
   {
     "date": "2026-10-27",
@@ -754804,9 +754804,9 @@
         {
           "n": "바르코",
           "m": 90,
+          "pk": true,
           "nat": "Argentina",
-          "pid": "espn:315731",
-          "pk": true
+          "pid": "espn:315731"
         }
       ],
       "away": [
@@ -755155,8 +755155,8 @@
           "m": 67,
           "a": "Jake Beesley",
           "nat": "England",
-          "pid": "espn:206250",
           "aNat": "England",
+          "pid": "espn:206250",
           "apid": "espn:203649"
         }
       ],
@@ -755860,6 +755860,13 @@
           "m": 82,
           "pid": "espn:197447",
           "nat": "Colombia"
+        },
+        {
+          "n": "Jaime Peralta",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:379826",
+          "nat": "Colombia"
         }
       ],
       "away": [
@@ -755884,18 +755891,20 @@
     "timeTbd": false,
     "gameId": "LVBP_MLBSTATS_870046",
     "status": "live",
-    "homeScore": 7,
+    "homeScore": 8,
     "awayScore": 4,
     "inningInfo": "4회말",
     "liveState": {
       "pitcher": "Michael Gomez",
-      "batter": "Omar Alfonzo",
+      "batter": "Jacob Teter",
       "pitcherPid": "mlb:676546",
-      "batterPid": "mlb:692657",
-      "ball": 3,
-      "strike": 2,
-      "out": 1,
-      "bases": []
+      "batterPid": "mlb:679628",
+      "ball": 0,
+      "strike": 0,
+      "out": 2,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -755910,19 +755919,18 @@
     "gameId": "LVBP_MLBSTATS_870045",
     "status": "live",
     "homeScore": 0,
-    "awayScore": 7,
+    "awayScore": 9,
     "inningInfo": "5회초",
     "liveState": {
       "pitcher": "José Mujica",
-      "batter": "Javier Rivas",
+      "batter": "Símon Muzziotti",
       "pitcherPid": "mlb:620445",
-      "batterPid": "mlb:691922",
+      "batterPid": "mlb:665922",
       "ball": 0,
       "strike": 0,
-      "out": 1,
+      "out": 2,
       "bases": [
-        2,
-        3
+        1
       ]
     }
   },
@@ -755941,17 +755949,14 @@
     "awayScore": 4,
     "inningInfo": "5회말",
     "liveState": {
-      "pitcher": "James Gonzalez",
-      "batter": "David Peralta",
-      "pitcherPid": "mlb:686857",
-      "batterPid": "mlb:444482",
-      "ball": 2,
-      "strike": 1,
-      "out": 2,
-      "bases": [
-        2,
-        3
-      ]
+      "pitcher": "Alfonso Hernández",
+      "batter": "Rangel Ravelo",
+      "pitcherPid": "mlb:669799",
+      "batterPid": "mlb:592660",
+      "ball": 1,
+      "strike": 0,
+      "out": 3,
+      "bases": []
     }
   },
   {
@@ -756002,6 +756007,13 @@
           "m": 42,
           "pid": "espn:287397",
           "nat": "Colombia"
+        },
+        {
+          "n": "Saúl Asibe",
+          "type": "Y",
+          "m": 57,
+          "pid": "espn:361476",
+          "nat": "Venezuela"
         }
       ]
     }
@@ -756026,14 +756038,16 @@
     "inningInfo": "3회초",
     "liveState": {
       "pitcher": "잭스",
-      "batter": "해밀튼",
-      "ball": 0,
-      "strike": 0,
-      "out": 0,
-      "bases": [],
-      "pitchCount": 35,
+      "batter": "추리오",
+      "ball": 1,
+      "strike": 1,
+      "out": 1,
+      "bases": [
+        1
+      ],
+      "pitchCount": 43,
       "pitcherPid": "mlb:643377",
-      "batterPid": "mlb:666152"
+      "batterPid": "mlb:694192"
     },
     "highlights": {
       "home": [],
@@ -758926,7 +758940,7 @@
     "venueId": "coventry_arena",
     "home": "코벤트리",
     "away": "선덜랜드",
-    "stadium": "코번트리 빌딩 소사이어티 아레나",
+    "stadium": "코벤트리 빌딩 소사이어티 아레나",
     "timeTbd": false,
     "gameId": "he3g4RSup80reLv",
     "status": "scheduled"
@@ -773145,7 +773159,7 @@
     "venueId": "coventry_arena",
     "home": "코벤트리",
     "away": "크리스털",
-    "stadium": "코번트리 빌딩 소사이어티 아레나",
+    "stadium": "코벤트리 빌딩 소사이어티 아레나",
     "timeTbd": false,
     "gameId": "uzyNtGnklO3ebA2",
     "status": "scheduled"
