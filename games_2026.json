@@ -749872,7 +749872,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1793147068423
+    "assistsAt": 1793154270184
   },
   {
     "date": "2026-10-26",
@@ -750678,7 +750678,7 @@
       "away": []
     },
     "assistsChecked": true,
-    "assistsAt": 1793147068219,
+    "assistsAt": 1793154269954,
     "cards": {
       "home": [
         {
@@ -752323,8 +752323,8 @@
           "m": 72,
           "a": "Mika Godts",
           "nat": "France",
-          "pid": "espn:379088",
           "aNat": "Belgium",
+          "pid": "espn:379088",
           "apid": "espn:353363"
         },
         {
@@ -752332,8 +752332,8 @@
           "m": 84,
           "a": "Quentin Ndjantou",
           "nat": "Belgium",
-          "pid": "espn:353363",
           "aNat": "France",
+          "pid": "espn:353363",
           "apid": "espn:403419"
         }
       ],
@@ -753851,18 +753851,6 @@
     "stadium": "Estadio Fernando Valenzuela",
     "timeTbd": true,
     "gameId": "LMP_MLBSTATS_850514",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-10-27",
-    "time": "19:33",
-    "league": "LMP",
-    "venueId": "estadio_francisco_carranza_limon",
-    "home": "알고도네로스 데 과사베",
-    "away": "마요스 데 나보호아",
-    "stadium": "Estadio Francisco Carranza Limon",
-    "timeTbd": true,
-    "gameId": "LMP_MLBSTATS_850516",
     "status": "scheduled"
   },
   {
@@ -755881,16 +755869,18 @@
     "status": "live",
     "homeScore": 10,
     "awayScore": 6,
-    "inningInfo": "8회말",
+    "inningInfo": "9회초",
     "liveState": {
-      "pitcher": "Moises Diaz",
-      "batter": "Chris Roller",
-      "pitcherPid": "mlb:681626",
-      "batterPid": "mlb:676896",
-      "ball": 0,
-      "strike": 3,
-      "out": 3,
-      "bases": []
+      "pitcher": "Yorvin Pantoja",
+      "batter": "Yasmil Bucce",
+      "pitcherPid": "mlb:660671",
+      "batterPid": "mlb:698935",
+      "ball": 1,
+      "strike": 1,
+      "out": 1,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -755903,23 +755893,9 @@
     "stadium": "Estadio Jose Bernardo Perez",
     "timeTbd": false,
     "gameId": "LVBP_MLBSTATS_870045",
-    "status": "live",
+    "status": "completed",
     "homeScore": 2,
-    "awayScore": 10,
-    "inningInfo": "9회말",
-    "liveState": {
-      "pitcher": "Pedro Rodriguez",
-      "batter": "Jose Gomez",
-      "pitcherPid": "mlb:466463",
-      "batterPid": "mlb:650506",
-      "ball": 4,
-      "strike": 0,
-      "out": 1,
-      "bases": [
-        1,
-        2
-      ]
-    }
+    "awayScore": 10
   },
   {
     "date": "2026-10-28",
@@ -756044,15 +756020,17 @@
     "homeScore": 2,
     "inningInfo": "7회말",
     "liveState": {
-      "pitcher": "유리베",
-      "batter": "힉스",
+      "pitcher": "홀",
+      "batter": "메사 주니어",
       "ball": 0,
-      "strike": 0,
-      "out": 0,
-      "bases": [],
-      "pitchCount": 19,
-      "batterPid": "mlb:689414",
-      "pitcherPid": "mlb:682842"
+      "strike": 1,
+      "out": 2,
+      "bases": [
+        1
+      ],
+      "pitchCount": 10,
+      "pitcherPid": "mlb:669084",
+      "batterPid": "mlb:683748"
     },
     "highlights": {
       "home": [],
@@ -756103,7 +756081,15 @@
           "pid": "espn:3100467"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Juan David Rios",
+          "type": "Y",
+          "m": 57,
+          "pid": "espn:171464",
+          "nat": "Colombia"
+        }
+      ]
     }
   },
   {
@@ -756122,12 +756108,12 @@
     "inningInfo": "3회초",
     "liveState": {
       "pitcher": "Ronald Medrano",
-      "batter": "Aaron Lugo",
+      "batter": "Yurisbel Gracial",
       "pitcherPid": "mlb:642574",
-      "batterPid": "mlb:822908",
+      "batterPid": "mlb:666968",
       "ball": 1,
       "strike": 1,
-      "out": 1,
+      "out": 2,
       "bases": [
         2
       ]
@@ -756149,9 +756135,36 @@
     "inningInfo": "1회말",
     "liveState": {
       "pitcher": "Manny Barreda",
-      "batter": "Jose Cardona",
+      "batter": "Roberto Valenzuela",
       "pitcherPid": "mlb:518435",
-      "batterPid": "mlb:606580",
+      "batterPid": "mlb:672438",
+      "ball": 0,
+      "strike": 0,
+      "out": 1,
+      "bases": [
+        1
+      ]
+    }
+  },
+  {
+    "date": "2026-10-28",
+    "time": "11:30",
+    "league": "LMP",
+    "venueId": "estadio_francisco_carranza_limon",
+    "home": "알고도네로스 데 과사베",
+    "away": "마요스 데 나보호아",
+    "stadium": "Kuroda Park",
+    "timeTbd": false,
+    "gameId": "LMP_MLBSTATS_850516",
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0,
+    "inningInfo": "1회초",
+    "liveState": {
+      "pitcher": "Kevin Abel",
+      "batter": "River Town",
+      "pitcherPid": "mlb:674265",
+      "batterPid": "mlb:701817",
       "ball": 0,
       "strike": 0,
       "out": 0,
