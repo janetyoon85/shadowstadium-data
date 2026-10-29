@@ -756632,7 +756632,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1793224876629
+    "assistsAt": 1793232085136
   },
   {
     "date": "2026-10-29",
@@ -759792,18 +759792,16 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 1,
-    "inningInfo": "2회말",
+    "inningInfo": "3회초",
     "liveState": {
-      "pitcher": "Giussepe Velasquez",
-      "batter": "Ronald Rosario",
-      "pitcherPid": "mlb:691908",
-      "batterPid": "mlb:691385",
+      "pitcher": "Oswald Mori",
+      "batter": "Aron Estrada",
+      "pitcherPid": "mlb:801218",
+      "batterPid": "mlb:800406",
       "ball": 0,
-      "strike": 0,
-      "out": 1,
-      "bases": [
-        1
-      ]
+      "strike": 1,
+      "out": 0,
+      "bases": []
     }
   },
   {
@@ -759819,15 +759817,15 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 0,
-    "inningInfo": "3회말",
+    "inningInfo": "4회초",
     "liveState": {
       "pitcher": "Connor Curlis",
-      "batter": "Francisco Alvarez",
+      "batter": "Angel Reyes",
       "pitcherPid": "mlb:682029",
-      "batterPid": "mlb:682626",
+      "batterPid": "mlb:622580",
       "ball": 2,
-      "strike": 1,
-      "out": 3,
+      "strike": 0,
+      "out": 2,
       "bases": []
     }
   },
@@ -759844,15 +759842,15 @@
     "status": "live",
     "homeScore": 2,
     "awayScore": 0,
-    "inningInfo": "4회초",
+    "inningInfo": "4회말",
     "liveState": {
       "pitcher": "Jose Atencio",
-      "batter": "Francisco Arcia",
+      "batter": "Jose Martinez",
       "pitcherPid": "mlb:682719",
-      "batterPid": "mlb:516472",
-      "ball": 1,
+      "batterPid": "mlb:642686",
+      "ball": 3,
       "strike": 0,
-      "out": 3,
+      "out": 2,
       "bases": []
     }
   },
@@ -759872,14 +759870,15 @@
     "inningInfo": "1회말",
     "liveState": {
       "pitcher": "Elieser Hernández",
-      "batter": "Victor Bericoto",
+      "batter": "Lenyn Sosa",
       "pitcherPid": "mlb:622694",
-      "batterPid": "mlb:682674",
-      "ball": 1,
+      "batterPid": "mlb:672820",
+      "ball": 2,
       "strike": 1,
-      "out": 1,
+      "out": 2,
       "bases": [
-        1
+        1,
+        2
       ]
     }
   },
@@ -759911,15 +759910,15 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 0,
-    "inningInfo": "2회초",
+    "inningInfo": "2회말",
     "liveState": {
       "pitcher": "Jeremy Rhoades",
-      "batter": "Jorge Bonifacio",
+      "batter": "Christopher Morel",
       "pitcherPid": "mlb:656889",
-      "batterPid": "mlb:593528",
-      "ball": 1,
+      "batterPid": "mlb:666624",
+      "ball": 2,
       "strike": 0,
-      "out": 3,
+      "out": 2,
       "bases": []
     }
   },
@@ -759934,21 +759933,18 @@
     "timeTbd": false,
     "gameId": "LIDOM_MLBSTATS_851437",
     "status": "live",
-    "homeScore": 2,
+    "homeScore": 3,
     "awayScore": 0,
     "inningInfo": "1회말",
     "liveState": {
-      "pitcher": "Jackson Goddard",
-      "batter": "George Valera",
-      "pitcherPid": "mlb:680725",
-      "batterPid": "mlb:671655",
-      "ball": 3,
-      "strike": 0,
-      "out": 1,
-      "bases": [
-        2,
-        3
-      ]
+      "pitcher": "Noah Skirrow",
+      "batter": "Marcell Ozuna",
+      "pitcherPid": "mlb:659418",
+      "batterPid": "mlb:542303",
+      "ball": 1,
+      "strike": 2,
+      "out": 3,
+      "bases": []
     }
   },
   {
@@ -760036,7 +760032,7 @@
     "timeTbd": false,
     "gameId": "nphxn3gMsvvL5UW",
     "status": "live",
-    "awayScore": 0,
+    "awayScore": 1,
     "homeScore": 0,
     "matchPeriod": "전반",
     "cards": {
@@ -760116,7 +760112,18 @@
     "status": "live",
     "homeScore": 1,
     "awayScore": 0,
-    "matchPeriod": "전반"
+    "matchPeriod": "전반",
+    "scorers": {
+      "home": [
+        {
+          "n": "Eric Ramírez",
+          "m": 28,
+          "nat": "Venezuela",
+          "pid": "espn:217573"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-10-29",
@@ -760163,7 +760170,10 @@
     "stadium": "Estadio Inca Garcilaso de la Vega",
     "timeTbd": false,
     "gameId": "PERU_ESPN_401886152",
-    "status": "scheduled"
+    "status": "live",
+    "matchPeriod": "전반",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-10-29",
@@ -781578,6 +781588,18 @@
   },
   {
     "date": "2026-11-28",
+    "time": "13:30",
+    "league": "ABL",
+    "venueId": "viticon_stadium",
+    "home": "브리즈번 밴디츠",
+    "away": "퍼스 히트",
+    "stadium": "Viticon Stadium",
+    "timeTbd": false,
+    "gameId": "ABL_MLBSTATS_851270",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-28",
     "time": "14:00",
     "league": "J1",
     "venueId": "iai_stadium_nihondaira",
@@ -781675,6 +781697,18 @@
   {
     "date": "2026-11-28",
     "time": "16:00",
+    "league": "ABL",
+    "venueId": "blacktown_international_sportspark",
+    "home": "시드니 블루삭스",
+    "away": "애들레이드 자이언츠",
+    "stadium": "Blacktown International Sportspark",
+    "timeTbd": false,
+    "gameId": "ABL_MLBSTATS_851235",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-28",
+    "time": "16:00",
     "league": "J1",
     "venueId": "sankyo_frontier_kashiwa",
     "home": "가시와 레이솔",
@@ -781706,6 +781740,30 @@
     "stadium": "포항 스틸야드",
     "timeTbd": false,
     "gameId": "202611280322219",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-28",
+    "time": "17:00",
+    "league": "ABL",
+    "venueId": "viticon_stadium",
+    "home": "브리즈번 밴디츠",
+    "away": "퍼스 히트",
+    "stadium": "Viticon Stadium",
+    "timeTbd": false,
+    "gameId": "ABL_MLBSTATS_851274",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-28",
+    "time": "20:00",
+    "league": "RUSSIA",
+    "venueId": "kazan_arena",
+    "home": "루빈 카잔",
+    "away": "아크론 톨리아티",
+    "stadium": "Kazan Arena",
+    "timeTbd": false,
+    "gameId": "RUSSIA_ESPN_401879793",
     "status": "scheduled"
   },
   {
@@ -781742,6 +781800,42 @@
     "stadium": "딥데일",
     "timeTbd": false,
     "gameId": "dVdSZwCAyPLhwSZ",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-28",
+    "time": "22:30",
+    "league": "RUSSIA",
+    "venueId": "veb_arena_moscow",
+    "home": "CSKA 모스크바",
+    "away": "제니트 상트페테르부르크",
+    "stadium": "VEB Arena",
+    "timeTbd": false,
+    "gameId": "RUSSIA_ESPN_401879794",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-28",
+    "time": "22:30",
+    "league": "SOUTHAFRICA",
+    "venueId": "buffalo_city_stadium",
+    "home": "치파 유나이티드",
+    "away": "카이저 치프스",
+    "stadium": "Nelson Mandela Bay Stadium",
+    "timeTbd": false,
+    "gameId": "SOUTHAFRICA_ESPN_401902005",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-28",
+    "time": "22:30",
+    "league": "SOUTHAFRICA",
+    "venueId": "moses_mabhida_stadium",
+    "home": "아마줄루",
+    "away": "밀포드 FC",
+    "stadium": "Moses Mabhida Stadium",
+    "timeTbd": false,
+    "gameId": "SOUTHAFRICA_ESPN_401902006",
     "status": "scheduled"
   },
   {
@@ -782094,6 +782188,30 @@
   },
   {
     "date": "2026-11-29",
+    "time": "01:00",
+    "league": "RUSSIA",
+    "venueId": "kaliningrad_stadium",
+    "home": "발티카 칼리닌그라드",
+    "away": "아흐마트 그로즈니",
+    "stadium": "Kaliningrad Stadium",
+    "timeTbd": false,
+    "gameId": "RUSSIA_ESPN_401879797",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-29",
+    "time": "01:00",
+    "league": "SOUTHAFRICA",
+    "venueId": "orlando_stadium_soweto",
+    "home": "올랜도 파이러츠",
+    "away": "골든 애로스",
+    "stadium": "Orlando Stadium",
+    "timeTbd": false,
+    "gameId": "SOUTHAFRICA_ESPN_401902004",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-29",
     "time": "01:15",
     "league": "LIGUE1",
     "venueId": "raymond_kopa",
@@ -782166,6 +782284,30 @@
   },
   {
     "date": "2026-11-29",
+    "time": "03:15",
+    "league": "SOUTHAFRICA",
+    "venueId": "mbombela_stadium",
+    "home": "크루거 유나이티드",
+    "away": "마멜로디 선다운스",
+    "stadium": "Mbombela Stadium",
+    "timeTbd": false,
+    "gameId": "SOUTHAFRICA_ESPN_401902003",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-29",
+    "time": "04:00",
+    "league": "BOLIVIA",
+    "venueId": "estadio_jesus_bermudez",
+    "home": "GV 산호세",
+    "away": "레알 포토시",
+    "stadium": "Estadio Jesús Bermúdez",
+    "timeTbd": false,
+    "gameId": "BOLIVIA_ESPN_401930025",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-29",
     "time": "04:45",
     "league": "LIGUE1",
     "venueId": "allianz_riviera",
@@ -782234,6 +782376,210 @@
     "stadium": "코이 스타디움",
     "timeTbd": false,
     "gameId": "iKZFO7Pv77DZvd7",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-29",
+    "time": "05:00",
+    "league": "LIDOM",
+    "venueId": "estadio_quisqueya_juan_marichal",
+    "home": "레오네스 델 에스코히도",
+    "away": "아길라스 시바에냐스",
+    "stadium": "Estadio Quisqueya Juan Marichal",
+    "timeTbd": false,
+    "gameId": "LIDOM_MLBSTATS_851481",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-29",
+    "time": "05:00",
+    "league": "LVBP",
+    "venueId": "estadio_jose_perez_colmenares",
+    "home": "티그레스 데 아라과",
+    "away": "티부로네스 데 라과이라",
+    "stadium": "Estadio Jose Perez Colmenares",
+    "timeTbd": false,
+    "gameId": "LVBP_MLBSTATS_869944",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-29",
+    "time": "06:00",
+    "league": "LIDOM",
+    "venueId": "estadio_julian_javier",
+    "home": "히간테스 델 시바오",
+    "away": "티그레스 델 리세이",
+    "stadium": "Estadio Julian Javier",
+    "timeTbd": false,
+    "gameId": "LIDOM_MLBSTATS_851500",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-29",
+    "time": "06:15",
+    "league": "BOLIVIA",
+    "venueId": "estadio_gilberto_parada",
+    "home": "과비라",
+    "away": "우니베르시타리오 데 빈토",
+    "stadium": "Estadio Gilberto Parada",
+    "timeTbd": false,
+    "gameId": "BOLIVIA_ESPN_401930036",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-29",
+    "time": "06:21",
+    "league": "PWL",
+    "venueId": "estadio_francisco_paquito_montaner",
+    "home": "레오네스 데 폰세",
+    "away": "크리오요스 데 카과스",
+    "stadium": "Estadio Francisco Paquito Montaner",
+    "timeTbd": false,
+    "gameId": "PWL_MLBSTATS_872037",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-29",
+    "time": "06:21",
+    "league": "PWL",
+    "venueId": "estadio_isidoro_cholo_garcia",
+    "home": "인디오스 데 마야궤스",
+    "away": "칸그레헤로스 데 산투르세",
+    "stadium": "Estadio Isidoro 'Cholo' Garcia",
+    "timeTbd": false,
+    "gameId": "PWL_MLBSTATS_872038",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-29",
+    "time": "07:00",
+    "league": "LVBP",
+    "venueId": "estadio_alfonso_carrasquel",
+    "home": "카리베스 데 안소아테기",
+    "away": "아길라스 델 술리아",
+    "stadium": "Estadio Alfonso Carrasquel",
+    "timeTbd": false,
+    "gameId": "LVBP_MLBSTATS_869963",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-29",
+    "time": "07:00",
+    "league": "LVBP",
+    "venueId": "monumental_simon_bolivar",
+    "home": "레오네스 델 카라카스",
+    "away": "카르데날레스 데 라라",
+    "stadium": "Monumental Simon Bolivar",
+    "timeTbd": false,
+    "gameId": "LVBP_MLBSTATS_869947",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-29",
+    "time": "08:21",
+    "league": "PWL",
+    "venueId": "hiram_bithorn_stadium",
+    "home": "세나도레스 데 산후안",
+    "away": "히간테스 데 카롤리나",
+    "stadium": "Hiram Bithorn Stadium",
+    "timeTbd": false,
+    "gameId": "PWL_MLBSTATS_872036",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-29",
+    "time": "08:30",
+    "league": "BOLIVIA",
+    "venueId": "estadio_victor_ugarte",
+    "home": "나시오날 포토시",
+    "away": "오리엔테 페트롤레로",
+    "stadium": "Estadio Víctor Agustín Ugarte",
+    "timeTbd": false,
+    "gameId": "BOLIVIA_ESPN_401930035",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-29",
+    "time": "08:30",
+    "league": "LIDOM",
+    "venueId": "estadio_francisco_micheli",
+    "home": "토로스 델 에스테",
+    "away": "에스트레야스 오리엔탈레스",
+    "stadium": "Estadio Francisco Micheli",
+    "timeTbd": false,
+    "gameId": "LIDOM_MLBSTATS_851424",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-29",
+    "time": "09:00",
+    "league": "LMP",
+    "venueId": "estadio_panamericano_zapopan",
+    "home": "차로스 데 할리스코",
+    "away": "베나도스 데 마사틀란",
+    "stadium": "Estadio Panamericano de los Charros",
+    "timeTbd": false,
+    "gameId": "LMP_MLBSTATS_850373",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-29",
+    "time": "09:00",
+    "league": "LVBP",
+    "venueId": "estadio_nueva_esparta",
+    "home": "브라보스 데 마르가리타",
+    "away": "나베간테스 델 마가야네스",
+    "stadium": "Estadio Nueva Esparta",
+    "timeTbd": false,
+    "gameId": "LVBP_MLBSTATS_869946",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-29",
+    "time": "10:00",
+    "league": "LMP",
+    "venueId": "coloso_del_pacifico_tepic",
+    "home": "하과레스 데 나야리트",
+    "away": "마요스 데 나보호아",
+    "stadium": "Coloso del Pacifico",
+    "timeTbd": false,
+    "gameId": "LMP_MLBSTATS_850369",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-29",
+    "time": "10:00",
+    "league": "LMP",
+    "venueId": "estadio_emilio_ibarra_almada",
+    "home": "카녜로스 데 로스모치스",
+    "away": "야키스 데 오브레곤",
+    "stadium": "Chevron Park",
+    "timeTbd": false,
+    "gameId": "LMP_MLBSTATS_850374",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-29",
+    "time": "10:00",
+    "league": "LMP",
+    "venueId": "estadio_fernando_valenzuela",
+    "home": "나랑헤로스 데 에르모시요",
+    "away": "아길라스 데 멕시칼리",
+    "stadium": "Estadio Fernando Valenzuela",
+    "timeTbd": false,
+    "gameId": "LMP_MLBSTATS_850370",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-29",
+    "time": "10:00",
+    "league": "LMP",
+    "venueId": "estadio_francisco_carranza_limon",
+    "home": "알고도네로스 데 과사베",
+    "away": "토마테로스 데 쿨리아칸",
+    "stadium": "Kuroda Park",
+    "timeTbd": false,
+    "gameId": "LMP_MLBSTATS_850372",
     "status": "scheduled"
   },
   {
