@@ -759114,8 +759114,8 @@
           "m": 67,
           "a": "Noa Lang",
           "nat": "Belgium",
-          "pid": "espn:134947",
           "aNat": "Netherlands",
+          "pid": "espn:134947",
           "apid": "espn:255344"
         }
       ]
@@ -762551,8 +762551,8 @@
           "n": "칼로",
           "m": 45,
           "pid": "espn:236038",
-          "nat": "Italy",
-          "pk": true
+          "pk": true,
+          "nat": "Italy"
         },
         {
           "n": "라이몬도",
@@ -762568,8 +762568,8 @@
           "m": 72,
           "a": "Romano Schmid",
           "nat": "Romania",
-          "aNat": "Austria",
           "pid": "espn:335061",
+          "aNat": "Austria",
           "apid": "espn:238296"
         },
         {
@@ -762577,8 +762577,8 @@
           "m": 90,
           "a": "Giorgi Kvernadze",
           "nat": "Romania",
-          "aNat": "Georgia",
           "pid": "espn:335061",
+          "aNat": "Georgia",
           "apid": "espn:360714"
         }
       ],
@@ -762773,32 +762773,36 @@
     "status": "completed",
     "awayScore": 3,
     "homeScore": 5,
-    "matchPeriod": "후반 49'",
     "scorers": {
       "home": [
         {
           "n": "안젤루",
           "m": 24,
+          "nat": "Brazil",
           "pid": "espn:309275"
         },
         {
           "n": "마네",
           "m": 38,
+          "nat": "Senegal",
           "pid": "espn:169797"
         },
         {
           "n": "크리스티아누 호날두",
           "m": 66,
+          "nat": "Portugal",
           "pid": "espn:22774"
         },
         {
           "n": "크리스티아누 호날두",
           "m": 72,
+          "nat": "Portugal",
           "pid": "espn:22774"
         },
         {
           "n": "크리스티아누 호날두",
           "m": 81,
+          "nat": "Portugal",
           "pid": "espn:22774"
         }
       ],
@@ -762806,15 +762810,20 @@
         {
           "n": "도밍게스",
           "m": 16,
+          "nat": "France",
           "pid": "espn:333033"
         },
         {
           "n": "에쏨바",
-          "m": 45
+          "m": 45,
+          "nat": "Cameroon",
+          "pid": "espn:363970"
         },
         {
           "n": "도밍게스",
           "m": 90,
+          "pk": true,
+          "nat": "France",
           "pid": "espn:333033"
         }
       ]
@@ -763079,7 +763088,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반",
+    "matchPeriod": "전반 15'",
     "phaseCode": "T16"
   },
   {
@@ -763095,7 +763104,19 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반"
+    "matchPeriod": "전반 13'",
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Eljif Elmas",
+          "type": "Y",
+          "m": 12,
+          "pid": "espn:237435",
+          "nat": "North Macedonia"
+        }
+      ]
+    }
   },
   {
     "date": "2026-10-30",
