@@ -14,6 +14,9 @@ permissions:
 
 jobs:
   fetch:
+    # 대회(2026 아이치·나고야 아시안게임)가 끝나서(축구 10/3·야구 9/27 전 경기 종료) 기본은 건너뜀. 다음 대회 때 repo 변수 ASIAN_GAMES_ACTIVE=true 로 켠다.
+    # (cron-job.org 매분 호출은 이 조건으로 즉시 '건너뜀' 처리 — 429 실패·알림·러너 사용 없음. 해당 cron-job 은 지워도 된다.)
+    if: ${{ vars.ASIAN_GAMES_ACTIVE == 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 10  # 2026-09-30 긴급 추가 — fetch-schedule.yml 무한대기 사고 재발 방지, 전체 크롤러 공통 적용
     steps:
