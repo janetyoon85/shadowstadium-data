@@ -1,0 +1,48 @@
+name: Build Standings Team Names
+
+# 순위표 팀명 사전(standings-team-en.json) 갱신 — 네이버 순위표(한글)와 ESPN 순위표(영문)가 같은 시점일 때 숫자가 정확히 같은 행끼리 짝지어 학습한다(누적·추가만).
+# 네이버 불통 중 ESPN 으로 순위표를 잇는 보조 경로(fetch-standings-fallback)가 이 사전을 쓴다. 승격팀이 생기거나 어긋난 시점에 못 배운 팀은 다음 실행에서 채워진다.
+# 주 2회(수·일) + 수동. 평소 네이버가 정상일 때 돌아야 두 순위표가 같은 시점이다.
+on:
+  schedule:
+    - cron: '30 3 * * 0,3'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-standings-team-en
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch crawler code (private)
+        uses: ./.github/actions/fetch-code
+        with:
+          token: ${{ secrets.PRIVATE_DATA_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Learn team names
+        run: node scripts/build-standings-team-en.mjs --write
+
+      - name: Commit
+        run: |
+          git add standings-team-en.json
+          git diff --cached --quiet && exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore(data): 순위표 팀명 사전 갱신 [skip ci]"
+          for i in $(seq 1 20); do
+            git pull --rebase --autostash -X theirs origin main || { git rebase --abort 2>/dev/null || true; echo "rebase failed, retrying"; }
+            git push origin main && exit 0 || sleep $((RANDOM % 8 + 1))
+          done
+          exit 1
