@@ -1,0 +1,51 @@
+name: Ops Daily Report
+
+# 일일 운영 보고(2026-10-30) — 크롤러가 스스로 조치한 일(ops-ledger)을 하루 한 번 Discord 에 요약한다.
+# 사람이 필요한 일은 이 보고와 별개로 즉시 알림이 간다. cron(UTC 00:10) = KST 09:10.
+
+on:
+  schedule:
+    - cron: '10 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write   # 오래된 ops-ledger 파일 삭제 커밋
+
+concurrency:
+  group: ops-daily-report
+  cancel-in-progress: false
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch crawler code (private)
+        uses: ./.github/actions/fetch-code
+        with:
+          token: ${{ secrets.PRIVATE_DATA_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Build and send report
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          DISCORD_WEBHOOK_URL_AUTO: ${{ secrets.DISCORD_WEBHOOK_URL_AUTO }}
+        run: node scripts/ops-daily-report.mjs
+
+      - name: Commit pruned ledger
+        run: |
+          git add -A ops-ledger 2>/dev/null || true
+          git diff --cached --quiet && exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore(ops): prune old ops-ledger [skip ci]"
+          for i in $(seq 1 20); do
+            git pull --rebase --autostash -X theirs origin main || { git rebase --abort 2>/dev/null || true; echo "rebase failed, retrying"; }
+            git push origin main && exit 0 || sleep $((RANDOM % 8 + 1))
+          done
+          exit 1

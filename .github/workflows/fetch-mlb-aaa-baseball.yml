@@ -49,6 +49,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add games.json
+          git add -A ops-ledger 2>/dev/null || true   # 운영 장부(스스로 조치한 일) — 폴더가 없으면 무시
           git commit -m "chore(data): MLB AAA(트리플A) 동기화 ($(date +'%Y-%m-%d %H:%M'))"
           for i in $(seq 1 20); do
             if git push; then
