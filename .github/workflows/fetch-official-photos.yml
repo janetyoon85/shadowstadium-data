@@ -1,7 +1,9 @@
-name: Official Player Photos (K League, J1, B.League, NBL)
+name: Official Player Photos (K League, J1, B.League, NBL, Portugal)
 
-# 공식 사이트(kleague.com 구단 페이지, bleague.jp 선수 목록)에서 선수 사진을 받아 160px 썸네일로 저장 — 새 선수·이적 반영.
-# 하루 1회면 충분(K리그 ~30건+새 사진, B리그 ~20건+새 사진, 이미 만든 썸네일은 다시 받지 않음). cron-job.org 에서 이 워크플로우를 dispatch 하도록 등록(GitHub schedule 은 자주 누락).
+# 공식 사이트(kleague.com 구단 페이지, jleague.jp 구단 일람, bleague.jp 선수 목록, nbl.com.au, ligaportugal.pt)에서 선수 사진을 받아 160px 썸네일로 저장 — 새 선수·이적 반영.
+# 하루 1회면 충분(이미 만든 썸네일은 다시 받지 않음). cron-job.org 에서 이 워크플로우를 dispatch 하도록 등록(GitHub schedule 은 자주 누락).
+# 푸시는 두 단계로 나눈다(2026-10-30 첫 실행이 푸시 경쟁에서 10번 모두 져서 실패): ① 새 파일 전용(다른 워크플로우와 겹치지 않아 rebase 만으로 충돌 없음)
+# ② player-photos.json 반영(한 줄짜리 파일이라 매시간 사진 보충과 부딪힘) — 거절되면 최신본으로 리셋하고 네트워크 없는 반영 스크립트만 몇 초 만에 다시 돌린다.
 on:
   schedule:
     - cron: '40 19 * * *'   # 04:40 KST — 선수단 갱신(06:10 KST) 전에 끝나게
@@ -46,31 +48,35 @@ jobs:
           python scripts/fetch-jleague-photos.py
           python scripts/fetch-portugal-photos.py
 
-      - name: Commit and push
+      - name: Commit new files
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          commit() {
-            git add kphotos bphotos nblphotos jphotos pphotos portugal-roster-photos.json kleague-roster-photos.json nbl-photos.json jleague-roster-photos.json player-photos.json 2>/dev/null || true
-            if git diff --cached --quiet; then echo "변경 없음"; return 1; fi
-            git commit -m "chore(data): 공식 선수 사진 갱신 ($(date +'%Y-%m-%d %H:%M'))"
-          }
-          commit || exit 0
-          for i in $(seq 1 10); do
-            if git push; then exit 0; fi
-            # player-photos.json 은 다른 워크플로우도 쓴다 — 충돌 나면 최신 origin 에서 다시 수집(썸네일은 이미 있어 빠름)
-            echo "push rejected, redoing on latest origin/main ($i/10)"
-            git fetch origin main
-            git reset --hard origin/main
-            python scripts/fetch-kleague-roster-photos.py
-            python scripts/fetch-bleague-photos.py
-            python scripts/fetch-nbl-photos.py
-            python scripts/fetch-jleague-photos.py
-            python scripts/fetch-portugal-photos.py
-            commit || exit 0
+          git add kphotos bphotos nblphotos jphotos pphotos kleague-roster-photos.json nbl-photos.json jleague-roster-photos.json portugal-roster-photos.json
+          if git diff --cached --quiet; then echo "새 파일 없음"; exit 0; fi
+          git commit -q -m "chore(data): 공식 선수 사진 파일 갱신 ($(date +'%Y-%m-%d %H:%M'))"
+          for i in $(seq 1 20); do
+            timeout 60 git pull -q --rebase origin main && timeout 60 git push -q origin HEAD:main && exit 0
+            git rebase --abort 2>/dev/null || true
             sleep $((RANDOM % 8 + 1))
           done
-          echo "push failed after 10 retries"
+          echo "::error::새 파일 푸시 실패"
+          exit 1
+
+      - name: Apply to player-photos.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for i in $(seq 1 30); do
+            timeout 60 git fetch -q origin main && git reset -q --hard origin/main
+            python scripts/apply-official-photos.py
+            git add player-photos.json
+            if git diff --cached --quiet; then echo "반영할 변경 없음"; exit 0; fi
+            git commit -q -m "chore(data): 공식 선수 사진을 player-photos 에 반영 ($(date +'%Y-%m-%d %H:%M'))"
+            timeout 60 git push -q origin HEAD:main && exit 0
+            sleep $((RANDOM % 6 + 1))
+          done
+          echo "::error::player-photos 푸시 실패"
           exit 1
 
       - name: Create issue on failure
