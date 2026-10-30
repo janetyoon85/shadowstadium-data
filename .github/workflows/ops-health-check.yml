@@ -42,7 +42,7 @@ jobs:
 
       - name: Commit state
         run: |
-          git add ops-health-state.json
+          git add ops-health-state.json ops-ledger
           git diff --cached --quiet && exit 0
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
