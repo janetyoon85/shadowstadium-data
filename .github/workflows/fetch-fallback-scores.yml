@@ -40,6 +40,8 @@ jobs:
         env:
           FALLBACK_DRY: ${{ github.event.inputs.dry == 'true' && '1' || '' }}
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}   # 네이버 불통 전환 알림(1회)
+          # 야후 스포츠(스포츠나비) NPB 승·패·세이브 투수 보조 — 기본 OFF. 야후 이용약관의 자동 접근 허용을 확인한 뒤 저장소 변수 YAHOO_NPB_ENABLED=1 로 켠다(네이버 불통 중에만 동작).
+          YAHOO_NPB_ENABLED: ${{ vars.YAHOO_NPB_ENABLED }}
         run: node scripts/fetch-fallback-scores.mjs
 
       # 다음스포츠 보조(KBO·K리그·NPB·유럽 축구)도 같은 실행에서 — 이 워크플로우가 cron-job.org 로 안정적으로 매분 호출되므로 별도 등록 없이 보조 경로가 이어진다(2026-10-27).
