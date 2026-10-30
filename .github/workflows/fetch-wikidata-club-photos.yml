@@ -1,0 +1,69 @@
+name: Wikidata Club Photos
+
+# 선수단(team-rosters) 팀마다 위키데이터(P54 소속 + P18 사진)에서 선수 사진 후보를 받아 wd-club-photos.json 에 저장 — 선수단과의 이름 매칭은 매일 06:10 KST 선수단 수집이 한다.
+# 팀당 30일 캐시라 평소엔 몇 분(처음 한 번만 ~30분). 사진은 Commons 일반 사진이라 얼굴 판정(audit-roster-faces)·veto 가 이어서 거른다.
+# cron-job.org 에서 이 워크플로우를 주 1회 dispatch 하도록 등록(GitHub schedule 은 자주 누락).
+on:
+  schedule:
+    - cron: '30 19 * * 0'   # 일요일 04:30 KST
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: fetch-wikidata-club-photos
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Fetch crawler code (private)
+        uses: ./.github/actions/fetch-code
+        with:
+          token: ${{ secrets.PRIVATE_DATA_TOKEN }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Collect Wikidata club photos
+        run: python scripts/fetch-wikidata-club-photos.py
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add wd-club-photos.json
+          if git diff --cached --quiet; then echo "변경 없음"; exit 0; fi
+          git commit -q -m "chore(data): 위키데이터 클럽별 선수 사진 후보 갱신 ($(date +'%Y-%m-%d %H:%M'))"
+          for i in $(seq 1 20); do
+            timeout 60 git pull -q --rebase origin main && timeout 60 git push -q origin HEAD:main && exit 0
+            git rebase --abort 2>/dev/null || true
+            sleep $((RANDOM % 8 + 1))
+          done
+          echo "::error::푸시 실패"
+          exit 1
+
+      - name: Create issue on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const date = new Date().toISOString().split('T')[0];
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `🚨 Wikidata club photos fetch failed - ${date}`,
+              body: `Wikidata club photos crawler failed at ${date}.\n\nWorkflow run: ${context.runId}`,
+              labels: ['bug', 'crawler']
+            });
