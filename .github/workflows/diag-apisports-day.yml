@@ -1,0 +1,49 @@
+name: Diag ApiSports Day
+
+# ESPN 불통 페일오버 후보 검증(2026-10-30) — API-Sports 무료 플랜에서 "하루 전체 경기"(fixtures?date=) 1건 조회가 되는지, 리그 커버·남은 호출 수를 출력(읽기 전용, 키는 로그에 남기지 않음). 수동 실행, 요청 2건.
+on:
+  workflow_dispatch:
+    inputs:
+      date:
+        description: '조회 날짜(YYYY-MM-DD, 비우면 어제 UTC)'
+        default: ''
+
+permissions:
+  contents: read
+
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: fixtures?date
+        env:
+          K: ${{ secrets.API_SPORTS_KEY || secrets.APISPORTS_KEY }}
+          D: ${{ github.event.inputs.date }}
+        run: |
+          [ -z "$K" ] && { echo "::error::시크릿 없음"; exit 1; }
+          D="${D:-$(date -u -d 'yesterday' +%F)}"
+          curl -sS -m 40 -D /tmp/h -H "x-apisports-key: $K" "https://v3.football.api-sports.io/fixtures?date=$D&timezone=Asia/Seoul" -o /tmp/f.json
+          grep -iE "^HTTP|^x-ratelimit-requests-(limit|remaining)" /tmp/h | tr -d '\r'
+          D="$D" python3 - <<'PY'
+          import json,collections,os
+          d=json.load(open('/tmp/f.json'))
+          print('날짜',os.environ['D'],'errors:',d.get('errors'),'results:',d.get('results'))
+          c=collections.Counter()
+          for r in d.get('response',[]):
+              l=r['league']; c[(l['country'],l['name'])]+=1
+          want=['Brazil','Argentina','Mexico','Portugal','Belgium','Turkey','Greece','Austria','Norway','Sweden','Colombia','Uruguay','Chile','Australia','Venezuela','Ecuador','Peru','Bolivia','Paraguay','Costa-Rica','El-Salvador','Wales','Cyprus','Malta','Russia','Malaysia','Singapore']
+          print('리그 수',len(c))
+          for (co,n),k in sorted(c.items()):
+              if co in want: print('  ',co,n,k)
+          sample=d.get('response',[])[:1]
+          if sample:
+              s=sample[0]; print('샘플 키:',list(s.keys()),'| fixture.status:',s['fixture']['status'],'| teams:',s['teams']['home']['name'],s['teams']['away']['name'],'| goals:',s['goals'])
+          PY
+      - name: fixtures?live=all
+        env:
+          K: ${{ secrets.API_SPORTS_KEY || secrets.APISPORTS_KEY }}
+        run: |
+          curl -sS -m 40 -D /tmp/h2 -H "x-apisports-key: $K" "https://v3.football.api-sports.io/fixtures?live=all" -o /tmp/l.json
+          grep -iE "^HTTP|^x-ratelimit-requests-remaining" /tmp/h2 | tr -d '\r'
+          python3 -c "import json;d=json.load(open('/tmp/l.json'));print('live errors:',d.get('errors'),'results:',d.get('results'))"
