@@ -49,6 +49,7 @@ jobs:
       - name: Commit state
         run: |
           git add verify-source-state.json
+          git add -A ops-ledger 2>/dev/null || true   # 운영 장부(저절로 해소된 불일치)
           git diff --cached --quiet && exit 0
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
