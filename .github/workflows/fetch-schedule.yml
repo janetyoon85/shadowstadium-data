@@ -38,6 +38,8 @@ concurrency:
 # 네이버 API 호환(Node TLS1.3 핸드셰이크 후 멈춤 회피) — scripts/lib/naver-tls.mjs
 env:
   NAVER_TLS12: '1'
+  # 페일오버 신호(2026-10-30) — 이 크롤러가 끝날 때 네이버 요청 통계로 건강 상태를 이 파일에 기록한다(상태 전환·10분 하트비트에만 갱신).
+  NAVER_HEALTH_FILE: naver-health.json
   # 분당 한도에 걸려도 요청을 버리지 않고 창이 비기를 기다려 전체 수집을 끝까지 한다(scripts/lib/naver-guard.mjs, 2026-10-28)
   NAVER_WAIT_MINUTE_BUDGET_S: '120'
 
@@ -119,7 +121,7 @@ jobs:
         id: changes
         if: steps.act.outputs.skip != 'true'
         run: |
-          if [[ -n "$(git status --porcelain games.json games_2026.json saves.json scorers.json assists.json euro_assists.json euro_shootout.json euro-reval.json players.json player-codes.json player-name-auto.json unmapped-venue-alerts.json stadium-auto-map.json)" ]]; then
+          if [[ -n "$(git status --porcelain naver-health.json games.json games_2026.json saves.json scorers.json assists.json euro_assists.json euro_shootout.json euro-reval.json players.json player-codes.json player-name-auto.json unmapped-venue-alerts.json stadium-auto-map.json)" ]]; then
             echo "changed=true" >> $GITHUB_OUTPUT
           else
             echo "changed=false" >> $GITHUB_OUTPUT
@@ -132,6 +134,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add games.json games_2026.json saves.json scorers.json assists.json euro_assists.json cards.json euro_cards.json euro_shootout.json euro-reval.json players.json player-codes.json player-name-auto.json unmapped-venue-alerts.json stadium-auto-map.json
           git add -A ops-ledger 2>/dev/null || true   # 운영 장부(스스로 조치한 일) — 폴더가 없으면 무시
+          git add naver-health.json 2>/dev/null || true   # 네이버 건강 신호
           git commit -m "chore(data): daily schedule sync ($(date +'%Y-%m-%d'))"
           # FCM Reminders(15분 간격) + WBSC/아시안게임 야구·축구 크롤러들(5분 간격, 2026-09
           # 추가)까지 같은 브랜치에 동시에 push할 수 있어 non-fast-forward 거부가 잦아짐 —

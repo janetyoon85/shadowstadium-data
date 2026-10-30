@@ -39,6 +39,7 @@ jobs:
       - name: Apply fallback scores
         env:
           FALLBACK_DRY: ${{ github.event.inputs.dry == 'true' && '1' || '' }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}   # 네이버 불통 전환 알림(1회)
         run: node scripts/fetch-fallback-scores.mjs
 
       # 다음스포츠 보조(KBO·K리그·NPB·유럽 축구)도 같은 실행에서 — 이 워크플로우가 cron-job.org 로 안정적으로 매분 호출되므로 별도 등록 없이 보조 경로가 이어진다(2026-10-27).
@@ -62,12 +63,12 @@ jobs:
           EURO_ENRICH_ONLY: '1'
           EURO_ENRICH_DRY: ${{ github.event.inputs.dry == 'true' && '1' || '' }}
         run: |
-          if [ $(( $(date +%s) / 60 % 4 )) -eq 0 ]; then node scripts/fetch-schedule.mjs || echo "유럽 보강 실패(무시)"; else echo "유럽 보강: 이번 실행은 건너뜀"; fi
+          if [ $(( $(date +%s) / 60 % 4 )) -eq 0 ] || grep -q '"status": "down"' naver-health.json 2>/dev/null; then node scripts/fetch-schedule.mjs || echo "유럽 보강 실패(무시)"; else echo "유럽 보강: 이번 실행은 건너뜀"; fi
 
       - name: Check for changes
         id: changes
         run: |
-          if [[ -n "$(git status --porcelain games.json standings.json daum-venue-map.json)" ]]; then echo "changed=true" >> $GITHUB_OUTPUT; else echo "changed=false" >> $GITHUB_OUTPUT; fi
+          if [[ -n "$(git status --porcelain games.json standings.json daum-venue-map.json naver-health-alert.json ops-ledger)" ]]; then echo "changed=true" >> $GITHUB_OUTPUT; else echo "changed=false" >> $GITHUB_OUTPUT; fi
 
       - name: Commit and push
         if: steps.changes.outputs.changed == 'true'
@@ -76,6 +77,8 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           cp games.json games_2026.json
           git add games.json games_2026.json standings.json daum-venue-map.json
+          git add naver-health-alert.json 2>/dev/null || true   # 불통 알림 상태(한 번만 알리려고)
+          git add -A ops-ledger 2>/dev/null || true   # 복구 기록(일일 보고용)
           git commit -m "chore(data): 보조 원본 점수·상태 보강(ESPN·MLB·다음) ($(date +'%Y-%m-%d %H:%M'))"
           for i in $(seq 1 20); do
             if git push; then

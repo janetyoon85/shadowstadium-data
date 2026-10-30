@@ -16,6 +16,8 @@ concurrency:
 # 네이버 API 호환(Node TLS1.3 핸드셰이크 후 멈춤 회피) — scripts/lib/naver-tls.mjs
 env:
   NAVER_TLS12: '1'
+  # 페일오버 신호(2026-10-30) — 이 크롤러가 끝날 때 네이버 요청 통계로 건강 상태를 이 파일에 기록한다(상태 전환·10분 하트비트에만 갱신).
+  NAVER_HEALTH_FILE: naver-health.json
 
 jobs:
   # 어느 러너에서 돌릴지 정한다(GitHub 서버에서 네이버가 응답하면 GitHub 서버, 아니면 집 PC) — .github/workflows/pick-runner.yml
@@ -71,7 +73,7 @@ jobs:
       - name: Check for changes
         id: changes
         run: |
-          if [[ -n "$(git status --porcelain basketball)" ]]; then
+          if [[ -n "$(git status --porcelain basketball naver-health.json)" ]]; then
             echo "changed=true" >> $GITHUB_OUTPUT
           else
             echo "changed=false" >> $GITHUB_OUTPUT
@@ -83,6 +85,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add basketball
+          git add naver-health.json 2>/dev/null || true   # 네이버 건강 신호
           git commit -m "chore(data): 농구 데이터 갱신 ($(date +'%Y-%m-%d %H:%M'))"
           for i in $(seq 1 20); do
             if git push; then
