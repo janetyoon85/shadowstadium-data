@@ -1,0 +1,82 @@
+name: Official Player Photos (K League, B.League)
+
+# 공식 사이트(kleague.com 구단 페이지, bleague.jp 선수 목록)에서 선수 사진을 받아 160px 썸네일로 저장 — 새 선수·이적 반영.
+# 하루 1회면 충분(K리그 ~30건+새 사진, B리그 ~20건+새 사진, 이미 만든 썸네일은 다시 받지 않음). cron-job.org 에서 이 워크플로우를 dispatch 하도록 등록(GitHub schedule 은 자주 누락).
+on:
+  schedule:
+    - cron: '40 19 * * *'   # 04:40 KST — 선수단 갱신(06:10 KST) 전에 끝나게
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: fetch-official-photos
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Fetch crawler code (private)
+        uses: ./.github/actions/fetch-code
+        with:
+          token: ${{ secrets.PRIVATE_DATA_TOKEN }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Pillow
+        run: pip install pillow
+
+      - name: Collect photos
+        run: |
+          python scripts/fetch-kleague-roster-photos.py
+          python scripts/fetch-bleague-photos.py
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          commit() {
+            git add kphotos bphotos kleague-roster-photos.json player-photos.json 2>/dev/null || true
+            if git diff --cached --quiet; then echo "변경 없음"; return 1; fi
+            git commit -m "chore(data): 공식 선수 사진 갱신 ($(date +'%Y-%m-%d %H:%M'))"
+          }
+          commit || exit 0
+          for i in $(seq 1 10); do
+            if git push; then exit 0; fi
+            # player-photos.json 은 다른 워크플로우도 쓴다 — 충돌 나면 최신 origin 에서 다시 수집(썸네일은 이미 있어 빠름)
+            echo "push rejected, redoing on latest origin/main ($i/10)"
+            git fetch origin main
+            git reset --hard origin/main
+            python scripts/fetch-kleague-roster-photos.py
+            python scripts/fetch-bleague-photos.py
+            commit || exit 0
+            sleep $((RANDOM % 8 + 1))
+          done
+          echo "push failed after 10 retries"
+          exit 1
+
+      - name: Create issue on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const date = new Date().toISOString().split('T')[0];
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `🚨 Official player photos fetch failed - ${date}`,
+              body: `Official photo crawler failed at ${date}.\n\nWorkflow run: ${context.runId}`,
+              labels: ['bug', 'crawler']
+            });
