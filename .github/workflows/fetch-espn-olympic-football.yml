@@ -33,6 +33,7 @@ jobs:
       - name: Run ESPN Olympic football fetch
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          DISCORD_WEBHOOK_URL_AUTO: ${{ secrets.DISCORD_WEBHOOK_URL_AUTO }}
         run: node scripts/fetch-espn-olympic-football.mjs
 
       - name: Check for changes

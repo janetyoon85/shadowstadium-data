@@ -36,6 +36,7 @@ jobs:
       - name: Run Asian Games football fetch
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          DISCORD_WEBHOOK_URL_AUTO: ${{ secrets.DISCORD_WEBHOOK_URL_AUTO }}
         run: node scripts/fetch-asiangames-football.mjs
 
       - name: Check for changes

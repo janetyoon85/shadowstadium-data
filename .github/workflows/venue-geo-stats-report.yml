@@ -37,4 +37,5 @@ jobs:
           FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
           FIREBASE_DATABASE_URL: ${{ vars.FIREBASE_DATABASE_URL }}
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          DISCORD_WEBHOOK_URL_AUTO: ${{ secrets.DISCORD_WEBHOOK_URL_AUTO }}
         run: node scripts/venue-geo-stats-report.mjs ${{ (github.event_name == 'schedule' || inputs.discord == 'true') && '--discord' || '' }}

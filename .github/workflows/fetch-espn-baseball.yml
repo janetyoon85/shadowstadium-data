@@ -32,6 +32,7 @@ jobs:
       - name: Run ESPN baseball fetch
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          DISCORD_WEBHOOK_URL_AUTO: ${{ secrets.DISCORD_WEBHOOK_URL_AUTO }}
         run: node scripts/fetch-espn-baseball.mjs
 
       - name: Check for changes

@@ -47,11 +47,13 @@ jobs:
       - name: Report 429
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          DISCORD_WEBHOOK_URL_AUTO: ${{ secrets.DISCORD_WEBHOOK_URL_AUTO }}
         run: node scripts/report-429.mjs
 
       - name: Trigger gap report (cron-job.org 누락 감시)
         if: always()
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          DISCORD_WEBHOOK_URL_AUTO: ${{ secrets.DISCORD_WEBHOOK_URL_AUTO }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node scripts/trigger-gap-report.mjs

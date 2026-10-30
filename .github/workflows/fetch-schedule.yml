@@ -90,6 +90,7 @@ jobs:
         if: steps.act.outputs.skip != 'true'
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          DISCORD_WEBHOOK_URL_AUTO: ${{ secrets.DISCORD_WEBHOOK_URL_AUTO }}
           TEST_DISCORD: ${{ inputs.test_discord }}
           FULL_RUN: ${{ inputs.full_run && '1' || '' }}
           PRIVATE_DATA_TOKEN: ${{ secrets.PRIVATE_DATA_TOKEN }}

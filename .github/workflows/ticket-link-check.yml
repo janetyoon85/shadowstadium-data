@@ -37,6 +37,7 @@ jobs:
       - name: Check ticket links
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          DISCORD_WEBHOOK_URL_AUTO: ${{ secrets.DISCORD_WEBHOOK_URL_AUTO }}
         run: node scripts/ticket-link-health.mjs
 
       - name: Check for changes

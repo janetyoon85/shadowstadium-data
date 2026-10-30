@@ -35,6 +35,7 @@ jobs:
       - name: Build and send report
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          DISCORD_WEBHOOK_URL_AUTO: ${{ secrets.DISCORD_WEBHOOK_URL_AUTO }}
         run: node scripts/backfill-report.mjs
 
       - name: Commit state

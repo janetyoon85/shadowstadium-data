@@ -44,6 +44,7 @@ jobs:
       - name: Run WBSC baseball fetch
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          DISCORD_WEBHOOK_URL_AUTO: ${{ secrets.DISCORD_WEBHOOK_URL_AUTO }}
           # 직접(집 IP) 먼저, 막히면(403/429/오류) ScraperAPI 로 자동 페일오버 — 키는 페일오버 때만 쓰인다(월 900건 예산).
           SCRAPERAPI_KEY: ${{ secrets.SCRAPERAPI_KEY }}
         run: node scripts/fetch-wbsc-baseball.mjs

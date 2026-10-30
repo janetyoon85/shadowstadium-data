@@ -35,6 +35,7 @@ jobs:
       - name: Run health check
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          DISCORD_WEBHOOK_URL_AUTO: ${{ secrets.DISCORD_WEBHOOK_URL_AUTO }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           APP_REPO_TOKEN: ${{ secrets.APP_REPO_TOKEN }}
         run: node scripts/ops-health-check.mjs
