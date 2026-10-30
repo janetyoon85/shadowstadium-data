@@ -758007,8 +758007,8 @@
           "n": "올리세",
           "m": 50,
           "pid": "espn:286831",
-          "pk": true,
-          "nat": "France"
+          "nat": "France",
+          "pk": true
         },
         {
           "n": "데이비스",
@@ -759572,7 +759572,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1793313277775
+    "assistsAt": 1793320534486
   },
   {
     "date": "2026-10-29",
@@ -760898,7 +760898,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1793313275944
+    "assistsAt": 1793320476201
   },
   {
     "date": "2026-10-29",
@@ -762812,9 +762812,9 @@
         {
           "n": "도밍게스",
           "m": 90,
+          "pk": true,
           "nat": "France",
-          "pid": "espn:333033",
-          "pk": true
+          "pid": "espn:333033"
         }
       ]
     },
@@ -763413,7 +763413,7 @@
     "stadium": "Arena MRV",
     "timeTbd": false,
     "gameId": "BRASILEIRAO_ESPN_401841288",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 0,
     "awayScore": 1,
@@ -763424,7 +763424,10 @@
           "n": "Kaio Jorge",
           "m": 4,
           "nat": "Brazil",
-          "pid": "espn:280978"
+          "pid": "espn:280978",
+          "a": "Keny Arroyo",
+          "apid": "espn:371534",
+          "aNat": "Ecuador"
         }
       ]
     },
@@ -763436,6 +763439,13 @@
           "m": 24,
           "pid": "espn:304699",
           "nat": "Brazil"
+        },
+        {
+          "n": "Alan Minda",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:319422",
+          "nat": "Ecuador"
         }
       ],
       "away": [
@@ -763474,7 +763484,9 @@
           "nat": "Brazil"
         }
       ]
-    }
+    },
+    "assistsChecked": true,
+    "assistsAt": 1793320476003
   },
   {
     "date": "2026-10-30",
@@ -763546,16 +763558,18 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 11,
-    "inningInfo": "4회말",
+    "inningInfo": "5회초",
     "liveState": {
       "pitcher": "Cristopher Molina",
-      "batter": "Michael De La Cruz",
+      "batter": "Jonathan Guzmán",
       "pitcherPid": "mlb:650654",
-      "batterPid": "mlb:631222",
+      "batterPid": "mlb:666695",
       "ball": 0,
       "strike": 1,
-      "out": 3,
-      "bases": []
+      "out": 1,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -763573,13 +763587,13 @@
     "awayScore": 4,
     "inningInfo": "4회말",
     "liveState": {
-      "pitcher": "Dillon Tate",
-      "batter": "José Sánchez",
-      "pitcherPid": "mlb:622253",
-      "batterPid": "mlb:672566",
-      "ball": 1,
-      "strike": 2,
-      "out": 0,
+      "pitcher": "Gabriel Yanez",
+      "batter": "Breyvic Valera",
+      "pitcherPid": "mlb:673394",
+      "batterPid": "mlb:591971",
+      "ball": 0,
+      "strike": 3,
+      "out": 3,
       "bases": []
     }
   },
@@ -763596,18 +763610,16 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 1,
-    "inningInfo": "5회초",
+    "inningInfo": "5회말",
     "liveState": {
-      "pitcher": "Jean Pinto",
-      "batter": "Phillip Ervin",
-      "pitcherPid": "mlb:686645",
-      "batterPid": "mlb:640447",
+      "pitcher": "José Davila",
+      "batter": "Keyber Rodriguez",
+      "pitcherPid": "mlb:692369",
+      "batterPid": "mlb:677601",
       "ball": 0,
       "strike": 0,
-      "out": 2,
-      "bases": [
-        1
-      ]
+      "out": 0,
+      "bases": []
     }
   },
   {
@@ -763626,13 +763638,14 @@
     "inningInfo": "4회말",
     "liveState": {
       "pitcher": "Dale Stanavich",
-      "batter": "Jose Herrera",
+      "batter": "Ramón Flores",
       "pitcherPid": "mlb:689359",
-      "batterPid": "mlb:645444",
+      "batterPid": "mlb:570717",
       "ball": 0,
       "strike": 1,
-      "out": 1,
+      "out": 2,
       "bases": [
+        1,
         2
       ]
     }
@@ -763650,15 +763663,15 @@
     "status": "live",
     "homeScore": 5,
     "awayScore": 1,
-    "inningInfo": "3회말",
+    "inningInfo": "4회초",
     "liveState": {
-      "pitcher": "Brander Guevara",
-      "batter": "Spencer Packard",
-      "pitcherPid": "mlb:842334",
-      "batterPid": "mlb:689070",
+      "pitcher": "Alejandro Hidalgo",
+      "batter": "Danry Vasquez",
+      "pitcherPid": "mlb:691576",
+      "batterPid": "mlb:606281",
       "ball": 0,
       "strike": 0,
-      "out": 3,
+      "out": 2,
       "bases": []
     }
   },
@@ -763673,7 +763686,7 @@
     "timeTbd": false,
     "gameId": "COLOMBIA_ESPN_401878035",
     "status": "live",
-    "matchPeriod": "하프타임",
+    "matchPeriod": "후반",
     "homeScore": 0,
     "awayScore": 0,
     "cards": {
@@ -763701,20 +763714,17 @@
     "gameId": "LIDOM_MLBSTATS_851459",
     "status": "live",
     "homeScore": 3,
-    "awayScore": 1,
+    "awayScore": 2,
     "inningInfo": "3회초",
     "liveState": {
-      "pitcher": "Daniel Martinez",
-      "batter": "Felix Reyes",
-      "pitcherPid": "mlb:681979",
-      "batterPid": "mlb:694025",
-      "ball": 1,
+      "pitcher": "Bryce Conley",
+      "batter": "Kevin Alcántara",
+      "pitcherPid": "mlb:676785",
+      "batterPid": "mlb:682634",
+      "ball": 0,
       "strike": 1,
-      "out": 2,
-      "bases": [
-        1,
-        3
-      ]
+      "out": 3,
+      "bases": []
     }
   },
   {
@@ -763758,13 +763768,15 @@
     "inningInfo": "2회말",
     "liveState": {
       "pitcher": "Humberto Castellanos",
-      "batter": "Alonso Mendoza",
+      "batter": "Aldo Nunez",
       "pitcherPid": "mlb:528748",
-      "batterPid": "mlb:673374",
+      "batterPid": "mlb:800096",
       "ball": 0,
-      "strike": 0,
-      "out": 0,
-      "bases": []
+      "strike": 1,
+      "out": 2,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -763778,21 +763790,18 @@
     "timeTbd": false,
     "gameId": "LMP_MLBSTATS_850506",
     "status": "live",
-    "homeScore": 0,
+    "homeScore": 1,
     "awayScore": 0,
     "inningInfo": "2회말",
     "liveState": {
-      "pitcher": "Dalton Rodriguez",
-      "batter": "Yael Romero",
-      "pitcherPid": "mlb:631229",
-      "batterPid": "mlb:806873",
+      "pitcher": "Ross Carver",
+      "batter": "Alexis Wilson",
+      "pitcherPid": "mlb:687102",
+      "batterPid": "mlb:656029",
       "ball": 0,
       "strike": 1,
-      "out": 0,
-      "bases": [
-        1,
-        3
-      ]
+      "out": 3,
+      "bases": []
     }
   },
   {
@@ -763829,7 +763838,10 @@
     "stadium": "Arena do Grêmio",
     "timeTbd": false,
     "gameId": "BRASILEIRAO_ESPN_401841290",
-    "status": "scheduled"
+    "status": "live",
+    "matchPeriod": "전반",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-10-30",
@@ -763844,7 +763856,19 @@
     "status": "live",
     "matchPeriod": "전반",
     "homeScore": 0,
-    "awayScore": 0
+    "awayScore": 0,
+    "cards": {
+      "home": [
+        {
+          "n": "Horacio Orzan",
+          "type": "R",
+          "m": 4,
+          "pid": "espn:119153",
+          "nat": "Argentina"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-10-30",
