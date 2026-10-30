@@ -755730,7 +755730,7 @@
       "away": []
     },
     "assistsChecked": true,
-    "assistsAt": 1793385054895
+    "assistsAt": 1793392296212
   },
   {
     "date": "2026-10-28",
@@ -765191,7 +765191,7 @@
     "gameId": "BELGIUM_ESPN_401878956",
     "status": "live",
     "homeScore": 1,
-    "awayScore": 3,
+    "awayScore": 4,
     "matchPeriod": "전반",
     "scorers": {
       "home": [
@@ -765220,6 +765220,12 @@
           "m": 36,
           "nat": "Germany",
           "pid": "espn:335201"
+        },
+        {
+          "n": "Hans Vanaken",
+          "m": 45,
+          "nat": "Belgium",
+          "pid": "espn:193849"
         }
       ]
     }
@@ -765237,7 +765243,19 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반"
+    "matchPeriod": "전반",
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Callum Doyle",
+          "type": "Y",
+          "m": 27,
+          "pid": "espn:310598",
+          "nat": "England"
+        }
+      ]
+    }
   },
   {
     "date": "2026-10-31",
@@ -765305,7 +765323,7 @@
     "gameId": "PORTUGAL_ESPN_401885408",
     "status": "live",
     "homeScore": 0,
-    "awayScore": 0,
+    "awayScore": 1,
     "matchPeriod": "전반",
     "cards": {
       "home": [
@@ -765318,6 +765336,17 @@
         }
       ],
       "away": []
+    },
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "Pedro Lima",
+          "m": 13,
+          "nat": "Brazil",
+          "pid": "espn:307930"
+        }
+      ]
     }
   },
   {
@@ -765679,18 +765708,6 @@
     "timeTbd": false,
     "gameId": "LMP_MLBSTATS_850497",
     "status": "scheduled"
-  },
-  {
-    "date": "2026-10-31",
-    "time": "11:30",
-    "league": "LMP",
-    "venueId": "estadio_manuel_ciclon_echeverria",
-    "home": "마요스 데 나보호아",
-    "away": "아길라스 데 멕시칼리",
-    "stadium": "Estadio Manuel Ciclon Echeverria",
-    "timeTbd": false,
-    "gameId": "LMP_MLBSTATS_850495",
-    "status": "postponed"
   },
   {
     "date": "2026-10-31",
@@ -768822,6 +768839,18 @@
     "gameId": "pB2WcQUOtVebfD0",
     "status": "scheduled",
     "phaseCode": "LEAGUE"
+  },
+  {
+    "date": "2026-11-02",
+    "time": "09:05",
+    "league": "LMP",
+    "venueId": "estadio_manuel_ciclon_echeverria",
+    "home": "마요스 데 나보호아",
+    "away": "아길라스 데 멕시칼리",
+    "stadium": "Estadio Manuel Ciclon Echeverria",
+    "timeTbd": true,
+    "gameId": "LMP_MLBSTATS_850495",
+    "status": "scheduled"
   },
   {
     "date": "2026-11-02",
