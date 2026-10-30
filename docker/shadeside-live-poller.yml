@@ -14,7 +14,7 @@ services:
       FIREBASE_DB_SECRET: "여기에_데이터베이스_비밀키"
       LIVE_INTERVAL_S: "20"
       # 네이버 호출 간격(초) — 2026-10-27 차단 사건 후 기본 30초(농구·ESPN 은 LIVE_INTERVAL_S 그대로). 코드 기본값이 30 이라 비워 둬도 된다.
-      NAVER_LIVE_INTERVAL_S: "30"
+      NAVER_LIVE_INTERVAL_S: "20"   # 2026-10-30 NAS 에서 20초로 낮춤(TLS1.2·타임아웃 수정 뒤 안정 확인) — 차단 사건 직후엔 30초였다
       # Node 의 TLS1.3 핸드셰이크 뒤 응답이 멈추는 현상 회피(scripts/lib/naver-tls.mjs) — 네이버 호출에 필요
       NAVER_TLS12: "1"
       # (비공개 크롤러 코드) shadowstadium-crawler 읽기 전용 토큰 — 공개 저장소에서 scripts/ 가 빠진 뒤에도 코드를 받는다. 비워 두면 공개 저장소의 scripts/ 를 그대로 쓴다.
