@@ -36,12 +36,14 @@ jobs:
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
           DISCORD_WEBHOOK_URL_AUTO: ${{ secrets.DISCORD_WEBHOOK_URL_AUTO }}
+          # ESPN 건강 신호 — 끝날 때 ESPN 요청 통계로 불통 여부를 이 파일에 기록(상태 전환·10분 하트비트에만 갱신)
+          ESPN_HEALTH_FILE: espn-health.json
         run: node scripts/fetch-espn-asia-soccer-leagues.mjs
 
       - name: Check for changes
         id: changes
         run: |
-          if [[ -n "$(git status --porcelain games.json)" ]]; then
+          if [[ -n "$(git status --porcelain games.json espn-health.json)" ]]; then
             echo "changed=true" >> $GITHUB_OUTPUT
           else
             echo "changed=false" >> $GITHUB_OUTPUT
@@ -53,6 +55,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add games.json
+          git add espn-health.json 2>/dev/null || true   # ESPN 건강 신호
           git commit -m "chore(data): 아시아축구 3개리그(ESPN) 동기화 ($(date +'%Y-%m-%d %H:%M'))"
           for i in $(seq 1 20); do
             if git push; then

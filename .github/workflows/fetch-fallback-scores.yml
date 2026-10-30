@@ -10,6 +10,9 @@ on:
       dry:
         description: '변경 목록만 출력(저장·커밋 안 함) — true/false'
         default: 'false'
+      simulate_espn_down:
+        description: 'ESPN 불통 시뮬레이션(시험용, API-Sports 실제 호출 1~3건 사용) — true/false'
+        default: 'false'
 
 permissions:
   contents: write
@@ -42,6 +45,9 @@ jobs:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}   # 네이버 불통 전환 알림(1회)
           # 야후 스포츠(스포츠나비) NPB 승·패·세이브 투수 보조 — 기본 OFF. 야후 이용약관의 자동 접근 허용을 확인한 뒤 저장소 변수 YAHOO_NPB_ENABLED=1 로 켠다(네이버 불통 중에만 동작).
           YAHOO_NPB_ENABLED: ${{ vars.YAHOO_NPB_ENABLED }}
+          # ESPN 불통 페일오버 — API-Sports(무료 하루 100건) 로 ESPN 출처 리그 점수·상태 보조. 키는 시크릿, 로그에 남기지 않는다.
+          API_SPORTS_KEY: ${{ secrets.API_SPORTS_KEY }}
+          ESPN_FORCE_DOWN: ${{ github.event.inputs.simulate_espn_down == 'true' && '1' || '' }}
         run: node scripts/fetch-fallback-scores.mjs
 
       # 다음스포츠 보조(KBO·K리그·NPB·유럽 축구)도 같은 실행에서 — 이 워크플로우가 cron-job.org 로 안정적으로 매분 호출되므로 별도 등록 없이 보조 경로가 이어진다(2026-10-27).
@@ -70,7 +76,7 @@ jobs:
       - name: Check for changes
         id: changes
         run: |
-          if [[ -n "$(git status --porcelain games.json standings.json daum-venue-map.json naver-health-alert.json ops-ledger)" ]]; then echo "changed=true" >> $GITHUB_OUTPUT; else echo "changed=false" >> $GITHUB_OUTPUT; fi
+          if [[ -n "$(git status --porcelain games.json standings.json daum-venue-map.json naver-health-alert.json espn-health-alert.json apisports-state.json ops-ledger)" ]]; then echo "changed=true" >> $GITHUB_OUTPUT; else echo "changed=false" >> $GITHUB_OUTPUT; fi
 
       - name: Commit and push
         if: steps.changes.outputs.changed == 'true'
@@ -79,7 +85,8 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           cp games.json games_2026.json
           git add games.json games_2026.json standings.json daum-venue-map.json
-          git add naver-health-alert.json 2>/dev/null || true   # 불통 알림 상태(한 번만 알리려고)
+          # 불통 알림 상태(한 번만 알리려고)·API-Sports 하루 사용량 — 파일이 없으면 git add 가 통째로 실패하므로 하나씩(없는 건 건너뜀)
+          for f in naver-health-alert.json espn-health-alert.json apisports-state.json; do if [ -e "$f" ]; then git add "$f"; fi; done
           git add -A ops-ledger 2>/dev/null || true   # 복구 기록(일일 보고용)
           git commit -m "chore(data): 보조 원본 점수·상태 보강(ESPN·MLB·다음) ($(date +'%Y-%m-%d %H:%M'))"
           for i in $(seq 1 20); do
