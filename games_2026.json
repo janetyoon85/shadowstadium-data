@@ -758111,9 +758111,9 @@
         {
           "n": "시크",
           "m": 70,
+          "pk": true,
           "nat": "Czechia",
-          "pid": "espn:212330",
-          "pk": true
+          "pid": "espn:212330"
         },
         {
           "n": "호프만",
@@ -759766,7 +759766,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1793313650744
+    "assistsAt": 1793320891243
   },
   {
     "date": "2026-10-29",
@@ -760842,7 +760842,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1793313650482
+    "assistsAt": 1793320891031
   },
   {
     "date": "2026-10-29",
@@ -762812,9 +762812,9 @@
         {
           "n": "도밍게스",
           "m": 90,
-          "pk": true,
           "nat": "France",
-          "pid": "espn:333033"
+          "pid": "espn:333033",
+          "pk": true
         }
       ]
     },
@@ -763561,14 +763561,15 @@
     "inningInfo": "5회초",
     "liveState": {
       "pitcher": "Cristopher Molina",
-      "batter": "Jonathan Guzmán",
+      "batter": "José Marmolejos",
       "pitcherPid": "mlb:650654",
-      "batterPid": "mlb:666695",
-      "ball": 0,
-      "strike": 1,
-      "out": 1,
+      "batterPid": "mlb:592530",
+      "ball": 1,
+      "strike": 2,
+      "out": 2,
       "bases": [
-        1
+        1,
+        2
       ]
     }
   },
@@ -763585,15 +763586,15 @@
     "status": "live",
     "homeScore": 4,
     "awayScore": 4,
-    "inningInfo": "4회말",
+    "inningInfo": "5회초",
     "liveState": {
-      "pitcher": "Gabriel Yanez",
-      "batter": "Breyvic Valera",
-      "pitcherPid": "mlb:673394",
-      "batterPid": "mlb:591971",
-      "ball": 0,
-      "strike": 3,
-      "out": 3,
+      "pitcher": "Miguel Cienfuegos",
+      "batter": "Thairo Estrada",
+      "pitcherPid": "mlb:800550",
+      "batterPid": "mlb:642731",
+      "ball": 2,
+      "strike": 0,
+      "out": 2,
       "bases": []
     }
   },
@@ -763613,12 +763614,12 @@
     "inningInfo": "5회말",
     "liveState": {
       "pitcher": "José Davila",
-      "batter": "Keyber Rodriguez",
+      "batter": "Lorenzo Cedrola",
       "pitcherPid": "mlb:692369",
-      "batterPid": "mlb:677601",
-      "ball": 0,
-      "strike": 0,
-      "out": 0,
+      "batterPid": "mlb:661411",
+      "ball": 1,
+      "strike": 2,
+      "out": 1,
       "bases": []
     }
   },
@@ -763634,20 +763635,17 @@
     "gameId": "LVBP_MLBSTATS_870047",
     "status": "live",
     "homeScore": 2,
-    "awayScore": 3,
-    "inningInfo": "4회말",
+    "awayScore": 4,
+    "inningInfo": "5회초",
     "liveState": {
-      "pitcher": "Dale Stanavich",
-      "batter": "Ramón Flores",
-      "pitcherPid": "mlb:689359",
-      "batterPid": "mlb:570717",
-      "ball": 0,
+      "pitcher": "Alfonso Hernández",
+      "batter": "Wuilfredo Antunez",
+      "pitcherPid": "mlb:669799",
+      "batterPid": "mlb:686404",
+      "ball": 1,
       "strike": 1,
-      "out": 2,
-      "bases": [
-        1,
-        2
-      ]
+      "out": 0,
+      "bases": []
     }
   },
   {
@@ -763663,15 +763661,15 @@
     "status": "live",
     "homeScore": 5,
     "awayScore": 1,
-    "inningInfo": "4회초",
+    "inningInfo": "4회말",
     "liveState": {
-      "pitcher": "Alejandro Hidalgo",
-      "batter": "Danry Vasquez",
-      "pitcherPid": "mlb:691576",
-      "batterPid": "mlb:606281",
-      "ball": 0,
-      "strike": 0,
-      "out": 2,
+      "pitcher": "Robert Colina",
+      "batter": "Símon Muzziotti",
+      "pitcherPid": "mlb:678783",
+      "batterPid": "mlb:665922",
+      "ball": 2,
+      "strike": 2,
+      "out": 1,
       "bases": []
     }
   },
@@ -763715,16 +763713,18 @@
     "status": "live",
     "homeScore": 3,
     "awayScore": 2,
-    "inningInfo": "3회초",
+    "inningInfo": "3회말",
     "liveState": {
-      "pitcher": "Bryce Conley",
-      "batter": "Kevin Alcántara",
-      "pitcherPid": "mlb:676785",
-      "batterPid": "mlb:682634",
+      "pitcher": "Emailin Montilla",
+      "batter": "Estevan Florial",
+      "pitcherPid": "mlb:692983",
+      "batterPid": "mlb:664314",
       "ball": 0,
       "strike": 1,
-      "out": 3,
-      "bases": []
+      "out": 0,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -763765,18 +763765,16 @@
     "status": "live",
     "homeScore": 1,
     "awayScore": 3,
-    "inningInfo": "2회말",
+    "inningInfo": "3회초",
     "liveState": {
-      "pitcher": "Humberto Castellanos",
-      "batter": "Aldo Nunez",
-      "pitcherPid": "mlb:528748",
-      "batterPid": "mlb:800096",
-      "ball": 0,
+      "pitcher": "Faustino Carrera",
+      "batter": "Esteban Quiroz",
+      "pitcherPid": "mlb:666627",
+      "batterPid": "mlb:606019",
+      "ball": 2,
       "strike": 1,
-      "out": 2,
-      "bases": [
-        1
-      ]
+      "out": 0,
+      "bases": []
     }
   },
   {
@@ -763792,16 +763790,18 @@
     "status": "live",
     "homeScore": 1,
     "awayScore": 0,
-    "inningInfo": "2회말",
+    "inningInfo": "3회초",
     "liveState": {
       "pitcher": "Ross Carver",
-      "batter": "Alexis Wilson",
+      "batter": "Jose Gaitan",
       "pitcherPid": "mlb:687102",
-      "batterPid": "mlb:656029",
+      "batterPid": "mlb:668165",
       "ball": 0,
       "strike": 1,
-      "out": 3,
-      "bases": []
+      "out": 2,
+      "bases": [
+        3
+      ]
     }
   },
   {
@@ -763855,7 +763855,7 @@
     "gameId": "PERU_ESPN_401886150",
     "status": "live",
     "matchPeriod": "전반",
-    "homeScore": 0,
+    "homeScore": 1,
     "awayScore": 0,
     "cards": {
       "home": [
@@ -763865,6 +763865,17 @@
           "m": 4,
           "pid": "espn:119153",
           "nat": "Argentina"
+        }
+      ],
+      "away": []
+    },
+    "scorers": {
+      "home": [
+        {
+          "n": "Jhonny Vidales",
+          "m": 9,
+          "nat": "Peru",
+          "pid": "espn:171405"
         }
       ],
       "away": []
