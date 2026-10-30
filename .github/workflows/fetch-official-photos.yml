@@ -1,4 +1,4 @@
-name: Official Player Photos (K League, B.League)
+name: Official Player Photos (K League, B.League, NBL)
 
 # 공식 사이트(kleague.com 구단 페이지, bleague.jp 선수 목록)에서 선수 사진을 받아 160px 썸네일로 저장 — 새 선수·이적 반영.
 # 하루 1회면 충분(K리그 ~30건+새 사진, B리그 ~20건+새 사진, 이미 만든 썸네일은 다시 받지 않음). cron-job.org 에서 이 워크플로우를 dispatch 하도록 등록(GitHub schedule 은 자주 누락).
@@ -42,13 +42,14 @@ jobs:
         run: |
           python scripts/fetch-kleague-roster-photos.py
           python scripts/fetch-bleague-photos.py
+          python scripts/fetch-nbl-photos.py
 
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           commit() {
-            git add kphotos bphotos kleague-roster-photos.json player-photos.json 2>/dev/null || true
+            git add kphotos bphotos nblphotos kleague-roster-photos.json nbl-photos.json player-photos.json 2>/dev/null || true
             if git diff --cached --quiet; then echo "변경 없음"; return 1; fi
             git commit -m "chore(data): 공식 선수 사진 갱신 ($(date +'%Y-%m-%d %H:%M'))"
           }
@@ -61,6 +62,7 @@ jobs:
             git reset --hard origin/main
             python scripts/fetch-kleague-roster-photos.py
             python scripts/fetch-bleague-photos.py
+            python scripts/fetch-nbl-photos.py
             commit || exit 0
             sleep $((RANDOM % 8 + 1))
           done
