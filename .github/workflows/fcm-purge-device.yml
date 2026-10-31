@@ -13,6 +13,9 @@ on:
       dry_run:
         description: '1 = 해제하지 않고 후보 개수만'
         default: '1'
+      non_fav_teams:
+        description: '1 = 즐겨찾기가 아닌 모든 팀의 알림 구독도 해제(favs 의 teams·bkTeams 가 현재 목록과 정확히 같을 때만)'
+        default: '0'
 
 permissions:
   contents: read
@@ -46,4 +49,5 @@ jobs:
           FCM_TOKEN: ${{ inputs.token }}
           KEEP_LANG: ${{ inputs.keep_lang }}
           DRY_RUN: ${{ inputs.dry_run }}
+          PURGE_NON_FAV_TEAMS: ${{ inputs.non_fav_teams }}
         run: node scripts/purge-device-topics.mjs
