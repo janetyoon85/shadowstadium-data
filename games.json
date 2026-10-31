@@ -774601,12 +774601,20 @@
     "stadium": "Estadio Campeones del '36",
     "timeTbd": false,
     "gameId": "PERU_ESPN_401886149",
-    "status": "live",
+    "status": "completed",
     "homeScore": 1,
     "awayScore": 0,
     "matchPeriod": "후반",
     "cards": {
-      "home": [],
+      "home": [
+        {
+          "n": "Gastón Díaz",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:315958",
+          "nat": "Argentina"
+        }
+      ],
       "away": [
         {
           "n": "Juan Goicochea",
@@ -774621,6 +774629,13 @@
           "m": 90,
           "pid": "espn:224362",
           "nat": "Peru"
+        },
+        {
+          "n": "Jorge Toledo",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:253661",
+          "nat": "Peru"
         }
       ]
     },
@@ -774634,7 +774649,9 @@
         }
       ],
       "away": []
-    }
+    },
+    "assistsChecked": true,
+    "assistsAt": 1793486189770
   },
   {
     "date": "2026-11-01",
