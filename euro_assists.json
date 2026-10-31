@@ -341,29 +341,35 @@
   "FKEdG6Fr2hYcja9": {
     "homeAssists": [
       "Amario Cozier-Duberry",
-      "Sebastian Berhalter"
+      "Sebastian Berhalter",
+      null
     ],
     "awayAssists": [],
     "homeNats": [
       "USA",
+      "England",
       "England"
     ],
     "awayNats": [],
     "homeANats": [
       "England",
-      "USA"
+      "USA",
+      null
     ],
     "awayANats": [],
     "homePids": [
       "espn:295771",
+      "espn:349181",
       "espn:349181"
     ],
     "awayPids": [],
     "homeAPids": [
       "espn:327170",
-      "espn:295771"
+      "espn:295771",
+      null
     ],
     "homePks": [
+      false,
       false,
       false
     ],
@@ -494,39 +500,57 @@
     "homeAssists": [
       "Lyndon Dykes",
       "Caleb Taylor",
-      "Camiel Neghli"
+      "Camiel Neghli",
+      "Mihailo Ivanovic"
     ],
-    "awayAssists": [],
+    "awayAssists": [
+      null
+    ],
     "homeNats": [
+      "England",
       "England",
       "England",
       "England"
     ],
-    "awayNats": [],
+    "awayNats": [
+      null
+    ],
     "homeANats": [
       "Scotland",
       "England",
-      "Algeria"
+      "Algeria",
+      "Serbia"
     ],
-    "awayANats": [],
+    "awayANats": [
+      null
+    ],
     "homePids": [
       "espn:374682",
       "espn:374682",
-      "espn:281730"
+      "espn:281730",
+      "espn:190963"
     ],
-    "awayPids": [],
+    "awayPids": [
+      null
+    ],
     "homeAPids": [
       "espn:207538",
       "espn:308572",
-      "espn:310173"
+      "espn:310173",
+      "espn:359214"
     ],
     "homePks": [
       false,
       false,
+      false,
       false
     ],
-    "awayPks": [],
-    "awayAPids": [],
+    "awayPks": [
+      false
+    ],
+    "awayAPids": [
+      null
+    ],
     "final": false,
     "sv": 5,
     "r": 1
@@ -670,6 +694,7 @@
     "homeAssists": [
       null,
       null,
+      null,
       null
     ],
     "awayAssists": [
@@ -678,12 +703,14 @@
     "homeNats": [
       "Zambia",
       "Saudi Arabia",
-      "Spain"
+      "Spain",
+      "Brazil"
     ],
     "awayNats": [
       "Saudi Arabia"
     ],
     "homeANats": [
+      null,
       null,
       null,
       null
@@ -694,7 +721,8 @@
     "homePids": [
       "espn:256640",
       "espn:286012",
-      "espn:186840"
+      "espn:186840",
+      "espn:269924"
     ],
     "awayPids": [
       "espn:357644"
@@ -702,9 +730,11 @@
     "homeAPids": [
       null,
       null,
+      null,
       null
     ],
     "homePks": [
+      false,
       false,
       false,
       false
@@ -16539,7 +16569,7 @@
     "awayAPids": [],
     "final": true,
     "sv": 5,
-    "at": 1793464982490,
+    "at": 1793465293358,
     "r": 1
   },
   "unacZTYgKcrgafO": {
@@ -38607,7 +38637,7 @@
     "awayAPids": [],
     "final": true,
     "sv": 5,
-    "at": 1793464985032,
+    "at": 1793465295956,
     "r": 1
   },
   "GNPs0ZgwsyjvGFM": {
