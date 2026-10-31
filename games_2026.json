@@ -762473,8 +762473,8 @@
           "n": "칼로",
           "m": 45,
           "pid": "espn:236038",
-          "nat": "Italy",
-          "pk": true
+          "pk": true,
+          "nat": "Italy"
         },
         {
           "n": "라이몬도",
@@ -762490,8 +762490,8 @@
           "m": 72,
           "a": "Romano Schmid",
           "nat": "Romania",
-          "aNat": "Austria",
           "pid": "espn:335061",
+          "aNat": "Austria",
           "apid": "espn:238296"
         },
         {
@@ -762499,8 +762499,8 @@
           "m": 90,
           "a": "Giorgi Kvernadze",
           "nat": "Romania",
-          "aNat": "Georgia",
           "pid": "espn:335061",
+          "aNat": "Georgia",
           "apid": "espn:360714"
         }
       ],
@@ -764957,9 +764957,9 @@
         {
           "n": "마르티네스",
           "m": 37,
+          "pk": true,
           "nat": "Colombia",
-          "pid": "espn:192180",
-          "pk": true
+          "pid": "espn:192180"
         },
         {
           "n": "리카르도 마티아스",
@@ -764970,16 +764970,16 @@
         {
           "n": "카라스코",
           "m": 66,
+          "pk": true,
           "nat": "Belgium",
-          "pid": "espn:174893",
-          "pk": true
+          "pid": "espn:174893"
         },
         {
           "n": "카라스코",
           "m": 82,
+          "pk": true,
           "nat": "Belgium",
-          "pid": "espn:174893",
-          "pk": true
+          "pid": "espn:174893"
         }
       ],
       "away": [
@@ -766857,7 +766857,7 @@
     "stadium": "Estadio Olímpico Benito Juárez",
     "timeTbd": false,
     "gameId": "LIGAMX_ESPN_401876918",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 3,
     "awayScore": 1,
@@ -766873,7 +766873,10 @@
           "n": "Madson",
           "m": 39,
           "nat": "Brazil",
-          "pid": "espn:287807"
+          "pid": "espn:287807",
+          "a": "Denzell García",
+          "apid": "espn:337308",
+          "aNat": "Mexico"
         },
         {
           "n": "José Luis Rodríguez",
@@ -766887,7 +766890,10 @@
           "n": "Ali Avila",
           "m": 89,
           "nat": "Mexico",
-          "pid": "espn:297287"
+          "pid": "espn:297287",
+          "a": "Mateo Coronel",
+          "apid": "espn:263219",
+          "aNat": "Argentina"
         }
       ]
     },
@@ -766917,7 +766923,9 @@
           "nat": "Argentina"
         }
       ]
-    }
+    },
+    "assistsChecked": true,
+    "assistsAt": 1793415351112
   },
   {
     "date": "2026-10-31",
@@ -766958,7 +766966,22 @@
       ]
     },
     "cards": {
-      "home": [],
+      "home": [
+        {
+          "n": "Nilson Castrillón",
+          "type": "Y",
+          "m": 84,
+          "pid": "espn:208143",
+          "nat": "Colombia"
+        },
+        {
+          "n": "Adrián Murillo",
+          "type": "Y",
+          "m": 85,
+          "pid": "espn:410812",
+          "nat": "Colombia"
+        }
+      ],
       "away": [
         {
           "n": "Franco Leys",
@@ -766966,6 +766989,13 @@
           "m": 75,
           "pid": "espn:187918",
           "nat": "Argentina"
+        },
+        {
+          "n": "John Méndez",
+          "type": "Y",
+          "m": 82,
+          "pid": "espn:330492",
+          "nat": "Colombia"
         }
       ]
     }
@@ -767010,13 +767040,13 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 1,
-    "inningInfo": "3회초",
+    "inningInfo": "3회말",
     "liveState": {
-      "pitcher": "Luis Payan",
-      "batter": "J.P. Martínez",
-      "pitcherPid": "mlb:674478",
-      "batterPid": "mlb:679881",
-      "ball": 1,
+      "pitcher": "Victor Castaneda",
+      "batter": "Julian Ornelas",
+      "pitcherPid": "mlb:674810",
+      "batterPid": "mlb:676140",
+      "ball": 0,
       "strike": 0,
       "out": 3,
       "bases": []
