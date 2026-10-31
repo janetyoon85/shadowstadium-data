@@ -762758,9 +762758,9 @@
         {
           "n": "도밍게스",
           "m": 90,
-          "pk": true,
           "nat": "France",
-          "pid": "espn:333033"
+          "pid": "espn:333033",
+          "pk": true
         }
       ]
     },
@@ -763510,7 +763510,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1793409216225
+    "assistsAt": 1793416419016
   },
   {
     "date": "2026-10-30",
@@ -767084,11 +767084,12 @@
       "batter": "Fabricio Macias",
       "pitcherPid": "mlb:674478",
       "batterPid": "mlb:671246",
-      "ball": 0,
-      "strike": 0,
+      "ball": 2,
+      "strike": 2,
       "out": 0,
       "bases": [
-        1
+        1,
+        2
       ]
     }
   },
@@ -767108,12 +767109,12 @@
     "inningInfo": "1회말",
     "liveState": {
       "pitcher": "Yoanner Negrin",
-      "batter": "Nick Lucky",
+      "batter": "Jose Alvarez",
       "pitcherPid": "mlb:594582",
-      "batterPid": "mlb:681879",
+      "batterPid": "mlb:518402",
       "ball": 0,
       "strike": 0,
-      "out": 0,
+      "out": 2,
       "bases": []
     }
   },
@@ -767127,7 +767128,10 @@
     "stadium": "Estadio Cuauhtémoc",
     "timeTbd": false,
     "gameId": "LIGAMX_ESPN_401876917",
-    "status": "scheduled"
+    "status": "live",
+    "matchPeriod": "전반",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-10-31",
