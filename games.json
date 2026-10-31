@@ -766703,7 +766703,7 @@
     "stadium": "Eva Perón",
     "timeTbd": false,
     "gameId": "ARGENTINA_ESPN_401841647",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 1,
     "awayScore": 2,
@@ -766713,7 +766713,10 @@
           "n": "Manuel Garcia",
           "m": 5,
           "nat": "Argentina",
-          "pid": "espn:200174"
+          "pid": "espn:200174",
+          "a": "Julián Mavilla",
+          "apid": "espn:379769",
+          "aNat": "Argentina"
         }
       ],
       "away": [
@@ -766721,13 +766724,19 @@
           "n": "Gastón Ávila",
           "m": 29,
           "nat": "Argentina",
-          "pid": "espn:285885"
+          "pid": "espn:285885",
+          "a": "Enzo Copetti",
+          "apid": "espn:241544",
+          "aNat": "Argentina"
         },
         {
           "n": "Gastón Ávila",
           "m": 90,
           "nat": "Argentina",
-          "pid": "espn:285885"
+          "pid": "espn:285885",
+          "a": "Ignacio Ovando",
+          "apid": "espn:400123",
+          "aNat": "Argentina"
         }
       ]
     },
@@ -766792,7 +766801,9 @@
           "nat": "Argentina"
         }
       ]
-    }
+    },
+    "assistsChecked": true,
+    "assistsAt": 1793412881592
   },
   {
     "date": "2026-10-31",
@@ -766876,7 +766887,15 @@
       "away": []
     },
     "cards": {
-      "home": [],
+      "home": [
+        {
+          "n": "Guilherme Castilho",
+          "type": "Y",
+          "m": 54,
+          "pid": "espn:270379",
+          "nat": "Brazil"
+        }
+      ],
       "away": [
         {
           "n": "Mateo Coronel",
