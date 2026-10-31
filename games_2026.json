@@ -761559,8 +761559,8 @@
           "m": 76,
           "a": "Ralph Priso",
           "nat": "Ecuador",
-          "aNat": "Canada",
           "pid": "espn:365154",
+          "aNat": "Canada",
           "apid": "espn:297118"
         }
       ],
@@ -761570,8 +761570,8 @@
           "m": 83,
           "a": "David Vazquez",
           "nat": "Finland",
-          "aNat": "USA",
           "pid": "espn:277212",
+          "aNat": "USA",
           "apid": "espn:365854"
         }
       ]
@@ -762758,9 +762758,9 @@
         {
           "n": "도밍게스",
           "m": 90,
-          "pk": true,
           "nat": "France",
-          "pid": "espn:333033"
+          "pid": "espn:333033",
+          "pk": true
         }
       ]
     },
@@ -766400,12 +766400,12 @@
     "inningInfo": "6회초",
     "liveState": {
       "pitcher": "Marlon Franco",
-      "batter": "Eliezer Alfonzo",
+      "batter": "Rougned Odor",
       "pitcherPid": "mlb:693812",
-      "batterPid": "mlb:672613",
+      "batterPid": "mlb:596059",
       "ball": 0,
-      "strike": 2,
-      "out": 1,
+      "strike": 0,
+      "out": 2,
       "bases": [
         1
       ]
@@ -766424,16 +766424,18 @@
     "status": "live",
     "homeScore": 2,
     "awayScore": 7,
-    "inningInfo": "5회말",
+    "inningInfo": "6회초",
     "liveState": {
-      "pitcher": "Werner Leal",
-      "batter": "Jhonny Pereda",
-      "pitcherPid": "mlb:642582",
-      "batterPid": "mlb:640902",
-      "ball": 0,
-      "strike": 0,
-      "out": 3,
-      "bases": []
+      "pitcher": "Adrian Luna",
+      "batter": "Wilfredo Tovar",
+      "pitcherPid": "mlb:692022",
+      "batterPid": "mlb:541600",
+      "ball": 2,
+      "strike": 1,
+      "out": 2,
+      "bases": [
+        2
+      ]
     }
   },
   {
@@ -766449,15 +766451,15 @@
     "status": "live",
     "homeScore": 5,
     "awayScore": 3,
-    "inningInfo": "6회말",
+    "inningInfo": "7회초",
     "liveState": {
-      "pitcher": "Johan Moreno",
-      "batter": "José Godoy",
-      "pitcherPid": "mlb:808052",
-      "batterPid": "mlb:608422",
-      "ball": 1,
+      "pitcher": "Ramon Santos",
+      "batter": "Ali Castillo",
+      "pitcherPid": "mlb:622353",
+      "batterPid": "mlb:542419",
+      "ball": 0,
       "strike": 0,
-      "out": 3,
+      "out": 1,
       "bases": []
     }
   },
@@ -766474,15 +766476,15 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 0,
-    "inningInfo": "6회초",
+    "inningInfo": "6회말",
     "liveState": {
-      "pitcher": "Oscar De La Cruz",
-      "batter": "Vidal Bruján",
-      "pitcherPid": "mlb:642601",
-      "batterPid": "mlb:660644",
+      "pitcher": "Sammy Peralta",
+      "batter": "José Marmolejos",
+      "pitcherPid": "mlb:671111",
+      "batterPid": "mlb:592530",
       "ball": 1,
-      "strike": 3,
-      "out": 3,
+      "strike": 2,
+      "out": 2,
       "bases": []
     }
   },
@@ -766502,12 +766504,12 @@
     "inningInfo": "5회말",
     "liveState": {
       "pitcher": "Junior Fernández",
-      "batter": "Ronny Simon",
+      "batter": "Gilberto Celestino",
       "pitcherPid": "mlb:658551",
-      "batterPid": "mlb:682927",
-      "ball": 0,
-      "strike": 0,
-      "out": 0,
+      "batterPid": "mlb:665482",
+      "ball": 3,
+      "strike": 2,
+      "out": 1,
       "bases": []
     }
   },
@@ -766522,7 +766524,7 @@
     "timeTbd": false,
     "gameId": "BOLIVIA_ESPN_401930013",
     "status": "live",
-    "matchPeriod": "하프타임",
+    "matchPeriod": "후반",
     "homeScore": 1,
     "awayScore": 0,
     "scorers": {
@@ -766560,7 +766562,7 @@
     "timeTbd": false,
     "gameId": "COSTARICA_ESPN_401876890",
     "status": "live",
-    "matchPeriod": "하프타임",
+    "matchPeriod": "후반",
     "homeScore": 1,
     "awayScore": 1,
     "scorers": {
@@ -766748,7 +766750,10 @@
     "stadium": "Estadio Alfonso López",
     "timeTbd": false,
     "gameId": "COLOMBIA_ESPN_401878044",
-    "status": "scheduled"
+    "status": "live",
+    "matchPeriod": "전반",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-10-31",
