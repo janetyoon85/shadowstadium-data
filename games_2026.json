@@ -759994,7 +759994,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1793418696322
+    "assistsAt": 1793425896780
   },
   {
     "date": "2026-10-29",
@@ -760565,7 +760565,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1793418511790
+    "assistsAt": 1793425769049
   },
   {
     "date": "2026-10-29",
@@ -762624,7 +762624,7 @@
       "away": []
     },
     "assistsChecked": true,
-    "assistsAt": 1793418696136
+    "assistsAt": 1793425896566
   },
   {
     "date": "2026-10-30",
@@ -767153,15 +767153,15 @@
     "awayScore": 3,
     "inningInfo": "8회초",
     "liveState": {
-      "pitcher": "Gerardo Gutierrez",
-      "batter": "Amilcar Gomez",
-      "pitcherPid": "mlb:677916",
-      "batterPid": "mlb:653248",
-      "ball": 2,
+      "pitcher": "Oscar Rojas",
+      "batter": "Manuel Orduno",
+      "pitcherPid": "mlb:676019",
+      "batterPid": "mlb:655212",
+      "ball": 0,
       "strike": 0,
-      "out": 1,
+      "out": 2,
       "bases": [
-        1
+        2
       ]
     }
   },
@@ -767241,9 +767241,9 @@
     "stadium": "McDonald Jones Stadium",
     "timeTbd": false,
     "gameId": "AUSTRALIA_ESPN_401892149",
-    "status": "live",
+    "status": "completed",
     "homeScore": 0,
-    "awayScore": 2,
+    "awayScore": 3,
     "matchPeriod": "후반",
     "scorers": {
       "home": [],
@@ -767252,13 +767252,28 @@
           "n": "Corban Piper",
           "m": 14,
           "nat": "New Zealand",
-          "pid": "espn:392328"
+          "pid": "espn:392328",
+          "a": "Kazuki Nagasawa",
+          "apid": "espn:197630",
+          "aNat": "Japan"
         },
         {
           "n": "Riley Bidois",
           "m": 87,
           "nat": "New Zealand",
-          "pid": "espn:339118"
+          "pid": "espn:339118",
+          "a": "Kazuki Nagasawa",
+          "apid": "espn:197630",
+          "aNat": "Japan"
+        },
+        {
+          "n": "Nathan Walker",
+          "m": 90,
+          "nat": "New Zealand",
+          "pid": "espn:32752",
+          "a": "Kazuki Nagasawa",
+          "apid": "espn:197630",
+          "aNat": "Japan"
         }
       ]
     },
@@ -767273,7 +767288,9 @@
           "nat": "New Zealand"
         }
       ]
-    }
+    },
+    "assistsChecked": true,
+    "assistsAt": 1793425848147
   },
   {
     "date": "2026-10-31",
@@ -767288,7 +767305,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 0,
-    "matchPeriod": "전반",
+    "matchPeriod": "전반 47'",
     "scorers": {
       "home": [],
       "away": [
@@ -767324,9 +767341,19 @@
     "timeTbd": false,
     "gameId": "C0mVNzAA1F9LxlK",
     "status": "live",
-    "awayScore": 0,
+    "awayScore": 1,
     "homeScore": 0,
-    "matchPeriod": "전반",
+    "matchPeriod": "전반 48'",
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "나카가와",
+          "m": 45,
+          "pid": "espn:238075"
+        }
+      ]
+    },
     "cards": {
       "home": [
         {
@@ -767353,7 +767380,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 1,
-    "matchPeriod": "전반",
+    "matchPeriod": "전반 48'",
     "scorers": {
       "home": [
         {
@@ -767399,7 +767426,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 45'",
+    "matchPeriod": "전반종료",
     "cards": {
       "home": [
         {
@@ -767425,7 +767452,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 1,
-    "matchPeriod": "전반 46'",
+    "matchPeriod": "전반종료",
     "scorers": {
       "home": [
         {
@@ -767441,7 +767468,7 @@
         {
           "n": "김형원",
           "type": "Y",
-          "m": 37,
+          "m": 36,
           "pid": "naver:20200107"
         },
         {
@@ -767474,7 +767501,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 2,
-    "matchPeriod": "전반 46'",
+    "matchPeriod": "전반 51'",
     "scorers": {
       "home": [
         {
@@ -767488,7 +767515,13 @@
           "pid": "naver:20240208"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "오스마르",
+          "m": 45,
+          "pid": "naver:20140067"
+        }
+      ]
     },
     "assists": {
       "home": [
@@ -767498,7 +767531,13 @@
           "pid": "naver:20240208"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "에울레르",
+          "count": 1,
+          "pid": "naver:20250192"
+        }
+      ]
     }
   },
   {
@@ -770361,18 +770400,6 @@
   },
   {
     "date": "2026-11-02",
-    "time": "06:30",
-    "league": "VENEZUELA",
-    "venueId": "estadio_olimpico_ucv_caracas",
-    "home": "데포르티보 라과이라",
-    "away": "포르투게사",
-    "stadium": "",
-    "timeTbd": false,
-    "gameId": "VENEZUELA_ESPN_401930968",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-11-02",
     "time": "07:00",
     "league": "COSTARICA",
     "venueId": "estadio_saprissa_ayma",
@@ -770465,6 +770492,18 @@
     "stadium": "Estadio Misael Delgado",
     "timeTbd": false,
     "gameId": "VENEZUELA_ESPN_401930992",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-02",
+    "time": "08:30",
+    "league": "VENEZUELA",
+    "venueId": "estadio_olimpico_ucv_caracas",
+    "home": "데포르티보 라과이라",
+    "away": "포르투게사",
+    "stadium": "Estadio Olímpico de la UCV",
+    "timeTbd": false,
+    "gameId": "VENEZUELA_ESPN_401930968",
     "status": "scheduled"
   },
   {
