@@ -764383,9 +764383,9 @@
         {
           "n": "벤라마",
           "m": 45,
-          "pk": true,
           "nat": "Algeria",
-          "pid": "espn:194543"
+          "pid": "espn:194543",
+          "pk": true
         },
         {
           "n": "라카제테",
@@ -766400,13 +766400,15 @@
     "inningInfo": "6회말",
     "liveState": {
       "pitcher": "Saul Garcia",
-      "batter": "Carlos Mendoza",
+      "batter": "Leonel Valera",
       "pitcherPid": "mlb:702903",
-      "batterPid": "mlb:685332",
-      "ball": 0,
-      "strike": 0,
-      "out": 0,
-      "bases": []
+      "batterPid": "mlb:665987",
+      "ball": 4,
+      "strike": 2,
+      "out": 1,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -766422,15 +766424,15 @@
     "status": "live",
     "homeScore": 2,
     "awayScore": 8,
-    "inningInfo": "7회초",
+    "inningInfo": "7회말",
     "liveState": {
-      "pitcher": "Steven Pérez",
-      "batter": "Francisco Arcia",
-      "pitcherPid": "mlb:682897",
-      "batterPid": "mlb:516472",
-      "ball": 2,
-      "strike": 3,
-      "out": 3,
+      "pitcher": "Julio Rodriguez",
+      "batter": "Jose Martinez",
+      "pitcherPid": "mlb:680588",
+      "batterPid": "mlb:642686",
+      "ball": 1,
+      "strike": 1,
+      "out": 1,
       "bases": []
     }
   },
@@ -766450,12 +766452,12 @@
     "inningInfo": "8회초",
     "liveState": {
       "pitcher": "Alex Carrillo",
-      "batter": "Phillip Ervin",
+      "batter": "Victor Arias",
       "pitcherPid": "mlb:692024",
-      "batterPid": "mlb:640447",
-      "ball": 0,
+      "batterPid": "mlb:692478",
+      "ball": 2,
       "strike": 0,
-      "out": 0,
+      "out": 2,
       "bases": []
     }
   },
@@ -766475,14 +766477,14 @@
     "inningInfo": "7회말",
     "liveState": {
       "pitcher": "Gregory Santos",
-      "batter": "Yamaico Navarro",
+      "batter": "Michael De La Cruz",
       "pitcherPid": "mlb:666619",
-      "batterPid": "mlb:501605",
-      "ball": 0,
+      "batterPid": "mlb:631222",
+      "ball": 1,
       "strike": 2,
-      "out": 1,
+      "out": 2,
       "bases": [
-        2
+        3
       ]
     }
   },
@@ -766502,12 +766504,12 @@
     "inningInfo": "6회초",
     "liveState": {
       "pitcher": "Joe Record",
-      "batter": "Christopher Morel",
+      "batter": "Raynel Delgado",
       "pitcherPid": "mlb:682489",
-      "batterPid": "mlb:666624",
-      "ball": 0,
-      "strike": 0,
-      "out": 1,
+      "batterPid": "mlb:669384",
+      "ball": 1,
+      "strike": 2,
+      "out": 2,
       "bases": [
         1,
         2
@@ -766565,8 +766567,8 @@
         },
         {
           "n": "Erwin Sánchez",
-          "type": "Y",
-          "m": 70,
+          "type": "R",
+          "m": 74,
           "pid": "espn:224197",
           "nat": "Bolivia"
         }
@@ -766617,7 +766619,7 @@
     "gameId": "ARGENTINA_ESPN_401841648",
     "status": "live",
     "matchPeriod": "후반",
-    "homeScore": 1,
+    "homeScore": 2,
     "awayScore": 1,
     "cards": {
       "home": [
@@ -766636,7 +766638,15 @@
           "nat": "Argentina"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Joaquin Pombo",
+          "type": "Y",
+          "m": 58,
+          "pid": "espn:312192",
+          "nat": "Argentina"
+        }
+      ]
     },
     "scorers": {
       "home": [
@@ -766645,6 +766655,13 @@
           "m": 24,
           "nat": "Argentina",
           "pid": "espn:3038"
+        },
+        {
+          "n": "Ignacio Agustin Rodríguez",
+          "m": 60,
+          "pk": true,
+          "nat": "Argentina",
+          "pid": "espn:317430"
         }
       ],
       "away": [
@@ -766759,7 +766776,19 @@
     "status": "live",
     "matchPeriod": "전반",
     "homeScore": 0,
-    "awayScore": 0
+    "awayScore": 0,
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Sergio Hernandez",
+          "type": "Y",
+          "m": 30,
+          "pid": "espn:386935",
+          "nat": "Mexico"
+        }
+      ]
+    }
   },
   {
     "date": "2026-10-31",
