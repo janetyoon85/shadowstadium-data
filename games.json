@@ -768404,7 +768404,7 @@
     "stadium": "Kazan Arena",
     "timeTbd": false,
     "gameId": "RUSSIA_ESPN_401879816",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 1,
     "awayScore": 0,
@@ -768473,7 +768473,9 @@
         }
       ],
       "away": []
-    }
+    },
+    "assistsChecked": true,
+    "assistsAt": 1793456006876
   },
   {
     "date": "2026-10-31",
@@ -768950,7 +768952,15 @@
     "awayScore": 1,
     "matchPeriod": "전반",
     "cards": {
-      "home": [],
+      "home": [
+        {
+          "n": "Simphiwe Selepe",
+          "type": "Y",
+          "m": 38,
+          "pid": "espn:403299",
+          "nat": "South Africa"
+        }
+      ],
       "away": [
         {
           "n": "Reeve Frosler",
