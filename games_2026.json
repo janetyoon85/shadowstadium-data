@@ -761717,8 +761717,8 @@
           "m": 73,
           "a": "Georgi Minoungou",
           "nat": "USA",
-          "aNat": "Burkina Faso",
           "pid": "espn:304623",
+          "aNat": "Burkina Faso",
           "apid": "espn:362501"
         }
       ]
@@ -762473,8 +762473,8 @@
           "n": "칼로",
           "m": 45,
           "pid": "espn:236038",
-          "pk": true,
-          "nat": "Italy"
+          "nat": "Italy",
+          "pk": true
         },
         {
           "n": "라이몬도",
@@ -762490,8 +762490,8 @@
           "m": 72,
           "a": "Romano Schmid",
           "nat": "Romania",
-          "pid": "espn:335061",
           "aNat": "Austria",
+          "pid": "espn:335061",
           "apid": "espn:238296"
         },
         {
@@ -762499,8 +762499,8 @@
           "m": 90,
           "a": "Giorgi Kvernadze",
           "nat": "Romania",
-          "pid": "espn:335061",
           "aNat": "Georgia",
+          "pid": "espn:335061",
           "apid": "espn:360714"
         }
       ],
@@ -764957,9 +764957,9 @@
         {
           "n": "마르티네스",
           "m": 37,
-          "pk": true,
           "nat": "Colombia",
-          "pid": "espn:192180"
+          "pid": "espn:192180",
+          "pk": true
         },
         {
           "n": "리카르도 마티아스",
@@ -764970,16 +764970,16 @@
         {
           "n": "카라스코",
           "m": 66,
-          "pk": true,
           "nat": "Belgium",
-          "pid": "espn:174893"
+          "pid": "espn:174893",
+          "pk": true
         },
         {
           "n": "카라스코",
           "m": 82,
-          "pk": true,
           "nat": "Belgium",
-          "pid": "espn:174893"
+          "pid": "espn:174893",
+          "pk": true
         }
       ],
       "away": [
@@ -765634,7 +765634,7 @@
       "away": []
     },
     "assistsChecked": true,
-    "assistsAt": 1793400995900
+    "assistsAt": 1793408198203
   },
   {
     "date": "2026-10-31",
@@ -766392,14 +766392,15 @@
     "inningInfo": "5회말",
     "liveState": {
       "pitcher": "Reid Birlingmair",
-      "batter": "Omar Alfonzo",
+      "batter": "Jacob Teter",
       "pitcherPid": "mlb:679304",
-      "batterPid": "mlb:692657",
-      "ball": 2,
-      "strike": 1,
-      "out": 1,
+      "batterPid": "mlb:679628",
+      "ball": 0,
+      "strike": 0,
+      "out": 2,
       "bases": [
-        1
+        2,
+        3
       ]
     }
   },
@@ -766419,13 +766420,15 @@
     "inningInfo": "5회말",
     "liveState": {
       "pitcher": "Nic Swanson",
-      "batter": "Jose Martinez",
+      "batter": "Diosbel Arias",
       "pitcherPid": "mlb:702462",
-      "batterPid": "mlb:642686",
+      "batterPid": "mlb:677690",
       "ball": 0,
       "strike": 0,
-      "out": 1,
-      "bases": []
+      "out": 2,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -766447,12 +766450,10 @@
       "batter": "Luis Castro",
       "pitcherPid": "mlb:808052",
       "batterPid": "mlb:620449",
-      "ball": 0,
-      "strike": 0,
-      "out": 0,
-      "bases": [
-        1
-      ]
+      "ball": 3,
+      "strike": 2,
+      "out": 1,
+      "bases": []
     }
   },
   {
@@ -766468,15 +766469,15 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 0,
-    "inningInfo": "5회말",
+    "inningInfo": "6회초",
     "liveState": {
-      "pitcher": "Oscar De La Cruz",
-      "batter": "Michael De La Cruz",
-      "pitcherPid": "mlb:642601",
-      "batterPid": "mlb:631222",
-      "ball": 0,
+      "pitcher": "Reid VanScoter",
+      "batter": "Oscar Gonzalez",
+      "pitcherPid": "mlb:804577",
+      "batterPid": "mlb:660757",
+      "ball": 3,
       "strike": 1,
-      "out": 1,
+      "out": 0,
       "bases": []
     }
   },
@@ -766493,16 +766494,18 @@
     "status": "live",
     "homeScore": 3,
     "awayScore": 0,
-    "inningInfo": "4회말",
+    "inningInfo": "5회초",
     "liveState": {
       "pitcher": "Evan Grills",
-      "batter": "Christopher Morel",
+      "batter": "Eddys Leonard",
       "pitcherPid": "mlb:592361",
-      "batterPid": "mlb:666624",
-      "ball": 1,
-      "strike": 1,
-      "out": 3,
-      "bases": []
+      "batterPid": "mlb:678760",
+      "ball": 0,
+      "strike": 0,
+      "out": 1,
+      "bases": [
+        1
+      ]
     }
   },
   {
