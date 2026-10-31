@@ -774804,10 +774804,23 @@
     "stadium": "Estadio Municipal Chapeltique",
     "timeTbd": false,
     "gameId": "ELSALVADOR_ESPN_401899774",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 1,
-    "awayScore": 0
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "Elías Umere",
+          "m": 90,
+          "nat": "Argentina",
+          "pid": "espn:218600"
+        }
+      ],
+      "away": []
+    },
+    "assistsChecked": true,
+    "assistsAt": 1793487456021
   },
   {
     "date": "2026-11-01",
@@ -775061,6 +775074,13 @@
           "m": 14,
           "pid": "espn:131280",
           "nat": "Colombia"
+        },
+        {
+          "n": "Wagner Lima Vidal",
+          "type": "Y",
+          "m": 83,
+          "pid": "espn:357296",
+          "nat": "Brazil"
         }
       ]
     }
