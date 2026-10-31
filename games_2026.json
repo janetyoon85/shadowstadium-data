@@ -765758,7 +765758,7 @@
     "stadium": "Estadio Tomás Adolfo Ducó",
     "timeTbd": false,
     "gameId": "ARGENTINA_ESPN_401841653",
-    "status": "live",
+    "status": "completed",
     "homeScore": 0,
     "awayScore": 2,
     "matchPeriod": "후반",
@@ -765783,13 +765783,6 @@
           "type": "Y",
           "m": 71,
           "pid": "espn:187845",
-          "nat": "Argentina"
-        },
-        {
-          "n": "Fabio Pereyra",
-          "type": "Y",
-          "m": 85,
-          "pid": "espn:278504",
           "nat": "Argentina"
         },
         {
@@ -765830,8 +765823,12 @@
         {
           "n": "Jerónimo Domina",
           "m": 48,
-          "nat": "Argentina",
           "pid": "espn:339007"
+        },
+        {
+          "n": "Tiago Serrago",
+          "m": 90,
+          "pid": "espn:380193"
         }
       ]
     }
@@ -766275,16 +766272,14 @@
     "awayScore": 0,
     "inningInfo": "3회초",
     "liveState": {
-      "pitcher": "Jake Eder",
-      "batter": "Gustavo Nunez",
-      "pitcherPid": "mlb:671109",
-      "batterPid": "mlb:516631",
-      "ball": 0,
-      "strike": 0,
-      "out": 1,
-      "bases": [
-        1
-      ]
+      "pitcher": "Adonis Medina",
+      "batter": "Carlos Peguero",
+      "pitcherPid": "mlb:658431",
+      "batterPid": "mlb:451713",
+      "ball": 2,
+      "strike": 3,
+      "out": 3,
+      "bases": []
     }
   },
   {
@@ -766300,15 +766295,15 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 0,
-    "inningInfo": "3회초",
+    "inningInfo": "3회말",
     "liveState": {
       "pitcher": "Williander Moreno",
-      "batter": "Herlis Rodriguez",
+      "batter": "Hernán Pérez",
       "pitcherPid": "mlb:678981",
-      "batterPid": "mlb:607439",
-      "ball": 1,
-      "strike": 1,
-      "out": 3,
+      "batterPid": "mlb:541650",
+      "ball": 2,
+      "strike": 2,
+      "out": 1,
       "bases": []
     }
   },
@@ -766327,16 +766322,14 @@
     "awayScore": 2,
     "inningInfo": "3회초",
     "liveState": {
-      "pitcher": "Félix Doubront",
-      "batter": "Leandro Cedeño",
-      "pitcherPid": "mlb:467094",
-      "batterPid": "mlb:660681",
+      "pitcher": "Nic Swanson",
+      "batter": "Jose Martinez",
+      "pitcherPid": "mlb:702462",
+      "batterPid": "mlb:642686",
       "ball": 0,
       "strike": 1,
-      "out": 2,
-      "bases": [
-        1
-      ]
+      "out": 3,
+      "bases": []
     }
   },
   {
@@ -766354,17 +766347,14 @@
     "awayScore": 3,
     "inningInfo": "3회초",
     "liveState": {
-      "pitcher": "Ricardo Pinto",
-      "batter": "Luis Castro",
-      "pitcherPid": "mlb:620982",
-      "batterPid": "mlb:620449",
-      "ball": 1,
+      "pitcher": "Peniel Otano",
+      "batter": "Jurickson Profar",
+      "pitcherPid": "mlb:702785",
+      "batterPid": "mlb:595777",
+      "ball": 2,
       "strike": 1,
-      "out": 2,
-      "bases": [
-        1,
-        2
-      ]
+      "out": 3,
+      "bases": []
     }
   },
   {
@@ -766380,18 +766370,16 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 0,
-    "inningInfo": "2회말",
+    "inningInfo": "3회초",
     "liveState": {
       "pitcher": "Oscar De La Cruz",
-      "batter": "Andy Ibáñez",
+      "batter": "Michael De La Cruz",
       "pitcherPid": "mlb:642601",
-      "batterPid": "mlb:628451",
-      "ball": 2,
-      "strike": 2,
-      "out": 0,
-      "bases": [
-        1
-      ]
+      "batterPid": "mlb:631222",
+      "ball": 1,
+      "strike": 0,
+      "out": 3,
+      "bases": []
     }
   },
   {
@@ -766407,16 +766395,18 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 0,
-    "inningInfo": "2회초",
+    "inningInfo": "2회말",
     "liveState": {
-      "pitcher": "Evan Grills",
-      "batter": "Christopher Morel",
-      "pitcherPid": "mlb:592361",
-      "batterPid": "mlb:666624",
+      "pitcher": "Jorge Tavarez",
+      "batter": "Justin Gonzales",
+      "pitcherPid": "mlb:664590",
+      "batterPid": "mlb:821100",
       "ball": 0,
-      "strike": 2,
-      "out": 1,
-      "bases": []
+      "strike": 0,
+      "out": 0,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -789564,6 +789554,30 @@
     "stadium": "Kuroda Park",
     "timeTbd": false,
     "gameId": "LMP_MLBSTATS_850379",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-12-01",
+    "time": "08:21",
+    "league": "PWL",
+    "venueId": "estadio_isidoro_cholo_garcia",
+    "home": "인디오스 데 마야궤스",
+    "away": "크리오요스 데 카과스",
+    "stadium": "Estadio Isidoro 'Cholo' Garcia",
+    "timeTbd": false,
+    "gameId": "PWL_MLBSTATS_872031",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-12-01",
+    "time": "08:21",
+    "league": "PWL",
+    "venueId": "hiram_bithorn_stadium",
+    "home": "세나도레스 데 산후안",
+    "away": "레오네스 데 폰세",
+    "stadium": "Hiram Bithorn Stadium",
+    "timeTbd": false,
+    "gameId": "PWL_MLBSTATS_872030",
     "status": "scheduled"
   },
   {
