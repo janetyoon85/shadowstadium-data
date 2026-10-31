@@ -764383,9 +764383,9 @@
         {
           "n": "벤라마",
           "m": 45,
-          "pk": true,
           "nat": "Algeria",
-          "pid": "espn:194543"
+          "pid": "espn:194543",
+          "pk": true
         },
         {
           "n": "라카제테",
@@ -767154,13 +767154,16 @@
     "inningInfo": "8회초",
     "liveState": {
       "pitcher": "Gerardo Gutierrez",
-      "batter": "Manuel Boscan",
+      "batter": "Carlos Munoz",
       "pitcherPid": "mlb:677916",
-      "batterPid": "mlb:598724",
-      "ball": 1,
-      "strike": 2,
+      "batterPid": "mlb:608608",
+      "ball": 0,
+      "strike": 1,
       "out": 1,
-      "bases": []
+      "bases": [
+        1,
+        2
+      ]
     }
   },
   {
@@ -767280,7 +767283,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 0,
-    "matchPeriod": "전반",
+    "matchPeriod": "전반 38'",
     "scorers": {
       "home": [],
       "away": [
@@ -767318,7 +767321,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반",
+    "matchPeriod": "전반 38'",
     "cards": {
       "home": [
         {
@@ -767345,7 +767348,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 1,
-    "matchPeriod": "전반",
+    "matchPeriod": "전반 39'",
     "scorers": {
       "home": [
         {
@@ -767383,7 +767386,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 35'"
+    "matchPeriod": "전반 40'"
   },
   {
     "date": "2026-10-31",
@@ -767398,7 +767401,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 1,
-    "matchPeriod": "전반 36'",
+    "matchPeriod": "전반 41'",
     "scorers": {
       "home": [
         {
@@ -767411,6 +767414,12 @@
     },
     "cards": {
       "home": [
+        {
+          "n": "김형원",
+          "type": "Y",
+          "m": 37,
+          "pid": "naver:20200107"
+        },
         {
           "n": "조진혁",
           "type": "Y",
@@ -767441,13 +767450,18 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 2,
-    "matchPeriod": "전반 36'",
+    "matchPeriod": "전반 41'",
     "scorers": {
       "home": [
         {
           "n": "유동규",
           "m": 23,
           "pid": "naver:20210135"
+        },
+        {
+          "n": "가브리엘",
+          "m": 37,
+          "pid": "naver:20240208"
         }
       ],
       "away": []
