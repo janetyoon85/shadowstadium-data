@@ -21,6 +21,8 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main  # 최신 main 기준(큐 대기 중 낡은 커밋 방지)
 
       - name: Fetch crawler code (private)
         uses: ./.github/actions/fetch-code

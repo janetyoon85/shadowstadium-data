@@ -39,6 +39,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: main  # 큐에서 기다리다 늦게 시작해도 최신 main(보낸 알림·상태 기록)을 받는다 — 기본값은 요청 시점의 옛 커밋이라 알림이 다시 나갔다
 
       - name: Fetch crawler code (private)
         uses: ./.github/actions/fetch-code
