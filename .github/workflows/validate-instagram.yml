@@ -1,0 +1,66 @@
+name: Validate Instagram
+
+# 위키데이터 자동 후보(player-instagram-candidates.json)를 메타 비즈니스 디스커버리 API 로 검증해 통과분만 앱 파일(player-instagram.json)에 올린다.
+# 필요 시크릿: IG_USER_ID, IG_ACCESS_TOKEN (없으면 건너뜀). 시간당 호출 한도가 있어 실행당 150건 — 처음엔 여러 번 dispatch 해 채운다.
+on:
+  schedule:
+    - cron: '10 21 * * *'   # 매일 06:10 KST
+  workflow_dispatch:
+    inputs:
+      max:
+        description: '이번 실행에서 조회할 후보 수 상한'
+        default: '150'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: validate-instagram
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Fetch crawler code (private)
+        uses: ./.github/actions/fetch-code
+        with:
+          token: ${{ secrets.PRIVATE_DATA_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Validate candidates
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_VALIDATE_MAX: ${{ inputs.max || '150' }}
+        run: node scripts/validate-instagram.mjs
+
+      - name: Relink app file
+        run: python scripts/fetch-wikidata-instagram.py --link-only
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add instagram-validated.json instagram-verified-auto.json player-instagram.json
+          if git diff --cached --quiet; then echo "변경 없음"; exit 0; fi
+          git commit -q -m "chore(data): 인스타그램 자동 검증 갱신 ($(date +'%Y-%m-%d %H:%M'))"
+          for i in $(seq 1 20); do
+            timeout 60 git pull -q --rebase origin main && timeout 60 git push -q origin HEAD:main && exit 0
+            git rebase --abort 2>/dev/null || true
+            sleep $((RANDOM % 8 + 1))
+          done
+          echo "::error::푸시 실패"
+          exit 1
