@@ -10,6 +10,9 @@ on:
       lang:
         description: '구독 언어 코드'
         default: 'ko'
+      kind:
+        description: 'live=경기 중 알림 토픽, final=경기 종료 알림 토픽'
+        default: 'live'
 
 permissions:
   contents: read
@@ -35,4 +38,5 @@ jobs:
           FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
           KEYS: ${{ inputs.keys }}
           LANG_CODE: ${{ inputs.lang }}
+          TOPIC_KIND: ${{ inputs.kind }}
         run: node scripts/send-test-team-live.mjs
