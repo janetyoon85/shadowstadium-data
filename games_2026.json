@@ -771074,8 +771074,8 @@
           "n": "파딩거",
           "m": 82,
           "pid": "espn:274022",
-          "nat": "Austria",
-          "pk": true
+          "pk": true,
+          "nat": "Austria"
         }
       ],
       "away": []
@@ -772318,7 +772318,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1793495006840
+    "assistsAt": 1793502243759
   },
   {
     "date": "2026-11-01",
@@ -773438,7 +773438,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1793495054209
+    "assistsAt": 1793502307214
   },
   {
     "date": "2026-11-01",
@@ -773495,7 +773495,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1793495006525
+    "assistsAt": 1793502243490
   },
   {
     "date": "2026-11-01",
@@ -774792,7 +774792,7 @@
       "away": []
     },
     "assistsChecked": true,
-    "assistsAt": 1793495183442
+    "assistsAt": 1793502429620
   },
   {
     "date": "2026-11-01",
@@ -775297,13 +775297,15 @@
     "inningInfo": "6회초",
     "liveState": {
       "pitcher": "Enderson Franco",
-      "batter": "Aeverson Arteaga",
+      "batter": "Osleivis Basabe",
       "pitcherPid": "mlb:575070",
-      "batterPid": "mlb:692348",
+      "batterPid": "mlb:678545",
       "ball": 0,
-      "strike": 0,
-      "out": 0,
-      "bases": []
+      "strike": 1,
+      "out": 2,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -775747,7 +775749,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1793495183142
+    "assistsAt": 1793502429372
   },
   {
     "date": "2026-11-01",
@@ -775764,16 +775766,14 @@
     "awayScore": 6,
     "inningInfo": "9회초",
     "liveState": {
-      "pitcher": "Reymin Guduan",
-      "batter": "Carlos Jorge",
-      "pitcherPid": "mlb:594056",
-      "batterPid": "mlb:699115",
-      "ball": 0,
-      "strike": 0,
-      "out": 2,
-      "bases": [
-        1
-      ]
+      "pitcher": "Yunior Tur",
+      "batter": "Gilberto Celestino",
+      "pitcherPid": "mlb:814305",
+      "batterPid": "mlb:665482",
+      "ball": 1,
+      "strike": 2,
+      "out": 3,
+      "bases": []
     }
   },
   {
@@ -775942,16 +775942,14 @@
     "awayScore": 10,
     "inningInfo": "8회초",
     "liveState": {
-      "pitcher": "Cristian Alvarado",
-      "batter": "Jesus Rodriguez",
-      "pitcherPid": "mlb:622459",
-      "batterPid": "mlb:683679",
-      "ball": 2,
-      "strike": 2,
-      "out": 1,
-      "bases": [
-        2
-      ]
+      "pitcher": "Derek Corro",
+      "batter": "Francisco Arcia",
+      "pitcherPid": "mlb:800144",
+      "batterPid": "mlb:516472",
+      "ball": 3,
+      "strike": 3,
+      "out": 3,
+      "bases": []
     }
   },
   {
@@ -775967,15 +775965,15 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 1,
-    "inningInfo": "1회말",
+    "inningInfo": "2회초",
     "liveState": {
       "pitcher": "Raul Castellon",
-      "batter": "Jesus Loya",
+      "batter": "Andres Sosa",
       "pitcherPid": "mlb:802588",
-      "batterPid": "mlb:593432",
+      "batterPid": "mlb:703245",
       "ball": 3,
       "strike": 2,
-      "out": 3,
+      "out": 1,
       "bases": []
     }
   },
@@ -776173,14 +776171,14 @@
     "status": "live",
     "homeScore": 7,
     "awayScore": 3,
-    "inningInfo": "5회말",
+    "inningInfo": "6회초",
     "liveState": {
-      "pitcher": "Yosshel Hurtado",
-      "batter": "Kevin Villavicencio",
-      "pitcherPid": "mlb:657896",
-      "batterPid": "mlb:692944",
-      "ball": 2,
-      "strike": 0,
+      "pitcher": "Samuel Zazueta",
+      "batter": "Juan Mora",
+      "pitcherPid": "mlb:650980",
+      "batterPid": "mlb:680643",
+      "ball": 1,
+      "strike": 2,
       "out": 3,
       "bases": []
     }
@@ -776300,12 +776298,12 @@
     "inningInfo": "7회말",
     "liveState": {
       "pitcher": "Dario Gardea",
-      "batter": "Ali Solis",
+      "batter": "Rosman Verdugo",
       "pitcherPid": "mlb:677915",
-      "batterPid": "mlb:455378",
-      "ball": 0,
-      "strike": 1,
-      "out": 1,
+      "batterPid": "mlb:698916",
+      "ball": 1,
+      "strike": 2,
+      "out": 2,
       "bases": [
         2
       ]
@@ -776321,7 +776319,7 @@
     "stadium": "Estadio Akron",
     "timeTbd": false,
     "gameId": "LIGAMX_ESPN_401876915",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 4,
     "awayScore": 2,
@@ -776331,7 +776329,10 @@
           "n": "Santiago Sandoval",
           "m": 8,
           "nat": "Mexico",
-          "pid": "espn:118717"
+          "pid": "espn:118717",
+          "a": "Luis Romo",
+          "apid": "espn:242614",
+          "aNat": "Mexico"
         },
         {
           "n": "Diogo Bagüí",
@@ -776344,13 +776345,19 @@
           "n": "Santiago Sandoval",
           "m": 53,
           "nat": "Mexico",
-          "pid": "espn:118717"
+          "pid": "espn:118717",
+          "a": "Efraín Álvarez",
+          "apid": "espn:260173",
+          "aNat": "Mexico"
         },
         {
           "n": "Efrain Álvarez",
           "m": 64,
           "nat": "Mexico",
-          "pid": "espn:260173"
+          "pid": "espn:260173",
+          "a": "Omar Govea",
+          "apid": "espn:190901",
+          "aNat": "Mexico"
         }
       ],
       "away": [
@@ -776380,7 +776387,9 @@
           "nat": "Ecuador"
         }
       ]
-    }
+    },
+    "assistsChecked": true,
+    "assistsAt": 1793502429167
   },
   {
     "date": "2026-11-01",
@@ -776395,7 +776404,7 @@
     "status": "live",
     "awayScore": 2,
     "homeScore": 2,
-    "matchPeriod": "후반 17'",
+    "matchPeriod": "후반 20'",
     "scorers": {
       "home": [
         {
