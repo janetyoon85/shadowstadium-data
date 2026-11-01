@@ -1,7 +1,7 @@
 name: Wikidata Player Instagram
 
 # 선수단(team-rosters) 팀마다 위키데이터(P54 현재 소속 + P2003 인스타그램)에서 선수 인스타 아이디를 받아 player-instagram.json({선수 id: 아이디})에 저장.
-# 선수단 이름과 정확히 일치하고 유일한 경우만 연결한다(남의 계정이 붙는 것 방지). 팀당 30일 캐시, 실행당 팀 수 상한(기본 150) — 처음엔 여러 번 dispatch 해 채운다.
+# 선수단 이름과 정확히 일치하고 유일한 경우만 연결한다(남의 계정이 붙는 것 방지). 팀 소속 기록이 없는 선수는 "이름 정확 일치 + 국적 일치 + 후보 1명"으로 보조 연결. 팀당 30일 캐시, 실행당 팀 수 상한(기본 150) — 처음엔 여러 번 dispatch 해 채운다.
 # cron-job.org 에서 주 1회 dispatch 하도록 등록(GitHub schedule 은 자주 누락).
 on:
   schedule:
@@ -11,6 +11,9 @@ on:
       max_teams:
         description: '이번 실행에서 받을 팀 수 상한'
         default: '150'
+      max_names:
+        description: '이름 보조 단계에서 이번에 조회할 이름 수 상한'
+        default: '6000'
 
 permissions:
   contents: write
@@ -43,13 +46,15 @@ jobs:
       - name: Collect Wikidata player Instagram handles
         env:
           WD_IG_MAX_TEAMS: ${{ inputs.max_teams || '150' }}
+          WD_IG_NAME_MAX: ${{ inputs.max_names || '6000' }}
+          WD_DELAY_S: '2'
         run: python scripts/fetch-wikidata-instagram.py
 
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add player-instagram.json wd-instagram-cache.json
+          git add player-instagram.json wd-instagram-cache.json wd-instagram-byname.json
           if git diff --cached --quiet; then echo "변경 없음"; exit 0; fi
           git commit -q -m "chore(data): 위키데이터 선수 인스타그램 갱신 ($(date +'%Y-%m-%d %H:%M'))"
           for i in $(seq 1 20); do
