@@ -1,0 +1,38 @@
+name: FCM Team Live Test
+
+# 즐겨찾기 팀 경기 중 알림(tlive 토픽) 수신 테스트(수동). 팀 키(쉼표 구분)를 입력하면 키마다 테스트 푸시 1건.
+on:
+  workflow_dispatch:
+    inputs:
+      keys:
+        description: '팀 키(쉼표 구분, 예: naver:NBA:ATL,espn:NBA:1)'
+        required: true
+      lang:
+        description: '구독 언어 코드'
+        default: 'ko'
+
+permissions:
+  contents: read
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch crawler code (private)
+        uses: ./.github/actions/fetch-code
+        with:
+          token: ${{ secrets.PRIVATE_DATA_TOKEN }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+      - run: npm ci
+      - name: Send test
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          KEYS: ${{ inputs.keys }}
+          LANG_CODE: ${{ inputs.lang }}
+        run: node scripts/send-test-team-live.mjs
