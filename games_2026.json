@@ -768965,7 +768965,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1793487223899
+    "assistsAt": 1793494483641
   },
   {
     "date": "2026-10-31",
@@ -769981,7 +769981,7 @@
       "away": []
     },
     "assistsChecked": true,
-    "assistsAt": 1793487404252
+    "assistsAt": 1793494604609
   },
   {
     "date": "2026-11-01",
@@ -773102,9 +773102,9 @@
         {
           "n": "후벵 네베스",
           "m": 90,
-          "pk": true,
           "nat": "Portugal",
-          "pid": "espn:208128"
+          "pid": "espn:208128",
+          "pk": true
         }
       ],
       "away": []
@@ -773578,7 +773578,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1793487339563
+    "assistsAt": 1793494601651
   },
   {
     "date": "2026-11-01",
@@ -774833,18 +774833,20 @@
     "timeTbd": false,
     "gameId": "LIDOM_MLBSTATS_851456",
     "status": "live",
-    "homeScore": 4,
+    "homeScore": 5,
     "awayScore": 3,
     "inningInfo": "7회말",
     "liveState": {
       "pitcher": "Eddy Yean",
-      "batter": "Estevan Florial",
+      "batter": "Sergio Alcántara",
       "pitcherPid": "mlb:678868",
-      "batterPid": "mlb:664314",
+      "batterPid": "mlb:642727",
       "ball": 1,
-      "strike": 2,
-      "out": 1,
-      "bases": []
+      "strike": 1,
+      "out": 2,
+      "bases": [
+        3
+      ]
     }
   },
   {
@@ -775246,23 +775248,9 @@
     "stadium": "Scottsdale Stadium",
     "timeTbd": false,
     "gameId": "AFL_MLBSTATS_867667",
-    "status": "live",
+    "status": "completed",
     "homeScore": 4,
-    "awayScore": 5,
-    "inningInfo": "9회말",
-    "liveState": {
-      "pitcher": "Jared Johnson",
-      "batter": "John Peck",
-      "pitcherPid": "mlb:687991",
-      "batterPid": "mlb:807726",
-      "ball": 3,
-      "strike": 0,
-      "out": 2,
-      "bases": [
-        1,
-        2
-      ]
-    }
+    "awayScore": 5
   },
   {
     "date": "2026-11-01",
@@ -775291,15 +775279,15 @@
     "status": "live",
     "homeScore": 1,
     "awayScore": 4,
-    "inningInfo": "9회초",
+    "inningInfo": "9회말",
     "liveState": {
-      "pitcher": "Jorge Alcala",
-      "batter": "Erik González",
-      "pitcherPid": "mlb:660896",
-      "batterPid": "mlb:570481",
+      "pitcher": "Robinson Martínez",
+      "batter": "J.C. Escarra",
+      "pitcherPid": "mlb:660822",
+      "batterPid": "mlb:641555",
       "ball": 0,
       "strike": 0,
-      "out": 1,
+      "out": 0,
       "bases": []
     }
   },
@@ -775314,21 +775302,18 @@
     "timeTbd": false,
     "gameId": "LVBP_MLBSTATS_870040",
     "status": "live",
-    "homeScore": 7,
+    "homeScore": 10,
     "awayScore": 3,
-    "inningInfo": "7회말",
+    "inningInfo": "8회초",
     "liveState": {
-      "pitcher": "Pedro Rodriguez",
-      "batter": "Ali Sánchez",
-      "pitcherPid": "mlb:466463",
-      "batterPid": "mlb:645305",
+      "pitcher": "Christian Cosby",
+      "batter": "Jurickson Profar",
+      "pitcherPid": "mlb:681797",
+      "batterPid": "mlb:595777",
       "ball": 0,
       "strike": 0,
-      "out": 2,
-      "bases": [
-        1,
-        2
-      ]
+      "out": 0,
+      "bases": []
     }
   },
   {
@@ -775640,7 +775625,7 @@
     "stadium": "Estadio Bello Horizonte - Rey Pele",
     "timeTbd": false,
     "gameId": "COLOMBIA_ESPN_401878071",
-    "status": "live",
+    "status": "completed",
     "homeScore": 3,
     "awayScore": 2,
     "matchPeriod": "후반",
@@ -775650,13 +775635,19 @@
           "n": "Juan Ramírez",
           "m": 17,
           "nat": "Colombia",
-          "pid": "espn:386889"
+          "pid": "espn:386889",
+          "a": "Frank Castañeda",
+          "apid": "espn:305512",
+          "aNat": "Colombia"
         },
         {
           "n": "Jhojan Escobar",
           "m": 55,
           "nat": "Colombia",
-          "pid": "espn:365507"
+          "pid": "espn:365507",
+          "a": "Jhon Vásquez",
+          "apid": "espn:224171",
+          "aNat": "Colombia"
         },
         {
           "n": "Néider Ospina",
@@ -775671,7 +775662,10 @@
           "n": "Yimmi Chará",
           "m": 50,
           "nat": "Colombia",
-          "pid": "espn:197425"
+          "pid": "espn:197425",
+          "a": "Luis Muriel",
+          "apid": "espn:151510",
+          "aNat": "Colombia"
         },
         {
           "n": "Guillermo Paiva",
@@ -775708,7 +775702,9 @@
           "nat": "Colombia"
         }
       ]
-    }
+    },
+    "assistsChecked": true,
+    "assistsAt": 1793494547283
   },
   {
     "date": "2026-11-01",
@@ -775782,14 +775778,16 @@
     "awayScore": 4,
     "inningInfo": "4회말",
     "liveState": {
-      "pitcher": "Tyler Thomas",
-      "batter": "Felix Reyes",
-      "pitcherPid": "mlb:668869",
-      "batterPid": "mlb:694025",
-      "ball": 0,
+      "pitcher": "Richard Guasch",
+      "batter": "Pedro Severino",
+      "pitcherPid": "mlb:683014",
+      "batterPid": "mlb:600474",
+      "ball": 1,
       "strike": 0,
       "out": 1,
-      "bases": []
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -775853,6 +775851,13 @@
           "m": 56,
           "pid": "espn:343833",
           "nat": "Colombia"
+        },
+        {
+          "n": "Jesus Quintero",
+          "type": "Y",
+          "m": 61,
+          "pid": "espn:124495",
+          "nat": "Venezuela"
         }
       ],
       "away": [
@@ -775893,16 +775898,19 @@
     "status": "live",
     "homeScore": 2,
     "awayScore": 5,
-    "inningInfo": "3회초",
+    "inningInfo": "3회말",
     "liveState": {
       "pitcher": "Jose Samayoa",
-      "batter": "Jose Robledo",
+      "batter": "Rainel Rosario",
       "pitcherPid": "mlb:643518",
-      "batterPid": "mlb:697779",
-      "ball": 1,
-      "strike": 2,
-      "out": 3,
-      "bases": []
+      "batterPid": "mlb:501731",
+      "ball": 0,
+      "strike": 0,
+      "out": 1,
+      "bases": [
+        2,
+        3
+      ]
     }
   },
   {
@@ -775918,14 +775926,14 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 2,
-    "inningInfo": "4회초",
+    "inningInfo": "4회말",
     "liveState": {
-      "pitcher": "David Reyes",
-      "batter": "Edgar Lugo",
-      "pitcherPid": "mlb:547862",
-      "batterPid": "mlb:814812",
+      "pitcher": "Elian Leyva",
+      "batter": "Clay Dungan",
+      "pitcherPid": "mlb:673140",
+      "batterPid": "mlb:687867",
       "ball": 0,
-      "strike": 3,
+      "strike": 0,
       "out": 3,
       "bases": []
     }
@@ -775945,18 +775953,14 @@
     "awayScore": 3,
     "inningInfo": "2회말",
     "liveState": {
-      "pitcher": "Alex Delgado",
-      "batter": "Ramon Rios",
-      "pitcherPid": "mlb:604596",
-      "batterPid": "mlb:540204",
-      "ball": 0,
-      "strike": 0,
-      "out": 2,
-      "bases": [
-        1,
-        2,
-        3
-      ]
+      "pitcher": "Edgar Rodriguez",
+      "batter": "Chavez Young",
+      "pitcherPid": "mlb:702924",
+      "batterPid": "mlb:669945",
+      "ball": 3,
+      "strike": 2,
+      "out": 3,
+      "bases": []
     }
   },
   {
@@ -775975,14 +775979,15 @@
     "inningInfo": "3회초",
     "liveState": {
       "pitcher": "Junior Guerra",
-      "batter": "Gorkys Hernández",
+      "batter": "Mason Martin",
       "pitcherPid": "mlb:448855",
-      "batterPid": "mlb:491676",
+      "batterPid": "mlb:676733",
       "ball": 1,
-      "strike": 2,
+      "strike": 1,
       "out": 0,
       "bases": [
-        1
+        1,
+        2
       ]
     }
   },
@@ -776024,7 +776029,15 @@
       ]
     },
     "cards": {
-      "home": [],
+      "home": [
+        {
+          "n": "Ezequiel Piovi",
+          "type": "Y",
+          "m": 20,
+          "pid": "espn:240401",
+          "nat": "Argentina"
+        }
+      ],
       "away": [
         {
           "n": "Fernando Alarcón",
