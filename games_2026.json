@@ -765117,7 +765117,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1793493056651
+    "assistsAt": 1793500260239
   },
   {
     "date": "2026-10-31",
@@ -766187,7 +766187,7 @@
       "away": []
     },
     "assistsChecked": true,
-    "assistsAt": 1793492977684
+    "assistsAt": 1793500249996
   },
   {
     "date": "2026-10-31",
@@ -768343,7 +768343,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1793492919556
+    "assistsAt": 1793500122467
   },
   {
     "date": "2026-10-31",
@@ -769793,7 +769793,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1793492977457
+    "assistsAt": 1793500249808
   },
   {
     "date": "2026-10-31",
@@ -772849,8 +772849,8 @@
           "m": 73,
           "a": "Esmir Bajraktarevic",
           "nat": "USA",
-          "pid": "espn:289120",
           "aNat": "Bosnia and Herzegovina",
+          "pid": "espn:289120",
           "apid": "espn:325410"
         },
         {
@@ -774706,7 +774706,7 @@
       "away": []
     },
     "assistsChecked": true,
-    "assistsAt": 1793492919288
+    "assistsAt": 1793500122251
   },
   {
     "date": "2026-11-01",
@@ -775297,14 +775297,16 @@
     "inningInfo": "5회초",
     "liveState": {
       "pitcher": "Osvaldo Berrios",
-      "batter": "Luis Castro",
+      "batter": "Omar Martinez",
       "pitcherPid": "mlb:676047",
-      "batterPid": "mlb:620449",
-      "ball": 1,
-      "strike": 1,
+      "batterPid": "mlb:683079",
+      "ball": 0,
+      "strike": 0,
       "out": 2,
       "bases": [
-        1
+        1,
+        2,
+        3
       ]
     }
   },
@@ -775764,15 +775766,15 @@
     "status": "live",
     "homeScore": 5,
     "awayScore": 4,
-    "inningInfo": "8회초",
+    "inningInfo": "8회말",
     "liveState": {
-      "pitcher": "Lucas Sims",
-      "batter": "Roldy Brito",
-      "pitcherPid": "mlb:608371",
-      "batterPid": "mlb:821041",
-      "ball": 1,
-      "strike": 1,
-      "out": 2,
+      "pitcher": "Yunior Tur",
+      "batter": "Wilmer Difo",
+      "pitcherPid": "mlb:814305",
+      "batterPid": "mlb:594694",
+      "ball": 0,
+      "strike": 0,
+      "out": 0,
       "bases": []
     }
   },
@@ -775911,17 +775913,18 @@
     "gameId": "LMP_MLBSTATS_850490",
     "status": "live",
     "homeScore": 1,
-    "awayScore": 4,
+    "awayScore": 6,
     "inningInfo": "9회초",
     "liveState": {
       "pitcher": "Carlos Morales",
-      "batter": "Esteban Quiroz",
+      "batter": "Moises Gutierrez",
       "pitcherPid": "mlb:676190",
-      "batterPid": "mlb:606019",
+      "batterPid": "mlb:605011",
       "ball": 0,
       "strike": 0,
       "out": 1,
       "bases": [
+        1,
         2,
         3
       ]
@@ -775940,14 +775943,14 @@
     "status": "live",
     "homeScore": 5,
     "awayScore": 6,
-    "inningInfo": "8회초",
+    "inningInfo": "8회말",
     "liveState": {
-      "pitcher": "Pablo Tellez",
-      "batter": "Jose Heberto Felix",
-      "pitcherPid": "mlb:701063",
-      "batterPid": "mlb:510548",
+      "pitcher": "Erick Rodriguez",
+      "batter": "Carlos Arellano",
+      "pitcherPid": "mlb:692601",
+      "batterPid": "mlb:689161",
       "ball": 0,
-      "strike": 0,
+      "strike": 1,
       "out": 2,
       "bases": []
     }
@@ -775968,12 +775971,12 @@
     "inningInfo": "6회말",
     "liveState": {
       "pitcher": "Deolis Guerra",
-      "batter": "David Peralta",
+      "batter": "Pedro Martinez",
       "pitcherPid": "mlb:500610",
-      "batterPid": "mlb:444482",
-      "ball": 2,
-      "strike": 3,
-      "out": 1,
+      "batterPid": "mlb:680932",
+      "ball": 0,
+      "strike": 2,
+      "out": 2,
       "bases": []
     }
   },
@@ -775999,7 +776002,7 @@
     "stadium": "Estadio Jorge Luis Hirschi",
     "timeTbd": false,
     "gameId": "ARGENTINA_ESPN_401841654",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 3,
     "awayScore": 3,
@@ -776009,7 +776012,10 @@
           "n": "Guido Carrillo",
           "m": 58,
           "nat": "Argentina",
-          "pid": "espn:154738"
+          "pid": "espn:154738",
+          "a": "Ezequiel Piovi",
+          "apid": "espn:240401",
+          "aNat": "Argentina"
         },
         {
           "n": "Tiago Palacios",
@@ -776021,7 +776027,10 @@
           "n": "Fabricio Pérez",
           "m": 86,
           "nat": "Argentina",
-          "pid": "espn:316649"
+          "pid": "espn:316649",
+          "a": "Edwuin Cetré",
+          "apid": "espn:264844",
+          "aNat": "Colombia"
         }
       ],
       "away": [
@@ -776035,13 +776044,19 @@
           "n": "Leonel Mosevich",
           "m": 48,
           "nat": "Argentina",
-          "pid": "espn:229641"
+          "pid": "espn:229641",
+          "a": "Alex Luna",
+          "apid": "espn:70912",
+          "aNat": "Argentina"
         },
         {
           "n": "Jhon Córdoba",
           "m": 52,
           "nat": "Colombia",
-          "pid": "espn:176058"
+          "pid": "espn:176058",
+          "a": "Alex Luna",
+          "apid": "espn:70912",
+          "aNat": "Argentina"
         }
       ]
     },
@@ -776120,7 +776135,9 @@
           "nat": "Argentina"
         }
       ]
-    }
+    },
+    "assistsChecked": true,
+    "assistsAt": 1793500122037
   },
   {
     "date": "2026-11-01",
@@ -776145,7 +776162,13 @@
           "pid": "espn:407963"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Rudy Jesús Ramírez",
+          "m": 65,
+          "pid": "espn:3104855"
+        }
+      ]
     }
   },
   {
@@ -776164,13 +776187,15 @@
     "inningInfo": "5회초",
     "liveState": {
       "pitcher": "Saul Vazquez",
-      "batter": "Luis Urías",
+      "batter": "Cal Mitchell",
       "pitcherPid": "mlb:678410",
-      "batterPid": "mlb:649966",
-      "ball": 0,
-      "strike": 0,
+      "batterPid": "mlb:668751",
+      "ball": 3,
+      "strike": 2,
       "out": 1,
-      "bases": []
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -776185,7 +776210,7 @@
     "gameId": "LIGAMX_ESPN_401876914",
     "status": "live",
     "matchPeriod": "후반",
-    "homeScore": 2,
+    "homeScore": 3,
     "awayScore": 2,
     "scorers": {
       "home": [
@@ -776201,6 +776226,12 @@
           "m": 45,
           "nat": "Belgium",
           "pid": "espn:235511"
+        },
+        {
+          "n": "Lucas Ocampos",
+          "m": 57,
+          "nat": "Argentina",
+          "pid": "espn:159263"
         }
       ],
       "away": [
@@ -776253,16 +776284,14 @@
     "awayScore": 0,
     "inningInfo": "5회말",
     "liveState": {
-      "pitcher": "Luis Angel Rodriguez",
-      "batter": "J.P. Martínez",
-      "pitcherPid": "mlb:678296",
-      "batterPid": "mlb:679881",
-      "ball": 3,
-      "strike": 1,
-      "out": 2,
-      "bases": [
-        2
-      ]
+      "pitcher": "Norge Ruiz",
+      "batter": "Mateo Gil",
+      "pitcherPid": "mlb:650204",
+      "batterPid": "mlb:680771",
+      "ball": 0,
+      "strike": 0,
+      "out": 3,
+      "bases": []
     }
   },
   {
@@ -776278,7 +776307,7 @@
     "status": "live",
     "matchPeriod": "후반",
     "homeScore": 3,
-    "awayScore": 0,
+    "awayScore": 1,
     "scorers": {
       "home": [
         {
@@ -776301,7 +776330,14 @@
           "pid": "espn:118717"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Martín Sarrafiore",
+          "m": 60,
+          "nat": "Argentina",
+          "pid": "espn:250732"
+        }
+      ]
     },
     "cards": {
       "home": [],
@@ -776329,7 +776365,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 1,
-    "matchPeriod": "전반 46'",
+    "matchPeriod": "전반종료",
     "scorers": {
       "home": [
         {
@@ -776351,7 +776387,6 @@
         }
       ]
     },
-    "phaseCode": "LEAGUE",
     "cards": {
       "home": [],
       "away": [
@@ -776362,7 +776397,8 @@
           "pid": "espn:316344"
         }
       ]
-    }
+    },
+    "phaseCode": "LEAGUE"
   },
   {
     "date": "2026-11-01",
