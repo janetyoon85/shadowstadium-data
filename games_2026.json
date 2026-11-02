@@ -765117,7 +765117,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1793579804985
+    "assistsAt": 1793587066814
   },
   {
     "date": "2026-10-31",
@@ -766281,7 +766281,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1793580043715
+    "assistsAt": 1793587244083
   },
   {
     "date": "2026-10-31",
@@ -776401,8 +776401,8 @@
           "m": 88,
           "a": "Robert Lewandowski",
           "nat": "South Africa",
-          "aNat": "Poland",
           "pid": "espn:365549",
+          "aNat": "Poland",
           "apid": "espn:125824"
         }
       ]
@@ -777899,8 +777899,8 @@
           "n": "다 쿤하",
           "m": 43,
           "pid": "espn:291285",
-          "nat": "France",
-          "pk": true
+          "pk": true,
+          "nat": "France"
         }
       ],
       "away": []
@@ -779055,23 +779055,23 @@
           "m": 49,
           "a": "Sondre Ørjasæter",
           "nat": "Belgium",
-          "pid": "espn:371409",
           "aNat": "Norway",
+          "pid": "espn:371409",
           "apid": "espn:379956"
         },
         {
           "n": "베호르스트",
           "m": 62,
           "pid": "espn:177042",
-          "pk": true,
-          "nat": "Netherlands"
+          "nat": "Netherlands",
+          "pk": true
         },
         {
           "n": "제루키",
           "m": 71,
           "pid": "espn:290517",
-          "pk": true,
-          "nat": "Algeria"
+          "nat": "Algeria",
+          "pk": true
         },
         {
           "n": "로츠",
@@ -782967,8 +782967,8 @@
           "n": "알렉스 베렝게르",
           "m": 45,
           "pid": "espn:209579",
-          "pk": true,
-          "nat": "Spain"
+          "nat": "Spain",
+          "pk": true
         }
       ],
       "away": [
@@ -784247,19 +784247,17 @@
     "gameId": "LMP_MLBSTATS_850495",
     "status": "live",
     "homeScore": 0,
-    "awayScore": 0,
+    "awayScore": 1,
     "inningInfo": "2회초",
     "liveState": {
-      "pitcher": "Collin Wiles",
-      "batter": "Alex D. Mejia",
-      "pitcherPid": "mlb:621079",
-      "batterPid": "mlb:622270",
-      "ball": 2,
-      "strike": 1,
-      "out": 0,
-      "bases": [
-        3
-      ]
+      "pitcher": "Daniel Nunez",
+      "batter": "Missael Rivera",
+      "pitcherPid": "mlb:805982",
+      "batterPid": "mlb:668992",
+      "ball": 0,
+      "strike": 0,
+      "out": 3,
+      "bases": []
     }
   },
   {
@@ -784774,14 +784772,14 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 7,
-    "inningInfo": "7회초",
+    "inningInfo": "7회말",
     "liveState": {
-      "pitcher": "Diego Hernandez",
-      "batter": "Andrés Alvarez",
-      "pitcherPid": "mlb:800545",
-      "batterPid": "mlb:687019",
-      "ball": 0,
-      "strike": 0,
+      "pitcher": "Jesus Rios",
+      "batter": "Chavez Young",
+      "pitcherPid": "mlb:694947",
+      "batterPid": "mlb:669945",
+      "ball": 2,
+      "strike": 1,
       "out": 3,
       "bases": []
     }
@@ -784877,7 +784875,20 @@
     "stadium": "Kuroda Park",
     "timeTbd": true,
     "gameId": "LMP_MLBSTATS_850497",
-    "status": "scheduled"
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0,
+    "inningInfo": "1회초",
+    "liveState": {
+      "pitcher": "Josue Gomez",
+      "batter": "Jose Cardona",
+      "pitcherPid": "mlb:840579",
+      "batterPid": "mlb:606580",
+      "ball": 0,
+      "strike": 0,
+      "out": 0,
+      "bases": []
+    }
   },
   {
     "date": "2026-11-02",
@@ -784895,13 +784906,16 @@
     "inningInfo": "8회말",
     "liveState": {
       "pitcher": "Irving Vazquez",
-      "batter": "Luis Verdugo",
+      "batter": "Ali Solis",
       "pitcherPid": "mlb:802744",
-      "batterPid": "mlb:677605",
-      "ball": 1,
-      "strike": 2,
+      "batterPid": "mlb:455378",
+      "ball": 2,
+      "strike": 1,
       "out": 1,
-      "bases": []
+      "bases": [
+        2,
+        3
+      ]
     }
   },
   {
