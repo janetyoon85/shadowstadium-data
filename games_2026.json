@@ -777879,7 +777879,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1793640935969
+    "assistsAt": 1793648169199
   },
   {
     "date": "2026-11-01",
@@ -781164,8 +781164,8 @@
           "m": 65,
           "a": "Vanderson",
           "nat": "USA",
-          "aNat": "Brazil",
           "pid": "espn:282643",
+          "aNat": "Brazil",
           "apid": "espn:310640"
         }
       ]
@@ -781895,7 +781895,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1793640895624
+    "assistsAt": 1793648147242
   },
   {
     "date": "2026-11-02",
@@ -783842,7 +783842,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1793640948588
+    "assistsAt": 1793648206264
   },
   {
     "date": "2026-11-02",
@@ -783942,7 +783942,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1793640895386
+    "assistsAt": 1793648147041
   },
   {
     "date": "2026-11-02",
@@ -784572,7 +784572,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1793640875564
+    "assistsAt": 1793648077053
   },
   {
     "date": "2026-11-02",
@@ -784682,7 +784682,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1793640875334
+    "assistsAt": 1793648076753
   },
   {
     "date": "2026-11-02",
@@ -786059,7 +786059,7 @@
     "status": "live",
     "awayScore": 2,
     "homeScore": 0,
-    "matchPeriod": "후반 28'",
+    "matchPeriod": "후반 32'",
     "scorers": {
       "home": [],
       "away": [
@@ -786117,7 +786117,7 @@
     "gameId": "SWEDEN_ESPN_401842870",
     "status": "live",
     "homeScore": 2,
-    "awayScore": 0,
+    "awayScore": 1,
     "matchPeriod": "후반",
     "cards": {
       "home": [
@@ -786161,7 +786161,13 @@
           "pid": "espn:400221"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Axel Kouame",
+          "m": 76,
+          "pid": "espn:409815"
+        }
+      ]
     }
   },
   {
@@ -786211,7 +786217,7 @@
     "status": "live",
     "awayScore": 4,
     "homeScore": 0,
-    "matchPeriod": "후반",
+    "matchPeriod": "후반 15'",
     "scorers": {
       "home": [],
       "away": [
@@ -786266,9 +786272,9 @@
     "timeTbd": false,
     "gameId": "lSO5FS1Wg1ZrcSk",
     "status": "live",
-    "awayScore": 2,
+    "awayScore": 3,
     "homeScore": 1,
-    "matchPeriod": "후반",
+    "matchPeriod": "후반 15'",
     "scorers": {
       "home": [
         {
@@ -786296,6 +786302,25 @@
           "pid": "espn:341415",
           "aNat": "Paraguay",
           "apid": "espn:188160"
+        },
+        {
+          "n": "시미치",
+          "m": 58,
+          "og": true,
+          "nat": "Serbia",
+          "pid": "espn:355861"
+        }
+      ]
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Valentino Lazaro",
+          "type": "Y",
+          "m": 57,
+          "pid": "espn:303001",
+          "nat": "Austria"
         }
       ]
     },
@@ -791259,6 +791284,66 @@
   },
   {
     "date": "2026-11-08",
+    "time": "10:00",
+    "league": "LMP",
+    "venueId": "estadio_emilio_ibarra_almada",
+    "home": "카녜로스 데 로스모치스",
+    "away": "아길라스 데 멕시칼리",
+    "stadium": "Chevron Park",
+    "timeTbd": false,
+    "gameId": "LMP_MLBSTATS_850455",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-08",
+    "time": "10:00",
+    "league": "LMP",
+    "venueId": "estadio_francisco_carranza_limon",
+    "home": "알고도네로스 데 과사베",
+    "away": "나랑헤로스 데 에르모시요",
+    "stadium": "Kuroda Park",
+    "timeTbd": false,
+    "gameId": "LMP_MLBSTATS_850456",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-08",
+    "time": "10:00",
+    "league": "LMP",
+    "venueId": "estadio_manuel_ciclon_echeverria",
+    "home": "마요스 데 나보호아",
+    "away": "베나도스 데 마사틀란",
+    "stadium": "Estadio Manuel Ciclon Echeverria",
+    "timeTbd": false,
+    "gameId": "LMP_MLBSTATS_850466",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-08",
+    "time": "10:05",
+    "league": "LMP",
+    "venueId": "estadio_tomateros_culiacan",
+    "home": "토마테로스 데 쿨리아칸",
+    "away": "하과레스 데 나야리트",
+    "stadium": "Estadio Juan Ley Fong",
+    "timeTbd": false,
+    "gameId": "LMP_MLBSTATS_850465",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-08",
+    "time": "10:10",
+    "league": "LMP",
+    "venueId": "estadio_yaquis_obregon",
+    "home": "야키스 데 오브레곤",
+    "away": "차로스 데 할리스코",
+    "stadium": "Estadio de los Yaquis",
+    "timeTbd": false,
+    "gameId": "LMP_MLBSTATS_850463",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-08",
     "time": "10:15",
     "league": "COLOMBIA",
     "venueId": "estadio_pascual_guerrero_cali",
@@ -791303,66 +791388,6 @@
     "stadium": "Alejandro Morera Soto",
     "timeTbd": false,
     "gameId": "COSTARICA_ESPN_401876820",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-11-08",
-    "time": "11:00",
-    "league": "LMP",
-    "venueId": "estadio_emilio_ibarra_almada",
-    "home": "카녜로스 데 로스모치스",
-    "away": "아길라스 데 멕시칼리",
-    "stadium": "Chevron Park",
-    "timeTbd": false,
-    "gameId": "LMP_MLBSTATS_850455",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-11-08",
-    "time": "11:00",
-    "league": "LMP",
-    "venueId": "estadio_francisco_carranza_limon",
-    "home": "알고도네로스 데 과사베",
-    "away": "나랑헤로스 데 에르모시요",
-    "stadium": "Kuroda Park",
-    "timeTbd": false,
-    "gameId": "LMP_MLBSTATS_850456",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-11-08",
-    "time": "11:00",
-    "league": "LMP",
-    "venueId": "estadio_manuel_ciclon_echeverria",
-    "home": "마요스 데 나보호아",
-    "away": "베나도스 데 마사틀란",
-    "stadium": "Estadio Manuel Ciclon Echeverria",
-    "timeTbd": false,
-    "gameId": "LMP_MLBSTATS_850466",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-11-08",
-    "time": "11:05",
-    "league": "LMP",
-    "venueId": "estadio_tomateros_culiacan",
-    "home": "토마테로스 데 쿨리아칸",
-    "away": "하과레스 데 나야리트",
-    "stadium": "Estadio Juan Ley Fong",
-    "timeTbd": false,
-    "gameId": "LMP_MLBSTATS_850465",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-11-08",
-    "time": "11:10",
-    "league": "LMP",
-    "venueId": "estadio_yaquis_obregon",
-    "home": "야키스 데 오브레곤",
-    "away": "차로스 데 할리스코",
-    "stadium": "Estadio de los Yaquis",
-    "timeTbd": false,
-    "gameId": "LMP_MLBSTATS_850463",
     "status": "scheduled"
   },
   {
