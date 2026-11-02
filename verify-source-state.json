@@ -1,5 +1,18 @@
 {
- "pending": {},
+ "pending": {
+  "카드 누락|BOLIVIA_ESPN_401930011|c|Y|90|259082": {
+   "n": 1,
+   "first": 1793582726744,
+   "kind": "카드 누락",
+   "text": "2026-11-02 BOLIVIA 우니베르시타리오 데 빈토 vs 올웨이스 레디 — ESPN 90' 경고(선수 259082)이 우리 데이터에 없음"
+  },
+  "결과 미반영(StatsAPI 재조회)|LIDOM_MLBSTATS_851517": {
+   "n": 1,
+   "first": 1793582726744,
+   "kind": "결과 미반영(StatsAPI 재조회)",
+   "text": "2026-11-02 LIDOM 히간테스 델 시바오 vs 토로스 델 에스테 — StatsAPI 종료 13-7, 우리는 live"
+  }
+ },
  "alerted": {
   "농구 선수 기록 불일치|espn:NBA:401909861|pl|a|3155535": 1792978942705,
   "농구 선수 기록 불일치|espn:NBA:401909864|pl|h|5279133": 1792979432711,
@@ -34,13 +47,13 @@
   "도움 누락|CHILE_ESPN_401850682|a|59|258627": 1793566232105,
   "도움 누락|CHILE_ESPN_401850682|a|90|250711": 1793566232105
  },
- "lastRun": "2026-11-02T01:00:46.656Z",
+ "lastRun": "2026-11-02T01:25:26.744Z",
  "stats": {
   "leagues": 55,
   "events": 384,
   "matched": 380,
   "unmatched": 4,
-  "eventGames": 207,
+  "eventGames": 208,
   "eventSkipped": 1,
   "affil": {
    "api": 60,
