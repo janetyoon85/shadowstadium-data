@@ -783147,8 +783147,8 @@
           "m": 65,
           "a": "Vanderson",
           "nat": "USA",
-          "aNat": "Brazil",
           "pid": "espn:282643",
+          "aNat": "Brazil",
           "apid": "espn:310640"
         }
       ]
@@ -790098,14 +790098,16 @@
     "liveState": {
       "pitcher": "오원석",
       "pitcherPid": "kbo:p:50859",
-      "batter": "구자욱",
-      "batterPid": "kbo:b:62404",
+      "batter": "디아즈",
+      "batterPid": "kbo:b:54400",
       "ball": 0,
-      "strike": 0,
+      "strike": 2,
       "out": 0,
       "bases": [
-        1
-      ]
+        1,
+        2
+      ],
+      "pitchCount": 7
     },
     "highlights": {
       "home": [
@@ -790404,7 +790406,18 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반",
+    "matchPeriod": "전반 11'",
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Hiroto Morooka",
+          "type": "Y",
+          "m": 10,
+          "pid": "espn:3121934"
+        }
+      ]
+    },
     "phaseCode": "GROUP"
   },
   {
@@ -790420,13 +790433,14 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 0,
-    "matchPeriod": "전반",
+    "matchPeriod": "전반 10'",
     "scorers": {
       "home": [],
       "away": [
         {
           "n": "아콜로",
           "m": 5,
+          "nat": "Congo DR",
           "pid": "espn:217526"
         }
       ]
