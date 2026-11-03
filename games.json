@@ -791298,7 +791298,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 0,
-    "matchPeriod": "하프타임",
+    "matchPeriod": "후반",
     "scorers": {
       "home": [],
       "away": [
@@ -791338,8 +791338,8 @@
     "gameId": "ATBWlUN8Gbs0KAL",
     "status": "live",
     "awayScore": 0,
-    "homeScore": 0,
-    "matchPeriod": "하프타임"
+    "homeScore": 1,
+    "matchPeriod": "후반"
   },
   {
     "date": "2026-11-04",
@@ -791354,7 +791354,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 3,
-    "matchPeriod": "전반 46'",
+    "matchPeriod": "하프타임",
     "scorers": {
       "home": [
         {
@@ -791438,7 +791438,7 @@
     "timeTbd": false,
     "gameId": "PERU_ESPN_401886128",
     "status": "live",
-    "matchPeriod": "전반",
+    "matchPeriod": "하프타임",
     "homeScore": 0,
     "awayScore": 1,
     "scorers": {
@@ -791450,6 +791450,18 @@
           "pk": true,
           "nat": "Colombia",
           "pid": "espn:324718"
+        }
+      ]
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Orlando Nuñez",
+          "type": "Y",
+          "m": 45,
+          "pid": "espn:302576",
+          "nat": "Peru"
         }
       ]
     }
@@ -791467,7 +791479,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 45'",
+    "matchPeriod": "하프타임",
     "phaseCode": "LEAGUE"
   },
   {
@@ -791496,7 +791508,15 @@
       "away": []
     },
     "cards": {
-      "home": [],
+      "home": [
+        {
+          "n": "Raphinha",
+          "type": "Y",
+          "m": 45,
+          "pid": "espn:231050",
+          "nat": "Brazil"
+        }
+      ],
       "away": [
         {
           "n": "Ian Maatsen",
@@ -791511,6 +791531,13 @@
           "m": 31,
           "pid": "espn:214375",
           "nat": "Argentina"
+        },
+        {
+          "n": "Nicolas Jackson",
+          "type": "Y",
+          "m": 45,
+          "pid": "espn:308524",
+          "nat": "Senegal"
         }
       ]
     },
@@ -791565,7 +791592,19 @@
         }
       ]
     },
-    "phaseCode": "LEAGUE"
+    "phaseCode": "LEAGUE",
+    "cards": {
+      "home": [
+        {
+          "n": "Santi Comesaña",
+          "type": "Y",
+          "m": 45,
+          "pid": "espn:240623",
+          "nat": "Spain"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-11-04",
@@ -791643,7 +791682,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 3,
-    "matchPeriod": "전반 44'",
+    "matchPeriod": "전반",
     "scorers": {
       "home": [
         {
@@ -791767,7 +791806,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 44'",
+    "matchPeriod": "하프타임",
     "phaseCode": "LEAGUE"
   },
   {
@@ -791809,19 +791848,8 @@
     "gameId": "COLOMBIA_ESPN_401877912",
     "status": "live",
     "homeScore": 0,
-    "awayScore": 1,
-    "matchPeriod": "전반",
-    "scorers": {
-      "home": [],
-      "away": [
-        {
-          "n": "Luis Sánchez",
-          "m": 13,
-          "nat": "Colombia",
-          "pid": "espn:229362"
-        }
-      ]
-    }
+    "awayScore": 2,
+    "matchPeriod": "전반"
   },
   {
     "date": "2026-11-04",
