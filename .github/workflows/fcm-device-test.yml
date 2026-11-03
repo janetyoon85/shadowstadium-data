@@ -39,7 +39,7 @@ jobs:
           TOKEN="$(sed -n 's/.*token=\([^[:space:]]*\).*/\1/p' "$f" | head -1)"
           [ -z "$TOKEN" ] && TOKEN="$(head -1 "$f" | tr -d '[:space:]')"
           echo "::add-mask::$TOKEN"
-          { echo "FCM_TOKEN<<__FCM_EOF__"; cat "$f"; echo "__FCM_EOF__"; } >> "$GITHUB_ENV"
+          { echo "FCM_TOKEN<<__FCM_EOF__"; cat "$f"; echo; echo "__FCM_EOF__"; } >> "$GITHUB_ENV"
           rm -f "$f"
       - name: Send direct test
         env:
