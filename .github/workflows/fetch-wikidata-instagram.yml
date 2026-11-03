@@ -54,7 +54,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add player-instagram.json player-instagram-candidates.json wd-instagram-cache.json wd-instagram-byname.json
+          git add player-instagram.json player-instagram-candidates.json wd-instagram-cache.json wd-instagram-byname.json instagram-changes.json instagram-changelog.json
           if git diff --cached --quiet; then echo "변경 없음"; exit 0; fi
           git commit -q -m "chore(data): 위키데이터 선수 인스타그램 갱신 ($(date +'%Y-%m-%d %H:%M'))"
           for i in $(seq 1 20); do

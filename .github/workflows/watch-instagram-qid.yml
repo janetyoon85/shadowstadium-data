@@ -1,0 +1,70 @@
+name: Watch Instagram (QID)
+
+# 농구(위키데이터 QID 연결)·야구(MLB/KBO 선수 ID 속성) 선수의 위키데이터 최신 인스타그램 값을 받아
+#  (1) 새 후보를 player-instagram-candidates.json 에 더하고,
+#  (2) 이미 확인된 아이디(instagram-verified.json)와 달라진 건을 instagram-changes.json(변경 의심 큐)에 올린다 — 앱에는 확인된 값이 그대로 나가고, 사람이 확인 페이지에서 처리해야 바뀐다.
+# 축구는 fetch-wikidata-instagram.yml 이 같은 일을 한다. cron-job.org 에서 주 1회 dispatch 하도록 등록(GitHub schedule 은 자주 누락).
+on:
+  schedule:
+    - cron: '30 21 * * 0'   # 월요일 06:30 KST
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: watch-instagram-qid
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Fetch crawler code (private)
+        uses: ./.github/actions/fetch-code
+        with:
+          token: ${{ secrets.PRIVATE_DATA_TOKEN }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Collect candidates and detect handle changes
+        run: python scripts/collect-ig-candidates-qid.py
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add player-instagram-candidates.json instagram-changes.json instagram-changelog.json
+          if git diff --cached --quiet; then echo "변경 없음"; exit 0; fi
+          git commit -q -m "chore(data): 인스타그램 변경 감시(농구·야구) ($(date +'%Y-%m-%d %H:%M'))"
+          for i in $(seq 1 20); do
+            timeout 60 git pull -q --rebase origin main && timeout 60 git push -q origin HEAD:main && exit 0
+            git rebase --abort 2>/dev/null || true
+            sleep $((RANDOM % 8 + 1))
+          done
+          echo "::error::푸시 실패"
+          exit 1
+
+      - name: Create issue on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const date = new Date().toISOString().split('T')[0];
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `🚨 Instagram QID watch failed - ${date}`,
+              body: `Instagram QID watch failed at ${date}.\n\nWorkflow run: ${context.runId}`,
+              labels: ['bug', 'crawler']
+            });
