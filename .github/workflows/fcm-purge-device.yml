@@ -1,12 +1,9 @@
 name: FCM Purge Device Topics
 
-# 한 기기(FCM 토큰)에 남은 예전 언어/옛 토픽 구독을 서버에서 해제(수동). 앱 설정 제목을 길게 눌러 공유한 메시지의 token= 값을 입력.
+# 한 기기(FCM 토큰)에 남은 예전 언어/옛 토픽 구독을 서버에서 해제(수동). 기기 정보(앱 설정 제목 길게 누르기 진단 메시지)는 입력이 아니라 비공개 저장소 shadowstadium-secrets/fcm-device.txt 에서 읽는다.
 on:
   workflow_dispatch:
     inputs:
-      token:
-        description: '앱 설정 제목 길게 누르기로 공유된 메시지 전체(token=·favs= 줄 포함)'
-        required: true
       keep_lang:
         description: '남길 언어 코드'
         default: 'ko'
@@ -36,17 +33,23 @@ jobs:
           node-version: '22'
           cache: 'npm'
       - run: npm ci
-      - name: Mask token
+      - name: Load device info (private)
         env:
-          FCM_IN: ${{ inputs.token }}
+          PRIVATE_DATA_TOKEN: ${{ secrets.PRIVATE_DATA_TOKEN }}
         run: |
-          TOKEN=$(printf '%s' "$FCM_IN" | sed -n 's/.*token=\([^[:space:]]*\).*/\1/p' | head -1)
-          [ -z "$TOKEN" ] && TOKEN=$(printf '%s' "$FCM_IN" | head -1 | tr -d '[:space:]')
+          # 기기 토큰은 입력값이 아니라 비공개 저장소(shadowstadium-secrets/fcm-device.txt)에서 읽는다 — 공개 저장소의 실행 기록에 토큰이 남지 않게(2026-11-03).
+          set -eu
+          f="$(mktemp)"
+          curl -fsSL -H "Authorization: Bearer $PRIVATE_DATA_TOKEN" -H "Accept: application/vnd.github.raw" \
+            "https://api.github.com/repos/janetyoon85/shadowstadium-secrets/contents/fcm-device.txt" -o "$f"
+          TOKEN="$(sed -n 's/.*token=\([^[:space:]]*\).*/\1/p' "$f" | head -1)"
+          [ -z "$TOKEN" ] && TOKEN="$(head -1 "$f" | tr -d '[:space:]')"
           echo "::add-mask::$TOKEN"
+          { echo "FCM_TOKEN<<__FCM_EOF__"; cat "$f"; echo "__FCM_EOF__"; } >> "$GITHUB_ENV"
+          rm -f "$f"
       - name: Purge
         env:
           FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
-          FCM_TOKEN: ${{ inputs.token }}
           KEEP_LANG: ${{ inputs.keep_lang }}
           DRY_RUN: ${{ inputs.dry_run }}
           PURGE_NON_FAV_TEAMS: ${{ inputs.non_fav_teams }}
