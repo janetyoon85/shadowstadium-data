@@ -785280,8 +785280,8 @@
           "m": 62,
           "a": "Sadio Mané",
           "nat": "Saudi Arabia",
-          "aNat": "Senegal",
           "pid": "espn:270415",
+          "aNat": "Senegal",
           "apid": "espn:169797"
         },
         {
@@ -785482,8 +785482,8 @@
           "n": "히메네스",
           "m": 17,
           "pid": "espn:217575",
-          "pk": true,
-          "nat": "United Arab Emirates"
+          "nat": "United Arab Emirates",
+          "pk": true
         },
         {
           "n": "페드루 말헤이루",
@@ -785524,8 +785524,8 @@
           "m": 80,
           "a": "Mohammad Sami",
           "nat": "Iraq",
-          "pid": "espn:307548",
           "aNat": "Iraq",
+          "pid": "espn:307548",
           "apid": "espn:392115"
         }
       ]
@@ -787945,20 +787945,9 @@
     "stadium": "Salt River Fields at Talking Stick",
     "timeTbd": false,
     "gameId": "AFL_MLBSTATS_867663",
-    "status": "live",
+    "status": "completed",
     "homeScore": 10,
-    "awayScore": 12,
-    "inningInfo": "9회말",
-    "liveState": {
-      "pitcher": "Andy Rodriguez",
-      "batter": "Teo Banks",
-      "pitcherPid": "mlb:703142",
-      "batterPid": "mlb:695493",
-      "ball": 2,
-      "strike": 1,
-      "out": 2,
-      "bases": []
-    }
+    "awayScore": 12
   },
   {
     "date": "2026-11-03",
@@ -787976,13 +787965,16 @@
     "inningInfo": "9회초",
     "liveState": {
       "pitcher": "Najer Victor",
-      "batter": "Welbyn Francisca",
+      "batter": "Brooks Bryan",
       "pitcherPid": "mlb:695402",
-      "batterPid": "mlb:806988",
-      "ball": 2,
-      "strike": 2,
-      "out": 0,
-      "bases": []
+      "batterPid": "mlb:804871",
+      "ball": 1,
+      "strike": 0,
+      "out": 2,
+      "bases": [
+        1,
+        2
+      ]
     }
   },
   {
