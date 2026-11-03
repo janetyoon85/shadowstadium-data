@@ -773356,7 +773356,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1793699377817
+    "assistsAt": 1793706653304
   },
   {
     "date": "2026-11-01",
@@ -783901,8 +783901,8 @@
           "m": 69,
           "a": "Arnaut Danjuma",
           "nat": "Nigeria",
-          "aNat": "Netherlands",
           "pid": "espn:211770",
+          "aNat": "Netherlands",
           "apid": "espn:231618"
         }
       ]
@@ -784928,8 +784928,8 @@
           "m": 87,
           "a": "Andrea Cambiaso",
           "nat": "Ivory Coast",
-          "pid": "espn:206153",
           "aNat": "Italy",
+          "pid": "espn:206153",
           "apid": "espn:308029"
         }
       ],
@@ -785012,8 +785012,8 @@
           "n": "알렉스 베렝게르",
           "m": 45,
           "pid": "espn:209579",
-          "pk": true,
-          "nat": "Spain"
+          "nat": "Spain",
+          "pk": true
         }
       ],
       "away": [
@@ -786777,7 +786777,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1793699451894
+    "assistsAt": 1793706653087
   },
   {
     "date": "2026-11-02",
@@ -790098,16 +790098,16 @@
     "liveState": {
       "pitcher": "로건",
       "pitcherPid": "kbo:p:55912",
-      "batter": "김영웅",
-      "batterPid": "kbo:b:52430",
-      "ball": 2,
+      "batter": "김헌곤",
+      "batterPid": "kbo:b:61404",
+      "ball": 0,
       "strike": 0,
-      "out": 0,
+      "out": 1,
       "bases": [
-        1,
-        2
+        2,
+        3
       ],
-      "pitchCount": 4
+      "pitchCount": 12
     },
     "highlights": {
       "home": [
@@ -790188,7 +790188,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 2,
-    "matchPeriod": "후반",
+    "matchPeriod": "후반 48'",
     "scorers": {
       "home": [
         {
@@ -790237,22 +790237,35 @@
     "status": "live",
     "awayScore": 2,
     "homeScore": 3,
-    "matchPeriod": "후반",
+    "matchPeriod": "후반 47'",
     "scorers": {
       "home": [
         {
           "n": "하마사키",
-          "m": 34
+          "m": 34,
+          "a": "Yuta Goke",
+          "nat": "Japan",
+          "pid": "espn:388059",
+          "aNat": "Japan",
+          "apid": "espn:271336"
         },
         {
           "n": "에리크",
           "m": 83,
-          "pid": "espn:201724"
+          "a": "Yuya Kuwasaki",
+          "nat": "Brazil",
+          "pid": "espn:201724",
+          "aNat": "Japan",
+          "apid": "espn:379613"
         },
         {
           "n": "야마카와",
           "m": 88,
-          "pid": "espn:302696"
+          "a": "Yuya Osako",
+          "nat": "Japan",
+          "pid": "espn:302696",
+          "aNat": "Japan",
+          "apid": "espn:133286"
         }
       ],
       "away": [
@@ -790307,6 +790320,13 @@
           "m": 39,
           "pid": "espn:313653",
           "nat": "Thailand"
+        },
+        {
+          "n": "Daniel Sang Ting",
+          "type": "Y",
+          "m": 89,
+          "pid": "espn:272476",
+          "nat": "Malaysia"
         }
       ]
     },
@@ -790322,10 +790342,9 @@
     "stadium": "산쿄 프론티어 가시와 스타디움",
     "timeTbd": false,
     "gameId": "pP7kZV4KTYas3Br",
-    "status": "live",
+    "status": "completed",
     "awayScore": 0,
     "homeScore": 2,
-    "matchPeriod": "후반",
     "scorers": {
       "home": [
         {
@@ -790364,6 +790383,12 @@
           "m": 27,
           "pid": "espn:399363",
           "nat": "Japan"
+        },
+        {
+          "n": "Kenshin Yuba",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:3099674"
         }
       ],
       "away": []
