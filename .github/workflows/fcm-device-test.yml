@@ -1,0 +1,35 @@
+name: FCM Device Direct Test
+
+# 한 기기(FCM 토큰)로 직접 진단 푸시 2건(수동) — 토픽 구독과 무관하게 기기까지 가는지 확인. 앱 설정 제목 길게 누르기로 공유된 진단 메시지의 token= 값을 입력.
+# 주의: 입력값이 공개 저장소의 실행 기록에 남으므로 확인이 끝나면 이 실행을 삭제한다.
+on:
+  workflow_dispatch:
+    inputs:
+      token:
+        description: '진단 메시지 전체 또는 token 값'
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch crawler code (private)
+        uses: ./.github/actions/fetch-code
+        with:
+          token: ${{ secrets.PRIVATE_DATA_TOKEN }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+      - run: npm ci
+      - name: Send direct test
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          FCM_TOKEN: ${{ inputs.token }}
+        run: node scripts/send-test-device.mjs
