@@ -34,6 +34,10 @@ jobs:
         with:
           node-version: '20'
 
+      # 점검 전에 새 나라 이름을 18개 언어로 자동 번역해 둔다(국가대표 팀 영문명 없음 → 알림 없이 스스로 해결, 2026-11-04).
+      - name: Auto-translate new country names
+        run: node scripts/autofix-country-names.mjs
+
       - name: Run health check
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
@@ -44,7 +48,7 @@ jobs:
 
       - name: Commit state
         run: |
-          git add ops-health-state.json ops-ledger
+          git add ops-health-state.json ops-ledger team-name-en.json team-name-i18n-auto.json
           git diff --cached --quiet && exit 0
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
