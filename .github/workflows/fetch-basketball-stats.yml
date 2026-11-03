@@ -46,7 +46,7 @@ jobs:
           if [[ -z "$(git status --porcelain basketball/stats.json basketball/player-wd.json)" ]]; then exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add basketball/stats.json basketball/player-wd.json
+          git add basketball/stats.json basketball/player-wd.json basketball/player-nat.json
           git commit -m "chore(data): 농구 팀/선수기록 갱신 ($(date +'%Y-%m-%d %H:%M'))"
           for i in $(seq 1 20); do
             if git push; then exit 0; fi
