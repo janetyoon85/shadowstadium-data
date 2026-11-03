@@ -1,0 +1,71 @@
+name: Detect New Leagues
+
+# 네이버에 새 리그/대회(categoryId)가 생겼는지 하루 한 번 확인한다 — 예: 2026-11 APBC 가 열렸는데 수집 목록에 없어 경기가 빠져 있었다.
+# 새로 발견하면 Discord 자동조치 채널에 "🆕 신규 리그 발견 — 자동조치 대상" 을 보내고 운영 장부에 남겨 일일 보고에 표시한다.
+# (등록 — 수집·검증·앱 필터·구장 매핑 — 은 Claude 가 알림을 보고 이어서 처리한다.) 기준선·알린 기록: new-league-seen.json, 무시할 카테고리: new-league-ignore.json({categoryId: 사유}).
+# 네이버가 GitHub 서버를 막을 수 있어 다른 네이버 크롤러처럼 pick-runner 로 러너를 고른다. cron-job.org 에서 하루 1회 dispatch 하도록 등록(GitHub schedule 은 자주 누락).
+on:
+  schedule:
+    - cron: '20 21 * * *'   # 매일 06:20 KST
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: detect-new-leagues
+  cancel-in-progress: false
+
+env:
+  NAVER_TLS12: '1'
+
+jobs:
+  pick:
+    uses: ./.github/workflows/pick-runner.yml
+    secrets: inherit
+    with:
+      force: 'true'
+  detect:
+    needs: pick
+    runs-on: ${{ needs.pick.outputs.runner }}
+    defaults:
+      run:
+        shell: bash
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Fetch crawler code (private)
+        uses: ./.github/actions/fetch-code
+        with:
+          token: ${{ secrets.PRIVATE_DATA_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Detect new leagues
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          DISCORD_WEBHOOK_URL_AUTO: ${{ secrets.DISCORD_WEBHOOK_URL_AUTO }}
+        run: node scripts/detect-new-leagues.mjs
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add new-league-seen.json 2>/dev/null || true
+          git add -A ops-ledger 2>/dev/null || true
+          if git diff --cached --quiet; then echo "변경 없음"; exit 0; fi
+          git commit -q -m "chore(data): 신규 리그 감시 기록 ($(date +'%Y-%m-%d %H:%M'))"
+          for i in $(seq 1 20); do
+            timeout 60 git pull -q --rebase origin main && timeout 60 git push -q origin HEAD:main && exit 0
+            git rebase --abort 2>/dev/null || true
+            sleep $((RANDOM % 8 + 1))
+          done
+          echo "::error::푸시 실패"
+          exit 1
