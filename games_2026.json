@@ -787743,7 +787743,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1793743430660
+    "assistsAt": 1793750778379
   },
   {
     "date": "2026-11-03",
@@ -792705,6 +792705,12 @@
           "m": 23,
           "nat": "Paraguay",
           "pid": "espn:379091"
+        },
+        {
+          "n": "Rodrigo Amarilla",
+          "m": 71,
+          "nat": "Paraguay",
+          "pid": "espn:340725"
         }
       ]
     }
@@ -792725,14 +792731,14 @@
     "inningInfo": "1회초",
     "liveState": {
       "pitcher": "Reid Birlingmair",
-      "batter": "Wilson Garcia",
+      "batter": "Jose Martinez",
       "pitcherPid": "mlb:679304",
-      "batterPid": "mlb:600902",
-      "ball": 1,
-      "strike": 2,
-      "out": 0,
+      "batterPid": "mlb:642686",
+      "ball": 0,
+      "strike": 0,
+      "out": 2,
       "bases": [
-        1
+        2
       ]
     }
   },
@@ -792749,15 +792755,15 @@
     "status": "live",
     "homeScore": 2,
     "awayScore": 2,
-    "inningInfo": "3회초",
+    "inningInfo": "3회말",
     "liveState": {
-      "pitcher": "Yonny Chirinos",
-      "batter": "Balbino Fuenmayor",
-      "pitcherPid": "mlb:630023",
-      "batterPid": "mlb:515768",
+      "pitcher": "Miguel Cienfuegos",
+      "batter": "Aron Estrada",
+      "pitcherPid": "mlb:800550",
+      "batterPid": "mlb:800406",
       "ball": 0,
       "strike": 0,
-      "out": 2,
+      "out": 1,
       "bases": []
     }
   },
@@ -792772,19 +792778,19 @@
     "timeTbd": false,
     "gameId": "LVBP_MLBSTATS_870031",
     "status": "live",
-    "homeScore": 0,
+    "homeScore": 1,
     "awayScore": 3,
     "inningInfo": "3회말",
     "liveState": {
       "pitcher": "Elieser Hernández",
-      "batter": "Wuilfredo Antunez",
+      "batter": "Victor Bericoto",
       "pitcherPid": "mlb:622694",
-      "batterPid": "mlb:686404",
+      "batterPid": "mlb:682674",
       "ball": 1,
-      "strike": 1,
-      "out": 0,
+      "strike": 2,
+      "out": 1,
       "bases": [
-        1
+        3
       ]
     }
   },
@@ -792801,18 +792807,16 @@
     "status": "live",
     "homeScore": 2,
     "awayScore": 4,
-    "inningInfo": "2회초",
+    "inningInfo": "2회말",
     "liveState": {
-      "pitcher": "Hector Perez",
-      "batter": "Jesús Sánchez",
-      "pitcherPid": "mlb:660431",
-      "batterPid": "mlb:660821",
+      "pitcher": "Bryce Conley",
+      "batter": "Marco Hernández",
+      "pitcherPid": "mlb:676785",
+      "batterPid": "mlb:593523",
       "ball": 3,
       "strike": 2,
-      "out": 2,
-      "bases": [
-        2
-      ]
+      "out": 1,
+      "bases": []
     }
   },
   {
@@ -792880,15 +792884,15 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 1,
-    "inningInfo": "2회초",
+    "inningInfo": "2회말",
     "liveState": {
-      "pitcher": "Spencer Bivens",
-      "batter": "Deyvison De Los Santos",
-      "pitcherPid": "mlb:702352",
-      "batterPid": "mlb:691277",
-      "ball": 3,
-      "strike": 2,
-      "out": 2,
+      "pitcher": "Jackson Goddard",
+      "batter": "Marco Luciano",
+      "pitcherPid": "mlb:680725",
+      "batterPid": "mlb:682617",
+      "ball": 0,
+      "strike": 0,
+      "out": 0,
       "bases": []
     }
   },
@@ -792934,7 +792938,15 @@
           "nat": "Venezuela"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Diego Osorio",
+          "type": "Y",
+          "m": 27,
+          "pid": "espn:74299",
+          "nat": "Venezuela"
+        }
+      ]
     }
   },
   {
@@ -812826,6 +812838,18 @@
   },
   {
     "date": "2026-12-05",
+    "time": "02:00",
+    "league": "TURKEY",
+    "venueId": "galatasaray_rams_park",
+    "home": "갈라타사라이",
+    "away": "차이쿠르 리제스포르",
+    "stadium": "RAMS Park",
+    "timeTbd": false,
+    "gameId": "TURKEY_ESPN_401888231",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-12-05",
     "time": "02:30",
     "league": "SOUTHAFRICA",
     "venueId": "petrus_molemela_stadium",
@@ -812834,6 +812858,42 @@
     "stadium": "Royal Bafokeng Stadium",
     "timeTbd": false,
     "gameId": "SOUTHAFRICA_ESPN_401902000",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-12-05",
+    "time": "03:00",
+    "league": "NORWAY",
+    "venueId": "aker_stadion_molde",
+    "home": "몰데",
+    "away": "비킹 FK",
+    "stadium": "Aker Stadion",
+    "timeTbd": false,
+    "gameId": "NORWAY_ESPN_401843502",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-12-05",
+    "time": "03:30",
+    "league": "AUSTRIA",
+    "venueId": "cashpoint_arena_altach",
+    "home": "알탁흐",
+    "away": "레드불 잘츠부르크",
+    "stadium": "Cashpoint-Arena",
+    "timeTbd": false,
+    "gameId": "AUSTRIA_ESPN_401881732",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-12-05",
+    "time": "05:15",
+    "league": "PORTUGAL",
+    "venueId": "sporting_lisbon_alvalade",
+    "home": "스포르팅 CP",
+    "away": "마리티무",
+    "stadium": "Estádio José Alvalade",
+    "timeTbd": false,
+    "gameId": "PORTUGAL_ESPN_401885376",
     "status": "scheduled"
   },
   {
