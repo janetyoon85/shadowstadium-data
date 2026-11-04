@@ -784690,7 +784690,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1793760393554
+    "assistsAt": 1793767650038
   },
   {
     "date": "2026-11-02",
@@ -791609,8 +791609,8 @@
           "n": "프라이스",
           "m": 22,
           "pid": "espn:317857",
-          "pk": true,
-          "nat": "Northern Ireland"
+          "nat": "Northern Ireland",
+          "pk": true
         }
       ],
       "away": [
@@ -793302,17 +793302,19 @@
     "gameId": "LMP_MLBSTATS_850480",
     "status": "live",
     "homeScore": 5,
-    "awayScore": 5,
+    "awayScore": 6,
     "inningInfo": "8회초",
     "liveState": {
       "pitcher": "Jesús Broca",
-      "batter": "Ramon Mendoza",
+      "batter": "Jose Gaitan",
       "pitcherPid": "mlb:695871",
-      "batterPid": "mlb:680636",
+      "batterPid": "mlb:668165",
       "ball": 0,
       "strike": 0,
-      "out": 0,
-      "bases": []
+      "out": 2,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -793330,13 +793332,13 @@
     "awayScore": 4,
     "inningInfo": "7회말",
     "liveState": {
-      "pitcher": "Colten Davis",
-      "batter": "Johan Lopez",
-      "pitcherPid": "mlb:829416",
-      "batterPid": "mlb:835115",
+      "pitcher": "Jorge Rodriguez",
+      "batter": "Carlos Sepulveda",
+      "pitcherPid": "mlb:681659",
+      "batterPid": "mlb:661148",
       "ball": 1,
-      "strike": 1,
-      "out": 0,
+      "strike": 2,
+      "out": 1,
       "bases": [
         2
       ]
@@ -793355,15 +793357,15 @@
     "status": "live",
     "homeScore": 1,
     "awayScore": 2,
-    "inningInfo": "9회초",
+    "inningInfo": "9회말",
     "liveState": {
-      "pitcher": "Colten Brewer",
-      "batter": "Ali Solis",
-      "pitcherPid": "mlb:605155",
-      "batterPid": "mlb:455378",
-      "ball": 0,
+      "pitcher": "Robert Gsellman",
+      "batter": "Reivaj Garcia",
+      "pitcherPid": "mlb:607229",
+      "batterPid": "mlb:678706",
+      "ball": 1,
       "strike": 1,
-      "out": 2,
+      "out": 0,
       "bases": []
     }
   },
@@ -793380,16 +793382,18 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 0,
-    "inningInfo": "4회말",
+    "inningInfo": "5회초",
     "liveState": {
       "pitcher": "Humberto Castellanos",
-      "batter": "Nick Lucky",
+      "batter": "Austin Davis",
       "pitcherPid": "mlb:528748",
-      "batterPid": "mlb:681879",
+      "batterPid": "mlb:686689",
       "ball": 0,
-      "strike": 0,
-      "out": 3,
-      "bases": []
+      "strike": 3,
+      "out": 0,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -793918,18 +793922,6 @@
     "date": "2026-11-05",
     "time": "08:00",
     "league": "LVBP",
-    "venueId": "estadio_jose_bernardo_perez",
-    "home": "나베간테스 델 마가야네스",
-    "away": "브라보스 데 마르가리타",
-    "stadium": "Estadio Jose Bernardo Perez",
-    "timeTbd": false,
-    "gameId": "LVBP_MLBSTATS_870023",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-11-05",
-    "time": "08:00",
-    "league": "LVBP",
     "venueId": "estadio_luis_aparicio",
     "home": "아길라스 델 술리아",
     "away": "카리베스 데 안소아테기",
@@ -794032,6 +794024,18 @@
     "stadium": "Estadio Francisco Micheli",
     "timeTbd": false,
     "gameId": "LIDOM_MLBSTATS_851436",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-05",
+    "time": "08:30",
+    "league": "LVBP",
+    "venueId": "estadio_jose_bernardo_perez",
+    "home": "나베간테스 델 마가야네스",
+    "away": "브라보스 데 마르가리타",
+    "stadium": "Estadio Jose Bernardo Perez",
+    "timeTbd": false,
+    "gameId": "LVBP_MLBSTATS_870023",
     "status": "scheduled"
   },
   {
