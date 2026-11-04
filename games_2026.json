@@ -783457,7 +783457,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1793753918217
+    "assistsAt": 1793761167256
   },
   {
     "date": "2026-11-02",
@@ -787912,7 +787912,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1793753928979
+    "assistsAt": 1793761174685
   },
   {
     "date": "2026-11-03",
@@ -792115,8 +792115,8 @@
           "n": "브루노 페르난데스",
           "m": 58,
           "pid": "espn:124091",
-          "pk": true,
-          "nat": "Portugal"
+          "nat": "Portugal",
+          "pk": true
         },
         {
           "n": "마테우스 쿠냐",
@@ -792148,8 +792148,8 @@
           "n": "말런",
           "m": 17,
           "pid": "espn:259481",
-          "pk": true,
-          "nat": "Netherlands"
+          "nat": "Netherlands",
+          "pk": true
         }
       ]
     },
@@ -792766,14 +792766,15 @@
     "inningInfo": "8회초",
     "liveState": {
       "pitcher": "Wilmer Flores",
-      "batter": "David Peralta",
+      "batter": "Wilson Garcia",
       "pitcherPid": "mlb:695865",
-      "batterPid": "mlb:444482",
-      "ball": 1,
+      "batterPid": "mlb:600902",
+      "ball": 2,
       "strike": 0,
-      "out": 0,
+      "out": 1,
       "bases": [
-        1
+        1,
+        2
       ]
     }
   },
@@ -792793,13 +792794,17 @@
     "inningInfo": "8회말",
     "liveState": {
       "pitcher": "Eduardo Salazar",
-      "batter": "Ali Castillo",
+      "batter": "Phillip Ervin",
       "pitcherPid": "mlb:674285",
-      "batterPid": "mlb:542419",
+      "batterPid": "mlb:640447",
       "ball": 0,
       "strike": 1,
       "out": 1,
-      "bases": []
+      "bases": [
+        1,
+        2,
+        3
+      ]
     }
   },
   {
@@ -792832,13 +792837,14 @@
     "inningInfo": "9회말",
     "liveState": {
       "pitcher": "Lucas Sims",
-      "batter": "José Marmolejos",
+      "batter": "Ramón Laureano",
       "pitcherPid": "mlb:608371",
-      "batterPid": "mlb:592530",
-      "ball": 2,
-      "strike": 0,
+      "batterPid": "mlb:657656",
+      "ball": 0,
+      "strike": 2,
       "out": 1,
       "bases": [
+        1,
         3
       ]
     }
@@ -792945,16 +792951,19 @@
     "status": "live",
     "homeScore": 5,
     "awayScore": 1,
-    "inningInfo": "5회초",
+    "inningInfo": "5회말",
     "liveState": {
-      "pitcher": "Rafael Montero",
-      "batter": "Jesús Made",
-      "pitcherPid": "mlb:606160",
-      "batterPid": "mlb:815908",
-      "ball": 0,
-      "strike": 2,
-      "out": 3,
-      "bases": []
+      "pitcher": "Misael Tamarez",
+      "batter": "Aderlin Rodríguez",
+      "pitcherPid": "mlb:685377",
+      "batterPid": "mlb:573669",
+      "ball": 1,
+      "strike": 0,
+      "out": 0,
+      "bases": [
+        1,
+        2
+      ]
     }
   },
   {
@@ -792967,23 +792976,9 @@
     "stadium": "Estadio Tetelo Vargas",
     "timeTbd": false,
     "gameId": "LIDOM_MLBSTATS_851532",
-    "status": "live",
+    "status": "completed",
     "homeScore": 5,
-    "awayScore": 3,
-    "inningInfo": "9회초",
-    "liveState": {
-      "pitcher": "Luis García",
-      "batter": "Noelvi Marte",
-      "pitcherPid": "mlb:472610",
-      "batterPid": "mlb:682622",
-      "ball": 0,
-      "strike": 0,
-      "out": 1,
-      "bases": [
-        1,
-        3
-      ]
-    }
+    "awayScore": 3
   },
   {
     "date": "2026-11-04",
@@ -793194,9 +793189,9 @@
     "stadium": "Estadio Puente Piedra",
     "timeTbd": false,
     "gameId": "COSTARICA_ESPN_401876824",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
-    "homeScore": 4,
+    "homeScore": 3,
     "awayScore": 1,
     "scorers": {
       "home": [
@@ -793225,7 +793220,9 @@
           "pid": "espn:3100029"
         }
       ]
-    }
+    },
+    "assistsChecked": true,
+    "assistsAt": 1793761322584
   },
   {
     "date": "2026-11-04",
@@ -793237,7 +793234,7 @@
     "stadium": "Estadio Alejandro Villanueva",
     "timeTbd": false,
     "gameId": "PERU_ESPN_401886148",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 1,
     "awayScore": 0,
@@ -793292,7 +793289,9 @@
         }
       ],
       "away": []
-    }
+    },
+    "assistsChecked": true,
+    "assistsAt": 1793761322357
   },
   {
     "date": "2026-11-04",
@@ -793310,14 +793309,16 @@
     "inningInfo": "6회초",
     "liveState": {
       "pitcher": "Brooks Auger",
-      "batter": "Anthony Santa Cruz de Oviedo",
+      "batter": "Breyson Guedez",
       "pitcherPid": "mlb:824624",
-      "batterPid": "mlb:829888",
+      "batterPid": "mlb:829052",
       "ball": 1,
-      "strike": 1,
+      "strike": 2,
       "out": 2,
       "bases": [
-        2
+        1,
+        2,
+        3
       ]
     }
   },
@@ -793334,18 +793335,16 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 6,
-    "inningInfo": "5회초",
+    "inningInfo": "5회말",
     "liveState": {
-      "pitcher": "Mason Nichols",
-      "batter": "Kehden Hettiger",
-      "pitcherPid": "mlb:805783",
-      "batterPid": "mlb:800607",
-      "ball": 1,
-      "strike": 2,
-      "out": 1,
-      "bases": [
-        1
-      ]
+      "pitcher": "Ryan Dromboski",
+      "batter": "Luke Davis",
+      "pitcherPid": "mlb:823804",
+      "batterPid": "mlb:701592",
+      "ball": 0,
+      "strike": 0,
+      "out": 2,
+      "bases": []
     }
   },
   {
@@ -793361,16 +793360,19 @@
     "status": "live",
     "homeScore": 2,
     "awayScore": 0,
-    "inningInfo": "5회말",
+    "inningInfo": "6회초",
     "liveState": {
-      "pitcher": "Ross Carver",
-      "batter": "Julian Ornelas",
-      "pitcherPid": "mlb:687102",
-      "batterPid": "mlb:676140",
-      "ball": 2,
-      "strike": 2,
-      "out": 2,
-      "bases": []
+      "pitcher": "Ronald Medrano",
+      "batter": "Victor Labrada",
+      "pitcherPid": "mlb:642574",
+      "batterPid": "mlb:700032",
+      "ball": 0,
+      "strike": 0,
+      "out": 0,
+      "bases": [
+        1,
+        2
+      ]
     }
   },
   {
@@ -793389,12 +793391,12 @@
     "inningInfo": "3회초",
     "liveState": {
       "pitcher": "Juan Macias",
-      "batter": "Missael Rivera",
+      "batter": "Nick Senzel",
       "pitcherPid": "mlb:667910",
-      "batterPid": "mlb:668992",
-      "ball": 0,
-      "strike": 0,
-      "out": 1,
+      "batterPid": "mlb:669222",
+      "ball": 2,
+      "strike": 1,
+      "out": 2,
       "bases": [
         3
       ]
@@ -793415,16 +793417,14 @@
     "awayScore": 0,
     "inningInfo": "2회초",
     "liveState": {
-      "pitcher": "Randy Wynne",
-      "batter": "Christopher Escarrega",
-      "pitcherPid": "mlb:691094",
-      "batterPid": "mlb:692473",
-      "ball": 1,
-      "strike": 0,
-      "out": 1,
-      "bases": [
-        1
-      ]
+      "pitcher": "Luis Romero",
+      "batter": "Dom Johnson",
+      "pitcherPid": "mlb:673603",
+      "batterPid": "mlb:694336",
+      "ball": 3,
+      "strike": 3,
+      "out": 3,
+      "bases": []
     }
   },
   {
@@ -793439,19 +793439,17 @@
     "gameId": "LMP_MLBSTATS_850483",
     "status": "live",
     "homeScore": 1,
-    "awayScore": 0,
+    "awayScore": 1,
     "inningInfo": "2회초",
     "liveState": {
-      "pitcher": "Wilmer Rios",
-      "batter": "Luis Verdugo",
-      "pitcherPid": "mlb:658140",
-      "batterPid": "mlb:677605",
-      "ball": 0,
-      "strike": 1,
-      "out": 1,
-      "bases": [
-        3
-      ]
+      "pitcher": "Luis Cessa",
+      "batter": "Dylan Jasso",
+      "pitcherPid": "mlb:570666",
+      "batterPid": "mlb:815734",
+      "ball": 1,
+      "strike": 3,
+      "out": 3,
+      "bases": []
     }
   },
   {
