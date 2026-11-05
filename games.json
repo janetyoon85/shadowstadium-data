@@ -800546,13 +800546,13 @@
     "awayScore": 0,
     "inningInfo": "1회말",
     "liveState": {
-      "pitcher": "Jose Rodriguez",
-      "batter": "Luisangel Acuña",
-      "pitcherPid": "mlb:673648",
-      "batterPid": "mlb:682668",
-      "ball": 1,
-      "strike": 3,
-      "out": 2,
+      "pitcher": "Max Castillo",
+      "batter": "Balbino Fuenmayor",
+      "pitcherPid": "mlb:666721",
+      "batterPid": "mlb:515768",
+      "ball": 0,
+      "strike": 0,
+      "out": 3,
       "bases": []
     }
   },
@@ -800572,13 +800572,16 @@
     "inningInfo": "1회말",
     "liveState": {
       "pitcher": "Brander Guevara",
-      "batter": "Oswaldo Cabrera",
+      "batter": "David Rodríguez",
       "pitcherPid": "mlb:842334",
-      "batterPid": "mlb:665828",
-      "ball": 0,
-      "strike": 0,
+      "batterPid": "mlb:630034",
+      "ball": 4,
+      "strike": 2,
       "out": 2,
-      "bases": []
+      "bases": [
+        1,
+        2
+      ]
     }
   },
   {
@@ -800594,29 +800597,17 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 0,
-    "inningInfo": "1회초",
+    "inningInfo": "1회말",
     "liveState": {
       "pitcher": "Williander Moreno",
-      "batter": "Ali Castillo",
+      "batter": "Osleivis Basabe",
       "pitcherPid": "mlb:678981",
-      "batterPid": "mlb:542419",
+      "batterPid": "mlb:678545",
       "ball": 0,
-      "strike": 0,
-      "out": 3,
+      "strike": 2,
+      "out": 1,
       "bases": []
     }
-  },
-  {
-    "date": "2026-11-06",
-    "time": "08:00",
-    "league": "LVBP",
-    "venueId": "monumental_simon_bolivar",
-    "home": "레오네스 델 카라카스",
-    "away": "브라보스 데 마르가리타",
-    "stadium": "Monumental Simon Bolivar",
-    "timeTbd": false,
-    "gameId": "LVBP_MLBSTATS_870020",
-    "status": "postponed"
   },
   {
     "date": "2026-11-06",
@@ -801123,6 +801114,18 @@
   },
   {
     "date": "2026-11-07",
+    "time": "07:00",
+    "league": "LVBP",
+    "venueId": "monumental_simon_bolivar",
+    "home": "레오네스 델 카라카스",
+    "away": "브라보스 데 마르가리타",
+    "stadium": "Monumental Simon Bolivar",
+    "timeTbd": false,
+    "gameId": "LVBP_MLBSTATS_870017",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-07",
     "time": "07:15",
     "league": "ARGENTINA",
     "venueId": "estadio_15_de_abril",
@@ -801237,8 +801240,8 @@
     "home": "레오네스 델 카라카스",
     "away": "브라보스 데 마르가리타",
     "stadium": "Monumental Simon Bolivar",
-    "timeTbd": false,
-    "gameId": "LVBP_MLBSTATS_870017",
+    "timeTbd": true,
+    "gameId": "LVBP_MLBSTATS_870020",
     "status": "scheduled"
   },
   {
