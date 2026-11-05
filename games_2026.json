@@ -791607,8 +791607,8 @@
           "n": "프라이스",
           "m": 22,
           "pid": "espn:317857",
-          "nat": "Northern Ireland",
-          "pk": true
+          "pk": true,
+          "nat": "Northern Ireland"
         }
       ],
       "away": [
@@ -793564,8 +793564,8 @@
           "m": 55,
           "a": "Kim Dong-Jin",
           "nat": "Brazil",
-          "pid": "espn:187377",
           "aNat": "South Korea",
+          "pid": "espn:187377",
           "apid": "espn:46569"
         },
         {
@@ -793573,8 +793573,8 @@
           "m": 77,
           "a": "Kim Dong-Jin",
           "nat": "Brazil",
-          "pid": "espn:378781",
           "aNat": "South Korea",
+          "pid": "espn:378781",
           "apid": "espn:46569"
         },
         {
@@ -793606,8 +793606,8 @@
           "m": 79,
           "a": "Ryoya Yamashita",
           "nat": "Japan",
-          "pid": "espn:297238",
           "aNat": "Japan",
+          "pid": "espn:297238",
           "apid": "espn:356323"
         }
       ]
@@ -796126,14 +796126,16 @@
     "awayScore": 3,
     "inningInfo": "6회말",
     "liveState": {
-      "pitcher": "Patrick Weigel",
-      "batter": "Luis Liberato",
-      "pitcherPid": "mlb:622256",
-      "batterPid": "mlb:642451",
-      "ball": 0,
+      "pitcher": "Geronimo Franzua",
+      "batter": "Jasson Domínguez",
+      "pitcherPid": "mlb:601980",
+      "batterPid": "mlb:691176",
+      "ball": 1,
       "strike": 0,
       "out": 2,
-      "bases": []
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -796146,20 +796148,9 @@
     "stadium": "Estadio Francisco Micheli",
     "timeTbd": false,
     "gameId": "LIDOM_MLBSTATS_851436",
-    "status": "live",
+    "status": "completed",
     "homeScore": 5,
-    "awayScore": 9,
-    "inningInfo": "9회말",
-    "liveState": {
-      "pitcher": "J.C. Mejía",
-      "batter": "George Valera",
-      "pitcherPid": "mlb:650496",
-      "batterPid": "mlb:671655",
-      "ball": 0,
-      "strike": 0,
-      "out": 1,
-      "bases": []
-    }
+    "awayScore": 9
   },
   {
     "date": "2026-11-05",
@@ -796248,13 +796239,52 @@
       "away": [
         {
           "n": "Raul Vidal",
-          "m": 29,
+          "m": 28,
           "pid": "espn:176491"
         }
       ]
     },
-    "assistsChecked": true,
-    "assistsAt": 1793844239209
+    "assistsAt": 1793848716430,
+    "cards": {
+      "home": [
+        {
+          "n": "Vladimir Carlton Edghill Serrano",
+          "type": "Y",
+          "m": 40,
+          "pid": "espn:3100048"
+        },
+        {
+          "n": "Wesly Decas",
+          "type": "Y",
+          "m": 79,
+          "pid": "espn:228366",
+          "nat": "Honduras"
+        },
+        {
+          "n": "Wilson Alberto Hernández González",
+          "type": "Y",
+          "m": 86,
+          "pid": "espn:3136517"
+        },
+        {
+          "n": "Dariel Castrillo",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:407914",
+          "nat": "Costa Rica"
+        }
+      ],
+      "away": [
+        {
+          "n": "Jordy Evans",
+          "type": "Y",
+          "m": 45,
+          "pid": "espn:302978",
+          "nat": "Costa Rica"
+        }
+      ]
+    },
+    "assistsChecked": true
   },
   {
     "date": "2026-11-05",
@@ -796558,15 +796588,15 @@
     "status": "live",
     "homeScore": 2,
     "awayScore": 0,
-    "inningInfo": "7회초",
+    "inningInfo": "7회말",
     "liveState": {
-      "pitcher": "Kevin Warunek",
-      "batter": "Grant Magill",
-      "pitcherPid": "mlb:825100",
-      "batterPid": "mlb:686944",
-      "ball": 3,
+      "pitcher": "Cam Schuelke",
+      "batter": "Tate Southisene",
+      "pitcherPid": "mlb:807575",
+      "batterPid": "mlb:816111",
+      "ball": 2,
       "strike": 2,
-      "out": 3,
+      "out": 2,
       "bases": []
     }
   },
@@ -796583,16 +796613,18 @@
     "status": "live",
     "homeScore": 5,
     "awayScore": 7,
-    "inningInfo": "6회초",
+    "inningInfo": "6회말",
     "liveState": {
-      "pitcher": "Stu Flesland III",
-      "batter": "Waner Luciano",
-      "pitcherPid": "mlb:687317",
-      "batterPid": "mlb:800294",
-      "ball": 1,
+      "pitcher": "Jake Murray",
+      "batter": "Matthew Wood",
+      "pitcherPid": "mlb:810920",
+      "batterPid": "mlb:687783",
+      "ball": 2,
       "strike": 1,
-      "out": 3,
-      "bases": []
+      "out": 0,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -796649,18 +796681,18 @@
     "gameId": "LMP_MLBSTATS_850468",
     "status": "live",
     "homeScore": 4,
-    "awayScore": 5,
+    "awayScore": 7,
     "inningInfo": "6회초",
     "liveState": {
-      "pitcher": "Irving Vazquez",
-      "batter": "Rafael Franco",
-      "pitcherPid": "mlb:802744",
-      "batterPid": "mlb:679007",
-      "ball": 2,
-      "strike": 2,
+      "pitcher": "Alemao Hernandez",
+      "batter": "Juan Mora",
+      "pitcherPid": "mlb:672598",
+      "batterPid": "mlb:680643",
+      "ball": 1,
+      "strike": 1,
       "out": 2,
       "bases": [
-        3
+        1
       ]
     }
   },
@@ -796676,7 +796708,7 @@
     "gameId": "PERU_ESPN_401886151",
     "status": "live",
     "matchPeriod": "후반",
-    "homeScore": 0,
+    "homeScore": 1,
     "awayScore": 2,
     "cards": {
       "home": [
@@ -796713,7 +796745,14 @@
       ]
     },
     "scorers": {
-      "home": [],
+      "home": [
+        {
+          "n": "Alex Valera",
+          "m": 88,
+          "nat": "Peru",
+          "pid": "espn:301930"
+        }
+      ],
       "away": [
         {
           "n": "Christian Cueva",
@@ -796778,18 +796817,16 @@
     "status": "live",
     "homeScore": 3,
     "awayScore": 2,
-    "inningInfo": "3회말",
+    "inningInfo": "4회초",
     "liveState": {
-      "pitcher": "Nick Horvath",
-      "batter": "Roberto Valenzuela",
-      "pitcherPid": "mlb:681282",
-      "batterPid": "mlb:672438",
-      "ball": 2,
-      "strike": 2,
-      "out": 2,
-      "bases": [
-        3
-      ]
+      "pitcher": "Dominic Pipkin",
+      "batter": "Nick Senzel",
+      "pitcherPid": "mlb:669421",
+      "batterPid": "mlb:669222",
+      "ball": 1,
+      "strike": 1,
+      "out": 0,
+      "bases": []
     }
   },
   {
@@ -796808,13 +796845,16 @@
     "inningInfo": "2회말",
     "liveState": {
       "pitcher": "Luis Fernando Miranda",
-      "batter": "Albert Fabian",
+      "batter": "Dom Johnson",
       "pitcherPid": "mlb:642532",
-      "batterPid": "mlb:683546",
+      "batterPid": "mlb:694336",
       "ball": 1,
-      "strike": 2,
+      "strike": 1,
       "out": 0,
-      "bases": []
+      "bases": [
+        1,
+        2
+      ]
     }
   },
   {
@@ -796830,13 +796870,13 @@
     "status": "live",
     "homeScore": 1,
     "awayScore": 1,
-    "inningInfo": "3회초",
+    "inningInfo": "3회말",
     "liveState": {
-      "pitcher": "Edgar Arredondo",
-      "batter": "Angel Ramirez",
-      "pitcherPid": "mlb:639238",
-      "batterPid": "mlb:807587",
-      "ball": 0,
+      "pitcher": "Rolando Mora",
+      "batter": "Jon Singleton",
+      "pitcherPid": "mlb:807608",
+      "batterPid": "mlb:572138",
+      "ball": 1,
       "strike": 0,
       "out": 3,
       "bases": []
