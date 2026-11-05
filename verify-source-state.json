@@ -1,16 +1,28 @@
 {
  "pending": {
-  "결과 미반영(StatsAPI 재조회)|LVBP_MLBSTATS_870021": {
+  "농구 선수 기록 불일치|espn:NBA:401909925|pl|h|5107173": {
    "n": 1,
-   "first": 1793847670224,
-   "kind": "결과 미반영(StatsAPI 재조회)",
-   "text": "2026-11-05 LVBP 티부로네스 데 라과이라 vs 레오네스 델 카라카스 — StatsAPI 종료 7-10, 우리는 live"
+   "first": 1793849127614,
+   "kind": "농구 선수 기록 불일치",
+   "text": "2026-11-05 NBA 브루클린 vs 샬럿 — Danny Wolf: 득점 12→13 (우리→원본)"
   },
   "농구 선수 기록 불일치|espn:NBA:401909922|pl|h|3157465": {
-   "n": 1,
+   "n": 2,
    "first": 1793847670224,
    "kind": "농구 선수 기록 불일치",
    "text": "2026-11-05 NBA 디트로이트 vs 필라델피아 — Duncan Robinson: 스틸 0→1 (우리→원본)"
+  },
+  "농구 선수 기록 불일치|espn:NBA:401909922|pl|h|4432166": {
+   "n": 1,
+   "first": 1793849127614,
+   "kind": "농구 선수 기록 불일치",
+   "text": "2026-11-05 NBA 디트로이트 vs 필라델피아 — Cade Cunningham: 블록 2→1 (우리→원본)"
+  },
+  "농구 선수 기록 불일치|espn:NBA:401909922|pl|h|4684742": {
+   "n": 1,
+   "first": 1793849127614,
+   "kind": "농구 선수 기록 불일치",
+   "text": "2026-11-05 NBA 디트로이트 vs 필라델피아 — Ausar Thompson: 스틸 2→1 (우리→원본)"
   }
  },
  "alerted": {
@@ -31,13 +43,13 @@
   "도움 누락|CHILE_ESPN_401850682|a|59|258627": 1793566232105,
   "도움 누락|CHILE_ESPN_401850682|a|90|250711": 1793566232105
  },
- "lastRun": "2026-11-05T03:01:10.224Z",
+ "lastRun": "2026-11-05T03:25:27.614Z",
  "stats": {
   "leagues": 56,
   "events": 280,
   "matched": 272,
   "unmatched": 8,
-  "eventGames": 75,
+  "eventGames": 77,
   "eventSkipped": 0,
   "affil": {
    "api": 68,
@@ -47,8 +59,8 @@
   "naverDetail": 0,
   "standingsMismatch": 0,
   "bkBox": {
-   "internal": 280,
-   "fresh": 4,
+   "internal": 283,
+   "fresh": 7,
    "nba": 0
   },
   "xsource": 0,
