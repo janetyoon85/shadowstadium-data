@@ -799032,9 +799032,18 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 5'",
+    "matchPeriod": "전반 1'",
+    "phaseCode": "LEAGUE",
     "cards": {
-      "home": [],
+      "home": [
+        {
+          "n": "Geovanni Vianney",
+          "type": "Y",
+          "m": 7,
+          "pid": "espn:418782",
+          "nat": "Cameroon"
+        }
+      ],
       "away": [
         {
           "n": "Zviad Natchkebia",
@@ -799043,8 +799052,7 @@
           "pid": "espn:3093406"
         }
       ]
-    },
-    "phaseCode": "LEAGUE"
+    }
   },
   {
     "date": "2026-11-06",
