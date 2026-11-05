@@ -787741,7 +787741,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1793910273850
+    "assistsAt": 1793917476912
   },
   {
     "date": "2026-11-03",
@@ -787824,7 +787824,7 @@
       "away": []
     },
     "assistsChecked": true,
-    "assistsAt": 1793910094558
+    "assistsAt": 1793917355301
   },
   {
     "date": "2026-11-03",
@@ -798683,8 +798683,8 @@
           "m": 81,
           "a": "Ryan Christie",
           "nat": "Brazil",
-          "pid": "espn:102368",
           "aNat": "Scotland",
+          "pid": "espn:102368",
           "apid": "espn:93435"
         },
         {
@@ -798692,8 +798692,8 @@
           "m": 90,
           "a": "Evanilson",
           "nat": "Brazil",
-          "pid": "espn:357719",
           "aNat": "Brazil",
+          "pid": "espn:357719",
           "apid": "espn:102368"
         }
       ]
@@ -800328,13 +800328,16 @@
     "inningInfo": "7회말",
     "liveState": {
       "pitcher": "Anhuar Garcia",
-      "batter": "Tate Southisene",
+      "batter": "Jhonny Severino",
       "pitcherPid": "mlb:806879",
-      "batterPid": "mlb:816111",
+      "batterPid": "mlb:703177",
       "ball": 0,
       "strike": 0,
       "out": 0,
-      "bases": []
+      "bases": [
+        1,
+        2
+      ]
     }
   },
   {
@@ -800349,7 +800352,7 @@
     "gameId": "PARAGUAY_ESPN_401888568",
     "status": "live",
     "homeScore": 0,
-    "awayScore": 0,
+    "awayScore": 1,
     "matchPeriod": "전반",
     "cards": {
       "home": [
@@ -800362,6 +800365,17 @@
         }
       ],
       "away": []
+    },
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "Marcelo Pérez",
+          "m": 24,
+          "nat": "Paraguay",
+          "pid": "espn:200565"
+        }
+      ]
     }
   },
   {
@@ -800376,8 +800390,31 @@
     "gameId": "ARGENTINA_ESPN_401841667",
     "status": "live",
     "matchPeriod": "전반",
-    "homeScore": 0,
-    "awayScore": 0
+    "homeScore": 1,
+    "awayScore": 0,
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Alcides Benítez",
+          "type": "Y",
+          "m": 6,
+          "pid": "espn:268135",
+          "nat": "Paraguay"
+        }
+      ]
+    },
+    "scorers": {
+      "home": [
+        {
+          "n": "Lucas Janson",
+          "m": 6,
+          "nat": "Argentina",
+          "pid": "espn:176813"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-11-06",
