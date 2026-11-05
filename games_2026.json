@@ -789602,7 +789602,7 @@
       "away": []
     },
     "assistsChecked": true,
-    "assistsAt": 1793915617167
+    "assistsAt": 1793922817269
   },
   {
     "date": "2026-11-03",
@@ -797807,8 +797807,8 @@
           "m": 88,
           "a": "Áki Samuelsen",
           "nat": "Denmark",
-          "aNat": "Faroe Islands",
           "pid": "espn:315621",
+          "aNat": "Faroe Islands",
           "apid": "espn:305836"
         }
       ],
@@ -797854,8 +797854,8 @@
           "m": 80,
           "a": "Rade Krunic",
           "nat": "Serbia",
-          "pid": "espn:345737",
           "aNat": "Bosnia and Herzegovina",
+          "pid": "espn:345737",
           "apid": "espn:222595"
         },
         {
@@ -797871,8 +797871,8 @@
           "n": "보르하 아렐라노",
           "m": 62,
           "a": "Maurizio Pochettino",
-          "pid": "espn:3099342",
           "aNat": "Argentina",
+          "pid": "espn:3099342",
           "apid": "espn:296885"
         }
       ]
@@ -800425,7 +800425,9 @@
           "pid": "espn:14527"
         }
       ]
-    }
+    },
+    "assistsChecked": true,
+    "assistsAt": 1793922752210
   },
   {
     "date": "2026-11-06",
@@ -800566,6 +800568,13 @@
           "m": 53,
           "pid": "espn:157743",
           "nat": "Brazil"
+        },
+        {
+          "n": "Jajá",
+          "type": "Y",
+          "m": 60,
+          "pid": "espn:301185",
+          "nat": "Brazil"
         }
       ]
     }
@@ -800637,13 +800646,15 @@
     "inningInfo": "3회초",
     "liveState": {
       "pitcher": "Jean Pinto",
-      "batter": "Roynier Hernandez",
+      "batter": "Jorge Barrosa",
       "pitcherPid": "mlb:686645",
-      "batterPid": "mlb:800281",
-      "ball": 0,
-      "strike": 0,
-      "out": 0,
-      "bases": []
+      "batterPid": "mlb:678489",
+      "ball": 3,
+      "strike": 1,
+      "out": 1,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -800659,15 +800670,15 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 1,
-    "inningInfo": "2회말",
+    "inningInfo": "3회초",
     "liveState": {
       "pitcher": "José Davila",
-      "batter": "Carlos Rodríguez",
+      "batter": "Thairo Estrada",
       "pitcherPid": "mlb:692369",
-      "batterPid": "mlb:677578",
+      "batterPid": "mlb:642731",
       "ball": 0,
-      "strike": 2,
-      "out": 3,
+      "strike": 1,
+      "out": 2,
       "bases": []
     }
   },
@@ -800711,15 +800722,15 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 2,
-    "inningInfo": "2회초",
+    "inningInfo": "2회말",
     "liveState": {
-      "pitcher": "Luis Leroy Cruz",
-      "batter": "Miguel Pabon",
-      "pitcherPid": "mlb:543071",
-      "batterPid": "mlb:682196",
+      "pitcher": "Kaito Uchino",
+      "batter": "Carter Trice",
+      "pitcherPid": "mlb:845175",
+      "batterPid": "mlb:807714",
       "ball": 0,
       "strike": 0,
-      "out": 1,
+      "out": 2,
       "bases": []
     }
   },
@@ -800736,17 +800747,18 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 1,
-    "inningInfo": "1회말",
+    "inningInfo": "2회초",
     "liveState": {
-      "pitcher": "José De León",
-      "batter": "Yariel Gonzalez",
-      "pitcherPid": "mlb:592254",
-      "batterPid": "mlb:670582",
+      "pitcher": "Ryder Ryan",
+      "batter": "Gabriel Cancel",
+      "pitcherPid": "mlb:656924",
+      "batterPid": "mlb:663708",
       "ball": 0,
       "strike": 0,
-      "out": 1,
+      "out": 2,
       "bases": [
-        1
+        1,
+        2
       ]
     }
   },
