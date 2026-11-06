@@ -796219,7 +796219,7 @@
         }
       ]
     },
-    "assistsAt": 1794000810770,
+    "assistsAt": 1794008012332,
     "cards": {
       "home": [
         {
@@ -798683,8 +798683,8 @@
           "m": 81,
           "a": "Ryan Christie",
           "nat": "Brazil",
-          "aNat": "Scotland",
           "pid": "espn:102368",
+          "aNat": "Scotland",
           "apid": "espn:93435"
         },
         {
@@ -798692,8 +798692,8 @@
           "m": 90,
           "a": "Evanilson",
           "nat": "Brazil",
-          "aNat": "Brazil",
           "pid": "espn:357719",
+          "aNat": "Brazil",
           "apid": "espn:102368"
         }
       ]
@@ -802337,18 +802337,16 @@
     "status": "live",
     "homeScore": 3,
     "awayScore": 0,
-    "inningInfo": "4회초",
+    "inningInfo": "4회말",
     "liveState": {
-      "pitcher": "Zak Kent",
-      "batter": "Wilson Garcia",
-      "pitcherPid": "mlb:687849",
-      "batterPid": "mlb:600902",
-      "ball": 0,
-      "strike": 0,
+      "pitcher": "Junior Guerra",
+      "batter": "Wilfredo Tovar",
+      "pitcherPid": "mlb:448855",
+      "batterPid": "mlb:541600",
+      "ball": 1,
+      "strike": 1,
       "out": 1,
-      "bases": [
-        2
-      ]
+      "bases": []
     }
   },
   {
@@ -802422,20 +802420,9 @@
     "stadium": "Peoria Stadium",
     "timeTbd": false,
     "gameId": "AFL_MLBSTATS_867652",
-    "status": "live",
+    "status": "completed",
     "homeScore": 13,
-    "awayScore": 4,
-    "inningInfo": "9회초",
-    "liveState": {
-      "pitcher": "Joseph King",
-      "batter": "Juan Cabada",
-      "pitcherPid": "mlb:683165",
-      "batterPid": "mlb:829040",
-      "ball": 1,
-      "strike": 1,
-      "out": 2,
-      "bases": []
-    }
+    "awayScore": 4
   },
   {
     "date": "2026-11-07",
@@ -802677,6 +802664,12 @@
           "m": 22,
           "nat": "Argentina",
           "pid": "espn:200303"
+        },
+        {
+          "n": "Nicolas Retamar",
+          "m": 52,
+          "nat": "Argentina",
+          "pid": "espn:310736"
         }
       ]
     },
@@ -802688,6 +802681,13 @@
           "m": 41,
           "pid": "espn:298592",
           "nat": "Argentina"
+        },
+        {
+          "n": "Guzmán Corujo",
+          "type": "Y",
+          "m": 54,
+          "pid": "espn:254142",
+          "nat": "Uruguay"
         }
       ],
       "away": [
@@ -802716,7 +802716,15 @@
     "awayScore": 0,
     "matchPeriod": "전반",
     "cards": {
-      "home": [],
+      "home": [
+        {
+          "n": "Daniel Rojas",
+          "type": "Y",
+          "m": 33,
+          "pid": "espn:270488",
+          "nat": "Bolivia"
+        }
+      ],
       "away": [
         {
           "n": "Jorge Nelson Orozco",
@@ -802766,8 +802774,20 @@
     "gameId": "COLOMBIA_ESPN_401878064",
     "status": "live",
     "homeScore": 0,
-    "awayScore": 0,
-    "matchPeriod": "전반"
+    "awayScore": 1,
+    "matchPeriod": "전반",
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "Cristian Blanco",
+          "m": 33,
+          "og": true,
+          "nat": "Argentina",
+          "pid": "espn:92528"
+        }
+      ]
+    }
   },
   {
     "date": "2026-11-07",
@@ -802779,7 +802799,20 @@
     "stadium": "Estadio Julian Javier",
     "timeTbd": false,
     "gameId": "LIDOM_MLBSTATS_851504",
-    "status": "scheduled"
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 1,
+    "inningInfo": "1회초",
+    "liveState": {
+      "pitcher": "Jake Eder",
+      "batter": "José Marmolejos",
+      "pitcherPid": "mlb:671109",
+      "batterPid": "mlb:592530",
+      "ball": 0,
+      "strike": 2,
+      "out": 1,
+      "bases": []
+    }
   },
   {
     "date": "2026-11-07",
@@ -802797,13 +802830,16 @@
     "inningInfo": "2회말",
     "liveState": {
       "pitcher": "Yorman Gómez",
-      "batter": "Phillip Ervin",
+      "batter": "Jose Salas",
       "pitcherPid": "mlb:691414",
-      "batterPid": "mlb:640447",
+      "batterPid": "mlb:691191",
       "ball": 0,
       "strike": 2,
-      "out": 0,
-      "bases": []
+      "out": 1,
+      "bases": [
+        1,
+        2
+      ]
     }
   },
   {
@@ -802819,16 +802855,19 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 0,
-    "inningInfo": "1회말",
+    "inningInfo": "2회초",
     "liveState": {
       "pitcher": "Angel Padron",
-      "batter": "David Rodríguez",
+      "batter": "Mason Martin",
       "pitcherPid": "mlb:660689",
-      "batterPid": "mlb:630034",
+      "batterPid": "mlb:676733",
       "ball": 2,
       "strike": 2,
-      "out": 3,
-      "bases": []
+      "out": 1,
+      "bases": [
+        2,
+        3
+      ]
     }
   },
   {
@@ -802858,13 +802897,13 @@
     "awayScore": 0,
     "inningInfo": "1회초",
     "liveState": {
-      "pitcher": "Riley Gowens",
-      "batter": "Oscar Colás",
-      "pitcherPid": "mlb:803035",
-      "batterPid": "mlb:693049",
+      "pitcher": "Brady Tedesco",
+      "batter": "Trent Youngblood",
+      "pitcherPid": "mlb:805749",
+      "batterPid": "mlb:827636",
       "ball": 0,
-      "strike": 0,
-      "out": 0,
+      "strike": 3,
+      "out": 3,
       "bases": []
     }
   },
@@ -802883,13 +802922,13 @@
     "awayScore": 0,
     "inningInfo": "1회초",
     "liveState": {
-      "pitcher": "Zach Penrod",
-      "batter": "John Bay",
-      "pitcherPid": "mlb:683068",
-      "batterPid": "mlb:700083",
+      "pitcher": "Jonathan Bermúdez",
+      "batter": "Bryan Torres",
+      "pitcherPid": "mlb:642834",
+      "batterPid": "mlb:663494",
       "ball": 0,
       "strike": 0,
-      "out": 0,
+      "out": 3,
       "bases": []
     }
   },
@@ -803079,12 +803118,12 @@
     "inningInfo": "1회초",
     "liveState": {
       "pitcher": "Peyton Prescott",
-      "batter": "Dax Kilby",
+      "batter": "Demetrio Crisantes",
       "pitcherPid": "mlb:807290",
-      "batterPid": "mlb:828076",
-      "ball": 0,
-      "strike": 0,
-      "out": 0,
+      "batterPid": "mlb:702679",
+      "ball": 1,
+      "strike": 3,
+      "out": 2,
       "bases": []
     }
   },
