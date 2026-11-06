@@ -799325,8 +799325,8 @@
           "m": 90,
           "a": "Mathys Detourbet",
           "nat": "France",
-          "aNat": "France",
           "pid": "espn:318389",
+          "aNat": "France",
           "apid": "espn:397994"
         }
       ],
@@ -799380,8 +799380,8 @@
           "n": "엘유누시",
           "m": 19,
           "pid": "espn:162484",
-          "nat": "Norway",
-          "pk": true
+          "pk": true,
+          "nat": "Norway"
         },
         {
           "n": "셀리모비치",
@@ -800645,7 +800645,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1793960852910
+    "assistsAt": 1793968113936
   },
   {
     "date": "2026-11-06",
@@ -801152,13 +801152,13 @@
     "homePitcherPid": "kbo:b:53375",
     "awayScore": 1,
     "homeScore": 5,
-    "inningInfo": "9회초",
-    "liveState": {
-      "pitcher": "김태훈"
-    },
+    "winPitcher": "후라도",
+    "losePitcher": "소형준",
+    "winPitcherPid": "kbo:p:53375",
+    "losePitcherPid": "kbo:p:50030",
     "round": "ps_ks",
     "rn": 3,
-    "serH": 1,
+    "serH": 2,
     "serA": 1
   },
   {
@@ -801892,8 +801892,14 @@
     "timeTbd": false,
     "gameId": "77771107KTSS02026",
     "status": "scheduled",
+    "awayPitcher": "로건",
+    "homePitcher": "장찬희",
+    "awayPitcherPid": "kbo:b:55912",
+    "homePitcherPid": "kbo:b:56460",
     "round": "ps_ks",
-    "rn": 4
+    "rn": 4,
+    "serH": 2,
+    "serA": 1
   },
   {
     "date": "2026-11-07",
@@ -803205,6 +803211,18 @@
   },
   {
     "date": "2026-11-08",
+    "time": "06:30",
+    "league": "VENEZUELA",
+    "venueId": "estadio_olimpico_ucv_caracas",
+    "home": "카라카스 FC",
+    "away": "아카데미아 푸에르토카베요",
+    "stadium": "Estadio Olímpico de la UCV",
+    "timeTbd": false,
+    "gameId": "VENEZUELA_ESPN_401930996",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-08",
     "time": "07:00",
     "league": "LIDOM",
     "venueId": "estadio_cibao",
@@ -803345,18 +803363,6 @@
     "stadium": "Estadio Tetelo Vargas",
     "timeTbd": false,
     "gameId": "LIDOM_MLBSTATS_851543",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-11-08",
-    "time": "08:30",
-    "league": "VENEZUELA",
-    "venueId": "estadio_olimpico_ucv_caracas",
-    "home": "카라카스 FC",
-    "away": "아카데미아 푸에르토카베요",
-    "stadium": "Estadio Olímpico de la UCV",
-    "timeTbd": false,
-    "gameId": "VENEZUELA_ESPN_401930996",
     "status": "scheduled"
   },
   {
