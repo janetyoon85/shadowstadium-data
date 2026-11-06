@@ -801822,7 +801822,6 @@
     "status": "completed",
     "awayScore": 1,
     "homeScore": 3,
-    "matchPeriod": "후반 48'",
     "scorers": {
       "home": [
         {
@@ -801967,7 +801966,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 3,
-    "matchPeriod": "후반",
+    "matchPeriod": "후반 35'",
     "scorers": {
       "home": [
         {
@@ -801993,7 +801992,9 @@
           "m": 76,
           "a": "Rasmus Nicolaisen",
           "nat": "Denmark",
-          "pid": "espn:362777"
+          "pid": "espn:362777",
+          "aNat": "Denmark",
+          "apid": "espn:238213"
         }
       ],
       "away": [
@@ -802059,7 +802060,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 2,
-    "matchPeriod": "후반",
+    "matchPeriod": "후반 36'",
     "scorers": {
       "home": [
         {
@@ -802117,7 +802118,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 2,
-    "matchPeriod": "후반",
+    "matchPeriod": "후반 24'",
     "scorers": {
       "home": [
         {
@@ -802177,7 +802178,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 2,
-    "matchPeriod": "후반",
+    "matchPeriod": "후반 21'",
     "scorers": {
       "home": [
         {
@@ -802219,7 +802220,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "후반",
+    "matchPeriod": "후반 17'",
     "cards": {
       "home": [
         {
@@ -802236,6 +802237,13 @@
           "type": "Y",
           "m": 30,
           "pid": "espn:106326",
+          "nat": "Spain"
+        },
+        {
+          "n": "Toni Martínez",
+          "type": "Y",
+          "m": 63,
+          "pid": "espn:181757",
           "nat": "Spain"
         }
       ]
@@ -802307,15 +802315,16 @@
     "awayScore": 0,
     "inningInfo": "3회말",
     "liveState": {
-      "pitcher": "Jhon Cabral",
-      "batter": "Carter Graham",
-      "pitcherPid": "mlb:805093",
-      "batterPid": "mlb:807728",
-      "ball": 4,
+      "pitcher": "Aaron Nixon",
+      "batter": "Boston Smith",
+      "pitcherPid": "mlb:691004",
+      "batterPid": "mlb:695722",
+      "ball": 0,
       "strike": 0,
       "out": 1,
       "bases": [
-        1
+        1,
+        3
       ]
     }
   },
