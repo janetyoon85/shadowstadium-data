@@ -799325,8 +799325,8 @@
           "m": 90,
           "a": "Mathys Detourbet",
           "nat": "France",
-          "aNat": "France",
           "pid": "espn:318389",
+          "aNat": "France",
           "apid": "espn:397994"
         }
       ],
@@ -799380,8 +799380,8 @@
           "n": "엘유누시",
           "m": 19,
           "pid": "espn:162484",
-          "nat": "Norway",
-          "pk": true
+          "pk": true,
+          "nat": "Norway"
         },
         {
           "n": "셀리모비치",
@@ -802820,7 +802820,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1794012991141
+    "assistsAt": 1794020246441
   },
   {
     "date": "2026-11-07",
@@ -802966,7 +802966,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1794013002338
+    "assistsAt": 1794020260971
   },
   {
     "date": "2026-11-07",
@@ -803011,16 +803011,14 @@
     "awayScore": 1,
     "inningInfo": "10회초",
     "liveState": {
-      "pitcher": "Evan Gates",
-      "batter": "Jesus Rodriguez",
-      "pitcherPid": "mlb:688753",
-      "batterPid": "mlb:683679",
-      "ball": 1,
-      "strike": 0,
-      "out": 2,
-      "bases": [
-        3
-      ]
+      "pitcher": "Luis Pacheco",
+      "batter": "Daniel Montano",
+      "pitcherPid": "mlb:672376",
+      "batterPid": "mlb:665914",
+      "ball": 2,
+      "strike": 2,
+      "out": 3,
+      "bases": []
     }
   },
   {
@@ -803036,18 +803034,16 @@
     "status": "live",
     "homeScore": 1,
     "awayScore": 2,
-    "inningInfo": "5회말",
+    "inningInfo": "6회초",
     "liveState": {
-      "pitcher": "Luis Cohen",
-      "batter": "Kenedy Corona",
-      "pitcherPid": "mlb:800324",
-      "batterPid": "mlb:685744",
+      "pitcher": "Steven Pérez",
+      "batter": "Jose Martinez",
+      "pitcherPid": "mlb:682897",
+      "batterPid": "mlb:642686",
       "ball": 1,
-      "strike": 0,
-      "out": 2,
-      "bases": [
-        1
-      ]
+      "strike": 2,
+      "out": 1,
+      "bases": []
     }
   },
   {
@@ -803074,20 +803070,9 @@
     "stadium": "Estadio Yldefonso Sola Morales",
     "timeTbd": false,
     "gameId": "PWL_MLBSTATS_872090",
-    "status": "live",
+    "status": "completed",
     "homeScore": 21,
-    "awayScore": 7,
-    "inningInfo": "9회초",
-    "liveState": {
-      "pitcher": "Zach Veen",
-      "batter": "Chris Arroyo",
-      "pitcherPid": "mlb:805731",
-      "batterPid": "mlb:701360",
-      "ball": 0,
-      "strike": 0,
-      "out": 2,
-      "bases": []
-    }
+    "awayScore": 7
   },
   {
     "date": "2026-11-07",
@@ -803506,7 +803491,7 @@
     "stadium": "Estadio Victoria",
     "timeTbd": false,
     "gameId": "LIGAMX_ESPN_401876909",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반",
     "homeScore": 1,
     "awayScore": 0,
@@ -803516,7 +803501,10 @@
           "n": "Danny Leyva",
           "m": 12,
           "nat": "USA",
-          "pid": "espn:280765"
+          "pid": "espn:280765",
+          "a": "Lorenzo Faravelli",
+          "apid": "espn:154517",
+          "aNat": "Argentina"
         }
       ],
       "away": []
@@ -803538,9 +803526,18 @@
           "m": 34,
           "pid": "espn:178142",
           "nat": "Mexico"
+        },
+        {
+          "n": "Iván Tona",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:284241",
+          "nat": "Mexico"
         }
       ]
-    }
+    },
+    "assistsChecked": true,
+    "assistsAt": 1794020317472
   },
   {
     "date": "2026-11-07",
@@ -803558,13 +803555,16 @@
     "inningInfo": "5회말",
     "liveState": {
       "pitcher": "Brandon Cain",
-      "batter": "Jett Williams",
+      "batter": "Eric Bitonti",
       "pitcherPid": "mlb:827610",
-      "batterPid": "mlb:702518",
-      "ball": 1,
+      "batterPid": "mlb:800724",
+      "ball": 0,
       "strike": 0,
-      "out": 1,
-      "bases": []
+      "out": 2,
+      "bases": [
+        1,
+        3
+      ]
     }
   },
   {
@@ -803579,16 +803579,16 @@
     "gameId": "AFL_MLBSTATS_867650",
     "status": "live",
     "homeScore": 6,
-    "awayScore": 2,
+    "awayScore": 4,
     "inningInfo": "5회초",
     "liveState": {
       "pitcher": "Brendan Girton",
-      "batter": "Dax Kilby",
+      "batter": "Jack O'Dowd",
       "pitcherPid": "mlb:694858",
-      "batterPid": "mlb:828076",
-      "ball": 2,
+      "batterPid": "mlb:691942",
+      "ball": 1,
       "strike": 2,
-      "out": 0,
+      "out": 2,
       "bases": []
     }
   },
@@ -803620,19 +803620,16 @@
     "status": "live",
     "homeScore": 3,
     "awayScore": 1,
-    "inningInfo": "3회초",
+    "inningInfo": "3회말",
     "liveState": {
-      "pitcher": "Norge Ruiz",
-      "batter": "Chavez Young",
-      "pitcherPid": "mlb:650204",
-      "batterPid": "mlb:669945",
-      "ball": 0,
-      "strike": 1,
-      "out": 2,
-      "bases": [
-        1,
-        3
-      ]
+      "pitcher": "Alex Delgado",
+      "batter": "Joey Meneses",
+      "pitcherPid": "mlb:604596",
+      "batterPid": "mlb:608841",
+      "ball": 1,
+      "strike": 0,
+      "out": 0,
+      "bases": []
     }
   },
   {
@@ -803646,17 +803643,17 @@
     "timeTbd": false,
     "gameId": "LMP_MLBSTATS_850469",
     "status": "live",
-    "homeScore": 0,
+    "homeScore": 1,
     "awayScore": 0,
-    "inningInfo": "4회초",
+    "inningInfo": "4회말",
     "liveState": {
-      "pitcher": "Edgar Torres",
-      "batter": "Julian Ornelas",
-      "pitcherPid": "mlb:664475",
-      "batterPid": "mlb:676140",
+      "pitcher": "Luis Angel Rodriguez",
+      "batter": "Marco Vargas",
+      "pitcherPid": "mlb:678296",
+      "batterPid": "mlb:804614",
       "ball": 0,
-      "strike": 2,
-      "out": 1,
+      "strike": 1,
+      "out": 0,
       "bases": []
     }
   },
@@ -803673,16 +803670,18 @@
     "status": "live",
     "homeScore": 3,
     "awayScore": 0,
-    "inningInfo": "2회초",
+    "inningInfo": "2회말",
     "liveState": {
-      "pitcher": "Omar Araujo",
-      "batter": "Alex D. Mejia",
-      "pitcherPid": "mlb:807586",
-      "batterPid": "mlb:622270",
+      "pitcher": "David Reyes",
+      "batter": "Randy Romero",
+      "pitcherPid": "mlb:547862",
+      "batterPid": "mlb:678499",
       "ball": 0,
-      "strike": 1,
-      "out": 1,
-      "bases": []
+      "strike": 0,
+      "out": 0,
+      "bases": [
+        1
+      ]
     }
   },
   {
