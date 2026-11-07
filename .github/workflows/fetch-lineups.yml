@@ -1,0 +1,84 @@
+name: Fetch Lineups
+
+# 선발·교체 명단 + 야구 박스스코어 수집(2026-11-08) → lineups.json (경기 id → 라인업, 앱이 경기 상세에서 읽는다).
+#  · 축구: 진행 중·종료 경기 — 다음스포츠 상세(선발·벤치·교체 분)
+#  · 야구(KBO): 종료 경기 — 네이버 /record(타순·교체·투수 등판 + 타자·투수 기록)
+# 보조 데이터라 실패해도 워크플로는 성공으로 끝난다(스크립트가 exit 0). 확정(f:1)된 경기는 다시 받지 않는다. lineups.json 만 쓴다(games.json 과 충돌 없음).
+on:
+  schedule:
+    - cron: '3,13,23,33,43,53 * * * *'
+  workflow_dispatch:
+    inputs:
+      dry:
+        description: '조회·출력만(저장·커밋 안 함) — true/false'
+        default: 'false'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fetch-lineups
+  cancel-in-progress: false
+
+# 네이버 API 호환(Node TLS1.3 핸드셰이크 후 멈춤 회피) — scripts/lib/naver-tls.mjs
+env:
+  NAVER_TLS12: '1'
+
+jobs:
+  # 어느 러너에서 돌릴지 정한다(GitHub 서버에서 네이버가 응답하면 GitHub 서버, 아니면 집 PC) — .github/workflows/pick-runner.yml
+  pick:
+    uses: ./.github/workflows/pick-runner.yml
+    secrets: inherit
+    with:
+      fallback_runner: ubuntu-latest
+  lineups:
+    needs: pick
+    runs-on: ${{ needs.pick.outputs.runner }}
+    timeout-minutes: 10
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main  # 큐에서 기다리다 늦게 시작해도 최신 main 을 받는다
+
+      - name: Fetch crawler code (private)
+        uses: ./.github/actions/fetch-code
+        with:
+          token: ${{ secrets.PRIVATE_DATA_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Collect lineups
+        env:
+          NAVER_DISABLED: ${{ needs.pick.outputs.naver_disabled }}
+          LINEUPS_DRY: ${{ github.event.inputs.dry == 'true' && '1' || '' }}
+        run: node scripts/fetch-lineups.mjs
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if [[ -n "$(git status --porcelain lineups.json)" ]]; then echo "changed=true" >> $GITHUB_OUTPUT; else echo "changed=false" >> $GITHUB_OUTPUT; fi
+
+      - name: Commit and push
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add lineups.json
+          git commit -m "chore(data): 선발·교체 명단 갱신 ($(date +'%Y-%m-%d %H:%M'))"
+          for i in $(seq 1 20); do
+            if git push; then
+              exit 0
+            fi
+            echo "push rejected, rebasing onto origin/main and retrying ($i/20)"
+            git pull --rebase --autostash -X theirs origin main || { git rebase --abort 2>/dev/null || true; echo "rebase failed, retrying"; }
+            sleep $((RANDOM % 6 + 1))
+          done
+          echo "push failed after 20 retries"
+          exit 1
