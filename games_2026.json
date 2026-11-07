@@ -797807,8 +797807,8 @@
           "m": 88,
           "a": "Áki Samuelsen",
           "nat": "Denmark",
-          "pid": "espn:315621",
           "aNat": "Faroe Islands",
+          "pid": "espn:315621",
           "apid": "espn:305836"
         }
       ],
@@ -799475,8 +799475,8 @@
           "n": "헤지날도 라미레즈",
           "m": 34,
           "pid": "espn:320258",
-          "nat": "Brazil",
-          "pk": true
+          "pk": true,
+          "nat": "Brazil"
         }
       ],
       "away": [
@@ -802984,12 +802984,12 @@
     "inningInfo": "6회초",
     "liveState": {
       "pitcher": "Miguel Ullola",
-      "batter": "Sócrates Brito",
+      "batter": "Michael De La Cruz",
       "pitcherPid": "mlb:699044",
-      "batterPid": "mlb:593647",
-      "ball": 0,
-      "strike": 1,
-      "out": 0,
+      "batterPid": "mlb:631222",
+      "ball": 1,
+      "strike": 2,
+      "out": 1,
       "bases": [
         2
       ]
@@ -803008,18 +803008,16 @@
     "status": "live",
     "homeScore": 1,
     "awayScore": 1,
-    "inningInfo": "7회초",
+    "inningInfo": "7회말",
     "liveState": {
-      "pitcher": "Henry Gomez",
-      "batter": "Angel Reyes",
-      "pitcherPid": "mlb:683510",
-      "batterPid": "mlb:622580",
-      "ball": 2,
-      "strike": 2,
-      "out": 2,
-      "bases": [
-        2
-      ]
+      "pitcher": "Cristofer Gomez",
+      "batter": "Aeverson Arteaga",
+      "pitcherPid": "mlb:805684",
+      "batterPid": "mlb:692348",
+      "ball": 3,
+      "strike": 1,
+      "out": 0,
+      "bases": []
     }
   },
   {
@@ -803035,18 +803033,16 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 0,
-    "inningInfo": "6회초",
+    "inningInfo": "6회말",
     "liveState": {
-      "pitcher": "Pedro Rodriguez",
-      "batter": "Keyber Rodriguez",
-      "pitcherPid": "mlb:466463",
-      "batterPid": "mlb:677601",
-      "ball": 2,
-      "strike": 2,
-      "out": 1,
-      "bases": [
-        1
-      ]
+      "pitcher": "Jonathan Vargas",
+      "batter": "Daniel Montano",
+      "pitcherPid": "mlb:500279",
+      "batterPid": "mlb:665914",
+      "ball": 0,
+      "strike": 1,
+      "out": 0,
+      "bases": []
     }
   },
   {
@@ -803099,19 +803095,20 @@
     "timeTbd": false,
     "gameId": "PWL_MLBSTATS_872090",
     "status": "live",
-    "homeScore": 17,
+    "homeScore": 18,
     "awayScore": 0,
-    "inningInfo": "4회말",
+    "inningInfo": "5회초",
     "liveState": {
-      "pitcher": "Julio Torres",
-      "batter": "Carson DeMartini",
-      "pitcherPid": "mlb:692937",
-      "batterPid": "mlb:701831",
-      "ball": 0,
+      "pitcher": "Adalberto Flores",
+      "batter": "John Bay",
+      "pitcherPid": "mlb:488880",
+      "batterPid": "mlb:700083",
+      "ball": 4,
       "strike": 0,
       "out": 2,
       "bases": [
-        3
+        1,
+        2
       ]
     }
   },
@@ -803130,13 +803127,13 @@
     "awayScore": 3,
     "inningInfo": "5회말",
     "liveState": {
-      "pitcher": "Angel Reyes",
-      "batter": "Jack López",
-      "pitcherPid": "mlb:681938",
-      "batterPid": "mlb:605346",
+      "pitcher": "Andrew Baker",
+      "batter": "Darren Baker",
+      "pitcherPid": "mlb:687900",
+      "batterPid": "mlb:671117",
       "ball": 0,
-      "strike": 0,
-      "out": 0,
+      "strike": 3,
+      "out": 3,
       "bases": []
     }
   },
@@ -803156,12 +803153,12 @@
     "inningInfo": "5회말",
     "liveState": {
       "pitcher": "Taylor Lehman",
-      "batter": "Maxwell Romero Jr.",
+      "batter": "Gustavo Nunez",
       "pitcherPid": "mlb:656647",
-      "batterPid": "mlb:686912",
-      "ball": 0,
-      "strike": 1,
-      "out": 0,
+      "batterPid": "mlb:516631",
+      "ball": 2,
+      "strike": 0,
+      "out": 2,
       "bases": []
     }
   },
@@ -803177,19 +803174,17 @@
     "gameId": "LIDOM_MLBSTATS_851542",
     "status": "live",
     "homeScore": 2,
-    "awayScore": 8,
+    "awayScore": 10,
     "inningInfo": "5회초",
     "liveState": {
       "pitcher": "Luis Moreno",
-      "batter": "Webster Rivas",
+      "batter": "Jorge Bonifacio",
       "pitcherPid": "mlb:691032",
-      "batterPid": "mlb:593590",
-      "ball": 1,
-      "strike": 0,
-      "out": 0,
-      "bases": [
-        2
-      ]
+      "batterPid": "mlb:593528",
+      "ball": 0,
+      "strike": 2,
+      "out": 2,
+      "bases": []
     }
   },
   {
@@ -803260,13 +803255,19 @@
     "status": "live",
     "matchPeriod": "전반",
     "homeScore": 0,
-    "awayScore": 1,
+    "awayScore": 2,
     "scorers": {
       "home": [],
       "away": [
         {
           "n": "Juan Rodríguez",
           "m": 15,
+          "nat": "Argentina",
+          "pid": "espn:264801"
+        },
+        {
+          "n": "Juan Rodríguez",
+          "m": 18,
           "nat": "Argentina",
           "pid": "espn:264801"
         }
@@ -803301,7 +803302,18 @@
     "status": "live",
     "matchPeriod": "전반",
     "homeScore": 0,
-    "awayScore": 0
+    "awayScore": 1,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "Yony González",
+          "m": 16,
+          "nat": "Colombia",
+          "pid": "espn:197533"
+        }
+      ]
+    }
   },
   {
     "date": "2026-11-07",
@@ -803335,7 +803347,7 @@
     "scorers": {
       "home": [
         {
-          "n": "Daniel Leyva",
+          "n": "Danny Leyva",
           "m": 12,
           "nat": "USA",
           "pid": "espn:280765"
