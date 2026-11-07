@@ -802830,7 +802830,7 @@
     "stadium": "Estadio Manoel Barradas",
     "timeTbd": false,
     "gameId": "BRASILEIRAO_ESPN_401841302",
-    "status": "live",
+    "status": "completed",
     "homeScore": 0,
     "awayScore": 3,
     "matchPeriod": "후반",
@@ -802841,19 +802841,28 @@
           "n": "Jefferson Savarino",
           "m": 15,
           "nat": "Venezuela",
-          "pid": "espn:177219"
+          "pid": "espn:177219",
+          "a": "Agustín Canobbio",
+          "apid": "espn:241466",
+          "aNat": "Uruguay"
         },
         {
           "n": "Agustín Canobbio",
           "m": 42,
           "nat": "Uruguay",
-          "pid": "espn:241466"
+          "pid": "espn:241466",
+          "a": "Nonato",
+          "apid": "espn:238342",
+          "aNat": "Brazil"
         },
         {
           "n": "Rodrigo Castillo",
           "m": 90,
           "nat": "Argentina",
-          "pid": "espn:116395"
+          "pid": "espn:116395",
+          "a": "Nonato",
+          "apid": "espn:238342",
+          "aNat": "Brazil"
         }
       ]
     },
@@ -802875,7 +802884,9 @@
         }
       ],
       "away": []
-    }
+    },
+    "assistsChecked": true,
+    "assistsAt": 1794012940257
   },
   {
     "date": "2026-11-07",
