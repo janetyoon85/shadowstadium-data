@@ -797600,8 +797600,8 @@
           "m": 82,
           "a": "Relja Obric",
           "nat": "Montenegro",
-          "aNat": "Slovenia",
           "pid": "espn:258158",
+          "aNat": "Slovenia",
           "apid": "espn:399540"
         }
       ],
@@ -797747,8 +797747,8 @@
           "m": 82,
           "a": "Oscar Gloukh",
           "nat": "Brazil",
-          "pid": "espn:304571",
           "aNat": "Israel",
+          "pid": "espn:304571",
           "apid": "espn:325609"
         }
       ]
@@ -802984,13 +802984,15 @@
     "inningInfo": "5회말",
     "liveState": {
       "pitcher": "Juan Mercedes",
-      "batter": "Roldy Brito",
+      "batter": "Deyvison De Los Santos",
       "pitcherPid": "mlb:675195",
-      "batterPid": "mlb:821041",
-      "ball": 1,
+      "batterPid": "mlb:691277",
+      "ball": 0,
       "strike": 0,
-      "out": 0,
-      "bases": []
+      "out": 1,
+      "bases": [
+        2
+      ]
     }
   },
   {
@@ -803006,15 +803008,15 @@
     "status": "live",
     "homeScore": 1,
     "awayScore": 0,
-    "inningInfo": "6회말",
+    "inningInfo": "7회초",
     "liveState": {
-      "pitcher": "Elwis Mijares",
+      "pitcher": "Will Kincanon",
       "batter": "Renato Núñez",
-      "pitcherPid": "mlb:808274",
+      "pitcherPid": "mlb:670267",
       "batterPid": "mlb:600524",
-      "ball": 0,
-      "strike": 3,
-      "out": 3,
+      "ball": 2,
+      "strike": 2,
+      "out": 0,
       "bases": []
     }
   },
@@ -803034,12 +803036,12 @@
     "inningInfo": "5회말",
     "liveState": {
       "pitcher": "Christian Suarez",
-      "batter": "Jorge Barrosa",
+      "batter": "Jurickson Profar",
       "pitcherPid": "mlb:682949",
-      "batterPid": "mlb:678489",
+      "batterPid": "mlb:595777",
       "ball": 2,
-      "strike": 1,
-      "out": 0,
+      "strike": 2,
+      "out": 2,
       "bases": []
     }
   },
@@ -803091,20 +803093,21 @@
     "timeTbd": false,
     "gameId": "PWL_MLBSTATS_872090",
     "status": "live",
-    "homeScore": 12,
+    "homeScore": 13,
     "awayScore": 0,
     "inningInfo": "4회말",
     "liveState": {
       "pitcher": "John Aponte",
-      "batter": "Jaime Ferrer",
+      "batter": "Gabriel Cancel",
       "pitcherPid": "mlb:845179",
-      "batterPid": "mlb:695634",
-      "ball": 4,
+      "batterPid": "mlb:663708",
+      "ball": 0,
       "strike": 0,
       "out": 1,
       "bases": [
         1,
-        2
+        2,
+        3
       ]
     }
   },
@@ -803121,12 +803124,12 @@
     "status": "live",
     "homeScore": 1,
     "awayScore": 2,
-    "inningInfo": "4회초",
+    "inningInfo": "4회말",
     "liveState": {
-      "pitcher": "Bryant Salgado",
-      "batter": "Roy Morales",
-      "pitcherPid": "mlb:687560",
-      "batterPid": "mlb:641896",
+      "pitcher": "David Lebron",
+      "batter": "Emmanuel Rivera",
+      "pitcherPid": "mlb:673933",
+      "batterPid": "mlb:656896",
       "ball": 0,
       "strike": 0,
       "out": 3,
@@ -803146,15 +803149,15 @@
     "status": "live",
     "homeScore": 2,
     "awayScore": 6,
-    "inningInfo": "4회말",
+    "inningInfo": "5회초",
     "liveState": {
-      "pitcher": "Carlos Rodriguez",
-      "batter": "Mel Rojas Jr.",
-      "pitcherPid": "mlb:692230",
-      "batterPid": "mlb:592692",
-      "ball": 0,
-      "strike": 0,
-      "out": 1,
+      "pitcher": "Ofreidy Gómez",
+      "batter": "Bryan De La Cruz",
+      "pitcherPid": "mlb:628709",
+      "batterPid": "mlb:650559",
+      "ball": 1,
+      "strike": 1,
+      "out": 0,
       "bases": []
     }
   },
@@ -803174,13 +803177,16 @@
     "inningInfo": "4회말",
     "liveState": {
       "pitcher": "Joan Adon",
-      "batter": "Harold Ramírez",
+      "batter": "Marco Luciano",
       "pitcherPid": "mlb:672851",
-      "batterPid": "mlb:623912",
-      "ball": 3,
-      "strike": 2,
-      "out": 0,
-      "bases": []
+      "batterPid": "mlb:682617",
+      "ball": 1,
+      "strike": 1,
+      "out": 1,
+      "bases": [
+        1,
+        3
+      ]
     }
   },
   {
@@ -803248,7 +803254,21 @@
     "stadium": "Florencio Solá",
     "timeTbd": false,
     "gameId": "ARGENTINA_ESPN_401841671",
-    "status": "scheduled"
+    "status": "live",
+    "matchPeriod": "전반",
+    "homeScore": 1,
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "Lautaro Gómez",
+          "m": 3,
+          "nat": "Argentina",
+          "pid": "espn:384351"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-11-07",
@@ -803260,7 +803280,10 @@
     "stadium": "Monumental de Victoria (José Dellagiovanna)",
     "timeTbd": false,
     "gameId": "ARGENTINA_ESPN_401841673",
-    "status": "scheduled"
+    "status": "live",
+    "matchPeriod": "전반",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-11-07",
@@ -803272,7 +803295,10 @@
     "stadium": "Metropolitano de Techo",
     "timeTbd": false,
     "gameId": "COLOMBIA_ESPN_401877916",
-    "status": "scheduled"
+    "status": "live",
+    "matchPeriod": "전반",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-11-07",
@@ -803284,7 +803310,10 @@
     "stadium": "Estadio Libertad Financiera",
     "timeTbd": false,
     "gameId": "LIGAMX_ESPN_401876910",
-    "status": "scheduled"
+    "status": "live",
+    "matchPeriod": "전반",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-11-07",
@@ -803296,7 +803325,10 @@
     "stadium": "Estadio Victoria",
     "timeTbd": false,
     "gameId": "LIGAMX_ESPN_401876909",
-    "status": "scheduled"
+    "status": "live",
+    "matchPeriod": "전반",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-11-07",
