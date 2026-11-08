@@ -814180,7 +814180,7 @@
     "stadium": "Workers' Stadium",
     "timeTbd": false,
     "gameId": "CHINA_ESPN_401861514",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반 90'+3'",
     "homeScore": 1,
     "awayScore": 0,
@@ -814201,11 +814201,15 @@
           "n": "Zhang Yuning",
           "m": 80,
           "nat": "China PR",
-          "pid": "espn:233666"
+          "pid": "espn:233666",
+          "a": "Cao Yongjing",
+          "apid": "espn:271104"
         }
       ],
       "away": []
-    }
+    },
+    "assistsChecked": true,
+    "assistsAt": 1794130027524
   },
   {
     "date": "2026-11-08",
@@ -814218,7 +814222,7 @@
     "timeTbd": false,
     "gameId": "CHINA_ESPN_401861489",
     "status": "live",
-    "matchPeriod": "후반 90'+3'",
+    "matchPeriod": "후반 90'+5'",
     "homeScore": 3,
     "awayScore": 1,
     "scorers": {
@@ -814250,7 +814254,14 @@
       ]
     },
     "cards": {
-      "home": [],
+      "home": [
+        {
+          "n": "Huang Shan",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:399399"
+        }
+      ],
       "away": [
         {
           "n": "Xiandiao Wang",
@@ -814366,7 +814377,7 @@
     "stadium": "Jinan Olympic Sports Center Stadium",
     "timeTbd": false,
     "gameId": "CHINA_ESPN_401861494",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반 90'+4'",
     "homeScore": 3,
     "awayScore": 2,
@@ -814422,7 +814433,10 @@
           "n": "Crysan",
           "m": 63,
           "nat": "Brazil",
-          "pid": "espn:218955"
+          "pid": "espn:218955",
+          "a": "Zeca",
+          "apid": "espn:302535",
+          "aNat": "Brazil"
         }
       ],
       "away": [
@@ -814430,16 +814444,23 @@
           "n": "Felipe Sousa",
           "m": 38,
           "nat": "Brazil",
-          "pid": "espn:216975"
+          "pid": "espn:216975",
+          "a": "Hu Hetao",
+          "apid": "espn:341546"
         },
         {
           "n": "Wellington Silva",
           "m": 79,
           "nat": "Brazil",
-          "pid": "espn:155123"
+          "pid": "espn:155123",
+          "a": "Matheus Jussa",
+          "apid": "espn:202371",
+          "aNat": "Brazil"
         }
       ]
-    }
+    },
+    "assistsChecked": true,
+    "assistsAt": 1794130027259
   },
   {
     "date": "2026-11-08",
@@ -814714,7 +814735,7 @@
     "timeTbd": false,
     "gameId": "CHINA_ESPN_401861493",
     "status": "live",
-    "matchPeriod": "후반 90'+7'",
+    "matchPeriod": "후반 90'+9'",
     "homeScore": 2,
     "awayScore": 1,
     "scorers": {
