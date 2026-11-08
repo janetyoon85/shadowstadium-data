@@ -64,10 +64,14 @@ jobs:
         continue-on-error: true
         run: node scripts/build-kleague-player-info.mjs
 
+      - name: KBO·NPB 선수정보 사전 수집 (실패해도 무시)
+        continue-on-error: true
+        run: node scripts/build-baseball-player-info.mjs
+
       - name: Check for changes
         id: changes
         run: |
-          if [[ -n "$(git status --porcelain lineups.json lineup-subs.json lineups kleague-player-info.json)" ]]; then echo "changed=true" >> $GITHUB_OUTPUT; else echo "changed=false" >> $GITHUB_OUTPUT; fi
+          if [[ -n "$(git status --porcelain lineups.json lineup-subs.json lineups kleague-player-info.json baseball-player-info.json)" ]]; then echo "changed=true" >> $GITHUB_OUTPUT; else echo "changed=false" >> $GITHUB_OUTPUT; fi
 
       - name: Commit and push
         if: steps.changes.outputs.changed == 'true'
@@ -76,6 +80,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A lineups.json lineup-subs.json 2>/dev/null || git add -A lineups.json
           [ -f kleague-player-info.json ] && git add kleague-player-info.json || true
+          [ -f baseball-player-info.json ] && git add baseball-player-info.json || true
           [ -d lineups ] && git add -A lineups || true   # 날짜/리그 파일(삭제 포함)
           git commit -m "chore(data): 선발·교체 명단 갱신 ($(date +'%Y-%m-%d %H:%M'))"
           for i in $(seq 1 20); do
