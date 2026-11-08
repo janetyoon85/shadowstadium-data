@@ -814181,7 +814181,7 @@
     "timeTbd": false,
     "gameId": "CHINA_ESPN_401861514",
     "status": "live",
-    "matchPeriod": "후반 87'",
+    "matchPeriod": "후반 88'",
     "homeScore": 1,
     "awayScore": 0,
     "cards": {
@@ -814218,7 +814218,7 @@
     "timeTbd": false,
     "gameId": "CHINA_ESPN_401861489",
     "status": "live",
-    "matchPeriod": "후반 87'",
+    "matchPeriod": "후반 88'",
     "homeScore": 2,
     "awayScore": 1,
     "scorers": {
@@ -814421,7 +814421,7 @@
     "timeTbd": false,
     "gameId": "CHINA_ESPN_401861490",
     "status": "live",
-    "matchPeriod": "후반 90'+2'",
+    "matchPeriod": "후반 90'+3'",
     "homeScore": 2,
     "awayScore": 2,
     "cards": {
@@ -814493,7 +814493,7 @@
     "stadium": "SAIC Motor Pudong Arena",
     "timeTbd": false,
     "gameId": "CHINA_ESPN_401861515",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반 90'+2'",
     "homeScore": 6,
     "awayScore": 1,
@@ -814503,19 +814503,28 @@
           "n": "Prince Obeng Ampem",
           "m": 30,
           "nat": "Ghana",
-          "pid": "espn:322690"
+          "pid": "espn:322690",
+          "a": "Leonardo",
+          "apid": "espn:302013",
+          "aNat": "Brazil"
         },
         {
           "n": "Leonardo",
           "m": 44,
           "nat": "Brazil",
-          "pid": "espn:302013"
+          "pid": "espn:302013",
+          "a": "Prince Ampem",
+          "apid": "espn:322690",
+          "aNat": "Ghana"
         },
         {
           "n": "Leonardo",
           "m": 45,
           "nat": "Brazil",
-          "pid": "espn:302013"
+          "pid": "espn:302013",
+          "a": "Wu Lei",
+          "apid": "espn:171598",
+          "aNat": "China PR"
         },
         {
           "n": "Wu Lei",
@@ -814528,13 +814537,19 @@
           "n": "Wu Lei",
           "m": 66,
           "nat": "China PR",
-          "pid": "espn:171598"
+          "pid": "espn:171598",
+          "a": "Prince Ampem",
+          "apid": "espn:322690",
+          "aNat": "Ghana"
         },
         {
           "n": "Prince Obeng Ampem",
           "m": 87,
           "nat": "Ghana",
-          "pid": "espn:322690"
+          "pid": "espn:322690",
+          "a": "Leonardo",
+          "apid": "espn:302013",
+          "aNat": "Brazil"
         }
       ],
       "away": [
@@ -814542,7 +814557,10 @@
           "n": "Chen Binbin",
           "m": 72,
           "nat": "China PR",
-          "pid": "espn:256797"
+          "pid": "espn:256797",
+          "a": "Takahiro Kunimoto",
+          "apid": "espn:236393",
+          "aNat": "Japan"
         }
       ]
     },
@@ -814570,7 +814588,9 @@
           "nat": "Brazil"
         }
       ]
-    }
+    },
+    "assistsChecked": true,
+    "assistsAt": 1794129588121
   },
   {
     "date": "2026-11-08",
@@ -814645,9 +814665,9 @@
     "timeTbd": false,
     "gameId": "CHINA_ESPN_401861493",
     "status": "live",
-    "matchPeriod": "후반 90'+1'",
+    "matchPeriod": "후반 90'+2'",
     "homeScore": 2,
-    "awayScore": 0,
+    "awayScore": 1,
     "scorers": {
       "home": [
         {
@@ -814664,7 +814684,15 @@
           "pid": "espn:302980"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Jhonder Cádiz",
+          "m": 90,
+          "pk": true,
+          "nat": "Venezuela",
+          "pid": "espn:173239"
+        }
+      ]
     },
     "cards": {
       "home": [
