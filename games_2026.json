@@ -807559,7 +807559,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1794102760941
+    "assistsAt": 1794109966451
   },
   {
     "date": "2026-11-08",
@@ -808118,8 +808118,8 @@
           "n": "시에로",
           "m": 81,
           "pid": "espn:218857",
-          "nat": "Switzerland",
-          "pk": true
+          "pk": true,
+          "nat": "Switzerland"
         }
       ],
       "away": [
@@ -808135,9 +808135,9 @@
         {
           "n": "오르솔리니",
           "m": 72,
+          "pk": true,
           "nat": "Italy",
-          "pid": "espn:234426",
-          "pk": true
+          "pid": "espn:234426"
         }
       ]
     },
@@ -808697,7 +808697,7 @@
       "away": []
     },
     "assistsChecked": true,
-    "assistsAt": 1794102882274
+    "assistsAt": 1794110087299
   },
   {
     "date": "2026-11-08",
@@ -809804,7 +809804,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1794102938922
+    "assistsAt": 1794110139123
   },
   {
     "date": "2026-11-08",
@@ -810677,15 +810677,15 @@
           "n": "레반도프스키",
           "m": 8,
           "pid": "espn:125824",
-          "pk": true,
-          "nat": "Poland"
+          "nat": "Poland",
+          "pk": true
         },
         {
           "n": "레반도프스키",
           "m": 22,
           "pid": "espn:125824",
-          "pk": true,
-          "nat": "Poland"
+          "nat": "Poland",
+          "pk": true
         },
         {
           "n": "하일레-셀라시에",
@@ -812803,8 +812803,8 @@
     "gameId": "U23BASEBALLWORLDCUP_WBSC_202319",
     "status": "live",
     "homeScore": 2,
-    "awayScore": 3,
-    "inningInfo": "6회말"
+    "awayScore": 4,
+    "inningInfo": "7회초"
   },
   {
     "date": "2026-11-08",
@@ -812819,18 +812819,16 @@
     "status": "live",
     "homeScore": 4,
     "awayScore": 1,
-    "inningInfo": "4회말",
+    "inningInfo": "5회초",
     "liveState": {
-      "pitcher": "Zac Grotz",
-      "batter": "Juan Mora",
-      "pitcherPid": "mlb:665093",
-      "batterPid": "mlb:680643",
-      "ball": 1,
-      "strike": 0,
-      "out": 2,
-      "bases": [
-        1
-      ]
+      "pitcher": "Isaac Jimenez",
+      "batter": "Angel Ramirez",
+      "pitcherPid": "mlb:645799",
+      "batterPid": "mlb:807587",
+      "ball": 2,
+      "strike": 2,
+      "out": 0,
+      "bases": []
     }
   },
   {
@@ -813175,20 +813173,9 @@
     "stadium": "Chevron Park",
     "timeTbd": false,
     "gameId": "LMP_MLBSTATS_850455",
-    "status": "live",
+    "status": "completed",
     "homeScore": 5,
-    "awayScore": 3,
-    "inningInfo": "9회초",
-    "liveState": {
-      "pitcher": "Yoan López",
-      "batter": "Marco Jaime",
-      "pitcherPid": "mlb:661255",
-      "batterPid": "mlb:668616",
-      "ball": 1,
-      "strike": 2,
-      "out": 0,
-      "bases": []
-    }
+    "awayScore": 3
   },
   {
     "date": "2026-11-08",
@@ -813203,15 +813190,15 @@
     "status": "live",
     "homeScore": 4,
     "awayScore": 7,
-    "inningInfo": "8회말",
+    "inningInfo": "9회초",
     "liveState": {
       "pitcher": "Francisco Haro",
-      "batter": "Joel Flores",
+      "batter": "Chavez Young",
       "pitcherPid": "mlb:662964",
-      "batterPid": "mlb:811361",
-      "ball": 0,
-      "strike": 1,
-      "out": 3,
+      "batterPid": "mlb:669945",
+      "ball": 1,
+      "strike": 0,
+      "out": 2,
       "bases": []
     }
   },
@@ -813309,8 +813296,8 @@
     "timeTbd": false,
     "gameId": "COSTARICA_ESPN_401876820",
     "status": "live",
-    "matchPeriod": "후반 87'",
-    "homeScore": 1,
+    "matchPeriod": "후반 90'+2'",
+    "homeScore": 2,
     "awayScore": 0,
     "scorers": {
       "home": [
@@ -813319,6 +813306,12 @@
           "m": 57,
           "nat": "Costa Rica",
           "pid": "espn:352169"
+        },
+        {
+          "n": "Ángel Zaldívar",
+          "m": 88,
+          "nat": "Mexico",
+          "pid": "espn:186084"
         }
       ],
       "away": []
@@ -813335,7 +813328,7 @@
     "timeTbd": false,
     "gameId": "ELSALVADOR_ESPN_401899281",
     "status": "live",
-    "matchPeriod": "후반 87'",
+    "matchPeriod": "후반 90'+2'",
     "homeScore": 3,
     "awayScore": 2,
     "scorers": {
@@ -813386,7 +813379,7 @@
     "timeTbd": false,
     "gameId": "LIGAMX_ESPN_401876904",
     "status": "live",
-    "matchPeriod": "전반 41'",
+    "matchPeriod": "전반 45'+1'",
     "homeScore": 1,
     "awayScore": 1,
     "scorers": {
@@ -813422,6 +813415,13 @@
           "m": 24,
           "pid": "espn:255942",
           "nat": "Paraguay"
+        },
+        {
+          "n": "Adalberto Carrasquilla",
+          "type": "Y",
+          "m": 42,
+          "pid": "espn:219508",
+          "nat": "Panama"
         }
       ],
       "away": [
@@ -813437,6 +813437,13 @@
           "type": "Y",
           "m": 24,
           "pid": "espn:129421",
+          "nat": "Mexico"
+        },
+        {
+          "n": "Alan Cervantes",
+          "type": "Y",
+          "m": 42,
+          "pid": "espn:228351",
           "nat": "Mexico"
         }
       ]
