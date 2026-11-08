@@ -801965,7 +801965,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1794102353463
+    "assistsAt": 1794109597137
   },
   {
     "date": "2026-11-07",
@@ -809517,7 +809517,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1794102100059
+    "assistsAt": 1794109356192
   },
   {
     "date": "2026-11-08",
@@ -810880,8 +810880,8 @@
           "n": "설리번",
           "m": 41,
           "pid": "espn:304130",
-          "nat": "USA",
-          "pk": true
+          "pk": true,
+          "nat": "USA"
         },
         {
           "n": "설리반",
@@ -810896,8 +810896,8 @@
           "n": "다미아니",
           "m": 73,
           "pid": "espn:322680",
-          "nat": "Uruguay",
-          "pk": true
+          "pk": true,
+          "nat": "Uruguay"
         }
       ],
       "away": [
@@ -812802,9 +812802,9 @@
     "timeTbd": false,
     "gameId": "U23BASEBALLWORLDCUP_WBSC_202319",
     "status": "live",
-    "homeScore": 1,
+    "homeScore": 2,
     "awayScore": 3,
-    "inningInfo": "3회말"
+    "inningInfo": "6회말"
   },
   {
     "date": "2026-11-08",
@@ -812819,16 +812819,18 @@
     "status": "live",
     "homeScore": 3,
     "awayScore": 1,
-    "inningInfo": "4회초",
+    "inningInfo": "4회말",
     "liveState": {
       "pitcher": "Zac Grotz",
-      "batter": "Alberto Barriga",
+      "batter": "Drew Avans",
       "pitcherPid": "mlb:665093",
-      "batterPid": "mlb:800569",
-      "ball": 2,
+      "batterPid": "mlb:682183",
+      "ball": 1,
       "strike": 2,
-      "out": 3,
-      "bases": []
+      "out": 2,
+      "bases": [
+        2
+      ]
     }
   },
   {
@@ -812843,8 +812845,8 @@
     "gameId": "U23BASEBALLWORLDCUP_WBSC_202321",
     "status": "live",
     "homeScore": 2,
-    "awayScore": 2,
-    "inningInfo": "6회말"
+    "awayScore": 4,
+    "inningInfo": "8회초"
   },
   {
     "date": "2026-11-08",
@@ -813176,15 +813178,15 @@
     "status": "live",
     "homeScore": 5,
     "awayScore": 3,
-    "inningInfo": "8회초",
+    "inningInfo": "8회말",
     "liveState": {
-      "pitcher": "Irvin Machuca",
-      "batter": "Norberto Obeso",
-      "pitcherPid": "mlb:685829",
-      "batterPid": "mlb:650995",
-      "ball": 1,
-      "strike": 0,
-      "out": 2,
+      "pitcher": "Norman Elenes",
+      "batter": "Randy Romero",
+      "pitcherPid": "mlb:553868",
+      "batterPid": "mlb:678499",
+      "ball": 2,
+      "strike": 1,
+      "out": 1,
       "bases": []
     }
   },
@@ -813201,15 +813203,15 @@
     "status": "live",
     "homeScore": 3,
     "awayScore": 7,
-    "inningInfo": "8회초",
+    "inningInfo": "8회말",
     "liveState": {
-      "pitcher": "Francisco Haro",
-      "batter": "Brandon Villarreal",
-      "pitcherPid": "mlb:662964",
-      "batterPid": "mlb:661311",
-      "ball": 3,
-      "strike": 1,
-      "out": 2,
+      "pitcher": "Diego Hernandez",
+      "batter": "Fernando Villegas",
+      "pitcherPid": "mlb:800545",
+      "batterPid": "mlb:679589",
+      "ball": 0,
+      "strike": 0,
+      "out": 0,
       "bases": [
         1
       ]
@@ -813228,18 +813230,16 @@
     "status": "live",
     "homeScore": 6,
     "awayScore": 1,
-    "inningInfo": "8회말",
+    "inningInfo": "9회초",
     "liveState": {
-      "pitcher": "Luis Moreno",
-      "batter": "Victor Marquez",
-      "pitcherPid": "mlb:811478",
-      "batterPid": "mlb:802888",
+      "pitcher": "Edwin Fierro",
+      "batter": "Jose Angel Cecena",
+      "pitcherPid": "mlb:616623",
+      "batterPid": "mlb:829261",
       "ball": 0,
-      "strike": 1,
+      "strike": 0,
       "out": 1,
-      "bases": [
-        1
-      ]
+      "bases": []
     }
   },
   {
@@ -813322,7 +813322,7 @@
     "timeTbd": false,
     "gameId": "COSTARICA_ESPN_401876820",
     "status": "live",
-    "matchPeriod": "후반 77'",
+    "matchPeriod": "후반 82'",
     "homeScore": 1,
     "awayScore": 0,
     "scorers": {
@@ -813348,7 +813348,7 @@
     "timeTbd": false,
     "gameId": "ELSALVADOR_ESPN_401899281",
     "status": "live",
-    "matchPeriod": "후반 77'",
+    "matchPeriod": "후반 82'",
     "homeScore": 3,
     "awayScore": 2,
     "scorers": {
@@ -813399,8 +813399,8 @@
     "timeTbd": false,
     "gameId": "LIGAMX_ESPN_401876904",
     "status": "live",
-    "matchPeriod": "전반 31'",
-    "homeScore": 1,
+    "matchPeriod": "전반 36'",
+    "homeScore": 2,
     "awayScore": 1,
     "scorers": {
       "home": [
@@ -813409,6 +813409,12 @@
           "m": 4,
           "nat": "Mexico",
           "pid": "espn:265969"
+        },
+        {
+          "n": "Robert Morales",
+          "m": 34,
+          "nat": "Paraguay",
+          "pid": "espn:255942"
         }
       ],
       "away": [
