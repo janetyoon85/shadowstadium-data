@@ -70,6 +70,7 @@ jobs:
 
       - name: 원정 이동 거리 집계 (6시간 간격·실패해도 무시)
         continue-on-error: true
+        timeout-minutes: 5
         env:
           PRIVATE_DATA_TOKEN: ${{ secrets.PRIVATE_DATA_TOKEN }}
         run: node scripts/build-away-distance.mjs
