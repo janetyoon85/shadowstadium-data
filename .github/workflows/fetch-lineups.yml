@@ -68,10 +68,16 @@ jobs:
         continue-on-error: true
         run: node scripts/build-baseball-player-info.mjs
 
+      - name: 원정 이동 거리 집계 (6시간 간격·실패해도 무시)
+        continue-on-error: true
+        env:
+          PRIVATE_DATA_TOKEN: ${{ secrets.PRIVATE_DATA_TOKEN }}
+        run: node scripts/build-away-distance.mjs
+
       - name: Check for changes
         id: changes
         run: |
-          if [[ -n "$(git status --porcelain lineups.json lineup-subs.json lineups kleague-player-info.json baseball-player-info.json)" ]]; then echo "changed=true" >> $GITHUB_OUTPUT; else echo "changed=false" >> $GITHUB_OUTPUT; fi
+          if [[ -n "$(git status --porcelain lineups.json lineup-subs.json lineups kleague-player-info.json baseball-player-info.json away-distance.json)" ]]; then echo "changed=true" >> $GITHUB_OUTPUT; else echo "changed=false" >> $GITHUB_OUTPUT; fi
 
       - name: Commit and push
         if: steps.changes.outputs.changed == 'true'
@@ -81,6 +87,7 @@ jobs:
           git add -A lineups.json lineup-subs.json 2>/dev/null || git add -A lineups.json
           [ -f kleague-player-info.json ] && git add kleague-player-info.json || true
           [ -f baseball-player-info.json ] && git add baseball-player-info.json || true
+          [ -f away-distance.json ] && git add away-distance.json || true
           [ -d lineups ] && git add -A lineups || true   # 날짜/리그 파일(삭제 포함)
           git commit -m "chore(data): 선발·교체 명단 갱신 ($(date +'%Y-%m-%d %H:%M'))"
           for i in $(seq 1 20); do
