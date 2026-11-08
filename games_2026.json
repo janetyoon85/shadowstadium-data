@@ -805869,9 +805869,9 @@
         {
           "n": "피링거",
           "m": 73,
+          "pk": true,
           "nat": "Germany",
-          "pid": "espn:312389",
-          "pk": true
+          "pid": "espn:312389"
         }
       ],
       "away": [
@@ -805947,8 +805947,8 @@
           "m": 90,
           "a": "Benedict Hollerbach",
           "nat": "Germany",
-          "pid": "espn:234376",
           "aNat": "Germany",
+          "pid": "espn:234376",
           "apid": "espn:307515"
         }
       ],
@@ -806039,8 +806039,8 @@
           "m": 66,
           "a": "Antonio Nusa",
           "nat": "Austria",
-          "aNat": "Norway",
           "pid": "espn:274897",
+          "aNat": "Norway",
           "apid": "espn:319368"
         }
       ],
@@ -806056,8 +806056,8 @@
           "m": 90,
           "a": "Fabian Rieder",
           "nat": "Nigeria",
-          "aNat": "Switzerland",
           "pid": "espn:406851",
+          "aNat": "Switzerland",
           "apid": "espn:308908"
         }
       ]
@@ -806130,8 +806130,8 @@
           "m": 81,
           "a": "Florian Le Joncour",
           "nat": "Germany",
-          "pid": "espn:306991",
           "aNat": "France",
+          "pid": "espn:306991",
           "apid": "espn:215035"
         }
       ]
@@ -812819,16 +812819,18 @@
     "status": "live",
     "homeScore": 1,
     "awayScore": 1,
-    "inningInfo": "3회초",
+    "inningInfo": "3회말",
     "liveState": {
-      "pitcher": "Joel Rangel",
-      "batter": "Nick Solak",
-      "pitcherPid": "mlb:827757",
-      "batterPid": "mlb:669256",
-      "ball": 1,
-      "strike": 2,
-      "out": 2,
-      "bases": []
+      "pitcher": "Zac Grotz",
+      "batter": "Victor Labrada",
+      "pitcherPid": "mlb:665093",
+      "batterPid": "mlb:700032",
+      "ball": 0,
+      "strike": 0,
+      "out": 1,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -813178,16 +813180,17 @@
     "awayScore": 3,
     "inningInfo": "7회말",
     "liveState": {
-      "pitcher": "Juan Robles",
-      "batter": "Yurisbel Gracial",
-      "pitcherPid": "mlb:660850",
-      "batterPid": "mlb:666968",
-      "ball": 0,
+      "pitcher": "Jake Sanchez",
+      "batter": "Eric Filia",
+      "pitcherPid": "mlb:644425",
+      "batterPid": "mlb:596107",
+      "ball": 1,
       "strike": 0,
-      "out": 0,
+      "out": 1,
       "bases": [
         1,
-        2
+        2,
+        3
       ]
     }
   },
@@ -813206,16 +813209,17 @@
     "awayScore": 6,
     "inningInfo": "7회말",
     "liveState": {
-      "pitcher": "Hector Villalobos",
-      "batter": "J.P. Martínez",
-      "pitcherPid": "mlb:675188",
-      "batterPid": "mlb:679881",
-      "ball": 0,
-      "strike": 0,
+      "pitcher": "Jonathan Partida",
+      "batter": "Ramiro Pena",
+      "pitcherPid": "mlb:674476",
+      "batterPid": "mlb:455369",
+      "ball": 2,
+      "strike": 2,
       "out": 0,
       "bases": [
         1,
-        2
+        2,
+        3
       ]
     }
   },
@@ -813230,18 +813234,21 @@
     "timeTbd": false,
     "gameId": "LMP_MLBSTATS_850463",
     "status": "live",
-    "homeScore": 5,
+    "homeScore": 6,
     "awayScore": 1,
     "inningInfo": "7회말",
     "liveState": {
       "pitcher": "Ariel Gracia",
-      "batter": "Marco Vargas",
+      "batter": "Cal Mitchell",
       "pitcherPid": "mlb:622739",
-      "batterPid": "mlb:804614",
-      "ball": 3,
-      "strike": 2,
-      "out": 1,
-      "bases": []
+      "batterPid": "mlb:668751",
+      "ball": 0,
+      "strike": 1,
+      "out": 2,
+      "bases": [
+        1,
+        2
+      ]
     }
   },
   {
@@ -813254,8 +813261,8 @@
     "stadium": "Estadio Inca Garcilaso de la Vega",
     "timeTbd": false,
     "gameId": "PERU_ESPN_401886142",
-    "status": "live",
-    "matchPeriod": "후반 90'+5'",
+    "status": "completed",
+    "matchPeriod": "후반 90'+6'",
     "homeScore": 1,
     "awayScore": 2,
     "scorers": {
@@ -813309,7 +813316,9 @@
           "nat": "Peru"
         }
       ]
-    }
+    },
+    "assistsChecked": true,
+    "assistsAt": 1794108213842
   },
   {
     "date": "2026-11-08",
@@ -813322,9 +813331,20 @@
     "timeTbd": false,
     "gameId": "COSTARICA_ESPN_401876820",
     "status": "live",
-    "matchPeriod": "후반 57'",
-    "homeScore": 0,
-    "awayScore": 0
+    "matchPeriod": "후반 62'",
+    "homeScore": 1,
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "Kenyel Michel",
+          "m": 57,
+          "nat": "Costa Rica",
+          "pid": "espn:352169"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-11-08",
@@ -813337,7 +813357,7 @@
     "timeTbd": false,
     "gameId": "ELSALVADOR_ESPN_401899281",
     "status": "live",
-    "matchPeriod": "후반 57'",
+    "matchPeriod": "후반 62'",
     "homeScore": 3,
     "awayScore": 1,
     "scorers": {
@@ -813382,7 +813402,7 @@
     "timeTbd": false,
     "gameId": "LIGAMX_ESPN_401876904",
     "status": "live",
-    "matchPeriod": "전반 11'",
+    "matchPeriod": "전반 16'",
     "homeScore": 1,
     "awayScore": 1,
     "scorers": {
