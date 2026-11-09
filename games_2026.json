@@ -809335,7 +809335,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1794186622615
+    "assistsAt": 1794193826490
   },
   {
     "date": "2026-11-08",
@@ -810400,7 +810400,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1794186622415
+    "assistsAt": 1794193826277
   },
   {
     "date": "2026-11-08",
@@ -816474,9 +816474,9 @@
         {
           "n": "은케티아",
           "m": 90,
+          "pk": true,
           "nat": "England",
-          "pid": "espn:259486",
-          "pk": true
+          "pid": "espn:259486"
         }
       ],
       "away": [
@@ -816577,8 +816577,8 @@
           "n": "르 페",
           "m": 36,
           "pid": "espn:288340",
-          "nat": "France",
-          "pk": true
+          "pk": true,
+          "nat": "France"
         }
       ],
       "away": []
@@ -819467,8 +819467,8 @@
           "n": "브루노 페르난데스",
           "m": 16,
           "pid": "espn:124091",
-          "pk": true,
-          "nat": "Portugal"
+          "nat": "Portugal",
+          "pk": true
         },
         {
           "n": "틸레만스",
@@ -819484,8 +819484,8 @@
           "m": 90,
           "a": "Patrick Dorgu",
           "nat": "Netherlands",
-          "pid": "espn:276327",
           "aNat": "Denmark",
+          "pid": "espn:276327",
           "apid": "espn:366781"
         },
         {
@@ -819493,8 +819493,8 @@
           "m": 90,
           "a": "Bruno Fernandes",
           "nat": "Denmark",
-          "pid": "espn:366781",
           "aNat": "Portugal",
+          "pid": "espn:366781",
           "apid": "espn:124091"
         }
       ],
@@ -819518,8 +819518,8 @@
           "n": "맥긴",
           "m": 48,
           "pid": "espn:162843",
-          "pk": true,
-          "nat": "Scotland"
+          "nat": "Scotland",
+          "pk": true
         },
         {
           "n": "고레츠카",
@@ -823197,22 +823197,9 @@
     "stadium": "Estadio de los Yaquis",
     "timeTbd": false,
     "gameId": "LMP_MLBSTATS_850458",
-    "status": "live",
+    "status": "completed",
     "homeScore": 6,
-    "awayScore": 1,
-    "inningInfo": "9회초",
-    "liveState": {
-      "pitcher": "Cristian Alvarado",
-      "batter": "Mateo Gil",
-      "pitcherPid": "mlb:800079",
-      "batterPid": "mlb:680771",
-      "ball": 1,
-      "strike": 0,
-      "out": 0,
-      "bases": [
-        2
-      ]
-    }
+    "awayScore": 1
   },
   {
     "date": "2026-11-09",
@@ -823261,8 +823248,8 @@
     "gameId": "U23BASEBALLWORLDCUP_WBSC_202327",
     "status": "live",
     "homeScore": 3,
-    "awayScore": 1,
-    "inningInfo": "4회말"
+    "awayScore": 2,
+    "inningInfo": "5회초"
   },
   {
     "date": "2026-11-09",
@@ -823294,16 +823281,14 @@
     "awayScore": 3,
     "inningInfo": "6회초",
     "liveState": {
-      "pitcher": "Irving Cota",
-      "batter": "Nathan Flewelling",
-      "pitcherPid": "mlb:806522",
-      "batterPid": "mlb:807083",
-      "ball": 0,
-      "strike": 1,
-      "out": 0,
-      "bases": [
-        1
-      ]
+      "pitcher": "Marcus Johnson",
+      "batter": "Andy Perez",
+      "pitcherPid": "mlb:687189",
+      "batterPid": "mlb:700321",
+      "ball": 2,
+      "strike": 3,
+      "out": 3,
+      "bases": []
     }
   },
   {
@@ -823364,18 +823349,19 @@
     "gameId": "LMP_MLBSTATS_850462",
     "status": "live",
     "homeScore": 2,
-    "awayScore": 5,
+    "awayScore": 6,
     "inningInfo": "7회초",
     "liveState": {
       "pitcher": "Jose Isidro Marquez",
-      "batter": "Ruben Ibarra",
+      "batter": "Victor Mendoza",
       "pitcherPid": "mlb:667904",
-      "batterPid": "mlb:702140",
-      "ball": 0,
-      "strike": 0,
+      "batterPid": "mlb:628013",
+      "ball": 2,
+      "strike": 2,
       "out": 2,
       "bases": [
-        1
+        1,
+        2
       ]
     }
   },
@@ -823389,7 +823375,7 @@
     "stadium": "Armando Maestre Pavajeau",
     "timeTbd": false,
     "gameId": "COLOMBIA_ESPN_401878031",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반 90'+3'",
     "homeScore": 1,
     "awayScore": 2,
@@ -823440,7 +823426,10 @@
           "n": "Misael Martínez",
           "m": 20,
           "nat": "Colombia",
-          "pid": "espn:296556"
+          "pid": "espn:296556",
+          "a": "Felipe Pardo",
+          "apid": "espn:109940",
+          "aNat": "Colombia"
         }
       ],
       "away": [
@@ -823448,7 +823437,10 @@
           "n": "Juan Castilla",
           "m": 16,
           "nat": "Colombia",
-          "pid": "espn:24324"
+          "pid": "espn:24324",
+          "a": "Jhojan Escobar",
+          "apid": "espn:365507",
+          "aNat": "Colombia"
         },
         {
           "n": "Jhon Vásquez",
@@ -823458,7 +823450,9 @@
           "pid": "espn:224171"
         }
       ]
-    }
+    },
+    "assistsChecked": true,
+    "assistsAt": 1794193835824
   },
   {
     "date": "2026-11-09",
@@ -823471,9 +823465,9 @@
     "timeTbd": false,
     "gameId": "PERU_ESPN_401886140",
     "status": "live",
-    "matchPeriod": "후반 78'",
+    "matchPeriod": "후반 83'",
     "homeScore": 2,
-    "awayScore": 1,
+    "awayScore": 2,
     "cards": {
       "home": [
         {
@@ -823537,6 +823531,13 @@
           "m": 43,
           "nat": "Peru",
           "pid": "espn:199132"
+        },
+        {
+          "n": "Brayan Angulo",
+          "m": 78,
+          "pk": true,
+          "nat": "Ecuador",
+          "pid": "espn:130428"
         }
       ]
     }
