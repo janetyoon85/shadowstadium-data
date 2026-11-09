@@ -805712,7 +805712,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1794190069953
+    "assistsAt": 1794197329793
   },
   {
     "date": "2026-11-07",
@@ -809004,7 +809004,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1794190039625
+    "assistsAt": 1794197285428
   },
   {
     "date": "2026-11-08",
@@ -812177,7 +812177,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1794190240492,
+    "assistsAt": 1794197458579,
     "cards": {
       "home": [
         {
@@ -812265,7 +812265,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1794190240280
+    "assistsAt": 1794197458380
   },
   {
     "date": "2026-11-08",
@@ -813296,7 +813296,7 @@
       "away": []
     },
     "assistsChecked": true,
-    "assistsAt": 1794190240084
+    "assistsAt": 1794197458132
   },
   {
     "date": "2026-11-08",
@@ -813349,7 +813349,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1794190239856
+    "assistsAt": 1794197457941
   },
   {
     "date": "2026-11-08",
@@ -815377,8 +815377,8 @@
           "m": 84,
           "a": "Jacob Trenskow",
           "nat": "Netherlands",
-          "aNat": "Denmark",
           "pid": "espn:291972",
+          "aNat": "Denmark",
           "apid": "espn:308051"
         },
         {
@@ -815386,8 +815386,8 @@
           "m": 90,
           "a": "Luca Oyen",
           "nat": "Netherlands",
-          "aNat": "Belgium",
           "pid": "espn:291972",
+          "aNat": "Belgium",
           "apid": "espn:303548"
         }
       ],
@@ -815405,16 +815405,16 @@
           "n": "페리",
           "m": 31,
           "pid": "espn:364582",
-          "nat": "Spain",
-          "pk": true
+          "pk": true,
+          "nat": "Spain"
         },
         {
           "n": "스타인",
           "m": 69,
           "a": "Nacho Ferri",
           "nat": "Netherlands",
-          "aNat": "Spain",
           "pid": "espn:277106",
+          "aNat": "Spain",
           "apid": "espn:364582"
         }
       ]
@@ -818776,7 +818776,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1794190346667
+    "assistsAt": 1794197548311
   },
   {
     "date": "2026-11-09",
@@ -818849,7 +818849,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1794190138277
+    "assistsAt": 1794197342729
   },
   {
     "date": "2026-11-09",
@@ -818927,7 +818927,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1794190138034
+    "assistsAt": 1794197342365
   },
   {
     "date": "2026-11-09",
@@ -820140,7 +820140,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1794190137811
+    "assistsAt": 1794197342100
   },
   {
     "date": "2026-11-09",
@@ -820284,7 +820284,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1794190039380
+    "assistsAt": 1794197285222
   },
   {
     "date": "2026-11-09",
@@ -820382,7 +820382,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1794190137553
+    "assistsAt": 1794197341837
   },
   {
     "date": "2026-11-09",
@@ -820572,7 +820572,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1794190346430
+    "assistsAt": 1794197548118
   },
   {
     "date": "2026-11-09",
@@ -823308,14 +823308,16 @@
     "awayScore": 3,
     "inningInfo": "9회초",
     "liveState": {
-      "pitcher": "Fidel Ulloa",
-      "batter": "Arjun Nimmala",
-      "pitcherPid": "mlb:801842",
-      "batterPid": "mlb:805796",
+      "pitcher": "Bryan Mena",
+      "batter": "Kyle West",
+      "pitcherPid": "mlb:700167",
+      "batterPid": "mlb:823918",
       "ball": 2,
-      "strike": 1,
-      "out": 0,
-      "bases": []
+      "strike": 0,
+      "out": 1,
+      "bases": [
+        2
+      ]
     }
   },
   {
@@ -823629,8 +823631,8 @@
     "stadium": "Estadio León",
     "timeTbd": false,
     "gameId": "LIGAMX_ESPN_401876902",
-    "status": "live",
-    "matchPeriod": "후반 89'",
+    "status": "completed",
+    "matchPeriod": "후반 90'+6'",
     "homeScore": 1,
     "awayScore": 1,
     "cards": {
@@ -823673,7 +823675,10 @@
           "n": "Paul Saracho",
           "m": 87,
           "nat": "Mexico",
-          "pid": "espn:215619"
+          "pid": "espn:215619",
+          "a": "Jhohan Romaña",
+          "apid": "espn:235956",
+          "aNat": "Colombia"
         }
       ],
       "away": [
@@ -823681,10 +823686,15 @@
           "n": "Ricardo Marín",
           "m": 69,
           "nat": "Mexico",
-          "pid": "espn:228352"
+          "pid": "espn:228352",
+          "a": "Daniel Aguirre",
+          "apid": "espn:133111",
+          "aNat": "USA"
         }
       ]
-    }
+    },
+    "assistsChecked": true,
+    "assistsAt": 1794197547910
   },
   {
     "date": "2026-11-10",
@@ -830556,6 +830566,110 @@
     "timeTbd": false,
     "gameId": "IU2TGjywQ7Bupnd",
     "status": "scheduled"
+  },
+  {
+    "date": "2026-11-23",
+    "time": "05:00",
+    "league": "ARGENTINA",
+    "venueId": "estadio_alberto_j_armando",
+    "home": "보카 주니어스",
+    "away": "인데펜디엔테 리바다비아",
+    "stadium": "",
+    "timeTbd": true,
+    "gameId": "ARGENTINA_ESPN_401933757",
+    "status": "scheduled",
+    "phaseCode": "T16"
+  },
+  {
+    "date": "2026-11-23",
+    "time": "05:00",
+    "league": "ARGENTINA",
+    "venueId": "estadio_diego_maradona_bsas",
+    "home": "아르헨티노스 주니어스",
+    "away": "인데펜디엔테",
+    "stadium": "",
+    "timeTbd": true,
+    "gameId": "ARGENTINA_ESPN_401933755",
+    "status": "scheduled",
+    "phaseCode": "T16"
+  },
+  {
+    "date": "2026-11-23",
+    "time": "05:00",
+    "league": "ARGENTINA",
+    "venueId": "estadio_el_bosque_laplata",
+    "home": "김나시아 이 에스그리마 라플라타",
+    "away": "뉴웰스 올드보이스",
+    "stadium": "",
+    "timeTbd": true,
+    "gameId": "ARGENTINA_ESPN_401933756",
+    "status": "scheduled",
+    "phaseCode": "T16"
+  },
+  {
+    "date": "2026-11-23",
+    "time": "05:00",
+    "league": "ARGENTINA",
+    "venueId": "estadio_gigante_arroyito",
+    "home": "로사리오 센트랄",
+    "away": "김나시아 이 에스그리마 (멘도사)",
+    "stadium": "",
+    "timeTbd": true,
+    "gameId": "ARGENTINA_ESPN_401933759",
+    "status": "scheduled",
+    "phaseCode": "T16"
+  },
+  {
+    "date": "2026-11-23",
+    "time": "05:00",
+    "league": "ARGENTINA",
+    "venueId": "estadio_jose_amalfitani",
+    "home": "벨레스 사르스필드",
+    "away": "벨그라노",
+    "stadium": "",
+    "timeTbd": true,
+    "gameId": "ARGENTINA_ESPN_401933760",
+    "status": "scheduled",
+    "phaseCode": "T16"
+  },
+  {
+    "date": "2026-11-23",
+    "time": "05:00",
+    "league": "ARGENTINA",
+    "venueId": "estadio_mas_monumental",
+    "home": "리버 플레이트",
+    "away": "라누스",
+    "stadium": "",
+    "timeTbd": true,
+    "gameId": "ARGENTINA_ESPN_401933761",
+    "status": "scheduled",
+    "phaseCode": "T16"
+  },
+  {
+    "date": "2026-11-23",
+    "time": "05:00",
+    "league": "ARGENTINA",
+    "venueId": "estadio_monumental_instituto_cordoba",
+    "home": "인스티투토",
+    "away": "우라칸",
+    "stadium": "",
+    "timeTbd": true,
+    "gameId": "ARGENTINA_ESPN_401933762",
+    "status": "scheduled",
+    "phaseCode": "T16"
+  },
+  {
+    "date": "2026-11-23",
+    "time": "05:00",
+    "league": "ARGENTINA",
+    "venueId": "estadio_norberto_tomaghello",
+    "home": "데펜사 이 후스티시아",
+    "away": "바라카스 센트랄",
+    "stadium": "",
+    "timeTbd": true,
+    "gameId": "ARGENTINA_ESPN_401933758",
+    "status": "scheduled",
+    "phaseCode": "T16"
   },
   {
     "date": "2026-11-23",
