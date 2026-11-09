@@ -804939,7 +804939,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1794185330303
+    "assistsAt": 1794192583297
   },
   {
     "date": "2026-11-07",
@@ -816313,8 +816313,8 @@
           "n": "그로스",
           "m": 42,
           "pid": "espn:132659",
-          "nat": "Germany",
-          "pk": true
+          "pk": true,
+          "nat": "Germany"
         }
       ],
       "away": []
@@ -816393,9 +816393,9 @@
         {
           "n": "클라크",
           "m": 73,
+          "pk": true,
           "nat": "England",
-          "pid": "espn:269343",
-          "pk": true
+          "pid": "espn:269343"
         }
       ],
       "away": [
@@ -823160,13 +823160,15 @@
     "inningInfo": "9회초",
     "liveState": {
       "pitcher": "Edwyn  Valle",
-      "batter": "Austin Davis",
+      "batter": "Jose Alvarez",
       "pitcherPid": "mlb:683030",
-      "batterPid": "mlb:686689",
+      "batterPid": "mlb:518402",
       "ball": 0,
-      "strike": 0,
-      "out": 0,
-      "bases": []
+      "strike": 1,
+      "out": 1,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -823200,12 +823202,12 @@
     "inningInfo": "9회초",
     "liveState": {
       "pitcher": "Sasagi Sanchez",
-      "batter": "Albert Fabian",
+      "batter": "Manuel Boscan",
       "pitcherPid": "mlb:653252",
-      "batterPid": "mlb:683546",
-      "ball": 1,
+      "batterPid": "mlb:598724",
+      "ball": 3,
       "strike": 2,
-      "out": 1,
+      "out": 2,
       "bases": []
     }
   },
@@ -823222,16 +823224,18 @@
     "status": "live",
     "homeScore": 6,
     "awayScore": 1,
-    "inningInfo": "8회초",
+    "inningInfo": "8회말",
     "liveState": {
-      "pitcher": "Cristian Alvarado",
-      "batter": "Cristopher Gastelum",
-      "pitcherPid": "mlb:800079",
-      "batterPid": "mlb:806591",
-      "ball": 0,
+      "pitcher": "Luis Moreno",
+      "batter": "Victor Marquez",
+      "pitcherPid": "mlb:811478",
+      "batterPid": "mlb:802888",
+      "ball": 1,
       "strike": 1,
-      "out": 2,
-      "bases": []
+      "out": 0,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -823311,19 +823315,17 @@
     "gameId": "AFL_MLBSTATS_867649",
     "status": "live",
     "homeScore": 3,
-    "awayScore": 2,
+    "awayScore": 3,
     "inningInfo": "5회초",
     "liveState": {
-      "pitcher": "Luke Fox",
-      "batter": "Antonio Anderson",
-      "pitcherPid": "mlb:803183",
-      "batterPid": "mlb:702995",
-      "ball": 1,
-      "strike": 1,
-      "out": 0,
-      "bases": [
-        2
-      ]
+      "pitcher": "Chris Veach",
+      "batter": "Tate Southisene",
+      "pitcherPid": "mlb:810102",
+      "batterPid": "mlb:816111",
+      "ball": 0,
+      "strike": 3,
+      "out": 3,
+      "bases": []
     }
   },
   {
@@ -823339,7 +823341,7 @@
     "status": "live",
     "homeScore": 2,
     "awayScore": 1,
-    "matchPeriod": "후반 84'",
+    "matchPeriod": "후반 89'",
     "scorers": {
       "home": [
         {
@@ -823375,18 +823377,20 @@
     "timeTbd": false,
     "gameId": "LMP_MLBSTATS_850462",
     "status": "live",
-    "homeScore": 1,
+    "homeScore": 2,
     "awayScore": 5,
     "inningInfo": "6회말",
     "liveState": {
       "pitcher": "Wilmer Rios",
-      "batter": "Drew Avans",
+      "batter": "Victor Labrada",
       "pitcherPid": "mlb:658140",
-      "batterPid": "mlb:682183",
-      "ball": 1,
-      "strike": 0,
+      "batterPid": "mlb:700032",
+      "ball": 2,
+      "strike": 2,
       "out": 0,
-      "bases": []
+      "bases": [
+        2
+      ]
     }
   },
   {
@@ -823400,7 +823404,7 @@
     "timeTbd": false,
     "gameId": "COLOMBIA_ESPN_401878031",
     "status": "live",
-    "matchPeriod": "후반 73'",
+    "matchPeriod": "후반 78'",
     "homeScore": 1,
     "awayScore": 2,
     "cards": {
@@ -823467,8 +823471,8 @@
     "timeTbd": false,
     "gameId": "PERU_ESPN_401886140",
     "status": "live",
-    "matchPeriod": "후반 58'",
-    "homeScore": 1,
+    "matchPeriod": "후반 63'",
+    "homeScore": 2,
     "awayScore": 1,
     "cards": {
       "home": [],
@@ -823503,6 +823507,13 @@
           "m": 36,
           "nat": "Paraguay",
           "pid": "espn:199092"
+        },
+        {
+          "n": "Gianluca Lapadula",
+          "m": 59,
+          "pk": true,
+          "nat": "Peru",
+          "pid": "espn:144668"
         }
       ],
       "away": [
@@ -823588,7 +823599,7 @@
     "timeTbd": false,
     "gameId": "LIGAMX_ESPN_401876902",
     "status": "live",
-    "matchPeriod": "전반 36'",
+    "matchPeriod": "전반 41'",
     "homeScore": 0,
     "awayScore": 0,
     "cards": {
