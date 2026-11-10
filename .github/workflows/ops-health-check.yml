@@ -49,6 +49,7 @@ jobs:
           DISCORD_WEBHOOK_URL_AUTO: ${{ secrets.DISCORD_WEBHOOK_URL_AUTO }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           APP_REPO_TOKEN: ${{ secrets.APP_REPO_TOKEN }}
+          PRIVATE_DATA_TOKEN: ${{ secrets.PRIVATE_DATA_TOKEN }}  # 방향각 점검이 비공개 저장소(venue-geo)를 읽는다
         run: node scripts/ops-health-check.mjs
 
       - name: Commit state
