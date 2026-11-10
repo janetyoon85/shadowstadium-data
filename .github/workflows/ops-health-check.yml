@@ -38,6 +38,11 @@ jobs:
       - name: Auto-translate new country names
         run: node scripts/autofix-country-names.mjs
 
+      # 클럽이 새 표기로 영문명·로고 없이 올라오면 같은 킥오프의 ESPN 경기와 짝지어 스스로 채운다(2026-11-10, "짐 라 플라타").
+      # 같은 팀의 기존 표기가 유일하게 있으면 그 영문명·로고를 물려받고, 아니면 ESPN 값. 짝을 못 찾으면 쓰지 않아 아래 점검이 그대로 알린다.
+      - name: Auto-fill new club names
+        run: node scripts/autofix-club-names.mjs
+
       - name: Run health check
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
@@ -48,7 +53,7 @@ jobs:
 
       - name: Commit state
         run: |
-          git add ops-health-state.json ops-ledger team-name-en.json team-name-i18n-auto.json
+          git add ops-health-state.json ops-ledger team-name-en.json team-name-i18n-auto.json team-logos.json team-logo-aliases.json
           git diff --cached --quiet && exit 0
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
