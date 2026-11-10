@@ -1,6 +1,9 @@
 {
- "_comment": "방향각이 필요 없는 구장(돔·위치 미정 자리표시) — ops-health-check 방향각 점검에서 제외. 앱(App.tsx makeVenue dome:true / tbc:true)과 맞춰 둘 것. 새 돔구장을 추가하면 여기에도 추가.",
+ "_comment": "방향각이 필요 없는 구장(돔·위치 미정 자리표시) — ops-health-check 방향각 점검에서 제외. 앱(App.tsx makeVenue dome:true / tbc:true)과 맞춰 둘 것. 새 돔구장을 추가하면 여기에도 추가. countries: 이 국가 코드의 구장은 점검 제외(중국은 좌표 없이 등록). 크리켓경기장 등 방향각이 의미 없는 구장도 ids 에 둔다.",
  "ids": [
+  "alamodome_san_antonio",
+  "allegiant_stadium",
+  "arena_da_baixada_curitiba",
   "argentina_venue_tbc",
   "bao_an_stadium",
   "beijing_guoan_workers",
@@ -14,6 +17,7 @@
   "hanghai_stadium_zhengzhou",
   "hangzhou_olympic_sports_center_stadium",
   "huanglong_sports_center_hangzhou",
+  "indira_gandhi_arena",
   "jinan_olympic_sports_center",
   "kyocera_dome_osaka",
   "longhua_cultural_and_sports_center_stadium",
@@ -32,6 +36,7 @@
   "shenzhen_universiade_sports_centre_stadium",
   "shenzhen_youth_football_training_base_center_stadium",
   "shenzhen_youth_football_training_base_pitch_1",
+  "sir_vivian_richards_stadium",
   "suzhou_sports_center_stadium",
   "suzhou_taihu_football_center",
   "taipei_dome",
@@ -47,5 +52,8 @@
   "wuhan_sports_center_stadium",
   "xiamen_egret_stadium",
   "yuxi_plateau_sports_center"
+ ],
+ "countries": [
+  "cn"
  ]
 }
