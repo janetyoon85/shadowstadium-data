@@ -51,6 +51,7 @@ jobs:
       - name: Match highlight videos
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
           HL_DEEP: ${{ github.event.inputs.deep || '0' }}
           HL_PAGES: ${{ github.event.inputs.pages || '3' }}
         run: node scripts/fetch-highlight-videos.mjs
