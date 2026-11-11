@@ -5,12 +5,15 @@ on:
     # YouTube Data API 무료 쿼터(하루 10,000유닛, search 100유닛 → ~100건)가 태평양시 자정(07:00 UTC)에
     # 리셋되므로 그 직후 하루 1회.
     - cron: '20 7 * * *'
+  push:
+    # 수동 즉시 실행용(2026-11-12): 이 파일을 갱신해 푸시하면 한 번 돈다(gh CLI 없는 환경에서 workflow_dispatch 대신).
+    paths: ['.github/cheer-run-now']
   workflow_dispatch:
     inputs:
       budget:
         description: '이번 실행의 검색 예산(기본 450, 하루 검색 한도 1,000회 승인 2026-11-12)'
         required: false
-        default: '8'
+        default: '450'
       discover:
         description: 'MLB 워크업 채널 발굴(검색 30건 사용, 파일 변경 없음) — 1 입력 시'
         required: false
@@ -27,7 +30,7 @@ concurrency:
 jobs:
   fetch:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 30
     steps:
       - name: Checkout
         uses: actions/checkout@v4
