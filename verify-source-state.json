@@ -1,10 +1,16 @@
 {
  "pending": {
-  "결과 미반영(StatsAPI 재조회)|LIDOM_MLBSTATS_851527": {
+  "농구 박스스코어 득점 합계 불일치|espn:GLEAGUE:401914524|sum|h": {
    "n": 1,
-   "first": 1794366056996,
-   "kind": "결과 미반영(StatsAPI 재조회)",
-   "text": "2026-11-11 LIDOM 에스트레야스 오리엔탈레스 vs 레오네스 델 에스코히도 — StatsAPI 종료 2-10, 우리는 live"
+   "first": 1794367528622,
+   "kind": "농구 박스스코어 득점 합계 불일치",
+   "text": "2026-11-11 GLEAGUE espn:GLEAGUE:7 vs espn:GLEAGUE:10 — 홈 선수 득점 합 114 / 경기 점수 117 (선수 10명)"
+  },
+  "농구 쿼터 점수 합 불일치|espn:GLEAGUE:401914524|ls|h": {
+   "n": 1,
+   "first": 1794367528622,
+   "kind": "농구 쿼터 점수 합 불일치",
+   "text": "2026-11-11 GLEAGUE espn:GLEAGUE:7 vs espn:GLEAGUE:10 — 홈 쿼터 합 116 / 최종 117"
   }
  },
  "alerted": {
@@ -39,13 +45,13 @@
   "농구 킥오프 불일치(네이버/ESPN)|nv:2026111713|espn:NBA:401910005": 1794104725755,
   "도움 누락|COLOMBIA_ESPN_401878041|a|43|345363": 1794122728437
  },
- "lastRun": "2026-11-11T03:00:56.996Z",
+ "lastRun": "2026-11-11T03:25:28.622Z",
  "stats": {
   "leagues": 52,
   "events": 213,
   "matched": 212,
   "unmatched": 1,
-  "eventGames": 8,
+  "eventGames": 9,
   "eventSkipped": 0,
   "affil": {
    "api": 66,
@@ -56,8 +62,8 @@
   "standingsMismatch": 0,
   "bkSourceDefect": 2,
   "bkBox": {
-   "internal": 304,
-   "fresh": 9,
+   "internal": 305,
+   "fresh": 10,
    "nba": 0
   },
   "xsource": 0,
