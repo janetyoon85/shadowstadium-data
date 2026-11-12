@@ -1,0 +1,47 @@
+name: Purge Stale Device Langs
+
+# 기기별 직접 발송에 등록한 기기의 옛 언어·옛 접두사 토픽 구독을 서버에서 해제한다(2026-11-12). 구성이 바뀐 기기만 처리. 30분마다 + 수동(push).
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  push:
+    paths: ['.github/purge-now']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: purge-device-langs
+  cancel-in-progress: false
+
+jobs:
+  purge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Fetch crawler code (private)
+        uses: ./.github/actions/fetch-code
+        with:
+          token: ${{ secrets.PRIVATE_DATA_TOKEN }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+      - run: npm ci
+      - name: Purge
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          FIREBASE_DATABASE_URL: ${{ vars.FIREBASE_DATABASE_URL }}
+        run: node scripts/purge-stale-device-langs.mjs
+      - name: Commit state
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add purge-device-state.json purge-device-summary.json 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "chore(push): 기기 옛 구독 정리 상태"
+          for i in 1 2 3 4 5; do git push && break || { git pull --rebase --autostash -X theirs origin main; sleep 2; }; done
