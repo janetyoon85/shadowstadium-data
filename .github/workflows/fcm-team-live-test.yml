@@ -2,6 +2,8 @@ name: FCM Team Live Test
 
 # 즐겨찾기 팀 경기 중 알림(tlive 토픽) 수신 테스트(수동). 팀 키(쉼표 구분)를 입력하면 키마다 테스트 푸시 1건.
 on:
+  push:
+    paths: ['.github/fcm-test-now']  # 수동 즉시 실행용(gh CLI 없는 환경) — 클리블랜드 키로 새 토픽(tlive2_) 수신 확인
   workflow_dispatch:
     inputs:
       keys:
@@ -36,7 +38,7 @@ jobs:
       - name: Send test
         env:
           FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
-          KEYS: ${{ inputs.keys }}
-          LANG_CODE: ${{ inputs.lang }}
-          TOPIC_KIND: ${{ inputs.kind }}
+          KEYS: ${{ inputs.keys || 'naver:NBA:CLE,espn:NBA:5' }}
+          LANG_CODE: ${{ inputs.lang || 'ko' }}
+          TOPIC_KIND: ${{ inputs.kind || 'live' }}
         run: node scripts/send-test-team-live.mjs
