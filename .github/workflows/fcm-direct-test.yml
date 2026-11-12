@@ -1,0 +1,31 @@
+name: FCM Direct Path Test
+
+# 실제 알림과 같은 경로(토픽+직접 발송+센티넬 제외)로 테스트 알림 1건을 보낸다(2026-11-12). push(.github/direct-test-now) 또는 수동.
+on:
+  push:
+    paths: ['.github/direct-test-now']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch crawler code (private)
+        uses: ./.github/actions/fetch-code
+        with:
+          token: ${{ secrets.PRIVATE_DATA_TOKEN }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+      - run: npm ci
+      - name: Send test
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          FIREBASE_DATABASE_URL: ${{ vars.FIREBASE_DATABASE_URL }}
+        run: node scripts/send-test-direct.mjs
