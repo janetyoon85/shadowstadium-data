@@ -3,10 +3,12 @@ name: FCM Health Read
 # 앱이 "FCM 수신 끊김"을 감지할 때 남긴 기록(RTDB fcm_health)과 서버 심장박동을 요약해 로그로 보여 준다(수동, 읽기 전용).
 # 기기 식별자는 해시 앞 6자리만 출력한다. 점검이 끝나면 실행 기록을 지운다.
 on:
+  push:
+    paths: ['.github/fcm-diag-now']  # 수동 즉시 실행용(gh CLI 없는 환경)
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   read:
@@ -29,3 +31,10 @@ jobs:
           FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
           FIREBASE_DATABASE_URL: ${{ vars.FIREBASE_DATABASE_URL }}
         run: node scripts/read-fcm-health.mjs
+      - name: Commit diag summary
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add fcm-push-diag.json
+          git diff --cached --quiet || git commit -m "chore(fcm): 푸시 구독 진단 요약"
+          for i in 1 2 3 4 5; do git push && break || { git pull --rebase --autostash -X theirs origin main; sleep 2; }; done
