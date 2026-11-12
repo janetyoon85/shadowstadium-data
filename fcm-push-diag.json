@@ -1,9 +1,16 @@
 {
- "at": "2026-11-12T03:06:59.569Z",
+ "at": "2026-11-12T03:20:00.296Z",
  "recent": {
   "state": {
    "n": 9,
-   "newest": "11-12 11:59",
+   "newest": "11-12 12:12",
+   "devs": [
+    "43e78a"
+   ]
+  },
+  "subdiag": {
+   "n": 2,
+   "newest": "11-12 12:19",
    "devs": [
     "43e78a"
    ]
@@ -11,16 +18,6 @@
  },
  "rules": "mismatch', 'err'])\"\n      }\n    },\n    \"fcm_health\": {\n      \"$uid\": {\n        \".read\": false,\n        \".write\": \"auth != null && auth.uid === $uid\"\n      }\n    }\n  }\n}",
  "states": [
-  {
-   "dev": "43e78a",
-   "at": "11-12 06:18",
-   "verdict": "ok",
-   "stalled": false,
-   "lastHbAgoMin": 9,
-   "serverHbAgoMin": 9,
-   "presented": 34,
-   "os": "android"
-  },
   {
    "dev": "43e78a",
    "at": "11-12 07:17",
@@ -100,7 +97,30 @@
    "serverHbAgoMin": 9,
    "presented": 12,
    "os": "android"
+  },
+  {
+   "dev": "43e78a",
+   "at": "11-12 12:12",
+   "verdict": "ok",
+   "stalled": false,
+   "lastHbAgoMin": 2,
+   "serverHbAgoMin": 2,
+   "presented": 15,
+   "os": "android"
   }
  ],
- "devices": []
+ "devices": [
+  {
+   "dev": "43e78a",
+   "at": "11-12 12:19",
+   "upd": "01a1cdac",
+   "lang": "ko",
+   "favN": 23,
+   "subOk": 0,
+   "subFail": 0,
+   "os": "android",
+   "iidStatus": 400,
+   "iidBody": "{\"error\":\"InvalidToken\"}"
+  }
+ ]
 }
