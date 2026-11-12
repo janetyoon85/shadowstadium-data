@@ -1,0 +1,39 @@
+name: RTDB Push Rules Apply
+
+# RTDB 보안 규칙에 push_topic_idx 노드를 추가한다(기기별 직접 발송, 2026-11-12). 추가만 하고 기존 규칙은 바꾸지 않는다(스크립트가 검증). 이미 있으면 no-op.
+on:
+  push:
+    paths: ['.github/rtdb-rules-now']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch crawler code (private)
+        uses: ./.github/actions/fetch-code
+        with:
+          token: ${{ secrets.PRIVATE_DATA_TOKEN }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+      - run: npm ci
+      - name: Apply rules
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          FIREBASE_DATABASE_URL: ${{ vars.FIREBASE_DATABASE_URL }}
+        run: node scripts/apply-rtdb-push-rules.mjs
+      - name: Commit result summary
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add rtdb-rules-apply.json
+          git diff --cached --quiet || git commit -m "chore(rtdb): push_topic_idx 규칙 적용 결과"
+          for i in 1 2 3 4 5; do git push && break || { git pull --rebase --autostash -X theirs origin main; sleep 2; }; done
