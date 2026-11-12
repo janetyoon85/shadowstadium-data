@@ -1,6 +1,7 @@
 name: Purge Stale Device Langs
 
 # 기기별 직접 발송에 등록한 기기의 옛 언어·옛 접두사 토픽 구독을 서버에서 해제한다(2026-11-12). 구성이 바뀐 기기만 처리. 30분마다 + 수동(push).
+# 실제 30분 주기는 rate-limit-alert 의 "Redispatch stale workflows" 단계가 workflow_dispatch 로 부른다(GitHub schedule 은 누락이 잦아 안전망).
 on:
   schedule:
     - cron: '*/30 * * * *'

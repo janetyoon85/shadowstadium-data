@@ -16,7 +16,7 @@ on:
 
 permissions:
   contents: write   # ops-logs 브랜치에 상태 기록
-  actions: read     # 트리거 누락 감시: 워크플로우 실행 기록 조회
+  actions: write    # 트리거 누락 감시: 실행 기록 조회 + 정체 워크플로 자동 재실행(workflow_dispatch)
 
 concurrency:
   group: rate-limit-alert
@@ -57,3 +57,14 @@ jobs:
           DISCORD_WEBHOOK_URL_AUTO: ${{ secrets.DISCORD_WEBHOOK_URL_AUTO }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node scripts/trigger-gap-report.mjs
+
+      # 정체 워크플로 자동 재실행(2026-11-12): 바깥 트리거가 없는 워크플로(purge-device-langs 30분)는 여기서 주기대로 실행시키고,
+      # 감시 목록의 다른 워크플로는 마지막 성공이 알림 기준의 70%를 넘기면 다시 실행한다. 실패해도 이 실행을 실패시키지 않는다.
+      - name: Redispatch stale workflows (자동 조치)
+        if: always()
+        continue-on-error: true
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          DISCORD_WEBHOOK_URL_AUTO: ${{ secrets.DISCORD_WEBHOOK_URL_AUTO }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/redispatch-stale-workflows.mjs
