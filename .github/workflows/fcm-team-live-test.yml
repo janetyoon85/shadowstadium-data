@@ -38,7 +38,7 @@ jobs:
       - name: Send test
         env:
           FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
-          KEYS: ${{ inputs.keys || 'naver:NBA:CLE,espn:NBA:5' }}
+          KEYS: ${{ inputs.keys || 'naver:NBA:LAL,espn:NBA:13,naver:NBA:MIL,espn:NBA:15,naver:NBA:BOS,espn:NBA:2,naver:NBA:CLE,espn:NBA:5' }}
           LANG_CODE: ${{ inputs.lang || 'ko' }}
           TOPIC_KIND: ${{ inputs.kind || 'live' }}
         run: node scripts/send-test-team-live.mjs
