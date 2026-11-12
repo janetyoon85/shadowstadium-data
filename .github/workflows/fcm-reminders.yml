@@ -48,6 +48,7 @@ jobs:
       - name: Send reminders
         env:
           FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          FIREBASE_DATABASE_URL: ${{ vars.FIREBASE_DATABASE_URL }}  # 기기별 직접 발송 색인 조회용
         run: node scripts/cron-reminders.mjs
 
       # 캐시 워밍 piggyback — KST 13:00–19:30, 오늘 경기 구장 /api/kma 데움.
