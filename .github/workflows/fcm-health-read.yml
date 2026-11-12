@@ -30,6 +30,7 @@ jobs:
         env:
           FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
           FIREBASE_DATABASE_URL: ${{ vars.FIREBASE_DATABASE_URL }}
+          DIRECT_TEST: '1'
         run: node scripts/read-fcm-health.mjs
       - name: Commit diag summary
         run: |
