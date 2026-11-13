@@ -1,5 +1,8 @@
 name: probe-nba-cdn
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+  push:
+    paths: [".github/nba-probe-now"]
 jobs:
   probe:
     runs-on: ubuntu-latest
