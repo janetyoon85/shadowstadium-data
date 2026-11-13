@@ -28,6 +28,16 @@ jobs:
         shell: bash
     timeout-minutes: 10  # 2026-09-30 긴급 추가 — fetch-schedule.yml 무한대기 사고 재발 방지, 전체 크롤러 공통 적용
     steps:
+      - name: Trim workspace (self-hosted)
+        if: runner.environment == 'self-hosted'
+        shell: bash
+        run: |
+          # 영구형 러너의 작업 폴더 .git 에 얕은 체크아웃 객체가 계속 쌓인다(NAS 러너 1대 110GB, 2026-11-13). 1.5GB 를 넘으면 지운다 — 다음 체크아웃이 다시 받는다.
+          # 매번 지우면 변경분만 받던 체크아웃이 전체를 받게 되어 트래픽이 늘므로 크기를 넘었을 때만. du 가 60초 안에 안 끝나면(이미 거대) 지운다.
+          [ -d .git ] || exit 0
+          mb=$(timeout 60 du -sm .git 2>/dev/null | cut -f1)
+          if [ -z "$mb" ] || [ "$mb" -gt 1500 ]; then rm -rf .git && echo "workspace .git removed (${mb:-?}MB)"; fi
+
       - name: Checkout
         uses: actions/checkout@v4
         with:
