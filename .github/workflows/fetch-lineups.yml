@@ -64,6 +64,13 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Disk watch (self-hosted)
+        if: runner.environment == 'self-hosted'
+        continue-on-error: true
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: node scripts/disk-watch.mjs
+
       - name: Collect lineups
         env:
           NAVER_DISABLED: ${{ needs.pick.outputs.naver_disabled }}

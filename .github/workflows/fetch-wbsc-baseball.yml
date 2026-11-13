@@ -53,6 +53,13 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Disk watch (self-hosted)
+        if: runner.environment == 'self-hosted'
+        continue-on-error: true
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: node scripts/disk-watch.mjs
+
       - name: Run WBSC baseball fetch
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
