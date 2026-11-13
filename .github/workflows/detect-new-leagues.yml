@@ -38,13 +38,18 @@ jobs:
         continue-on-error: true
         shell: bash
         run: |
-          # 영구형 러너의 작업 폴더 .git 에 얕은 체크아웃 객체가 계속 쌓인다(NAS 러너 1대 110GB, 2026-11-13). 크기를 재지 않고(거대하면 du 가 수 분) 6시간마다 .git 을
-          # 작업 폴더 밖 휴지통으로 이름만 바꿔 옮기고(즉시) 백그라운드로 지운다 — 다음 체크아웃이 새로 받는다(하루 4회, 약 125MB).
+          # 영구형 러너의 작업 폴더 .git 에 얕은 체크아웃 객체가 쌓인다(NAS 러너 1대 110GB, 2026-11-13). 불필요한 것은 쌓지 않고 바로 지운다:
+          #  · 300MB 넘으면 필요 없는 객체만 즉시 삭제(reflog 만료 + gc --prune=now) — 현재 객체는 남아 다음 체크아웃은 변경분만 받는다
+          #  · 크기를 못 재거나(거대) gc 가 실패하면 .git 을 작업 폴더 밖 휴지통으로 이름만 바꿔 옮기고(즉시) 백그라운드로 지운다
           base="$RUNNER_WORKSPACE"
-          key="$(date -u +%Y%m%d)-$(( 10#$(date -u +%H) / 6 ))"
-          stamp="$base/.gitreset-stamp"
-          if [ -d .git ] && [ "$(cat "$stamp" 2>/dev/null || true)" != "$key" ]; then
-            mv .git "$base/.git-trash-$key" && echo "$key" > "$stamp" && echo "moved .git to trash ($key)"
+          rotate() { mv .git "$base/.git-trash-$(date -u +%Y%m%d%H%M%S)" 2>/dev/null || rm -rf .git; echo ".git moved to trash"; }
+          if [ -d .git ]; then
+            kb=$(timeout 20 du -sk .git 2>/dev/null | cut -f1) || kb=""
+            if [ -z "$kb" ]; then
+              rotate
+            elif [ "$kb" -gt 307200 ]; then
+              timeout 180 sh -c 'git reflog expire --expire=now --all && git gc --prune=now --quiet' && echo ".git pruned ($((kb/1024))MB -> $(du -sm .git | cut -f1)MB)" || rotate
+            fi
           fi
           if ls -d "$base"/.git-trash-* >/dev/null 2>&1; then
             # 러너는 잡이 끝날 때 이 잡이 띄운 고아 프로세스를 정리하므로 추적 변수를 빼고 새 세션으로 띄운다(없으면 그냥 지움).
