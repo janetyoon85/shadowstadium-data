@@ -1,0 +1,12 @@
+name: probe-nba-cdn
+on: workflow_dispatch
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          u=https://cdn.nba.com/static/json/liveData/scoreboard/todaysScoreboard_00.json
+          for ua in "Mozilla/5.0 (ShadeSideCrawler)" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"; do
+            curl -sS -m 20 -o /tmp/o.json -w "%{http_code} size=%{size_download}\n" -A "$ua" -H "Referer: https://www.nba.com/" "$u" || echo "fail"
+          done
+          head -c 300 /tmp/o.json
