@@ -1,16 +1,17 @@
 {
- "at": "2026-11-12T05:00:31.625Z",
+ "at": "2026-11-13T10:05:49.661Z",
  "recent": {
-  "state": {
-   "n": 13,
-   "newest": "11-12 13:53",
+  "subdiag": {
+   "n": 9,
+   "newest": "11-13 17:58",
    "devs": [
+    "0d173a",
     "43e78a"
    ]
   },
-  "subdiag": {
-   "n": 20,
-   "newest": "11-12 13:57",
+  "state": {
+   "n": 13,
+   "newest": "11-13 19:04",
    "devs": [
     "43e78a"
    ]
@@ -18,12 +19,15 @@
  },
  "index": {
   "43e78a": {
-   "topics": 177,
+   "topics": 185,
    "tok": "ea643f",
    "prefixes": {
     "player2": 55,
-    "tfinal2": 61,
-    "tlive2": 61
+    "tfinal2": 65,
+    "tlive2": 65
+   },
+   "langs": {
+    "en": 130
    }
   }
  },
@@ -31,27 +35,97 @@
  "states": [
   {
    "dev": "43e78a",
-   "at": "11-12 09:37",
+   "at": "11-13 13:12",
    "verdict": "ok",
    "stalled": false,
-   "lastHbAgoMin": 7,
+   "lastHbAgoMin": 2,
+   "serverHbAgoMin": 2,
+   "presented": 1,
+   "os": "android"
+  },
+  {
+   "dev": "43e78a",
+   "at": "11-13 14:52",
+   "verdict": "ok",
+   "stalled": false,
+   "lastHbAgoMin": 3,
+   "serverHbAgoMin": 3,
+   "presented": 1,
+   "os": "android"
+  },
+  {
+   "dev": "43e78a",
+   "at": "11-13 15:08",
+   "verdict": "ok",
+   "stalled": false,
+   "lastHbAgoMin": 8,
    "serverHbAgoMin": 8,
-   "presented": 0,
+   "presented": 1,
    "os": "android"
   },
   {
    "dev": "43e78a",
-   "at": "11-12 10:43",
+   "at": "11-13 15:28",
    "verdict": "ok",
    "stalled": false,
-   "lastHbAgoMin": 4,
-   "serverHbAgoMin": 4,
+   "lastHbAgoMin": 5,
+   "serverHbAgoMin": 5,
    "presented": 0,
    "os": "android"
   },
   {
    "dev": "43e78a",
-   "at": "11-12 10:55",
+   "at": "11-13 15:39",
+   "verdict": "ok",
+   "stalled": false,
+   "lastHbAgoMin": 10,
+   "serverHbAgoMin": 10,
+   "presented": 0,
+   "os": "android"
+  },
+  {
+   "dev": "43e78a",
+   "at": "11-13 16:11",
+   "verdict": "ok",
+   "stalled": false,
+   "lastHbAgoMin": 1,
+   "serverHbAgoMin": 1,
+   "presented": 0,
+   "os": "android"
+  },
+  {
+   "dev": "43e78a",
+   "at": "11-13 16:28",
+   "verdict": "ok",
+   "stalled": false,
+   "lastHbAgoMin": 9,
+   "serverHbAgoMin": 9,
+   "presented": 0,
+   "os": "android"
+  },
+  {
+   "dev": "43e78a",
+   "at": "11-13 16:41",
+   "verdict": "ok",
+   "stalled": false,
+   "lastHbAgoMin": 21,
+   "serverHbAgoMin": 21,
+   "presented": 0,
+   "os": "android"
+  },
+  {
+   "dev": "43e78a",
+   "at": "11-13 17:05",
+   "verdict": "ok",
+   "stalled": false,
+   "lastHbAgoMin": 5,
+   "serverHbAgoMin": 5,
+   "presented": 0,
+   "os": "android"
+  },
+  {
+   "dev": "43e78a",
+   "at": "11-13 17:15",
    "verdict": "ok",
    "stalled": false,
    "lastHbAgoMin": 6,
@@ -61,118 +135,67 @@
   },
   {
    "dev": "43e78a",
-   "at": "11-12 11:08",
+   "at": "11-13 17:27",
    "verdict": "ok",
    "stalled": false,
-   "lastHbAgoMin": 8,
-   "serverHbAgoMin": 9,
-   "presented": 4,
-   "os": "android"
-  },
-  {
-   "dev": "43e78a",
-   "at": "11-12 11:35",
-   "verdict": "ok",
-   "stalled": false,
-   "lastHbAgoMin": 5,
-   "serverHbAgoMin": 5,
-   "presented": 6,
-   "os": "android"
-  },
-  {
-   "dev": "43e78a",
-   "at": "11-12 11:59",
-   "verdict": "ok",
-   "stalled": false,
-   "lastHbAgoMin": 9,
-   "serverHbAgoMin": 9,
-   "presented": 12,
-   "os": "android"
-  },
-  {
-   "dev": "43e78a",
-   "at": "11-12 12:12",
-   "verdict": "ok",
-   "stalled": false,
-   "lastHbAgoMin": 2,
-   "serverHbAgoMin": 2,
-   "presented": 15,
-   "os": "android"
-  },
-  {
-   "dev": "43e78a",
-   "at": "11-12 12:42",
-   "verdict": "ok",
-   "stalled": false,
-   "lastHbAgoMin": 3,
-   "serverHbAgoMin": 3,
-   "presented": 30,
-   "os": "android"
-  },
-  {
-   "dev": "43e78a",
-   "at": "11-12 12:54",
-   "verdict": "ok",
-   "stalled": false,
-   "lastHbAgoMin": 4,
-   "serverHbAgoMin": 4,
+   "lastHbAgoMin": 7,
+   "serverHbAgoMin": 7,
    "presented": 0,
    "os": "android"
   },
   {
    "dev": "43e78a",
-   "at": "11-12 13:04",
+   "at": "11-13 18:53",
+   "stalled": false,
+   "presented": 0,
+   "os": "android"
+  },
+  {
+   "dev": "43e78a",
+   "at": "11-13 19:04",
    "verdict": "ok",
    "stalled": false,
    "lastHbAgoMin": 4,
    "serverHbAgoMin": 4,
-   "presented": 7,
-   "os": "android"
-  },
-  {
-   "dev": "43e78a",
-   "at": "11-12 13:19",
-   "verdict": "ok",
-   "stalled": false,
-   "lastHbAgoMin": 10,
-   "serverHbAgoMin": 10,
-   "presented": 11,
-   "os": "android"
-  },
-  {
-   "dev": "43e78a",
-   "at": "11-12 13:40",
-   "verdict": "ok",
-   "stalled": false,
-   "lastHbAgoMin": 0,
-   "serverHbAgoMin": 0,
-   "presented": 4,
-   "os": "android"
-  },
-  {
-   "dev": "43e78a",
-   "at": "11-12 13:53",
-   "verdict": "ok",
-   "stalled": false,
-   "lastHbAgoMin": 3,
-   "serverHbAgoMin": 3,
-   "presented": 3,
+   "presented": 1,
    "os": "android"
   }
  ],
  "devices": [
   {
-   "dev": "43e78a",
-   "at": "11-12 13:57",
-   "upd": "01a1ce15",
-   "lang": "ko",
-   "favN": 23,
+   "dev": "e79147",
+   "at": "11-13 04:03",
+   "upd": "01a1cea8",
+   "lang": "hi",
+   "favN": 0,
    "subOk": 0,
    "subFail": 0,
    "os": "android",
    "iidStatus": 400,
-   "iidBody": "{\"error\":\"InvalidToken\"}",
-   "direct": "sent"
+   "iidBody": "{\"error\":\"InvalidToken\"}"
+  },
+  {
+   "dev": "0d173a",
+   "at": "11-13 17:58",
+   "upd": "01a1d3d8",
+   "lang": "ko",
+   "favN": 0,
+   "subOk": 0,
+   "subFail": 0,
+   "os": "ios"
+  },
+  {
+   "dev": "43e78a",
+   "at": "11-13 17:15",
+   "upd": "01a1d37d",
+   "lang": "en",
+   "favN": 23,
+   "subOk": 0,
+   "subFail": 8,
+   "err": "timeout",
+   "os": "android",
+   "iidStatus": 400,
+   "iidBody": "{\"error\":\"InvalidToken\"}"
   }
  ]
 }
