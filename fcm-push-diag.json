@@ -1,9 +1,9 @@
 {
- "at": "2026-11-13T10:08:37.698Z",
+ "at": "2026-11-13T10:21:44.295Z",
  "recent": {
   "subdiag": {
-   "n": 7,
-   "newest": "11-13 17:58",
+   "n": 10,
+   "newest": "11-13 19:20",
    "devs": [
     "0d173a",
     "43e78a"
@@ -11,7 +11,7 @@
   },
   "state": {
    "n": 13,
-   "newest": "11-13 19:04",
+   "newest": "11-13 19:17",
    "devs": [
     "43e78a"
    ]
@@ -27,22 +27,12 @@
     "tlive2": 65
    },
    "langs": {
-    "en": 130
+    "ko": 130
    }
   }
  },
  "rules": " < 400))\"\n        }\n      }\n    },\n    \"fcm_health\": {\n      \"$uid\": {\n        \".read\": false,\n        \".write\": \"auth != null && auth.uid === $uid\"\n      }\n    }\n  }\n}",
  "states": [
-  {
-   "dev": "43e78a",
-   "at": "11-13 13:12",
-   "verdict": "ok",
-   "stalled": false,
-   "lastHbAgoMin": 2,
-   "serverHbAgoMin": 2,
-   "presented": 1,
-   "os": "android"
-  },
   {
    "dev": "43e78a",
    "at": "11-13 14:52",
@@ -159,6 +149,16 @@
    "serverHbAgoMin": 4,
    "presented": 1,
    "os": "android"
+  },
+  {
+   "dev": "43e78a",
+   "at": "11-13 19:17",
+   "verdict": "ok",
+   "stalled": false,
+   "lastHbAgoMin": 8,
+   "serverHbAgoMin": 8,
+   "presented": 3,
+   "os": "android"
   }
  ],
  "devices": [
@@ -186,12 +186,12 @@
   },
   {
    "dev": "43e78a",
-   "at": "11-13 17:15",
-   "upd": "01a1d37d",
-   "lang": "en",
+   "at": "11-13 19:20",
+   "upd": "01a1d455",
+   "lang": "ko",
    "favN": 23,
    "subOk": 0,
-   "subFail": 8,
+   "subFail": 6,
    "err": "timeout",
    "os": "android",
    "iidStatus": 400,
