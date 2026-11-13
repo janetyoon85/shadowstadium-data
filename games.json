@@ -5778,7 +5778,15 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 0,
-    "inningInfo": "3회말"
+    "inningInfo": "3회말",
+    "liveState": {
+      "pitcher": "PARK Junsung",
+      "batter": "WALLENDORF Donovan",
+      "ball": 3,
+      "strike": 1,
+      "out": 2,
+      "bases": []
+    }
   },
   {
     "date": "2025-09-07",
@@ -378945,7 +378953,39 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 0,
-    "inningInfo": "2회초"
+    "inningInfo": "2회초",
+    "linescore": {
+      "h": [
+        0,
+        null
+      ],
+      "a": [
+        0,
+        0
+      ],
+      "hit": [
+        0,
+        0
+      ],
+      "err": [
+        0,
+        0
+      ],
+      "lob": [
+        0,
+        0
+      ]
+    },
+    "liveState": {
+      "pitcher": "BOCCHI Matteo",
+      "batter": "SCALA Niccolò Jordi",
+      "ball": 0,
+      "strike": 0,
+      "out": 0,
+      "bases": [
+        1
+      ]
+    }
   },
   {
     "date": "2026-07-22",
@@ -424867,7 +424907,18 @@
     "status": "live",
     "homeScore": 7,
     "awayScore": 0,
-    "inningInfo": "4회초"
+    "inningInfo": "4회초",
+    "liveState": {
+      "pitcher": "HENRY Jacob",
+      "batter": "STOLTZ Keanu",
+      "ball": 0,
+      "strike": 0,
+      "out": 1,
+      "bases": [
+        2,
+        3
+      ]
+    }
   },
   {
     "date": "2026-08-09",
@@ -459466,7 +459517,19 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 0,
-    "inningInfo": "3회말"
+    "inningInfo": "3회말",
+    "liveState": {
+      "pitcher": "GIULIANELLI Ettore",
+      "batter": "LIBERATORE Ernesto Paolo",
+      "ball": 0,
+      "strike": 0,
+      "out": 2,
+      "bases": [
+        1,
+        2,
+        3
+      ]
+    }
   },
   {
     "date": "2026-08-21",
@@ -842067,17 +842130,19 @@
     "timeTbd": false,
     "gameId": "U23BASEBALLWORLDCUP_WBSC_202454",
     "status": "live",
-    "homeScore": 1,
+    "homeScore": 2,
     "awayScore": 10,
-    "inningInfo": "2회말",
+    "inningInfo": "3회초",
     "linescore": {
       "h": [
         0,
-        1
+        2,
+        null
       ],
       "a": [
         4,
-        6
+        6,
+        0
       ],
       "hit": [
         3,
@@ -842085,12 +842150,20 @@
       ],
       "err": [
         2,
-        0
+        1
       ],
       "lob": [
-        1,
+        2,
         3
       ]
+    },
+    "liveState": {
+      "pitcher": "NAVRÁTIL Ondřej",
+      "batter": "ALVAREZ VALDES Rafael de Jesus",
+      "ball": 0,
+      "strike": 0,
+      "out": 0,
+      "bases": []
     }
   },
   {
@@ -842109,14 +842182,16 @@
     "inningInfo": "2회초",
     "linescore": {
       "h": [
-        0
+        0,
+        null
       ],
       "a": [
-        1
+        1,
+        0
       ],
       "hit": [
         0,
-        1
+        2
       ],
       "err": [
         1,
@@ -842124,6 +842199,16 @@
       ],
       "lob": [
         2,
+        1
+      ]
+    },
+    "liveState": {
+      "pitcher": "LIN Yi-Wei",
+      "batter": "KIM Seungjoo",
+      "ball": 2,
+      "strike": 2,
+      "out": 2,
+      "bases": [
         1
       ]
     }
@@ -842141,17 +842226,19 @@
     "status": "live",
     "homeScore": 4,
     "awayScore": 0,
-    "inningInfo": "2회초",
+    "inningInfo": "2회말",
     "linescore": {
       "h": [
-        4
+        4,
+        0
       ],
       "a": [
+        0,
         0
       ],
       "hit": [
         4,
-        0
+        1
       ],
       "err": [
         0,
@@ -842159,8 +842246,16 @@
       ],
       "lob": [
         2,
-        0
+        1
       ]
+    },
+    "liveState": {
+      "pitcher": "MCCLELAND Bryce John",
+      "batter": "MARTINEZ Eddson",
+      "ball": 0,
+      "strike": 0,
+      "out": 0,
+      "bases": []
     }
   },
   {
