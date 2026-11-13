@@ -837781,16 +837781,18 @@
     "status": "live",
     "homeScore": 5,
     "awayScore": 17,
-    "inningInfo": "9회초",
+    "inningInfo": "9회말",
     "liveState": {
       "pitcher": "Michael Walsh",
-      "batter": "Dakota Jordan",
+      "batter": "Nick Monistere",
       "pitcherPid": "mlb:805315",
-      "batterPid": "mlb:702607",
-      "ball": 2,
-      "strike": 3,
-      "out": 3,
-      "bases": []
+      "batterPid": "mlb:823809",
+      "ball": 0,
+      "strike": 1,
+      "out": 2,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -838027,15 +838029,15 @@
     "status": "live",
     "homeScore": 1,
     "awayScore": 2,
-    "inningInfo": "3회말",
+    "inningInfo": "4회초",
     "liveState": {
-      "pitcher": "Jose Gonzalez",
-      "batter": "Orlando Arcia",
-      "pitcherPid": "mlb:683681",
-      "batterPid": "mlb:606115",
-      "ball": 1,
-      "strike": 2,
-      "out": 2,
+      "pitcher": "Joander Suarez",
+      "batter": "Alberth Martinez",
+      "pitcherPid": "mlb:680933",
+      "batterPid": "mlb:594021",
+      "ball": 0,
+      "strike": 1,
+      "out": 0,
       "bases": []
     }
   },
@@ -838055,14 +838057,15 @@
     "inningInfo": "3회초",
     "liveState": {
       "pitcher": "Nestor Lorant",
-      "batter": "Roynier Hernandez",
+      "batter": "Jose Cordova",
       "pitcherPid": "mlb:686544",
-      "batterPid": "mlb:800281",
-      "ball": 1,
+      "batterPid": "mlb:682276",
+      "ball": 0,
       "strike": 0,
       "out": 2,
       "bases": [
-        2
+        1,
+        3
       ]
     }
   },
@@ -838082,12 +838085,12 @@
     "inningInfo": "3회말",
     "liveState": {
       "pitcher": "José Davila",
-      "batter": "Edward Olivares",
+      "batter": "Wilson Garcia",
       "pitcherPid": "mlb:692369",
-      "batterPid": "mlb:658668",
+      "batterPid": "mlb:600902",
       "ball": 3,
-      "strike": 2,
-      "out": 0,
+      "strike": 1,
+      "out": 2,
       "bases": [
         1
       ]
@@ -838105,19 +838108,17 @@
     "gameId": "LVBP_MLBSTATS_870005",
     "status": "live",
     "homeScore": 4,
-    "awayScore": 1,
+    "awayScore": 3,
     "inningInfo": "3회초",
     "liveState": {
-      "pitcher": "Zak Kent",
-      "batter": "Luisangel Acuña",
-      "pitcherPid": "mlb:687849",
-      "batterPid": "mlb:682668",
-      "ball": 0,
-      "strike": 0,
-      "out": 2,
-      "bases": [
-        2
-      ]
+      "pitcher": "Cruz Noriega",
+      "batter": "Wilfredo Tovar",
+      "pitcherPid": "mlb:679200",
+      "batterPid": "mlb:541600",
+      "ball": 3,
+      "strike": 2,
+      "out": 3,
+      "bases": []
     }
   },
   {
@@ -838157,21 +838158,19 @@
     "timeTbd": false,
     "gameId": "LIDOM_MLBSTATS_851562",
     "status": "live",
-    "homeScore": 1,
+    "homeScore": 4,
     "awayScore": 0,
     "inningInfo": "1회말",
     "liveState": {
       "pitcher": "Angel Felipe",
-      "batter": "J.C. Escarra",
+      "batter": "Ryan Ritter",
       "pitcherPid": "mlb:665734",
-      "batterPid": "mlb:641555",
-      "ball": 2,
-      "strike": 0,
-      "out": 0,
+      "batterPid": "mlb:690022",
+      "ball": 1,
+      "strike": 2,
+      "out": 2,
       "bases": [
-        1,
-        2,
-        3
+        2
       ]
     }
   },
@@ -858021,6 +858020,18 @@
   },
   {
     "date": "2026-12-13",
+    "time": "12:30",
+    "league": "ABL",
+    "venueId": "dicolor_australia_stadium",
+    "home": "애들레이드 자이언츠",
+    "away": "퍼스 히트",
+    "stadium": "Dicolor Australia Stadium",
+    "timeTbd": false,
+    "gameId": "ABL_MLBSTATS_851284",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-12-13",
     "time": "13:00",
     "league": "J1",
     "venueId": "nissan_stadium_yokohama",
@@ -858298,6 +858309,18 @@
   {
     "date": "2026-12-14",
     "time": "02:00",
+    "league": "LVBP",
+    "venueId": "estadio_universitario_caracas",
+    "home": "티부로네스 데 라과이라",
+    "away": "레오네스 델 카라카스",
+    "stadium": "Estadio Universitario",
+    "timeTbd": false,
+    "gameId": "LVBP_MLBSTATS_869919",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-12-14",
+    "time": "02:00",
     "league": "SERIEA",
     "venueId": "tardini",
     "home": "파르마",
@@ -858369,6 +858392,30 @@
   },
   {
     "date": "2026-12-14",
+    "time": "05:21",
+    "league": "PWL",
+    "venueId": "estadio_francisco_paquito_montaner",
+    "home": "레오네스 데 폰세",
+    "away": "칸그레헤로스 데 산투르세",
+    "stadium": "Estadio Francisco Paquito Montaner",
+    "timeTbd": false,
+    "gameId": "PWL_MLBSTATS_872005",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-12-14",
+    "time": "05:21",
+    "league": "PWL",
+    "venueId": "estadio_isidoro_cholo_garcia",
+    "home": "인디오스 데 마야궤스",
+    "away": "히간테스 데 카롤리나",
+    "stadium": "Estadio Isidoro 'Cholo' Garcia",
+    "timeTbd": false,
+    "gameId": "PWL_MLBSTATS_872003",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-12-14",
     "time": "05:30",
     "league": "AMATCHFRIENDLY",
     "venueId": "chase_stadium",
@@ -858377,6 +858424,138 @@
     "stadium": "체이스 스타디움",
     "timeTbd": false,
     "gameId": "DDbK9kYVF2N7w7X",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-12-14",
+    "time": "06:00",
+    "league": "LIDOM",
+    "venueId": "estadio_cibao",
+    "home": "아길라스 시바에냐스",
+    "away": "티그레스 델 리세이",
+    "stadium": "Estadio Cibao",
+    "timeTbd": false,
+    "gameId": "LIDOM_MLBSTATS_851548",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-12-14",
+    "time": "06:00",
+    "league": "LIDOM",
+    "venueId": "estadio_quisqueya_juan_marichal",
+    "home": "레오네스 델 에스코히도",
+    "away": "토로스 델 에스테",
+    "stadium": "Estadio Quisqueya Juan Marichal",
+    "timeTbd": false,
+    "gameId": "LIDOM_MLBSTATS_851466",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-12-14",
+    "time": "06:00",
+    "league": "LIDOM",
+    "venueId": "estadio_tetelo_vargas",
+    "home": "에스트레야스 오리엔탈레스",
+    "away": "히간테스 델 시바오",
+    "stadium": "Estadio Tetelo Vargas",
+    "timeTbd": false,
+    "gameId": "LIDOM_MLBSTATS_851510",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-12-14",
+    "time": "06:00",
+    "league": "LVBP",
+    "venueId": "estadio_jose_bernardo_perez",
+    "home": "나베간테스 델 마가야네스",
+    "away": "티그레스 데 아라과",
+    "stadium": "Estadio Jose Bernardo Perez",
+    "timeTbd": false,
+    "gameId": "LVBP_MLBSTATS_869916",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-12-14",
+    "time": "06:00",
+    "league": "LVBP",
+    "venueId": "estadio_nueva_esparta",
+    "home": "브라보스 데 마르가리타",
+    "away": "카리베스 데 안소아테기",
+    "stadium": "Estadio Nueva Esparta",
+    "timeTbd": false,
+    "gameId": "LVBP_MLBSTATS_869917",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-12-14",
+    "time": "08:00",
+    "league": "LMP",
+    "venueId": "estadio_panamericano_zapopan",
+    "home": "차로스 데 할리스코",
+    "away": "야키스 데 오브레곤",
+    "stadium": "Estadio Panamericano de los Charros",
+    "timeTbd": false,
+    "gameId": "LMP_MLBSTATS_850315",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-12-14",
+    "time": "08:00",
+    "league": "LVBP",
+    "venueId": "estadio_antonio_herrera_gutierrez",
+    "home": "카르데날레스 데 라라",
+    "away": "아길라스 델 술리아",
+    "stadium": "Estadio Antonio Herrera Gutierrez",
+    "timeTbd": false,
+    "gameId": "LVBP_MLBSTATS_869909",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-12-14",
+    "time": "09:00",
+    "league": "LMP",
+    "venueId": "coloso_del_pacifico_tepic",
+    "home": "하과레스 데 나야리트",
+    "away": "토마테로스 데 쿨리아칸",
+    "stadium": "Coloso del Pacifico",
+    "timeTbd": false,
+    "gameId": "LMP_MLBSTATS_850308",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-12-14",
+    "time": "09:00",
+    "league": "LMP",
+    "venueId": "estadio_fernando_valenzuela",
+    "home": "나랑헤로스 데 에르모시요",
+    "away": "알고도네로스 데 과사베",
+    "stadium": "Estadio Fernando Valenzuela",
+    "timeTbd": false,
+    "gameId": "LMP_MLBSTATS_850306",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-12-14",
+    "time": "09:00",
+    "league": "LMP",
+    "venueId": "estadio_nido_de_los_aguilas_mexicali",
+    "home": "아길라스 데 멕시칼리",
+    "away": "카녜로스 데 로스모치스",
+    "stadium": "Estadio Nido de los Aguilas",
+    "timeTbd": false,
+    "gameId": "LMP_MLBSTATS_850310",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-12-14",
+    "time": "09:00",
+    "league": "LMP",
+    "venueId": "estadio_teodoro_mariscal",
+    "home": "베나도스 데 마사틀란",
+    "away": "마요스 데 나보호아",
+    "stadium": "Estadio Teodoro Mariscal",
+    "timeTbd": false,
+    "gameId": "LMP_MLBSTATS_850307",
     "status": "scheduled"
   },
   {
