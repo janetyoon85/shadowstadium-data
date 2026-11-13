@@ -1,0 +1,52 @@
+name: Fetch KFA Broadcast
+
+# 한국 대표팀 경기 중계 채널 수집(2026-11-14) → broadcasts.json (앱이 경기 카드에 "📺 쿠팡플레이 · KBS2 · MBC" 로 보여 준다)
+# 원천: 대한축구협회 홈페이지 Next Match(요청 1건). 보조 데이터라 실패해도 성공으로 끝난다(스크립트가 exit 0, 기존 값 유지). 내용이 바뀐 때만 커밋한다.
+on:
+  schedule:
+    - cron: '17 */3 * * *'
+  push:
+    paths: ['.github/kfa-run-now'] # 수동 즉시 수집(이 파일을 푸시)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fetch-kfa-broadcast
+  cancel-in-progress: false
+
+jobs:
+  kfa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Fetch crawler code (private)
+        uses: ./.github/actions/fetch-code
+        with:
+          token: ${{ secrets.PRIVATE_DATA_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Collect KFA broadcast
+        run: node scripts/fetch-kfa-broadcast.mjs
+
+      - name: Commit and push
+        run: |
+          git add broadcasts.json 2>/dev/null || true
+          if git diff --cached --quiet; then echo "변경 없음"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore(data): 한국 대표팀 중계 채널 갱신 ($(date +'%Y-%m-%d %H:%M'))"
+          for i in $(seq 1 10); do
+            if git push; then exit 0; fi
+            git pull --rebase --autostash -X theirs origin main || { git rebase --abort 2>/dev/null || true; }
+            sleep $((RANDOM % 6 + 1))
+          done
+          echo "push failed"; exit 1
