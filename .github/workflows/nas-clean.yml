@@ -1,0 +1,48 @@
+name: NAS Clean
+
+# NAS 러너 컨테이너 작업 폴더의 누적 .git 일괄 삭제(2026-11-13: 러너 3대가 각 110~130GB 로 SSD 볼륨 85% 점유).
+# 수동 실행: .github/nas-clean-now 파일을 푸시하거나 Actions 에서 workflow_dispatch.
+# 체크아웃을 하지 않는다 — 각 NAS 러너(컨테이너)가 자기 /tmp/runner/work* 안의 저장소 .git 만 지운다. 작업 폴더는 매 실행 다시 받는 일회용 캐시라 지워도 안전하다(다음 체크아웃이 다시 받음).
+# 잡 6개를 띄워 러너 3대가 각각 최소 한 번은 맡게 한다(이미 비운 러너는 몇 초 만에 끝남). 결과(남은 공간 전→후)는 Discord 로 알린다.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/nas-clean-now'
+
+permissions: {}
+
+jobs:
+  clean:
+    runs-on: nas
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        slot: [1, 2, 3, 4, 5, 6]
+    steps:
+      - name: Remove accumulated .git in runner work dirs
+        shell: bash
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: |
+          set -u
+          free_kb() { df -Pk /tmp | awk 'NR==2{print $4}'; }
+          before=$(free_kb)
+          echo "runner=${RUNNER_NAME:-?} slot=${{ matrix.slot }} free_before=$((before/1024/1024))GB"
+          n=0
+          for g in /tmp/runner/work*/*/*/.git; do
+            [ -d "$g" ] || continue
+            echo "removing $g"
+            rm -rf "$g" && n=$((n+1))
+          done
+          after=$(free_kb)
+          echo "removed=$n free_after=$((after/1024/1024))GB"
+          if [ -n "${DISCORD_WEBHOOK_URL:-}" ] && [ "$n" -gt 0 ]; then
+            msg="🧹 ShadeSide — NAS 러너 ${RUNNER_NAME:-?} 작업 폴더 .git ${n}개 삭제 · 볼륨 남은 공간 $((before/1024/1024))GB → $((after/1024/1024))GB"
+            printf '{"allowed_mentions":{"parse":[]},"content":"%s"}' "$msg" > /tmp/nas-clean-msg.json
+            curl -fsS -m 20 -H 'Content-Type: application/json' --data-binary @/tmp/nas-clean-msg.json "$DISCORD_WEBHOOK_URL" || echo "discord post failed"
+            rm -f /tmp/nas-clean-msg.json
+          fi
