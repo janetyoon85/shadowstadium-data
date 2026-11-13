@@ -7,6 +7,8 @@ name: Fetch Lineups
 on:
   schedule:
     - cron: '3,13,23,33,43,53 * * * *'
+  push:
+    paths: ['.github/lineups-run-now'] # 수동 즉시 수집(이 파일을 푸시)
   workflow_dispatch:
     inputs:
       dry:
