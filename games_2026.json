@@ -852368,8 +852368,8 @@
           "n": "케인",
           "m": 64,
           "pid": "espn:142200",
-          "pk": true,
-          "nat": "England"
+          "nat": "England",
+          "pk": true
         }
       ],
       "away": [
@@ -854479,13 +854479,13 @@
     "awayScore": 6,
     "inningInfo": "9회초",
     "liveState": {
-      "pitcher": "Yovanny Cruz",
-      "batter": "Steward Berroa",
-      "pitcherPid": "mlb:672442",
-      "batterPid": "mlb:672642",
-      "ball": 2,
+      "pitcher": "Justin Martinez",
+      "batter": "Kelvin Gutiérrez",
+      "pitcherPid": "mlb:679885",
+      "batterPid": "mlb:642721",
+      "ball": 0,
       "strike": 0,
-      "out": 1,
+      "out": 3,
       "bases": []
     }
   },
@@ -854513,20 +854513,9 @@
     "stadium": "Estadio Nueva Esparta",
     "timeTbd": false,
     "gameId": "LVBP_MLBSTATS_869998",
-    "status": "live",
+    "status": "completed",
     "homeScore": 8,
-    "awayScore": 6,
-    "inningInfo": "9회초",
-    "liveState": {
-      "pitcher": "Carlos Navas",
-      "batter": "Kevin Vicuña",
-      "pitcherPid": "mlb:593163",
-      "batterPid": "mlb:660631",
-      "ball": 0,
-      "strike": 3,
-      "out": 3,
-      "bases": []
-    }
+    "awayScore": 6
   },
   {
     "date": "2026-11-14",
@@ -854577,20 +854566,9 @@
     "stadium": "Estadio Yldefonso Sola Morales",
     "timeTbd": false,
     "gameId": "PWL_MLBSTATS_872071",
-    "status": "live",
+    "status": "completed",
     "homeScore": 13,
-    "awayScore": 3,
-    "inningInfo": "9회초",
-    "liveState": {
-      "pitcher": "Luis Ramos",
-      "batter": "Gabriel Cancel",
-      "pitcherPid": "mlb:489228",
-      "batterPid": "mlb:663708",
-      "ball": 0,
-      "strike": 0,
-      "out": 3,
-      "bases": []
-    }
+    "awayScore": 3
   },
   {
     "date": "2026-11-14",
@@ -854637,13 +854615,14 @@
     "inningInfo": "9회초",
     "liveState": {
       "pitcher": "J.C. Mejía",
-      "batter": "Marco Hernández",
+      "batter": "Ramón Laureano",
       "pitcherPid": "mlb:650496",
-      "batterPid": "mlb:593523",
-      "ball": 1,
-      "strike": 2,
-      "out": 0,
+      "batterPid": "mlb:657656",
+      "ball": 0,
+      "strike": 3,
+      "out": 2,
       "bases": [
+        1,
         2,
         3
       ]
@@ -854660,17 +854639,17 @@
     "timeTbd": false,
     "gameId": "LIDOM_MLBSTATS_851526",
     "status": "live",
-    "homeScore": 5,
+    "homeScore": 6,
     "awayScore": 6,
     "inningInfo": "9회말",
     "liveState": {
-      "pitcher": "Yaramil Hiraldo",
-      "batter": "Josh Lester",
-      "pitcherPid": "mlb:682274",
-      "batterPid": "mlb:623507",
-      "ball": 1,
-      "strike": 2,
-      "out": 1,
+      "pitcher": "Jhan Mariñez",
+      "batter": "Gilberto Celestino",
+      "pitcherPid": "mlb:501697",
+      "batterPid": "mlb:665482",
+      "ball": 0,
+      "strike": 3,
+      "out": 3,
       "bases": []
     }
   },
@@ -854867,7 +854846,7 @@
     "stadium": "Estadio Nacional Soberanía",
     "timeTbd": false,
     "gameId": "U23BASEBALLWORLDCUP_WBSC_202463",
-    "status": "live",
+    "status": "completed",
     "homeScore": 4,
     "awayScore": 2,
     "linescore": {
@@ -854878,7 +854857,7 @@
         0,
         1,
         0,
-        null
+        0
       ],
       "a": [
         0,
@@ -854899,21 +854878,10 @@
       ],
       "lob": [
         9,
-        3
+        6
       ]
     },
-    "inningInfo": "7회초",
-    "liveState": {
-      "pitcher": "BROOK Lachlan",
-      "batter": "GEON Kim",
-      "ball": 1,
-      "strike": 1,
-      "out": 2,
-      "bases": [
-        1,
-        3
-      ]
-    }
+    "inningInfo": "7회초"
   },
   {
     "date": "2026-11-14",
@@ -854975,17 +854943,24 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 2,
-    "matchPeriod": "후반 41'",
+    "matchPeriod": "후반 47'",
     "scorers": {
       "home": [
         {
           "n": "라파둘라",
           "m": 13,
+          "pk": true,
+          "nat": "Peru",
           "pid": "espn:144668"
         },
         {
           "n": "카스트로",
-          "m": 87
+          "m": 87,
+          "a": "Jesús Pretell",
+          "nat": "Peru",
+          "pid": "espn:379712",
+          "aNat": "Peru",
+          "apid": "espn:284864"
         }
       ],
       "away": []
@@ -855031,17 +855006,17 @@
     "status": "live",
     "homeScore": 1,
     "awayScore": 0,
-    "inningInfo": "2회초",
+    "inningInfo": "2회말",
     "liveState": {
-      "pitcher": "Patrick Reilly",
-      "batter": "Teo Banks",
-      "pitcherPid": "mlb:694345",
-      "batterPid": "mlb:695493",
-      "ball": 1,
-      "strike": 2,
-      "out": 2,
+      "pitcher": "R.J. Sales",
+      "batter": "Brandon Eike",
+      "pitcherPid": "mlb:701680",
+      "batterPid": "mlb:694806",
+      "ball": 0,
+      "strike": 1,
+      "out": 0,
       "bases": [
-        2
+        1
       ]
     }
   },
@@ -855056,9 +855031,9 @@
     "timeTbd": false,
     "gameId": "COLOMBIA_ESPN_401877838",
     "status": "live",
-    "matchPeriod": "후반 62'",
+    "matchPeriod": "후반 67'",
     "homeScore": 0,
-    "awayScore": 1,
+    "awayScore": 2,
     "scorers": {
       "home": [],
       "away": [
@@ -855067,6 +855042,12 @@
           "m": 30,
           "nat": "Colombia",
           "pid": "espn:308522"
+        },
+        {
+          "n": "Emanuel Olivera",
+          "m": 63,
+          "nat": "Argentina",
+          "pid": "espn:138391"
         }
       ]
     },
@@ -855099,13 +855080,15 @@
     "inningInfo": "2회말",
     "liveState": {
       "pitcher": "Victor Morales",
-      "batter": "Joey Meneses",
+      "batter": "Jon Singleton",
       "pitcherPid": "mlb:802559",
-      "batterPid": "mlb:608841",
-      "ball": 2,
+      "batterPid": "mlb:572138",
+      "ball": 3,
       "strike": 2,
-      "out": 1,
-      "bases": []
+      "out": 2,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -855124,13 +855107,16 @@
     "inningInfo": "3회초",
     "liveState": {
       "pitcher": "Edgar Torres",
-      "batter": "Amilcar Gomez",
+      "batter": "Brandon Villarreal",
       "pitcherPid": "mlb:664475",
-      "batterPid": "mlb:653248",
-      "ball": 0,
-      "strike": 0,
+      "batterPid": "mlb:661311",
+      "ball": 1,
+      "strike": 1,
       "out": 0,
-      "bases": []
+      "bases": [
+        1,
+        3
+      ]
     }
   },
   {
@@ -855146,15 +855132,15 @@
     "status": "live",
     "homeScore": 1,
     "awayScore": 0,
-    "inningInfo": "1회말",
+    "inningInfo": "2회초",
     "liveState": {
       "pitcher": "Alexander Armenta",
-      "batter": "Ramon Mendoza",
+      "batter": "Jesus Fabela",
       "pitcherPid": "mlb:694401",
-      "batterPid": "mlb:680636",
+      "batterPid": "mlb:652999",
       "ball": 2,
-      "strike": 3,
-      "out": 3,
+      "strike": 2,
+      "out": 1,
       "bases": []
     }
   },
@@ -855171,14 +855157,14 @@
     "status": "live",
     "homeScore": 1,
     "awayScore": 0,
-    "inningInfo": "1회말",
+    "inningInfo": "2회초",
     "liveState": {
-      "pitcher": "Bryan Sammons",
-      "batter": "Reynaldo Rodriguez",
-      "pitcherPid": "mlb:676614",
-      "batterPid": "mlb:471906",
+      "pitcher": "Luis Angel Rodriguez",
+      "batter": "Victor Mendoza",
+      "pitcherPid": "mlb:678296",
+      "batterPid": "mlb:628013",
       "ball": 1,
-      "strike": 1,
+      "strike": 2,
       "out": 3,
       "bases": []
     }
@@ -855196,15 +855182,15 @@
     "status": "live",
     "homeScore": 2,
     "awayScore": 0,
-    "inningInfo": "2회초",
+    "inningInfo": "2회말",
     "liveState": {
-      "pitcher": "Kevin Abel",
-      "batter": "Chuckie Robinson",
-      "pitcherPid": "mlb:674265",
-      "batterPid": "mlb:642020",
-      "ball": 2,
-      "strike": 2,
-      "out": 1,
+      "pitcher": "Jake Garland",
+      "batter": "Alberto Barriga",
+      "pitcherPid": "mlb:687195",
+      "batterPid": "mlb:800569",
+      "ball": 0,
+      "strike": 0,
+      "out": 0,
       "bases": []
     }
   },
