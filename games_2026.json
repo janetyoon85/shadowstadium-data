@@ -853689,8 +853689,8 @@
           "n": "맥긴",
           "m": 74,
           "pid": "espn:162843",
-          "nat": "Scotland",
-          "pk": true
+          "pk": true,
+          "nat": "Scotland"
         }
       ],
       "away": [
@@ -853832,8 +853832,8 @@
           "n": "데이빗슨",
           "m": 30,
           "pid": "espn:158338",
-          "pk": true,
-          "nat": "Faroe Islands"
+          "nat": "Faroe Islands",
+          "pk": true
         },
         {
           "n": "사무엘센",
@@ -854326,13 +854326,15 @@
     "inningInfo": "6회초",
     "liveState": {
       "pitcher": "Alejandro Chiquillo",
-      "batter": "Eduardo Quintero",
+      "batter": "Dillon Lewis",
       "pitcherPid": "mlb:823330",
-      "batterPid": "mlb:808234",
+      "batterPid": "mlb:827665",
       "ball": 0,
-      "strike": 0,
-      "out": 0,
-      "bases": []
+      "strike": 2,
+      "out": 2,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -854395,7 +854397,7 @@
     "status": "live",
     "awayScore": 2,
     "homeScore": 0,
-    "matchPeriod": "후반 16'",
+    "matchPeriod": "후반 21'",
     "scorers": {
       "home": [],
       "away": [
@@ -854427,7 +854429,22 @@
           "nat": "Argentina"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Federico Valverde",
+          "type": "Y",
+          "m": 60,
+          "pid": "espn:235818",
+          "nat": "Uruguay"
+        },
+        {
+          "n": "Guillermo Varela",
+          "type": "Y",
+          "m": 65,
+          "pid": "espn:188368",
+          "nat": "Uruguay"
+        }
+      ]
     }
   },
   {
@@ -854445,13 +854462,13 @@
     "awayScore": 1,
     "inningInfo": "3회말",
     "liveState": {
-      "pitcher": "Randy Vásquez",
-      "batter": "Nomar Mazara",
-      "pitcherPid": "mlb:681190",
-      "batterPid": "mlb:608577",
-      "ball": 2,
-      "strike": 2,
-      "out": 0,
+      "pitcher": "Yerry Rodríguez",
+      "batter": "Jorge Bonifacio",
+      "pitcherPid": "mlb:666720",
+      "batterPid": "mlb:593528",
+      "ball": 1,
+      "strike": 0,
+      "out": 3,
       "bases": []
     }
   },
@@ -854466,16 +854483,16 @@
     "timeTbd": false,
     "gameId": "LVBP_MLBSTATS_870002",
     "status": "live",
-    "homeScore": 0,
+    "homeScore": 2,
     "awayScore": 9,
     "inningInfo": "4회말",
     "liveState": {
       "pitcher": "Ronnie Williams",
-      "batter": "Gabriel Gonzalez",
+      "batter": "Leonel Valera",
       "pitcherPid": "mlb:657122",
-      "batterPid": "mlb:694224",
-      "ball": 0,
-      "strike": 0,
+      "batterPid": "mlb:665987",
+      "ball": 4,
+      "strike": 1,
       "out": 0,
       "bases": [
         1
@@ -854495,16 +854512,18 @@
     "status": "live",
     "homeScore": 4,
     "awayScore": 3,
-    "inningInfo": "4회말",
+    "inningInfo": "5회초",
     "liveState": {
       "pitcher": "Jorge Garcia",
-      "batter": "Aron Estrada",
+      "batter": "Osleivis Basabe",
       "pitcherPid": "mlb:683517",
-      "batterPid": "mlb:800406",
-      "ball": 0,
-      "strike": 0,
-      "out": 3,
-      "bases": []
+      "batterPid": "mlb:678545",
+      "ball": 2,
+      "strike": 1,
+      "out": 1,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -854518,20 +854537,18 @@
     "timeTbd": false,
     "gameId": "LVBP_MLBSTATS_869999",
     "status": "live",
-    "homeScore": 6,
+    "homeScore": 7,
     "awayScore": 1,
     "inningInfo": "3회말",
     "liveState": {
-      "pitcher": "Robert Colina",
-      "batter": "Yonathan Daza",
-      "pitcherPid": "mlb:678783",
-      "batterPid": "mlb:602074",
+      "pitcher": "Nic Swanson",
+      "batter": "Carlos Pérez",
+      "pitcherPid": "mlb:702462",
+      "batterPid": "mlb:542208",
       "ball": 2,
-      "strike": 0,
-      "out": 2,
-      "bases": [
-        2
-      ]
+      "strike": 2,
+      "out": 3,
+      "bases": []
     }
   },
   {
@@ -854624,13 +854641,13 @@
     "awayScore": 0,
     "inningInfo": "3회초",
     "liveState": {
-      "pitcher": "Vladimir Gutierrez",
-      "batter": "Jonathan Guzmán",
-      "pitcherPid": "mlb:661269",
-      "batterPid": "mlb:666695",
-      "ball": 0,
+      "pitcher": "Juan Mercedes",
+      "batter": "Cristhian Adames",
+      "pitcherPid": "mlb:675195",
+      "batterPid": "mlb:542436",
+      "ball": 2,
       "strike": 2,
-      "out": 1,
+      "out": 3,
       "bases": []
     }
   },
@@ -854650,13 +854667,16 @@
     "inningInfo": "3회말",
     "liveState": {
       "pitcher": "Carlos Rodriguez",
-      "batter": "Harold Ramírez",
+      "batter": "Leo Bernal",
       "pitcherPid": "mlb:692230",
-      "batterPid": "mlb:623912",
-      "ball": 1,
-      "strike": 2,
-      "out": 0,
-      "bases": []
+      "batterPid": "mlb:699024",
+      "ball": 0,
+      "strike": 1,
+      "out": 1,
+      "bases": [
+        1,
+        2
+      ]
     }
   },
   {
@@ -854671,8 +854691,22 @@
     "gameId": "clvtBPb0Jx88LWH",
     "status": "live",
     "awayScore": 0,
-    "homeScore": 0,
-    "matchPeriod": "전반 18'"
+    "homeScore": 1,
+    "matchPeriod": "전반 23'",
+    "scorers": {
+      "home": [
+        {
+          "n": "조르디 카이세도",
+          "m": 22,
+          "a": "Piero Hincapié",
+          "nat": "Ecuador",
+          "pid": "espn:217079",
+          "aNat": "Ecuador",
+          "apid": "espn:292062"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-11-14",
@@ -854687,7 +854721,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 20'",
+    "matchPeriod": "전반 24'",
     "cards": {
       "home": [
         {
@@ -854713,7 +854747,7 @@
     "gameId": "U23BASEBALLWORLDCUP_WBSC_202460",
     "status": "live",
     "homeScore": 0,
-    "awayScore": 0,
+    "awayScore": 1,
     "linescore": {
       "h": [
         0,
@@ -854721,14 +854755,14 @@
       ],
       "a": [
         0,
-        0
+        1
       ],
       "hit": [
         0,
         1
       ],
       "err": [
-        0,
+        1,
         0
       ],
       "lob": [
@@ -854739,10 +854773,10 @@
     "inningInfo": "2회초",
     "liveState": {
       "pitcher": "ALLEN Quinn",
-      "batter": "SOLIS Eliazer",
-      "ball": 1,
+      "batter": "RUIZ Bryan",
+      "ball": 2,
       "strike": 1,
-      "out": 0,
+      "out": 2,
       "bases": [
         2
       ]
