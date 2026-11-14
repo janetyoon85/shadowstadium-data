@@ -61,6 +61,12 @@ jobs:
         run: |
           node scripts/fetch-daum-scores.mjs || echo "다음스포츠 보조 실패(무시)"
 
+      # APBC 보조(NPB 공식 페이지) — 네이버가 시작 시각이 지나도 "경기전"에 머물 때(2026-11-14 일본–호주) 상태·점수를 앞으로만 보강. 활성 APBC 경기가 없으면 요청 0건. 실패해도 이 실행을 실패시키지 않는다.
+      - name: Apply NPB APBC fallback
+        env:
+          NPB_DRY: ${{ github.event.inputs.dry == 'true' && '1' || '' }}
+        run: node scripts/fetch-npb-apbc.mjs || echo "NPB APBC 보조 실패(무시)"
+
       # 순위표 보조(K리그1·2, 다음스포츠) — 순위표가 완료 경기 수보다 뒤처졌을 때만 요청(평소 0건). 실패해도 이 실행을 실패시키지 않는다.
       - name: Apply standings fallback
         env:
