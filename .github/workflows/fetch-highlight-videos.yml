@@ -56,6 +56,10 @@ jobs:
           HL_PAGES: ${{ github.event.inputs.pages || '3' }}
         run: node scripts/fetch-highlight-videos.mjs
 
+      # 선수 클립(2026-11-15) — 공식 채널 RSS(쿼터 0)에서 경기 속 선수 장면 영상을 찾아 player-clips.json 에 누적. 앱 홈 카드 "⭐ 선수 영상" 칩의 데이터. 실패해도 다음 단계를 막지 않는다.
+      - name: Collect player clips
+        run: node scripts/fetch-player-clips.mjs || echo "player clips 수집 실패(무시)"
+
       # 저장된 영상의 지역별 재생 가능 여부 확인(새 영상 우선, 7일 지난 것 갱신) — videos.list 는 50개당 1유닛, 실행당 최대 6호출.
       - name: Check video availability
         env:
@@ -67,7 +71,7 @@ jobs:
       - name: Check for changes
         id: changes
         run: |
-          if [[ -n "$(git status --porcelain highlights-video.json highlights-deep.json highlights-search.json video-availability.json highlight-channel-ids.json cheer-songs.json)" ]]; then
+          if [[ -n "$(git status --porcelain highlights-video.json highlights-deep.json highlights-search.json video-availability.json highlight-channel-ids.json cheer-songs.json player-clips.json)" ]]; then
             echo "changed=true" >> $GITHUB_OUTPUT
           else
             echo "changed=false" >> $GITHUB_OUTPUT
@@ -78,7 +82,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add highlights-video.json highlights-deep.json highlights-search.json video-availability.json highlight-channel-ids.json cheer-songs.json
+          git add highlights-video.json highlights-deep.json highlights-search.json video-availability.json highlight-channel-ids.json cheer-songs.json player-clips.json
           git commit -m "chore(data): 경기 하이라이트 영상 ($(date +'%Y-%m-%d %H:%M'))"
           for i in $(seq 1 20); do
             if git push; then
