@@ -39,7 +39,7 @@ jobs:
 
       - name: Commit and push
         run: |
-          git add broadcasts.json 2>/dev/null || true
+          git add broadcasts.json broadcast-rights.json 2>/dev/null || true
           if git diff --cached --quiet; then echo "변경 없음"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
