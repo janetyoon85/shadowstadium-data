@@ -854608,16 +854608,16 @@
           "m": 22,
           "a": "Piero Hincapié",
           "nat": "Ecuador",
-          "pid": "espn:217079",
           "aNat": "Ecuador",
+          "pid": "espn:217079",
           "apid": "espn:292062"
         },
         {
           "n": "모이세스 카이세도",
           "m": 83,
-          "pk": true,
           "nat": "Ecuador",
-          "pid": "espn:289877"
+          "pid": "espn:289877",
+          "pk": true
         }
       ],
       "away": []
@@ -854991,7 +854991,7 @@
       "away": []
     },
     "assistsChecked": true,
-    "assistsAt": 1794677374328
+    "assistsAt": 1794684647380
   },
   {
     "date": "2026-11-14",
@@ -855201,38 +855201,6 @@
           "pitcher": "이로운",
           "pitcherCode": "10212"
         }
-      ]
-    },
-    "linescore": {
-      "h": [
-        0,
-        0,
-        3,
-        0,
-        1,
-        1,
-        1,
-        0,
-        null
-      ],
-      "a": [
-        0,
-        0,
-        0,
-        0,
-        3,
-        0,
-        1,
-        0,
-        0
-      ],
-      "hit": [
-        9,
-        4
-      ],
-      "err": [
-        1,
-        0
       ]
     }
   },
@@ -855701,16 +855669,16 @@
           "m": 68,
           "a": "Erling Haaland",
           "nat": "Norway",
-          "aNat": "Norway",
           "pid": "espn:313415",
+          "aNat": "Norway",
           "apid": "espn:253989"
         },
         {
           "n": "홀란",
           "m": 88,
           "pid": "espn:253989",
-          "nat": "Norway",
-          "pk": true
+          "pk": true,
+          "nat": "Norway"
         }
       ],
       "away": [
@@ -855719,8 +855687,8 @@
           "m": 79,
           "a": "Harry Wilson",
           "nat": "Wales",
-          "aNat": "Wales",
           "pid": "espn:72487",
+          "aNat": "Wales",
           "apid": "espn:194801"
         }
       ]
@@ -855772,7 +855740,7 @@
         0,
         0,
         0,
-        null
+        0
       ],
       "a": [
         0,
@@ -855791,20 +855759,17 @@
       ],
       "lob": [
         3,
-        3
+        5
       ]
     },
-    "inningInfo": "5회초",
+    "inningInfo": "5회말",
     "liveState": {
-      "pitcher": "PéREZ CORIANO Jahir Kaleb",
-      "batter": "PARK HANGYEOL",
+      "pitcher": "SHIN Sangyeon",
+      "batter": "RAMOS OQUENDO MIsael",
       "ball": 0,
       "strike": 0,
-      "out": 1,
-      "bases": [
-        1,
-        3
-      ]
+      "out": 0,
+      "bases": []
     }
   },
   {
@@ -855817,7 +855782,10 @@
     "stadium": "Estadio Domingo Burgueño Miguel",
     "timeTbd": false,
     "gameId": "URUGUAY_ESPN_401933257",
-    "status": "scheduled"
+    "status": "live",
+    "matchPeriod": "전반 1'",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-11-15",
