@@ -50,6 +50,7 @@ jobs:
         run: node scripts/alert-loop.mjs
 
       - name: Commit sent state
+        if: ${{ !cancelled() }}  # 2026-11-14: 발송 단계가 실패해도 보낸 기록은 반드시 저장 — 건너뛰면 다음 실행이 같은 알림(경기 시작 등)을 다시 보낸다
         timeout-minutes: 4  # 2026-10-26: git 이 응답 없이 멈추면(서버 쪽 지연) 이 단계가 10분까지 흐름을 막았다 — 짧게 끊고 다음 실행이 이어가게 한다
         run: |
           FILES="sent-player-alerts.json sent-bk-alerts.json sent-team-final.json sent-team-highlights.json sent-team-live.json"
