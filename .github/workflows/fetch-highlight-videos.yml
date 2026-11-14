@@ -60,6 +60,12 @@ jobs:
       - name: Collect player clips
         run: node scripts/fetch-player-clips.mjs || echo "player clips 수집 실패(무시)"
 
+      # 선수 영상 검색(2026-11-15) — RSS 에 없는 경기의 선수 영상(득점자·홈런 타자 등)을 YouTube 검색으로. 하루 250회 상한, 성공률 낮은 리그는 가끔만. 하이라이트 다음 순위(응원가보다 앞).
+      - name: Search player clips
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: node scripts/fetch-player-clip-search.mjs || echo "player clip search 실패(무시)"
+
       # 저장된 영상의 지역별 재생 가능 여부 확인(새 영상 우선, 7일 지난 것 갱신) — videos.list 는 50개당 1유닛, 실행당 최대 6호출.
       - name: Check video availability
         env:
@@ -71,7 +77,7 @@ jobs:
       - name: Check for changes
         id: changes
         run: |
-          if [[ -n "$(git status --porcelain highlights-video.json highlights-deep.json highlights-search.json video-availability.json highlight-channel-ids.json cheer-songs.json player-clips.json)" ]]; then
+          if [[ -n "$(git status --porcelain highlights-video.json highlights-deep.json highlights-search.json video-availability.json highlight-channel-ids.json cheer-songs.json player-clips.json player-clips-search.json)" ]]; then
             echo "changed=true" >> $GITHUB_OUTPUT
           else
             echo "changed=false" >> $GITHUB_OUTPUT
@@ -82,7 +88,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add highlights-video.json highlights-deep.json highlights-search.json video-availability.json highlight-channel-ids.json cheer-songs.json player-clips.json
+          git add highlights-video.json highlights-deep.json highlights-search.json video-availability.json highlight-channel-ids.json cheer-songs.json player-clips.json player-clips-search.json
           git commit -m "chore(data): 경기 하이라이트 영상 ($(date +'%Y-%m-%d %H:%M'))"
           for i in $(seq 1 20); do
             if git push; then
