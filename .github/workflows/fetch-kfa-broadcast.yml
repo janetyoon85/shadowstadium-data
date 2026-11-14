@@ -34,8 +34,12 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Collect KFA broadcast
+      - name: Collect KFA·K리그 broadcast
         run: node scripts/fetch-kfa-broadcast.mjs
+
+      - name: Collect league rights by region (EPL official page, failures ignored)
+        continue-on-error: true
+        run: node scripts/fetch-broadcast-rights.mjs
 
       - name: Commit and push
         run: |
