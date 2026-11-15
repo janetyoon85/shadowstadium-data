@@ -1,0 +1,46 @@
+name: Report New Videos
+
+# 3시간마다 새로 수집된 경기 하이라이트·선수 영상을 종목·리그(한글)·언어별 URL 로 정리해 디스코드로 보낸다(2026-11-16). 첨부 CSV 2개(엑셀용). 새 영상이 없으면 보내지 않는다.
+# 상태(이미 보고한 영상 ID): video-report-state.json. 발송 실패 시 상태를 갱신하지 않아 다음 실행이 다시 보낸다.
+on:
+  schedule:
+    - cron: '10 */3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: report-new-videos
+  cancel-in-progress: false
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Fetch crawler code (private)
+        uses: ./.github/actions/fetch-code
+        with:
+          token: ${{ secrets.PRIVATE_DATA_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Report
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: node scripts/report-new-videos.mjs
+
+      - name: Commit state
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add video-report-state.json 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "chore(report): 새 영상 보고 상태"
+          for i in 1 2 3 4 5; do git push && break || { git pull --rebase --autostash -X theirs origin main; sleep 2; }; done
