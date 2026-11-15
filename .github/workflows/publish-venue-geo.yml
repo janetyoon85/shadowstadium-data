@@ -1,9 +1,12 @@
 name: Publish Venue Geo
 
-# 구장 좌표·방향각을 비공개 저장소에서 읽어 Firebase RTDB venues/<id> 로 게시한다(수동 실행). 구장 보호 계획 P-0.
+# 구장 좌표·방향각을 비공개 저장소에서 읽어 Firebase RTDB venues/<id> 로 게시한다. 구장 보호 계획 P-0.
+# 2026-11-15: 6시간마다 자동 게시(schedule) — auto-geo(secrets 저장소)가 채운 값이 서버에 반영되게 한다. 수동 실행은 dry 기본 true(검증만), 'false' 로 줘야 실제 게시.
 # 서비스 계정이 필요하므로 GitHub 서버에서 돌린다(NAS 러너로 비밀이 가지 않게).
 
 on:
+  schedule:
+    - cron: '50 */6 * * *'
   workflow_dispatch:
     inputs:
       dry:
@@ -36,4 +39,4 @@ jobs:
           PRIVATE_DATA_TOKEN: ${{ secrets.PRIVATE_DATA_TOKEN }}
           FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
           FIREBASE_DATABASE_URL: ${{ vars.FIREBASE_DATABASE_URL }}
-        run: node scripts/publish-venue-geo.mjs ${{ inputs.dry == 'false' && ' ' || '--dry' }}
+        run: node scripts/publish-venue-geo.mjs ${{ (github.event_name == 'schedule' || inputs.dry == 'false') && ' ' || '--dry' }}
