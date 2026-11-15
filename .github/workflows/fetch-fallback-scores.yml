@@ -84,7 +84,7 @@ jobs:
       - name: Check for changes
         id: changes
         run: |
-          if [[ -n "$(git status --porcelain games.json standings.json daum-venue-map.json naver-health-alert.json espn-health-alert.json apisports-state.json ops-ledger)" ]]; then echo "changed=true" >> $GITHUB_OUTPUT; else echo "changed=false" >> $GITHUB_OUTPUT; fi
+          if [[ -n "$(git status --porcelain games.json standings.json daum-venue-map.json naver-health-alert.json espn-health-alert.json apisports-state.json apbc-npb-paths.json ops-ledger)" ]]; then echo "changed=true" >> $GITHUB_OUTPUT; else echo "changed=false" >> $GITHUB_OUTPUT; fi
 
       - name: Commit and push
         if: steps.changes.outputs.changed == 'true'
@@ -94,7 +94,7 @@ jobs:
           cp games.json games_2026.json
           git add games.json games_2026.json standings.json daum-venue-map.json
           # 불통 알림 상태(한 번만 알리려고)·API-Sports 하루 사용량 — 파일이 없으면 git add 가 통째로 실패하므로 하나씩(없는 건 건너뜀)
-          for f in naver-health-alert.json espn-health-alert.json apisports-state.json; do if [ -e "$f" ]; then git add "$f"; fi; done
+          for f in naver-health-alert.json espn-health-alert.json apisports-state.json apbc-npb-paths.json; do if [ -e "$f" ]; then git add "$f"; fi; done
           git add -A ops-ledger 2>/dev/null || true   # 복구 기록(일일 보고용)
           git commit -m "chore(data): 보조 원본 점수·상태 보강(ESPN·MLB·다음) ($(date +'%Y-%m-%d %H:%M'))"
           for i in $(seq 1 20); do
