@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15T01:12:22.828Z",
+ "updated": "2026-11-15T02:12:32.716Z",
  "leagues": {
   "EPL": {
    "src": "https://www.premierleague.com/en/media/broadcasters",
@@ -2337,7 +2337,7 @@
    "at": "2026-11-15T00:27:46.537Z"
   },
   "ACL": {
-   "src": "AFC 공식 Where to watch 페이지: Korea Republic = Coupang, 쿠팡플레이 ACLE·ACL2 독점 중계 보도 / 그 밖의 지역: DAZN 일본 독점(2021~2028, Goal Japan)",
+   "src": "AFC 공식 Where to watch 페이지: Korea Republic = Coupang, 쿠팡플레이 ACLE·ACL2 독점 중계 보도 / 그 밖의 지역: DAZN 일본 독점(2021~2028, Goal Japan), AFC 공식 발표: 미국 CBS Sports(Paramount+ 전 경기)·인도네시아 MNC(2025~2028 갱신)",
    "season": "2026-27",
    "manual": true,
    "confidence": "확정",
@@ -2347,9 +2347,16 @@
     ],
     "JP": [
      "DAZN"
+    ],
+    "US": [
+     "CBS Sports",
+     "Paramount+"
+    ],
+    "ID": [
+     "MNC"
     ]
    },
-   "at": "2026-11-15T00:27:46.537Z"
+   "at": "2026-11-15T02:12:32.716Z"
   },
   "ACL2": {
    "src": "쿠팡플레이 ACLE·ACL2 독점 생중계(인사이트·톱스타뉴스·비즈월드 보도)",
@@ -4839,6 +4846,52 @@
     ]
    },
    "at": "2026-11-15T01:12:22.828Z"
+  },
+  "ASIANCUP": {
+   "src": "AFC 공식 발표: 한국 쿠팡플레이(2025~2028 주기)·미국 CBS Sports(Paramount+)·인도네시아 MNC(2025~2028)·중국 Migu·홍콩 HOY(Sportcal)",
+   "season": "2027",
+   "manual": true,
+   "confidence": "확정",
+   "regions": {
+    "KR": [
+     "쿠팡플레이"
+    ],
+    "US": [
+     "CBS Sports",
+     "Paramount+"
+    ],
+    "ID": [
+     "MNC"
+    ],
+    "CN": [
+     "Migu"
+    ],
+    "HK": [
+     "HOY"
+    ]
+   },
+   "at": "2026-11-15T02:12:32.716Z"
+  },
+  "WCQAFC": {
+   "src": "AFC 공식 \"Asian Qualifiers 2026 Where to Watch\" 페이지(한국: 쿠팡플레이·KBS·MBC 로고) + AFC 미국 CBS Sports·인도네시아 MNC 발표",
+   "season": "2026",
+   "manual": true,
+   "confidence": "공식",
+   "regions": {
+    "KR": [
+     "쿠팡플레이",
+     "KBS",
+     "MBC"
+    ],
+    "US": [
+     "CBS Sports",
+     "Paramount+"
+    ],
+    "ID": [
+     "MNC"
+    ]
+   },
+   "at": "2026-11-15T02:12:32.716Z"
   }
  }
 }
