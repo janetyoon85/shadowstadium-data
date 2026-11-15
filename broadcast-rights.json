@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15T00:20:06.956Z",
+ "updated": "2026-11-15T00:27:46.537Z",
  "leagues": {
   "EPL": {
    "src": "https://www.premierleague.com/en/media/broadcasters",
@@ -2300,28 +2300,56 @@
    "at": "2026-11-15T00:20:06.956Z"
   },
   "LALIGA": {
-   "src": "쿠팡 뉴스룸 2026-11-06 주간 중계 일정에 아틀레티코 vs 바르셀로나 포함 + 쿠팡플레이 2023-24부터 5년 라리가 독점 중계 보도",
+   "src": "쿠팡 뉴스룸 2026-11-06 주간 중계 일정에 아틀레티코 vs 바르셀로나 포함 + 쿠팡플레이 2023-24부터 5년 라리가 독점 중계 보도 / 그 밖의 지역: DAZN·U-NEXT 일본(2023~2028 비독점, Sportcal), beIN SPORTS 동남아 5개국 독점(beIN 공지), FanCode 인도(2025/26), CazeTV 브라질(2026-27부터 디즈니 대체, Sportcal 2026-05)",
    "season": "2026-27",
    "manual": true,
    "confidence": "확정",
    "regions": {
     "KR": [
      "쿠팡플레이"
+    ],
+    "JP": [
+     "DAZN",
+     "U-NEXT"
+    ],
+    "TH": [
+     "beIN SPORTS"
+    ],
+    "ID": [
+     "beIN SPORTS"
+    ],
+    "MY": [
+     "beIN SPORTS"
+    ],
+    "SG": [
+     "beIN SPORTS"
+    ],
+    "PH": [
+     "beIN SPORTS"
+    ],
+    "IN": [
+     "FanCode"
+    ],
+    "BR": [
+     "CazeTV"
     ]
    },
-   "at": "2026-11-14T03:06:58.984Z"
+   "at": "2026-11-15T00:27:46.537Z"
   },
   "ACL": {
-   "src": "AFC 공식 Where to watch 페이지: Korea Republic = Coupang, 쿠팡플레이 ACLE·ACL2 독점 중계 보도",
+   "src": "AFC 공식 Where to watch 페이지: Korea Republic = Coupang, 쿠팡플레이 ACLE·ACL2 독점 중계 보도 / 그 밖의 지역: DAZN 일본 독점(2021~2028, Goal Japan)",
    "season": "2026-27",
    "manual": true,
    "confidence": "확정",
    "regions": {
     "KR": [
      "쿠팡플레이"
+    ],
+    "JP": [
+     "DAZN"
     ]
    },
-   "at": "2026-11-14T02:08:44.757Z"
+   "at": "2026-11-15T00:27:46.537Z"
   },
   "ACL2": {
    "src": "쿠팡플레이 ACLE·ACL2 독점 생중계(인사이트·톱스타뉴스·비즈월드 보도)",
@@ -3941,6 +3969,60 @@
     ]
    },
    "at": "2026-11-14T23:41:45.942Z"
+  },
+  "J1": {
+   "src": "J리그 공식 보도자료 \"Overseas Broadcasting of the 2026/27 MEIJI YASUDA J.LEAGUE\"(2026-08-03, 8/21 기준) — 해외 파트너 7곳. 일본 국내 DAZN은 J리그-DAZN 2033년 갱신(Sportcal). 그 밖의 해외는 J.LEAGUE International 유튜브(영어 해설)",
+   "season": "2026-27",
+   "manual": true,
+   "confidence": "공식",
+   "regions": {
+    "JP": [
+     "DAZN"
+    ],
+    "CN": [
+     "K-BALL"
+    ],
+    "HK": [
+     "MyTV Super"
+    ],
+    "MO": [
+     "M Plus"
+    ],
+    "AU": [
+     "STAN"
+    ],
+    "VN": [
+     "VTV"
+    ],
+    "TH": [
+     "BG SPORTS"
+    ],
+    "BR": [
+     "Canal GOAT"
+    ]
+   },
+   "at": "2026-11-15T00:27:46.537Z"
+  },
+  "SERIEA": {
+   "src": "DAZN 영국·아일랜드·프랑스 세리에A 2025-26 계약(DAZN·Sportcal), 인프론트-beIN 홍콩 2025/26~2026/27(beIN). 그 밖의 지역은 미확인",
+   "season": "2025-26",
+   "manual": true,
+   "confidence": "확정(보도)",
+   "regions": {
+    "GB": [
+     "DAZN"
+    ],
+    "IE": [
+     "DAZN"
+    ],
+    "FR": [
+     "DAZN"
+    ],
+    "HK": [
+     "beIN SPORTS"
+    ]
+   },
+   "at": "2026-11-15T00:27:46.537Z"
   }
  }
 }
