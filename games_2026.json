@@ -849334,8 +849334,7 @@
           "n": "Yani Quintero",
           "type": "Y",
           "m": 29,
-          "pid": "espn:322985",
-          "nat": "Colombia"
+          "pid": "espn:322985"
         },
         {
           "n": "Josen Escobar",
@@ -849348,8 +849347,7 @@
           "n": "Yeison Guzmán",
           "type": "Y",
           "m": 55,
-          "pid": "espn:252584",
-          "nat": "Colombia"
+          "pid": "espn:252584"
         }
       ],
       "away": [
@@ -852574,7 +852572,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1794708641316
+    "assistsAt": 1794715850244
   },
   {
     "date": "2026-11-13",
@@ -854869,17 +854867,17 @@
         {
           "n": "라파둘라",
           "m": 13,
-          "pk": true,
           "nat": "Peru",
-          "pid": "espn:144668"
+          "pid": "espn:144668",
+          "pk": true
         },
         {
           "n": "카스트로",
           "m": 87,
           "a": "Jesús Pretell",
           "nat": "Peru",
-          "pid": "espn:379712",
           "aNat": "Peru",
+          "pid": "espn:379712",
           "apid": "espn:284864"
         }
       ],
@@ -856199,15 +856197,13 @@
           "n": "Didier Moreno",
           "type": "Y",
           "m": 41,
-          "pid": "espn:155160",
-          "nat": "Colombia"
+          "pid": "espn:155160"
         },
         {
           "n": "Frank Fabra",
           "type": "Y",
           "m": 78,
-          "pid": "espn:149496",
-          "nat": "Colombia"
+          "pid": "espn:149496"
         }
       ]
     },
@@ -856725,13 +856721,11 @@
           "n": "Tomás Ángel",
           "m": 27,
           "pk": true,
-          "nat": "Colombia",
           "pid": "espn:312610"
         },
         {
           "n": "Edson Tortolero",
           "m": 60,
-          "nat": "Venezuela",
           "pid": "espn:301499",
           "a": "Josen Escobar",
           "apid": "espn:369122",
@@ -857402,13 +857396,16 @@
     "inningInfo": "8회말",
     "liveState": {
       "pitcher": "Roel Ramírez",
-      "batter": "Jon Singleton",
+      "batter": "Ichiro Cano",
       "pitcherPid": "mlb:641995",
-      "batterPid": "mlb:572138",
-      "ball": 0,
-      "strike": 2,
-      "out": 0,
-      "bases": []
+      "batterPid": "mlb:802560",
+      "ball": 1,
+      "strike": 0,
+      "out": 1,
+      "bases": [
+        1,
+        2
+      ]
     }
   },
   {
@@ -857495,8 +857492,8 @@
     "stadium": "Estadio Cuscatlán",
     "timeTbd": false,
     "gameId": "ELSALVADOR_ESPN_401899279",
-    "status": "live",
-    "matchPeriod": "후반 90'+11'",
+    "status": "completed",
+    "matchPeriod": "후반 90'+15'",
     "homeScore": 1,
     "awayScore": 1,
     "scorers": {
@@ -857515,7 +857512,9 @@
           "pid": "espn:324456"
         }
       ]
-    }
+    },
+    "assistsChecked": true,
+    "assistsAt": 1794715850014
   },
   {
     "date": "2026-11-15",
@@ -858279,6 +858278,18 @@
     "stadium": "스타디온 FK 크라스노다르",
     "timeTbd": false,
     "gameId": "3elcdNBd2D5Hch1",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-18",
+    "time": "01:00",
+    "league": "AMATCHFRIENDLY",
+    "venueId": "suheim_bin_hamad_stadium",
+    "home": "요르단",
+    "away": "호주",
+    "stadium": "수헤임 빈 하마드 스타디움",
+    "timeTbd": false,
+    "gameId": "VRt6ft3BDSjxY7h",
     "status": "scheduled"
   },
   {
