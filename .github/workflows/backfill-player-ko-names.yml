@@ -38,10 +38,14 @@ jobs:
       - name: Run player ko-names backfill
         run: node scripts/backfill-player-ko-names.mjs
 
+      # 축구 선수 영어 풀네임(2026-11-15) — 영상 제목 이름 매칭용. ESPN 선수 API 요청 1건/명, 회당 250명, 실패해도 다음 단계를 막지 않는다.
+      - name: Run player latin-names backfill
+        run: node scripts/backfill-player-latin-names.mjs || echo "latin 백필 실패(무시)"
+
       - name: Check for changes
         id: changes
         run: |
-          if [[ -n "$(git status --porcelain player-name-ko.json player-ko-tried.json player-name-i18n.json)" ]]; then
+          if [[ -n "$(git status --porcelain player-name-ko.json player-ko-tried.json player-name-i18n.json player-name-latin.json player-latin-tried.json)" ]]; then
             echo "changed=true" >> $GITHUB_OUTPUT
           else
             echo "changed=false" >> $GITHUB_OUTPUT
@@ -53,6 +57,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add player-name-ko.json player-ko-tried.json player-name-i18n.json
+          git add player-name-latin.json player-latin-tried.json 2>/dev/null || true # 새 파일은 첫 실행 전엔 없을 수 있다 — 따로 add 해야 기존 파일 add 가 깨지지 않는다
           git commit -m "chore(data): 선수 한글명 백필 ($(date +'%Y-%m-%d %H:%M'))"
           for i in $(seq 1 20); do
             if git push; then
