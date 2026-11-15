@@ -854190,8 +854190,8 @@
           "n": "그뷔드욘센",
           "m": 17,
           "pid": "espn:326075",
-          "pk": true,
-          "nat": "Iceland"
+          "nat": "Iceland",
+          "pk": true
         },
         {
           "n": "오스카르손",
@@ -854377,8 +854377,8 @@
           "m": 73,
           "a": "Gianluca Prestianni",
           "nat": "Argentina",
-          "pid": "espn:277206",
           "aNat": "Argentina",
+          "pid": "espn:277206",
           "apid": "espn:339191"
         }
       ],
@@ -854395,8 +854395,8 @@
           "m": 53,
           "a": "Giorgian de Arrascaeta",
           "nat": "Uruguay",
-          "pid": "espn:287025",
           "aNat": "Uruguay",
+          "pid": "espn:287025",
           "apid": "espn:179767"
         }
       ]
@@ -855212,8 +855212,8 @@
           "m": 15,
           "a": "Ritsu Doan",
           "nat": "Japan",
-          "aNat": "Japan",
           "pid": "espn:256587",
+          "aNat": "Japan",
           "apid": "espn:219627"
         },
         {
@@ -855221,8 +855221,8 @@
           "m": 19,
           "a": "Shuto Nakano",
           "nat": "Japan",
-          "aNat": "Japan",
           "pid": "espn:265953",
+          "aNat": "Japan",
           "apid": "espn:336049"
         },
         {
@@ -855238,8 +855238,8 @@
           "m": 33,
           "a": "Bruno Guimarães",
           "nat": "Brazil",
-          "aNat": "Brazil",
           "pid": "espn:252107",
+          "aNat": "Brazil",
           "apid": "espn:218522"
         },
         {
@@ -855247,8 +855247,8 @@
           "m": 75,
           "a": "Bruno Guimarães",
           "nat": "Brazil",
-          "aNat": "Brazil",
           "pid": "espn:252107",
+          "aNat": "Brazil",
           "apid": "espn:218522"
         }
       ]
@@ -857136,13 +857136,13 @@
     "awayScore": 4,
     "inningInfo": "8회말",
     "liveState": {
-      "pitcher": "Erick Mejia",
-      "batter": "Ronny Simon",
-      "pitcherPid": "mlb:625510",
-      "batterPid": "mlb:682927",
-      "ball": 0,
-      "strike": 1,
-      "out": 1,
+      "pitcher": "Nick Hernandez",
+      "batter": "Alfredo Reyes",
+      "pitcherPid": "mlb:663321",
+      "batterPid": "mlb:602112",
+      "ball": 2,
+      "strike": 3,
+      "out": 3,
       "bases": []
     }
   },
@@ -857196,14 +857196,14 @@
     "inningInfo": "9회말",
     "liveState": {
       "pitcher": "Caleb Freeman",
-      "batter": "Sandy León",
+      "batter": "Jose Cordoba",
       "pitcherPid": "mlb:673965",
-      "batterPid": "mlb:506702",
+      "batterPid": "mlb:692390",
       "ball": 1,
-      "strike": 1,
-      "out": 0,
+      "strike": 2,
+      "out": 2,
       "bases": [
-        1
+        2
       ]
     }
   },
@@ -857220,17 +857220,17 @@
     "status": "live",
     "homeScore": 2,
     "awayScore": 8,
-    "inningInfo": "8회말",
+    "inningInfo": "9회초",
     "liveState": {
-      "pitcher": "Michael Gomez",
-      "batter": "Alfredo Duno",
-      "pitcherPid": "mlb:676546",
-      "batterPid": "mlb:806957",
-      "ball": 3,
-      "strike": 2,
-      "out": 2,
+      "pitcher": "Juan Sanchez",
+      "batter": "Aron Estrada",
+      "pitcherPid": "mlb:678738",
+      "batterPid": "mlb:800406",
+      "ball": 0,
+      "strike": 0,
+      "out": 0,
       "bases": [
-        3
+        1
       ]
     }
   },
@@ -857315,7 +857315,7 @@
       ],
       "hit": [
         5,
-        15
+        17
       ],
       "err": [
         1,
@@ -857329,11 +857329,15 @@
     "inningInfo": "7회초",
     "liveState": {
       "pitcher": "RIVAS SILVA Albert Jose",
-      "batter": "SUNG Po-Han",
+      "batter": "YEH Hung-Jen",
       "ball": 0,
       "strike": 0,
       "out": 2,
-      "bases": []
+      "bases": [
+        1,
+        2,
+        3
+      ]
     }
   },
   {
@@ -857346,8 +857350,8 @@
     "stadium": "Estadio Roberto Clemente",
     "timeTbd": false,
     "gameId": "U23BASEBALLWORLDCUP_WBSC_202468",
-    "status": "live",
-    "homeScore": 2,
+    "status": "completed",
+    "homeScore": 3,
     "awayScore": 5,
     "linescore": {
       "h": [
@@ -857357,7 +857361,7 @@
         0,
         0,
         0,
-        0
+        1
       ],
       "a": [
         0,
@@ -857377,22 +857381,11 @@
         0
       ],
       "lob": [
-        6,
+        8,
         7
       ]
     },
-    "inningInfo": "7회말",
-    "liveState": {
-      "pitcher": "KAWAHARA Shiki",
-      "batter": "LEMM John Zachary",
-      "ball": 0,
-      "strike": 0,
-      "out": 1,
-      "bases": [
-        1,
-        2
-      ]
-    }
+    "inningInfo": "7회말"
   },
   {
     "date": "2026-11-15",
@@ -857410,13 +857403,15 @@
     "inningInfo": "6회초",
     "liveState": {
       "pitcher": "Kannon Kemp",
-      "batter": "Brooks Bryan",
+      "batter": "Paxton Kling",
       "pitcherPid": "mlb:807748",
-      "batterPid": "mlb:804871",
+      "batterPid": "mlb:702265",
       "ball": 0,
-      "strike": 0,
-      "out": 0,
-      "bases": []
+      "strike": 1,
+      "out": 2,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -857434,13 +857429,13 @@
     "awayScore": 0,
     "inningInfo": "7회초",
     "liveState": {
-      "pitcher": "Fabian Cota",
-      "batter": "Missael Rivera",
-      "pitcherPid": "mlb:601978",
-      "batterPid": "mlb:668992",
-      "ball": 0,
-      "strike": 0,
-      "out": 0,
+      "pitcher": "Jorge Moyoroqui",
+      "batter": "Isaac Rodriguez",
+      "pitcherPid": "mlb:845021",
+      "batterPid": "mlb:665455",
+      "ball": 1,
+      "strike": 2,
+      "out": 3,
       "bases": []
     }
   },
@@ -857460,13 +857455,16 @@
     "inningInfo": "6회말",
     "liveState": {
       "pitcher": "Luis Ivan Rodriguez",
-      "batter": "Luis Durango",
+      "batter": "Ruben Ibarra",
       "pitcherPid": "mlb:645179",
-      "batterPid": "mlb:691411",
-      "ball": 0,
-      "strike": 0,
-      "out": 0,
-      "bases": []
+      "batterPid": "mlb:702140",
+      "ball": 1,
+      "strike": 1,
+      "out": 1,
+      "bases": [
+        1,
+        3
+      ]
     }
   },
   {
@@ -857482,18 +857480,16 @@
     "status": "live",
     "homeScore": 2,
     "awayScore": 6,
-    "inningInfo": "6회말",
+    "inningInfo": "7회초",
     "liveState": {
-      "pitcher": "Humberto Castellanos",
-      "batter": "Dalton Guthrie",
-      "pitcherPid": "mlb:528748",
-      "batterPid": "mlb:656495",
+      "pitcher": "Joel Rangel",
+      "batter": "Taiki Sekine",
+      "pitcherPid": "mlb:827757",
+      "batterPid": "mlb:692460",
       "ball": 0,
       "strike": 0,
-      "out": 2,
-      "bases": [
-        1
-      ]
+      "out": 0,
+      "bases": []
     }
   },
   {
@@ -857509,18 +857505,16 @@
     "status": "live",
     "homeScore": 6,
     "awayScore": 3,
-    "inningInfo": "5회초",
+    "inningInfo": "5회말",
     "liveState": {
-      "pitcher": "Luis Cessa",
-      "batter": "Orlando Pina",
-      "pitcherPid": "mlb:570666",
-      "batterPid": "mlb:669315",
-      "ball": 3,
-      "strike": 2,
-      "out": 2,
-      "bases": [
-        3
-      ]
+      "pitcher": "Esteban Bloch",
+      "batter": "Luis Verdugo",
+      "pitcherPid": "mlb:691823",
+      "batterPid": "mlb:677605",
+      "ball": 1,
+      "strike": 0,
+      "out": 0,
+      "bases": []
     }
   },
   {
@@ -857539,13 +857533,15 @@
     "inningInfo": "6회말",
     "liveState": {
       "pitcher": "Randy Wynne",
-      "batter": "Nestor Rios",
+      "batter": "Sebastián Elizalde",
       "pitcherPid": "mlb:691094",
-      "batterPid": "mlb:701980",
-      "ball": 0,
-      "strike": 0,
-      "out": 0,
-      "bases": []
+      "batterPid": "mlb:590271",
+      "ball": 1,
+      "strike": 1,
+      "out": 2,
+      "bases": [
+        1
+      ]
     }
   },
   {
