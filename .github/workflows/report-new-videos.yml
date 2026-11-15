@@ -6,6 +6,10 @@ on:
   schedule:
     - cron: '10 */3 * * *'
   workflow_dispatch:
+    inputs:
+      selftest:
+        description: '1 = 보고하지 않고 번역(Gemini) 점검만 실행'
+        default: '0'
 
 permissions:
   contents: write
@@ -32,7 +36,14 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Translate self-test
+        if: github.event.inputs.selftest == '1'
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: node scripts/translate-selftest.mjs
+
       - name: Report
+        if: github.event.inputs.selftest != '1'
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
           # 번역: 키가 있으면 Gemini(구글 AI 스튜디오 무료 키), 없거나 실패하면 키 없는 무료 번역. 비밀값 GEMINI_API_KEY 는 저장소 설정에서 등록.
@@ -40,6 +51,7 @@ jobs:
         run: node scripts/report-new-videos.mjs
 
       - name: Commit state
+        if: github.event.inputs.selftest != '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
