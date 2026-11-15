@@ -1,0 +1,37 @@
+name: Resolve YouTube Channels
+
+# 유튜브 채널 핸들 → 채널 ID·이름·국가·최근 영상 제목을 로그로 확인한다(2026-11-16). 수동 실행 전용 — 지역 방송사 채널을 하이라이트 후보에 추가할 때 엉뚱한 채널을 고르지 않도록.
+# 핸들당 1유닛(channels.list forHandle). 저장·커밋 없음.
+on:
+  workflow_dispatch:
+    inputs:
+      handles:
+        description: '쉼표로 구분한 유튜브 핸들(@ 생략 가능)'
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  resolve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Fetch crawler code (private)
+        uses: ./.github/actions/fetch-code
+        with:
+          token: ${{ secrets.PRIVATE_DATA_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Resolve
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          HANDLES: ${{ github.event.inputs.handles }}
+        run: node scripts/resolve-yt-channels.mjs "$HANDLES"
