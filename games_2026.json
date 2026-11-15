@@ -853323,8 +853323,8 @@
           "m": 47,
           "a": "Seol Young-Woo",
           "nat": "South Korea",
-          "aNat": "South Korea",
           "pid": "espn:302434",
+          "aNat": "South Korea",
           "apid": "espn:302793"
         },
         {
@@ -853332,8 +853332,8 @@
           "m": 68,
           "a": "Hwang Hee-Chan",
           "nat": "South Korea",
-          "aNat": "South Korea",
           "pid": "espn:134103",
+          "aNat": "South Korea",
           "apid": "espn:237224"
         }
       ]
@@ -853385,8 +853385,8 @@
           "m": 32,
           "a": "Connor Metcalfe",
           "nat": "Australia",
-          "aNat": "Australia",
           "pid": "espn:312261",
+          "aNat": "Australia",
           "apid": "espn:260643"
         },
         {
@@ -853394,8 +853394,8 @@
           "m": 40,
           "a": "Connor Metcalfe",
           "nat": "Australia",
-          "aNat": "Australia",
           "pid": "espn:328535",
+          "aNat": "Australia",
           "apid": "espn:260643"
         }
       ]
@@ -857043,20 +857043,9 @@
     "stadium": "Hiram Bithorn Stadium",
     "timeTbd": false,
     "gameId": "PWL_MLBSTATS_872061",
-    "status": "live",
+    "status": "completed",
     "homeScore": 2,
-    "awayScore": 5,
-    "inningInfo": "9회말",
-    "liveState": {
-      "pitcher": "Jorge López",
-      "batter": "Yasiel Puig",
-      "pitcherPid": "mlb:605347",
-      "batterPid": "mlb:624577",
-      "ball": 0,
-      "strike": 0,
-      "out": 1,
-      "bases": []
-    }
+    "awayScore": 5
   },
   {
     "date": "2026-11-15",
@@ -857148,13 +857137,15 @@
     "inningInfo": "8회초",
     "liveState": {
       "pitcher": "Johan Simon",
-      "batter": "Luis Liberato",
+      "batter": "Adael Amador",
       "pitcherPid": "mlb:696059",
-      "batterPid": "mlb:642451",
+      "batterPid": "mlb:691182",
       "ball": 0,
-      "strike": 1,
+      "strike": 0,
       "out": 1,
-      "bases": []
+      "bases": [
+        3
+      ]
     }
   },
   {
@@ -857206,13 +857197,13 @@
     "awayScore": 2,
     "inningInfo": "8회초",
     "liveState": {
-      "pitcher": "Alexandro Tovalin",
-      "batter": "Adriander Mejía",
-      "pitcherPid": "mlb:700071",
-      "batterPid": "mlb:808337",
-      "ball": 1,
-      "strike": 0,
-      "out": 1,
+      "pitcher": "Reid Birlingmair",
+      "batter": "Diego Cartaya",
+      "pitcherPid": "mlb:679304",
+      "batterPid": "mlb:682616",
+      "ball": 2,
+      "strike": 1,
+      "out": 2,
       "bases": [
         2
       ]
@@ -857230,19 +857221,18 @@
     "gameId": "LVBP_MLBSTATS_869995",
     "status": "live",
     "homeScore": 2,
-    "awayScore": 4,
+    "awayScore": 5,
     "inningInfo": "7회초",
     "liveState": {
-      "pitcher": "Julio Rodriguez",
-      "batter": "Aron Estrada",
-      "pitcherPid": "mlb:680588",
-      "batterPid": "mlb:800406",
-      "ball": 0,
-      "strike": 0,
-      "out": 1,
+      "pitcher": "Norwith Gudiño",
+      "batter": "Andrés Chaparro",
+      "pitcherPid": "mlb:660508",
+      "batterPid": "mlb:665953",
+      "ball": 1,
+      "strike": 1,
+      "out": 2,
       "bases": [
-        1,
-        3
+        1
       ]
     }
   },
@@ -857267,7 +857257,7 @@
         2,
         0,
         0,
-        null
+        0
       ],
       "a": [
         0,
@@ -857288,19 +857278,17 @@
       ],
       "lob": [
         4,
-        5
+        6
       ]
     },
-    "inningInfo": "7회초",
+    "inningInfo": "7회말",
     "liveState": {
-      "pitcher": "COLLETTI Zac",
-      "batter": "WINKLER Jakub",
+      "pitcher": "ZAVADIL Tadeáš",
+      "batter": "JOHNSTON Andrew",
       "ball": 0,
-      "strike": 1,
-      "out": 1,
-      "bases": [
-        1
-      ]
+      "strike": 0,
+      "out": 0,
+      "bases": []
     }
   },
   {
@@ -857322,14 +857310,16 @@
         0,
         0,
         0,
-        0
+        0,
+        null
       ],
       "a": [
         0,
         0,
         2,
         0,
-        4
+        4,
+        0
       ],
       "hit": [
         3,
@@ -857344,13 +857334,13 @@
         6
       ]
     },
-    "inningInfo": "5회말",
+    "inningInfo": "6회초",
     "liveState": {
-      "pitcher": "LIN Po-Yu",
-      "batter": "CHOURIO SOTO Byron Deylis",
+      "pitcher": "ROJAS CAÑIZALES Juan Diego",
+      "batter": "ZHENG Jun-Wei",
       "ball": 0,
       "strike": 0,
-      "out": 1,
+      "out": 0,
       "bases": []
     }
   },
@@ -857398,11 +857388,13 @@
     "inningInfo": "5회말",
     "liveState": {
       "pitcher": "FUJII Manato",
-      "batter": "LEMM John Zachary",
+      "batter": "STAGG Max",
       "ball": 1,
-      "strike": 0,
+      "strike": 2,
       "out": 2,
-      "bases": []
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -857418,19 +857410,16 @@
     "status": "live",
     "homeScore": 6,
     "awayScore": 0,
-    "inningInfo": "3회말",
+    "inningInfo": "4회초",
     "liveState": {
-      "pitcher": "Irving Cota",
-      "batter": "Ike Irish",
-      "pitcherPid": "mlb:806522",
-      "batterPid": "mlb:702610",
+      "pitcher": "Luke Holman",
+      "batter": "Sebastian Walcott",
+      "pitcherPid": "mlb:695705",
+      "batterPid": "mlb:806964",
       "ball": 2,
-      "strike": 0,
-      "out": 2,
-      "bases": [
-        2,
-        3
-      ]
+      "strike": 1,
+      "out": 1,
+      "bases": []
     }
   },
   {
@@ -857448,13 +857437,13 @@
     "awayScore": 0,
     "inningInfo": "4회말",
     "liveState": {
-      "pitcher": "R.J. Martinez",
-      "batter": "Yurisbel Gracial",
-      "pitcherPid": "mlb:801994",
-      "batterPid": "mlb:666968",
-      "ball": 0,
+      "pitcher": "Luis Romero",
+      "batter": "Nelson Quiroz",
+      "pitcherPid": "mlb:673603",
+      "batterPid": "mlb:685716",
+      "ball": 1,
       "strike": 1,
-      "out": 1,
+      "out": 3,
       "bases": []
     }
   },
@@ -857474,13 +857463,15 @@
     "inningInfo": "5회초",
     "liveState": {
       "pitcher": "Wilmer Rios",
-      "batter": "Julian Ornelas",
+      "batter": "Mateo Gil",
       "pitcherPid": "mlb:658140",
-      "batterPid": "mlb:676140",
-      "ball": 0,
+      "batterPid": "mlb:680771",
+      "ball": 1,
       "strike": 1,
       "out": 0,
-      "bases": []
+      "bases": [
+        2
+      ]
     }
   },
   {
@@ -857496,16 +857487,18 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 4,
-    "inningInfo": "4회말",
+    "inningInfo": "5회초",
     "liveState": {
       "pitcher": "Ross Carver",
-      "batter": "Taiki Sekine",
+      "batter": "Yadir Drake",
       "pitcherPid": "mlb:687102",
-      "batterPid": "mlb:692460",
-      "ball": 3,
-      "strike": 2,
-      "out": 3,
-      "bases": []
+      "batterPid": "mlb:660436",
+      "ball": 0,
+      "strike": 0,
+      "out": 1,
+      "bases": [
+        2
+      ]
     }
   },
   {
@@ -857523,15 +857516,16 @@
     "awayScore": 3,
     "inningInfo": "3회말",
     "liveState": {
-      "pitcher": "Jonatan Bernal",
-      "batter": "Ichiro Cano",
-      "pitcherPid": "mlb:685763",
-      "batterPid": "mlb:802560",
+      "pitcher": "Jesus Rios",
+      "batter": "Fernando Flores",
+      "pitcherPid": "mlb:694947",
+      "batterPid": "mlb:603877",
       "ball": 0,
       "strike": 0,
       "out": 1,
       "bases": [
-        1
+        1,
+        2
       ]
     }
   },
@@ -857548,15 +857542,15 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 3,
-    "inningInfo": "4회말",
+    "inningInfo": "5회초",
     "liveState": {
-      "pitcher": "Randy Wynne",
-      "batter": "Sebastián Elizalde",
-      "pitcherPid": "mlb:691094",
-      "batterPid": "mlb:590271",
-      "ball": 0,
-      "strike": 0,
-      "out": 1,
+      "pitcher": "Fineas Del Bonta-Smith",
+      "batter": "Brandon Villarreal",
+      "pitcherPid": "mlb:687486",
+      "batterPid": "mlb:661311",
+      "ball": 2,
+      "strike": 2,
+      "out": 0,
       "bases": []
     }
   },
@@ -857583,7 +857577,7 @@
     "timeTbd": false,
     "gameId": "ELSALVADOR_ESPN_401899735",
     "status": "live",
-    "matchPeriod": "전반 15'",
+    "matchPeriod": "전반 20'",
     "homeScore": 0,
     "awayScore": 0
   },
@@ -857598,7 +857592,7 @@
     "timeTbd": false,
     "gameId": "ELSALVADOR_ESPN_401899279",
     "status": "live",
-    "matchPeriod": "전반 13'",
+    "matchPeriod": "전반 18'",
     "homeScore": 0,
     "awayScore": 0
   },
