@@ -58,7 +58,9 @@ jobs:
 
       # 선수 클립(2026-11-15) — 공식 채널 RSS(쿼터 0)에서 경기 속 선수 장면 영상을 찾아 player-clips.json 에 누적. 앱 홈 카드 "⭐ 선수 영상" 칩의 데이터. 실패해도 다음 단계를 막지 않는다.
       - name: Collect player clips
-        run: node scripts/fetch-player-clips.mjs || echo "player clips 수집 실패(무시)"
+        run: |
+          node scripts/verify-clip-channels.mjs || echo "채널 검증 실패(무시)"
+          node scripts/fetch-player-clips.mjs || echo "player clips 수집 실패(무시)"
 
       # 선수 영상 검색(2026-11-15) — RSS 에 없는 경기의 선수 영상(득점자·홈런 타자 등)을 YouTube 검색으로. 하루 250회 상한, 성공률 낮은 리그는 가끔만. 하이라이트 다음 순위(응원가보다 앞).
       - name: Search player clips
@@ -77,7 +79,7 @@ jobs:
       - name: Check for changes
         id: changes
         run: |
-          if [[ -n "$(git status --porcelain highlights-video.json highlights-deep.json highlights-search.json video-availability.json highlight-channel-ids.json cheer-songs.json player-clips.json player-clips-search.json)" ]]; then
+          if [[ -n "$(git status --porcelain highlights-video.json highlights-deep.json highlights-search.json video-availability.json highlight-channel-ids.json cheer-songs.json player-clips.json player-clips-search.json clip-channels-verified.json)" ]]; then
             echo "changed=true" >> $GITHUB_OUTPUT
           else
             echo "changed=false" >> $GITHUB_OUTPUT
@@ -88,7 +90,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add highlights-video.json highlights-deep.json highlights-search.json video-availability.json highlight-channel-ids.json cheer-songs.json player-clips.json player-clips-search.json
+          git add highlights-video.json highlights-deep.json highlights-search.json video-availability.json highlight-channel-ids.json cheer-songs.json player-clips.json player-clips-search.json clip-channels-verified.json
           git commit -m "chore(data): 경기 하이라이트 영상 ($(date +'%Y-%m-%d %H:%M'))"
           for i in $(seq 1 20); do
             if git push; then
