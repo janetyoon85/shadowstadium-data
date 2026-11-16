@@ -72,7 +72,7 @@ jobs:
       - name: Check video availability
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
-          AVAIL_MAX_CALLS: ${{ github.event.inputs.avail_calls || '6' }}
+          AVAIL_MAX_CALLS: ${{ github.event.inputs.avail_calls || '12' }} # 2026-11-16 6→12: 최근 3일 영상 재확인(30분 간격)이 실행당 300개로는 한 바퀴에 75분 걸렸다 — 600개로
           AVAIL_REFRESH_DAYS: ${{ github.event.inputs.avail_refresh_days || '7' }}
         run: node scripts/youtube-availability.mjs
 
