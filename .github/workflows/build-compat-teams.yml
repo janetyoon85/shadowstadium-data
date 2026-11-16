@@ -1,0 +1,43 @@
+name: Build Compat Teams
+
+# 국적별 "자국 선수가 뛰는 팀" 목록(compat-teams.json)을 만든다(2026-11-16). 앱 홈 빅게임 점수의 "내 나라 선수" 가산용. 하루 한 번 + 수동.
+on:
+  schedule:
+    - cron: '30 19 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-compat-teams
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Fetch crawler code (private)
+        uses: ./.github/actions/fetch-code
+        with:
+          token: ${{ secrets.PRIVATE_DATA_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Build
+        run: node scripts/build-compat-teams.mjs
+
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add compat-teams.json 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "chore(data): 국적별 자국 선수 팀 목록 ($(date +'%Y-%m-%d'))"
+          for i in 1 2 3 4 5; do git push && break || { git pull --rebase --autostash -X theirs origin main; sleep 2; }; done
