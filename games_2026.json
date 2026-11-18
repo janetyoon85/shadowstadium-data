@@ -858454,7 +858454,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1794972941395
+    "assistsAt": 1794980195059
   },
   {
     "date": "2026-11-16",
@@ -862640,8 +862640,8 @@
           "m": 8,
           "a": "Enzo Fernández",
           "nat": "Argentina",
-          "aNat": "Argentina",
           "pid": "espn:337970",
+          "aNat": "Argentina",
           "apid": "espn:285450"
         },
         {
@@ -862649,8 +862649,8 @@
           "m": 35,
           "a": "Agustín Giay",
           "nat": "Argentina",
-          "aNat": "Argentina",
           "pid": "espn:277206",
+          "aNat": "Argentina",
           "apid": "espn:315619"
         },
         {
@@ -862658,8 +862658,8 @@
           "m": 38,
           "a": "Máximo Perrone",
           "nat": "Argentina",
-          "aNat": "Argentina",
           "pid": "espn:337970",
+          "aNat": "Argentina",
           "apid": "espn:309241"
         },
         {
@@ -862667,8 +862667,8 @@
           "m": 43,
           "a": "Gianluca Prestianni",
           "nat": "Argentina",
-          "aNat": "Argentina",
           "pid": "espn:277206",
+          "aNat": "Argentina",
           "apid": "espn:339191"
         },
         {
@@ -862676,8 +862676,8 @@
           "m": 48,
           "a": "Máximo Perrone",
           "nat": "Argentina",
-          "aNat": "Argentina",
           "pid": "espn:376473",
+          "aNat": "Argentina",
           "apid": "espn:309241"
         },
         {
@@ -862691,8 +862691,8 @@
           "m": 88,
           "a": "Giuliano Simeone",
           "nat": "Argentina",
-          "aNat": "Argentina",
           "pid": "espn:376473",
+          "aNat": "Argentina",
           "apid": "espn:323838"
         }
       ],
@@ -862839,18 +862839,6 @@
     "status": "completed",
     "homeScore": 11,
     "awayScore": 10
-  },
-  {
-    "date": "2026-11-18",
-    "time": "08:21",
-    "league": "PWL",
-    "venueId": "estadio_isidoro_cholo_garcia",
-    "home": "인디오스 데 마야궤스",
-    "away": "히간테스 데 카롤리나",
-    "stadium": "Estadio Isidoro 'Cholo' Garcia",
-    "timeTbd": false,
-    "gameId": "PWL_MLBSTATS_872059",
-    "status": "postponed"
   },
   {
     "date": "2026-11-18",
@@ -863278,14 +863266,17 @@
     "awayScore": 4,
     "inningInfo": "8회초",
     "liveState": {
-      "pitcher": "Denny Roman",
-      "batter": "Jesus Castillo",
-      "pitcherPid": "mlb:680653",
-      "batterPid": "mlb:477399",
-      "ball": 2,
-      "strike": 2,
+      "pitcher": "Carlos Morales",
+      "batter": "Leo Heras",
+      "pitcherPid": "mlb:676190",
+      "batterPid": "mlb:511428",
+      "ball": 1,
+      "strike": 1,
       "out": 0,
-      "bases": []
+      "bases": [
+        2,
+        3
+      ]
     }
   },
   {
@@ -863372,14 +863363,15 @@
     "inningInfo": "9회말",
     "liveState": {
       "pitcher": "Anthony Gose",
-      "batter": "Alonso Mendoza",
+      "batter": "Chavez Young",
       "pitcherPid": "mlb:543238",
-      "batterPid": "mlb:673374",
+      "batterPid": "mlb:669945",
       "ball": 0,
       "strike": 0,
-      "out": 1,
+      "out": 2,
       "bases": [
-        1
+        2,
+        3
       ]
     }
   },
@@ -863504,13 +863496,16 @@
     "inningInfo": "7회초",
     "liveState": {
       "pitcher": "Angel Perdomo",
-      "batter": "César Salazar",
+      "batter": "Nick Solak",
       "pitcherPid": "mlb:622780",
-      "batterPid": "mlb:663967",
-      "ball": 3,
-      "strike": 1,
-      "out": 0,
-      "bases": []
+      "batterPid": "mlb:669256",
+      "ball": 0,
+      "strike": 0,
+      "out": 1,
+      "bases": [
+        1,
+        2
+      ]
     }
   },
   {
@@ -874796,6 +874791,18 @@
     "stadium": "Estadio Quisqueya Juan Marichal",
     "timeTbd": false,
     "gameId": "LIDOM_MLBSTATS_851479",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-12-03",
+    "time": "08:21",
+    "league": "PWL",
+    "venueId": "estadio_isidoro_cholo_garcia",
+    "home": "인디오스 데 마야궤스",
+    "away": "히간테스 데 카롤리나",
+    "stadium": "Estadio Isidoro 'Cholo' Garcia",
+    "timeTbd": false,
+    "gameId": "PWL_MLBSTATS_872059",
     "status": "scheduled"
   },
   {
