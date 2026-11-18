@@ -859649,8 +859649,8 @@
           "n": "그뷔드욘센",
           "m": 37,
           "pid": "espn:326075",
-          "pk": true,
-          "nat": "Iceland"
+          "nat": "Iceland",
+          "pk": true
         },
         {
           "n": "엘레르트손",
@@ -862783,19 +862783,16 @@
     "status": "live",
     "homeScore": 6,
     "awayScore": 6,
-    "inningInfo": "7회말",
+    "inningInfo": "8회초",
     "liveState": {
-      "pitcher": "A.J. Puckett",
-      "batter": "Deyvison De Los Santos",
-      "pitcherPid": "mlb:643494",
-      "batterPid": "mlb:691277",
+      "pitcher": "Brent Honeywell",
+      "batter": "Mason McCoy",
+      "pitcherPid": "mlb:641703",
+      "batterPid": "mlb:669200",
       "ball": 0,
-      "strike": 1,
-      "out": 1,
-      "bases": [
-        1,
-        2
-      ]
+      "strike": 0,
+      "out": 0,
+      "bases": []
     }
   },
   {
@@ -862814,13 +862811,15 @@
     "inningInfo": "7회초",
     "liveState": {
       "pitcher": "Pedro Garcia",
-      "batter": "Gabriel Gonzalez",
+      "batter": "Herlis Rodriguez",
       "pitcherPid": "mlb:690345",
-      "batterPid": "mlb:694224",
-      "ball": 2,
+      "batterPid": "mlb:607439",
+      "ball": 1,
       "strike": 1,
-      "out": 0,
-      "bases": []
+      "out": 1,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -862839,14 +862838,16 @@
     "inningInfo": "9회초",
     "liveState": {
       "pitcher": "Caleb Freeman",
-      "batter": "Wilson Garcia",
+      "batter": "Moisés Gómez",
       "pitcherPid": "mlb:673965",
-      "batterPid": "mlb:600902",
-      "ball": 2,
-      "strike": 2,
+      "batterPid": "mlb:664332",
+      "ball": 0,
+      "strike": 0,
       "out": 2,
       "bases": [
-        1
+        1,
+        2,
+        3
       ]
     }
   },
@@ -862863,19 +862864,16 @@
     "status": "live",
     "homeScore": 2,
     "awayScore": 8,
-    "inningInfo": "6회초",
+    "inningInfo": "6회말",
     "liveState": {
-      "pitcher": "Norwith Gudiño",
-      "batter": "Breyvic Valera",
-      "pitcherPid": "mlb:660508",
-      "batterPid": "mlb:591971",
-      "ball": 2,
-      "strike": 1,
-      "out": 1,
-      "bases": [
-        1,
-        2
-      ]
+      "pitcher": "Saul Garcia",
+      "batter": "Leandro Cedeño",
+      "pitcherPid": "mlb:702903",
+      "batterPid": "mlb:660681",
+      "ball": 1,
+      "strike": 2,
+      "out": 0,
+      "bases": []
     }
   },
   {
@@ -862893,15 +862891,16 @@
     "awayScore": 4,
     "inningInfo": "6회초",
     "liveState": {
-      "pitcher": "Rolddy Muñoz",
-      "batter": "Rafael Lantigua",
-      "pitcherPid": "mlb:691548",
-      "batterPid": "mlb:672463",
-      "ball": 2,
+      "pitcher": "Reid VanScoter",
+      "batter": "Duke Ellis",
+      "pitcherPid": "mlb:804577",
+      "batterPid": "mlb:668752",
+      "ball": 0,
       "strike": 0,
-      "out": 0,
+      "out": 1,
       "bases": [
-        1
+        2,
+        3
       ]
     }
   },
@@ -863145,15 +863144,15 @@
     "status": "live",
     "homeScore": 1,
     "awayScore": 0,
-    "inningInfo": "7회초",
+    "inningInfo": "7회말",
     "liveState": {
-      "pitcher": "Luis Frías",
+      "pitcher": "Carlos Vargas",
       "batter": "Oscar Gonzalez",
-      "pitcherPid": "mlb:666818",
+      "pitcherPid": "mlb:672841",
       "batterPid": "mlb:660757",
-      "ball": 2,
+      "ball": 1,
       "strike": 2,
-      "out": 3,
+      "out": 0,
       "bases": []
     }
   },
@@ -863167,7 +863166,7 @@
     "stadium": "Arnos Vale Stadium",
     "timeTbd": false,
     "gameId": "CONCACAFNL_ESPN_401929765",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반 90'+4'",
     "homeScore": 1,
     "awayScore": 0,
@@ -863194,11 +863193,16 @@
         {
           "n": "Jean Yves Monimofou",
           "m": 24,
-          "pid": "espn:5332876"
+          "pid": "espn:5332876",
+          "a": "Mickaël Colino",
+          "apid": "espn:280115",
+          "aNat": "French Guiana"
         }
       ],
       "away": []
-    }
+    },
+    "assistsChecked": true,
+    "assistsAt": 1794966924441
   },
   {
     "date": "2026-11-18",
@@ -863215,7 +863219,7 @@
     "leg": 2,
     "homeAggregateScore": 8,
     "awayAggregateScore": 0,
-    "matchPeriod": "후반 84'",
+    "matchPeriod": "후반 89'",
     "homeScore": 2,
     "awayScore": 0,
     "cards": {
@@ -863245,7 +863249,14 @@
           "pid": "espn:295771"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Carl Sainté",
+          "type": "Y",
+          "m": 87,
+          "pid": "espn:297177"
+        }
+      ]
     },
     "scorers": {
       "home": [
@@ -863277,9 +863288,9 @@
     "timeTbd": false,
     "gameId": "CONCACAFNL_ESPN_401929764",
     "status": "live",
-    "matchPeriod": "전반 44'",
-    "homeScore": 0,
-    "awayScore": 0,
+    "matchPeriod": "하프타임",
+    "homeScore": 1,
+    "awayScore": 1,
     "cards": {
       "home": [],
       "away": [
@@ -863288,6 +863299,23 @@
           "type": "Y",
           "m": 20,
           "pid": "espn:3099373"
+        }
+      ]
+    },
+    "scorers": {
+      "home": [
+        {
+          "n": "Harold Osorio",
+          "m": 45,
+          "pid": "espn:325335"
+        }
+      ],
+      "away": [
+        {
+          "n": "Belony Dumas",
+          "m": 45,
+          "x": 3,
+          "pid": "espn:191718"
         }
       ]
     }
