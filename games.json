@@ -863167,7 +863167,7 @@
     "stadium": "Arnos Vale Stadium",
     "timeTbd": false,
     "gameId": "CONCACAFNL_ESPN_401929765",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반 90'+4'",
     "homeScore": 1,
     "awayScore": 0,
@@ -863194,11 +863194,16 @@
         {
           "n": "Jean Yves Monimofou",
           "m": 24,
-          "pid": "espn:5332876"
+          "pid": "espn:5332876",
+          "a": "Mickaël Colino",
+          "apid": "espn:280115",
+          "aNat": "French Guiana"
         }
       ],
       "away": []
-    }
+    },
+    "assistsChecked": true,
+    "assistsAt": 1794966924441
   },
   {
     "date": "2026-11-18",
@@ -863215,7 +863220,7 @@
     "leg": 2,
     "homeAggregateScore": 8,
     "awayAggregateScore": 0,
-    "matchPeriod": "후반 84'",
+    "matchPeriod": "후반 89'",
     "homeScore": 2,
     "awayScore": 0,
     "cards": {
@@ -863245,7 +863250,14 @@
           "pid": "espn:295771"
         }
       ],
-      "away": []
+      "away": [
+        {
+          "n": "Carl Sainté",
+          "type": "Y",
+          "m": 87,
+          "pid": "espn:297177"
+        }
+      ]
     },
     "scorers": {
       "home": [
@@ -863277,9 +863289,9 @@
     "timeTbd": false,
     "gameId": "CONCACAFNL_ESPN_401929764",
     "status": "live",
-    "matchPeriod": "전반 44'",
-    "homeScore": 0,
-    "awayScore": 0,
+    "matchPeriod": "하프타임",
+    "homeScore": 1,
+    "awayScore": 1,
     "cards": {
       "home": [],
       "away": [
@@ -863288,6 +863300,23 @@
           "type": "Y",
           "m": 20,
           "pid": "espn:3099373"
+        }
+      ]
+    },
+    "scorers": {
+      "home": [
+        {
+          "n": "Harold Osorio",
+          "m": 45,
+          "pid": "espn:325335"
+        }
+      ],
+      "away": [
+        {
+          "n": "Belony Dumas",
+          "m": 45,
+          "x": 3,
+          "pid": "espn:191718"
         }
       ]
     }
