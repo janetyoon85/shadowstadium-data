@@ -860169,8 +860169,8 @@
           "m": 89,
           "a": "Alvyn Sanches",
           "nat": "Switzerland",
-          "aNat": "Switzerland",
           "pid": "espn:320757",
+          "aNat": "Switzerland",
           "apid": "espn:310194"
         }
       ],
@@ -860224,8 +860224,8 @@
           "m": 81,
           "a": "James Scanlon",
           "nat": "Gibraltar",
-          "aNat": "Gibraltar",
           "pid": "espn:339893",
+          "aNat": "Gibraltar",
           "apid": "espn:358179"
         }
       ],
@@ -860695,7 +860695,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1794963788167
+    "assistsAt": 1794971032722
   },
   {
     "date": "2026-11-17",
@@ -861731,7 +861731,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1794963644486
+    "assistsAt": 1794970847898
   },
   {
     "date": "2026-11-18",
@@ -861845,7 +861845,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1794963644273
+    "assistsAt": 1794970847687
   },
   {
     "date": "2026-11-18",
@@ -861938,7 +861938,7 @@
       "away": []
     },
     "assistsChecked": true,
-    "assistsAt": 1794963322657
+    "assistsAt": 1794970847422
   },
   {
     "date": "2026-11-18",
@@ -861997,7 +861997,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1794963644072
+    "assistsAt": 1794970847156
   },
   {
     "date": "2026-11-18",
@@ -862783,16 +862783,19 @@
     "status": "live",
     "homeScore": 7,
     "awayScore": 8,
-    "inningInfo": "10회초",
+    "inningInfo": "10회말",
     "liveState": {
-      "pitcher": "Jonathan Aro",
-      "batter": "Roldy Brito",
-      "pitcherPid": "mlb:608167",
-      "batterPid": "mlb:821041",
+      "pitcher": "José Leclerc",
+      "batter": "Pablo Reyes",
+      "pitcherPid": "mlb:600917",
+      "batterPid": "mlb:622569",
       "ball": 1,
-      "strike": 1,
-      "out": 3,
-      "bases": []
+      "strike": 2,
+      "out": 0,
+      "bases": [
+        1,
+        3
+      ]
     }
   },
   {
@@ -862807,20 +862810,17 @@
     "gameId": "LVBP_MLBSTATS_869973",
     "status": "live",
     "homeScore": 6,
-    "awayScore": 5,
+    "awayScore": 6,
     "inningInfo": "9회초",
     "liveState": {
-      "pitcher": "Silvino Bracho",
-      "batter": "Leonel Valera",
-      "pitcherPid": "mlb:611093",
-      "batterPid": "mlb:665987",
+      "pitcher": "Moises Diaz",
+      "batter": "Angelo Castellano",
+      "pitcherPid": "mlb:681626",
+      "batterPid": "mlb:613546",
       "ball": 0,
-      "strike": 1,
-      "out": 0,
-      "bases": [
-        1,
-        2
-      ]
+      "strike": 0,
+      "out": 3,
+      "bases": []
     }
   },
   {
@@ -862852,13 +862852,13 @@
     "awayScore": 8,
     "inningInfo": "9회초",
     "liveState": {
-      "pitcher": "Sandy Gaston",
-      "batter": "Jhostynxon Garcia",
-      "pitcherPid": "mlb:682624",
-      "batterPid": "mlb:691373",
+      "pitcher": "Cristofer Gomez",
+      "batter": "Kenedy Corona",
+      "pitcherPid": "mlb:805684",
+      "batterPid": "mlb:685744",
       "ball": 2,
-      "strike": 0,
-      "out": 0,
+      "strike": 3,
+      "out": 3,
       "bases": []
     }
   },
@@ -862878,13 +862878,15 @@
     "inningInfo": "8회초",
     "liveState": {
       "pitcher": "Héctor Neris",
-      "batter": "Ronny Simon",
+      "batter": "Bryan De La Cruz",
       "pitcherPid": "mlb:593576",
-      "batterPid": "mlb:682927",
-      "ball": 2,
-      "strike": 1,
+      "batterPid": "mlb:650559",
+      "ball": 3,
+      "strike": 2,
       "out": 0,
-      "bases": []
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -863113,17 +863115,16 @@
     "status": "live",
     "homeScore": 1,
     "awayScore": 1,
-    "inningInfo": "9회말",
+    "inningInfo": "10회초",
     "liveState": {
-      "pitcher": "J.C. Mejía",
-      "batter": "Jorge Mateo",
-      "pitcherPid": "mlb:650496",
-      "batterPid": "mlb:622761",
-      "ball": 0,
-      "strike": 0,
-      "out": 2,
+      "pitcher": "Melkis Hernández",
+      "batter": "Mel Rojas Jr.",
+      "pitcherPid": "mlb:800292",
+      "batterPid": "mlb:592692",
+      "ball": 2,
+      "strike": 1,
+      "out": 0,
       "bases": [
-        1,
         2
       ]
     }
@@ -863273,7 +863274,7 @@
     "stadium": "Estadio Mágico González",
     "timeTbd": false,
     "gameId": "CONCACAFNL_ESPN_401929764",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반 90'",
     "homeScore": 3,
     "awayScore": 1,
@@ -863316,7 +863317,10 @@
         {
           "n": "Brayan Gil",
           "m": 83,
-          "pid": "espn:307215"
+          "pid": "espn:307215",
+          "a": "Joshua Pérez",
+          "apid": "espn:225605",
+          "aNat": "El Salvador"
         }
       ],
       "away": [
@@ -863324,10 +863328,15 @@
           "n": "Belony Dumas",
           "m": 45,
           "x": 3,
-          "pid": "espn:191718"
+          "pid": "espn:191718",
+          "a": "Jordan Alexandre",
+          "apid": "espn:281970",
+          "aNat": "Scotland"
         }
       ]
-    }
+    },
+    "assistsChecked": true,
+    "assistsAt": 1794970846954
   },
   {
     "date": "2026-11-18",
@@ -863345,15 +863354,16 @@
     "inningInfo": "2회초",
     "liveState": {
       "pitcher": "Elian Leyva",
-      "batter": "Jorge Flores",
+      "batter": "Drew Avans",
       "pitcherPid": "mlb:673140",
-      "batterPid": "mlb:592312",
+      "batterPid": "mlb:682183",
       "ball": 0,
       "strike": 0,
-      "out": 1,
+      "out": 2,
       "bases": [
         1,
-        2
+        2,
+        3
       ]
     }
   },
@@ -863375,7 +863385,7 @@
     "l1H": 2,
     "l1A": 3,
     "l1s": 1,
-    "matchPeriod": "전반 24'",
+    "matchPeriod": "전반 29'",
     "homeScore": 0,
     "awayScore": 0,
     "cards": {
@@ -863403,14 +863413,14 @@
     "status": "live",
     "homeScore": 1,
     "awayScore": 0,
-    "inningInfo": "2회초",
+    "inningInfo": "2회말",
     "liveState": {
-      "pitcher": "Darius Vines",
-      "batter": "Jose Heberto Felix",
-      "pitcherPid": "mlb:670241",
-      "batterPid": "mlb:510548",
-      "ball": 2,
-      "strike": 2,
+      "pitcher": "Yoanner Negrin",
+      "batter": "Fabricio Macias",
+      "pitcherPid": "mlb:594582",
+      "batterPid": "mlb:671246",
+      "ball": 3,
+      "strike": 3,
       "out": 3,
       "bases": []
     }
@@ -863426,22 +863436,18 @@
     "timeTbd": false,
     "gameId": "LMP_MLBSTATS_850429",
     "status": "live",
-    "homeScore": 1,
+    "homeScore": 3,
     "awayScore": 0,
-    "inningInfo": "1회말",
+    "inningInfo": "2회초",
     "liveState": {
-      "pitcher": "Felipe Gonzalez",
-      "batter": "Christopher Escarrega",
-      "pitcherPid": "mlb:542413",
-      "batterPid": "mlb:692473",
-      "ball": 2,
+      "pitcher": "Omar Araujo",
+      "batter": "Sebastián Elizalde",
+      "pitcherPid": "mlb:807586",
+      "batterPid": "mlb:590271",
+      "ball": 0,
       "strike": 0,
-      "out": 2,
-      "bases": [
-        1,
-        2,
-        3
-      ]
+      "out": 0,
+      "bases": []
     }
   },
   {
@@ -863459,13 +863465,13 @@
     "awayScore": 2,
     "inningInfo": "2회초",
     "liveState": {
-      "pitcher": "Raul Carrillo",
-      "batter": "Carlos Mendivil",
-      "pitcherPid": "mlb:585132",
-      "batterPid": "mlb:641104",
+      "pitcher": "Manny Banuelos",
+      "batter": "Jacob Rhinesmith",
+      "pitcherPid": "mlb:544365",
+      "batterPid": "mlb:681927",
       "ball": 1,
-      "strike": 0,
-      "out": 1,
+      "strike": 2,
+      "out": 3,
       "bases": []
     }
   },
