@@ -862897,8 +862897,8 @@
           "m": 45,
           "a": "John Mercado",
           "nat": "Ecuador",
-          "aNat": "Ecuador",
           "pid": "espn:217079",
+          "aNat": "Ecuador",
           "apid": "espn:297141"
         }
       ],
@@ -862957,17 +862957,17 @@
         {
           "n": "데 라 크루스",
           "m": 80,
+          "pk": true,
           "nat": "Uruguay",
-          "pid": "espn:251889",
-          "pk": true
+          "pid": "espn:251889"
         },
         {
           "n": "발베르데",
           "m": 87,
           "a": "Darwin Núñez",
           "nat": "Uruguay",
-          "aNat": "Uruguay",
           "pid": "espn:235818",
+          "aNat": "Uruguay",
           "apid": "espn:271788"
         },
         {
@@ -862975,8 +862975,8 @@
           "m": 90,
           "a": "Nicolás de la Cruz",
           "nat": "Uruguay",
-          "aNat": "Uruguay",
           "pid": "espn:322680",
+          "aNat": "Uruguay",
           "apid": "espn:251889"
         }
       ],
@@ -864200,20 +864200,9 @@
     "stadium": "Coloso del Pacifico",
     "timeTbd": false,
     "gameId": "LMP_MLBSTATS_850414",
-    "status": "live",
+    "status": "completed",
     "homeScore": 10,
-    "awayScore": 9,
-    "inningInfo": "9회초",
-    "liveState": {
-      "pitcher": "Jose Bravo",
-      "batter": "Amilcar Gomez",
-      "pitcherPid": "mlb:670986",
-      "batterPid": "mlb:653248",
-      "ball": 3,
-      "strike": 2,
-      "out": 3,
-      "bases": []
-    }
+    "awayScore": 9
   },
   {
     "date": "2026-11-19",
@@ -864259,13 +864248,16 @@
     "inningInfo": "9회초",
     "liveState": {
       "pitcher": "Esteban Bloch",
-      "batter": "Daniel Castro",
+      "batter": "Jose Angel Cecena",
       "pitcherPid": "mlb:691823",
-      "batterPid": "mlb:593495",
+      "batterPid": "mlb:829261",
       "ball": 2,
-      "strike": 0,
+      "strike": 1,
       "out": 1,
-      "bases": []
+      "bases": [
+        1,
+        2
+      ]
     }
   },
   {
@@ -864281,15 +864273,15 @@
     "status": "live",
     "homeScore": 7,
     "awayScore": 2,
-    "inningInfo": "8회초",
+    "inningInfo": "8회말",
     "liveState": {
-      "pitcher": "Erick Casillas",
-      "batter": "Andres Sosa",
-      "pitcherPid": "mlb:667918",
-      "batterPid": "mlb:703245",
-      "ball": 2,
-      "strike": 2,
-      "out": 2,
+      "pitcher": "Saul Soto",
+      "batter": "Kai Murphy",
+      "pitcherPid": "mlb:809611",
+      "batterPid": "mlb:687625",
+      "ball": 1,
+      "strike": 0,
+      "out": 1,
       "bases": []
     }
   },
