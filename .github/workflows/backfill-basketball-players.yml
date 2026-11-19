@@ -35,11 +35,12 @@ jobs:
           BK_EXTRA_BUDGET: '250'
       - name: Commit and push
         run: |
-          if [[ -z "$(git status --porcelain basketball/player-info.json basketball/player-info-extra.json ops-ledger)" ]]; then exit 0; fi
+          if [[ -z "$(git status --porcelain basketball/player-info.json basketball/player-info-extra.json basketball/api-cooldown.json ops-ledger)" ]]; then exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add basketball/player-info.json
           if [ -f basketball/player-info-extra.json ]; then git add basketball/player-info-extra.json; fi
+          if [ -f basketball/api-cooldown.json ]; then git add basketball/api-cooldown.json; fi
           git add ops-ledger 2>/dev/null || true
           git commit -m "chore(data): 농구 선수 프로필 백필 ($(date +'%Y-%m-%d %H:%M'))"
           for i in $(seq 1 20); do
