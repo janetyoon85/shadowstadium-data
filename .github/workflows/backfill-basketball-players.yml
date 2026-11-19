@@ -2,7 +2,7 @@ name: Basketball Player Info Backfill
 
 on:
   schedule:
-    - cron: '20 */3 * * *'
+    - cron: '20 * * * *'  # 2026-11-20: 3시간 → 1시간(B.LEAGUE·EuroLeague 프로필 자동 보강을 빨리 끝내고 새 선수도 한 시간 안에 채운다)
   workflow_dispatch:
 
 permissions:
@@ -31,13 +31,16 @@ jobs:
         run: node scripts/backfill-basketball-players.mjs
       - name: Fill B.LEAGUE / EuroLeague / Wikidata profiles (2026-11-20)
         run: node scripts/backfill-basketball-extra-info.mjs
+        env:
+          BK_EXTRA_BUDGET: '250'
       - name: Commit and push
         run: |
-          if [[ -z "$(git status --porcelain basketball/player-info.json basketball/player-info-extra.json)" ]]; then exit 0; fi
+          if [[ -z "$(git status --porcelain basketball/player-info.json basketball/player-info-extra.json ops-ledger)" ]]; then exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add basketball/player-info.json
           if [ -f basketball/player-info-extra.json ]; then git add basketball/player-info-extra.json; fi
+          git add ops-ledger 2>/dev/null || true
           git commit -m "chore(data): 농구 선수 프로필 백필 ($(date +'%Y-%m-%d %H:%M'))"
           for i in $(seq 1 20); do
             if git push; then exit 0; fi
