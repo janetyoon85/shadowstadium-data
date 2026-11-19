@@ -863803,13 +863803,13 @@
     "awayScore": 3,
     "inningInfo": "9회초",
     "liveState": {
-      "pitcher": "Jake Gozzo",
-      "batter": "Vimael Machín",
-      "pitcherPid": "mlb:689214",
-      "batterPid": "mlb:605353",
+      "pitcher": "Jarret Whorff",
+      "batter": "Trent Youngblood",
+      "pitcherPid": "mlb:806337",
+      "batterPid": "mlb:827636",
       "ball": 0,
       "strike": 0,
-      "out": 1,
+      "out": 3,
       "bases": []
     }
   },
@@ -864038,16 +864038,18 @@
     "status": "live",
     "homeScore": 7,
     "awayScore": 2,
-    "inningInfo": "8회말",
+    "inningInfo": "9회초",
     "liveState": {
-      "pitcher": "Yaramil Hiraldo",
-      "batter": "Gregory Polanco",
-      "pitcherPid": "mlb:682274",
-      "batterPid": "mlb:570256",
-      "ball": 1,
-      "strike": 0,
-      "out": 3,
-      "bases": []
+      "pitcher": "Cam Robinson",
+      "batter": "Esmerlyn Valdez",
+      "pitcherPid": "mlb:676515",
+      "batterPid": "mlb:699013",
+      "ball": 3,
+      "strike": 2,
+      "out": 1,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -864065,13 +864067,13 @@
     "awayScore": 4,
     "inningInfo": "8회초",
     "liveState": {
-      "pitcher": "Wander Suero",
-      "batter": "Leody Taveras",
-      "pitcherPid": "mlb:593833",
-      "batterPid": "mlb:665750",
+      "pitcher": "Erick Mejia",
+      "batter": "Gustavo Nunez",
+      "pitcherPid": "mlb:625510",
+      "batterPid": "mlb:516631",
       "ball": 0,
       "strike": 0,
-      "out": 2,
+      "out": 3,
       "bases": []
     }
   },
@@ -864088,7 +864090,7 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 0,
-    "matchPeriod": "후반 90'+1'",
+    "matchPeriod": "후반 90'+6'",
     "cards": {
       "home": [
         {
@@ -864134,7 +864136,7 @@
     "stadium": "Neo Química Arena",
     "timeTbd": false,
     "gameId": "BRASILEIRAO_ESPN_401841316",
-    "status": "live",
+    "status": "completed",
     "homeScore": 4,
     "awayScore": 0,
     "matchPeriod": "후반 90'",
@@ -864144,25 +864146,37 @@
           "n": "Kaio",
           "m": 28,
           "nat": "Brazil",
-          "pid": "espn:347456"
+          "pid": "espn:347456",
+          "a": "Vitinho",
+          "apid": "espn:171652",
+          "aNat": "Brazil"
         },
         {
           "n": "Memphis Depay",
           "m": 34,
           "nat": "Netherlands",
-          "pid": "espn:159255"
+          "pid": "espn:159255",
+          "a": "Kaio César",
+          "apid": "espn:347456",
+          "aNat": "Brazil"
         },
         {
           "n": "Kaio",
           "m": 60,
           "nat": "Brazil",
-          "pid": "espn:347456"
+          "pid": "espn:347456",
+          "a": "Memphis Depay",
+          "apid": "espn:159255",
+          "aNat": "Netherlands"
         },
         {
           "n": "Kaio",
           "m": 67,
           "nat": "Brazil",
-          "pid": "espn:347456"
+          "pid": "espn:347456",
+          "a": "Vitinho",
+          "apid": "espn:171652",
+          "aNat": "Brazil"
         }
       ],
       "away": []
@@ -864207,7 +864221,9 @@
           "nat": "Brazil"
         }
       ]
-    }
+    },
+    "assistsChecked": true,
+    "assistsAt": 1795054953295
   },
   {
     "date": "2026-11-19",
@@ -864244,7 +864260,20 @@
     "stadium": "Chevron Park",
     "timeTbd": false,
     "gameId": "LMP_MLBSTATS_850423",
-    "status": "scheduled"
+    "status": "live",
+    "homeScore": 0,
+    "awayScore": 0,
+    "inningInfo": "1회초",
+    "liveState": {
+      "pitcher": "Miguel Leon",
+      "batter": "Allen Córdoba",
+      "pitcherPid": "mlb:832570",
+      "batterPid": "mlb:642707",
+      "ball": 0,
+      "strike": 0,
+      "out": 0,
+      "bases": []
+    }
   },
   {
     "date": "2026-11-19",
