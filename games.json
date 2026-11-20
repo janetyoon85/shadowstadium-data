@@ -878892,7 +878892,7 @@
     "stadium": "Estadio Manoel Barradas",
     "timeTbd": false,
     "gameId": "BRASILEIRAO_ESPN_401841317",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반 90'+7'",
     "homeScore": 2,
     "awayScore": 1,
@@ -878903,6 +878903,14 @@
           "type": "Y",
           "m": 39,
           "pid": "espn:315766",
+          "nat": "Brazil"
+        },
+        {
+          "n": "Gean",
+          "type": "Y",
+          "m": 90,
+          "x": 6,
+          "pid": "espn:402660",
           "nat": "Brazil"
         }
       ],
@@ -878950,13 +878958,19 @@
           "n": "Emanuel Britez",
           "m": 4,
           "nat": "Argentina",
-          "pid": "espn:200206"
+          "pid": "espn:200206",
+          "a": "Erick",
+          "apid": "espn:256044",
+          "aNat": "Brazil"
         },
         {
           "n": "Renê",
           "m": 24,
           "nat": "Brazil",
-          "pid": "espn:379359"
+          "pid": "espn:379359",
+          "a": "Mateus Silva",
+          "apid": "espn:315766",
+          "aNat": "Brazil"
         }
       ],
       "away": [
@@ -878967,7 +878981,9 @@
           "pid": "espn:333314"
         }
       ]
-    }
+    },
+    "assistsChecked": true,
+    "assistsAt": 1795134938584
   },
   {
     "date": "2026-11-20",
