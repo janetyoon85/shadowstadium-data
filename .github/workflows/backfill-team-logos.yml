@@ -34,7 +34,7 @@ jobs:
       - name: Check for changes
         id: changes
         run: |
-          if [[ -n "$(git status --porcelain team-logos.json team-logos-wiki-tried.json team-logos-titles-tried.json)" ]]; then
+          if [[ -n "$(git status --porcelain team-logos.json team-logos-wiki-tried.json team-logos-titles-tried.json team-logos-tsdb-cooldown.json)" ]]; then
             echo "changed=true" >> $GITHUB_OUTPUT
           else
             echo "changed=false" >> $GITHUB_OUTPUT
@@ -45,7 +45,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add team-logos.json team-logos-wiki-tried.json team-logos-titles-tried.json
+          git add team-logos.json team-logos-wiki-tried.json team-logos-titles-tried.json team-logos-tsdb-cooldown.json 2>/dev/null || git add team-logos.json team-logos-wiki-tried.json team-logos-titles-tried.json
           git commit -m "chore(data): 팀 로고 백필 ($(date +'%Y-%m-%d %H:%M'))"
           for i in $(seq 1 20); do
             if git push; then

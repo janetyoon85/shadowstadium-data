@@ -1,0 +1,61 @@
+name: 'Notify failure (consecutive) / recovery'
+description: >
+  매분 도는 수집 워크플로의 단발성 실패 알림 소음을 줄이고 자동 복구를 알린다(2026-11-20).
+  mode=failure: 직전 완료 실행이 성공이었으면 이번 첫 실패는 알리지 않는다(다음 실행이 곧 재시도). 직전도 실패였으면(연속 2회) Discord 🔴.
+  mode=success: 직전 두 완료 실행이 모두 실패였으면(= 🔴 를 보낸 상태) 복구 🟢 를 보낸다.
+inputs:
+  mode:
+    description: 'failure | success'
+    required: true
+  workflow:
+    description: '워크플로 파일 이름(예: fetch-espn-asia-soccer-leagues.yml)'
+    required: true
+  title:
+    description: '알림에 쓸 이름'
+    required: true
+  webhook:
+    description: 'Discord 웹훅 URL'
+    required: true
+  token:
+    description: 'GitHub 토큰(실행 목록 조회용)'
+    required: true
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      env:
+        MODE: ${{ inputs.mode }}
+        WF: ${{ inputs.workflow }}
+        TITLE: ${{ inputs.title }}
+        HOOK: ${{ inputs.webhook }}
+        GH_TOKEN_IN: ${{ inputs.token }}
+        REPO: ${{ github.repository }}
+        RUN_ID: ${{ github.run_id }}
+        RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+      run: |
+        set +e
+        fetch() { curl -s -m 20 "$@" "https://api.github.com/repos/$REPO/actions/workflows/$WF/runs?status=completed&per_page=4"; }
+        J=$(fetch -H "Authorization: Bearer $GH_TOKEN_IN")
+        echo "$J" | python3 -c 'import sys,json; json.load(sys.stdin)["workflow_runs"]' >/dev/null 2>&1 || J=$(fetch)   # 토큰 권한이 없으면 공개 저장소라 인증 없이 조회
+        CONC=$(echo "$J" | python3 -c '
+        import sys,json,os
+        try:
+            runs=[r for r in json.load(sys.stdin)["workflow_runs"] if str(r["id"])!=os.environ["RUN_ID"]]
+            print(" ".join((r.get("conclusion") or "none") for r in runs[:2]))
+        except Exception:
+            print("")
+        ')
+        P1=$(echo "$CONC" | awk '{print $1}'); P2=$(echo "$CONC" | awk '{print $2}')
+        say() { curl -s -m 15 -H "Content-Type: application/json" -d "{\"content\":\"$1\"}" "$HOOK" >/dev/null; }
+        echo "[notify-failure] mode=$MODE 직전 완료 실행: ${P1:-?} ${P2:-?}"
+        if [ "$MODE" = "failure" ]; then
+          if [ "$P1" = "success" ]; then
+            echo "직전 실행이 성공이라 단발성 실패로 보고 알리지 않음(다음 실행이 곧 재시도)"
+          else
+            say "🔴 ShadeSide $TITLE 크롤러 실패(연속 2회 이상)\n$RUN_URL"
+          fi
+        else
+          if [ "$P1" = "failure" ] && [ "$P2" = "failure" ]; then
+            say "🟢 ShadeSide $TITLE 크롤러 복구됨 — 연속 실패 뒤 이번 실행 성공"
+          fi
+        fi

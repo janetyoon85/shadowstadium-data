@@ -74,9 +74,21 @@ jobs:
               body: `Daily ESPN national leagues fetch failed at ${date}.\n\nWorkflow run: ${context.runId}\nLogs: https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
               labels: ['bug', 'crawler']
             });
-      - name: Discord 알림 (실패 시)
+      - name: Discord 알림 (연속 실패 시 — 단발성은 생략)
         if: failure()
-        run: |
-          curl -H "Content-Type: application/json" \
-            -d "{\"content\":\"🔴 ShadeSide ESPN 국가대표 대회 크롤러 실패\n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}\"}" \
-            "${{ secrets.DISCORD_WEBHOOK_URL }}"
+        uses: ./.github/actions/notify-failure
+        with:
+          mode: failure
+          workflow: fetch-espn-national-leagues.yml
+          title: 'ESPN 국가대표 대회'
+          webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Discord 알림 (복구 시)
+        if: success()
+        uses: ./.github/actions/notify-failure
+        with:
+          mode: success
+          workflow: fetch-espn-national-leagues.yml
+          title: 'ESPN 국가대표 대회'
+          webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          token: ${{ secrets.GITHUB_TOKEN }}
