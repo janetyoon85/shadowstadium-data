@@ -878043,15 +878043,15 @@
           "n": "파리스 부 샤크라",
           "m": 38,
           "pid": "espn:422578",
-          "pk": true,
-          "nat": "Saudi Arabia"
+          "nat": "Saudi Arabia",
+          "pk": true
         },
         {
           "n": "파리스 부 샤크라",
           "m": 58,
           "pid": "espn:422578",
-          "pk": true,
-          "nat": "Saudi Arabia"
+          "nat": "Saudi Arabia",
+          "pk": true
         }
       ],
       "away": [
@@ -878193,8 +878193,8 @@
           "n": "타하 나시르",
           "m": 90,
           "pid": "espn:422376",
-          "pk": true,
-          "nat": "Qatar"
+          "nat": "Qatar",
+          "pk": true
         },
         {
           "n": "압둘라예 은디아예",
@@ -879236,8 +879236,8 @@
           "n": "에반데르",
           "m": 43,
           "pid": "espn:86436",
-          "nat": "Brazil",
-          "pk": true
+          "pk": true,
+          "nat": "Brazil"
         },
         {
           "n": "에반데르",
@@ -879323,16 +879323,19 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 3,
-    "inningInfo": "1회말",
+    "inningInfo": "2회초",
     "liveState": {
       "pitcher": "Marco Fregozo",
-      "batter": "Ichiro Cano",
+      "batter": "J.P. Martínez",
       "pitcherPid": "mlb:803197",
-      "batterPid": "mlb:802560",
-      "ball": 2,
-      "strike": 3,
-      "out": 3,
-      "bases": []
+      "batterPid": "mlb:679881",
+      "ball": 1,
+      "strike": 1,
+      "out": 0,
+      "bases": [
+        2,
+        3
+      ]
     }
   },
   {
@@ -879350,13 +879353,13 @@
     "awayScore": 0,
     "inningInfo": "2회말",
     "liveState": {
-      "pitcher": "Edgar Torres",
-      "batter": "Isaac Rodriguez",
-      "pitcherPid": "mlb:664475",
-      "batterPid": "mlb:665455",
-      "ball": 2,
-      "strike": 1,
-      "out": 2,
+      "pitcher": "Alexander Armenta",
+      "batter": "Victor Marquez",
+      "pitcherPid": "mlb:694401",
+      "batterPid": "mlb:802888",
+      "ball": 1,
+      "strike": 0,
+      "out": 3,
       "bases": []
     }
   },
@@ -879376,13 +879379,14 @@
     "inningInfo": "2회초",
     "liveState": {
       "pitcher": "Eduardo Mares",
-      "batter": "Juan Mora",
+      "batter": "Albert Lara",
       "pitcherPid": "mlb:700315",
-      "batterPid": "mlb:680643",
-      "ball": 0,
-      "strike": 2,
-      "out": 1,
+      "batterPid": "mlb:804107",
+      "ball": 3,
+      "strike": 1,
+      "out": 2,
       "bases": [
+        2,
         3
       ]
     }
@@ -879400,18 +879404,16 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 1,
-    "inningInfo": "2회초",
+    "inningInfo": "2회말",
     "liveState": {
-      "pitcher": "José Urquidy",
-      "batter": "Jose Angel Cecena",
-      "pitcherPid": "mlb:664353",
-      "batterPid": "mlb:829261",
-      "ball": 0,
-      "strike": 2,
-      "out": 2,
-      "bases": [
-        1
-      ]
+      "pitcher": "Patrick Murphy",
+      "batter": "Orlando Pina",
+      "pitcherPid": "mlb:641907",
+      "batterPid": "mlb:669315",
+      "ball": 2,
+      "strike": 1,
+      "out": 1,
+      "bases": []
     }
   },
   {
@@ -883632,6 +883634,19 @@
     "timeTbd": false,
     "gameId": "LVBP_MLBSTATS_869971",
     "status": "scheduled"
+  },
+  {
+    "date": "2026-11-23",
+    "time": "06:00",
+    "league": "MLS",
+    "venueId": "geodis_park",
+    "home": "내쉬빌",
+    "away": "신시내티",
+    "stadium": "지오디스 파크",
+    "timeTbd": false,
+    "gameId": "cY34ER9KjM8ZinX",
+    "status": "scheduled",
+    "phaseCode": "ROUND1"
   },
   {
     "date": "2026-11-23",
@@ -892085,6 +892100,19 @@
     "stadium": "시티파크",
     "timeTbd": false,
     "gameId": "azlGpJmU242xv60",
+    "status": "scheduled",
+    "phaseCode": "ROUND1"
+  },
+  {
+    "date": "2026-12-03",
+    "time": "10:00",
+    "league": "MLS",
+    "venueId": "geodis_park",
+    "home": "내쉬빌",
+    "away": "신시내티",
+    "stadium": "지오디스 파크",
+    "timeTbd": false,
+    "gameId": "TXctIMZv3d0EBGU",
     "status": "scheduled",
     "phaseCode": "ROUND1"
   },
