@@ -43,6 +43,11 @@ jobs:
       - name: Auto-fill new club names
         run: node scripts/autofix-club-names.mjs
 
+      # 로고가 없는 하부·컵 클럽은 영문·포르투갈어 위키 정보상자의 로고로 스스로 채운다(2026-11-21, "펠게이라스 1932·스파르탄스·페트루 지 루안다"). 못 찾으면 쓰지 않아 아래 점검이 그대로 알린다.
+      - name: Auto-fill team logos from Wikipedia
+        run: node scripts/autofix-team-logos-wiki.mjs
+        continue-on-error: true
+
       - name: Run health check
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
@@ -54,7 +59,7 @@ jobs:
 
       - name: Commit state
         run: |
-          git add ops-health-state.json ops-ledger team-name-en.json team-name-i18n-auto.json team-logos.json team-logo-aliases.json
+          git add ops-health-state.json ops-ledger team-name-en.json team-name-i18n-auto.json team-logos.json team-logo-aliases.json team-logos-wiki-auto-tried.json
           git diff --cached --quiet && exit 0
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
