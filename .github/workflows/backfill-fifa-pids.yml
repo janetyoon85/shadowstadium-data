@@ -43,6 +43,10 @@ jobs:
           FIFA_PID_BUDGET: ${{ github.event.inputs.budget || '250' }}
         run: node scripts/backfill-fifa-pids.mjs
 
+      - name: 청소년 선수단 FIFA 정보 채우기
+        run: node scripts/backfill-fifa-squad-info.mjs
+        continue-on-error: true
+
       - name: Check for changes
         id: changes
         run: |
