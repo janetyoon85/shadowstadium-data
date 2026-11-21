@@ -847558,11 +847558,11 @@
     "time": "23:00",
     "league": "SCOTTISHCUP",
     "venueId": "venue_tbc",
-    "home": "렌프루",
-    "away": "Broxburn",
+    "home": "Strathspey Thistle",
+    "away": "Dalbeattie Star",
     "stadium": "",
     "timeTbd": false,
-    "gameId": "SCOTTISHCUP_ESPN_401921128",
+    "gameId": "SCOTTISHCUP_ESPN_401921119",
     "status": "completed",
     "homeScore": 3,
     "awayScore": 2
@@ -847572,11 +847572,11 @@
     "time": "23:00",
     "league": "SCOTTISHCUP",
     "venueId": "venue_tbc",
-    "home": "Strathspey Thistle",
-    "away": "Dalbeattie Star",
+    "home": "렌프루",
+    "away": "Broxburn",
     "stadium": "",
     "timeTbd": false,
-    "gameId": "SCOTTISHCUP_ESPN_401921119",
+    "gameId": "SCOTTISHCUP_ESPN_401921128",
     "status": "completed",
     "homeScore": 3,
     "awayScore": 2
@@ -1072310,22 +1072310,9 @@
     "stadium": "Estadio Panamericano de los Charros",
     "timeTbd": false,
     "gameId": "LMP_MLBSTATS_850407",
-    "status": "live",
+    "status": "completed",
     "homeScore": 4,
-    "awayScore": 3,
-    "inningInfo": "9회초",
-    "liveState": {
-      "pitcher": "Dan Kubiuk",
-      "batter": "Carlos Munoz",
-      "pitcherPid": "mlb:703655",
-      "batterPid": "mlb:608608",
-      "ball": 0,
-      "strike": 1,
-      "out": 2,
-      "bases": [
-        2
-      ]
-    }
+    "awayScore": 3
   },
   {
     "date": "2026-11-21",
@@ -1072449,20 +1072436,17 @@
     "gameId": "LMP_MLBSTATS_850396",
     "status": "live",
     "homeScore": 4,
-    "awayScore": 3,
+    "awayScore": 7,
     "inningInfo": "7회초",
     "liveState": {
-      "pitcher": "David Gutierrez",
-      "batter": "Rainel Rosario",
-      "pitcherPid": "mlb:664823",
-      "batterPid": "mlb:501731",
-      "ball": 0,
-      "strike": 0,
+      "pitcher": "Sasagi Sanchez",
+      "batter": "Rodolfo Amador",
+      "pitcherPid": "mlb:653252",
+      "batterPid": "mlb:616613",
+      "ball": 2,
+      "strike": 2,
       "out": 2,
-      "bases": [
-        2,
-        3
-      ]
+      "bases": []
     }
   },
   {
@@ -1072478,19 +1072462,16 @@
     "status": "live",
     "homeScore": 5,
     "awayScore": 1,
-    "inningInfo": "5회말",
+    "inningInfo": "6회초",
     "liveState": {
-      "pitcher": "Denny Roman",
-      "batter": "Luis González",
-      "pitcherPid": "mlb:680653",
-      "batterPid": "mlb:670768",
+      "pitcher": "Luis Marquez",
+      "batter": "Carlos De La Cruz",
+      "pitcherPid": "mlb:700587",
+      "batterPid": "mlb:678926",
       "ball": 3,
       "strike": 2,
-      "out": 2,
-      "bases": [
-        1,
-        2
-      ]
+      "out": 1,
+      "bases": []
     }
   },
   {
@@ -1072516,7 +1072497,7 @@
     "timeTbd": false,
     "gameId": "LIGAMX_ESPN_401877053",
     "status": "live",
-    "matchPeriod": "후반 52'",
+    "matchPeriod": "후반 57'",
     "homeScore": 1,
     "awayScore": 1,
     "scorers": {
@@ -1072536,6 +1072517,18 @@
           "pid": "espn:366679"
         }
       ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Madson",
+          "type": "Y",
+          "m": 53,
+          "pid": "espn:287807",
+          "nat": "Brazil"
+        }
+      ],
+      "away": []
     }
   },
   {
@@ -1072549,7 +1072542,7 @@
     "timeTbd": false,
     "gameId": "LIGAMX_ESPN_401877052",
     "status": "live",
-    "matchPeriod": "후반 46'",
+    "matchPeriod": "후반 51'",
     "homeScore": 0,
     "awayScore": 0,
     "cards": {
@@ -1072599,7 +1072592,7 @@
     "timeTbd": false,
     "gameId": "AUSTRALIA_ESPN_401892137",
     "status": "live",
-    "matchPeriod": "전반 15'",
+    "matchPeriod": "전반 20'",
     "homeScore": 0,
     "awayScore": 0
   },
@@ -1081374,6 +1081367,18 @@
     "time": "05:00",
     "league": "HONDURAS",
     "venueId": "venue_tbc",
+    "home": "UPNFM",
+    "away": "후티칼파",
+    "stadium": "",
+    "timeTbd": true,
+    "gameId": "HONDURAS_ESPN_401926720",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-29",
+    "time": "05:00",
+    "league": "HONDURAS",
+    "venueId": "venue_tbc",
     "home": "마라톤",
     "away": "헤네시스 PN",
     "stadium": "",
@@ -1081427,18 +1081432,6 @@
     "stadium": "",
     "timeTbd": true,
     "gameId": "HONDURAS_ESPN_401926721",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-11-29",
-    "time": "05:00",
-    "league": "HONDURAS",
-    "venueId": "venue_tbc",
-    "home": "UPNFM",
-    "away": "후티칼파",
-    "stadium": "",
-    "timeTbd": true,
-    "gameId": "HONDURAS_ESPN_401926720",
     "status": "scheduled"
   },
   {
