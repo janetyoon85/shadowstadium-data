@@ -3699,13 +3699,13 @@
           "how": "2루타",
           "text": "전병우(4회)",
           "player": "전병우",
-          "pid": "kbo:b:65586"
+          "playerCode": "65586"
         },
         {
           "how": "실책",
           "text": "이승현(6회)",
           "player": "이승현",
-          "pid": "kbo:b:51454"
+          "playerCode": "51454"
         }
       ],
       "away": [
@@ -3713,51 +3713,53 @@
           "how": "결승타",
           "text": "한승택(2회 1사 1,3루서 1루수 희생번트)",
           "player": "한승택",
-          "pid": "kbo:b:63722"
+          "playerCode": "63722"
         },
         {
           "how": "홈런",
-          "text": "호44호(2회1점 3회3점 후라도)",
-          "player": "호",
-          "pitcher": "3회3점 후라도"
+          "text": "힐리어드43호44호(2회1점 3회3점 후라도)",
+          "player": "힐리어드",
+          "playerCode": "56034",
+          "pitcher": "후라도",
+          "pitcherCode": "53375"
         },
         {
           "how": "홈런",
           "text": "김현수14호(5회1점 장찬희)",
           "player": "김현수",
+          "playerCode": "76290",
           "pitcher": "장찬희",
-          "pid": "kbo:b:76290",
-          "pitcherPid": "kbo:p:56460"
+          "pitcherCode": "56460"
         },
         {
           "how": "2루타",
           "text": "힐리어드(5회)",
           "player": "힐리어드",
-          "pid": "kbo:b:56034"
+          "playerCode": "56034"
         },
         {
           "how": "2루타",
           "text": "허경민(5회)",
           "player": "허경민",
-          "pid": "kbo:b:79240"
+          "playerCode": "79240"
         },
         {
           "how": "실책",
           "text": "한승택(1회)",
           "player": "한승택",
-          "pid": "kbo:b:63722"
+          "playerCode": "63722"
         },
         {
           "how": "도루",
           "text": "최원준(3회)",
           "player": "최원준",
-          "pid": "kbo:b:66606"
+          "playerCode": "66606"
         },
         {
           "how": "주루사",
           "text": "최원준(3회)",
           "player": "최원준",
-          "pid": "kbo:b:66606"
+          "playerCode": "66606"
         }
       ]
     },
@@ -4116,87 +4118,89 @@
           "how": "결승타",
           "text": "김도영(3회 1사 1루서 좌중월 홈런)",
           "player": "김도영",
-          "pid": "kbo:b:52605"
+          "playerCode": "52605"
+        },
+        {
+          "how": "홈런",
+          "text": "카스트로20호21호(2회1점 5회3점 최민준 이준기)",
+          "player": "카스트로",
+          "playerCode": "56626",
+          "pitcher": "최민준",
+          "pitcherCode": "68856"
         },
         {
           "how": "홈런",
           "text": "김도영44호(3회2점 최민준)",
           "player": "김도영",
+          "playerCode": "52605",
           "pitcher": "최민준",
-          "pid": "kbo:b:52605",
-          "pitcherPid": "kbo:p:68856"
+          "pitcherCode": "68856"
         },
         {
           "how": "홈런",
           "text": "나성범31호(5회1점 이준기)",
           "player": "나성범",
+          "playerCode": "62947",
           "pitcher": "이준기",
-          "pid": "kbo:b:62947",
-          "pitcherPid": "kbo:p:51702"
+          "pitcherCode": "51702"
         },
         {
           "how": "도루자",
           "text": "박재현(5회)",
           "player": "박재현",
-          "pid": "kbo:b:55636"
+          "playerCode": "55636"
         },
         {
           "how": "주루사",
           "text": "한준수(2회)",
           "player": "한준수",
-          "pid": "kbo:b:68646"
+          "playerCode": "68646"
         },
         {
           "how": "견제사",
           "text": "김민규(8회)",
           "player": "김민규",
-          "pid": "kbo:b:56637"
+          "playerCode": "56637"
         },
         {
           "how": "병살타",
           "text": "한준수(4회)",
           "player": "한준수",
-          "pid": "kbo:b:68646"
+          "playerCode": "68646"
         },
         {
           "how": "병살타",
           "text": "하주석(6회)",
           "player": "하주석",
-          "pid": "kbo:b:62700"
+          "playerCode": "62700"
         },
         {
           "how": "폭투",
           "text": "곽도규(7회)",
           "player": "곽도규",
-          "pid": "kbo:b:53609"
+          "playerCode": "53609"
         }
       ],
       "away": [
         {
           "how": "홈런",
-          "text": "호21호(2회1점 5회3점 최민준 이준기)",
-          "player": "호",
-          "pitcher": "5회3점 최민준 이준기"
-        },
-        {
-          "how": "홈런",
           "text": "박성한5호(3회2점 시라카와)",
           "player": "박성한",
+          "playerCode": "67893",
           "pitcher": "시라카와",
-          "pid": "kbo:b:67893",
-          "pitcherPid": "kbo:p:54843"
+          "pitcherCode": "54843"
         },
         {
           "how": "2루타",
           "text": "조형우(2회)",
           "player": "조형우",
-          "pid": "kbo:b:51865"
+          "playerCode": "51865"
         },
         {
           "how": "실책",
           "text": "임근우(2회)",
           "player": "임근우",
-          "pid": "kbo:b:52807"
+          "playerCode": "52807"
         }
       ]
     },
@@ -6413,7 +6417,7 @@
       "home": [],
       "away": []
     },
-    "hlRetries": 8257,
+    "hlRetries": 8258,
     "relayHighlights": {
       "home": [
         {
@@ -6661,61 +6665,62 @@
           "how": "결승타",
           "text": "힐리어드(1회 1사 1,3루서 우익수 2루타)",
           "player": "힐리어드",
-          "pid": "kbo:b:56034"
+          "playerCode": "56034"
+        },
+        {
+          "how": "홈런",
+          "text": "장준원6호7호(1회3점 6회1점 김진욱 김한결)",
+          "player": "장준원",
+          "playerCode": "64115",
+          "pitcher": "김진욱",
+          "pitcherCode": "51516"
         },
         {
           "how": "홈런",
           "text": "안현민14호(7회1점 구승민)",
           "player": "안현민",
+          "playerCode": "52001",
           "pitcher": "구승민",
-          "pid": "kbo:b:52001",
-          "pitcherPid": "kbo:p:63543"
+          "pitcherCode": "63543"
         },
         {
           "how": "2루타",
           "text": "힐리어드(1회)",
           "player": "힐리어드",
-          "pid": "kbo:b:56034"
+          "playerCode": "56034"
         },
         {
           "how": "2루타",
           "text": "최원준(1회)",
           "player": "최원준",
-          "pid": "kbo:b:66606"
+          "playerCode": "66606"
         },
         {
           "how": "2루타",
           "text": "김상수(1회)",
           "player": "김상수",
-          "pid": "kbo:b:79402"
+          "playerCode": "79402"
         },
         {
           "how": "2루타",
           "text": "안현민(2회)",
           "player": "안현민",
-          "pid": "kbo:b:52001"
+          "playerCode": "52001"
         },
         {
           "how": "2루타",
           "text": "장성우(7회)",
           "player": "장성우",
-          "pid": "kbo:b:78548"
+          "playerCode": "78548"
         },
         {
           "how": "2루타",
           "text": "권동진(8회)",
           "player": "권동진",
-          "pid": "kbo:b:51003"
+          "playerCode": "51003"
         }
       ],
-      "away": [
-        {
-          "how": "홈런",
-          "text": "호7호(1회3점 6회1점 김진욱 김한결)",
-          "player": "호",
-          "pitcher": "6회1점 김진욱 김한결"
-        }
-      ]
+      "away": []
     },
     "hrPitcherChecked": true
   },
@@ -15846,7 +15851,7 @@
       "home": [],
       "away": []
     },
-    "hlRetries": 3429,
+    "hlRetries": 3430,
     "winPitcherNat": "USA",
     "losePitcherNat": "USA",
     "savePitcherNat": "Dominican Republic",
@@ -17678,49 +17683,55 @@
           "how": "홈런",
           "text": "강민호12호(2회2점 클레빈저)",
           "player": "강민호",
-          "pid": "kbo:b:74540"
+          "playerCode": "74540",
+          "pitcher": "클레빈저",
+          "pitcherCode": "56939"
         },
         {
           "how": "홈런",
           "text": "구자욱15호(3회1점 클레빈저)",
           "player": "구자욱",
-          "pid": "kbo:b:62404"
+          "playerCode": "62404",
+          "pitcher": "클레빈저",
+          "pitcherCode": "56939"
         },
         {
           "how": "홈런",
           "text": "디아즈25호(8회2점 이재학)",
           "player": "디아즈",
-          "pid": "kbo:b:54400"
+          "playerCode": "54400",
+          "pitcher": "이재학",
+          "pitcherCode": "60263"
         },
         {
           "how": "2루타",
           "text": "김성윤(2회)",
           "player": "김성윤",
-          "pid": "kbo:b:67449"
+          "playerCode": "67449"
         },
         {
           "how": "2루타",
           "text": "전병우(3회)",
           "player": "전병우",
-          "pid": "kbo:b:65586"
+          "playerCode": "65586"
         },
         {
           "how": "실책",
           "text": "구자욱(1회)",
           "player": "구자욱",
-          "pid": "kbo:b:62404"
+          "playerCode": "62404"
         },
         {
           "how": "도루자",
           "text": "김상준(4회)",
           "player": "김상준",
-          "pid": "kbo:b:55425"
+          "playerCode": "55425"
         },
         {
           "how": "주루사",
           "text": "전병우(3회)",
           "player": "전병우",
-          "pid": "kbo:b:65586"
+          "playerCode": "65586"
         }
       ],
       "away": [
@@ -17730,50 +17741,53 @@
         },
         {
           "how": "홈런",
-          "text": "호6호(5회1점 8회1점 페덱 이승민)",
-          "player": "호"
+          "text": "천재환5호6호(5회1점 8회1점 페덱 이승민)",
+          "player": "천재환",
+          "playerCode": "67905",
+          "pitcher": "페덱",
+          "pitcherCode": "56459"
         },
         {
           "how": "2루타",
           "text": "천재환(3회)",
           "player": "천재환",
-          "pid": "kbo:b:67905"
+          "playerCode": "67905"
         },
         {
           "how": "실책",
           "text": "김한별(5회)",
           "player": "김한별",
-          "pid": "kbo:b:50902"
+          "playerCode": "50902"
         },
         {
           "how": "실책",
           "text": "김진호(5회)",
           "player": "김진호",
-          "pid": "kbo:b:67954"
+          "playerCode": "67954"
         },
         {
           "how": "도루자",
           "text": "박건우(1회)",
           "player": "박건우",
-          "pid": "kbo:b:79215"
+          "playerCode": "79215"
         },
         {
           "how": "폭투",
           "text": "이준혁(3회)",
           "player": "이준혁",
-          "pid": "kbo:b:52992"
+          "playerCode": "52992"
         },
         {
           "how": "폭투",
           "text": "클레빈저(3회)",
           "player": "클레빈저",
-          "pid": "kbo:b:56939"
+          "playerCode": "56939"
         },
         {
           "how": "폭투",
           "text": "김진호(5회)",
           "player": "김진호",
-          "pid": "kbo:b:67954"
+          "playerCode": "67954"
         }
       ]
     }
@@ -19336,86 +19350,97 @@
           "how": "결승타",
           "text": "힐리어드(1회 1사 1,3루서 중견수 희생플라이)",
           "player": "힐리어드",
-          "pid": "kbo:b:56034"
+          "playerCode": "56034"
+        },
+        {
+          "how": "홈런",
+          "text": "장준원4호5호(2회3점 3회2점 박신지 김동주)",
+          "player": "장준원",
+          "playerCode": "64115",
+          "pitcher": "박신지",
+          "pitcherCode": "68249"
         },
         {
           "how": "홈런",
           "text": "한승택2호(5회1점 이용찬)",
           "player": "한승택",
-          "pid": "kbo:b:63722"
+          "playerCode": "63722",
+          "pitcher": "이용찬",
+          "pitcherCode": "77211"
         },
         {
           "how": "2루타",
           "text": "김민혁(1회)",
           "player": "김민혁",
-          "pid": "kbo:b:64004"
+          "playerCode": "64004"
         },
         {
           "how": "실책",
           "text": "류현인(8회)",
           "player": "류현인",
-          "pid": "kbo:b:53036"
+          "playerCode": "53036"
         },
         {
           "how": "병살타",
           "text": "김상수(2회)",
           "player": "김상수",
-          "pid": "kbo:b:79402"
+          "playerCode": "79402"
         },
         {
           "how": "폭투",
           "text": "스기모토(8회)",
           "player": "스기모토",
-          "pid": "kbo:b:56011"
+          "playerCode": "56011"
         }
       ],
       "away": [
         {
           "how": "홈런",
-          "text": "호5호(2회3점 3회2점 박신지 김동주)",
-          "player": "호"
-        },
-        {
-          "how": "홈런",
           "text": "양석환4호(7회1점 고영표)",
           "player": "양석환",
-          "pid": "kbo:b:64153"
+          "playerCode": "64153",
+          "pitcher": "고영표",
+          "pitcherCode": "64001"
         },
         {
           "how": "홈런",
           "text": "박지훈2호(8회1점 손동현)",
           "player": "박지훈",
-          "pid": "kbo:b:50204"
+          "playerCode": "50204",
+          "pitcher": "손동현",
+          "pitcherCode": "69041"
         },
         {
           "how": "홈런",
           "text": "세베리노5호(8회3점 손동현)",
           "player": "세베리노",
-          "pid": "kbo:b:56236"
+          "playerCode": "56236",
+          "pitcher": "손동현",
+          "pitcherCode": "69041"
         },
         {
           "how": "2루타",
           "text": "김민석(4회)",
           "player": "김민석",
-          "pid": "kbo:b:53554"
+          "playerCode": "53554"
         },
         {
           "how": "실책",
           "text": "박찬호(2회)",
           "player": "박찬호",
-          "pid": "kbo:b:64646"
+          "playerCode": "64646"
         },
         {
           "how": "실책",
           "text": "조수행(2회)",
           "player": "조수행",
-          "pid": "kbo:b:66209"
+          "playerCode": "66209"
         },
         {
           "how": "폭투",
           "text": "김동주(3회)",
           "player": "김동주",
-          "pid": "kbo:b:51230"
+          "playerCode": "51230"
         }
       ]
     }
@@ -21555,31 +21580,33 @@
           "how": "홈런",
           "text": "김현수11호(7회1점 톨허스트)",
           "player": "김현수",
-          "pid": "kbo:b:76290"
+          "playerCode": "76290",
+          "pitcher": "톨허스트",
+          "pitcherCode": "55130"
         },
         {
           "how": "2루타",
           "text": "안현민2(1 8회)",
           "player": "안현민",
-          "pid": "kbo:b:52001"
+          "playerCode": "52001"
         },
         {
           "how": "실책",
           "text": "허경민2(5회)",
           "player": "허경민",
-          "pid": "kbo:b:79240"
+          "playerCode": "79240"
         },
         {
           "how": "실책",
           "text": "김상수(6회)",
           "player": "김상수",
-          "pid": "kbo:b:79402"
+          "playerCode": "79402"
         },
         {
           "how": "도루자",
           "text": "최원준(3회)",
           "player": "최원준",
-          "pid": "kbo:b:66606"
+          "playerCode": "66606"
         }
       ],
       "away": [
@@ -21587,54 +21614,57 @@
           "how": "결승타",
           "text": "오지환(2회 무사서 우월 홈런)",
           "player": "오지환",
-          "pid": "kbo:b:79109"
+          "playerCode": "79109"
         },
         {
           "how": "홈런",
-          "text": "호13호(2회1점 8회2점 로건 장민호)",
-          "player": "호"
+          "text": "오지환12호13호(2회1점 8회2점 로건 장민호)",
+          "player": "오지환",
+          "playerCode": "79109",
+          "pitcher": "로건",
+          "pitcherCode": "55912"
         },
         {
           "how": "3루타",
           "text": "오지환(7회)",
           "player": "오지환",
-          "pid": "kbo:b:79109"
+          "playerCode": "79109"
         },
         {
           "how": "2루타",
           "text": "송찬의2(3 8회)",
           "player": "송찬의",
-          "pid": "kbo:b:68110"
+          "playerCode": "68110"
         },
         {
           "how": "2루타",
           "text": "구본혁(5회)",
           "player": "구본혁",
-          "pid": "kbo:b:69100"
+          "playerCode": "69100"
         },
         {
           "how": "도루",
           "text": "오스틴(3회)",
           "player": "오스틴",
-          "pid": "kbo:b:53123"
+          "playerCode": "53123"
         },
         {
           "how": "주루사",
           "text": "오스틴(5회)",
           "player": "오스틴",
-          "pid": "kbo:b:53123"
+          "playerCode": "53123"
         },
         {
           "how": "주루사",
           "text": "구본혁(5회)",
           "player": "구본혁",
-          "pid": "kbo:b:69100"
+          "playerCode": "69100"
         },
         {
           "how": "병살타",
           "text": "신민재(2회)",
           "player": "신민재",
-          "pid": "kbo:b:65207"
+          "playerCode": "65207"
         }
       ]
     }
@@ -21918,31 +21948,33 @@
           "how": "홈런",
           "text": "세베리노4호(2회1점 알칸타라)",
           "player": "세베리노",
-          "pid": "kbo:b:56236"
+          "playerCode": "56236",
+          "pitcher": "알칸타라",
+          "pitcherCode": "69045"
         },
         {
           "how": "2루타",
           "text": "안재석2(3 11회)",
           "player": "안재석",
-          "pid": "kbo:b:51203"
+          "playerCode": "51203"
         },
         {
           "how": "도루",
           "text": "박찬호(7회)",
           "player": "박찬호",
-          "pid": "kbo:b:64646"
+          "playerCode": "64646"
         },
         {
           "how": "병살타",
           "text": "조수행(8회)",
           "player": "조수행",
-          "pid": "kbo:b:66209"
+          "playerCode": "66209"
         },
         {
           "how": "폭투",
           "text": "김정우(11회)",
           "player": "김정우",
-          "pid": "kbo:b:68830"
+          "playerCode": "68830"
         }
       ],
       "away": [
@@ -21952,32 +21984,37 @@
         },
         {
           "how": "홈런",
-          "text": "호11호(2회2점 8회3점 잭로그 김택연)",
-          "player": "호"
+          "text": "박찬혁10호11호(2회2점 8회3점 잭로그 김택연)",
+          "player": "박찬혁",
+          "playerCode": "52348",
+          "pitcher": "잭로그",
+          "pitcherCode": "55239"
         },
         {
           "how": "홈런",
           "text": "데이비슨20호(4회1점 잭로그)",
           "player": "데이비슨",
-          "pid": "kbo:b:54944"
+          "playerCode": "54944",
+          "pitcher": "잭로그",
+          "pitcherCode": "55239"
         },
         {
           "how": "2루타",
           "text": "히우라2(2 8회)",
           "player": "히우라",
-          "pid": "kbo:b:56305"
+          "playerCode": "56305"
         },
         {
           "how": "병살타",
           "text": "김동헌(4회)",
           "player": "김동헌",
-          "pid": "kbo:b:53344"
+          "playerCode": "53344"
         },
         {
           "how": "폭투",
           "text": "윤석원(7회)",
           "player": "윤석원",
-          "pid": "kbo:b:52395"
+          "playerCode": "52395"
         }
       ]
     }
@@ -24399,13 +24436,17 @@
           "how": "홈런",
           "text": "한지윤5호(9회1점 주권)",
           "player": "한지윤",
-          "pid": "kbo:b:55767"
+          "playerCode": "55767",
+          "pitcher": "주권",
+          "pitcherCode": "65060"
         },
         {
           "how": "홈런",
           "text": "강백호32호(9회2점 주권)",
           "player": "강백호",
-          "pid": "kbo:b:68050"
+          "playerCode": "68050",
+          "pitcher": "주권",
+          "pitcherCode": "65060"
         }
       ],
       "away": [
@@ -24413,66 +24454,73 @@
           "how": "결승타",
           "text": "김현수(1회 1사 만루서 우중간 안타)",
           "player": "김현수",
-          "pid": "kbo:b:76290"
+          "playerCode": "76290"
         },
         {
           "how": "홈런",
           "text": "안현민13호(3회1점 왕옌청)",
           "player": "안현민",
-          "pid": "kbo:b:52001"
+          "playerCode": "52001",
+          "pitcher": "왕옌청",
+          "pitcherCode": "56719"
         },
         {
           "how": "홈런",
           "text": "허경민4호(5회2점 이민우)",
           "player": "허경민",
-          "pid": "kbo:b:79240"
+          "playerCode": "79240",
+          "pitcher": "이민우",
+          "pitcherCode": "65616"
         },
         {
           "how": "홈런",
-          "text": "호36호(6회2점 8회1점 강건우 권민규)",
-          "player": "호"
+          "text": "힐리어드35호36호(6회2점 8회1점 강건우 권민규)",
+          "player": "힐리어드",
+          "playerCode": "56034",
+          "pitcher": "강건우",
+          "pitcherCode": "56769"
         },
         {
           "how": "3루타",
           "text": "최원준(6회)",
           "player": "최원준",
-          "pid": "kbo:b:66606"
+          "playerCode": "66606"
         },
         {
           "how": "2루타",
           "text": "한승택(3회)",
           "player": "한승택",
-          "pid": "kbo:b:63722"
+          "playerCode": "63722"
         },
         {
           "how": "2루타",
           "text": "안현민(4회)",
           "player": "안현민",
-          "pid": "kbo:b:52001"
+          "playerCode": "52001"
         },
         {
           "how": "2루타",
           "text": "김현수(5회)",
           "player": "김현수",
-          "pid": "kbo:b:76290"
+          "playerCode": "76290"
         },
         {
           "how": "2루타",
           "text": "김상수(6회)",
           "player": "김상수",
-          "pid": "kbo:b:79402"
+          "playerCode": "79402"
         },
         {
           "how": "2루타",
           "text": "권동진(9회)",
           "player": "권동진",
-          "pid": "kbo:b:51003"
+          "playerCode": "51003"
         },
         {
           "how": "주루사",
           "text": "힐리어드(1회)",
           "player": "힐리어드",
-          "pid": "kbo:b:56034"
+          "playerCode": "56034"
         }
       ]
     }
@@ -26340,22 +26388,30 @@
     "highlights": {
       "home": [
         {
+          "how": "홈런",
+          "text": "박승규11호12호(1회2점 6회1점 임찬규)",
+          "player": "박승규",
+          "playerCode": "69418",
+          "pitcher": "임찬규",
+          "pitcherCode": "61101"
+        },
+        {
           "how": "3루타",
           "text": "류지혁(7회)",
           "player": "류지혁",
-          "pid": "kbo:b:62234"
+          "playerCode": "62234"
         },
         {
           "how": "병살타",
           "text": "김영웅(5회)",
           "player": "김영웅",
-          "pid": "kbo:b:52430"
+          "playerCode": "52430"
         },
         {
           "how": "폭투",
           "text": "배찬승(9회)",
           "player": "배찬승",
-          "pid": "kbo:b:55455"
+          "playerCode": "55455"
         }
       ],
       "away": [
@@ -26363,59 +26419,59 @@
           "how": "결승타",
           "text": "신민재(4회 1사 만루서 중전 안타)",
           "player": "신민재",
-          "pid": "kbo:b:65207"
-        },
-        {
-          "how": "홈런",
-          "text": "호12호(1회2점 6회1점 임찬규)",
-          "player": "호"
+          "playerCode": "65207"
         },
         {
           "how": "홈런",
           "text": "오스틴39호(4회3점 양창섭)",
           "player": "오스틴",
-          "pid": "kbo:b:53123"
+          "playerCode": "53123",
+          "pitcher": "양창섭",
+          "pitcherCode": "68415"
         },
         {
           "how": "홈런",
-          "text": "호11호(7회1점 8회2점 김백산 임기영)",
-          "player": "호"
+          "text": "오지환10호11호(7회1점 8회2점 김백산 임기영)",
+          "player": "오지환",
+          "playerCode": "79109",
+          "pitcher": "김백산",
+          "pitcherCode": "55420"
         },
         {
           "how": "2루타",
           "text": "구본혁(5회)",
           "player": "구본혁",
-          "pid": "kbo:b:69100"
+          "playerCode": "69100"
         },
         {
           "how": "2루타",
           "text": "송찬의(8회)",
           "player": "송찬의",
-          "pid": "kbo:b:68110"
+          "playerCode": "68110"
         },
         {
           "how": "2루타",
           "text": "문보경(8회)",
           "player": "문보경",
-          "pid": "kbo:b:69102"
+          "playerCode": "69102"
         },
         {
           "how": "실책",
           "text": "임찬규(5회)",
           "player": "임찬규",
-          "pid": "kbo:b:61101"
+          "playerCode": "61101"
         },
         {
           "how": "실책",
           "text": "김현종(9회)",
           "player": "김현종",
-          "pid": "kbo:b:54166"
+          "playerCode": "54166"
         },
         {
           "how": "도루",
           "text": "구본혁(2회)",
           "player": "구본혁",
-          "pid": "kbo:b:69100"
+          "playerCode": "69100"
         }
       ]
     }
@@ -27466,61 +27522,63 @@
           "how": "홈런",
           "text": "강민호11호(2회2점 톨허스트)",
           "player": "강민호",
-          "pid": "kbo:b:74540"
+          "playerCode": "74540",
+          "pitcher": "톨허스트",
+          "pitcherCode": "55130"
         },
         {
           "how": "2루타",
           "text": "강민호(4회)",
           "player": "강민호",
-          "pid": "kbo:b:74540"
+          "playerCode": "74540"
         },
         {
           "how": "2루타",
           "text": "김헌곤(7회)",
           "player": "김헌곤",
-          "pid": "kbo:b:61404"
+          "playerCode": "61404"
         },
         {
           "how": "실책",
           "text": "이재현(1회)",
           "player": "이재현",
-          "pid": "kbo:b:52415"
+          "playerCode": "52415"
         },
         {
           "how": "실책",
           "text": "류지혁(7회)",
           "player": "류지혁",
-          "pid": "kbo:b:62234"
+          "playerCode": "62234"
         },
         {
           "how": "도루",
           "text": "류지혁(2회)",
           "player": "류지혁",
-          "pid": "kbo:b:62234"
+          "playerCode": "62234"
         },
         {
           "how": "도루",
           "text": "최형우(3회)",
           "player": "최형우",
-          "pid": "kbo:b:72443"
+          "playerCode": "72443"
         },
         {
           "how": "도루자",
           "text": "김지찬(3회)",
           "player": "김지찬",
-          "pid": "kbo:b:50458"
+          "playerCode": "50458"
         },
         {
           "how": "병살타",
           "text": "류지혁(6회)",
           "player": "류지혁",
-          "pid": "kbo:b:62234"
+          "playerCode": "62234"
         },
         {
           "how": "병살타",
           "text": "박승규(7회)",
           "player": "박승규",
-          "pid": "kbo:b:69418"
+          "playerCode": "69418"
         }
       ],
       "away": [
@@ -27528,54 +27586,57 @@
           "how": "결승타",
           "text": "송찬의(8회 1사 만루서 3루수 땅볼)",
           "player": "송찬의",
-          "pid": "kbo:b:68110"
+          "playerCode": "68110"
         },
         {
           "how": "홈런",
-          "text": "호38호(3회1점 5회1점 후라도)",
-          "player": "호"
+          "text": "오스틴37호38호(3회1점 5회1점 후라도)",
+          "player": "오스틴",
+          "playerCode": "53123",
+          "pitcher": "후라도",
+          "pitcherCode": "53375"
         },
         {
           "how": "3루타",
           "text": "송찬의(5회)",
           "player": "송찬의",
-          "pid": "kbo:b:68110"
+          "playerCode": "68110"
         },
         {
           "how": "2루타",
           "text": "구본혁(2회)",
           "player": "구본혁",
-          "pid": "kbo:b:69100"
+          "playerCode": "69100"
         },
         {
           "how": "2루타",
           "text": "박해민(6회)",
           "player": "박해민",
-          "pid": "kbo:b:62415"
+          "playerCode": "62415"
         },
         {
           "how": "2루타",
           "text": "박동원(8회)",
           "player": "박동원",
-          "pid": "kbo:b:79365"
+          "playerCode": "79365"
         },
         {
           "how": "실책",
           "text": "신민재(7회)",
           "player": "신민재",
-          "pid": "kbo:b:65207"
+          "playerCode": "65207"
         },
         {
           "how": "주루사",
           "text": "송찬의(5회)",
           "player": "송찬의",
-          "pid": "kbo:b:68110"
+          "playerCode": "68110"
         },
         {
           "how": "폭투",
           "text": "톨허스트(4회)",
           "player": "톨허스트",
-          "pid": "kbo:b:55130"
+          "playerCode": "55130"
         }
       ]
     }
@@ -28871,86 +28932,93 @@
           "how": "결승타",
           "text": "최형우(1회 1사 1,2루서 우전 안타)",
           "player": "최형우",
-          "pid": "kbo:b:72443"
+          "playerCode": "72443"
+        },
+        {
+          "how": "홈런",
+          "text": "디아즈22호23호(1회3점 6회1점 전준표 윤석원)",
+          "player": "디아즈",
+          "playerCode": "54400",
+          "pitcher": "전준표",
+          "pitcherCode": "54362"
         },
         {
           "how": "2루타",
           "text": "김성윤(7회)",
           "player": "김성윤",
-          "pid": "kbo:b:67449"
+          "playerCode": "67449"
         },
         {
           "how": "2루타",
           "text": "디아즈(8회)",
           "player": "디아즈",
-          "pid": "kbo:b:54400"
+          "playerCode": "54400"
         },
         {
           "how": "병살타",
           "text": "최형우(3회)",
           "player": "최형우",
-          "pid": "kbo:b:72443"
+          "playerCode": "72443"
         },
         {
           "how": "병살타",
           "text": "강민호(4회)",
           "player": "강민호",
-          "pid": "kbo:b:74540"
+          "playerCode": "74540"
         },
         {
           "how": "병살타",
           "text": "박승규(5회)",
           "player": "박승규",
-          "pid": "kbo:b:69418"
+          "playerCode": "69418"
         }
       ],
       "away": [
         {
           "how": "홈런",
-          "text": "호23호(1회3점 6회1점 전준표 윤석원)",
-          "player": "호"
-        },
-        {
-          "how": "홈런",
           "text": "데이비슨19호(5회1점 페덱)",
           "player": "데이비슨",
-          "pid": "kbo:b:54944"
+          "playerCode": "54944",
+          "pitcher": "페덱",
+          "pitcherCode": "56459"
         },
         {
           "how": "홈런",
           "text": "박찬혁9호(9회1점 김재윤)",
           "player": "박찬혁",
-          "pid": "kbo:b:52348"
+          "playerCode": "52348",
+          "pitcher": "김재윤",
+          "pitcherCode": "65062"
         },
         {
           "how": "2루타",
           "text": "데이비슨(1회)",
           "player": "데이비슨",
-          "pid": "kbo:b:54944"
+          "playerCode": "54944"
         },
         {
           "how": "2루타",
           "text": "추재현(3회)",
           "player": "추재현",
-          "pid": "kbo:b:68362"
+          "playerCode": "68362"
         },
         {
           "how": "2루타",
           "text": "히우라(4회)",
           "player": "히우라",
-          "pid": "kbo:b:56305"
+          "playerCode": "56305"
         },
         {
           "how": "2루타",
           "text": "여동욱(6회)",
           "player": "여동욱",
-          "pid": "kbo:b:55393"
+          "playerCode": "55393"
         },
         {
           "how": "실책",
           "text": "권혁빈(1회)",
           "player": "권혁빈",
-          "pid": "kbo:b:55371"
+          "playerCode": "55371"
         }
       ]
     }
@@ -30595,22 +30663,30 @@
     "highlights": {
       "home": [
         {
+          "how": "홈런",
+          "text": "하주석3호4호(5회1점 9회1점 송명기 전사민)",
+          "player": "하주석",
+          "playerCode": "62700",
+          "pitcher": "송명기",
+          "pitcherCode": "69962"
+        },
+        {
           "how": "2루타",
           "text": "박민(6회)",
           "player": "박민",
-          "pid": "kbo:b:50657"
+          "playerCode": "50657"
         },
         {
           "how": "2루타",
           "text": "김호령(7회)",
           "player": "김호령",
-          "pid": "kbo:b:65653"
+          "playerCode": "65653"
         },
         {
           "how": "보크",
           "text": "김태형(6회)",
           "player": "김태형",
-          "pid": "kbo:b:55610"
+          "playerCode": "55610"
         }
       ],
       "away": [
@@ -30618,47 +30694,47 @@
           "how": "결승타",
           "text": "블레인(2회 무사서 좌월 홈런)",
           "player": "블레인",
-          "pid": "kbo:b:56950"
+          "playerCode": "56950"
         },
         {
           "how": "홈런",
-          "text": "호7호(2회1점 6회2점 황동하 김태형)",
-          "player": "호"
+          "text": "블레인6호7호(2회1점 6회2점 황동하 김태형)",
+          "player": "블레인",
+          "playerCode": "56950",
+          "pitcher": "황동하",
+          "pitcherCode": "52641"
         },
         {
           "how": "홈런",
           "text": "김주원18호(3회2점 황동하)",
           "player": "김주원",
-          "pid": "kbo:b:51907"
-        },
-        {
-          "how": "홈런",
-          "text": "호4호(5회1점 9회1점 송명기 전사민)",
-          "player": "호"
+          "playerCode": "51907",
+          "pitcher": "황동하",
+          "pitcherCode": "52641"
         },
         {
           "how": "2루타",
           "text": "김형준(5회)",
           "player": "김형준",
-          "pid": "kbo:b:68912"
+          "playerCode": "68912"
         },
         {
           "how": "실책",
           "text": "블레인(8회)",
           "player": "블레인",
-          "pid": "kbo:b:56950"
+          "playerCode": "56950"
         },
         {
           "how": "병살타",
           "text": "권희동(2회)",
           "player": "권희동",
-          "pid": "kbo:b:63963"
+          "playerCode": "63963"
         },
         {
           "how": "폭투",
           "text": "전사민(9회)",
           "player": "전사민",
-          "pid": "kbo:b:69969"
+          "playerCode": "69969"
         }
       ]
     }
@@ -36949,50 +37025,55 @@
           "how": "결승타",
           "text": "에레디아(3회 2사 2루서 좌전 안타)",
           "player": "에레디아",
-          "pid": "kbo:b:53827"
+          "playerCode": "53827"
+        },
+        {
+          "how": "홈런",
+          "text": "전의산8호9호(4회1점 6회1점 박신지 이용찬)",
+          "player": "전의산",
+          "playerCode": "50820",
+          "pitcher": "박신지",
+          "pitcherCode": "68249"
         },
         {
           "how": "홈런",
           "text": "조형우8호(4회1점 박신지)",
           "player": "조형우",
-          "pid": "kbo:b:51865"
+          "playerCode": "51865",
+          "pitcher": "박신지",
+          "pitcherCode": "68249"
         },
         {
           "how": "2루타",
           "text": "정준재(5회)",
           "player": "정준재",
-          "pid": "kbo:b:54812"
+          "playerCode": "54812"
         },
         {
           "how": "폭투",
           "text": "아빌라(8회)",
           "player": "아빌라",
-          "pid": "kbo:b:56801"
+          "playerCode": "56801"
         }
       ],
       "away": [
         {
-          "how": "홈런",
-          "text": "호9호(4회1점 6회1점 박신지 이용찬)",
-          "player": "호"
-        },
-        {
           "how": "실책",
           "text": "윤준호(3회)",
           "player": "윤준호",
-          "pid": "kbo:b:53296"
+          "playerCode": "53296"
         },
         {
           "how": "도루자",
           "text": "정수빈(6회)",
           "player": "정수빈",
-          "pid": "kbo:b:79231"
+          "playerCode": "79231"
         },
         {
           "how": "폭투",
           "text": "박신지(1회)",
           "player": "박신지",
-          "pid": "kbo:b:68249"
+          "playerCode": "68249"
         }
       ]
     }
@@ -37785,37 +37866,45 @@
           "how": "결승타",
           "text": "최원준(5회 1사 1,3루서 중견수 희생플라이)",
           "player": "최원준",
-          "pid": "kbo:b:66606"
+          "playerCode": "66606"
+        },
+        {
+          "how": "홈런",
+          "text": "안현민11호12호(1회3점 3회1점 왕옌청)",
+          "player": "안현민",
+          "playerCode": "52001",
+          "pitcher": "왕옌청",
+          "pitcherCode": "56719"
         },
         {
           "how": "3루타",
           "text": "장진혁(5회)",
           "player": "장진혁",
-          "pid": "kbo:b:66706"
+          "playerCode": "66706"
         },
         {
           "how": "2루타",
           "text": "오윤석(6회)",
           "player": "오윤석",
-          "pid": "kbo:b:64504"
+          "playerCode": "64504"
         },
         {
           "how": "2루타",
           "text": "허경민(6회)",
           "player": "허경민",
-          "pid": "kbo:b:79240"
+          "playerCode": "79240"
         },
         {
           "how": "실책",
           "text": "류현인(9회)",
           "player": "류현인",
-          "pid": "kbo:b:53036"
+          "playerCode": "53036"
         },
         {
           "how": "병살타",
           "text": "한승택(2회)",
           "player": "한승택",
-          "pid": "kbo:b:63722"
+          "playerCode": "63722"
         }
       ],
       "away": [
@@ -37823,66 +37912,65 @@
           "how": "홈런",
           "text": "김태연12호(1회3점 고영표)",
           "player": "김태연",
-          "pid": "kbo:b:66704"
-        },
-        {
-          "how": "홈런",
-          "text": "호12호(1회3점 3회1점 왕옌청)",
-          "player": "호"
+          "playerCode": "66704",
+          "pitcher": "고영표",
+          "pitcherCode": "64001"
         },
         {
           "how": "홈런",
           "text": "박정현7호(9회3점 박영현)",
           "player": "박정현",
-          "pid": "kbo:b:50709"
+          "playerCode": "50709",
+          "pitcher": "박영현",
+          "pitcherCode": "52060"
         },
         {
           "how": "2루타",
           "text": "문현빈(1회)",
           "player": "문현빈",
-          "pid": "kbo:b:53764"
+          "playerCode": "53764"
         },
         {
           "how": "2루타",
           "text": "황영묵(3회)",
           "player": "황영묵",
-          "pid": "kbo:b:54795"
+          "playerCode": "54795"
         },
         {
           "how": "2루타",
           "text": "장규현(8회)",
           "player": "장규현",
-          "pid": "kbo:b:51762"
+          "playerCode": "51762"
         },
         {
           "how": "2루타",
           "text": "심우준(8회)",
           "player": "심우준",
-          "pid": "kbo:b:64006"
+          "playerCode": "64006"
         },
         {
           "how": "실책",
           "text": "정우주(8회)",
           "player": "정우주",
-          "pid": "kbo:b:55743"
+          "playerCode": "55743"
         },
         {
           "how": "도루자",
           "text": "페라자(4회)",
           "player": "페라자",
-          "pid": "kbo:b:54730"
+          "playerCode": "54730"
         },
         {
           "how": "견제사",
           "text": "최인호(2회)",
           "player": "최인호",
-          "pid": "kbo:b:50707"
+          "playerCode": "50707"
         },
         {
           "how": "보크",
           "text": "정우주(8회)",
           "player": "정우주",
-          "pid": "kbo:b:55743"
+          "playerCode": "55743"
         }
       ]
     }
@@ -39239,80 +39327,83 @@
           "how": "결승타",
           "text": "김성윤(5회 1사 1,3루서 중전 안타)",
           "player": "김성윤",
-          "pid": "kbo:b:67449"
+          "playerCode": "67449"
         },
         {
           "how": "3루타",
           "text": "김지찬(6회)",
           "player": "김지찬",
-          "pid": "kbo:b:50458"
+          "playerCode": "50458"
         },
         {
           "how": "2루타",
           "text": "김지찬(1회)",
           "player": "김지찬",
-          "pid": "kbo:b:50458"
+          "playerCode": "50458"
         },
         {
           "how": "2루타",
           "text": "구자욱(3회)",
           "player": "구자욱",
-          "pid": "kbo:b:62404"
+          "playerCode": "62404"
         },
         {
           "how": "2루타",
           "text": "디아즈(6회)",
           "player": "디아즈",
-          "pid": "kbo:b:54400"
+          "playerCode": "54400"
         },
         {
           "how": "병살타",
           "text": "디아즈(1회)",
           "player": "디아즈",
-          "pid": "kbo:b:54400"
+          "playerCode": "54400"
         },
         {
           "how": "병살타",
           "text": "강민호(4회)",
           "player": "강민호",
-          "pid": "kbo:b:74540"
+          "playerCode": "74540"
         },
         {
           "how": "병살타",
           "text": "구자욱(5회)",
           "player": "구자욱",
-          "pid": "kbo:b:62404"
+          "playerCode": "62404"
         }
       ],
       "away": [
         {
           "how": "홈런",
-          "text": "호14호(2회1점 4회1점 최원태)",
-          "player": "호"
+          "text": "고승민13호14호(2회1점 4회1점 최원태)",
+          "player": "고승민",
+          "playerCode": "69517",
+          "pitcher": "최원태",
+          "pitcherCode": "65320"
         },
         {
           "how": "2루타",
           "text": "나승엽(8회)",
           "player": "나승엽",
-          "pid": "kbo:b:51551"
+          "playerCode": "51551"
         },
         {
           "how": "2루타",
           "text": "고승민(9회)",
           "player": "고승민",
-          "pid": "kbo:b:69517"
+          "playerCode": "69517"
         },
         {
           "how": "도루",
           "text": "황성빈2(1회)",
           "player": "황성빈",
-          "pid": "kbo:b:50500"
+          "playerCode": "50500"
         },
         {
           "how": "폭투",
           "text": "현도훈(6회)",
           "player": "현도훈",
-          "pid": "kbo:b:68260"
+          "playerCode": "68260"
         }
       ]
     }
@@ -43965,68 +44056,73 @@
           "how": "결승타",
           "text": "안재석(5회 2사 1루서 우중월 홈런)",
           "player": "안재석",
-          "pid": "kbo:b:51203"
+          "playerCode": "51203"
+        },
+        {
+          "how": "홈런",
+          "text": "안재석8호9호(5회2점 7회1점 안우진 조영건)",
+          "player": "안재석",
+          "playerCode": "51203",
+          "pitcher": "안우진",
+          "pitcherCode": "68341"
         },
         {
           "how": "홈런",
           "text": "김대한3호(8회1점 윤석원)",
           "player": "김대한",
-          "pid": "kbo:b:69238"
+          "playerCode": "69238",
+          "pitcher": "윤석원",
+          "pitcherCode": "52395"
         },
         {
           "how": "2루타",
           "text": "안재석(1회)",
           "player": "안재석",
-          "pid": "kbo:b:51203"
+          "playerCode": "51203"
         },
         {
           "how": "도루",
           "text": "박찬호(6회)",
           "player": "박찬호",
-          "pid": "kbo:b:64646"
+          "playerCode": "64646"
         },
         {
           "how": "주루사",
           "text": "박찬호(6회)",
           "player": "박찬호",
-          "pid": "kbo:b:64646"
+          "playerCode": "64646"
         }
       ],
       "away": [
         {
-          "how": "홈런",
-          "text": "호9호(5회2점 7회1점 안우진 조영건)",
-          "player": "호"
-        },
-        {
           "how": "3루타",
           "text": "서건창(3회)",
           "player": "서건창",
-          "pid": "kbo:b:78168"
+          "playerCode": "78168"
         },
         {
           "how": "2루타",
           "text": "권혁빈(3회)",
           "player": "권혁빈",
-          "pid": "kbo:b:55371"
+          "playerCode": "55371"
         },
         {
           "how": "2루타",
           "text": "추재현(3회)",
           "player": "추재현",
-          "pid": "kbo:b:68362"
+          "playerCode": "68362"
         },
         {
           "how": "병살타",
           "text": "김건희(6회)",
           "player": "김건희",
-          "pid": "kbo:b:53312"
+          "playerCode": "53312"
         },
         {
           "how": "병살타",
           "text": "서건창(7회)",
           "player": "서건창",
-          "pid": "kbo:b:78168"
+          "playerCode": "78168"
         }
       ]
     }
@@ -47189,37 +47285,47 @@
           "how": "결승타",
           "text": "김도영(3회 1사 1루서 좌중간 2루타)",
           "player": "김도영",
-          "pid": "kbo:b:52605"
+          "playerCode": "52605"
         },
         {
           "how": "홈런",
           "text": "김도영39호(1회3점 로드리게스)",
           "player": "김도영",
-          "pid": "kbo:b:52605"
+          "playerCode": "52605",
+          "pitcher": "로드리게스",
+          "pitcherCode": "56531"
+        },
+        {
+          "how": "홈런",
+          "text": "카스트로14호15호(4회2점 7회4점 로드리게스 이민석)",
+          "player": "카스트로",
+          "playerCode": "56626",
+          "pitcher": "로드리게스",
+          "pitcherCode": "56531"
         },
         {
           "how": "2루타",
           "text": "김도영(3회)",
           "player": "김도영",
-          "pid": "kbo:b:52605"
+          "playerCode": "52605"
         },
         {
           "how": "2루타",
           "text": "카스트로(3회)",
           "player": "카스트로",
-          "pid": "kbo:b:56626"
+          "playerCode": "56626"
         },
         {
           "how": "2루타",
           "text": "이호연(4회)",
           "player": "이호연",
-          "pid": "kbo:b:68504"
+          "playerCode": "68504"
         },
         {
           "how": "2루타",
           "text": "김선빈(5회)",
           "player": "김선빈",
-          "pid": "kbo:b:78603"
+          "playerCode": "78603"
         }
       ],
       "away": [
@@ -47227,42 +47333,41 @@
           "how": "홈런",
           "text": "레이예스14호(3회2점 황동하)",
           "player": "레이예스",
-          "pid": "kbo:b:54529"
-        },
-        {
-          "how": "홈런",
-          "text": "호15호(4회2점 7회4점 로드리게스 이민석)",
-          "player": "호"
+          "playerCode": "54529",
+          "pitcher": "황동하",
+          "pitcherCode": "52641"
         },
         {
           "how": "홈런",
           "text": "윤동희5호(8회1점 최지민)",
           "player": "윤동희",
-          "pid": "kbo:b:52591"
+          "playerCode": "52591",
+          "pitcher": "최지민",
+          "pitcherCode": "52639"
         },
         {
           "how": "2루타",
           "text": "레이예스(1회)",
           "player": "레이예스",
-          "pid": "kbo:b:54529"
+          "playerCode": "54529"
         },
         {
           "how": "2루타",
           "text": "박건우(7회)",
           "player": "박건우",
-          "pid": "kbo:b:55509"
+          "playerCode": "55509"
         },
         {
           "how": "2루타",
           "text": "박재엽(8회)",
           "player": "박재엽",
-          "pid": "kbo:b:55563"
+          "playerCode": "55563"
         },
         {
           "how": "폭투",
           "text": "이민석(7회)",
           "player": "이민석",
-          "pid": "kbo:b:52530"
+          "playerCode": "52530"
         }
       ]
     }
@@ -47289,50 +47394,55 @@
           "how": "결승타",
           "text": "오스틴(1회 2사서 좌월 홈런)",
           "player": "오스틴",
-          "pid": "kbo:b:53123"
+          "playerCode": "53123"
+        },
+        {
+          "how": "홈런",
+          "text": "오스틴34호35호(1회1점 7회3점 구창모 최요한)",
+          "player": "오스틴",
+          "playerCode": "53123",
+          "pitcher": "구창모",
+          "pitcherCode": "65933"
         },
         {
           "how": "홈런",
           "text": "송찬의13호(2회1점 구창모)",
           "player": "송찬의",
-          "pid": "kbo:b:68110"
+          "playerCode": "68110",
+          "pitcher": "구창모",
+          "pitcherCode": "65933"
         },
         {
           "how": "3루타",
           "text": "신민재(2회)",
           "player": "신민재",
-          "pid": "kbo:b:65207"
+          "playerCode": "65207"
         },
         {
           "how": "도루자",
           "text": "박해민(2회)",
           "player": "박해민",
-          "pid": "kbo:b:62415"
+          "playerCode": "62415"
         },
         {
           "how": "병살타",
           "text": "박해민(5회)",
           "player": "박해민",
-          "pid": "kbo:b:62415"
+          "playerCode": "62415"
         }
       ],
       "away": [
         {
-          "how": "홈런",
-          "text": "호35호(1회1점 7회3점 구창모 최요한)",
-          "player": "호"
-        },
-        {
           "how": "실책",
           "text": "신재인2(5 7회)",
           "player": "신재인",
-          "pid": "kbo:b:56909"
+          "playerCode": "56909"
         },
         {
           "how": "도루",
           "text": "박민우(6회)",
           "player": "박민우",
-          "pid": "kbo:b:62907"
+          "playerCode": "62907"
         }
       ]
     }
@@ -52980,7 +53090,7 @@
           "how": "병살타",
           "text": "김재환(7회)",
           "player": "김재환",
-          "pid": "kbo:b:78224"
+          "playerCode": "78224"
         }
       ],
       "away": [
@@ -52990,38 +53100,41 @@
         },
         {
           "how": "홈런",
-          "text": "호10호(4회1점 8회2점 김건우 전영준)",
-          "player": "호"
+          "text": "안현민9호10호(4회1점 8회2점 김건우 전영준)",
+          "player": "안현민",
+          "playerCode": "52001",
+          "pitcher": "김건우",
+          "pitcherCode": "51867"
         },
         {
           "how": "2루타",
           "text": "최원준(6회)",
           "player": "최원준",
-          "pid": "kbo:b:66606"
+          "playerCode": "66606"
         },
         {
           "how": "실책",
           "text": "이정범(5회)",
           "player": "이정범",
-          "pid": "kbo:b:67807"
+          "playerCode": "67807"
         },
         {
           "how": "병살타",
           "text": "김현수2(3 10회)",
           "player": "김현수",
-          "pid": "kbo:b:76290"
+          "playerCode": "76290"
         },
         {
           "how": "폭투",
           "text": "손동현(6회)",
           "player": "손동현",
-          "pid": "kbo:b:69041"
+          "playerCode": "69041"
         },
         {
           "how": "보크",
           "text": "우규민(11회)",
           "player": "우규민",
-          "pid": "kbo:b:73117"
+          "playerCode": "73117"
         }
       ]
     }
@@ -53167,31 +53280,31 @@
           "how": "2루타",
           "text": "안재석(7회)",
           "player": "안재석",
-          "pid": "kbo:b:51203"
+          "playerCode": "51203"
         },
         {
           "how": "2루타",
           "text": "정수빈(9회)",
           "player": "정수빈",
-          "pid": "kbo:b:79231"
+          "playerCode": "79231"
         },
         {
           "how": "실책",
           "text": "박지훈(7회)",
           "player": "박지훈",
-          "pid": "kbo:b:50204"
+          "playerCode": "50204"
         },
         {
           "how": "실책",
           "text": "박찬호(8회)",
           "player": "박찬호",
-          "pid": "kbo:b:64646"
+          "playerCode": "64646"
         },
         {
           "how": "병살타",
           "text": "안재석(4회)",
           "player": "안재석",
-          "pid": "kbo:b:51203"
+          "playerCode": "51203"
         }
       ],
       "away": [
@@ -53199,48 +53312,51 @@
           "how": "결승타",
           "text": "레이예스(5회 2사 2루서 우전 안타)",
           "player": "레이예스",
-          "pid": "kbo:b:54529"
+          "playerCode": "54529"
         },
         {
           "how": "홈런",
-          "text": "호12호(6회1점 8회4점 김정우 이병헌)",
-          "player": "호"
+          "text": "고승민11호12호(6회1점 8회4점 김정우 이병헌)",
+          "player": "고승민",
+          "playerCode": "69517",
+          "pitcher": "김정우",
+          "pitcherCode": "68830"
         },
         {
           "how": "2루타",
           "text": "전민재(2회)",
           "player": "전민재",
-          "pid": "kbo:b:68205"
+          "playerCode": "68205"
         },
         {
           "how": "2루타",
           "text": "레이예스(3회)",
           "player": "레이예스",
-          "pid": "kbo:b:54529"
+          "playerCode": "54529"
         },
         {
           "how": "2루타",
           "text": "나승엽(5회)",
           "player": "나승엽",
-          "pid": "kbo:b:51551"
+          "playerCode": "51551"
         },
         {
           "how": "도루",
           "text": "전민재(6회)",
           "player": "전민재",
-          "pid": "kbo:b:68205"
+          "playerCode": "68205"
         },
         {
           "how": "도루",
           "text": "김동혁(8회)",
           "player": "김동혁",
-          "pid": "kbo:b:52504"
+          "playerCode": "52504"
         },
         {
           "how": "주루사",
           "text": "한태양(6회)",
           "player": "한태양",
-          "pid": "kbo:b:52568"
+          "playerCode": "52568"
         }
       ]
     }
@@ -61974,86 +62090,99 @@
           "how": "결승타",
           "text": "구자욱(4회 무사서 우월 홈런)",
           "player": "구자욱",
-          "pid": "kbo:b:62404"
+          "playerCode": "62404"
+        },
+        {
+          "how": "홈런",
+          "text": "구자욱11호12호(4회1점 6회1점 짐머맨 이민우)",
+          "player": "구자욱",
+          "playerCode": "62404",
+          "pitcher": "짐머맨",
+          "pitcherCode": "56799"
         },
         {
           "how": "홈런",
           "text": "이재현13호(5회1점 짐머맨)",
           "player": "이재현",
-          "pid": "kbo:b:52415"
+          "playerCode": "52415",
+          "pitcher": "짐머맨",
+          "pitcherCode": "56799"
         },
         {
           "how": "홈런",
           "text": "강민호9호(5회1점 짐머맨)",
           "player": "강민호",
-          "pid": "kbo:b:74540"
+          "playerCode": "74540",
+          "pitcher": "짐머맨",
+          "pitcherCode": "56799"
         },
         {
           "how": "도루",
           "text": "류지혁(6회)",
           "player": "류지혁",
-          "pid": "kbo:b:62234"
+          "playerCode": "62234"
         },
         {
           "how": "도루자",
           "text": "김성윤(6회)",
           "player": "김성윤",
-          "pid": "kbo:b:67449"
+          "playerCode": "67449"
         },
         {
           "how": "병살타",
           "text": "김성윤(8회)",
           "player": "김성윤",
-          "pid": "kbo:b:67449"
+          "playerCode": "67449"
         },
         {
           "how": "폭투",
           "text": "김태훈(7회)",
           "player": "김태훈",
-          "pid": "kbo:b:62360"
+          "playerCode": "62360"
         },
         {
           "how": "폭투",
           "text": "사토시(8회)",
           "player": "사토시",
-          "pid": "kbo:b:56474"
+          "playerCode": "56474"
         }
       ],
       "away": [
         {
           "how": "홈런",
-          "text": "호12호(4회1점 6회1점 짐머맨 이민우)",
-          "player": "호"
-        },
-        {
-          "how": "홈런",
           "text": "문현빈12호(6회1점 최원태)",
           "player": "문현빈",
-          "pid": "kbo:b:53764"
+          "playerCode": "53764",
+          "pitcher": "최원태",
+          "pitcherCode": "65320"
         },
         {
           "how": "홈런",
           "text": "박정현3호(8회3점 사토시)",
           "player": "박정현",
-          "pid": "kbo:b:50709"
+          "playerCode": "50709",
+          "pitcher": "사토시",
+          "pitcherCode": "56474"
         },
         {
           "how": "홈런",
           "text": "강백호25호(8회1점 사토시)",
           "player": "강백호",
-          "pid": "kbo:b:68050"
+          "playerCode": "68050",
+          "pitcher": "사토시",
+          "pitcherCode": "56474"
         },
         {
           "how": "2루타",
           "text": "노시환(8회)",
           "player": "노시환",
-          "pid": "kbo:b:69737"
+          "playerCode": "69737"
         },
         {
           "how": "병살타",
           "text": "노시환2(4 9회)",
           "player": "노시환",
-          "pid": "kbo:b:69737"
+          "playerCode": "69737"
         }
       ]
     }
@@ -63240,31 +63369,41 @@
           "how": "결승타",
           "text": "김주원(8회 무사서 우월 홈런)",
           "player": "김주원",
-          "pid": "kbo:b:51907"
+          "playerCode": "51907"
+        },
+        {
+          "how": "홈런",
+          "text": "안중열2호3호(5회1점 7회3점 대니엘 스기모토)",
+          "player": "안중열",
+          "playerCode": "64022",
+          "pitcher": "대니엘",
+          "pitcherCode": "56002"
         },
         {
           "how": "홈런",
           "text": "김주원14호(8회1점 손동현)",
           "player": "김주원",
-          "pid": "kbo:b:51907"
+          "playerCode": "51907",
+          "pitcher": "손동현",
+          "pitcherCode": "69041"
         },
         {
           "how": "도루자",
           "text": "박시원(7회)",
           "player": "박시원",
-          "pid": "kbo:b:50996"
+          "playerCode": "50996"
         },
         {
           "how": "병살타",
           "text": "안중열(3회)",
           "player": "안중열",
-          "pid": "kbo:b:64022"
+          "playerCode": "64022"
         },
         {
           "how": "폭투",
           "text": "임지민(9회)",
           "player": "임지민",
-          "pid": "kbo:b:52902"
+          "playerCode": "52902"
         }
       ],
       "away": [
@@ -63272,30 +63411,29 @@
           "how": "홈런",
           "text": "힐리어드30호(1회2점 테일러)",
           "player": "힐리어드",
-          "pid": "kbo:b:56034"
+          "playerCode": "56034",
+          "pitcher": "테일러",
+          "pitcherCode": "56966"
         },
         {
           "how": "홈런",
           "text": "권동진2호(3회1점 테일러)",
           "player": "권동진",
-          "pid": "kbo:b:51003"
-        },
-        {
-          "how": "홈런",
-          "text": "호3호(5회1점 7회3점 대니엘 스기모토)",
-          "player": "호"
+          "playerCode": "51003",
+          "pitcher": "테일러",
+          "pitcherCode": "56966"
         },
         {
           "how": "2루타",
           "text": "안현민(1회)",
           "player": "안현민",
-          "pid": "kbo:b:52001"
+          "playerCode": "52001"
         },
         {
           "how": "견제사",
           "text": "김민혁(4회)",
           "player": "김민혁",
-          "pid": "kbo:b:64004"
+          "playerCode": "64004"
         }
       ]
     }
@@ -63415,13 +63553,13 @@
           "how": "2루타",
           "text": "전의산(4회)",
           "player": "전의산",
-          "pid": "kbo:b:50820"
+          "playerCode": "50820"
         },
         {
           "how": "2루타",
           "text": "김재환(6회)",
           "player": "김재환",
-          "pid": "kbo:b:78224"
+          "playerCode": "78224"
         }
       ],
       "away": [
@@ -63429,54 +63567,63 @@
           "how": "결승타",
           "text": "손성빈(3회 무사 1,3루서 유격수 땅볼)",
           "player": "손성빈",
-          "pid": "kbo:b:51528"
+          "playerCode": "51528"
         },
         {
           "how": "홈런",
           "text": "손성빈4호(4회2점 타케다)",
           "player": "손성빈",
-          "pid": "kbo:b:51528"
+          "playerCode": "51528",
+          "pitcher": "타케다",
+          "pitcherCode": "56823"
         },
         {
           "how": "홈런",
           "text": "한태양1호(4회1점 타케다)",
           "player": "한태양",
-          "pid": "kbo:b:52568"
+          "playerCode": "52568",
+          "pitcher": "타케다",
+          "pitcherCode": "56823"
         },
         {
           "how": "홈런",
-          "text": "호9호(4회1점 5회2점 타케다)",
-          "player": "호"
+          "text": "고승민8호9호(4회1점 5회2점 타케다)",
+          "player": "고승민",
+          "playerCode": "69517",
+          "pitcher": "타케다",
+          "pitcherCode": "56823"
         },
         {
           "how": "홈런",
           "text": "한동희13호(7회2점 박시후)",
           "player": "한동희",
-          "pid": "kbo:b:68525"
+          "playerCode": "68525",
+          "pitcher": "박시후",
+          "pitcherCode": "50812"
         },
         {
           "how": "3루타",
           "text": "황성빈(3회)",
           "player": "황성빈",
-          "pid": "kbo:b:50500"
+          "playerCode": "50500"
         },
         {
           "how": "2루타",
           "text": "나승엽(3회)",
           "player": "나승엽",
-          "pid": "kbo:b:51551"
+          "playerCode": "51551"
         },
         {
           "how": "실책",
           "text": "김세민(8회)",
           "player": "김세민",
-          "pid": "kbo:b:52514"
+          "playerCode": "52514"
         },
         {
           "how": "도루자",
           "text": "황성빈(1회)",
           "player": "황성빈",
-          "pid": "kbo:b:50500"
+          "playerCode": "50500"
         }
       ]
     }
@@ -76550,44 +76697,49 @@
           "how": "결승타",
           "text": "박준순(5회 2사 1루서 좌월 홈런)",
           "player": "박준순",
-          "pid": "kbo:b:55252"
+          "playerCode": "55252"
+        },
+        {
+          "how": "홈런",
+          "text": "김대한1호2호(2회1점 7회1점 송승기 이우찬)",
+          "player": "김대한",
+          "playerCode": "69238",
+          "pitcher": "송승기",
+          "pitcherCode": "51111"
         },
         {
           "how": "홈런",
           "text": "박준순15호(5회2점 송승기)",
           "player": "박준순",
-          "pid": "kbo:b:55252"
+          "playerCode": "55252",
+          "pitcher": "송승기",
+          "pitcherCode": "51111"
         },
         {
           "how": "2루타",
           "text": "박준순(1회)",
           "player": "박준순",
-          "pid": "kbo:b:55252"
+          "playerCode": "55252"
         },
         {
           "how": "실책",
           "text": "안재석(6회)",
           "player": "안재석",
-          "pid": "kbo:b:51203"
+          "playerCode": "51203"
         }
       ],
       "away": [
         {
-          "how": "홈런",
-          "text": "호2호(2회1점 7회1점 송승기 이우찬)",
-          "player": "호"
-        },
-        {
           "how": "2루타",
           "text": "이주헌(2회)",
           "player": "이주헌",
-          "pid": "kbo:b:52154"
+          "playerCode": "52154"
         },
         {
           "how": "도루",
           "text": "박해민2(6회)",
           "player": "박해민",
-          "pid": "kbo:b:62415"
+          "playerCode": "62415"
         }
       ]
     }
@@ -77543,64 +77695,80 @@
         {
           "how": "2루타",
           "text": "김형준(2회)",
-          "player": "김형준"
+          "player": "김형준",
+          "playerCode": "68912"
         },
         {
           "how": "2루타",
           "text": "김휘집(4회)",
-          "player": "김휘집"
+          "player": "김휘집",
+          "playerCode": "51344"
         },
         {
           "how": "2루타",
           "text": "블레인(4회)",
-          "player": "블레인"
+          "player": "블레인",
+          "playerCode": "56950"
         }
       ],
       "away": [
         {
           "how": "결승타",
           "text": "류현인(2회 2사 2루서 중전 안타)",
-          "player": "류현인"
+          "player": "류현인",
+          "playerCode": "53036"
         },
         {
           "how": "홈런",
-          "text": "호6호(4회1점 5회2점 구창모)",
-          "player": "호"
+          "text": "안현민5호6호(4회1점 5회2점 구창모)",
+          "player": "안현민",
+          "playerCode": "52001",
+          "pitcher": "구창모",
+          "pitcherCode": "65933"
         },
         {
           "how": "홈런",
           "text": "힐리어드28호(8회1점 송명기)",
-          "player": "힐리어드"
+          "player": "힐리어드",
+          "playerCode": "56034",
+          "pitcher": "송명기",
+          "pitcherCode": "69962"
         },
         {
           "how": "3루타",
           "text": "김민혁(4회)",
-          "player": "김민혁"
+          "player": "김민혁",
+          "playerCode": "64004"
         },
         {
           "how": "2루타",
           "text": "김상수(2회)",
-          "player": "김상수"
+          "player": "김상수",
+          "playerCode": "79402"
         },
         {
           "how": "2루타",
           "text": "김민혁(6회)",
-          "player": "김민혁"
+          "player": "김민혁",
+          "playerCode": "64004"
         },
         {
           "how": "2루타",
           "text": "허경민(8회)",
-          "player": "허경민"
+          "player": "허경민",
+          "playerCode": "79240"
         },
         {
           "how": "실책",
           "text": "이강민2(8 9회)",
-          "player": "이강민"
+          "player": "이강민",
+          "playerCode": "56006"
         },
         {
           "how": "견제사",
           "text": "류현인(4회)",
-          "player": "류현인"
+          "player": "류현인",
+          "playerCode": "53036"
         }
       ]
     }
@@ -78716,79 +78884,98 @@
         {
           "how": "2루타",
           "text": "이우성(1회)",
-          "player": "이우성"
+          "player": "이우성",
+          "playerCode": "63260"
         },
         {
           "how": "2루타",
           "text": "신재인(6회)",
-          "player": "신재인"
+          "player": "신재인",
+          "playerCode": "56909"
         },
         {
           "how": "2루타",
           "text": "김형준(7회)",
-          "player": "김형준"
+          "player": "김형준",
+          "playerCode": "68912"
         },
         {
           "how": "실책",
           "text": "전사민2(8회)",
-          "player": "전사민"
+          "player": "전사민",
+          "playerCode": "69969"
         },
         {
           "how": "도루",
           "text": "김주원(3회)",
-          "player": "김주원"
+          "player": "김주원",
+          "playerCode": "51907"
         },
         {
           "how": "도루",
           "text": "천재환(3회)",
-          "player": "천재환"
+          "player": "천재환",
+          "playerCode": "67905"
         },
         {
           "how": "폭투",
           "text": "신영우(7회)",
-          "player": "신영우"
+          "player": "신영우",
+          "playerCode": "53919"
         },
         {
           "how": "폭투",
           "text": "전사민(8회)",
-          "player": "전사민"
+          "player": "전사민",
+          "playerCode": "69969"
         },
         {
           "how": "보크",
           "text": "신영우(7회)",
-          "player": "신영우"
+          "player": "신영우",
+          "playerCode": "53919"
         }
       ],
       "away": [
         {
           "how": "결승타",
           "text": "힐리어드(1회 2사 3루서 우월 홈런)",
-          "player": "힐리어드"
+          "player": "힐리어드",
+          "playerCode": "56034"
         },
         {
           "how": "홈런",
-          "text": "호27호(1회2점 4회1점 테일러)",
-          "player": "호"
+          "text": "힐리어드26호27호(1회2점 4회1점 테일러)",
+          "player": "힐리어드",
+          "playerCode": "56034",
+          "pitcher": "테일러",
+          "pitcherCode": "56966"
         },
         {
           "how": "홈런",
           "text": "장진혁1호(9회2점 홍재문)",
-          "player": "장진혁"
+          "player": "장진혁",
+          "playerCode": "66706",
+          "pitcher": "홍재문",
+          "pitcherCode": "55996"
         },
         {
           "how": "2루타",
           "text": "김현수(5회)",
-          "player": "김현수"
+          "player": "김현수",
+          "playerCode": "76290"
         },
         {
           "how": "도루",
           "text": "최원준(1회)",
-          "player": "최원준"
+          "player": "최원준",
+          "playerCode": "66606"
         },
         {
           "how": "도루자",
           "text": "오윤석(4회)",
-          "player": "오윤석"
+          "player": "오윤석",
+          "playerCode": "64504"
         }
       ]
     }
@@ -83385,55 +83572,67 @@
           "how": "결승타",
           "text": "나성범(1회 1사 1,3루서 중월 홈런)",
           "player": "나성범",
-          "pid": "kbo:b:62947"
+          "playerCode": "62947"
         },
         {
           "how": "홈런",
           "text": "나성범20호(1회3점 박준현)",
           "player": "나성범",
-          "pid": "kbo:b:62947"
+          "playerCode": "62947",
+          "pitcher": "박준현",
+          "pitcherCode": "56318"
+        },
+        {
+          "how": "홈런",
+          "text": "박재현11호12호(7회1점 8회1점 정다훈 최현우)",
+          "player": "박재현",
+          "playerCode": "55636",
+          "pitcher": "정다훈",
+          "pitcherCode": "56345"
         },
         {
           "how": "홈런",
           "text": "김도영29호(8회1점 최현우)",
           "player": "김도영",
-          "pid": "kbo:b:52605"
+          "playerCode": "52605",
+          "pitcher": "최현우",
+          "pitcherCode": "56312"
         },
         {
           "how": "3루타",
           "text": "김호령(4회)",
           "player": "김호령",
-          "pid": "kbo:b:65653"
+          "playerCode": "65653"
         },
         {
           "how": "2루타",
           "text": "박상준(1회)",
           "player": "박상준",
-          "pid": "kbo:b:52634"
+          "playerCode": "52634"
         },
         {
           "how": "2루타",
           "text": "하주석(1회)",
           "player": "하주석",
-          "pid": "kbo:b:62700"
+          "playerCode": "62700"
         },
         {
           "how": "2루타",
           "text": "카스트로(2회)",
           "player": "카스트로",
-          "pid": "kbo:b:56626"
+          "playerCode": "56626"
         },
         {
           "how": "도루",
           "text": "김민규(7회)",
           "player": "김민규",
-          "pid": "kbo:b:56637"
+          "playerCode": "56637"
         },
         {
           "how": "병살타",
           "text": "나성범(5회)",
           "player": "나성범",
-          "pid": "kbo:b:62947"
+          "playerCode": "62947"
         }
       ],
       "away": [
@@ -83441,18 +83640,17 @@
           "how": "홈런",
           "text": "추재현3호(5회1점 양현종)",
           "player": "추재현",
-          "pid": "kbo:b:68362"
-        },
-        {
-          "how": "홈런",
-          "text": "호12호(7회1점 8회1점 정다훈 최현우)",
-          "player": "호"
+          "playerCode": "68362",
+          "pitcher": "양현종",
+          "pitcherCode": "77637"
         },
         {
           "how": "홈런",
           "text": "이형종4호(9회2점 이태양)",
           "player": "이형종",
-          "pid": "kbo:b:78135"
+          "playerCode": "78135",
+          "pitcher": "이태양",
+          "pitcherCode": "60768"
         }
       ]
     }
@@ -91002,94 +91200,124 @@
         {
           "how": "홈런",
           "text": "김휘집6호(2회2점 잭로그)",
-          "player": "김휘집"
+          "player": "김휘집",
+          "playerCode": "51344",
+          "pitcher": "잭로그",
+          "pitcherCode": "55239"
         },
         {
           "how": "홈런",
           "text": "한재환1호(7회1점 타카다)",
-          "player": "한재환"
+          "player": "한재환",
+          "playerCode": "50903",
+          "pitcher": "타카다",
+          "pitcherCode": "56212"
         },
         {
           "how": "홈런",
           "text": "박민우6호(7회1점 김택연)",
-          "player": "박민우"
+          "player": "박민우",
+          "playerCode": "62907",
+          "pitcher": "김택연",
+          "pitcherCode": "54263"
         },
         {
           "how": "2루타",
           "text": "김휘집(8회)",
-          "player": "김휘집"
+          "player": "김휘집",
+          "playerCode": "51344"
         },
         {
           "how": "실책",
           "text": "블레인(4회)",
-          "player": "블레인"
+          "player": "블레인",
+          "playerCode": "56950"
         },
         {
           "how": "실책",
           "text": "김형준(6회)",
-          "player": "김형준"
+          "player": "김형준",
+          "playerCode": "68912"
         },
         {
           "how": "도루",
           "text": "박건우(3회)",
-          "player": "박건우"
+          "player": "박건우",
+          "playerCode": "79215"
         }
       ],
       "away": [
         {
           "how": "결승타",
           "text": "안재석(7회 1사 만루서 우월 홈런)",
-          "player": "안재석"
+          "player": "안재석",
+          "playerCode": "51203"
         },
         {
           "how": "홈런",
-          "text": "호13호(1회1점 8회1점 구창모 김준원)",
-          "player": "호"
+          "text": "박준순12호13호(1회1점 8회1점 구창모 김준원)",
+          "player": "박준순",
+          "playerCode": "55252",
+          "pitcher": "구창모",
+          "pitcherCode": "65933"
         },
         {
           "how": "홈런",
           "text": "박찬호5호(1회1점 구창모)",
-          "player": "박찬호"
+          "player": "박찬호",
+          "playerCode": "64646",
+          "pitcher": "구창모",
+          "pitcherCode": "65933"
         },
         {
           "how": "홈런",
-          "text": "호6호(2회1점 7회4점 구창모 김태훈)",
-          "player": "호"
+          "text": "안재석5호6호(2회1점 7회4점 구창모 김태훈)",
+          "player": "안재석",
+          "playerCode": "51203",
+          "pitcher": "구창모",
+          "pitcherCode": "65933"
         },
         {
           "how": "2루타",
           "text": "안재석(3회)",
-          "player": "안재석"
+          "player": "안재석",
+          "playerCode": "51203"
         },
         {
           "how": "실책",
           "text": "박준순(3회)",
-          "player": "박준순"
+          "player": "박준순",
+          "playerCode": "55252"
         },
         {
           "how": "실책",
           "text": "박찬호(3회)",
-          "player": "박찬호"
+          "player": "박찬호",
+          "playerCode": "64646"
         },
         {
           "how": "실책",
           "text": "김대한(8회)",
-          "player": "김대한"
+          "player": "김대한",
+          "playerCode": "69238"
         },
         {
           "how": "도루",
           "text": "정수빈(9회)",
-          "player": "정수빈"
+          "player": "정수빈",
+          "playerCode": "79231"
         },
         {
           "how": "병살타",
           "text": "박찬호(4회)",
-          "player": "박찬호"
+          "player": "박찬호",
+          "playerCode": "64646"
         },
         {
           "how": "병살타",
           "text": "양의지(5회)",
-          "player": "양의지"
+          "player": "양의지",
+          "playerCode": "76232"
         }
       ]
     }
@@ -92036,34 +92264,42 @@
         {
           "how": "2루타",
           "text": "이재원(8회)",
-          "player": "이재원"
+          "player": "이재원",
+          "playerCode": "68106"
         },
         {
           "how": "주루사",
           "text": "문보경(2회)",
-          "player": "문보경"
+          "player": "문보경",
+          "playerCode": "69102"
         },
         {
           "how": "병살타",
           "text": "문정빈(9회)",
-          "player": "문정빈"
+          "player": "문정빈",
+          "playerCode": "52121"
         }
       ],
       "away": [
         {
           "how": "결승타",
           "text": "힐리어드(3회 2사 만루서 좌월 홈런)",
-          "player": "힐리어드"
+          "player": "힐리어드",
+          "playerCode": "56034"
         },
         {
           "how": "홈런",
-          "text": "호22호(3회4점 5회2점 웰스)",
-          "player": "호"
+          "text": "힐리어드21호22호(3회4점 5회2점 웰스)",
+          "player": "힐리어드",
+          "playerCode": "56034",
+          "pitcher": "웰스",
+          "pitcherCode": "55348"
         },
         {
           "how": "폭투",
           "text": "스기모토(8회)",
-          "player": "스기모토"
+          "player": "스기모토",
+          "playerCode": "56011"
         }
       ]
     }
@@ -100650,54 +100886,66 @@
         {
           "how": "2루타",
           "text": "박성한(6회)",
-          "player": "박성한"
+          "player": "박성한",
+          "playerCode": "67893"
         },
         {
           "how": "주루사",
           "text": "전의산(2회)",
-          "player": "전의산"
+          "player": "전의산",
+          "playerCode": "50820"
         },
         {
           "how": "병살타",
           "text": "조형우(5회)",
-          "player": "조형우"
+          "player": "조형우",
+          "playerCode": "51865"
         }
       ],
       "away": [
         {
           "how": "결승타",
           "text": "김지찬(2회 2사 1,2루서 우전 안타)",
-          "player": "김지찬"
+          "player": "김지찬",
+          "playerCode": "50458"
         },
         {
           "how": "홈런",
-          "text": "호6호(5회3점 6회3점 전영준 백승건)",
-          "player": "호"
+          "text": "강민호5호6호(5회3점 6회3점 전영준 백승건)",
+          "player": "강민호",
+          "playerCode": "74540",
+          "pitcher": "전영준",
+          "pitcherCode": "52809"
         },
         {
           "how": "2루타",
           "text": "김현준(2회)",
-          "player": "김현준"
+          "player": "김현준",
+          "playerCode": "51417"
         },
         {
           "how": "2루타",
           "text": "디아즈2(3 5회)",
-          "player": "디아즈"
+          "player": "디아즈",
+          "playerCode": "54400"
         },
         {
           "how": "실책",
           "text": "류지혁(6회)",
-          "player": "류지혁"
+          "player": "류지혁",
+          "playerCode": "62234"
         },
         {
           "how": "도루자",
           "text": "김성윤(4회)",
-          "player": "김성윤"
+          "player": "김성윤",
+          "playerCode": "67449"
         },
         {
           "how": "주루사",
           "text": "디아즈(3회)",
-          "player": "디아즈"
+          "player": "디아즈",
+          "playerCode": "54400"
         }
       ]
     }
