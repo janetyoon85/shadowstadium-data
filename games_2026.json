@@ -847558,11 +847558,11 @@
     "time": "23:00",
     "league": "SCOTTISHCUP",
     "venueId": "venue_tbc",
-    "home": "Strathspey Thistle",
-    "away": "Dalbeattie Star",
+    "home": "렌프루",
+    "away": "Broxburn",
     "stadium": "",
     "timeTbd": false,
-    "gameId": "SCOTTISHCUP_ESPN_401921119",
+    "gameId": "SCOTTISHCUP_ESPN_401921128",
     "status": "completed",
     "homeScore": 3,
     "awayScore": 2
@@ -847572,11 +847572,11 @@
     "time": "23:00",
     "league": "SCOTTISHCUP",
     "venueId": "venue_tbc",
-    "home": "렌프루",
-    "away": "Broxburn",
+    "home": "Strathspey Thistle",
+    "away": "Dalbeattie Star",
     "stadium": "",
     "timeTbd": false,
-    "gameId": "SCOTTISHCUP_ESPN_401921128",
+    "gameId": "SCOTTISHCUP_ESPN_401921119",
     "status": "completed",
     "homeScore": 3,
     "awayScore": 2
@@ -1071094,7 +1071094,7 @@
       "away": []
     },
     "assistsChecked": true,
-    "assistsAt": 1795224158853
+    "assistsAt": 1795231417065
   },
   {
     "date": "2026-11-21",
@@ -1071836,16 +1071836,18 @@
     "status": "live",
     "homeScore": 10,
     "awayScore": 11,
-    "inningInfo": "9회초",
+    "inningInfo": "9회말",
     "liveState": {
       "pitcher": "Valentin Linarez",
-      "batter": "Oswaldo Cabrera",
+      "batter": "Leobaldo Piña",
       "pitcherPid": "mlb:679066",
-      "batterPid": "mlb:665828",
-      "ball": 0,
-      "strike": 3,
-      "out": 3,
-      "bases": []
+      "batterPid": "mlb:600951",
+      "ball": 1,
+      "strike": 2,
+      "out": 0,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -1072101,15 +1072103,15 @@
     "status": "live",
     "homeScore": 4,
     "awayScore": 8,
-    "inningInfo": "8회말",
+    "inningInfo": "9회초",
     "liveState": {
-      "pitcher": "Luis Rodriguez",
-      "batter": "Francisco Mejía",
-      "pitcherPid": "mlb:845212",
-      "batterPid": "mlb:642336",
+      "pitcher": "Rodrigo Benoit",
+      "batter": "Ronny Mauricio",
+      "pitcherPid": "mlb:646081",
+      "batterPid": "mlb:677595",
       "ball": 2,
       "strike": 2,
-      "out": 3,
+      "out": 1,
       "bases": []
     }
   },
@@ -1072337,16 +1072339,14 @@
     "awayScore": 3,
     "inningInfo": "6회말",
     "liveState": {
-      "pitcher": "Randy Wynne",
-      "batter": "Carlos Mendivil",
-      "pitcherPid": "mlb:691094",
-      "batterPid": "mlb:641104",
-      "ball": 0,
-      "strike": 0,
-      "out": 1,
-      "bases": [
-        1
-      ]
+      "pitcher": "Irving Vazquez",
+      "batter": "Johan Lopez",
+      "pitcherPid": "mlb:802744",
+      "batterPid": "mlb:835115",
+      "ball": 2,
+      "strike": 1,
+      "out": 3,
+      "bases": []
     }
   },
   {
@@ -1072361,7 +1072361,7 @@
     "gameId": "COLOMBIA_ESPN_401934707",
     "status": "live",
     "phaseCode": "T4",
-    "matchPeriod": "후반 84'",
+    "matchPeriod": "후반 88'",
     "homeScore": 0,
     "awayScore": 0,
     "cards": {
@@ -1072410,7 +1072410,7 @@
     "timeTbd": false,
     "gameId": "COSTARICA_ESPN_401876818",
     "status": "live",
-    "matchPeriod": "후반 59'",
+    "matchPeriod": "후반 63'",
     "homeScore": 1,
     "awayScore": 2,
     "scorers": {
@@ -1072453,14 +1072453,16 @@
     "inningInfo": "5회초",
     "liveState": {
       "pitcher": "Luis Cessa",
-      "batter": "Randy Romero",
+      "batter": "Dayson Croes",
       "pitcherPid": "mlb:570666",
-      "batterPid": "mlb:678499",
+      "batterPid": "mlb:806401",
       "ball": 0,
-      "strike": 2,
+      "strike": 0,
       "out": 2,
       "bases": [
-        1
+        1,
+        2,
+        3
       ]
     }
   },
@@ -1072480,13 +1072482,15 @@
     "inningInfo": "3회초",
     "liveState": {
       "pitcher": "Wilmer Rios",
-      "batter": "Ciro Norzagaray",
+      "batter": "Jesus Fabela",
       "pitcherPid": "mlb:658140",
-      "batterPid": "mlb:664021",
-      "ball": 2,
+      "batterPid": "mlb:652999",
+      "ball": 1,
       "strike": 2,
-      "out": 0,
-      "bases": []
+      "out": 2,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -1072525,11 +1072529,18 @@
     "timeTbd": false,
     "gameId": "LIGAMX_ESPN_401877053",
     "status": "live",
-    "matchPeriod": "전반 21'",
-    "homeScore": 0,
+    "matchPeriod": "전반 25'",
+    "homeScore": 1,
     "awayScore": 1,
     "scorers": {
-      "home": [],
+      "home": [
+        {
+          "n": "Óscar Estupiñán",
+          "m": 23,
+          "nat": "Colombia",
+          "pid": "espn:219158"
+        }
+      ],
       "away": [
         {
           "n": "Víctor Ríos",
@@ -1072551,7 +1072562,7 @@
     "timeTbd": false,
     "gameId": "LIGAMX_ESPN_401877052",
     "status": "live",
-    "matchPeriod": "전반 11'",
+    "matchPeriod": "전반 16'",
     "homeScore": 0,
     "awayScore": 0
   },
@@ -1081338,18 +1081349,6 @@
     "time": "05:00",
     "league": "HONDURAS",
     "venueId": "venue_tbc",
-    "home": "UPNFM",
-    "away": "후티칼파",
-    "stadium": "",
-    "timeTbd": true,
-    "gameId": "HONDURAS_ESPN_401926720",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-11-29",
-    "time": "05:00",
-    "league": "HONDURAS",
-    "venueId": "venue_tbc",
     "home": "마라톤",
     "away": "헤네시스 PN",
     "stadium": "",
@@ -1081403,6 +1081402,18 @@
     "stadium": "",
     "timeTbd": true,
     "gameId": "HONDURAS_ESPN_401926721",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-29",
+    "time": "05:00",
+    "league": "HONDURAS",
+    "venueId": "venue_tbc",
+    "home": "UPNFM",
+    "away": "후티칼파",
+    "stadium": "",
+    "timeTbd": true,
+    "gameId": "HONDURAS_ESPN_401926720",
     "status": "scheduled"
   },
   {
