@@ -42,10 +42,14 @@ jobs:
       - name: Run player latin-names backfill
         run: node scripts/backfill-player-latin-names.mjs || echo "latin 백필 실패(무시)"
 
+      # 국적 보완(2026-11-22 "레인저스 김민수 국기 없음") — ESPN 이 국적을 안 주는 선수를 위키데이터로(생일이 같은 한 명, 생일을 모르면 현재 클럽이 같은 한 명). 회당 60명, 실패해도 다음 단계를 막지 않는다.
+      - name: Run player nationality fallback
+        run: node scripts/backfill-player-nat-wikidata.mjs || echo "국적 보완 실패(무시)"
+
       - name: Check for changes
         id: changes
         run: |
-          if [[ -n "$(git status --porcelain player-name-ko.json player-ko-tried.json player-name-i18n.json player-name-latin.json player-latin-tried.json)" ]]; then
+          if [[ -n "$(git status --porcelain player-name-ko.json player-ko-tried.json player-name-i18n.json player-name-latin.json player-latin-tried.json player-nat-fallback.json player-nat-tried.json)" ]]; then
             echo "changed=true" >> $GITHUB_OUTPUT
           else
             echo "changed=false" >> $GITHUB_OUTPUT
@@ -57,6 +61,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add player-name-ko.json player-ko-tried.json player-name-i18n.json
+          git add player-nat-fallback.json player-nat-tried.json 2>/dev/null || true
           git add player-name-latin.json player-latin-tried.json 2>/dev/null || true # 새 파일은 첫 실행 전엔 없을 수 있다 — 따로 add 해야 기존 파일 add 가 깨지지 않는다
           git commit -m "chore(data): 선수 한글명 백필 ($(date +'%Y-%m-%d %H:%M'))"
           for i in $(seq 1 20); do
