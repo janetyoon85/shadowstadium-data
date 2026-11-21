@@ -17,16 +17,28 @@
     "r": 1
   },
   "KTWILmFs1eaP7p2": {
-    "homeAssists": [],
+    "homeAssists": [
+      "Jonathan Clauss"
+    ],
     "awayAssists": [],
-    "homeNats": [],
+    "homeNats": [
+      "Algeria"
+    ],
     "awayNats": [],
-    "homeANats": [],
+    "homeANats": [
+      "France"
+    ],
     "awayANats": [],
-    "homePids": [],
+    "homePids": [
+      "espn:315384"
+    ],
     "awayPids": [],
-    "homeAPids": [],
-    "homePks": [],
+    "homeAPids": [
+      "espn:232089"
+    ],
+    "homePks": [
+      false
+    ],
     "awayPks": [],
     "awayAPids": [],
     "final": false,
@@ -235,7 +247,7 @@
   "niGQORMQxFdT2VH": {
     "homeAssists": [
       "Pedro Porro",
-      "Luca Williams-Barnett"
+      null
     ],
     "awayAssists": [],
     "homeNats": [
@@ -245,7 +257,7 @@
     "awayNats": [],
     "homeANats": [
       "Spain",
-      "England"
+      null
     ],
     "awayANats": [],
     "homePids": [
@@ -255,7 +267,7 @@
     "awayPids": [],
     "homeAPids": [
       "espn:268533",
-      "espn:395939"
+      null
     ],
     "homePks": [
       false,
@@ -703,16 +715,19 @@
     "homeAssists": [
       null,
       null,
+      null,
       null
     ],
     "awayAssists": [],
     "homeNats": [
       "England",
       "Colombia",
+      "Scotland",
       "Scotland"
     ],
     "awayNats": [],
     "homeANats": [
+      null,
       null,
       null,
       null
@@ -721,15 +736,18 @@
     "homePids": [
       "espn:145392",
       "espn:367591",
-      "espn:259208"
+      "espn:259208",
+      "espn:84049"
     ],
     "awayPids": [],
     "homeAPids": [
       null,
       null,
+      null,
       null
     ],
     "homePks": [
+      false,
       false,
       false,
       false
@@ -887,6 +905,71 @@
     "sv": 5,
     "r": 1
   },
+  "GynycfayrXaf6n4": {
+    "homeAssists": [
+      null
+    ],
+    "awayAssists": [
+      null,
+      "Brajan Gruda",
+      "Christopher Nkunku",
+      "David Raum",
+      "Tidiam Gomis"
+    ],
+    "homeNats": [
+      "Switzerland"
+    ],
+    "awayNats": [
+      "Norway",
+      "Brazil",
+      "Germany",
+      "Germany",
+      "Germany"
+    ],
+    "homeANats": [
+      null
+    ],
+    "awayANats": [
+      null,
+      "Germany",
+      "France",
+      "Germany",
+      "France"
+    ],
+    "homePids": [
+      "espn:245623"
+    ],
+    "awayPids": [
+      "espn:319368",
+      "espn:324766",
+      "espn:357683",
+      "espn:307364",
+      "espn:258963"
+    ],
+    "homeAPids": [
+      null
+    ],
+    "homePks": [
+      false
+    ],
+    "awayPks": [
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "awayAPids": [
+      null,
+      "espn:357683",
+      "espn:222176",
+      "espn:249548",
+      "espn:366911"
+    ],
+    "final": false,
+    "sv": 5,
+    "r": 1
+  },
   "39ANP85MlvmVhVw": {
     "homeAssists": [],
     "awayAssists": [
@@ -912,7 +995,7 @@
     "awayAPids": [
       null
     ],
-    "final": false,
+    "final": true,
     "sv": 5,
     "r": 1
   },
@@ -941,7 +1024,7 @@
     "awayAPids": [
       "espn:231190"
     ],
-    "final": false,
+    "final": true,
     "sv": 5,
     "r": 1
   },
@@ -988,66 +1071,7 @@
     ],
     "awayPks": [],
     "awayAPids": [],
-    "final": false,
-    "sv": 5,
-    "r": 1
-  },
-  "GynycfayrXaf6n4": {
-    "homeAssists": [
-      null
-    ],
-    "awayAssists": [
-      null,
-      "Brajan Gruda",
-      "Christopher Nkunku",
-      "David Raum"
-    ],
-    "homeNats": [
-      "Switzerland"
-    ],
-    "awayNats": [
-      "Norway",
-      "Brazil",
-      "Germany",
-      "Germany"
-    ],
-    "homeANats": [
-      null
-    ],
-    "awayANats": [
-      null,
-      "Germany",
-      "France",
-      "Germany"
-    ],
-    "homePids": [
-      "espn:245623"
-    ],
-    "awayPids": [
-      "espn:319368",
-      "espn:324766",
-      "espn:357683",
-      "espn:307364"
-    ],
-    "homeAPids": [
-      null
-    ],
-    "homePks": [
-      false
-    ],
-    "awayPks": [
-      true,
-      false,
-      false,
-      false
-    ],
-    "awayAPids": [
-      null,
-      "espn:357683",
-      "espn:222176",
-      "espn:249548"
-    ],
-    "final": false,
+    "final": true,
     "sv": 5,
     "r": 1
   },
@@ -1076,7 +1100,7 @@
     ],
     "awayPks": [],
     "awayAPids": [],
-    "final": false,
+    "final": true,
     "sv": 5,
     "r": 1
   },
@@ -6742,7 +6766,7 @@
     "awayAPids": [],
     "final": true,
     "sv": 5,
-    "at": 1795278218961,
+    "at": 1795278517300,
     "r": 1
   },
   "oG9pAHLybwzt9hD": {
@@ -8589,7 +8613,7 @@
     "awayAPids": [],
     "final": true,
     "sv": 5,
-    "at": 1795278220574,
+    "at": 1795278519314,
     "r": 1
   },
   "Mp3JmsbQrqNqiAU": {
