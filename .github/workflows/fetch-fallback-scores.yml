@@ -73,13 +73,13 @@ jobs:
           STANDINGS_DRY: ${{ github.event.inputs.dry == 'true' && '1' || '' }}
         run: node scripts/fetch-standings-fallback.mjs || echo "순위표 보조 실패(무시)"
 
-      # 유럽 축구 ESPN 보강(카드·승부차기만 games.json 에 병합; euro_*.json·player-name-auto.json 은 이 모드가 저장하지 않고 복원 — 2026-10-27 사고 후) — 네이버 없이 ESPN 만 사용. 호출 위상과 무관하게 실행을 번갈아(약 4분에 1번; 진행 중 경기에 도움 없는 득점이 있으면 2분에 1번 — 2026-11-22 도움 알림 지연 단축, scripts/live-assist-gate.mjs) 돌리고, 자체 예산·캐시를 가진 기존 보강 함수를 재사용한다.
+      # 유럽 축구 ESPN 보강(카드·승부차기만 games.json 에 병합; euro_*.json·player-name-auto.json 은 이 모드가 저장하지 않고 복원 — 2026-10-27 사고 후) — 네이버 없이 ESPN 만 사용. 호출 위상과 무관하게 실행을 번갈아(약 4분에 1번; 진행 중 경기에 도움 없는 득점이 있으면 1분에 1번(매 실행) — 2026-11-22 도움 알림 지연 단축, scripts/live-assist-gate.mjs) 돌리고, 자체 예산·캐시를 가진 기존 보강 함수를 재사용한다.
       - name: Euro ESPN enrichment (alternate runs)
         env:
           EURO_ENRICH_ONLY: '1'
           EURO_ENRICH_DRY: ${{ github.event.inputs.dry == 'true' && '1' || '' }}
         run: |
-          if [ $(( $(date +%s) / 60 % 4 )) -eq 0 ] || { [ $(( $(date +%s) / 60 % 2 )) -eq 0 ] && DATA_ROOT="$PWD" node scripts/live-assist-gate.mjs; } || grep -q '"status": "down"' naver-health.json 2>/dev/null; then node scripts/fetch-schedule.mjs || echo "유럽 보강 실패(무시)"; else echo "유럽 보강: 이번 실행은 건너뜀"; fi
+          if [ $(( $(date +%s) / 60 % 4 )) -eq 0 ] || DATA_ROOT="$PWD" node scripts/live-assist-gate.mjs || grep -q '"status": "down"' naver-health.json 2>/dev/null; then node scripts/fetch-schedule.mjs || echo "유럽 보강 실패(무시)"; else echo "유럽 보강: 이번 실행은 건너뜀"; fi
 
       - name: Check for changes
         id: changes
