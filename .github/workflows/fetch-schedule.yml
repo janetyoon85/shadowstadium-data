@@ -136,6 +136,11 @@ jobs:
       # ESPN 해외축구 크롤러들도 scorers를 채우므로, 이 스텝에서 막 커밋 예정인 games.json을
       # 다시 읽어서 전체를 반영(단일 인메모리 상태만 보면 다른 크롤러 리그가 빠짐).
       # 선수 번호(pid) 채우기(2026-11-21 "pid 없는 선수 … 다 조치") — 같은 팀·같은 이름으로 번호가 하나로 맞는 빈 기록만 채운다(규칙 lib/missing-pids.mjs). 실패해도 다음 단계를 막지 않는다.
+      # 이름이 "호"로 잘린 옛 홈런 하이라이트 복구(2026-11-21) — 한 번에 15경기, 네이버 /record 재조회. 복구할 게 없으면 바로 끝난다.
+      - name: Repair truncated highlight names
+        if: steps.act.outputs.skip != 'true'
+        run: node scripts/fix-bogus-highlights.mjs || echo "하이라이트 이름 복구 실패(무시)"
+
       - name: Fill missing player ids
         if: steps.act.outputs.skip != 'true'
         run: node scripts/autofix-missing-pids.mjs || echo "pid 채우기 실패(무시)"
