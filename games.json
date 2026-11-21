@@ -59368,38 +59368,6 @@
   {
     "date": "2026-03-04",
     "time": "19:00",
-    "league": "ACL2",
-    "venueId": "panasonic_stadium_suita",
-    "home": "감바 오사카",
-    "away": "라차부리",
-    "stadium": "파나소닉 스타디움 스이타",
-    "timeTbd": false,
-    "gameId": "vMQl5HEfnRYLMzO",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 1,
-    "scorers": {
-      "home": [
-        {
-          "n": "나와타",
-          "m": 84
-        }
-      ],
-      "away": [
-        {
-          "n": "다니엘 팅",
-          "m": 18
-        }
-      ]
-    },
-    "phaseCode": "T8",
-    "leg": 1,
-    "homeAggregateScore": 3,
-    "awayAggregateScore": 2
-  },
-  {
-    "date": "2026-03-04",
-    "time": "19:00",
     "league": "ACL",
     "venueId": "seoulwc",
     "home": "서울",
@@ -59466,6 +59434,38 @@
     "leg": 1,
     "homeAggregateScore": 1,
     "awayAggregateScore": 3
+  },
+  {
+    "date": "2026-03-04",
+    "time": "19:00",
+    "league": "ACL2",
+    "venueId": "panasonic_stadium_suita",
+    "home": "감바 오사카",
+    "away": "라차부리",
+    "stadium": "파나소닉 스타디움 스이타",
+    "timeTbd": false,
+    "gameId": "vMQl5HEfnRYLMzO",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "나와타",
+          "m": 84
+        }
+      ],
+      "away": [
+        {
+          "n": "다니엘 팅",
+          "m": 18
+        }
+      ]
+    },
+    "phaseCode": "T8",
+    "leg": 1,
+    "homeAggregateScore": 3,
+    "awayAggregateScore": 2
   },
   {
     "date": "2026-03-04",
@@ -75687,7 +75687,7 @@
     "status": "completed",
     "awayPitcher": "베니지아노",
     "homePitcher": "올러",
-    "awayPitcherPid": "kbo:p:56841",
+    "awayPitcherPid": "kbo:b:56841",
     "homePitcherPid": "kbo:b:55633",
     "awayScore": 4,
     "homeScore": 9,
@@ -75763,7 +75763,7 @@
           "how": "폭투",
           "text": "윤태현(4회)",
           "player": "윤태현",
-          "pid": "kbo:p:52867"
+          "pid": "kbo:b:52867"
         }
       ]
     }
@@ -75781,7 +75781,7 @@
     "status": "completed",
     "awayPitcher": "하영민",
     "homePitcher": "플렉센",
-    "awayPitcherPid": "kbo:p:64350",
+    "awayPitcherPid": "kbo:b:64350",
     "homePitcherPid": "kbo:p:50234",
     "awayScore": 7,
     "homeScore": 9,
@@ -86771,65 +86771,57 @@
           "how": "결승타",
           "text": "허인서(2회 2사서 좌월 홈런)",
           "player": "허인서",
-          "playerCode": "52764",
           "pid": "kbo:b:52764"
         },
         {
           "how": "홈런",
           "text": "허인서2호3호(2회1점 7회2점 김건우 윤태현)",
           "player": "허인서",
-          "playerCode": "52764",
           "pitcher": "김건우",
-          "pitcherCode": "51867",
-          "pid": "kbo:b:52764"
+          "pid": "kbo:b:52764",
+          "pitcherPid": "kbo:p:51867"
         },
         {
           "how": "2루타",
           "text": "최인호(1회)",
           "player": "최인호",
-          "playerCode": "50707",
           "pid": "kbo:b:50707"
         },
         {
           "how": "2루타",
           "text": "이도윤(5회)",
           "player": "이도윤",
-          "playerCode": "65703",
           "pid": "kbo:b:65703"
         },
         {
           "how": "실책",
           "text": "한지윤(1회)",
           "player": "한지윤",
-          "playerCode": "55767",
           "pid": "kbo:b:55767"
         },
         {
           "how": "실책",
           "text": "최유빈(2회)",
           "player": "최유빈",
-          "playerCode": "56793",
           "pid": "kbo:b:56793"
         },
         {
           "how": "도루",
           "text": "최유빈(7회)",
           "player": "최유빈",
-          "playerCode": "56793",
           "pid": "kbo:b:56793"
         },
         {
           "how": "포일",
           "text": "허인서(2회)",
           "player": "허인서",
-          "playerCode": "52764",
           "pid": "kbo:b:52764"
         },
         {
           "how": "폭투",
           "text": "박준영(8회)",
           "player": "박준영",
-          "playerCode": "52731"
+          "pid": "kbo:b:52731"
         }
       ],
       "away": [
@@ -86837,21 +86829,18 @@
           "how": "도루",
           "text": "김성욱(5회)",
           "player": "김성욱",
-          "playerCode": "62934",
           "pid": "kbo:b:62934"
         },
         {
           "how": "도루",
           "text": "오태곤(7회)",
           "player": "오태곤",
-          "playerCode": "60558",
           "pid": "kbo:b:60558"
         },
         {
           "how": "병살타",
           "text": "오태곤(9회)",
           "player": "오태곤",
-          "playerCode": "60558",
           "pid": "kbo:b:60558"
         }
       ]
@@ -86931,7 +86920,7 @@
           "how": "폭투",
           "text": "김현수(6회)",
           "player": "김현수",
-          "pid": "kbo:p:69516"
+          "pid": "kbo:b:56664"
         },
         {
           "how": "폭투",
@@ -87161,21 +87150,18 @@
           "how": "2루타",
           "text": "박인우(9회)",
           "player": "박인우",
-          "playerCode": "54911",
           "pid": "kbo:b:54911"
         },
         {
           "how": "주루사",
           "text": "신재인(8회)",
           "player": "신재인",
-          "playerCode": "56909",
           "pid": "kbo:b:56909"
         },
         {
           "how": "병살타",
           "text": "서호철(4회)",
           "player": "서호철",
-          "playerCode": "69995",
           "pid": "kbo:b:69995"
         }
       ],
@@ -87184,59 +87170,53 @@
           "how": "결승타",
           "text": "박주홍(2회 무사 1루서 우월 홈런)",
           "player": "박주홍",
-          "playerCode": "50357",
           "pid": "kbo:b:50357"
         },
         {
           "how": "홈런",
           "text": "박주홍1호(2회2점 라일리)",
           "player": "박주홍",
-          "playerCode": "50357",
           "pitcher": "라일리",
-          "pitcherCode": "55903",
-          "pid": "kbo:b:50357"
+          "pid": "kbo:b:50357",
+          "pitcherPid": "kbo:p:55903"
         },
         {
           "how": "홈런",
           "text": "어준서1호2호(2회1점 4회2점 라일리)",
           "player": "어준서",
-          "playerCode": "55392",
           "pitcher": "라일리",
-          "pitcherCode": "55903",
-          "pid": "kbo:b:55392"
+          "pid": "kbo:b:55392",
+          "pitcherPid": "kbo:p:55903"
         },
         {
           "how": "2루타",
           "text": "박찬혁(6회)",
           "player": "박찬혁",
-          "playerCode": "52348",
           "pid": "kbo:b:52348"
         },
         {
           "how": "2루타",
           "text": "김태진(8회)",
           "player": "김태진",
-          "playerCode": "64984",
           "pid": "kbo:b:64984"
         },
         {
           "how": "2루타",
           "text": "추재현(9회)",
           "player": "추재현",
-          "playerCode": "68362",
           "pid": "kbo:b:68362"
         },
         {
           "how": "폭투",
           "text": "박준현(7회)",
           "player": "박준현",
-          "playerCode": "56318"
+          "pid": "kbo:b:56318"
         },
         {
           "how": "폭투",
           "text": "조영건(8회)",
           "player": "조영건",
-          "playerCode": "69360"
+          "pid": "kbo:b:69360"
         }
       ]
     }
@@ -94747,7 +94727,7 @@
     "awayPitcher": "이승민",
     "homePitcher": "베니지아노",
     "awayPitcherPid": "kbo:p:50464",
-    "homePitcherPid": "kbo:p:56841",
+    "homePitcherPid": "kbo:b:56841",
     "awayScore": 4,
     "homeScore": 8,
     "winPitcher": "베니지아노",
@@ -94884,7 +94864,7 @@
     "status": "completed",
     "awayPitcher": "하영민",
     "homePitcher": "박세웅",
-    "awayPitcherPid": "kbo:p:64350",
+    "awayPitcherPid": "kbo:b:64350",
     "homePitcherPid": "kbo:p:64021",
     "awayScore": 4,
     "homeScore": 4,
@@ -94967,7 +94947,7 @@
     "awayPitcher": "김진수",
     "homePitcher": "오원석",
     "awayPitcherPid": "kbo:p:51154",
-    "homePitcherPid": "kbo:p:50859",
+    "homePitcherPid": "kbo:b:50859",
     "awayScore": 5,
     "homeScore": 8,
     "winPitcher": "오원석",
@@ -94989,43 +94969,37 @@
           "how": "결승타",
           "text": "류현인(1회 1사 2,3루서 우익수 2루타)",
           "player": "류현인",
-          "playerCode": "53036",
           "pid": "kbo:b:53036"
         },
         {
           "how": "2루타",
           "text": "장성우(1회)",
           "player": "장성우",
-          "playerCode": "78548",
           "pid": "kbo:b:78548"
         },
         {
           "how": "2루타",
           "text": "류현인(1회)",
           "player": "류현인",
-          "playerCode": "53036",
           "pid": "kbo:b:53036"
         },
         {
           "how": "2루타",
           "text": "힐리어드(7회)",
           "player": "힐리어드",
-          "playerCode": "56034",
           "pid": "kbo:b:56034"
         },
         {
           "how": "도루자",
           "text": "유준규(7회)",
           "player": "유준규",
-          "playerCode": "51013",
           "pid": "kbo:b:51013"
         },
         {
           "how": "폭투",
           "text": "오원석(1회)",
           "player": "오원석",
-          "playerCode": "50859",
-          "pid": "kbo:p:50859"
+          "pid": "kbo:b:50859"
         }
       ],
       "away": [
@@ -95033,62 +95007,54 @@
           "how": "홈런",
           "text": "이재원2호3호(1회1점 8회1점 오원석 김민수)",
           "player": "이재원",
-          "playerCode": "68106",
           "pitcher": "오원석",
-          "pitcherCode": "50859",
-          "pid": "kbo:b:68106"
+          "pid": "kbo:b:68106",
+          "pitcherPid": "kbo:p:50859"
         },
         {
           "how": "홈런",
           "text": "오스틴2호(4회1점 오원석)",
           "player": "오스틴",
-          "playerCode": "53123",
           "pitcher": "오원석",
-          "pitcherCode": "50859",
-          "pid": "kbo:b:53123"
+          "pid": "kbo:b:53123",
+          "pitcherPid": "kbo:p:50859"
         },
         {
           "how": "홈런",
           "text": "송찬의1호(9회2점 손동현)",
           "player": "송찬의",
-          "playerCode": "68110",
           "pitcher": "손동현",
-          "pitcherCode": "69041",
-          "pid": "kbo:b:68110"
+          "pid": "kbo:b:68110",
+          "pitcherPid": "kbo:p:69041"
         },
         {
           "how": "실책",
           "text": "오스틴(2회)",
           "player": "오스틴",
-          "playerCode": "53123",
           "pid": "kbo:b:53123"
         },
         {
           "how": "실책",
           "text": "추세현(2회)",
           "player": "추세현",
-          "playerCode": "55163",
           "pid": "kbo:b:55163"
         },
         {
           "how": "병살타",
           "text": "문성주(1회)",
           "player": "문성주",
-          "playerCode": "68119",
           "pid": "kbo:b:68119"
         },
         {
           "how": "병살타",
           "text": "홍창기2(3 6회)",
           "player": "홍창기",
-          "playerCode": "66108",
           "pid": "kbo:b:66108"
         },
         {
           "how": "병살타",
           "text": "송찬의(4회)",
           "player": "송찬의",
-          "playerCode": "68110",
           "pid": "kbo:b:68110"
         }
       ]
@@ -98953,48 +98919,42 @@
           "how": "결승타",
           "text": "김태연(9회 1사 1루서 좌월 홈런)",
           "player": "김태연",
-          "playerCode": "66704",
           "pid": "kbo:b:66704"
         },
         {
           "how": "홈런",
           "text": "심우준1호(7회1점 홍건희)",
           "player": "심우준",
-          "playerCode": "64006",
           "pitcher": "홍건희",
-          "pitcherCode": "61643",
-          "pid": "kbo:b:64006"
+          "pid": "kbo:b:64006",
+          "pitcherPid": "kbo:p:61643"
         },
         {
           "how": "홈런",
           "text": "허인서4호(9회1점 전상현)",
           "player": "허인서",
-          "playerCode": "52764",
           "pitcher": "전상현",
-          "pitcherCode": "66609",
-          "pid": "kbo:b:52764"
+          "pid": "kbo:b:52764",
+          "pitcherPid": "kbo:p:66609"
         },
         {
           "how": "홈런",
           "text": "김태연1호(9회2점 전상현)",
           "player": "김태연",
-          "playerCode": "66704",
           "pitcher": "전상현",
-          "pitcherCode": "66609",
-          "pid": "kbo:b:66704"
+          "pid": "kbo:b:66704",
+          "pitcherPid": "kbo:p:66609"
         },
         {
           "how": "2루타",
           "text": "심우준(3회)",
           "player": "심우준",
-          "playerCode": "64006",
           "pid": "kbo:b:64006"
         },
         {
           "how": "2루타",
           "text": "문현빈2(3 5회)",
           "player": "문현빈",
-          "playerCode": "53764",
           "pid": "kbo:b:53764"
         }
       ],
@@ -99003,54 +98963,47 @@
           "how": "홈런",
           "text": "김태군1호(5회1점 화이트)",
           "player": "김태군",
-          "playerCode": "78122",
           "pitcher": "화이트",
-          "pitcherCode": "56724",
-          "pid": "kbo:b:78122"
+          "pid": "kbo:b:78122",
+          "pitcherPid": "kbo:p:56724"
         },
         {
           "how": "홈런",
           "text": "박민1호2호(7회1점 9회1점 이상규 정우주)",
           "player": "박민",
-          "playerCode": "50657",
           "pitcher": "이상규",
-          "pitcherCode": "65117",
-          "pid": "kbo:b:50657"
+          "pid": "kbo:b:50657",
+          "pitcherPid": "kbo:p:65117"
         },
         {
           "how": "2루타",
           "text": "김호령(1회)",
           "player": "김호령",
-          "playerCode": "65653",
           "pid": "kbo:b:65653"
         },
         {
           "how": "도루",
           "text": "이창진(6회)",
           "player": "이창진",
-          "playerCode": "64560",
           "pid": "kbo:b:64560"
         },
         {
           "how": "도루",
           "text": "정현창(6회)",
           "player": "정현창",
-          "playerCode": "55926",
           "pid": "kbo:b:55926"
         },
         {
           "how": "병살타",
           "text": "이창진(7회)",
           "player": "이창진",
-          "playerCode": "64560",
           "pid": "kbo:b:64560"
         },
         {
           "how": "폭투",
           "text": "김현수(3회)",
           "player": "김현수",
-          "playerCode": "56664",
-          "pid": "kbo:p:69516"
+          "pid": "kbo:b:56664"
         }
       ]
     }
@@ -99091,56 +99044,49 @@
           "how": "홈런",
           "text": "최정2호(4회2점 송승기)",
           "player": "최정",
-          "playerCode": "75847",
           "pitcher": "송승기",
-          "pitcherCode": "51111",
-          "pid": "kbo:b:75847"
+          "pid": "kbo:b:75847",
+          "pitcherPid": "kbo:p:51111"
         },
         {
           "how": "홈런",
           "text": "고명준2호3호(4회1점 6회1점 김영우 장현식)",
           "player": "고명준",
-          "playerCode": "51868",
           "pitcher": "김영우",
-          "pitcherCode": "55167",
-          "pid": "kbo:b:51868"
+          "pid": "kbo:b:51868",
+          "pitcherPid": "kbo:p:55167"
         },
         {
           "how": "홈런",
           "text": "조형우1호(8회1점 함덕주)",
           "player": "조형우",
-          "playerCode": "51865",
           "pitcher": "함덕주",
-          "pitcherCode": "63248",
-          "pid": "kbo:b:51865"
+          "pid": "kbo:b:51865",
+          "pitcherPid": "kbo:p:63248"
         },
         {
           "how": "3루타",
           "text": "정준재(7회)",
           "player": "정준재",
-          "playerCode": "54812",
           "pid": "kbo:b:54812"
         },
         {
           "how": "2루타",
           "text": "임근우(7회)",
           "player": "임근우",
-          "playerCode": "52807",
           "pid": "kbo:b:52807"
         },
         {
           "how": "도루",
           "text": "오태곤(8회)",
           "player": "오태곤",
-          "playerCode": "60558",
           "pid": "kbo:b:60558"
         },
         {
           "how": "폭투",
           "text": "윤태현(6회)",
           "player": "윤태현",
-          "playerCode": "52867",
-          "pid": "kbo:p:52867"
+          "pid": "kbo:b:52867"
         }
       ],
       "away": [
@@ -99148,53 +99094,46 @@
           "how": "결승타",
           "text": "오스틴(5회 무사 1루서 좌월 홈런)",
           "player": "오스틴",
-          "playerCode": "53123",
           "pid": "kbo:b:53123"
         },
         {
           "how": "홈런",
           "text": "오스틴3호(5회2점 이기순)",
           "player": "오스틴",
-          "playerCode": "53123",
           "pitcher": "이기순",
-          "pitcherCode": "52868",
-          "pid": "kbo:b:53123"
+          "pid": "kbo:b:53123",
+          "pitcherPid": "kbo:p:52868"
         },
         {
           "how": "홈런",
           "text": "송찬의2호(9회2점 정동윤)",
           "player": "송찬의",
-          "playerCode": "68110",
           "pitcher": "정동윤",
-          "pitcherCode": "66858",
-          "pid": "kbo:b:68110"
+          "pid": "kbo:b:68110",
+          "pitcherPid": "kbo:p:66858"
         },
         {
           "how": "3루타",
           "text": "이영빈(6회)",
           "player": "이영빈",
-          "playerCode": "51100",
           "pid": "kbo:b:51100"
         },
         {
           "how": "2루타",
           "text": "박동원(7회)",
           "player": "박동원",
-          "playerCode": "79365",
           "pid": "kbo:b:79365"
         },
         {
           "how": "2루타",
           "text": "송찬의(8회)",
           "player": "송찬의",
-          "playerCode": "68110",
           "pid": "kbo:b:68110"
         },
         {
           "how": "병살타",
           "text": "홍창기(1회)",
           "player": "홍창기",
-          "playerCode": "66108",
           "pid": "kbo:b:66108"
         }
       ]
@@ -103293,66 +103232,59 @@
           "how": "홈런",
           "text": "박준순2호(6회3점 한재승)",
           "player": "박준순",
-          "playerCode": "55252",
           "pitcher": "한재승",
-          "pitcherCode": "51994",
-          "pid": "kbo:b:55252"
+          "pid": "kbo:b:55252",
+          "pitcherPid": "kbo:p:51994"
         },
         {
           "how": "홈런",
           "text": "윤준호1호(9회1점 성영탁)",
           "player": "윤준호",
-          "playerCode": "53296",
           "pitcher": "성영탁",
-          "pitcherCode": "54610",
-          "pid": "kbo:b:53296"
+          "pid": "kbo:b:53296",
+          "pitcherPid": "kbo:p:54610"
         },
         {
           "how": "2루타",
           "text": "강승호(2회)",
           "player": "강승호",
-          "playerCode": "63123",
           "pid": "kbo:b:63123"
         },
         {
           "how": "2루타",
           "text": "카메론(6회)",
           "player": "카메론",
-          "playerCode": "56251",
           "pid": "kbo:b:56251"
         },
         {
           "how": "실책",
           "text": "최승용(3회)",
           "player": "최승용",
-          "playerCode": "51264"
+          "pid": "kbo:b:51264"
         },
         {
           "how": "도루",
           "text": "강승호(4회)",
           "player": "강승호",
-          "playerCode": "63123",
           "pid": "kbo:b:63123"
         },
         {
           "how": "도루",
           "text": "조수행(7회)",
           "player": "조수행",
-          "playerCode": "66209",
           "pid": "kbo:b:66209"
         },
         {
           "how": "주루사",
           "text": "양의지(6회)",
           "player": "양의지",
-          "playerCode": "76232",
           "pid": "kbo:b:76232"
         },
         {
           "how": "보크",
           "text": "최민석(7회)",
           "player": "최민석",
-          "playerCode": "55268"
+          "pid": "kbo:b:55268"
         }
       ],
       "away": [
@@ -103360,74 +103292,64 @@
           "how": "결승타",
           "text": "정현창(3회 무사 1,2루서 우중월 홈런)",
           "player": "정현창",
-          "playerCode": "55926",
           "pid": "kbo:b:55926"
         },
         {
           "how": "홈런",
           "text": "정현창1호(3회3점 최승용)",
           "player": "정현창",
-          "playerCode": "55926",
           "pitcher": "최승용",
-          "pitcherCode": "51264",
-          "pid": "kbo:b:55926"
+          "pid": "kbo:b:55926",
+          "pitcherPid": "kbo:p:51264"
         },
         {
           "how": "홈런",
           "text": "윤도현2호3호(3회1점 5회1점 최승용 최원준)",
           "player": "윤도현",
-          "playerCode": "52667",
           "pitcher": "최승용",
-          "pitcherCode": "51264",
-          "pid": "kbo:b:52667"
+          "pid": "kbo:b:52667",
+          "pitcherPid": "kbo:p:51264"
         },
         {
           "how": "3루타",
           "text": "박민(3회)",
           "player": "박민",
-          "playerCode": "50657",
           "pid": "kbo:b:50657"
         },
         {
           "how": "2루타",
           "text": "김석환(7회)",
           "player": "김석환",
-          "playerCode": "67610",
           "pid": "kbo:b:67610"
         },
         {
           "how": "2루타",
           "text": "나성범(9회)",
           "player": "나성범",
-          "playerCode": "62947",
           "pid": "kbo:b:62947"
         },
         {
           "how": "2루타",
           "text": "오선우(9회)",
           "player": "오선우",
-          "playerCode": "69636",
           "pid": "kbo:b:69636"
         },
         {
           "how": "도루",
           "text": "정현창(4회)",
           "player": "정현창",
-          "playerCode": "55926",
           "pid": "kbo:b:55926"
         },
         {
           "how": "도루",
           "text": "이창진(9회)",
           "player": "이창진",
-          "playerCode": "64560",
           "pid": "kbo:b:64560"
         },
         {
           "how": "도루자",
           "text": "김호령(3회)",
           "player": "김호령",
-          "playerCode": "65653",
           "pid": "kbo:b:65653"
         }
       ]
@@ -109406,41 +109328,36 @@
           "how": "결승타",
           "text": "레이예스(3회 무사 1루서 우월 홈런)",
           "player": "레이예스",
-          "playerCode": "54529",
           "pid": "kbo:b:54529"
         },
         {
           "how": "홈런",
           "text": "레이예스1호(3회2점 에르난데스)",
           "player": "레이예스",
-          "playerCode": "54529",
           "pitcher": "에르난데스",
-          "pitcherCode": "56712",
-          "pid": "kbo:b:54529"
+          "pid": "kbo:b:54529",
+          "pitcherPid": "kbo:p:56712"
         },
         {
           "how": "홈런",
           "text": "유강남1호2호(3회3점 6회2점 에르난데스 박준영)",
           "player": "유강남",
-          "playerCode": "61102",
           "pitcher": "에르난데스",
-          "pitcherCode": "56712",
-          "pid": "kbo:b:61102"
+          "pid": "kbo:b:61102",
+          "pitcherPid": "kbo:p:56712"
         },
         {
           "how": "홈런",
           "text": "신윤후1호(7회2점 박상원)",
           "player": "신윤후",
-          "playerCode": "69508",
           "pitcher": "박상원",
-          "pitcherCode": "67703",
-          "pid": "kbo:b:69508"
+          "pid": "kbo:b:69508",
+          "pitcherPid": "kbo:p:67703"
         },
         {
           "how": "병살타",
           "text": "김민성(8회)",
           "player": "김민성",
-          "playerCode": "77564",
           "pid": "kbo:b:77564"
         }
       ],
@@ -109449,39 +109366,35 @@
           "how": "홈런",
           "text": "강백호2호(6회2점 쿄야마)",
           "player": "강백호",
-          "playerCode": "68050",
           "pitcher": "쿄야마",
-          "pitcherCode": "56548",
-          "pid": "kbo:b:68050"
+          "pid": "kbo:b:68050",
+          "pitcherPid": "kbo:p:56548"
         },
         {
           "how": "홈런",
           "text": "허인서5호(9회3점 정현수)",
           "player": "허인서",
-          "playerCode": "52764",
           "pitcher": "정현수",
-          "pitcherCode": "54537",
-          "pid": "kbo:b:52764"
+          "pid": "kbo:b:52764",
+          "pitcherPid": "kbo:p:54537"
         },
         {
           "how": "2루타",
           "text": "심우준(5회)",
           "player": "심우준",
-          "playerCode": "64006",
           "pid": "kbo:b:64006"
         },
         {
           "how": "병살타",
           "text": "김태연(7회)",
           "player": "김태연",
-          "playerCode": "66704",
           "pid": "kbo:b:66704"
         },
         {
           "how": "폭투",
           "text": "박상원(7회)",
           "player": "박상원",
-          "playerCode": "67703"
+          "pid": "kbo:b:67703"
         }
       ]
     }
@@ -114526,7 +114439,7 @@
     "status": "completed",
     "awayPitcher": "하영민",
     "homePitcher": "웰스",
-    "awayPitcherPid": "kbo:p:64350",
+    "awayPitcherPid": "kbo:b:64350",
     "homePitcherPid": "kbo:p:55348",
     "awayScore": 13,
     "homeScore": 10,
@@ -114921,46 +114834,40 @@
           "how": "결승타",
           "text": "김영웅(2회 1사서 우월 홈런)",
           "player": "김영웅",
-          "playerCode": "52430",
           "pid": "kbo:b:52430"
         },
         {
           "how": "홈런",
           "text": "김영웅2호3호(2회1점 4회2점 양현종)",
           "player": "김영웅",
-          "playerCode": "52430",
           "pitcher": "양현종",
-          "pitcherCode": "77637",
-          "pid": "kbo:b:52430"
+          "pid": "kbo:b:52430",
+          "pitcherPid": "kbo:p:77637"
         },
         {
           "how": "홈런",
           "text": "이해승2호(8회3점 최지민)",
           "player": "이해승",
-          "playerCode": "69416",
           "pitcher": "최지민",
-          "pitcherCode": "52639",
-          "pid": "kbo:b:69416"
+          "pid": "kbo:b:69416",
+          "pitcherPid": "kbo:p:52639"
         },
         {
           "how": "실책",
           "text": "김영웅(1회)",
           "player": "김영웅",
-          "playerCode": "52430",
           "pid": "kbo:b:52430"
         },
         {
           "how": "병살타",
           "text": "윤정빈(6회)",
           "player": "윤정빈",
-          "playerCode": "68463",
           "pid": "kbo:b:68463"
         },
         {
           "how": "포일",
           "text": "김도환(6회)",
           "player": "김도환",
-          "playerCode": "69442",
           "pid": "kbo:b:69442"
         }
       ],
@@ -114969,42 +114876,36 @@
           "how": "2루타",
           "text": "나성범(2회)",
           "player": "나성범",
-          "playerCode": "62947",
           "pid": "kbo:b:62947"
         },
         {
           "how": "2루타",
           "text": "김호령(3회)",
           "player": "김호령",
-          "playerCode": "65653",
           "pid": "kbo:b:65653"
         },
         {
           "how": "실책",
           "text": "데일(8회)",
           "player": "데일",
-          "playerCode": "56632",
           "pid": "kbo:b:56632"
         },
         {
           "how": "병살타",
           "text": "카스트로(1회)",
           "player": "카스트로",
-          "playerCode": "56626",
           "pid": "kbo:b:56626"
         },
         {
           "how": "병살타",
           "text": "김도영(3회)",
           "player": "김도영",
-          "playerCode": "52605",
           "pid": "kbo:b:52605"
         },
         {
           "how": "병살타",
           "text": "한준수(9회)",
           "player": "한준수",
-          "playerCode": "68646",
           "pid": "kbo:b:68646"
         }
       ]
@@ -115039,57 +114940,51 @@
           "how": "결승타",
           "text": "최재훈(2회 2사 1,2루서 좌월 홈런)",
           "player": "최재훈",
-          "playerCode": "78288",
           "pid": "kbo:b:78288"
         },
         {
           "how": "홈런",
           "text": "최재훈1호2호(2회3점 3회4점 김태경)",
           "player": "최재훈",
-          "playerCode": "78288",
           "pitcher": "김태경",
-          "pitcherCode": "50992",
-          "pid": "kbo:b:78288"
+          "pid": "kbo:b:78288",
+          "pitcherPid": "kbo:p:50992"
         },
         {
           "how": "2루타",
           "text": "노시환(2회)",
           "player": "노시환",
-          "playerCode": "69737",
           "pid": "kbo:b:69737"
         },
         {
           "how": "2루타",
           "text": "최재훈(7회)",
           "player": "최재훈",
-          "playerCode": "78288",
           "pid": "kbo:b:78288"
         },
         {
           "how": "2루타",
           "text": "김태연(8회)",
           "player": "김태연",
-          "playerCode": "66704",
           "pid": "kbo:b:66704"
         },
         {
           "how": "실책",
           "text": "류현진(3회)",
           "player": "류현진",
-          "playerCode": "76715"
+          "pid": "kbo:b:76715"
         },
         {
           "how": "도루",
           "text": "심우준(2회)",
           "player": "심우준",
-          "playerCode": "64006",
           "pid": "kbo:b:64006"
         },
         {
           "how": "폭투",
           "text": "왕옌청(6회)",
           "player": "왕옌청",
-          "playerCode": "56719"
+          "pid": "kbo:b:56719"
         }
       ],
       "away": [
@@ -115097,30 +114992,26 @@
           "how": "홈런",
           "text": "박건우1호(8회1점 왕옌청)",
           "player": "박건우",
-          "playerCode": "79215",
           "pitcher": "왕옌청",
-          "pitcherCode": "56719",
-          "pid": "kbo:b:79215"
+          "pid": "kbo:b:79215",
+          "pitcherPid": "kbo:p:56719"
         },
         {
           "how": "2루타",
           "text": "안중열(3회)",
           "player": "안중열",
-          "playerCode": "64022",
           "pid": "kbo:b:64022"
         },
         {
           "how": "실책",
           "text": "김주원(3회)",
           "player": "김주원",
-          "playerCode": "51907",
           "pid": "kbo:b:51907"
         },
         {
           "how": "병살타",
           "text": "신재인(3회)",
           "player": "신재인",
-          "playerCode": "56909",
           "pid": "kbo:b:56909"
         }
       ]
@@ -116129,7 +116020,7 @@
     "awayPitcher": "박세웅",
     "homePitcher": "베니지아노",
     "awayPitcherPid": "kbo:p:64021",
-    "homePitcherPid": "kbo:p:56841",
+    "homePitcherPid": "kbo:b:56841",
     "awayScore": 3,
     "homeScore": 6,
     "winPitcher": "베니지아노",
@@ -116161,60 +116052,53 @@
           "how": "결승타",
           "text": "고명준(4회 1사 2루서 좌월 홈런)",
           "player": "고명준",
-          "playerCode": "51868",
           "pid": "kbo:b:51868"
         },
         {
           "how": "홈런",
           "text": "고명준5호6호(4회2점 6회1점 박세웅)",
           "player": "고명준",
-          "playerCode": "51868",
           "pitcher": "박세웅",
-          "pitcherCode": "64021",
-          "pid": "kbo:b:51868"
+          "pid": "kbo:b:51868",
+          "pitcherPid": "kbo:p:64021"
         },
         {
           "how": "홈런",
           "text": "최정3호(7회2점 김원중)",
           "player": "최정",
-          "playerCode": "75847",
           "pitcher": "김원중",
-          "pitcherCode": "62528",
-          "pid": "kbo:b:75847"
+          "pid": "kbo:b:75847",
+          "pitcherPid": "kbo:p:62528"
         },
         {
           "how": "2루타",
           "text": "에레디아2(4 5회)",
           "player": "에레디아",
-          "playerCode": "53827",
           "pid": "kbo:b:53827"
         },
         {
           "how": "2루타",
           "text": "김재환(4회)",
           "player": "김재환",
-          "playerCode": "78224",
           "pid": "kbo:b:78224"
         },
         {
           "how": "도루",
           "text": "안상현(7회)",
           "player": "안상현",
-          "playerCode": "66864",
           "pid": "kbo:b:66864"
         },
         {
           "how": "도루자",
           "text": "고명준(2회)",
           "player": "고명준",
-          "playerCode": "51868",
           "pid": "kbo:b:51868"
         },
         {
           "how": "폭투",
           "text": "이로운(8회)",
           "player": "이로운",
-          "playerCode": "53892"
+          "pid": "kbo:b:53892"
         }
       ],
       "away": [
@@ -116222,32 +116106,28 @@
           "how": "홈런",
           "text": "유강남3호(2회1점 베니지아노)",
           "player": "유강남",
-          "playerCode": "61102",
           "pitcher": "베니지아노",
-          "pitcherCode": "56841",
-          "pid": "kbo:b:61102"
+          "pid": "kbo:b:61102",
+          "pitcherPid": "kbo:p:56841"
         },
         {
           "how": "홈런",
           "text": "윤동희2호(6회1점 노경은)",
           "player": "윤동희",
-          "playerCode": "52591",
           "pitcher": "노경은",
-          "pitcherCode": "73211",
-          "pid": "kbo:b:52591"
+          "pid": "kbo:b:52591",
+          "pitcherPid": "kbo:p:73211"
         },
         {
           "how": "실책",
           "text": "전민재(3회)",
           "player": "전민재",
-          "playerCode": "68205",
           "pid": "kbo:b:68205"
         },
         {
           "how": "도루",
           "text": "손호영(3회)",
           "player": "손호영",
-          "playerCode": "50150",
           "pid": "kbo:b:50150"
         }
       ]
@@ -125652,42 +125532,36 @@
           "how": "2루타",
           "text": "류지혁(7회)",
           "player": "류지혁",
-          "playerCode": "62234",
           "pid": "kbo:b:62234"
         },
         {
           "how": "2루타",
           "text": "김지찬(7회)",
           "player": "김지찬",
-          "playerCode": "50458",
           "pid": "kbo:b:50458"
         },
         {
           "how": "2루타",
           "text": "박세혁(9회)",
           "player": "박세혁",
-          "playerCode": "62244",
           "pid": "kbo:b:62244"
         },
         {
           "how": "도루",
           "text": "류지혁(5회)",
           "player": "류지혁",
-          "playerCode": "62234",
           "pid": "kbo:b:62234"
         },
         {
           "how": "도루자",
           "text": "김성윤(1회)",
           "player": "김성윤",
-          "playerCode": "67449",
           "pid": "kbo:b:67449"
         },
         {
           "how": "병살타",
           "text": "최형우(6회)",
           "player": "최형우",
-          "playerCode": "72443",
           "pid": "kbo:b:72443"
         }
       ],
@@ -125696,83 +125570,72 @@
           "how": "결승타",
           "text": "손호영(4회 1사서 우중월 홈런)",
           "player": "손호영",
-          "playerCode": "50150",
           "pid": "kbo:b:50150"
         },
         {
           "how": "홈런",
           "text": "손호영1호2호(4회1점 7회1점 최원태 배찬승)",
           "player": "손호영",
-          "playerCode": "50150",
           "pitcher": "최원태",
-          "pitcherCode": "65320",
-          "pid": "kbo:b:50150"
+          "pid": "kbo:b:50150",
+          "pitcherPid": "kbo:p:65320"
         },
         {
           "how": "홈런",
           "text": "노진혁1호(5회1점 최원태)",
           "player": "노진혁",
-          "playerCode": "62931",
           "pitcher": "최원태",
-          "pitcherCode": "65320",
-          "pid": "kbo:b:62931"
+          "pid": "kbo:b:62931",
+          "pitcherPid": "kbo:p:65320"
         },
         {
           "how": "홈런",
           "text": "레이예스2호(7회3점 배찬승)",
           "player": "레이예스",
-          "playerCode": "54529",
           "pitcher": "배찬승",
-          "pitcherCode": "55455",
-          "pid": "kbo:b:54529"
+          "pid": "kbo:b:54529",
+          "pitcherPid": "kbo:p:55455"
         },
         {
           "how": "2루타",
           "text": "한태양(5회)",
           "player": "한태양",
-          "playerCode": "52568",
           "pid": "kbo:b:52568"
         },
         {
           "how": "실책",
           "text": "노진혁(5회)",
           "player": "노진혁",
-          "playerCode": "62931",
           "pid": "kbo:b:62931"
         },
         {
           "how": "도루",
           "text": "황성빈(9회)",
           "player": "황성빈",
-          "playerCode": "50500",
           "pid": "kbo:b:50500"
         },
         {
           "how": "도루자",
           "text": "윤동희(4회)",
           "player": "윤동희",
-          "playerCode": "52591",
           "pid": "kbo:b:52591"
         },
         {
           "how": "병살타",
           "text": "윤동희(1회)",
           "player": "윤동희",
-          "playerCode": "52591",
           "pid": "kbo:b:52591"
         },
         {
           "how": "병살타",
           "text": "유강남(2회)",
           "player": "유강남",
-          "playerCode": "61102",
           "pid": "kbo:b:61102"
         },
         {
           "how": "병살타",
           "text": "손호영(6회)",
           "player": "손호영",
-          "playerCode": "50150",
           "pid": "kbo:b:50150"
         }
       ]
@@ -125791,7 +125654,7 @@
     "status": "completed",
     "awayPitcher": "하영민",
     "homePitcher": "왕옌청",
-    "awayPitcherPid": "kbo:p:64350",
+    "awayPitcherPid": "kbo:b:64350",
     "homePitcherPid": "kbo:b:56719",
     "awayScore": 4,
     "homeScore": 10,
@@ -126028,46 +125891,40 @@
           "how": "결승타",
           "text": "조형우(2회 1사 1,2루서 중견수 2루타)",
           "player": "조형우",
-          "playerCode": "51865",
           "pid": "kbo:b:51865"
         },
         {
           "how": "홈런",
           "text": "고명준1호2호(3회1점 4회1점 황동하)",
           "player": "고명준",
-          "playerCode": "51868",
           "pitcher": "황동하",
-          "pitcherCode": "52641",
-          "pid": "kbo:b:51868"
+          "pid": "kbo:b:51868",
+          "pitcherPid": "kbo:p:52641"
         },
         {
           "how": "홈런",
           "text": "에레디아1호(3회3점 황동하)",
           "player": "에레디아",
-          "playerCode": "53827",
           "pitcher": "황동하",
-          "pitcherCode": "52641",
-          "pid": "kbo:b:53827"
+          "pid": "kbo:b:53827",
+          "pitcherPid": "kbo:p:52641"
         },
         {
           "how": "2루타",
           "text": "조형우2(2 3회)",
           "player": "조형우",
-          "playerCode": "51865",
           "pid": "kbo:b:51865"
         },
         {
           "how": "2루타",
           "text": "박성한(2회)",
           "player": "박성한",
-          "playerCode": "67893",
           "pid": "kbo:b:67893"
         },
         {
           "how": "도루",
           "text": "최지훈(3회)",
           "player": "최지훈",
-          "playerCode": "50854",
           "pid": "kbo:b:50854"
         }
       ],
@@ -126076,60 +125933,53 @@
           "how": "홈런",
           "text": "카스트로1호(7회2점 김택형)",
           "player": "카스트로",
-          "playerCode": "56626",
           "pitcher": "김택형",
-          "pitcherCode": "65343",
-          "pid": "kbo:b:56626"
+          "pid": "kbo:b:56626",
+          "pitcherPid": "kbo:p:65343"
         },
         {
           "how": "홈런",
           "text": "나성범1호(7회2점 박시후)",
           "player": "나성범",
-          "playerCode": "62947",
           "pitcher": "박시후",
-          "pitcherCode": "50812",
-          "pid": "kbo:b:62947"
+          "pid": "kbo:b:62947",
+          "pitcherPid": "kbo:p:50812"
         },
         {
           "how": "2루타",
           "text": "한준수2(3 4회)",
           "player": "한준수",
-          "playerCode": "68646",
           "pid": "kbo:b:68646"
         },
         {
           "how": "2루타",
           "text": "데일(4회)",
           "player": "데일",
-          "playerCode": "56632",
           "pid": "kbo:b:56632"
         },
         {
           "how": "병살타",
           "text": "이창진(4회)",
           "player": "이창진",
-          "playerCode": "64560",
           "pid": "kbo:b:64560"
         },
         {
           "how": "병살타",
           "text": "윤도현(6회)",
           "player": "윤도현",
-          "playerCode": "52667",
           "pid": "kbo:b:52667"
         },
         {
           "how": "병살타",
           "text": "한준수(8회)",
           "player": "한준수",
-          "playerCode": "68646",
           "pid": "kbo:b:68646"
         },
         {
           "how": "폭투",
           "text": "김기훈(8회)",
           "player": "김기훈",
-          "playerCode": "69620"
+          "pid": "kbo:b:69620"
         }
       ]
     }
@@ -130960,7 +130810,7 @@
     "awayPitcher": "와일스",
     "homePitcher": "베니지아노",
     "awayPitcherPid": "kbo:p:56334",
-    "homePitcherPid": "kbo:p:56841",
+    "homePitcherPid": "kbo:b:56841",
     "awayScore": 3,
     "homeScore": 9,
     "winPitcher": "이로운",
@@ -131030,7 +130880,7 @@
           "how": "폭투",
           "text": "베니지아노(2회)",
           "player": "베니지아노",
-          "pid": "kbo:p:56841"
+          "pid": "kbo:b:56841"
         }
       ],
       "away": [
@@ -137807,7 +137657,7 @@
     "status": "completed",
     "awayPitcher": "오원석",
     "homePitcher": "문동주",
-    "awayPitcherPid": "kbo:p:50859",
+    "awayPitcherPid": "kbo:b:50859",
     "homePitcherPid": "kbo:p:52701",
     "awayScore": 13,
     "homeScore": 8,
@@ -137821,46 +137671,40 @@
           "how": "홈런",
           "text": "강백호2호(7회1점 손동현)",
           "player": "강백호",
-          "playerCode": "68050",
           "pitcher": "손동현",
-          "pitcherCode": "69041",
-          "pid": "kbo:b:68050"
+          "pid": "kbo:b:68050",
+          "pitcherPid": "kbo:p:69041"
         },
         {
           "how": "홈런",
           "text": "문현빈2호(8회3점 박지훈)",
           "player": "문현빈",
-          "playerCode": "53764",
           "pitcher": "박지훈",
-          "pitcherCode": "56066",
-          "pid": "kbo:b:53764"
+          "pid": "kbo:b:53764",
+          "pitcherPid": "kbo:p:56066"
         },
         {
           "how": "2루타",
           "text": "이도윤(8회)",
           "player": "이도윤",
-          "playerCode": "65703",
           "pid": "kbo:b:65703"
         },
         {
           "how": "실책",
           "text": "오재원(6회)",
           "player": "오재원",
-          "playerCode": "56754",
           "pid": "kbo:b:56754"
         },
         {
           "how": "실책",
           "text": "황영묵(9회)",
           "player": "황영묵",
-          "playerCode": "54795",
           "pid": "kbo:b:54795"
         },
         {
           "how": "병살타",
           "text": "이진영(6회)",
           "player": "이진영",
-          "playerCode": "66657",
           "pid": "kbo:b:66657"
         }
       ],
@@ -137869,66 +137713,57 @@
           "how": "결승타",
           "text": "안현민(3회 1사 1,3루서 우전 안타)",
           "player": "안현민",
-          "playerCode": "52001",
           "pid": "kbo:b:52001"
         },
         {
           "how": "홈런",
           "text": "장성우2호3호(3회4점 7회2점 문동주 강건우)",
           "player": "장성우",
-          "playerCode": "78548",
           "pitcher": "문동주",
-          "pitcherCode": "52701",
-          "pid": "kbo:b:78548"
+          "pid": "kbo:b:78548",
+          "pitcherPid": "kbo:p:52701"
         },
         {
           "how": "3루타",
           "text": "최원준(6회)",
           "player": "최원준",
-          "playerCode": "66606",
           "pid": "kbo:b:66606"
         },
         {
           "how": "2루타",
           "text": "최원준(1회)",
           "player": "최원준",
-          "playerCode": "66606",
           "pid": "kbo:b:66606"
         },
         {
           "how": "2루타",
           "text": "김현수(6회)",
           "player": "김현수",
-          "playerCode": "76290",
           "pid": "kbo:b:76290"
         },
         {
           "how": "2루타",
           "text": "오윤석(6회)",
           "player": "오윤석",
-          "playerCode": "64504",
           "pid": "kbo:b:64504"
         },
         {
           "how": "실책",
           "text": "김상수(6회)",
           "player": "김상수",
-          "playerCode": "79402",
           "pid": "kbo:b:79402"
         },
         {
           "how": "도루",
           "text": "힐리어드(5회)",
           "player": "힐리어드",
-          "playerCode": "56034",
           "pid": "kbo:b:56034"
         },
         {
           "how": "폭투",
           "text": "박지훈(8회)",
           "player": "박지훈",
-          "playerCode": "56066",
-          "pid": "kbo:p:56066"
+          "pid": "kbo:b:56066"
         }
       ]
     }
@@ -144617,7 +144452,7 @@
     "awayPitcher": "임찬규",
     "homePitcher": "하영민",
     "awayPitcherPid": "kbo:b:61101",
-    "homePitcherPid": "kbo:p:64350",
+    "homePitcherPid": "kbo:b:64350",
     "awayScore": 6,
     "homeScore": 4,
     "winPitcher": "배재준",
@@ -144650,50 +144485,43 @@
           "how": "2루타",
           "text": "김건희(2회)",
           "player": "김건희",
-          "playerCode": "53312",
           "pid": "kbo:b:53312"
         },
         {
           "how": "2루타",
           "text": "박주홍(2회)",
           "player": "박주홍",
-          "playerCode": "50357",
           "pid": "kbo:b:50357"
         },
         {
           "how": "2루타",
           "text": "박찬혁(5회)",
           "player": "박찬혁",
-          "playerCode": "52348",
           "pid": "kbo:b:52348"
         },
         {
           "how": "2루타",
           "text": "안치홍(7회)",
           "player": "안치홍",
-          "playerCode": "79608",
           "pid": "kbo:b:79608"
         },
         {
           "how": "주루사",
           "text": "박주홍(2회)",
           "player": "박주홍",
-          "playerCode": "50357",
           "pid": "kbo:b:50357"
         },
         {
           "how": "주루사",
           "text": "최주환(5회)",
           "player": "최주환",
-          "playerCode": "76267",
           "pid": "kbo:b:76267"
         },
         {
           "how": "폭투",
           "text": "하영민(1회)",
           "player": "하영민",
-          "playerCode": "64350",
-          "pid": "kbo:p:64350"
+          "pid": "kbo:b:64350"
         }
       ],
       "away": [
@@ -144701,51 +144529,45 @@
           "how": "결승타",
           "text": "홍창기(8회 2사 1,3루서 2루수 안타)",
           "player": "홍창기",
-          "playerCode": "66108",
           "pid": "kbo:b:66108"
         },
         {
           "how": "홈런",
           "text": "오스틴2호3호(5회1점 9회1점 하영민 박진형)",
           "player": "오스틴",
-          "playerCode": "53123",
           "pitcher": "하영민",
-          "pitcherCode": "64350",
-          "pid": "kbo:b:53123"
+          "pid": "kbo:b:53123",
+          "pitcherPid": "kbo:p:64350"
         },
         {
           "how": "2루타",
           "text": "박해민(2회)",
           "player": "박해민",
-          "playerCode": "62415",
           "pid": "kbo:b:62415"
         },
         {
           "how": "실책",
           "text": "신민재(3회)",
           "player": "신민재",
-          "playerCode": "65207",
           "pid": "kbo:b:65207"
         },
         {
           "how": "병살타",
           "text": "신민재(1회)",
           "player": "신민재",
-          "playerCode": "65207",
           "pid": "kbo:b:65207"
         },
         {
           "how": "병살타",
           "text": "박동원(8회)",
           "player": "박동원",
-          "playerCode": "79365",
           "pid": "kbo:b:79365"
         },
         {
           "how": "폭투",
           "text": "임찬규(2회)",
           "player": "임찬규",
-          "playerCode": "61101"
+          "pid": "kbo:b:61101"
         }
       ]
     }
@@ -151988,7 +151810,7 @@
     "status": "completed",
     "awayPitcher": "베니지아노",
     "homePitcher": "박세웅",
-    "awayPitcherPid": "kbo:p:56841",
+    "awayPitcherPid": "kbo:b:56841",
     "homePitcherPid": "kbo:p:64021",
     "awayScore": 4,
     "homeScore": 3,
@@ -164449,7 +164271,7 @@
     "status": "completed",
     "awayPitcher": "오원석",
     "homePitcher": "김진욱",
-    "awayPitcherPid": "kbo:p:50859",
+    "awayPitcherPid": "kbo:b:50859",
     "homePitcherPid": "kbo:p:51516",
     "awayScore": 1,
     "homeScore": 6,
@@ -181208,7 +181030,7 @@
     "status": "completed",
     "awayPitcher": "베니지아노",
     "homePitcher": "톨허스트",
-    "awayPitcherPid": "kbo:p:56841",
+    "awayPitcherPid": "kbo:b:56841",
     "homePitcherPid": "kbo:b:55130",
     "awayScore": 1,
     "homeScore": 9,
@@ -190032,7 +189854,7 @@
     "status": "completed",
     "awayPitcher": "하영민",
     "homePitcher": "양현종",
-    "awayPitcherPid": "kbo:p:64350",
+    "awayPitcherPid": "kbo:b:64350",
     "homePitcherPid": "kbo:b:77637",
     "awayScore": 2,
     "homeScore": 6,
@@ -190078,7 +189900,7 @@
           "how": "폭투",
           "text": "하영민2(1 5회)",
           "player": "하영민",
-          "pid": "kbo:p:64350"
+          "pid": "kbo:b:64350"
         }
       ]
     }
@@ -192675,7 +192497,7 @@
     "status": "completed",
     "awayPitcher": "오원석",
     "homePitcher": "신민혁",
-    "awayPitcherPid": "kbo:p:50859",
+    "awayPitcherPid": "kbo:b:50859",
     "homePitcherPid": "kbo:p:68902",
     "awayScore": 10,
     "homeScore": 2,
@@ -192689,37 +192511,32 @@
           "how": "홈런",
           "text": "박건우4호(7회1점 오원석)",
           "player": "박건우",
-          "playerCode": "79215",
           "pitcher": "오원석",
-          "pitcherCode": "50859",
-          "pid": "kbo:b:79215"
+          "pid": "kbo:b:79215",
+          "pitcherPid": "kbo:p:50859"
         },
         {
           "how": "2루타",
           "text": "이우성(2회)",
           "player": "이우성",
-          "playerCode": "63260",
           "pid": "kbo:b:63260"
         },
         {
           "how": "2루타",
           "text": "김휘집(7회)",
           "player": "김휘집",
-          "playerCode": "51344",
           "pid": "kbo:b:51344"
         },
         {
           "how": "2루타",
           "text": "천재환(9회)",
           "player": "천재환",
-          "playerCode": "67905",
           "pid": "kbo:b:67905"
         },
         {
           "how": "주루사",
           "text": "서호철(3회)",
           "player": "서호철",
-          "playerCode": "69995",
           "pid": "kbo:b:69995"
         }
       ],
@@ -192728,53 +192545,46 @@
           "how": "결승타",
           "text": "장성우(1회 2사 2루서 좌월 홈런)",
           "player": "장성우",
-          "playerCode": "78548",
           "pid": "kbo:b:78548"
         },
         {
           "how": "홈런",
           "text": "장성우4호5호(1회2점 6회2점 신민혁)",
           "player": "장성우",
-          "playerCode": "78548",
           "pitcher": "신민혁",
-          "pitcherCode": "68902",
-          "pid": "kbo:b:78548"
+          "pid": "kbo:b:78548",
+          "pitcherPid": "kbo:p:68902"
         },
         {
           "how": "홈런",
           "text": "김현수1호2호(3회2점 7회3점 신민혁 목지훈)",
           "player": "김현수",
-          "playerCode": "76290",
           "pitcher": "신민혁",
-          "pitcherCode": "68902",
-          "pid": "kbo:b:76290"
+          "pid": "kbo:b:76290",
+          "pitcherPid": "kbo:p:68902"
         },
         {
           "how": "2루타",
           "text": "안현민(1회)",
           "player": "안현민",
-          "playerCode": "52001",
           "pid": "kbo:b:52001"
         },
         {
           "how": "2루타",
           "text": "허경민(4회)",
           "player": "허경민",
-          "playerCode": "79240",
           "pid": "kbo:b:79240"
         },
         {
           "how": "실책",
           "text": "오원석(6회)",
           "player": "오원석",
-          "playerCode": "50859",
-          "pid": "kbo:p:50859"
+          "pid": "kbo:b:50859"
         },
         {
           "how": "병살타",
           "text": "김상수(7회)",
           "player": "김상수",
-          "playerCode": "79402",
           "pid": "kbo:b:79402"
         }
       ]
@@ -209780,74 +209590,65 @@
           "how": "결승타",
           "text": "박준순(5회 1사 3루서 3루수 땅볼)",
           "player": "박준순",
-          "playerCode": "55252",
           "pid": "kbo:b:55252"
         },
         {
           "how": "홈런",
           "text": "박준순2호3호(3회1점 7회1점 양현종 한재승)",
           "player": "박준순",
-          "playerCode": "55252",
           "pitcher": "양현종",
-          "pitcherCode": "77637",
-          "pid": "kbo:b:55252"
+          "pid": "kbo:b:55252",
+          "pitcherPid": "kbo:p:77637"
         },
         {
           "how": "홈런",
           "text": "카메론4호(6회1점 황동하)",
           "player": "카메론",
-          "playerCode": "56251",
           "pitcher": "황동하",
-          "pitcherCode": "52641",
-          "pid": "kbo:b:56251"
+          "pid": "kbo:b:56251",
+          "pitcherPid": "kbo:p:52641"
         },
         {
           "how": "2루타",
           "text": "카메론(2회)",
           "player": "카메론",
-          "playerCode": "56251",
           "pid": "kbo:b:56251"
         },
         {
           "how": "2루타",
           "text": "박찬호(5회)",
           "player": "박찬호",
-          "playerCode": "64646",
           "pid": "kbo:b:64646"
         },
         {
           "how": "2루타",
           "text": "김민석2(5 7회)",
           "player": "김민석",
-          "playerCode": "53554",
           "pid": "kbo:b:53554"
         },
         {
           "how": "도루",
           "text": "박찬호(6회)",
           "player": "박찬호",
-          "playerCode": "64646",
           "pid": "kbo:b:64646"
         },
         {
           "how": "주루사",
           "text": "윤준호(8회)",
           "player": "윤준호",
-          "playerCode": "53296",
           "pid": "kbo:b:53296"
         },
         {
           "how": "병살타",
           "text": "양의지(1회)",
           "player": "양의지",
-          "playerCode": "76232",
           "pid": "kbo:b:76232"
         },
         {
           "how": "보크",
           "text": "최민석(4회)",
           "player": "최민석",
-          "playerCode": "55268"
+          "pid": "kbo:b:55268"
         }
       ],
       "away": [
@@ -209855,21 +209656,18 @@
           "how": "2루타",
           "text": "카스트로(4회)",
           "player": "카스트로",
-          "playerCode": "56626",
           "pid": "kbo:b:56626"
         },
         {
           "how": "2루타",
           "text": "박민(8회)",
           "player": "박민",
-          "playerCode": "50657",
           "pid": "kbo:b:50657"
         },
         {
           "how": "병살타",
           "text": "김도영2(3 5회)",
           "player": "김도영",
-          "playerCode": "52605",
           "pid": "kbo:b:52605"
         }
       ]
@@ -210567,7 +210365,7 @@
     "status": "completed",
     "awayPitcher": "하영민",
     "homePitcher": "고영표",
-    "awayPitcherPid": "kbo:p:64350",
+    "awayPitcherPid": "kbo:b:64350",
     "homePitcherPid": "kbo:p:64001",
     "awayScore": 3,
     "homeScore": 1,
@@ -218173,7 +217971,7 @@
     "status": "completed",
     "awayPitcher": "베니지아노",
     "homePitcher": "최원태",
-    "awayPitcherPid": "kbo:p:56841",
+    "awayPitcherPid": "kbo:b:56841",
     "homePitcherPid": "kbo:b:65320",
     "awayScore": 5,
     "homeScore": 4,
@@ -218608,7 +218406,7 @@
     "awayPitcher": "김태형",
     "homePitcher": "오원석",
     "awayPitcherPid": "kbo:b:55610",
-    "homePitcherPid": "kbo:p:50859",
+    "homePitcherPid": "kbo:b:50859",
     "awayScore": 5,
     "homeScore": 6,
     "winPitcher": "전용주",
@@ -230390,30 +230188,26 @@
           "how": "결승타",
           "text": "김도영(7회 무사서 좌월 홈런)",
           "player": "김도영",
-          "playerCode": "52605",
           "pid": "kbo:b:52605"
         },
         {
           "how": "홈런",
           "text": "김도영7호8호(7회1점 8회2점 비슬리 김원중)",
           "player": "김도영",
-          "playerCode": "52605",
           "pitcher": "비슬리",
-          "pitcherCode": "56523",
-          "pid": "kbo:b:52605"
+          "pid": "kbo:b:52605",
+          "pitcherPid": "kbo:p:56523"
         },
         {
           "how": "2루타",
           "text": "나성범(7회)",
           "player": "나성범",
-          "playerCode": "62947",
           "pid": "kbo:b:62947"
         },
         {
           "how": "도루",
           "text": "박재현(6회)",
           "player": "박재현",
-          "playerCode": "55636",
           "pid": "kbo:b:55636"
         }
       ],
@@ -230422,7 +230216,6 @@
           "how": "병살타",
           "text": "한동희(4회)",
           "player": "한동희",
-          "playerCode": "68525",
           "pid": "kbo:b:68525"
         }
       ]
@@ -230526,37 +230319,32 @@
           "how": "결승타",
           "text": "정준재(1회 무사 2루서 좌중간 2루타)",
           "player": "정준재",
-          "playerCode": "54812",
           "pid": "kbo:b:54812"
         },
         {
           "how": "홈런",
           "text": "최정4호5호(3회1점 6회1점 보쉴리 김민수)",
           "player": "최정",
-          "playerCode": "75847",
           "pitcher": "보쉴리",
-          "pitcherCode": "56036",
-          "pid": "kbo:b:75847"
+          "pid": "kbo:b:75847",
+          "pitcherPid": "kbo:p:56036"
         },
         {
           "how": "2루타",
           "text": "박성한(1회)",
           "player": "박성한",
-          "playerCode": "67893",
           "pid": "kbo:b:67893"
         },
         {
           "how": "2루타",
           "text": "정준재(1회)",
           "player": "정준재",
-          "playerCode": "54812",
           "pid": "kbo:b:54812"
         },
         {
           "how": "병살타",
           "text": "박성한(8회)",
           "player": "박성한",
-          "playerCode": "67893",
           "pid": "kbo:b:67893"
         }
       ],
@@ -230565,7 +230353,6 @@
           "how": "병살타",
           "text": "장성우(1회)",
           "player": "장성우",
-          "playerCode": "78548",
           "pid": "kbo:b:78548"
         }
       ]
@@ -234413,7 +234200,7 @@
     "awayPitcher": "원태인",
     "homePitcher": "하영민",
     "awayPitcherPid": "kbo:b:69446",
-    "homePitcherPid": "kbo:p:64350",
+    "homePitcherPid": "kbo:b:64350",
     "awayScore": 2,
     "homeScore": 4,
     "winPitcher": "하영민",
@@ -243200,8 +242987,8 @@
     "status": "completed",
     "awayPitcher": "오원석",
     "homePitcher": "베니지아노",
-    "awayPitcherPid": "kbo:p:50859",
-    "homePitcherPid": "kbo:p:56841",
+    "awayPitcherPid": "kbo:b:50859",
+    "homePitcherPid": "kbo:b:56841",
     "awayScore": 12,
     "homeScore": 2,
     "winPitcher": "오원석",
@@ -243214,44 +243001,38 @@
           "how": "홈런",
           "text": "김성욱1호(2회1점 오원석)",
           "player": "김성욱",
-          "playerCode": "62934",
           "pitcher": "오원석",
-          "pitcherCode": "50859",
-          "pid": "kbo:b:62934"
+          "pid": "kbo:b:62934",
+          "pitcherPid": "kbo:p:50859"
         },
         {
           "how": "실책",
           "text": "베니지아노(5회)",
           "player": "베니지아노",
-          "playerCode": "56841",
-          "pid": "kbo:p:56841"
+          "pid": "kbo:b:56841"
         },
         {
           "how": "도루",
           "text": "안상현(1회)",
           "player": "안상현",
-          "playerCode": "66864",
           "pid": "kbo:b:66864"
         },
         {
           "how": "도루자",
           "text": "에레디아(4회)",
           "player": "에레디아",
-          "playerCode": "53827",
           "pid": "kbo:b:53827"
         },
         {
           "how": "병살타",
           "text": "오태곤(2회)",
           "player": "오태곤",
-          "playerCode": "60558",
           "pid": "kbo:b:60558"
         },
         {
           "how": "병살타",
           "text": "한유섬(9회)",
           "player": "한유섬",
-          "playerCode": "62895",
           "pid": "kbo:b:62895"
         }
       ],
@@ -243260,46 +243041,40 @@
           "how": "결승타",
           "text": "장성우(1회 1사 1,3루서 우전 안타)",
           "player": "장성우",
-          "playerCode": "78548",
           "pid": "kbo:b:78548"
         },
         {
           "how": "홈런",
           "text": "힐리어드4호5호(1회3점 8회3점 베니지아노 장지훈)",
           "player": "힐리어드",
-          "playerCode": "56034",
           "pitcher": "베니지아노",
-          "pitcherCode": "56841",
-          "pid": "kbo:b:56034"
+          "pid": "kbo:b:56034",
+          "pitcherPid": "kbo:p:56841"
         },
         {
           "how": "홈런",
           "text": "장성우7호(7회3점 박시후)",
           "player": "장성우",
-          "playerCode": "78548",
           "pitcher": "박시후",
-          "pitcherCode": "50812",
-          "pid": "kbo:b:78548"
+          "pid": "kbo:b:78548",
+          "pitcherPid": "kbo:p:50812"
         },
         {
           "how": "2루타",
           "text": "김현수(8회)",
           "player": "김현수",
-          "playerCode": "76290",
           "pid": "kbo:b:76290"
         },
         {
           "how": "도루",
           "text": "최원준(7회)",
           "player": "최원준",
-          "playerCode": "66606",
           "pid": "kbo:b:66606"
         },
         {
           "how": "병살타",
           "text": "김민혁(2회)",
           "player": "김민혁",
-          "playerCode": "64004",
           "pid": "kbo:b:64004"
         }
       ]
@@ -259448,7 +259223,7 @@
     "awayPitcher": "최민석",
     "homePitcher": "하영민",
     "awayPitcherPid": "kbo:b:55268",
-    "homePitcherPid": "kbo:p:64350",
+    "homePitcherPid": "kbo:b:64350",
     "awayScore": 16,
     "homeScore": 6,
     "winPitcher": "김명신",
@@ -262329,7 +262104,7 @@
     "awayPitcher": "나균안",
     "homePitcher": "베니지아노",
     "awayPitcherPid": "kbo:b:67539",
-    "homePitcherPid": "kbo:p:56841",
+    "homePitcherPid": "kbo:b:56841",
     "awayScore": 7,
     "homeScore": 5,
     "winPitcher": "나균안",
@@ -262988,46 +262763,6 @@
     "time": "16:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
-    "home": "대한민국",
-    "away": "필리핀",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
-    "timeTbd": false,
-    "gameId": "INfbBvjkK2ARSQU",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 5,
-    "scorers": {
-      "home": [
-        {
-          "n": "백서영",
-          "m": 6
-        },
-        {
-          "n": "백서영",
-          "m": 14
-        },
-        {
-          "n": "백서영",
-          "m": 34
-        },
-        {
-          "n": "백서영",
-          "m": 55
-        },
-        {
-          "n": "김희나",
-          "m": 67
-        }
-      ],
-      "away": []
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-02",
-    "time": "16:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
     "home": "일본",
     "away": "레바논",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
@@ -263095,6 +262830,46 @@
           "n": "나나미",
           "m": 80,
           "pid": "fifa:541353"
+        }
+      ],
+      "away": []
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-02",
+    "time": "16:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
+    "home": "대한민국",
+    "away": "필리핀",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
+    "timeTbd": false,
+    "gameId": "INfbBvjkK2ARSQU",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 5,
+    "scorers": {
+      "home": [
+        {
+          "n": "백서영",
+          "m": 6
+        },
+        {
+          "n": "백서영",
+          "m": 14
+        },
+        {
+          "n": "백서영",
+          "m": 34
+        },
+        {
+          "n": "백서영",
+          "m": 55
+        },
+        {
+          "n": "김희나",
+          "m": 67
         }
       ],
       "away": []
@@ -263322,7 +263097,7 @@
     "status": "completed",
     "awayPitcher": "오원석",
     "homePitcher": "황동하",
-    "awayPitcherPid": "kbo:p:50859",
+    "awayPitcherPid": "kbo:b:50859",
     "homePitcherPid": "kbo:b:52641",
     "awayScore": 0,
     "homeScore": 6,
@@ -263386,7 +263161,7 @@
           "how": "실책",
           "text": "오원석(6회)",
           "player": "오원석",
-          "pid": "kbo:p:50859"
+          "pid": "kbo:b:50859"
         },
         {
           "how": "병살타",
@@ -264676,6 +264451,35 @@
     "time": "20:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
+    "home": "호주",
+    "away": "인도",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
+    "timeTbd": false,
+    "gameId": "fS1J3kxSwziVvHl",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "무이티스",
+          "m": 25
+        },
+        {
+          "n": "바스넷",
+          "m": 59,
+          "og": true
+        }
+      ],
+      "away": []
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-02",
+    "time": "20:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
     "home": "북한",
     "away": "차이니스 타이베이",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
@@ -264732,35 +264536,6 @@
           "n": "유종향",
           "m": 90,
           "pid": "fifa:510273"
-        }
-      ],
-      "away": []
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-02",
-    "time": "20:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
-    "home": "호주",
-    "away": "인도",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
-    "timeTbd": false,
-    "gameId": "fS1J3kxSwziVvHl",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "무이티스",
-          "m": 25
-        },
-        {
-          "n": "바스넷",
-          "m": 59,
-          "og": true
         }
       ],
       "away": []
@@ -283060,38 +282835,6 @@
     "time": "20:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
-    "home": "인도",
-    "away": "일본",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
-    "timeTbd": false,
-    "gameId": "SyGtvWeiJaOs0ZA",
-    "status": "completed",
-    "awayScore": 3,
-    "homeScore": 0,
-    "scorers": {
-      "home": [],
-      "away": [
-        {
-          "n": "하야시",
-          "m": 59
-        },
-        {
-          "n": "이케다",
-          "m": 76
-        },
-        {
-          "n": "이케다",
-          "m": 81
-        }
-      ]
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-05",
-    "time": "20:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
     "home": "필리핀",
     "away": "북한",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
@@ -283139,6 +282882,38 @@
         {
           "n": "송원용",
           "m": 85
+        }
+      ]
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-05",
+    "time": "20:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
+    "home": "인도",
+    "away": "일본",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
+    "timeTbd": false,
+    "gameId": "SyGtvWeiJaOs0ZA",
+    "status": "completed",
+    "awayScore": 3,
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "하야시",
+          "m": 59
+        },
+        {
+          "n": "이케다",
+          "m": 76
+        },
+        {
+          "n": "이케다",
+          "m": 81
         }
       ]
     },
@@ -289299,7 +289074,7 @@
     "status": "completed",
     "awayPitcher": "오원석",
     "homePitcher": "안우진",
-    "awayPitcherPid": "kbo:p:50859",
+    "awayPitcherPid": "kbo:b:50859",
     "homePitcherPid": "kbo:b:68341",
     "awayScore": 8,
     "homeScore": 0,
@@ -289393,7 +289168,7 @@
     "status": "completed",
     "awayPitcher": "베니지아노",
     "homePitcher": "벤자민",
-    "awayPitcherPid": "kbo:p:56841",
+    "awayPitcherPid": "kbo:b:56841",
     "homePitcherPid": "kbo:b:52043",
     "awayScore": 4,
     "homeScore": 1,
@@ -289617,6 +289392,21 @@
     "time": "20:30",
     "league": "U17WOMENASIANCUP",
     "venueId": "suzhou_taihu_football_center",
+    "home": "필리핀",
+    "away": "차이니스 타이베이",
+    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
+    "timeTbd": false,
+    "gameId": "iI57xIcnv4pTYV5",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 0,
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-08",
+    "time": "20:30",
+    "league": "U17WOMENASIANCUP",
+    "venueId": "suzhou_taihu_football_center",
     "home": "북한",
     "away": "대한민국",
     "stadium": "수저우 타이후 축구 스포츠 센터 피치 4",
@@ -289644,21 +289434,6 @@
       ],
       "away": []
     },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-08",
-    "time": "20:30",
-    "league": "U17WOMENASIANCUP",
-    "venueId": "suzhou_taihu_football_center",
-    "home": "필리핀",
-    "away": "차이니스 타이베이",
-    "stadium": "수저우 타이후 축구 스포츠 센터 피치 8",
-    "timeTbd": false,
-    "gameId": "iI57xIcnv4pTYV5",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 0,
     "phaseCode": "GROUP"
   },
   {
@@ -309519,6 +309294,34 @@
     "time": "01:00",
     "league": "U17ASIANCUP",
     "venueId": "king_abdullah_sports_city",
+    "home": "중국",
+    "away": "카타르",
+    "stadium": "킹 압둘라 스포츠 시티 피치 퓨처 C",
+    "timeTbd": false,
+    "gameId": "OW7BBRLBR5Yg9Mi",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "하시판",
+          "m": 14
+        },
+        {
+          "n": "장 보린",
+          "m": 71
+        }
+      ],
+      "away": []
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-05-13",
+    "time": "01:00",
+    "league": "U17ASIANCUP",
+    "venueId": "king_abdullah_sports_city",
     "home": "일본",
     "away": "인도네시아",
     "stadium": "킹 압둘라 스포츠 시티 피치 스타스 A",
@@ -309548,34 +309351,6 @@
           "m": 70
         }
       ]
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-05-13",
-    "time": "01:00",
-    "league": "U17ASIANCUP",
-    "venueId": "king_abdullah_sports_city",
-    "home": "중국",
-    "away": "카타르",
-    "stadium": "킹 압둘라 스포츠 시티 피치 퓨처 C",
-    "timeTbd": false,
-    "gameId": "OW7BBRLBR5Yg9Mi",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "하시판",
-          "m": 14
-        },
-        {
-          "n": "장 보린",
-          "m": 71
-        }
-      ],
-      "away": []
     },
     "phaseCode": "GROUP"
   },
@@ -317208,8 +316983,8 @@
     "status": "completed",
     "awayPitcher": "베니지아노",
     "homePitcher": "오원석",
-    "awayPitcherPid": "kbo:p:56841",
-    "homePitcherPid": "kbo:p:50859",
+    "awayPitcherPid": "kbo:b:56841",
+    "homePitcherPid": "kbo:b:50859",
     "awayScore": 16,
     "homeScore": 10,
     "winPitcher": "문승원",
@@ -317276,7 +317051,7 @@
           "how": "폭투",
           "text": "오원석(3회)",
           "player": "오원석",
-          "pid": "kbo:p:50859"
+          "pid": "kbo:b:50859"
         }
       ],
       "away": [
@@ -322517,7 +322292,7 @@
           "how": "폭투",
           "text": "하영민2(6회)",
           "player": "하영민",
-          "pid": "kbo:p:64350"
+          "pid": "kbo:b:64350"
         },
         {
           "how": "폭투",
@@ -341239,8 +341014,8 @@
     "status": "completed",
     "awayPitcher": "베니지아노",
     "homePitcher": "하영민",
-    "awayPitcherPid": "kbo:p:56841",
-    "homePitcherPid": "kbo:p:64350",
+    "awayPitcherPid": "kbo:b:56841",
+    "homePitcherPid": "kbo:b:64350",
     "awayScore": 5,
     "homeScore": 6,
     "winPitcher": "유토",
@@ -341356,7 +341131,7 @@
     "status": "cancelled",
     "awayPitcher": "오원석",
     "homePitcher": "장찬희",
-    "awayPitcherPid": "kbo:p:50859",
+    "awayPitcherPid": "kbo:b:50859",
     "homePitcherPid": "kbo:b:56460"
   },
   {
@@ -343611,7 +343386,7 @@
     "status": "completed",
     "awayPitcher": "오원석",
     "homePitcher": "후라도",
-    "awayPitcherPid": "kbo:p:50859",
+    "awayPitcherPid": "kbo:b:50859",
     "homePitcherPid": "kbo:b:53375",
     "awayScore": 5,
     "homeScore": 8,
@@ -361193,7 +360968,8 @@
     "status": "cancelled",
     "awayPitcher": "원태인",
     "homePitcher": "베니지아노",
-    "awayPitcherPid": "kbo:b:69446"
+    "awayPitcherPid": "kbo:b:69446",
+    "homePitcherPid": "kbo:b:56841"
   },
   {
     "date": "2026-05-26",
@@ -362910,7 +362686,7 @@
     "status": "completed",
     "awayPitcher": "오원석",
     "homePitcher": "벤자민",
-    "awayPitcherPid": "kbo:p:50859",
+    "awayPitcherPid": "kbo:b:50859",
     "homePitcherPid": "kbo:b:52043",
     "awayScore": 0,
     "homeScore": 5,
@@ -362998,7 +362774,7 @@
           "how": "폭투",
           "text": "오원석(4회)",
           "player": "오원석",
-          "pid": "kbo:p:50859"
+          "pid": "kbo:b:50859"
         }
       ]
     }
@@ -363017,7 +362793,7 @@
     "awayPitcher": "후라도",
     "homePitcher": "베니지아노",
     "awayPitcherPid": "kbo:b:53375",
-    "homePitcherPid": "kbo:p:56841",
+    "homePitcherPid": "kbo:b:56841",
     "awayScore": 4,
     "homeScore": 1,
     "winPitcher": "후라도",
@@ -381351,7 +381127,7 @@
     "awayPitcher": "알칸타라",
     "homePitcher": "베니지아노",
     "awayPitcherPid": "kbo:b:69045",
-    "homePitcherPid": "kbo:p:56841",
+    "homePitcherPid": "kbo:b:56841",
     "awayScore": 12,
     "homeScore": 6,
     "winPitcher": "알칸타라",
@@ -388376,7 +388152,7 @@
     "status": "completed",
     "awayPitcher": "하영민",
     "homePitcher": "최승용",
-    "awayPitcherPid": "kbo:p:64350",
+    "awayPitcherPid": "kbo:b:64350",
     "homePitcherPid": "kbo:b:51264",
     "awayScore": 3,
     "homeScore": 4,
@@ -395808,8 +395584,8 @@
     "status": "completed",
     "awayPitcher": "오원석",
     "homePitcher": "베니지아노",
-    "awayPitcherPid": "kbo:p:50859",
-    "homePitcherPid": "kbo:p:56841",
+    "awayPitcherPid": "kbo:b:50859",
+    "homePitcherPid": "kbo:b:56841",
     "awayScore": 0,
     "homeScore": 7,
     "winPitcher": "베니지아노",
@@ -402303,7 +402079,7 @@
     "awayPitcher": "구창모",
     "homePitcher": "하영민",
     "awayPitcherPid": "kbo:b:65933",
-    "homePitcherPid": "kbo:p:64350",
+    "homePitcherPid": "kbo:b:64350",
     "awayScore": 4,
     "homeScore": 2,
     "winPitcher": "구창모",
@@ -402343,7 +402119,7 @@
           "how": "폭투",
           "text": "하영민(3회)",
           "player": "하영민",
-          "pid": "kbo:p:64350"
+          "pid": "kbo:b:64350"
         }
       ],
       "away": [
@@ -408680,7 +408456,7 @@
     "status": "completed",
     "awayPitcher": "베니지아노",
     "homePitcher": "후라도",
-    "awayPitcherPid": "kbo:p:56841",
+    "awayPitcherPid": "kbo:b:56841",
     "homePitcherPid": "kbo:b:53375",
     "awayScore": 6,
     "homeScore": 7,
@@ -409060,7 +408836,7 @@
     "awayPitcher": "토다",
     "homePitcher": "오원석",
     "awayPitcherPid": "kbo:b:56911",
-    "homePitcherPid": "kbo:p:50859",
+    "homePitcherPid": "kbo:b:50859",
     "awayScore": 9,
     "homeScore": 11,
     "winPitcher": "한승혁",
@@ -415887,7 +415663,7 @@
     "status": "completed",
     "awayPitcher": "하영민",
     "homePitcher": "원태인",
-    "awayPitcherPid": "kbo:p:64350",
+    "awayPitcherPid": "kbo:b:64350",
     "homePitcherPid": "kbo:b:69446",
     "awayScore": 1,
     "homeScore": 4,
@@ -421897,7 +421673,7 @@
     "status": "completed",
     "awayPitcher": "베니지아노",
     "homePitcher": "토다",
-    "awayPitcherPid": "kbo:p:56841",
+    "awayPitcherPid": "kbo:b:56841",
     "homePitcherPid": "kbo:b:56911",
     "awayScore": 3,
     "homeScore": 9,
@@ -422251,7 +422027,7 @@
     "awayPitcher": "네일",
     "homePitcher": "오원석",
     "awayPitcherPid": "kbo:b:54640",
-    "homePitcherPid": "kbo:p:50859",
+    "homePitcherPid": "kbo:b:50859",
     "awayScore": 11,
     "homeScore": 3,
     "winPitcher": "네일",
@@ -422306,7 +422082,7 @@
           "how": "폭투",
           "text": "오원석(2회)",
           "player": "오원석",
-          "pid": "kbo:p:50859"
+          "pid": "kbo:b:50859"
         },
         {
           "how": "폭투",
@@ -436041,7 +435817,7 @@
     "status": "completed",
     "awayPitcher": "베니지아노",
     "homePitcher": "소형준",
-    "awayPitcherPid": "kbo:p:56841",
+    "awayPitcherPid": "kbo:b:56841",
     "homePitcherPid": "kbo:b:50030",
     "awayScore": 7,
     "homeScore": 12,
@@ -437546,7 +437322,7 @@
     "status": "completed",
     "awayPitcher": "오원석",
     "homePitcher": "장찬희",
-    "awayPitcherPid": "kbo:p:50859",
+    "awayPitcherPid": "kbo:b:50859",
     "homePitcherPid": "kbo:b:56460",
     "awayScore": 1,
     "homeScore": 9,
@@ -437614,7 +437390,7 @@
           "how": "폭투",
           "text": "오원석(3회)",
           "player": "오원석",
-          "pid": "kbo:p:50859"
+          "pid": "kbo:b:50859"
         }
       ]
     }
@@ -439669,7 +439445,7 @@
     "status": "completed",
     "awayPitcher": "하영민",
     "homePitcher": "구창모",
-    "awayPitcherPid": "kbo:p:64350",
+    "awayPitcherPid": "kbo:b:64350",
     "homePitcherPid": "kbo:b:65933",
     "awayScore": 3,
     "homeScore": 1,
@@ -450293,7 +450069,7 @@
     "status": "completed",
     "awayPitcher": "오원석",
     "homePitcher": "왕옌청",
-    "awayPitcherPid": "kbo:p:50859",
+    "awayPitcherPid": "kbo:b:50859",
     "homePitcherPid": "kbo:b:56719",
     "awayScore": 3,
     "homeScore": 14,
@@ -450369,7 +450145,7 @@
           "how": "폭투",
           "text": "오원석(2회)",
           "player": "오원석",
-          "pid": "kbo:p:50859"
+          "pid": "kbo:b:50859"
         },
         {
           "how": "폭투",
@@ -450536,7 +450312,7 @@
     "status": "completed",
     "awayPitcher": "베니지아노",
     "homePitcher": "네일",
-    "awayPitcherPid": "kbo:p:56841",
+    "awayPitcherPid": "kbo:b:56841",
     "homePitcherPid": "kbo:b:54640",
     "awayScore": 7,
     "homeScore": 8,
@@ -451989,7 +451765,7 @@
     "awayPitcher": "잭로그",
     "homePitcher": "하영민",
     "awayPitcherPid": "kbo:p:55239",
-    "homePitcherPid": "kbo:p:64350",
+    "homePitcherPid": "kbo:b:64350",
     "awayScore": 5,
     "homeScore": 6,
     "winPitcher": "유토",
@@ -452028,7 +451804,7 @@
           "how": "폭투",
           "text": "하영민(4회)",
           "player": "하영민",
-          "pid": "kbo:p:64350"
+          "pid": "kbo:b:64350"
         }
       ],
       "away": [
@@ -466669,7 +466445,7 @@
     "status": "cancelled",
     "awayPitcher": "하영민",
     "homePitcher": "배제성",
-    "awayPitcherPid": "kbo:p:64350",
+    "awayPitcherPid": "kbo:b:64350",
     "homePitcherPid": "kbo:b:65516"
   },
   {
@@ -481526,7 +481302,7 @@
     "status": "completed",
     "awayPitcher": "하영민",
     "homePitcher": "왕옌청",
-    "awayPitcherPid": "kbo:p:64350",
+    "awayPitcherPid": "kbo:b:64350",
     "homePitcherPid": "kbo:b:56719",
     "awayScore": 7,
     "homeScore": 6,
@@ -496074,7 +495850,7 @@
     "awayPitcher": "벤자민",
     "homePitcher": "오원석",
     "awayPitcherPid": "kbo:b:52043",
-    "homePitcherPid": "kbo:p:50859",
+    "homePitcherPid": "kbo:b:50859",
     "awayScore": 2,
     "homeScore": 2,
     "holds": {
@@ -502353,7 +502129,7 @@
     "awayPitcher": "양창섭",
     "homePitcher": "하영민",
     "awayPitcherPid": "kbo:b:68415",
-    "homePitcherPid": "kbo:p:64350",
+    "homePitcherPid": "kbo:b:64350",
     "awayScore": 3,
     "homeScore": 1,
     "winPitcher": "김재윤",
@@ -525491,7 +525267,7 @@
     "status": "completed",
     "awayPitcher": "오원석",
     "homePitcher": "테일러",
-    "awayPitcherPid": "kbo:p:50859",
+    "awayPitcherPid": "kbo:b:50859",
     "homePitcherPid": "kbo:p:56966",
     "awayScore": 10,
     "homeScore": 3,
@@ -525898,7 +525674,7 @@
     "status": "completed",
     "awayPitcher": "하영민",
     "homePitcher": "웰스",
-    "awayPitcherPid": "kbo:p:64350",
+    "awayPitcherPid": "kbo:b:64350",
     "homePitcherPid": "kbo:p:55348",
     "awayScore": 18,
     "homeScore": 11,
@@ -551130,7 +550906,7 @@
     "status": "cancelled",
     "awayPitcher": "오원석",
     "homePitcher": "올러",
-    "awayPitcherPid": "kbo:p:50859",
+    "awayPitcherPid": "kbo:b:50859",
     "homePitcherPid": "kbo:b:55633"
   },
   {
@@ -551285,7 +551061,7 @@
     "status": "completed",
     "awayPitcher": "하영민",
     "homePitcher": "로드리게스",
-    "awayPitcherPid": "kbo:p:64350",
+    "awayPitcherPid": "kbo:b:64350",
     "homePitcherPid": "kbo:b:56531",
     "awayScore": 2,
     "homeScore": 3,
@@ -588940,8 +588716,8 @@
     "status": "completed",
     "awayPitcher": "하영민",
     "homePitcher": "오원석",
-    "awayPitcherPid": "kbo:p:64350",
-    "homePitcherPid": "kbo:p:50859",
+    "awayPitcherPid": "kbo:b:64350",
+    "homePitcherPid": "kbo:b:50859",
     "awayScore": 10,
     "homeScore": 5,
     "winPitcher": "하영민",
@@ -617232,7 +617008,7 @@
     "awayPitcher": "양현종",
     "homePitcher": "하영민",
     "awayPitcherPid": "kbo:b:77637",
-    "homePitcherPid": "kbo:p:64350",
+    "homePitcherPid": "kbo:b:64350",
     "awayScore": 11,
     "homeScore": 1,
     "winPitcher": "양현종",
@@ -648879,7 +648655,7 @@
     "awayPitcher": "원태인",
     "homePitcher": "하영민",
     "awayPitcherPid": "kbo:b:69446",
-    "homePitcherPid": "kbo:p:64350",
+    "homePitcherPid": "kbo:b:64350",
     "awayScore": 15,
     "homeScore": 2,
     "winPitcher": "원태인",
@@ -650946,7 +650722,7 @@
     "status": "cancelled",
     "awayPitcher": "오원석",
     "homePitcher": "김백산",
-    "awayPitcherPid": "kbo:p:50859",
+    "awayPitcherPid": "kbo:b:50859",
     "homePitcherPid": "kbo:p:55420"
   },
   {
@@ -666329,7 +666105,7 @@
     "status": "cancelled",
     "awayPitcher": "오원석",
     "homePitcher": "보스",
-    "awayPitcherPid": "kbo:p:50859",
+    "awayPitcherPid": "kbo:b:50859",
     "homePitcherPid": "kbo:p:56402"
   },
   {
@@ -682290,7 +682066,7 @@
     "awayPitcher": "김건우",
     "homePitcher": "하영민",
     "awayPitcherPid": "kbo:b:51867",
-    "homePitcherPid": "kbo:p:64350",
+    "homePitcherPid": "kbo:b:64350",
     "awayScore": 9,
     "homeScore": 6,
     "winPitcher": "이건욱",
@@ -722724,7 +722500,7 @@
     "status": "completed",
     "awayPitcher": "하영민",
     "homePitcher": "박시원",
-    "awayPitcherPid": "kbo:p:64350",
+    "awayPitcherPid": "kbo:b:64350",
     "homePitcherPid": "kbo:b:55121",
     "awayScore": 8,
     "homeScore": 3,
@@ -723969,6 +723745,211 @@
   {
     "date": "2026-09-09",
     "time": "03:45",
+    "league": "EFL",
+    "venueId": "southampton_st_marys",
+    "home": "사우샘프턴",
+    "away": "스완지",
+    "stadium": "세인트 메리스 스타디움",
+    "timeTbd": false,
+    "gameId": "YEzthB2I7ULBOnY",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "아자즈",
+          "m": 9,
+          "pid": "espn:251631",
+          "a": "Flynn Downes",
+          "nat": "Republic of Ireland",
+          "aNat": "England",
+          "apid": "espn:255916"
+        },
+        {
+          "n": "래린",
+          "m": 33,
+          "pid": "espn:205024",
+          "a": "James Bree",
+          "nat": "Canada",
+          "aNat": "England",
+          "apid": "espn:204286"
+        },
+        {
+          "n": "레오 시엔자",
+          "m": 78,
+          "pid": "espn:343995",
+          "a": "Kuryu Matsuki",
+          "nat": "Brazil",
+          "aNat": "Japan",
+          "apid": "espn:333631"
+        }
+      ],
+      "away": [
+        {
+          "n": "비포트니크",
+          "m": 52,
+          "pid": "espn:322158",
+          "nat": "Slovenia",
+          "pk": true
+        }
+      ]
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Ronald",
+          "type": "Y",
+          "m": 54,
+          "pid": "espn:319788",
+          "nat": "Brazil"
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-09",
+    "time": "03:45",
+    "league": "EFL",
+    "venueId": "watford_vicarage_road",
+    "home": "왓퍼드",
+    "away": "프레스턴",
+    "stadium": "비커리지 로드",
+    "timeTbd": false,
+    "gameId": "2n8KOshcekINj3A",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "에도 카옘베",
+          "m": 69,
+          "pid": "espn:268986",
+          "nat": "Congo DR"
+        },
+        {
+          "n": "둠비아",
+          "m": 76,
+          "pid": "espn:137393",
+          "a": "Iker Bravo",
+          "nat": "Mali",
+          "aNat": "Spain",
+          "apid": "espn:330242"
+        }
+      ],
+      "away": [
+        {
+          "n": "랭",
+          "m": 5,
+          "pid": "espn:240158",
+          "nat": "England"
+        }
+      ]
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Andrija Vukcevic",
+          "type": "Y",
+          "m": 62,
+          "pid": "espn:221307",
+          "nat": "Montenegro"
+        },
+        {
+          "n": "Lewis Gibson",
+          "type": "Y",
+          "m": 67,
+          "pid": "espn:261431",
+          "nat": "England"
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-09",
+    "time": "03:45",
+    "league": "EFL",
+    "venueId": "wrexham_racecourse_ground",
+    "home": "렉섬",
+    "away": "번리",
+    "stadium": "레이스코스 그라운드",
+    "timeTbd": false,
+    "gameId": "8059agG5ekMqb6q",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "에코미에",
+          "m": 55,
+          "pid": "espn:333218",
+          "a": "Issa Kaboré",
+          "nat": "Gabon",
+          "aNat": "Burkina Faso",
+          "apid": "espn:294427"
+        }
+      ],
+      "away": [
+        {
+          "n": "암두니",
+          "m": 26,
+          "pid": "espn:320757",
+          "a": "Largie Ramazani",
+          "nat": "Switzerland",
+          "aNat": "Belgium",
+          "apid": "espn:291435"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Issa Kaboré",
+          "type": "Y",
+          "m": 14,
+          "pid": "espn:294427",
+          "nat": "Burkina Faso"
+        },
+        {
+          "n": "Dominic Hyam",
+          "type": "Y",
+          "m": 84,
+          "pid": "espn:231572",
+          "nat": "Scotland"
+        }
+      ],
+      "away": [
+        {
+          "n": "Aaron Ramsey",
+          "type": "Y",
+          "m": 65,
+          "pid": "espn:332046",
+          "nat": "England"
+        },
+        {
+          "n": "Lucas Pires",
+          "type": "Y",
+          "m": 86,
+          "pid": "espn:285790",
+          "nat": "Brazil"
+        },
+        {
+          "n": "Reo Hatate",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:288891",
+          "nat": "Japan"
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-09",
+    "time": "03:45",
     "league": "EFLCUP",
     "venueId": "bournemouth_dean_court",
     "home": "본머스",
@@ -724280,211 +724261,6 @@
       ]
     },
     "phaseCode": "T32"
-  },
-  {
-    "date": "2026-09-09",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "southampton_st_marys",
-    "home": "사우샘프턴",
-    "away": "스완지",
-    "stadium": "세인트 메리스 스타디움",
-    "timeTbd": false,
-    "gameId": "YEzthB2I7ULBOnY",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 3,
-    "scorers": {
-      "home": [
-        {
-          "n": "아자즈",
-          "m": 9,
-          "pid": "espn:251631",
-          "a": "Flynn Downes",
-          "nat": "Republic of Ireland",
-          "aNat": "England",
-          "apid": "espn:255916"
-        },
-        {
-          "n": "래린",
-          "m": 33,
-          "pid": "espn:205024",
-          "a": "James Bree",
-          "nat": "Canada",
-          "aNat": "England",
-          "apid": "espn:204286"
-        },
-        {
-          "n": "레오 시엔자",
-          "m": 78,
-          "pid": "espn:343995",
-          "a": "Kuryu Matsuki",
-          "nat": "Brazil",
-          "aNat": "Japan",
-          "apid": "espn:333631"
-        }
-      ],
-      "away": [
-        {
-          "n": "비포트니크",
-          "m": 52,
-          "pid": "espn:322158",
-          "nat": "Slovenia",
-          "pk": true
-        }
-      ]
-    },
-    "cards": {
-      "home": [],
-      "away": [
-        {
-          "n": "Ronald",
-          "type": "Y",
-          "m": 54,
-          "pid": "espn:319788",
-          "nat": "Brazil"
-        }
-      ]
-    }
-  },
-  {
-    "date": "2026-09-09",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "watford_vicarage_road",
-    "home": "왓퍼드",
-    "away": "프레스턴",
-    "stadium": "비커리지 로드",
-    "timeTbd": false,
-    "gameId": "2n8KOshcekINj3A",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "에도 카옘베",
-          "m": 69,
-          "pid": "espn:268986",
-          "nat": "Congo DR"
-        },
-        {
-          "n": "둠비아",
-          "m": 76,
-          "pid": "espn:137393",
-          "a": "Iker Bravo",
-          "nat": "Mali",
-          "aNat": "Spain",
-          "apid": "espn:330242"
-        }
-      ],
-      "away": [
-        {
-          "n": "랭",
-          "m": 5,
-          "pid": "espn:240158",
-          "nat": "England"
-        }
-      ]
-    },
-    "cards": {
-      "home": [],
-      "away": [
-        {
-          "n": "Andrija Vukcevic",
-          "type": "Y",
-          "m": 62,
-          "pid": "espn:221307",
-          "nat": "Montenegro"
-        },
-        {
-          "n": "Lewis Gibson",
-          "type": "Y",
-          "m": 67,
-          "pid": "espn:261431",
-          "nat": "England"
-        }
-      ]
-    }
-  },
-  {
-    "date": "2026-09-09",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "wrexham_racecourse_ground",
-    "home": "렉섬",
-    "away": "번리",
-    "stadium": "레이스코스 그라운드",
-    "timeTbd": false,
-    "gameId": "8059agG5ekMqb6q",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 1,
-    "scorers": {
-      "home": [
-        {
-          "n": "에코미에",
-          "m": 55,
-          "pid": "espn:333218",
-          "a": "Issa Kaboré",
-          "nat": "Gabon",
-          "aNat": "Burkina Faso",
-          "apid": "espn:294427"
-        }
-      ],
-      "away": [
-        {
-          "n": "암두니",
-          "m": 26,
-          "pid": "espn:320757",
-          "a": "Largie Ramazani",
-          "nat": "Switzerland",
-          "aNat": "Belgium",
-          "apid": "espn:291435"
-        }
-      ]
-    },
-    "cards": {
-      "home": [
-        {
-          "n": "Issa Kaboré",
-          "type": "Y",
-          "m": 14,
-          "pid": "espn:294427",
-          "nat": "Burkina Faso"
-        },
-        {
-          "n": "Dominic Hyam",
-          "type": "Y",
-          "m": 84,
-          "pid": "espn:231572",
-          "nat": "Scotland"
-        }
-      ],
-      "away": [
-        {
-          "n": "Aaron Ramsey",
-          "type": "Y",
-          "m": 65,
-          "pid": "espn:332046",
-          "nat": "England"
-        },
-        {
-          "n": "Lucas Pires",
-          "type": "Y",
-          "m": 86,
-          "pid": "espn:285790",
-          "nat": "Brazil"
-        },
-        {
-          "n": "Reo Hatate",
-          "type": "Y",
-          "m": 90,
-          "pid": "espn:288891",
-          "nat": "Japan"
-        }
-      ]
-    }
   },
   {
     "date": "2026-09-09",
@@ -769928,6 +769704,79 @@
   {
     "date": "2026-09-16",
     "time": "03:45",
+    "league": "EFL",
+    "venueId": "middlesbrough_riverside",
+    "home": "미들즈브러",
+    "away": "밀월",
+    "stadium": "리버사이드 스타디움",
+    "timeTbd": false,
+    "gameId": "YK3SlqCpysSMqvp",
+    "status": "completed",
+    "awayScore": 2,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "코지어-뒤베리",
+          "m": 50,
+          "pid": "espn:327170",
+          "nat": "England"
+        },
+        {
+          "n": "랭크셔",
+          "m": 61,
+          "pid": "espn:349181",
+          "a": "Luke Ayling",
+          "nat": "England",
+          "aNat": "England",
+          "apid": "espn:136380"
+        }
+      ],
+      "away": [
+        {
+          "n": "아르콘테",
+          "m": 11,
+          "pid": "espn:315189",
+          "a": "Camiel Neghli",
+          "nat": "Guadeloupe",
+          "aNat": "Algeria",
+          "apid": "espn:310173"
+        },
+        {
+          "n": "다이크스",
+          "m": 36,
+          "pid": "espn:207538",
+          "a": "Caleb Taylor",
+          "nat": "Scotland",
+          "aNat": "England",
+          "apid": "espn:308572"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Riley McGree",
+          "type": "Y",
+          "m": 66,
+          "pid": "espn:235096",
+          "nat": "Australia"
+        }
+      ],
+      "away": [
+        {
+          "n": "Derek Mazou-Sacko",
+          "type": "Y",
+          "m": 59,
+          "pid": "espn:324659",
+          "nat": "France"
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-09-16",
+    "time": "03:45",
     "league": "EFLCUP",
     "venueId": "westham_london_stadium",
     "home": "웨스트햄",
@@ -769999,79 +769848,6 @@
       ]
     },
     "phaseCode": "T32"
-  },
-  {
-    "date": "2026-09-16",
-    "time": "03:45",
-    "league": "EFL",
-    "venueId": "middlesbrough_riverside",
-    "home": "미들즈브러",
-    "away": "밀월",
-    "stadium": "리버사이드 스타디움",
-    "timeTbd": false,
-    "gameId": "YK3SlqCpysSMqvp",
-    "status": "completed",
-    "awayScore": 2,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "코지어-뒤베리",
-          "m": 50,
-          "pid": "espn:327170",
-          "nat": "England"
-        },
-        {
-          "n": "랭크셔",
-          "m": 61,
-          "pid": "espn:349181",
-          "a": "Luke Ayling",
-          "nat": "England",
-          "aNat": "England",
-          "apid": "espn:136380"
-        }
-      ],
-      "away": [
-        {
-          "n": "아르콘테",
-          "m": 11,
-          "pid": "espn:315189",
-          "a": "Camiel Neghli",
-          "nat": "Guadeloupe",
-          "aNat": "Algeria",
-          "apid": "espn:310173"
-        },
-        {
-          "n": "다이크스",
-          "m": 36,
-          "pid": "espn:207538",
-          "a": "Caleb Taylor",
-          "nat": "Scotland",
-          "aNat": "England",
-          "apid": "espn:308572"
-        }
-      ]
-    },
-    "cards": {
-      "home": [
-        {
-          "n": "Riley McGree",
-          "type": "Y",
-          "m": 66,
-          "pid": "espn:235096",
-          "nat": "Australia"
-        }
-      ],
-      "away": [
-        {
-          "n": "Derek Mazou-Sacko",
-          "type": "Y",
-          "m": 59,
-          "pid": "espn:324659",
-          "nat": "France"
-        }
-      ]
-    }
   },
   {
     "date": "2026-09-16",
@@ -772880,64 +772656,6 @@
   {
     "date": "2026-09-16",
     "time": "19:00",
-    "league": "ACL2",
-    "venueId": "seoulwc",
-    "home": "서울",
-    "away": "반둥",
-    "stadium": "서울월드컵경기장",
-    "timeTbd": false,
-    "gameId": "2idpicTW6SmPYVP",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 0,
-    "scorers": {
-      "home": [],
-      "away": [
-        {
-          "n": "훌리오 세자르",
-          "m": 5,
-          "nat": "Brazil",
-          "pid": "espn:204824"
-        }
-      ]
-    },
-    "cards": {
-      "home": [
-        {
-          "n": "Jung Ha-Won",
-          "type": "Y",
-          "m": 62,
-          "pid": "espn:422364"
-        },
-        {
-          "n": "Son Jeong-Beom",
-          "type": "Y",
-          "m": 78,
-          "pid": "espn:417857"
-        }
-      ],
-      "away": [
-        {
-          "n": "Adam Alis",
-          "type": "Y",
-          "m": 35,
-          "pid": "espn:250878",
-          "nat": "Indonesia"
-        },
-        {
-          "n": "Kakang Rudianto",
-          "type": "Y",
-          "m": 78,
-          "pid": "espn:341619",
-          "nat": "Indonesia"
-        }
-      ]
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-09-16",
-    "time": "19:00",
     "league": "ACL",
     "venueId": "jeonju",
     "home": "전북",
@@ -773013,6 +772731,64 @@
   {
     "date": "2026-09-16",
     "time": "19:00",
+    "league": "ACL2",
+    "venueId": "seoulwc",
+    "home": "서울",
+    "away": "반둥",
+    "stadium": "서울월드컵경기장",
+    "timeTbd": false,
+    "gameId": "2idpicTW6SmPYVP",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "훌리오 세자르",
+          "m": 5,
+          "nat": "Brazil",
+          "pid": "espn:204824"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Jung Ha-Won",
+          "type": "Y",
+          "m": 62,
+          "pid": "espn:422364"
+        },
+        {
+          "n": "Son Jeong-Beom",
+          "type": "Y",
+          "m": 78,
+          "pid": "espn:417857"
+        }
+      ],
+      "away": [
+        {
+          "n": "Adam Alis",
+          "type": "Y",
+          "m": 35,
+          "pid": "espn:250878",
+          "nat": "Indonesia"
+        },
+        {
+          "n": "Kakang Rudianto",
+          "type": "Y",
+          "m": 78,
+          "pid": "espn:341619",
+          "nat": "Indonesia"
+        }
+      ]
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-09-16",
+    "time": "19:00",
     "league": "ASIANGAMESFOOTBALL",
     "venueId": "wave_stadium_kariya",
     "home": "중국 (남자)",
@@ -773037,59 +772813,6 @@
     "status": "completed",
     "homeScore": 2,
     "awayScore": 0
-  },
-  {
-    "date": "2026-09-16",
-    "time": "21:15",
-    "league": "ACL2",
-    "venueId": "cahn_hang_day",
-    "home": "비에트텔",
-    "away": "멜버른 FC",
-    "stadium": "선번동 항더이 (항더이 스타디움)",
-    "timeTbd": false,
-    "gameId": "gqA22tVR2bUJFof",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 1,
-    "scorers": {
-      "home": [
-        {
-          "n": "리바마르",
-          "m": 62,
-          "nat": "Brazil",
-          "pid": "espn:233364"
-        }
-      ],
-      "away": [
-        {
-          "n": "클라리스마리우 호드리게스",
-          "m": 58,
-          "nat": "Brazil",
-          "pid": "espn:363862"
-        }
-      ]
-    },
-    "cards": {
-      "home": [
-        {
-          "n": "Kyle Colonna",
-          "type": "Y",
-          "m": 67,
-          "pid": "espn:360297",
-          "nat": "USA"
-        }
-      ],
-      "away": [
-        {
-          "n": "Joshua Inserra",
-          "type": "Y",
-          "m": 10,
-          "pid": "espn:362165",
-          "nat": "Australia"
-        }
-      ]
-    },
-    "phaseCode": "GROUP"
   },
   {
     "date": "2026-09-16",
@@ -773166,6 +772889,59 @@
           "m": 73,
           "pid": "espn:143697",
           "nat": "Japan"
+        }
+      ]
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-09-16",
+    "time": "21:15",
+    "league": "ACL2",
+    "venueId": "cahn_hang_day",
+    "home": "비에트텔",
+    "away": "멜버른 FC",
+    "stadium": "선번동 항더이 (항더이 스타디움)",
+    "timeTbd": false,
+    "gameId": "gqA22tVR2bUJFof",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "리바마르",
+          "m": 62,
+          "nat": "Brazil",
+          "pid": "espn:233364"
+        }
+      ],
+      "away": [
+        {
+          "n": "클라리스마리우 호드리게스",
+          "m": 58,
+          "nat": "Brazil",
+          "pid": "espn:363862"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Kyle Colonna",
+          "type": "Y",
+          "m": 67,
+          "pid": "espn:360297",
+          "nat": "USA"
+        }
+      ],
+      "away": [
+        {
+          "n": "Joshua Inserra",
+          "type": "Y",
+          "m": 10,
+          "pid": "espn:362165",
+          "nat": "Australia"
         }
       ]
     },
@@ -798581,7 +798357,7 @@
     "status": "completed",
     "awayPitcher": "하영민",
     "homePitcher": "김건우",
-    "awayPitcherPid": "kbo:p:64350",
+    "awayPitcherPid": "kbo:b:64350",
     "homePitcherPid": "kbo:b:51867",
     "awayScore": 5,
     "homeScore": 10,
@@ -829967,7 +829743,7 @@
     "status": "completed",
     "awayPitcher": "하영민",
     "homePitcher": "클레빈저",
-    "awayPitcherPid": "kbo:p:64350",
+    "awayPitcherPid": "kbo:b:64350",
     "homePitcherPid": "kbo:b:56939",
     "awayScore": 8,
     "homeScore": 4,
@@ -847129,7 +846905,7 @@
     "status": "completed",
     "awayPitcher": "하영민",
     "homePitcher": "이상규",
-    "awayPitcherPid": "kbo:p:64350",
+    "awayPitcherPid": "kbo:b:64350",
     "homePitcherPid": "kbo:b:65117",
     "awayScore": 7,
     "homeScore": 2,
@@ -890939,6 +890715,69 @@
   {
     "date": "2026-10-14",
     "time": "01:00",
+    "league": "ACL",
+    "venueId": "al_sadd_jassim_bin_hamad",
+    "home": "알 사드",
+    "away": "알 힐랄",
+    "stadium": "자심 빈 하마드 스타디움",
+    "timeTbd": false,
+    "gameId": "zcfrVKksVO8hhNi",
+    "status": "completed",
+    "awayScore": 2,
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "왓킨스",
+          "m": 40,
+          "pid": "espn:198825",
+          "a": "Sultan Mandash",
+          "nat": "England",
+          "aNat": "Saudi Arabia",
+          "apid": "espn:287054"
+        },
+        {
+          "n": "후벵 네베스",
+          "m": 65,
+          "pid": "espn:208128",
+          "nat": "Portugal",
+          "pk": true
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Agustín Soría",
+          "type": "Y",
+          "m": 18,
+          "pid": "espn:380123",
+          "nat": "Uruguay"
+        },
+        {
+          "n": "Mohamed Camara",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:362399",
+          "nat": "Mali"
+        }
+      ],
+      "away": [
+        {
+          "n": "Mohamed Kanno",
+          "type": "Y",
+          "m": 35,
+          "pid": "espn:262468",
+          "nat": "Saudi Arabia"
+        }
+      ]
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-14",
+    "time": "01:00",
     "league": "ACL2",
     "venueId": "al_seeb_stadium",
     "home": "알 시브",
@@ -890995,69 +890834,6 @@
           "m": 72,
           "pid": "espn:371676",
           "nat": "Jordan"
-        }
-      ]
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-14",
-    "time": "01:00",
-    "league": "ACL",
-    "venueId": "al_sadd_jassim_bin_hamad",
-    "home": "알 사드",
-    "away": "알 힐랄",
-    "stadium": "자심 빈 하마드 스타디움",
-    "timeTbd": false,
-    "gameId": "zcfrVKksVO8hhNi",
-    "status": "completed",
-    "awayScore": 2,
-    "homeScore": 0,
-    "scorers": {
-      "home": [],
-      "away": [
-        {
-          "n": "왓킨스",
-          "m": 40,
-          "pid": "espn:198825",
-          "a": "Sultan Mandash",
-          "nat": "England",
-          "aNat": "Saudi Arabia",
-          "apid": "espn:287054"
-        },
-        {
-          "n": "후벵 네베스",
-          "m": 65,
-          "pid": "espn:208128",
-          "nat": "Portugal",
-          "pk": true
-        }
-      ]
-    },
-    "cards": {
-      "home": [
-        {
-          "n": "Agustín Soría",
-          "type": "Y",
-          "m": 18,
-          "pid": "espn:380123",
-          "nat": "Uruguay"
-        },
-        {
-          "n": "Mohamed Camara",
-          "type": "Y",
-          "m": 90,
-          "pid": "espn:362399",
-          "nat": "Mali"
-        }
-      ],
-      "away": [
-        {
-          "n": "Mohamed Kanno",
-          "type": "Y",
-          "m": 35,
-          "pid": "espn:262468",
-          "nat": "Saudi Arabia"
         }
       ]
     },
@@ -909697,42 +909473,6 @@
     "time": "00:00",
     "league": "U17WOMENWORLDCUP",
     "venueId": "mohammed_vi_football_academy",
-    "home": "독일",
-    "away": "아르헨티나",
-    "stadium": "모하메드 축구 아카데미 VI",
-    "timeTbd": false,
-    "gameId": "XivnMEpkwr20aXj",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "헤벤",
-          "m": 25,
-          "pid": "fifa:541607"
-        },
-        {
-          "n": "쿤",
-          "m": 52,
-          "pid": "fifa:541620"
-        }
-      ],
-      "away": [
-        {
-          "n": "디즈",
-          "m": 10,
-          "pid": "naver:xp2PpUTQ"
-        }
-      ]
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-18",
-    "time": "00:00",
-    "league": "U17WOMENWORLDCUP",
-    "venueId": "mohammed_vi_football_academy",
     "home": "북한",
     "away": "푸에르토리코",
     "stadium": "모하메드 축구 아카데미 필드 VI 2",
@@ -909775,6 +909515,42 @@
         }
       ],
       "away": []
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-18",
+    "time": "00:00",
+    "league": "U17WOMENWORLDCUP",
+    "venueId": "mohammed_vi_football_academy",
+    "home": "독일",
+    "away": "아르헨티나",
+    "stadium": "모하메드 축구 아카데미 VI",
+    "timeTbd": false,
+    "gameId": "XivnMEpkwr20aXj",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "헤벤",
+          "m": 25,
+          "pid": "fifa:541607"
+        },
+        {
+          "n": "쿤",
+          "m": 52,
+          "pid": "fifa:541620"
+        }
+      ],
+      "away": [
+        {
+          "n": "디즈",
+          "m": 10,
+          "pid": "naver:xp2PpUTQ"
+        }
+      ]
     },
     "phaseCode": "GROUP"
   },
@@ -922190,51 +921966,6 @@
     "time": "00:00",
     "league": "U17WOMENWORLDCUP",
     "venueId": "mohammed_vi_football_academy",
-    "home": "일본",
-    "away": "잠비아",
-    "stadium": "모하메드 축구 아카데미 필드 VI 2",
-    "timeTbd": false,
-    "gameId": "vpGwbhRwLFCz78l",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 5,
-    "scorers": {
-      "home": [
-        {
-          "n": "나나미",
-          "m": 9,
-          "pid": "fifa:541353"
-        },
-        {
-          "n": "피리",
-          "m": 13,
-          "og": true
-        },
-        {
-          "n": "시미즈",
-          "m": 72,
-          "pid": "fifa:541366"
-        },
-        {
-          "n": "나나미",
-          "m": 88,
-          "pid": "fifa:541353"
-        },
-        {
-          "n": "타나카",
-          "m": 90,
-          "pid": "fifa:541336"
-        }
-      ],
-      "away": []
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-19",
-    "time": "00:00",
-    "league": "U17WOMENWORLDCUP",
-    "venueId": "mohammed_vi_football_academy",
     "home": "캐나다",
     "away": "브라질",
     "stadium": "모하메드 축구 아카데미 VI",
@@ -922288,6 +922019,51 @@
           "pid": "fifa:509982"
         }
       ]
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-19",
+    "time": "00:00",
+    "league": "U17WOMENWORLDCUP",
+    "venueId": "mohammed_vi_football_academy",
+    "home": "일본",
+    "away": "잠비아",
+    "stadium": "모하메드 축구 아카데미 필드 VI 2",
+    "timeTbd": false,
+    "gameId": "vpGwbhRwLFCz78l",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 5,
+    "scorers": {
+      "home": [
+        {
+          "n": "나나미",
+          "m": 9,
+          "pid": "fifa:541353"
+        },
+        {
+          "n": "피리",
+          "m": 13,
+          "og": true
+        },
+        {
+          "n": "시미즈",
+          "m": 72,
+          "pid": "fifa:541366"
+        },
+        {
+          "n": "나나미",
+          "m": 88,
+          "pid": "fifa:541353"
+        },
+        {
+          "n": "타나카",
+          "m": 90,
+          "pid": "fifa:541336"
+        }
+      ],
+      "away": []
     },
     "phaseCode": "GROUP"
   },
@@ -924321,6 +924097,36 @@
     "time": "03:00",
     "league": "U17WOMENWORLDCUP",
     "venueId": "mohammed_vi_football_academy",
+    "home": "프랑스",
+    "away": "베네수엘라",
+    "stadium": "모하메드 축구 아카데미 필드 VI 4",
+    "timeTbd": false,
+    "gameId": "KlyZh4ZdcUcvhNO",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "아네",
+          "m": 17,
+          "pid": "fifa:541211"
+        },
+        {
+          "n": "모티카",
+          "m": 56,
+          "pid": "fifa:541229"
+        }
+      ],
+      "away": []
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-19",
+    "time": "03:00",
+    "league": "U17WOMENWORLDCUP",
+    "venueId": "mohammed_vi_football_academy",
     "home": "노르웨이",
     "away": "가나",
     "stadium": "모하메드 풋볼 아카데미 필드 VI 3",
@@ -924345,36 +924151,6 @@
           "n": "멜고르드",
           "m": 80,
           "pid": "fifa:509509"
-        }
-      ],
-      "away": []
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-19",
-    "time": "03:00",
-    "league": "U17WOMENWORLDCUP",
-    "venueId": "mohammed_vi_football_academy",
-    "home": "프랑스",
-    "away": "베네수엘라",
-    "stadium": "모하메드 축구 아카데미 필드 VI 4",
-    "timeTbd": false,
-    "gameId": "KlyZh4ZdcUcvhNO",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "아네",
-          "m": 17,
-          "pid": "fifa:541211"
-        },
-        {
-          "n": "모티카",
-          "m": 56,
-          "pid": "fifa:541229"
         }
       ],
       "away": []
@@ -927989,36 +927765,6 @@
     "time": "00:00",
     "league": "U17WOMENWORLDCUP",
     "venueId": "mohammed_vi_football_academy",
-    "home": "스페인",
-    "away": "멕시코",
-    "stadium": "모하메드 축구 아카데미 필드 VI 2",
-    "timeTbd": false,
-    "gameId": "wd1E1qMzHCMDh6f",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "카롤리나 페레라",
-          "m": 42,
-          "pid": "fifa:509561"
-        },
-        {
-          "n": "엘레나 비수에테",
-          "m": 48,
-          "pid": "fifa:509593"
-        }
-      ],
-      "away": []
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-20",
-    "time": "00:00",
-    "league": "U17WOMENWORLDCUP",
-    "venueId": "mohammed_vi_football_academy",
     "home": "케냐",
     "away": "중국",
     "stadium": "모하메드 축구 아카데미 VI",
@@ -928046,6 +927792,36 @@
           "pid": "fifa:509333"
         }
       ]
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-20",
+    "time": "00:00",
+    "league": "U17WOMENWORLDCUP",
+    "venueId": "mohammed_vi_football_academy",
+    "home": "스페인",
+    "away": "멕시코",
+    "stadium": "모하메드 축구 아카데미 필드 VI 2",
+    "timeTbd": false,
+    "gameId": "wd1E1qMzHCMDh6f",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "카롤리나 페레라",
+          "m": 42,
+          "pid": "fifa:509561"
+        },
+        {
+          "n": "엘레나 비수에테",
+          "m": 48,
+          "pid": "fifa:509593"
+        }
+      ],
+      "away": []
     },
     "phaseCode": "GROUP"
   },
@@ -930648,36 +930424,6 @@
     "time": "03:00",
     "league": "U17WOMENWORLDCUP",
     "venueId": "mohammed_vi_football_academy",
-    "home": "나이지리아",
-    "away": "푸에르토리코",
-    "stadium": "모하메드 축구 아카데미 필드 VI 4",
-    "timeTbd": false,
-    "gameId": "Cvcx6W7GX2pekBz",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 2,
-    "scorers": {
-      "home": [
-        {
-          "n": "아데구비",
-          "m": 25,
-          "pid": "fifa:537844"
-        },
-        {
-          "n": "오스카르",
-          "m": 90,
-          "pid": "fifa:537868"
-        }
-      ],
-      "away": []
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-21",
-    "time": "03:00",
-    "league": "U17WOMENWORLDCUP",
-    "venueId": "mohammed_vi_football_academy",
     "home": "모로코",
     "away": "독일",
     "stadium": "모하메드 풋볼 아카데미 필드 VI 3",
@@ -930721,6 +930467,36 @@
           "pid": "fifa:541602"
         }
       ]
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-21",
+    "time": "03:00",
+    "league": "U17WOMENWORLDCUP",
+    "venueId": "mohammed_vi_football_academy",
+    "home": "나이지리아",
+    "away": "푸에르토리코",
+    "stadium": "모하메드 축구 아카데미 필드 VI 4",
+    "timeTbd": false,
+    "gameId": "Cvcx6W7GX2pekBz",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 2,
+    "scorers": {
+      "home": [
+        {
+          "n": "아데구비",
+          "m": 25,
+          "pid": "fifa:537844"
+        },
+        {
+          "n": "오스카르",
+          "m": 90,
+          "pid": "fifa:537868"
+        }
+      ],
+      "away": []
     },
     "phaseCode": "GROUP"
   },
@@ -933339,6 +933115,52 @@
     "time": "03:00",
     "league": "U17WOMENWORLDCUP",
     "venueId": "mohammed_vi_football_academy",
+    "home": "베네수엘라",
+    "away": "잠비아",
+    "stadium": "모하메드 축구 아카데미 필드 VI 4",
+    "timeTbd": false,
+    "gameId": "f0ldR0C98BS74MU",
+    "status": "completed",
+    "awayScore": 2,
+    "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "Ojeda",
+          "m": 13,
+          "pid": "fifa:542192"
+        },
+        {
+          "n": "두란",
+          "m": 63,
+          "pid": "fifa:542183"
+        },
+        {
+          "n": "수아레즈",
+          "m": 90,
+          "pid": "fifa:542197"
+        }
+      ],
+      "away": [
+        {
+          "n": "Mofya",
+          "m": 4,
+          "pid": "fifa:542207"
+        },
+        {
+          "n": "피리",
+          "m": 54,
+          "pid": "fifa:510293"
+        }
+      ]
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-22",
+    "time": "03:00",
+    "league": "U17WOMENWORLDCUP",
+    "venueId": "mohammed_vi_football_academy",
     "home": "가나",
     "away": "브라질",
     "stadium": "모하메드 풋볼 아카데미 필드 VI 3",
@@ -933380,52 +933202,6 @@
           "n": "인디 콜스터",
           "m": 57,
           "pid": "fifa:541800"
-        }
-      ]
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-22",
-    "time": "03:00",
-    "league": "U17WOMENWORLDCUP",
-    "venueId": "mohammed_vi_football_academy",
-    "home": "베네수엘라",
-    "away": "잠비아",
-    "stadium": "모하메드 축구 아카데미 필드 VI 4",
-    "timeTbd": false,
-    "gameId": "f0ldR0C98BS74MU",
-    "status": "completed",
-    "awayScore": 2,
-    "homeScore": 3,
-    "scorers": {
-      "home": [
-        {
-          "n": "Ojeda",
-          "m": 13,
-          "pid": "fifa:542192"
-        },
-        {
-          "n": "두란",
-          "m": 63,
-          "pid": "fifa:542183"
-        },
-        {
-          "n": "수아레즈",
-          "m": 90,
-          "pid": "fifa:542197"
-        }
-      ],
-      "away": [
-        {
-          "n": "Mofya",
-          "m": 4,
-          "pid": "fifa:542207"
-        },
-        {
-          "n": "피리",
-          "m": 54,
-          "pid": "fifa:510293"
         }
       ]
     },
@@ -935215,47 +934991,6 @@
     "time": "00:00",
     "league": "U17WOMENWORLDCUP",
     "venueId": "mohammed_vi_football_academy",
-    "home": "스페인",
-    "away": "호주",
-    "stadium": "모하메드 축구 아카데미 필드 VI 2",
-    "timeTbd": false,
-    "gameId": "Sdb2IBw9YuDic9c",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 3,
-    "scorers": {
-      "home": [
-        {
-          "n": "안헬라 갈베스",
-          "m": 10,
-          "pid": "fifa:509571"
-        },
-        {
-          "n": "엘레나 비수에테",
-          "m": 16,
-          "pid": "fifa:509593"
-        },
-        {
-          "n": "안헬라 갈베스",
-          "m": 66,
-          "pid": "fifa:509571"
-        }
-      ],
-      "away": [
-        {
-          "n": "카라베리스",
-          "m": 68,
-          "pid": "fifa:541272"
-        }
-      ]
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-23",
-    "time": "00:00",
-    "league": "U17WOMENWORLDCUP",
-    "venueId": "mohammed_vi_football_academy",
     "home": "중국",
     "away": "사모아",
     "stadium": "모하메드 축구 아카데미 VI",
@@ -935303,6 +935038,47 @@
         }
       ],
       "away": []
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-23",
+    "time": "00:00",
+    "league": "U17WOMENWORLDCUP",
+    "venueId": "mohammed_vi_football_academy",
+    "home": "스페인",
+    "away": "호주",
+    "stadium": "모하메드 축구 아카데미 필드 VI 2",
+    "timeTbd": false,
+    "gameId": "Sdb2IBw9YuDic9c",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "안헬라 갈베스",
+          "m": 10,
+          "pid": "fifa:509571"
+        },
+        {
+          "n": "엘레나 비수에테",
+          "m": 16,
+          "pid": "fifa:509593"
+        },
+        {
+          "n": "안헬라 갈베스",
+          "m": 66,
+          "pid": "fifa:509571"
+        }
+      ],
+      "away": [
+        {
+          "n": "카라베리스",
+          "m": 68,
+          "pid": "fifa:541272"
+        }
+      ]
     },
     "phaseCode": "GROUP"
   },
@@ -938910,47 +938686,6 @@
     "time": "00:00",
     "league": "U17WOMENWORLDCUP",
     "venueId": "mohammed_vi_football_academy",
-    "home": "나이지리아",
-    "away": "북한",
-    "stadium": "모하메드 축구 아카데미 VI",
-    "timeTbd": false,
-    "gameId": "HGkJoMKNgXRPiER",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 3,
-    "scorers": {
-      "home": [
-        {
-          "n": "아데구비",
-          "m": 15,
-          "pid": "fifa:537844"
-        },
-        {
-          "n": "우메지아쿠",
-          "m": 38,
-          "pid": "fifa:542339"
-        },
-        {
-          "n": "유수프",
-          "m": 56,
-          "pid": "espn:276684"
-        }
-      ],
-      "away": [
-        {
-          "n": "유종향",
-          "m": 82,
-          "pid": "fifa:510273"
-        }
-      ]
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-24",
-    "time": "00:00",
-    "league": "U17WOMENWORLDCUP",
-    "venueId": "mohammed_vi_football_academy",
     "home": "푸에르토리코",
     "away": "폴란드",
     "stadium": "모하메드 축구 아카데미 필드 VI 2",
@@ -939002,6 +938737,47 @@
           "n": "슈비타워",
           "m": 90,
           "pid": "fifa:542068"
+        }
+      ]
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-24",
+    "time": "00:00",
+    "league": "U17WOMENWORLDCUP",
+    "venueId": "mohammed_vi_football_academy",
+    "home": "나이지리아",
+    "away": "북한",
+    "stadium": "모하메드 축구 아카데미 VI",
+    "timeTbd": false,
+    "gameId": "HGkJoMKNgXRPiER",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "아데구비",
+          "m": 15,
+          "pid": "fifa:537844"
+        },
+        {
+          "n": "우메지아쿠",
+          "m": 38,
+          "pid": "fifa:542339"
+        },
+        {
+          "n": "유수프",
+          "m": 56,
+          "pid": "espn:276684"
+        }
+      ],
+      "away": [
+        {
+          "n": "유종향",
+          "m": 82,
+          "pid": "fifa:510273"
         }
       ]
     },
@@ -950934,6 +950710,31 @@
     "time": "03:00",
     "league": "U17WOMENWORLDCUP",
     "venueId": "mohammed_vi_football_academy",
+    "home": "잠비아",
+    "away": "프랑스",
+    "stadium": "모하메드 축구 아카데미 필드 VI 4",
+    "timeTbd": false,
+    "gameId": "RrG68npml6u7let",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "모티카",
+          "m": 16,
+          "pid": "fifa:541229"
+        }
+      ]
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-25",
+    "time": "03:00",
+    "league": "U17WOMENWORLDCUP",
+    "venueId": "mohammed_vi_football_academy",
     "home": "베네수엘라",
     "away": "일본",
     "stadium": "모하메드 풋볼 아카데미 필드 VI 3",
@@ -950954,31 +950755,6 @@
           "n": "키시다",
           "m": 66,
           "pid": "fifa:541332"
-        }
-      ]
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-25",
-    "time": "03:00",
-    "league": "U17WOMENWORLDCUP",
-    "venueId": "mohammed_vi_football_academy",
-    "home": "잠비아",
-    "away": "프랑스",
-    "stadium": "모하메드 축구 아카데미 필드 VI 4",
-    "timeTbd": false,
-    "gameId": "RrG68npml6u7let",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 0,
-    "scorers": {
-      "home": [],
-      "away": [
-        {
-          "n": "모티카",
-          "m": 16,
-          "pid": "fifa:541229"
         }
       ]
     },
@@ -969433,54 +969209,6 @@
   {
     "date": "2026-10-28",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "al_seeb_stadium",
-    "home": "알 시브",
-    "away": "이스트 벵갈",
-    "stadium": "알-시브 스타디움",
-    "timeTbd": false,
-    "gameId": "AW3p0efTl1zL9Jt",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 0,
-    "cards": {
-      "home": [
-        {
-          "n": "Fahad Khamis Juma Al Mukhaini",
-          "type": "Y",
-          "m": 48,
-          "pid": "espn:3141350"
-        }
-      ],
-      "away": [
-        {
-          "n": "Jay Gupta",
-          "type": "Y",
-          "m": 11,
-          "pid": "espn:369864",
-          "nat": "India"
-        },
-        {
-          "n": "Rohit Kumar",
-          "type": "Y",
-          "m": 61,
-          "pid": "espn:268084",
-          "nat": "India"
-        },
-        {
-          "n": "Edmund Lalrindika",
-          "type": "Y",
-          "m": 67,
-          "pid": "espn:268564",
-          "nat": "India"
-        }
-      ]
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-28",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "shabab_alahli_al_rashid",
     "home": "샤바브 알 아흘리",
@@ -969538,6 +969266,54 @@
           "m": 82,
           "pid": "espn:372049",
           "nat": "Iran"
+        }
+      ]
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-28",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "al_seeb_stadium",
+    "home": "알 시브",
+    "away": "이스트 벵갈",
+    "stadium": "알-시브 스타디움",
+    "timeTbd": false,
+    "gameId": "AW3p0efTl1zL9Jt",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 0,
+    "cards": {
+      "home": [
+        {
+          "n": "Fahad Khamis Juma Al Mukhaini",
+          "type": "Y",
+          "m": 48,
+          "pid": "espn:3141350"
+        }
+      ],
+      "away": [
+        {
+          "n": "Jay Gupta",
+          "type": "Y",
+          "m": 11,
+          "pid": "espn:369864",
+          "nat": "India"
+        },
+        {
+          "n": "Rohit Kumar",
+          "type": "Y",
+          "m": 61,
+          "pid": "espn:268084",
+          "nat": "India"
+        },
+        {
+          "n": "Edmund Lalrindika",
+          "type": "Y",
+          "m": 67,
+          "pid": "espn:268564",
+          "nat": "India"
         }
       ]
     },
@@ -970055,73 +969831,6 @@
   {
     "date": "2026-10-28",
     "time": "03:15",
-    "league": "ACL2",
-    "venueId": "al_zawraa_stadium",
-    "home": "알 쇼르타",
-    "away": "알 후세인",
-    "stadium": "알-자우라 스타디움",
-    "timeTbd": false,
-    "gameId": "HCihM9DqxKOXBbt",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 1,
-    "scorers": {
-      "home": [
-        {
-          "n": "바르코",
-          "m": 90,
-          "nat": "Argentina",
-          "pid": "espn:315731",
-          "pk": true
-        }
-      ],
-      "away": [
-        {
-          "n": "압달라 나시브",
-          "m": 29,
-          "nat": "Jordan",
-          "pid": "espn:317819"
-        }
-      ]
-    },
-    "cards": {
-      "home": [
-        {
-          "n": "Cristian Nahuel Barco",
-          "type": "Y",
-          "m": 90,
-          "pid": "espn:315731",
-          "nat": "Argentina"
-        }
-      ],
-      "away": [
-        {
-          "n": "Abdallah Nasib",
-          "type": "Y",
-          "m": 10,
-          "pid": "espn:317819",
-          "nat": "Jordan"
-        },
-        {
-          "n": "Salah Al Din Al Farash",
-          "type": "Y",
-          "m": 53,
-          "pid": "espn:3123729"
-        },
-        {
-          "n": "Mahmoud Khrouba",
-          "type": "Y",
-          "m": 62,
-          "pid": "espn:410826",
-          "nat": "Jordan"
-        }
-      ]
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-10-28",
-    "time": "03:15",
     "league": "ACL",
     "venueId": "al_shamal_al_bayt",
     "home": "알샤말",
@@ -970219,6 +969928,73 @@
           "m": 71,
           "pid": "espn:150312",
           "nat": "Senegal"
+        }
+      ]
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-10-28",
+    "time": "03:15",
+    "league": "ACL2",
+    "venueId": "al_zawraa_stadium",
+    "home": "알 쇼르타",
+    "away": "알 후세인",
+    "stadium": "알-자우라 스타디움",
+    "timeTbd": false,
+    "gameId": "HCihM9DqxKOXBbt",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "바르코",
+          "m": 90,
+          "nat": "Argentina",
+          "pid": "espn:315731",
+          "pk": true
+        }
+      ],
+      "away": [
+        {
+          "n": "압달라 나시브",
+          "m": 29,
+          "nat": "Jordan",
+          "pid": "espn:317819"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Cristian Nahuel Barco",
+          "type": "Y",
+          "m": 90,
+          "pid": "espn:315731",
+          "nat": "Argentina"
+        }
+      ],
+      "away": [
+        {
+          "n": "Abdallah Nasib",
+          "type": "Y",
+          "m": 10,
+          "pid": "espn:317819",
+          "nat": "Jordan"
+        },
+        {
+          "n": "Salah Al Din Al Farash",
+          "type": "Y",
+          "m": 53,
+          "pid": "espn:3123729"
+        },
+        {
+          "n": "Mahmoud Khrouba",
+          "type": "Y",
+          "m": 62,
+          "pid": "espn:410826",
+          "nat": "Jordan"
         }
       ]
     },
@@ -972196,30 +971972,6 @@
     "time": "00:00",
     "league": "U17WOMENWORLDCUP",
     "venueId": "mohammed_vi_football_academy",
-    "home": "독일",
-    "away": "베네수엘라",
-    "stadium": "모하메드 축구 아카데미 VI",
-    "timeTbd": false,
-    "gameId": "shJT9HZjopLTWe2",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 0,
-    "scorers": {
-      "home": [],
-      "away": [
-        {
-          "n": "브라보",
-          "m": 4
-        }
-      ]
-    },
-    "phaseCode": "T16"
-  },
-  {
-    "date": "2026-10-29",
-    "time": "00:00",
-    "league": "U17WOMENWORLDCUP",
-    "venueId": "mohammed_vi_football_academy",
     "home": "아르헨티나",
     "away": "가나",
     "stadium": "모하메드 축구 아카데미 필드 VI 2",
@@ -972247,6 +971999,30 @@
     "phaseCode": "T16",
     "homePkScore": 4,
     "awayPkScore": 5
+  },
+  {
+    "date": "2026-10-29",
+    "time": "00:00",
+    "league": "U17WOMENWORLDCUP",
+    "venueId": "mohammed_vi_football_academy",
+    "home": "독일",
+    "away": "베네수엘라",
+    "stadium": "모하메드 축구 아카데미 VI",
+    "timeTbd": false,
+    "gameId": "shJT9HZjopLTWe2",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "브라보",
+          "m": 4
+        }
+      ]
+    },
+    "phaseCode": "T16"
   },
   {
     "date": "2026-10-29",
@@ -973435,56 +973211,6 @@
     "time": "03:00",
     "league": "U17WOMENWORLDCUP",
     "venueId": "mohammed_vi_football_academy",
-    "home": "북한",
-    "away": "모로코",
-    "stadium": "모하메드 풋볼 아카데미 필드 VI 3",
-    "timeTbd": false,
-    "gameId": "buB50mrTbbHfMva",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 6,
-    "scorers": {
-      "home": [
-        {
-          "n": "유종향",
-          "m": 6,
-          "pid": "fifa:510273"
-        },
-        {
-          "n": "김원심",
-          "m": 33,
-          "pid": "fifa:510269"
-        },
-        {
-          "n": "김원심",
-          "m": 41,
-          "pid": "fifa:510269"
-        },
-        {
-          "n": "유종향",
-          "m": 43,
-          "pid": "fifa:510273"
-        },
-        {
-          "n": "리의경",
-          "m": 54,
-          "pid": "fifa:510281"
-        },
-        {
-          "n": "리경임",
-          "m": 62,
-          "pid": "fifa:510268"
-        }
-      ],
-      "away": []
-    },
-    "phaseCode": "T16"
-  },
-  {
-    "date": "2026-10-29",
-    "time": "03:00",
-    "league": "U17WOMENWORLDCUP",
-    "venueId": "mohammed_vi_football_academy",
     "home": "브라질",
     "away": "폴란드",
     "stadium": "모하메드 축구 아카데미 필드 VI 4",
@@ -973532,6 +973258,56 @@
     "phaseCode": "T16",
     "homePkScore": 8,
     "awayPkScore": 7
+  },
+  {
+    "date": "2026-10-29",
+    "time": "03:00",
+    "league": "U17WOMENWORLDCUP",
+    "venueId": "mohammed_vi_football_academy",
+    "home": "북한",
+    "away": "모로코",
+    "stadium": "모하메드 풋볼 아카데미 필드 VI 3",
+    "timeTbd": false,
+    "gameId": "buB50mrTbbHfMva",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 6,
+    "scorers": {
+      "home": [
+        {
+          "n": "유종향",
+          "m": 6,
+          "pid": "fifa:510273"
+        },
+        {
+          "n": "김원심",
+          "m": 33,
+          "pid": "fifa:510269"
+        },
+        {
+          "n": "김원심",
+          "m": 41,
+          "pid": "fifa:510269"
+        },
+        {
+          "n": "유종향",
+          "m": 43,
+          "pid": "fifa:510273"
+        },
+        {
+          "n": "리의경",
+          "m": 54,
+          "pid": "fifa:510281"
+        },
+        {
+          "n": "리경임",
+          "m": 62,
+          "pid": "fifa:510268"
+        }
+      ],
+      "away": []
+    },
+    "phaseCode": "T16"
   },
   {
     "date": "2026-10-29",
@@ -999217,31 +998993,6 @@
     "time": "00:00",
     "league": "U17WOMENWORLDCUP",
     "venueId": "mohammed_vi_football_academy",
-    "home": "가나",
-    "away": "일본",
-    "stadium": "모하메드 축구 아카데미 VI",
-    "timeTbd": false,
-    "gameId": "Lr3Dzls2kO8ciJb",
-    "status": "completed",
-    "awayScore": 1,
-    "homeScore": 0,
-    "scorers": {
-      "home": [],
-      "away": [
-        {
-          "n": "나나미",
-          "m": 54,
-          "pid": "fifa:541353"
-        }
-      ]
-    },
-    "phaseCode": "T8"
-  },
-  {
-    "date": "2026-11-02",
-    "time": "00:00",
-    "league": "U17WOMENWORLDCUP",
-    "venueId": "mohammed_vi_football_academy",
     "home": "북한",
     "away": "미국",
     "stadium": "모하메드 축구 아카데미 필드 VI 2",
@@ -999269,6 +999020,31 @@
         }
       ],
       "away": []
+    },
+    "phaseCode": "T8"
+  },
+  {
+    "date": "2026-11-02",
+    "time": "00:00",
+    "league": "U17WOMENWORLDCUP",
+    "venueId": "mohammed_vi_football_academy",
+    "home": "가나",
+    "away": "일본",
+    "stadium": "모하메드 축구 아카데미 VI",
+    "timeTbd": false,
+    "gameId": "Lr3Dzls2kO8ciJb",
+    "status": "completed",
+    "awayScore": 1,
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "나나미",
+          "m": 54,
+          "pid": "fifa:541353"
+        }
+      ]
     },
     "phaseCode": "T8"
   },
@@ -1001964,31 +1001740,6 @@
     "time": "03:00",
     "league": "U17WOMENWORLDCUP",
     "venueId": "mohammed_vi_football_academy",
-    "home": "나이지리아",
-    "away": "베네수엘라",
-    "stadium": "모하메드 축구 아카데미 필드 VI 4",
-    "timeTbd": false,
-    "gameId": "heHmzNo18E4idof",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 1,
-    "scorers": {
-      "home": [
-        {
-          "n": "오둔탄",
-          "m": 89,
-          "pid": "fifa:509857"
-        }
-      ],
-      "away": []
-    },
-    "phaseCode": "T8"
-  },
-  {
-    "date": "2026-11-02",
-    "time": "03:00",
-    "league": "U17WOMENWORLDCUP",
-    "venueId": "mohammed_vi_football_academy",
     "home": "중국",
     "away": "브라질",
     "stadium": "모하메드 풋볼 아카데미 필드 VI 3",
@@ -1002017,6 +1001768,31 @@
           "pid": "fifa:537208"
         }
       ]
+    },
+    "phaseCode": "T8"
+  },
+  {
+    "date": "2026-11-02",
+    "time": "03:00",
+    "league": "U17WOMENWORLDCUP",
+    "venueId": "mohammed_vi_football_academy",
+    "home": "나이지리아",
+    "away": "베네수엘라",
+    "stadium": "모하메드 축구 아카데미 필드 VI 4",
+    "timeTbd": false,
+    "gameId": "heHmzNo18E4idof",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 1,
+    "scorers": {
+      "home": [
+        {
+          "n": "오둔탄",
+          "m": 89,
+          "pid": "fifa:509857"
+        }
+      ],
+      "away": []
     },
     "phaseCode": "T8"
   },
@@ -1009173,61 +1008949,6 @@
   {
     "date": "2026-11-04",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "amman_international_stadium",
-    "home": "알 후세인",
-    "away": "알 쇼르타",
-    "stadium": "암만 인터내셔널 스태디엄",
-    "timeTbd": false,
-    "gameId": "87Yzcj2B505kzbh",
-    "status": "completed",
-    "awayScore": 3,
-    "homeScore": 0,
-    "scorers": {
-      "home": [],
-      "away": [
-        {
-          "n": "쿠쿠",
-          "m": 14,
-          "pid": "espn:3140917"
-        },
-        {
-          "n": "쿠쿠",
-          "m": 59,
-          "pid": "espn:3140917"
-        },
-        {
-          "n": "모하나드 알리",
-          "m": 90,
-          "nat": "Iraq",
-          "pid": "espn:269478"
-        }
-      ]
-    },
-    "cards": {
-      "home": [
-        {
-          "n": "Mahmoud Shawkat",
-          "type": "Y",
-          "m": 24,
-          "pid": "espn:369369",
-          "nat": "Jordan"
-        },
-        {
-          "n": "Pedro Henrique",
-          "type": "Y",
-          "m": 73,
-          "pid": "espn:301752",
-          "nat": "Brazil"
-        }
-      ],
-      "away": []
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-11-04",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "basra_international",
     "home": "에스테그랄",
@@ -1009283,6 +1009004,61 @@
           "nat": "Senegal"
         }
       ]
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-11-04",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "amman_international_stadium",
+    "home": "알 후세인",
+    "away": "알 쇼르타",
+    "stadium": "암만 인터내셔널 스태디엄",
+    "timeTbd": false,
+    "gameId": "87Yzcj2B505kzbh",
+    "status": "completed",
+    "awayScore": 3,
+    "homeScore": 0,
+    "scorers": {
+      "home": [],
+      "away": [
+        {
+          "n": "쿠쿠",
+          "m": 14,
+          "pid": "espn:3140917"
+        },
+        {
+          "n": "쿠쿠",
+          "m": 59,
+          "pid": "espn:3140917"
+        },
+        {
+          "n": "모하나드 알리",
+          "m": 90,
+          "nat": "Iraq",
+          "pid": "espn:269478"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Mahmoud Shawkat",
+          "type": "Y",
+          "m": 24,
+          "pid": "espn:369369",
+          "nat": "Jordan"
+        },
+        {
+          "n": "Pedro Henrique",
+          "type": "Y",
+          "m": 73,
+          "pid": "espn:301752",
+          "nat": "Brazil"
+        }
+      ],
+      "away": []
     },
     "phaseCode": "GROUP"
   },
@@ -1012096,56 +1011872,6 @@
   {
     "date": "2026-11-04",
     "time": "19:00",
-    "league": "ACL2",
-    "venueId": "seoulwc",
-    "home": "서울",
-    "away": "비에트텔",
-    "stadium": "서울월드컵경기장",
-    "timeTbd": false,
-    "gameId": "lZapB69mvTiiYds",
-    "status": "completed",
-    "awayScore": 0,
-    "homeScore": 3,
-    "scorers": {
-      "home": [
-        {
-          "n": "문선민",
-          "m": 68,
-          "nat": "South Korea",
-          "pid": "espn:223081"
-        },
-        {
-          "n": "안데르손",
-          "m": 79,
-          "nat": "Brazil",
-          "pid": "espn:149679"
-        },
-        {
-          "n": "루카스",
-          "m": 90,
-          "og": true,
-          "nat": "Brazil",
-          "pid": "espn:196850"
-        }
-      ],
-      "away": []
-    },
-    "cards": {
-      "home": [],
-      "away": [
-        {
-          "n": "Hoàng Khanh Nguyễn",
-          "type": "Y",
-          "m": 73,
-          "pid": "espn:3102964"
-        }
-      ]
-    },
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-11-04",
-    "time": "19:00",
     "league": "ACL",
     "venueId": "pohang",
     "home": "포항",
@@ -1012227,6 +1011953,56 @@
           "m": 51,
           "pid": "espn:356319",
           "nat": "Japan"
+        }
+      ]
+    },
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-11-04",
+    "time": "19:00",
+    "league": "ACL2",
+    "venueId": "seoulwc",
+    "home": "서울",
+    "away": "비에트텔",
+    "stadium": "서울월드컵경기장",
+    "timeTbd": false,
+    "gameId": "lZapB69mvTiiYds",
+    "status": "completed",
+    "awayScore": 0,
+    "homeScore": 3,
+    "scorers": {
+      "home": [
+        {
+          "n": "문선민",
+          "m": 68,
+          "nat": "South Korea",
+          "pid": "espn:223081"
+        },
+        {
+          "n": "안데르손",
+          "m": 79,
+          "nat": "Brazil",
+          "pid": "espn:149679"
+        },
+        {
+          "n": "루카스",
+          "m": 90,
+          "og": true,
+          "nat": "Brazil",
+          "pid": "espn:196850"
+        }
+      ],
+      "away": []
+    },
+    "cards": {
+      "home": [],
+      "away": [
+        {
+          "n": "Hoàng Khanh Nguyễn",
+          "type": "Y",
+          "m": 73,
+          "pid": "espn:3102964"
         }
       ]
     },
@@ -1079067,19 +1078843,6 @@
   {
     "date": "2026-11-25",
     "time": "01:00",
-    "league": "ACL2",
-    "venueId": "al_seeb_stadium",
-    "home": "알 시브",
-    "away": "알 쇼르타",
-    "stadium": "알-시브 스타디움",
-    "timeTbd": false,
-    "gameId": "zVJrrC6Kzu5rPRu",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-11-25",
-    "time": "01:00",
     "league": "ACL",
     "venueId": "shabab_alahli_al_rashid",
     "home": "샤바브 알 아흘리",
@@ -1079087,6 +1078850,19 @@
     "stadium": "알라시드 스타디움",
     "timeTbd": false,
     "gameId": "Rsba5lmQWhdIFqs",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-11-25",
+    "time": "01:00",
+    "league": "ACL2",
+    "venueId": "al_seeb_stadium",
+    "home": "알 시브",
+    "away": "알 쇼르타",
+    "stadium": "알-시브 스타디움",
+    "timeTbd": false,
+    "gameId": "zVJrrC6Kzu5rPRu",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -1086182,6 +1085958,19 @@
   {
     "date": "2026-12-02",
     "time": "19:00",
+    "league": "ACL",
+    "venueId": "jeonju",
+    "home": "전북",
+    "away": "감바 오사카",
+    "stadium": "전주월드컵경기장",
+    "timeTbd": false,
+    "gameId": "Niv06gVMWM68uXs",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-12-02",
+    "time": "19:00",
     "league": "ACL2",
     "venueId": "cahn_hang_day",
     "home": "비에트텔",
@@ -1086202,19 +1085991,6 @@
     "stadium": "서울월드컵경기장",
     "timeTbd": false,
     "gameId": "FiJNje3n7lxdlhk",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-12-02",
-    "time": "19:00",
-    "league": "ACL",
-    "venueId": "jeonju",
-    "home": "전북",
-    "away": "감바 오사카",
-    "stadium": "전주월드컵경기장",
-    "timeTbd": false,
-    "gameId": "Niv06gVMWM68uXs",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
@@ -1090229,6 +1090005,19 @@
   {
     "date": "2026-12-09",
     "time": "01:00",
+    "league": "ACL",
+    "venueId": "al_gharafa_thani_bin_jassim",
+    "home": "알 가라파",
+    "away": "알 나스르",
+    "stadium": "타니 빈 자심 스타디움 (알가라파 경기장)",
+    "timeTbd": false,
+    "gameId": "PQJLm0wx0U2iYy6",
+    "status": "scheduled",
+    "phaseCode": "GROUP"
+  },
+  {
+    "date": "2026-12-09",
+    "time": "01:00",
     "league": "ACL2",
     "venueId": "al_zawraa_stadium",
     "home": "알 쇼르타",
@@ -1090249,19 +1090038,6 @@
     "stadium": "암만 인터내셔널 스태디엄",
     "timeTbd": false,
     "gameId": "5aAL6XjAZ9BsYqA",
-    "status": "scheduled",
-    "phaseCode": "GROUP"
-  },
-  {
-    "date": "2026-12-09",
-    "time": "01:00",
-    "league": "ACL",
-    "venueId": "al_gharafa_thani_bin_jassim",
-    "home": "알 가라파",
-    "away": "알 나스르",
-    "stadium": "타니 빈 자심 스타디움 (알가라파 경기장)",
-    "timeTbd": false,
-    "gameId": "PQJLm0wx0U2iYy6",
     "status": "scheduled",
     "phaseCode": "GROUP"
   },
