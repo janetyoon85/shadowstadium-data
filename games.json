@@ -1080734,7 +1080734,7 @@
     "stadium": "Estadio IV Centenário",
     "timeTbd": false,
     "gameId": "BOLIVIA_ESPN_401930041",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반 90'+5'",
     "homeScore": 1,
     "awayScore": 5,
@@ -1080820,7 +1080820,9 @@
           "pid": "espn:420122"
         }
       ]
-    }
+    },
+    "assistsChecked": true,
+    "assistsAt": 1795294533312
   },
   {
     "date": "2026-11-22",
@@ -1080836,7 +1080838,7 @@
     "phaseCode": "FR",
     "homeScore": 1,
     "awayScore": 0,
-    "matchPeriod": "후반 90'+2'",
+    "matchPeriod": "후반 90'+3'",
     "cards": {
       "home": [
         {
@@ -1080859,6 +1080861,14 @@
           "m": 79,
           "pid": "espn:270232",
           "nat": "Colombia"
+        },
+        {
+          "n": "Yorlin Arce",
+          "type": "Y",
+          "m": 90,
+          "x": 2,
+          "pid": "espn:418837",
+          "nat": "Ecuador"
         }
       ],
       "away": [
@@ -1081594,9 +1081604,20 @@
     "timeTbd": false,
     "gameId": "PERU_ESPN_401886135",
     "status": "live",
-    "matchPeriod": "전반 22'",
+    "matchPeriod": "전반 23'",
     "homeScore": 1,
-    "awayScore": 0
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "Luis Ramos",
+          "m": 20,
+          "nat": "Peru",
+          "pid": "espn:157535"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-11-22",
