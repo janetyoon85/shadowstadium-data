@@ -135,6 +135,11 @@ jobs:
       # 즐겨찾기 선수 알림(2026-09-28) 검색 인덱스 — games.json은 이 크롤러 말고도
       # ESPN 해외축구 크롤러들도 scorers를 채우므로, 이 스텝에서 막 커밋 예정인 games.json을
       # 다시 읽어서 전체를 반영(단일 인메모리 상태만 보면 다른 크롤러 리그가 빠짐).
+      # 선수 번호(pid) 채우기(2026-11-21 "pid 없는 선수 … 다 조치") — 같은 팀·같은 이름으로 번호가 하나로 맞는 빈 기록만 채운다(규칙 lib/missing-pids.mjs). 실패해도 다음 단계를 막지 않는다.
+      - name: Fill missing player ids
+        if: steps.act.outputs.skip != 'true'
+        run: node scripts/autofix-missing-pids.mjs || echo "pid 채우기 실패(무시)"
+
       - name: Build player search index
         if: steps.act.outputs.skip != 'true'
         run: node scripts/build-player-index.mjs
