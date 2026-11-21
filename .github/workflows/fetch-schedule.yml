@@ -138,27 +138,31 @@ jobs:
       # 선수 번호(pid) 채우기(2026-11-21 "pid 없는 선수 … 다 조치") — 같은 팀·같은 이름으로 번호가 하나로 맞는 빈 기록만 채운다(규칙 lib/missing-pids.mjs). 실패해도 다음 단계를 막지 않는다.
       # 이름이 "호"로 잘린 옛 홈런 하이라이트 복구(2026-11-21) — 한 번에 15경기, 네이버 /record 재조회. 복구할 게 없으면 바로 끝난다.
       - name: Repair truncated highlight names
-        if: steps.act.outputs.skip != 'true'
         run: node scripts/fix-bogus-highlights.mjs || echo "하이라이트 이름 복구 실패(무시)"
 
       - name: Fill missing player ids
-        if: steps.act.outputs.skip != 'true'
         run: node scripts/autofix-missing-pids.mjs || echo "pid 채우기 실패(무시)"
 
+      # 활동 게이트가 이번 실행의 수집을 건너뛰어도(진행 중 경기 없음) 위 두 복구로 games.json 이 바뀌었으면 선수 색인·커밋까지 이어서 한다(2026-11-21).
+      - name: Detect repair changes
+        id: repair
+        run: |
+          if git diff --quiet -- games.json; then echo "ran=false" >> $GITHUB_OUTPUT; else echo "ran=true" >> $GITHUB_OUTPUT; fi
+
       - name: Build player search index
-        if: steps.act.outputs.skip != 'true'
+        if: steps.act.outputs.skip != 'true' || steps.repair.outputs.ran == 'true'
         run: node scripts/build-player-index.mjs
 
       # games_2026.json → games.json 리네임 전환기 호환용 레거시 별칭(2026-09).
       # OTA 못 받은 구버전 앱이 여전히 옛 URL로 fetch하므로 당분간 병행 — TODO(2026-10초):
       # 신규 클라이언트 채택률 확인 후 이 스텝과 git add 목록의 games_2026.json 제거.
       - name: Write legacy filename alias (transition compat)
-        if: steps.act.outputs.skip != 'true'
+        if: steps.act.outputs.skip != 'true' || steps.repair.outputs.ran == 'true'
         run: cp games.json games_2026.json
 
       - name: Check for changes
         id: changes
-        if: steps.act.outputs.skip != 'true'
+        if: steps.act.outputs.skip != 'true' || steps.repair.outputs.ran == 'true'
         run: |
           if [[ -n "$(git status --porcelain naver-health.json games.json games_2026.json saves.json scorers.json assists.json euro_assists.json euro_shootout.json euro-reval.json players.json player-codes.json player-name-auto.json unmapped-venue-alerts.json stadium-auto-map.json)" ]]; then
             echo "changed=true" >> $GITHUB_OUTPUT
