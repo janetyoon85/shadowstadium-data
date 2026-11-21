@@ -5,6 +5,9 @@ on:
     - cron: '17 * * * *'
   workflow_dispatch:
     inputs:
+      clips_only:
+        description: '1 = 선수 클립 수집만 한다(알림을 보낸 직후 앱 영상 목록을 바로 갱신하려고 fcm-player-alerts 가 요청)'
+        default: '0'
       deep:
         description: '1 = 채널 업로드 목록을 깊게 훑는다(백필: 이미 저장된 경기에 대체 후보 alts 채우기)'
         default: '0'
@@ -49,6 +52,7 @@ jobs:
           node-version: '20'
 
       - name: Match highlight videos
+        if: ${{ github.event.inputs.clips_only != '1' }}
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
@@ -64,12 +68,14 @@ jobs:
 
       # 선수 영상 검색(2026-11-15) — RSS 에 없는 경기의 선수 영상(득점자·홈런 타자 등)을 YouTube 검색으로. 하루 250회 상한, 성공률 낮은 리그는 가끔만. 하이라이트 다음 순위(응원가보다 앞).
       - name: Search player clips
+        if: ${{ github.event.inputs.clips_only != '1' }}
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
         run: node scripts/fetch-player-clip-search.mjs || echo "player clip search 실패(무시)"
 
       # 저장된 영상의 지역별 재생 가능 여부 확인(새 영상 우선, 7일 지난 것 갱신) — videos.list 는 50개당 1유닛, 실행당 최대 6호출.
       - name: Check video availability
+        if: ${{ github.event.inputs.clips_only != '1' }}
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           AVAIL_MAX_CALLS: ${{ github.event.inputs.avail_calls || '12' }} # 2026-11-16 6→12: 최근 3일 영상 재확인(30분 간격)이 실행당 300개로는 한 바퀴에 75분 걸렸다 — 600개로

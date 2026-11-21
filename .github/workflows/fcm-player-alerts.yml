@@ -12,6 +12,7 @@ on:
 
 permissions:
   contents: write   # sent-player-alerts.json commit + push
+  actions: write    # 선수 영상 알림 직후 클립 수집 실행 요청(fetch-highlight-videos clips_only)
 
 concurrency:
   group: fcm-player-alerts
@@ -49,6 +50,14 @@ jobs:
         # 2026-10-27: 알림 5종을 한 번 돌리고 끝내는 대신 약 55초 동안 10초마다 반복 확인한다(감시 루프). 매 반복마다 NAS 가 올린 신선한 이벤트를 받아 커밋된 데이터 위에
         # 덮어써서 감지 → 이벤트 후 알림까지 평균 약 2분 → 20~40초 목표. 오버레이를 못 받으면 예전처럼 커밋된 파일만 쓴다. 되돌리려면 아래 한 줄을 예전 5줄로 바꾼다.
         run: node scripts/alert-loop.mjs
+
+      # 선수 영상 알림을 보냈으면(.clip-refresh) 앱 영상 목록 갱신만 따로 요청 — 알림 후 몇 분간 영상이 안 보이던 것을 줄인다. 실패해도 15분 주기 수집이 따라잡는다.
+      - name: Refresh clip list now
+        if: ${{ !cancelled() && hashFiles('.clip-refresh') != '' }}
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run fetch-highlight-videos.yml -f clips_only=1 -R "$GITHUB_REPOSITORY"
 
       - name: Commit sent state
         if: ${{ !cancelled() }}  # 2026-11-14: 발송 단계가 실패해도 보낸 기록은 반드시 저장 — 건너뛰면 다음 실행이 같은 알림(경기 시작 등)을 다시 보낸다
