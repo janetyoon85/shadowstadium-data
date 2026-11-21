@@ -1,0 +1,54 @@
+name: Moderate Cheers
+
+# 응원 한마디 운영 점검(2026-11-21) — 신고 집계·자동 가림·금칙어 재점검·오래된 글 정리. 새 신고·자동 가림이 있을 때만 Discord 알림.
+# 스케줄 + cron-job.org 외부 트리거(workflow_dispatch)로 돌 수 있다. 기능을 켜기 전에도 돌아도 안전(글·신고가 없으면 아무것도 안 함).
+
+on:
+  schedule:
+    - cron: '7,27,47 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write   # cheer-moderation-state.json commit
+
+concurrency:
+  group: moderate-cheers
+  cancel-in-progress: false
+
+jobs:
+  moderate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Fetch crawler code (private)
+        uses: ./.github/actions/fetch-code
+        with:
+          token: ${{ secrets.PRIVATE_DATA_TOKEN }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+      - run: npm ci
+      - name: Moderate
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          FIREBASE_DATABASE_URL: ${{ vars.FIREBASE_DATABASE_URL }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          DATA_ROOT: ${{ github.workspace }}
+        run: node scripts/moderate-cheers.mjs
+
+      - name: Commit state
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add cheer-moderation-state.json
+          git diff --cached --quiet && exit 0
+          git commit -m "chore(cheers): 운영 점검 상태 [skip ci]"
+          for i in $(seq 1 10); do
+            git pull --rebase --autostash origin main && git push origin main && exit 0 || sleep $((RANDOM % 8 + 1))
+          done
+          exit 1

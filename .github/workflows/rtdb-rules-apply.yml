@@ -29,11 +29,13 @@ jobs:
         env:
           FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
           FIREBASE_DATABASE_URL: ${{ vars.FIREBASE_DATABASE_URL }}
-        run: node scripts/apply-rtdb-push-rules.mjs
+        run: |
+          node scripts/apply-rtdb-push-rules.mjs
+          node scripts/apply-rtdb-cheer-rules.mjs
       - name: Commit result summary
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add rtdb-rules-apply.json
-          git diff --cached --quiet || git commit -m "chore(rtdb): push_topic_idx 규칙 적용 결과"
+          git add rtdb-rules-apply.json rtdb-cheer-rules-apply.json
+          git diff --cached --quiet || git commit -m "chore(rtdb): 규칙 적용 결과(push_topic_idx·응원 한마디)"
           for i in 1 2 3 4 5; do git push && break || { git pull --rebase --autostash -X theirs origin main; sleep 2; }; done
