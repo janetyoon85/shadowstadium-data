@@ -1,6 +1,6 @@
 {
   "KBO": {
-    "updatedAt": "2026-11-21T13:00:59.667Z",
+    "updatedAt": "2026-11-21T14:00:49.890Z",
     "seasonCode": "2026",
     "rows": [
       {
@@ -768,7 +768,7 @@
     ]
   },
   "K리그1": {
-    "updatedAt": "2026-11-21T13:01:03.768Z",
+    "updatedAt": "2026-11-21T14:00:53.752Z",
     "seasonCode": "2026",
     "rows": [
       {
@@ -1384,7 +1384,7 @@
     ]
   },
   "K리그2": {
-    "updatedAt": "2026-11-21T13:01:06.978Z",
+    "updatedAt": "2026-11-21T14:00:56.661Z",
     "seasonCode": "2026",
     "rows": [
       {
@@ -2098,7 +2098,7 @@
     ]
   },
   "MLB": {
-    "updatedAt": "2026-11-21T13:01:09.547Z",
+    "updatedAt": "2026-11-21T14:00:59.718Z",
     "seasonCode": "2026",
     "rows": [
       {
@@ -3456,7 +3456,7 @@
     ]
   },
   "NPB": {
-    "updatedAt": "2026-11-21T13:01:13.710Z",
+    "updatedAt": "2026-11-21T14:01:04.077Z",
     "seasonCode": "2026",
     "rows": [
       {
@@ -4073,7 +4073,7 @@
     ]
   },
   "EPL": {
-    "updatedAt": "2026-11-21T13:01:17.838Z",
+    "updatedAt": "2026-11-21T14:01:07.634Z",
     "seasonCode": "gMoc",
     "rows": [
       {
@@ -4101,9 +4101,9 @@
         "rank": 3,
         "played": 10,
         "win": 7,
-        "loss": 4,
-        "draw": 0,
-        "pts": 21,
+        "loss": 3,
+        "draw": 1,
+        "pts": 22,
         "gd": 8
       },
       {
@@ -4167,18 +4167,8 @@
         "gd": 2
       },
       {
-        "team": "풀럼",
-        "rank": 10,
-        "played": 10,
-        "win": 3,
-        "loss": 4,
-        "draw": 4,
-        "pts": 13,
-        "gd": -2
-      },
-      {
         "team": "애스턴 빌라",
-        "rank": 11,
+        "rank": 10,
         "played": 10,
         "win": 3,
         "loss": 3,
@@ -4188,7 +4178,7 @@
       },
       {
         "team": "토트넘 홋스퍼",
-        "rank": 12,
+        "rank": 11,
         "played": 10,
         "win": 3,
         "loss": 4,
@@ -4198,7 +4188,7 @@
       },
       {
         "team": "뉴캐슬 유나이티드",
-        "rank": 13,
+        "rank": 12,
         "played": 10,
         "win": 3,
         "loss": 4,
@@ -4208,13 +4198,23 @@
       },
       {
         "team": "헐 시티",
-        "rank": 14,
+        "rank": 13,
         "played": 10,
         "win": 2,
         "loss": 3,
         "draw": 5,
         "pts": 11,
         "gd": 0
+      },
+      {
+        "team": "풀럼",
+        "rank": 14,
+        "played": 10,
+        "win": 2,
+        "loss": 4,
+        "draw": 5,
+        "pts": 11,
+        "gd": -2
       },
       {
         "team": "입스위치 타운",
@@ -4387,18 +4387,6 @@
         "redCards": 0
       },
       {
-        "team": "풀럼",
-        "goals": 10,
-        "goalsConceded": 12,
-        "shots": 98,
-        "shotsOnTarget": 46,
-        "possession": 57.7,
-        "passesAccuracy": 86.4,
-        "fouls": 105,
-        "yellowCards": 19,
-        "redCards": 1
-      },
-      {
         "team": "애스턴 빌라",
         "goals": 14,
         "goalsConceded": 17,
@@ -4445,6 +4433,18 @@
         "fouls": 114,
         "yellowCards": 30,
         "redCards": 0
+      },
+      {
+        "team": "풀럼",
+        "goals": 10,
+        "goalsConceded": 12,
+        "shots": 98,
+        "shotsOnTarget": 46,
+        "possession": 57.7,
+        "passesAccuracy": 86.4,
+        "fouls": 105,
+        "yellowCards": 19,
+        "redCards": 1
       },
       {
         "team": "입스위치 타운",
@@ -4853,7 +4853,7 @@
     ]
   },
   "EFL": {
-    "updatedAt": "2026-11-21T13:01:20.821Z",
+    "updatedAt": "2026-11-21T14:01:10.980Z",
     "seasonCode": "Gpa6",
     "rows": [
       {
@@ -4907,8 +4907,28 @@
         "gd": 8
       },
       {
-        "team": "스완지 시티",
+        "team": "사우샘프턴",
         "rank": 6,
+        "played": 15,
+        "win": 9,
+        "loss": 3,
+        "draw": 4,
+        "pts": 27,
+        "gd": 14
+      },
+      {
+        "team": "퀸즈 파크 레인저스",
+        "rank": 7,
+        "played": 15,
+        "win": 7,
+        "loss": 3,
+        "draw": 6,
+        "pts": 27,
+        "gd": 6
+      },
+      {
+        "team": "스완지 시티",
+        "rank": 8,
         "played": 15,
         "win": 8,
         "loss": 5,
@@ -4917,44 +4937,24 @@
         "gd": 4
       },
       {
-        "team": "사우샘프턴",
-        "rank": 7,
+        "team": "노리치 시티",
+        "rank": 9,
         "played": 15,
         "win": 8,
-        "loss": 3,
-        "draw": 5,
-        "pts": 25,
-        "gd": 14
-      },
-      {
-        "team": "퀸즈 파크 레인저스",
-        "rank": 8,
-        "played": 15,
-        "win": 6,
-        "loss": 3,
-        "draw": 7,
-        "pts": 25,
-        "gd": 6
+        "loss": 8,
+        "draw": 0,
+        "pts": 24,
+        "gd": 8
       },
       {
         "team": "웨스트햄 유나이티드",
-        "rank": 9,
+        "rank": 10,
         "played": 15,
         "win": 6,
         "loss": 4,
         "draw": 5,
         "pts": 23,
         "gd": 14
-      },
-      {
-        "team": "노리치 시티",
-        "rank": 10,
-        "played": 15,
-        "win": 7,
-        "loss": 8,
-        "draw": 1,
-        "pts": 22,
-        "gd": 8
       },
       {
         "team": "셰필드 유나이티드",
@@ -4991,30 +4991,30 @@
         "rank": 14,
         "played": 15,
         "win": 4,
-        "loss": 5,
-        "draw": 7,
-        "pts": 19,
+        "loss": 6,
+        "draw": 6,
+        "pts": 18,
         "gd": 0
       },
       {
-        "team": "밀월",
-        "rank": 15,
-        "played": 15,
-        "win": 5,
-        "loss": 7,
-        "draw": 4,
-        "pts": 19,
-        "gd": -4
-      },
-      {
         "team": "렉섬",
-        "rank": 16,
+        "rank": 15,
         "played": 15,
         "win": 4,
         "loss": 5,
         "draw": 6,
         "pts": 18,
         "gd": -2
+      },
+      {
+        "team": "밀월",
+        "rank": 16,
+        "played": 15,
+        "win": 5,
+        "loss": 8,
+        "draw": 3,
+        "pts": 18,
+        "gd": -4
       },
       {
         "team": "브리스톨 시티",
@@ -5067,24 +5067,24 @@
         "gd": -11
       },
       {
-        "team": "더비 카운티",
-        "rank": 22,
-        "played": 15,
-        "win": 2,
-        "loss": 9,
-        "draw": 5,
-        "pts": 11,
-        "gd": -16
-      },
-      {
         "team": "번리",
-        "rank": 23,
+        "rank": 22,
         "played": 15,
         "win": 1,
         "loss": 7,
         "draw": 7,
         "pts": 10,
         "gd": -9
+      },
+      {
+        "team": "더비 카운티",
+        "rank": 23,
+        "played": 15,
+        "win": 2,
+        "loss": 10,
+        "draw": 4,
+        "pts": 10,
+        "gd": -16
       },
       {
         "team": "프레스턴",
@@ -5159,18 +5159,6 @@
         "redCards": 1
       },
       {
-        "team": "스완지 시티",
-        "goals": 22,
-        "goalsConceded": 18,
-        "shots": 124,
-        "shotsOnTarget": 67,
-        "possession": 59,
-        "passesAccuracy": 81.99,
-        "fouls": 146,
-        "yellowCards": 25,
-        "redCards": 1
-      },
-      {
         "team": "사우샘프턴",
         "goals": 29,
         "goalsConceded": 15,
@@ -5195,15 +5183,15 @@
         "redCards": 1
       },
       {
-        "team": "웨스트햄 유나이티드",
-        "goals": 37,
-        "goalsConceded": 23,
-        "shots": 188,
-        "shotsOnTarget": 99,
-        "possession": 57.2,
-        "passesAccuracy": 85.33,
-        "fouls": 159,
-        "yellowCards": 32,
+        "team": "스완지 시티",
+        "goals": 22,
+        "goalsConceded": 18,
+        "shots": 124,
+        "shotsOnTarget": 67,
+        "possession": 59,
+        "passesAccuracy": 81.99,
+        "fouls": 146,
+        "yellowCards": 25,
         "redCards": 1
       },
       {
@@ -5216,6 +5204,18 @@
         "passesAccuracy": 79.77,
         "fouls": 159,
         "yellowCards": 27,
+        "redCards": 1
+      },
+      {
+        "team": "웨스트햄 유나이티드",
+        "goals": 37,
+        "goalsConceded": 23,
+        "shots": 188,
+        "shotsOnTarget": 99,
+        "possession": 57.2,
+        "passesAccuracy": 85.33,
+        "fouls": 159,
+        "yellowCards": 32,
         "redCards": 1
       },
       {
@@ -5267,18 +5267,6 @@
         "redCards": 1
       },
       {
-        "team": "밀월",
-        "goals": 23,
-        "goalsConceded": 27,
-        "shots": 148,
-        "shotsOnTarget": 59,
-        "possession": 47.3,
-        "passesAccuracy": 75.25,
-        "fouls": 183,
-        "yellowCards": 29,
-        "redCards": 1
-      },
-      {
         "team": "렉섬",
         "goals": 18,
         "goalsConceded": 20,
@@ -5289,6 +5277,18 @@
         "fouls": 164,
         "yellowCards": 20,
         "redCards": 0
+      },
+      {
+        "team": "밀월",
+        "goals": 23,
+        "goalsConceded": 27,
+        "shots": 148,
+        "shotsOnTarget": 59,
+        "possession": 47.3,
+        "passesAccuracy": 75.25,
+        "fouls": 183,
+        "yellowCards": 29,
+        "redCards": 1
       },
       {
         "team": "브리스톨 시티",
@@ -5351,18 +5351,6 @@
         "redCards": 3
       },
       {
-        "team": "더비 카운티",
-        "goals": 14,
-        "goalsConceded": 30,
-        "shots": 123,
-        "shotsOnTarget": 57,
-        "possession": 47,
-        "passesAccuracy": 77.66,
-        "fouls": 187,
-        "yellowCards": 33,
-        "redCards": 1
-      },
-      {
         "team": "번리",
         "goals": 22,
         "goalsConceded": 31,
@@ -5373,6 +5361,18 @@
         "fouls": 148,
         "yellowCards": 28,
         "redCards": 2
+      },
+      {
+        "team": "더비 카운티",
+        "goals": 14,
+        "goalsConceded": 30,
+        "shots": 123,
+        "shotsOnTarget": 57,
+        "possession": 47,
+        "passesAccuracy": 77.66,
+        "fouls": 187,
+        "yellowCards": 33,
+        "redCards": 1
       },
       {
         "team": "프레스턴",
@@ -5721,7 +5721,7 @@
     ]
   },
   "LALIGA": {
-    "updatedAt": "2026-11-21T13:01:23.986Z",
+    "updatedAt": "2026-11-21T14:01:13.726Z",
     "seasonCode": "AKz3",
     "rows": [
       {
@@ -6501,7 +6501,7 @@
     ]
   },
   "BUNDESLIGA": {
-    "updatedAt": "2026-11-21T13:01:26.797Z",
+    "updatedAt": "2026-11-21T14:01:16.826Z",
     "seasonCode": "QAF5",
     "rows": [
       {
@@ -7237,7 +7237,7 @@
     ]
   },
   "SERIEA": {
-    "updatedAt": "2026-11-21T13:01:29.789Z",
+    "updatedAt": "2026-11-21T14:01:19.609Z",
     "seasonCode": "YUEy",
     "rows": [
       {
@@ -7246,8 +7246,8 @@
         "played": 11,
         "win": 9,
         "loss": 0,
-        "draw": 2,
-        "pts": 29,
+        "draw": 3,
+        "pts": 30,
         "gd": 16
       },
       {
@@ -7376,8 +7376,8 @@
         "played": 11,
         "win": 3,
         "loss": 7,
-        "draw": 1,
-        "pts": 10,
+        "draw": 2,
+        "pts": 11,
         "gd": -10
       },
       {
@@ -8017,7 +8017,7 @@
     ]
   },
   "LIGUE1": {
-    "updatedAt": "2026-11-21T13:01:32.724Z",
+    "updatedAt": "2026-11-21T14:01:22.814Z",
     "seasonCode": "yEGP",
     "rows": [
       {
@@ -8753,7 +8753,7 @@
     ]
   },
   "EREDIVISIE": {
-    "updatedAt": "2026-11-21T13:01:35.829Z",
+    "updatedAt": "2026-11-21T14:01:25.811Z",
     "seasonCode": "rY5l",
     "rows": [
       {
@@ -9489,7 +9489,7 @@
     ]
   },
   "MLS": {
-    "updatedAt": "2026-11-21T13:01:39.025Z",
+    "updatedAt": "2026-11-21T14:01:28.630Z",
     "seasonCode": "kFAV",
     "rows": [
       {
@@ -10519,7 +10519,7 @@
     ]
   },
   "SCOTLAND": {
-    "updatedAt": "2026-11-21T13:01:41.829Z",
+    "updatedAt": "2026-11-21T14:01:31.867Z",
     "seasonCode": "tcRg",
     "rows": [
       {
@@ -11123,7 +11123,7 @@
     ]
   },
   "DENMARK": {
-    "updatedAt": "2026-11-21T13:01:44.820Z",
+    "updatedAt": "2026-11-21T14:01:35.031Z",
     "seasonCode": "ut8A",
     "rows": [
       {
@@ -11727,7 +11727,7 @@
     ]
   },
   "SAUDI": {
-    "updatedAt": "2026-11-21T13:01:47.760Z",
+    "updatedAt": "2026-11-21T14:01:38.004Z",
     "seasonCode": "mNWf",
     "rows": [
       {
@@ -12463,7 +12463,7 @@
     ]
   },
   "J1": {
-    "updatedAt": "2026-11-21T13:01:50.763Z",
+    "updatedAt": "2026-11-21T14:01:41.051Z",
     "seasonCode": "sxaF",
     "rows": [
       {
@@ -13243,7 +13243,7 @@
     ]
   },
   "UCL": {
-    "updatedAt": "2026-11-21T13:01:54.013Z",
+    "updatedAt": "2026-11-21T14:01:43.739Z",
     "seasonCode": "SwZB",
     "rows": [
       {
@@ -14375,7 +14375,7 @@
     ]
   },
   "UEL": {
-    "updatedAt": "2026-11-21T13:01:56.750Z",
+    "updatedAt": "2026-11-21T14:01:46.904Z",
     "seasonCode": "zKAT",
     "rows": [
       {
@@ -15507,7 +15507,7 @@
     ]
   },
   "UECL": {
-    "updatedAt": "2026-11-21T13:01:59.639Z",
+    "updatedAt": "2026-11-21T14:01:49.973Z",
     "seasonCode": "cKUe",
     "rows": [
       {
@@ -16639,7 +16639,7 @@
     ]
   },
   "ACL": {
-    "updatedAt": "2026-11-21T13:02:02.674Z",
+    "updatedAt": "2026-11-21T14:01:52.904Z",
     "seasonCode": "oNJx",
     "rows": [
       {
@@ -17715,7 +17715,7 @@
     ]
   },
   "ACL2": {
-    "updatedAt": "2026-11-21T13:02:05.987Z",
+    "updatedAt": "2026-11-21T14:01:55.897Z",
     "seasonCode": "PtcK",
     "rows": [
       {
@@ -18791,7 +18791,7 @@
     ]
   },
   "WORLDCUP": {
-    "updatedAt": "2026-11-21T13:02:08.590Z",
+    "updatedAt": "2026-11-21T14:01:59.019Z",
     "seasonCode": "3F9X",
     "rows": [
       {
@@ -20235,7 +20235,7 @@
     ]
   },
   "AFRICACUP": {
-    "updatedAt": "2026-11-21T13:02:11.644Z",
+    "updatedAt": "2026-11-21T14:02:01.745Z",
     "seasonCode": "GZMA",
     "rows": [
       {
@@ -21127,7 +21127,7 @@
     ]
   },
   "U17WORLDCUP": {
-    "updatedAt": "2026-11-21T13:02:14.587Z",
+    "updatedAt": "2026-11-21T14:02:04.870Z",
     "seasonCode": "LjKn",
     "rows": [
       {
@@ -21173,6 +21173,50 @@
         "pts": 0,
         "gd": -2,
         "group": "F"
+      },
+      {
+        "team": "세르비아 U17",
+        "rank": 1,
+        "played": 0,
+        "win": 1,
+        "loss": 0,
+        "draw": 0,
+        "pts": 3,
+        "gd": 0,
+        "group": "L"
+      },
+      {
+        "team": "콜롬비아 U17",
+        "rank": 2,
+        "played": 0,
+        "win": 0,
+        "loss": 0,
+        "draw": 1,
+        "pts": 1,
+        "gd": 1,
+        "group": "L"
+      },
+      {
+        "team": "일본 U17",
+        "rank": 3,
+        "played": 0,
+        "win": 0,
+        "loss": 0,
+        "draw": 1,
+        "pts": 1,
+        "gd": 1,
+        "group": "L"
+      },
+      {
+        "team": "온두라스 U17",
+        "rank": 4,
+        "played": 0,
+        "win": 0,
+        "loss": 1,
+        "draw": 0,
+        "pts": 0,
+        "gd": 0,
+        "group": "L"
       },
       {
         "team": "프랑스 U17",
@@ -21263,50 +21307,6 @@
         "group": "B"
       },
       {
-        "team": "멕시코 U17",
-        "rank": 1,
-        "played": 0,
-        "win": 0,
-        "loss": 0,
-        "draw": 0,
-        "pts": 0,
-        "gd": 0,
-        "group": "K"
-      },
-      {
-        "team": "루마니아 U17",
-        "rank": 2,
-        "played": 0,
-        "win": 0,
-        "loss": 0,
-        "draw": 0,
-        "pts": 0,
-        "gd": 0,
-        "group": "K"
-      },
-      {
-        "team": "카메룬 U17",
-        "rank": 3,
-        "played": 0,
-        "win": 0,
-        "loss": 0,
-        "draw": 0,
-        "pts": 0,
-        "gd": 0,
-        "group": "K"
-      },
-      {
-        "team": "베네수엘라 U17",
-        "rank": 4,
-        "played": 0,
-        "win": 0,
-        "loss": 0,
-        "draw": 0,
-        "pts": 0,
-        "gd": 0,
-        "group": "K"
-      },
-      {
         "team": "이탈리아 U17",
         "rank": 1,
         "played": 1,
@@ -21351,50 +21351,6 @@
         "group": "E"
       },
       {
-        "team": "브라질 U17",
-        "rank": 1,
-        "played": 0,
-        "win": 0,
-        "loss": 0,
-        "draw": 0,
-        "pts": 0,
-        "gd": 0,
-        "group": "I"
-      },
-      {
-        "team": "아일랜드 U17",
-        "rank": 2,
-        "played": 0,
-        "win": 0,
-        "loss": 0,
-        "draw": 0,
-        "pts": 0,
-        "gd": 0,
-        "group": "I"
-      },
-      {
-        "team": "탄자니아 U17",
-        "rank": 3,
-        "played": 0,
-        "win": 0,
-        "loss": 0,
-        "draw": 0,
-        "pts": 0,
-        "gd": 0,
-        "group": "I"
-      },
-      {
-        "team": "코스타리카 U17",
-        "rank": 4,
-        "played": 0,
-        "win": 0,
-        "loss": 0,
-        "draw": 0,
-        "pts": 0,
-        "gd": 0,
-        "group": "I"
-      },
-      {
         "team": "도미니카 공화국 U17",
         "rank": 1,
         "played": 0,
@@ -21437,6 +21393,94 @@
         "pts": 0,
         "gd": 0,
         "group": "J"
+      },
+      {
+        "team": "코스타리카 U17",
+        "rank": 1,
+        "played": 0,
+        "win": 1,
+        "loss": 0,
+        "draw": 0,
+        "pts": 3,
+        "gd": 2,
+        "group": "I"
+      },
+      {
+        "team": "브라질 U17",
+        "rank": 2,
+        "played": 0,
+        "win": 0,
+        "loss": 0,
+        "draw": 0,
+        "pts": 0,
+        "gd": 0,
+        "group": "I"
+      },
+      {
+        "team": "아일랜드 U17",
+        "rank": 3,
+        "played": 0,
+        "win": 0,
+        "loss": 0,
+        "draw": 0,
+        "pts": 0,
+        "gd": 0,
+        "group": "I"
+      },
+      {
+        "team": "탄자니아 U17",
+        "rank": 4,
+        "played": 0,
+        "win": 0,
+        "loss": 1,
+        "draw": 0,
+        "pts": 0,
+        "gd": 0,
+        "group": "I"
+      },
+      {
+        "team": "카메룬 U17",
+        "rank": 1,
+        "played": 0,
+        "win": 0,
+        "loss": 0,
+        "draw": 1,
+        "pts": 1,
+        "gd": 0,
+        "group": "K"
+      },
+      {
+        "team": "베네수엘라 U17",
+        "rank": 2,
+        "played": 0,
+        "win": 0,
+        "loss": 0,
+        "draw": 1,
+        "pts": 1,
+        "gd": 0,
+        "group": "K"
+      },
+      {
+        "team": "멕시코 U17",
+        "rank": 3,
+        "played": 0,
+        "win": 0,
+        "loss": 0,
+        "draw": 0,
+        "pts": 0,
+        "gd": 0,
+        "group": "K"
+      },
+      {
+        "team": "루마니아 U17",
+        "rank": 4,
+        "played": 0,
+        "win": 0,
+        "loss": 0,
+        "draw": 0,
+        "pts": 0,
+        "gd": 0,
+        "group": "K"
       },
       {
         "team": "모잠비크 U17",
@@ -21613,50 +21657,6 @@
         "pts": 0,
         "gd": -3,
         "group": "G"
-      },
-      {
-        "team": "콜롬비아 U17",
-        "rank": 1,
-        "played": 0,
-        "win": 1,
-        "loss": 0,
-        "draw": 0,
-        "pts": 3,
-        "gd": 0,
-        "group": "L"
-      },
-      {
-        "team": "온두라스 U17",
-        "rank": 2,
-        "played": 0,
-        "win": 0,
-        "loss": 0,
-        "draw": 1,
-        "pts": 1,
-        "gd": 0,
-        "group": "L"
-      },
-      {
-        "team": "세르비아 U17",
-        "rank": 3,
-        "played": 0,
-        "win": 0,
-        "loss": 0,
-        "draw": 1,
-        "pts": 1,
-        "gd": 0,
-        "group": "L"
-      },
-      {
-        "team": "일본 U17",
-        "rank": 4,
-        "played": 0,
-        "win": 0,
-        "loss": 1,
-        "draw": 0,
-        "pts": 0,
-        "gd": 0,
-        "group": "L"
       }
     ],
     "teamRecords": [
@@ -21706,6 +21706,54 @@
         "passesAccuracy": 69.54,
         "fouls": 14,
         "yellowCards": 5,
+        "redCards": 0
+      },
+      {
+        "team": "세르비아 U17",
+        "goals": 0,
+        "goalsConceded": 0,
+        "shots": 0,
+        "shotsOnTarget": 0,
+        "possession": 0,
+        "passesAccuracy": 0,
+        "fouls": 0,
+        "yellowCards": 1,
+        "redCards": 0
+      },
+      {
+        "team": "콜롬비아 U17",
+        "goals": 1,
+        "goalsConceded": 0,
+        "shots": 0,
+        "shotsOnTarget": 0,
+        "possession": 0,
+        "passesAccuracy": 0,
+        "fouls": 0,
+        "yellowCards": 0,
+        "redCards": 0
+      },
+      {
+        "team": "일본 U17",
+        "goals": 1,
+        "goalsConceded": 0,
+        "shots": 0,
+        "shotsOnTarget": 0,
+        "possession": 0,
+        "passesAccuracy": 0,
+        "fouls": 0,
+        "yellowCards": 1,
+        "redCards": 0
+      },
+      {
+        "team": "온두라스 U17",
+        "goals": 0,
+        "goalsConceded": 0,
+        "shots": 0,
+        "shotsOnTarget": 0,
+        "possession": 0,
+        "passesAccuracy": 0,
+        "fouls": 0,
+        "yellowCards": 0,
         "redCards": 0
       },
       {
@@ -21805,54 +21853,6 @@
         "redCards": 0
       },
       {
-        "team": "멕시코 U17",
-        "goals": 0,
-        "goalsConceded": 0,
-        "shots": 0,
-        "shotsOnTarget": 0,
-        "possession": 0,
-        "passesAccuracy": 0,
-        "fouls": 0,
-        "yellowCards": 0,
-        "redCards": 0
-      },
-      {
-        "team": "루마니아 U17",
-        "goals": 0,
-        "goalsConceded": 0,
-        "shots": 0,
-        "shotsOnTarget": 0,
-        "possession": 0,
-        "passesAccuracy": 0,
-        "fouls": 0,
-        "yellowCards": 0,
-        "redCards": 0
-      },
-      {
-        "team": "카메룬 U17",
-        "goals": 0,
-        "goalsConceded": 0,
-        "shots": 0,
-        "shotsOnTarget": 0,
-        "possession": 0,
-        "passesAccuracy": 0,
-        "fouls": 0,
-        "yellowCards": 0,
-        "redCards": 0
-      },
-      {
-        "team": "베네수엘라 U17",
-        "goals": 0,
-        "goalsConceded": 0,
-        "shots": 0,
-        "shotsOnTarget": 0,
-        "possession": 0,
-        "passesAccuracy": 0,
-        "fouls": 0,
-        "yellowCards": 0,
-        "redCards": 0
-      },
-      {
         "team": "이탈리아 U17",
         "goals": 6,
         "goalsConceded": 0,
@@ -21901,54 +21901,6 @@
         "redCards": 0
       },
       {
-        "team": "브라질 U17",
-        "goals": 0,
-        "goalsConceded": 0,
-        "shots": 0,
-        "shotsOnTarget": 0,
-        "possession": 0,
-        "passesAccuracy": 0,
-        "fouls": 0,
-        "yellowCards": 0,
-        "redCards": 0
-      },
-      {
-        "team": "아일랜드 U17",
-        "goals": 0,
-        "goalsConceded": 0,
-        "shots": 0,
-        "shotsOnTarget": 0,
-        "possession": 0,
-        "passesAccuracy": 0,
-        "fouls": 0,
-        "yellowCards": 0,
-        "redCards": 0
-      },
-      {
-        "team": "탄자니아 U17",
-        "goals": 0,
-        "goalsConceded": 0,
-        "shots": 0,
-        "shotsOnTarget": 0,
-        "possession": 0,
-        "passesAccuracy": 0,
-        "fouls": 0,
-        "yellowCards": 0,
-        "redCards": 0
-      },
-      {
-        "team": "코스타리카 U17",
-        "goals": 0,
-        "goalsConceded": 0,
-        "shots": 0,
-        "shotsOnTarget": 0,
-        "possession": 0,
-        "passesAccuracy": 0,
-        "fouls": 0,
-        "yellowCards": 0,
-        "redCards": 0
-      },
-      {
         "team": "도미니카 공화국 U17",
         "goals": 0,
         "goalsConceded": 0,
@@ -21986,6 +21938,102 @@
       },
       {
         "team": "알제리 U17",
+        "goals": 0,
+        "goalsConceded": 0,
+        "shots": 0,
+        "shotsOnTarget": 0,
+        "possession": 0,
+        "passesAccuracy": 0,
+        "fouls": 0,
+        "yellowCards": 0,
+        "redCards": 0
+      },
+      {
+        "team": "코스타리카 U17",
+        "goals": 2,
+        "goalsConceded": 0,
+        "shots": 0,
+        "shotsOnTarget": 0,
+        "possession": 0,
+        "passesAccuracy": 0,
+        "fouls": 0,
+        "yellowCards": 0,
+        "redCards": 0
+      },
+      {
+        "team": "브라질 U17",
+        "goals": 0,
+        "goalsConceded": 0,
+        "shots": 0,
+        "shotsOnTarget": 0,
+        "possession": 0,
+        "passesAccuracy": 0,
+        "fouls": 0,
+        "yellowCards": 0,
+        "redCards": 0
+      },
+      {
+        "team": "아일랜드 U17",
+        "goals": 0,
+        "goalsConceded": 0,
+        "shots": 0,
+        "shotsOnTarget": 0,
+        "possession": 0,
+        "passesAccuracy": 0,
+        "fouls": 0,
+        "yellowCards": 0,
+        "redCards": 0
+      },
+      {
+        "team": "탄자니아 U17",
+        "goals": 0,
+        "goalsConceded": 0,
+        "shots": 0,
+        "shotsOnTarget": 0,
+        "possession": 0,
+        "passesAccuracy": 0,
+        "fouls": 0,
+        "yellowCards": 1,
+        "redCards": 0
+      },
+      {
+        "team": "카메룬 U17",
+        "goals": 0,
+        "goalsConceded": 0,
+        "shots": 0,
+        "shotsOnTarget": 0,
+        "possession": 0,
+        "passesAccuracy": 0,
+        "fouls": 0,
+        "yellowCards": 0,
+        "redCards": 0
+      },
+      {
+        "team": "베네수엘라 U17",
+        "goals": 0,
+        "goalsConceded": 0,
+        "shots": 0,
+        "shotsOnTarget": 0,
+        "possession": 0,
+        "passesAccuracy": 0,
+        "fouls": 0,
+        "yellowCards": 0,
+        "redCards": 0
+      },
+      {
+        "team": "멕시코 U17",
+        "goals": 0,
+        "goalsConceded": 0,
+        "shots": 0,
+        "shotsOnTarget": 0,
+        "possession": 0,
+        "passesAccuracy": 0,
+        "fouls": 0,
+        "yellowCards": 0,
+        "redCards": 0
+      },
+      {
+        "team": "루마니아 U17",
         "goals": 0,
         "goalsConceded": 0,
         "shots": 0,
@@ -22187,54 +22235,6 @@
         "fouls": 13,
         "yellowCards": 1,
         "redCards": 0
-      },
-      {
-        "team": "콜롬비아 U17",
-        "goals": 0,
-        "goalsConceded": 0,
-        "shots": 0,
-        "shotsOnTarget": 0,
-        "possession": 0,
-        "passesAccuracy": 0,
-        "fouls": 0,
-        "yellowCards": 0,
-        "redCards": 0
-      },
-      {
-        "team": "온두라스 U17",
-        "goals": 0,
-        "goalsConceded": 0,
-        "shots": 0,
-        "shotsOnTarget": 0,
-        "possession": 0,
-        "passesAccuracy": 0,
-        "fouls": 0,
-        "yellowCards": 0,
-        "redCards": 0
-      },
-      {
-        "team": "세르비아 U17",
-        "goals": 0,
-        "goalsConceded": 0,
-        "shots": 0,
-        "shotsOnTarget": 0,
-        "possession": 0,
-        "passesAccuracy": 0,
-        "fouls": 0,
-        "yellowCards": 0,
-        "redCards": 0
-      },
-      {
-        "team": "일본 U17",
-        "goals": 0,
-        "goalsConceded": 0,
-        "shots": 0,
-        "shotsOnTarget": 0,
-        "possession": 0,
-        "passesAccuracy": 0,
-        "fouls": 0,
-        "yellowCards": 0,
-        "redCards": 0
       }
     ],
     "players": [
@@ -22382,6 +22382,17 @@
         "country": "우즈베키스탄"
       },
       {
+        "name": "미겔 아가메스",
+        "team": "콜롬비아",
+        "pos": "MF",
+        "played": 1,
+        "goals": 1,
+        "assists": 0,
+        "yellowCards": 0,
+        "redCards": 0,
+        "country": "콜롬비아"
+      },
+      {
         "name": "비흐쉬티 라자브조드",
         "team": "타지키스탄",
         "pos": "FW",
@@ -22391,6 +22402,17 @@
         "yellowCards": 0,
         "redCards": 0,
         "country": "타지키스탄"
+      },
+      {
+        "name": "사이토 카케루",
+        "team": "일본",
+        "pos": "FW",
+        "played": 1,
+        "goals": 1,
+        "assists": 0,
+        "yellowCards": 0,
+        "redCards": 0,
+        "country": "일본"
       },
       {
         "name": "세가 음보지",
@@ -22545,33 +22567,11 @@
         "yellowCards": 0,
         "redCards": 0,
         "country": "모잠비크"
-      },
-      {
-        "name": "샤헤르 루스톰",
-        "team": "카타르",
-        "pos": "MF",
-        "played": 1,
-        "goals": 0,
-        "assists": 1,
-        "yellowCards": 0,
-        "redCards": 0,
-        "country": "카타르"
-      },
-      {
-        "name": "세이두 코나테",
-        "team": "프랑스",
-        "pos": "MF",
-        "played": 1,
-        "goals": 0,
-        "assists": 1,
-        "yellowCards": 0,
-        "redCards": 0,
-        "country": "프랑스"
       }
     ]
   },
   "CONCACAFCUP": {
-    "updatedAt": "2026-11-21T13:02:17.678Z",
+    "updatedAt": "2026-11-21T14:02:07.986Z",
     "seasonCode": "G9oo",
     "rows": [
       {
@@ -23505,7 +23505,7 @@
     ]
   },
   "UNL": {
-    "updatedAt": "2026-11-21T13:02:20.950Z",
+    "updatedAt": "2026-11-21T14:02:10.932Z",
     "seasonCode": "0Eel",
     "rows": [
       {
@@ -25087,7 +25087,7 @@
     ]
   },
   "WCQUEFA": {
-    "updatedAt": "2026-11-21T13:02:23.635Z",
+    "updatedAt": "2026-11-21T14:02:13.834Z",
     "seasonCode": "lbrT",
     "rows": [
       {
@@ -26669,7 +26669,7 @@
     ]
   },
   "WCQAFC": {
-    "updatedAt": "2026-11-21T13:02:26.868Z",
+    "updatedAt": "2026-11-21T14:02:17.037Z",
     "seasonCode": "ECsm",
     "rows": [
       {
@@ -27837,7 +27837,7 @@
     ]
   },
   "ASIANCUP": {
-    "updatedAt": "2026-11-21T13:02:29.677Z",
+    "updatedAt": "2026-11-21T14:02:19.773Z",
     "seasonCode": "h5za",
     "rows": [
       {
@@ -28628,7 +28628,7 @@
     ]
   },
   "U17ASIANCUP": {
-    "updatedAt": "2026-11-21T13:02:32.922Z",
+    "updatedAt": "2026-11-21T14:02:23.082Z",
     "seasonCode": "W0Pm",
     "rows": [
       {
@@ -29313,7 +29313,7 @@
     ]
   },
   "U20ASIANCUP": {
-    "updatedAt": "2026-11-21T13:02:35.750Z",
+    "updatedAt": "2026-11-21T14:02:25.678Z",
     "seasonCode": "KL2i",
     "rows": [
       {
@@ -30021,7 +30021,7 @@
     ]
   },
   "U23ASIANCUP": {
-    "updatedAt": "2026-11-21T13:02:38.861Z",
+    "updatedAt": "2026-11-21T14:02:28.818Z",
     "seasonCode": "Ui6E",
     "rows": [
       {
@@ -30729,7 +30729,7 @@
     ]
   },
   "WOMENASIANCUP": {
-    "updatedAt": "2026-11-21T13:02:41.795Z",
+    "updatedAt": "2026-11-21T14:02:31.881Z",
     "seasonCode": "HlL4",
     "rows": [
       {
@@ -31345,7 +31345,7 @@
     ]
   },
   "U20WOMENASIANCUP": {
-    "updatedAt": "2026-11-21T13:02:44.682Z",
+    "updatedAt": "2026-11-21T14:02:34.877Z",
     "seasonCode": "BMHu",
     "rows": [
       {
@@ -31961,7 +31961,7 @@
     ]
   },
   "AFFCUP": {
-    "updatedAt": "2026-11-21T13:02:47.897Z",
+    "updatedAt": "2026-11-21T14:02:37.810Z",
     "seasonCode": "lOl0",
     "rows": [
       {
@@ -32531,7 +32531,7 @@
     ]
   },
   "E1MEN": {
-    "updatedAt": "2026-11-21T13:02:50.723Z",
+    "updatedAt": "2026-11-21T14:02:40.969Z",
     "seasonCode": "uqX4",
     "rows": [
       {
@@ -32959,7 +32959,7 @@
     ]
   },
   "E1WOMEN": {
-    "updatedAt": "2026-11-21T13:02:53.612Z",
+    "updatedAt": "2026-11-21T14:02:43.928Z",
     "seasonCode": "fIhY",
     "rows": [
       {
@@ -33271,7 +33271,7 @@
     ]
   },
   "COPAAMERICA": {
-    "updatedAt": "2026-11-21T13:02:56.585Z",
+    "updatedAt": "2026-11-21T14:02:46.920Z",
     "seasonCode": "2bjq",
     "rows": [
       {
@@ -33979,7 +33979,7 @@
     ]
   },
   "CLUBWORLDCUP": {
-    "updatedAt": "2026-11-21T13:02:59.725Z",
+    "updatedAt": "2026-11-21T14:02:49.871Z",
     "seasonCode": "o2Rl",
     "rows": [
       {
@@ -35055,7 +35055,7 @@
     ]
   },
   "UEFAEURO": {
-    "updatedAt": "2026-11-21T13:03:02.846Z",
+    "updatedAt": "2026-11-21T14:02:52.737Z",
     "seasonCode": "bNU9",
     "rows": [
       {
@@ -35947,7 +35947,7 @@
     ]
   },
   "U20WORLDCUP": {
-    "updatedAt": "2026-11-21T13:03:05.578Z",
+    "updatedAt": "2026-11-21T14:02:55.954Z",
     "seasonCode": "o26O",
     "rows": [
       {
@@ -36839,7 +36839,7 @@
     ]
   },
   "U20WOMENWORLDCUP": {
-    "updatedAt": "2026-11-21T13:03:09.013Z",
+    "updatedAt": "2026-11-21T14:02:58.709Z",
     "seasonCode": "0Lw5",
     "rows": [
       {
@@ -37731,7 +37731,7 @@
     ]
   },
   "U17WOMENASIANCUP": {
-    "updatedAt": "2026-11-21T13:03:11.967Z",
+    "updatedAt": "2026-11-21T14:03:01.988Z",
     "seasonCode": "DbeE",
     "rows": [
       {
