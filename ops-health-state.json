@@ -5,7 +5,8 @@
  },
  "alerted": {
   "축구·야구 선수 상세 정보 없음(카드가 비어 보임):야구 선수 코드 없음": 1795143645441,
-  "방향각 없는 구장(14일 내 경기):dyn_16mdfqd": 1795273249145
+  "방향각 없는 구장(14일 내 경기):dyn_16mdfqd": 1795273249145,
+  "한국 재생 비율 변동(알려진 제한 리그):UEL:83": 1795446050391
  },
  "leagueCounts": {
   "OLYMPICBASEBALL": 15,
@@ -117,7 +118,7 @@
   "U18ASIANBASEBALL": 22,
   "LIBERTADORES": 13,
   "SUDAMERICANA": 13,
-  "WOMENFRIENDLY": 103,
+  "WOMENFRIENDLY": 107,
   "LMB": 4,
   "ASIANGAMESFOOTBALL": 55,
   "ASIANGAMESBASEBALL": 22,
@@ -139,8 +140,8 @@
   "ASIANCUP": 36
  },
  "dataCounts": {
-  "koNames": 2490,
-  "photos": 23734
+  "koNames": 2491,
+  "photos": 23747
  },
  "krRatio": {
   "NPB": 0.7848101265822784,
@@ -160,14 +161,14 @@
   "ACL2": 0.03125,
   "SAUDI": 0.14035087719298245,
   "LALIGA": 0.14814814814814814,
-  "UEL": 0.6621621621621622,
+  "UEL": 0.8260869565217391,
   "BUNDESLIGA": 0.041666666666666664,
   "K리그1": 0,
   "K리그2": 0,
   "KBO": 0,
   "MLB": 0,
   "AMATCHFRIENDLY": 0.20833333333333334,
-  "UECL": 0.3170731707317073,
+  "UECL": 0.40476190476190477,
   "UCL": 0.3617021276595745,
   "DFBPOKAL": 0,
   "ARGENTINA": 0,
@@ -232,14 +233,14 @@
   "MLB": 40,
   "EREDIVISIE": 66,
   "AMATCHFRIENDLY": 44,
-  "UECL": 53,
+  "UECL": 42,
   "UCL": 58,
   "DFBPOKAL": 15,
   "ARGENTINA": 157,
   "ASIANGAMESFOOTBALL": 15,
   "AUSTRALIA": 26,
   "AUSTRIA": 27,
-  "BELGIUM": 73,
+  "BELGIUM": 80,
   "BOLIVIA": 112,
   "BRASILEIRAO": 75,
   "CHINA": 17,
@@ -252,7 +253,7 @@
   "LIGAMX": 62,
   "LMP": 164,
   "LVBP": 173,
-  "NORWAY": 81,
+  "NORWAY": 87,
   "PARAGUAY": 91,
   "PERU": 90,
   "PORTUGAL": 79,
@@ -269,7 +270,7 @@
   "U17WORLDCUP": 32,
   "ALEAGUEW": 19,
   "LIGAF": 22,
-  "PREMIERELIGUE": 45,
+  "PREMIERELIGUE": 47,
   "USLSUPER": 25
  },
  "seeded": {
@@ -277,10 +278,15 @@
  },
  "alertedText": {
   "축구·야구 선수 상세 정보 없음(카드가 비어 보임):야구 선수 코드 없음": "야구 선수 코드 없음 72명 [APBC 68 · NPB 4] — A.베이츠, G.스즈키, H.시노하라, H.타카하시, K.야마구치 외",
-  "방향각 없는 구장(14일 내 경기):dyn_16mdfqd": "Beyond Bancard Field / Beyond Bancard Field — USLSUPER 1경기 · 좌표도 없음 [dyn_16mdfqd]"
+  "방향각 없는 구장(14일 내 경기):dyn_16mdfqd": "Beyond Bancard Field / Beyond Bancard Field — USLSUPER 1경기 · 좌표도 없음 [dyn_16mdfqd]",
+  "한국 재생 비율 변동(알려진 제한 리그):UEL:83": "UEL: 재생불가 66% → 83% (76/92건)"
  },
  "firstSeen": {
-  "방향각 없는 구장(14일 내 경기):dyn_16mdfqd": 1795230046703
+  "방향각 없는 구장(14일 내 경기):dyn_16mdfqd": 1795230046703,
+  "방향각 없는 구장(14일 내 경기):dyn_1qfvubn": 1795446050391,
+  "방향각 없는 구장(14일 내 경기):dyn_u3ws9u": 1795446050391,
+  "방향각 없는 구장(14일 내 경기):dyn_9u1dnz": 1795446050391,
+  "방향각 없는 구장(14일 내 경기):dyn_jjlut": 1795446050391
  },
  "bkNoInfoSeen": {
   "elbk:006540": 1795273249145,
@@ -332,6 +338,23 @@
    "found": false,
    "why": "The operation was aborted due to timeout",
    "at": 1795359645207
+  },
+  "dyn_1qfvubn": {
+   "found": false,
+   "why": "OSM 에서 같은 이름을 못 찾음",
+   "at": 1795446050391
+  },
+  "dyn_u3ws9u": {
+   "found": false,
+   "why": "Overpass The operation was aborted due to timeout",
+   "lat": 35.0338944,
+   "lon": 33.76496,
+   "at": 1795446050391
+  },
+  "dyn_9u1dnz": {
+   "found": false,
+   "why": "OSM 에서 같은 이름을 못 찾음",
+   "at": 1795446050391
   }
  }
 }
