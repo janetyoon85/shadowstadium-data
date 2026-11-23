@@ -371914,7 +371914,8 @@
           "n": "유수프",
           "m": 90,
           "a": "Philip Otele",
-          "pid": "espn:276684"
+          "pid": "espn:276684",
+          "apid": "espn:289745"
         }
       ]
     }
@@ -848226,11 +848227,11 @@
     "time": "23:00",
     "league": "SCOTTISHCUP",
     "venueId": "venue_tbc",
-    "home": "Strathspey Thistle",
-    "away": "Dalbeattie Star",
+    "home": "렌프루",
+    "away": "Broxburn",
     "stadium": "",
     "timeTbd": false,
-    "gameId": "SCOTTISHCUP_ESPN_401921119",
+    "gameId": "SCOTTISHCUP_ESPN_401921128",
     "status": "completed",
     "homeScore": 3,
     "awayScore": 2
@@ -848240,11 +848241,11 @@
     "time": "23:00",
     "league": "SCOTTISHCUP",
     "venueId": "venue_tbc",
-    "home": "렌프루",
-    "away": "Broxburn",
+    "home": "Strathspey Thistle",
+    "away": "Dalbeattie Star",
     "stadium": "",
     "timeTbd": false,
-    "gameId": "SCOTTISHCUP_ESPN_401921128",
+    "gameId": "SCOTTISHCUP_ESPN_401921119",
     "status": "completed",
     "homeScore": 3,
     "awayScore": 2
@@ -1083272,8 +1083273,8 @@
           "n": "타피아",
           "m": 9,
           "pid": "espn:297128",
-          "nat": "Chile",
-          "pk": true
+          "pk": true,
+          "nat": "Chile"
         },
         {
           "n": "하브룬",
@@ -1085289,8 +1085290,8 @@
           "m": 82,
           "a": "Kristian Hlynsson",
           "nat": "Croatia",
-          "aNat": "Iceland",
           "pid": "espn:187956",
+          "aNat": "Iceland",
           "apid": "espn:311168"
         }
       ],
@@ -1090372,7 +1090373,7 @@
       "away": []
     },
     "assistsChecked": true,
-    "assistsAt": 1795392050103
+    "assistsAt": 1795399530918
   },
   {
     "date": "2026-11-23",
@@ -1090516,7 +1090517,7 @@
       "away": []
     },
     "assistsChecked": true,
-    "assistsAt": 1795392049902
+    "assistsAt": 1795399530693
   },
   {
     "date": "2026-11-23",
@@ -1092506,7 +1092507,7 @@
       ]
     },
     "assistsChecked": true,
-    "assistsAt": 1795392284689
+    "assistsAt": 1795399514552
   },
   {
     "date": "2026-11-23",
@@ -1092524,13 +1092525,16 @@
     "inningInfo": "8회말",
     "liveState": {
       "pitcher": "Emiliano Teodo",
-      "batter": "Luis Liberato",
+      "batter": "Jasson Domínguez",
       "pitcherPid": "mlb:693713",
-      "batterPid": "mlb:642451",
-      "ball": 2,
-      "strike": 0,
+      "batterPid": "mlb:691176",
+      "ball": 1,
+      "strike": 1,
       "out": 0,
-      "bases": []
+      "bases": [
+        1,
+        3
+      ]
     }
   },
   {
@@ -1092643,19 +1092647,19 @@
     "timeTbd": false,
     "gameId": "LVBP_MLBSTATS_869965",
     "status": "live",
-    "homeScore": 1,
+    "homeScore": 2,
     "awayScore": 2,
     "inningInfo": "8회말",
     "liveState": {
-      "pitcher": "Marlon Franco",
-      "batter": "Gorkys Hernández",
-      "pitcherPid": "mlb:693812",
-      "batterPid": "mlb:491676",
-      "ball": 1,
-      "strike": 1,
-      "out": 0,
+      "pitcher": "Leonard Garcia",
+      "batter": "Oswaldo Cabrera",
+      "pitcherPid": "mlb:692623",
+      "batterPid": "mlb:665828",
+      "ball": 0,
+      "strike": 0,
+      "out": 1,
       "bases": [
-        1
+        2
       ]
     }
   },
@@ -1093002,18 +1093006,16 @@
     "status": "live",
     "homeScore": 11,
     "awayScore": 2,
-    "inningInfo": "6회말",
+    "inningInfo": "7회초",
     "liveState": {
-      "pitcher": "Jonathan Cortes",
-      "batter": "Angel Ramirez",
-      "pitcherPid": "mlb:815206",
-      "batterPid": "mlb:807587",
-      "ball": 1,
-      "strike": 1,
-      "out": 1,
-      "bases": [
-        1
-      ]
+      "pitcher": "Augusto Mendieta",
+      "batter": "Alejandro Quezada",
+      "pitcherPid": "mlb:800078",
+      "batterPid": "mlb:832568",
+      "ball": 0,
+      "strike": 0,
+      "out": 0,
+      "bases": []
     }
   },
   {
@@ -1093041,15 +1093043,15 @@
     "status": "live",
     "homeScore": 3,
     "awayScore": 4,
-    "inningInfo": "7회초",
+    "inningInfo": "7회말",
     "liveState": {
-      "pitcher": "Erubiel Armenta",
-      "batter": "Ichiro Cano",
-      "pitcherPid": "mlb:692068",
-      "batterPid": "mlb:802560",
-      "ball": 0,
+      "pitcher": "Colten Davis",
+      "batter": "Rosman Verdugo",
+      "pitcherPid": "mlb:829416",
+      "batterPid": "mlb:698916",
+      "ball": 2,
       "strike": 0,
-      "out": 3,
+      "out": 1,
       "bases": []
     }
   },
@@ -1093069,14 +1093071,14 @@
     "inningInfo": "6회초",
     "liveState": {
       "pitcher": "Jesús Broca",
-      "batter": "Esteban Quiroz",
+      "batter": "Chuckie Robinson",
       "pitcherPid": "mlb:695871",
-      "batterPid": "mlb:606019",
-      "ball": 0,
+      "batterPid": "mlb:642020",
+      "ball": 1,
       "strike": 0,
-      "out": 0,
+      "out": 2,
       "bases": [
-        1
+        2
       ]
     }
   },
@@ -1093147,7 +1093149,7 @@
     "timeTbd": false,
     "gameId": "GUATEMALA_ESPN_401879614",
     "status": "live",
-    "matchPeriod": "전반 41'",
+    "matchPeriod": "전반 45'+1'",
     "homeScore": 1,
     "awayScore": 1,
     "scorers": {
@@ -1093211,7 +1093213,7 @@
     "timeTbd": false,
     "gameId": "HONDURAS_ESPN_401926723",
     "status": "live",
-    "matchPeriod": "전반 30'",
+    "matchPeriod": "전반 35'",
     "homeScore": 0,
     "awayScore": 1,
     "scorers": {
@@ -1093238,7 +1093240,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "전반 20'",
+    "matchPeriod": "전반 26'",
     "phaseCode": "ROUND1"
   },
   {
@@ -1098226,18 +1098228,6 @@
     "time": "05:00",
     "league": "HONDURAS",
     "venueId": "venue_tbc",
-    "home": "UPNFM",
-    "away": "후티칼파",
-    "stadium": "",
-    "timeTbd": true,
-    "gameId": "HONDURAS_ESPN_401926720",
-    "status": "scheduled"
-  },
-  {
-    "date": "2026-11-29",
-    "time": "05:00",
-    "league": "HONDURAS",
-    "venueId": "venue_tbc",
     "home": "마라톤",
     "away": "헤네시스 PN",
     "stadium": "",
@@ -1098291,6 +1098281,18 @@
     "stadium": "",
     "timeTbd": true,
     "gameId": "HONDURAS_ESPN_401926721",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-11-29",
+    "time": "05:00",
+    "league": "HONDURAS",
+    "venueId": "venue_tbc",
+    "home": "UPNFM",
+    "away": "후티칼파",
+    "stadium": "",
+    "timeTbd": true,
+    "gameId": "HONDURAS_ESPN_401926720",
     "status": "scheduled"
   },
   {
