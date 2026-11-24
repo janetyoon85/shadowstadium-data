@@ -1,0 +1,44 @@
+name: Fetch Match Maps
+
+# 경기 지도(2026-11-24) — ESPN 경기 기록의 경기장 좌표로 슈팅·골·코너·오프사이드 지도를 만든다(match-maps/<gameId>.json). 앱 경기 상세의 "경기 지도"가 읽는다.
+# 진행 중 경기는 매번 새로 받고, 종료 후 확정된 경기는 다시 받지 않는다. 10분마다 + 수동(cron-job.org 로 더 자주 부를 수 있다).
+on:
+  schedule:
+    - cron: '7,17,27,37,47,57 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fetch-match-maps
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Fetch crawler code (private)
+        uses: ./.github/actions/fetch-code
+        with:
+          token: ${{ secrets.PRIVATE_DATA_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Build
+        run: node scripts/fetch-match-maps.mjs
+
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A match-maps 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "chore(data): 경기 지도 ($(date +'%Y-%m-%d %H:%M'))"
+          for i in 1 2 3 4 5; do git push && break || { git pull --rebase --autostash -X theirs origin main; sleep 2; }; done
