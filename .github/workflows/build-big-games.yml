@@ -1,0 +1,44 @@
+name: Build Big Games
+
+# 지역별 빅게임 현황(big-games.json)을 만든다(2026-11-24). 앱 홈 "🔥 빅게임"과 같은 점수식을 서버에서 지역별로 돌려 향후 30시간 안 경기의 종목별 상위 3경기를 기록 —
+# 지역별 현황 확인과 이후 "오늘의 빅게임" 알림의 기준값. 30분마다(변화 없으면 커밋하지 않는다) + 수동.
+on:
+  schedule:
+    - cron: '17,47 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-big-games
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Fetch crawler code (private)
+        uses: ./.github/actions/fetch-code
+        with:
+          token: ${{ secrets.PRIVATE_DATA_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Build
+        run: node scripts/build-big-games.mjs
+
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add big-games.json 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "chore(data): 지역별 빅게임 현황 ($(date +'%Y-%m-%d %H:%M'))"
+          for i in 1 2 3 4 5; do git push && break || { git pull --rebase --autostash -X theirs origin main; sleep 2; }; done
