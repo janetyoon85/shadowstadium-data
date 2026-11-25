@@ -37,4 +37,7 @@ jobs:
           FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
           FIREBASE_DATABASE_URL: ${{ vars.FIREBASE_DATABASE_URL }}
           DATA_ROOT: ${{ github.workspace }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          PRED_PUSH_TEST_NICK: GM
+          PRED_PUSH_TEST_ID: gm1
         run: node scripts/predict-worker.mjs
