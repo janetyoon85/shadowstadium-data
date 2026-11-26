@@ -848242,11 +848242,11 @@
     "time": "23:00",
     "league": "SCOTTISHCUP",
     "venueId": "venue_tbc",
-    "home": "렌프루",
-    "away": "Broxburn",
+    "home": "Strathspey Thistle",
+    "away": "Dalbeattie Star",
     "stadium": "",
     "timeTbd": false,
-    "gameId": "SCOTTISHCUP_ESPN_401921128",
+    "gameId": "SCOTTISHCUP_ESPN_401921119",
     "status": "completed",
     "homeScore": 3,
     "awayScore": 2
@@ -848256,11 +848256,11 @@
     "time": "23:00",
     "league": "SCOTTISHCUP",
     "venueId": "venue_tbc",
-    "home": "Strathspey Thistle",
-    "away": "Dalbeattie Star",
+    "home": "렌프루",
+    "away": "Broxburn",
     "stadium": "",
     "timeTbd": false,
-    "gameId": "SCOTTISHCUP_ESPN_401921119",
+    "gameId": "SCOTTISHCUP_ESPN_401921128",
     "status": "completed",
     "homeScore": 3,
     "awayScore": 2
@@ -1097549,7 +1097549,7 @@
       "away": []
     },
     "assistsChecked": true,
-    "assistsAt": 1795657001770
+    "assistsAt": 1795664257674
   },
   {
     "date": "2026-11-25",
@@ -1102498,20 +1102498,9 @@
     "stadium": "Estadio Tetelo Vargas",
     "timeTbd": false,
     "gameId": "LIDOM_MLBSTATS_851522",
-    "status": "live",
+    "status": "completed",
     "homeScore": 14,
-    "awayScore": 3,
-    "inningInfo": "9회초",
-    "liveState": {
-      "pitcher": "Melkis Hernández",
-      "batter": "Estevan Florial",
-      "pitcherPid": "mlb:800292",
-      "batterPid": "mlb:664314",
-      "ball": 0,
-      "strike": 0,
-      "out": 1,
-      "bases": []
-    }
+    "awayScore": 3
   },
   {
     "date": "2026-11-26",
@@ -1102724,13 +1102713,13 @@
     "awayScore": 1,
     "inningInfo": "2회말",
     "liveState": {
-      "pitcher": "Luis Cessa",
-      "batter": "Marco Chicuate",
-      "pitcherPid": "mlb:570666",
-      "batterPid": "mlb:617918",
+      "pitcher": "Eduardo Mares",
+      "batter": "J.P. Martínez",
+      "pitcherPid": "mlb:700315",
+      "batterPid": "mlb:679881",
       "ball": 1,
-      "strike": 2,
-      "out": 0,
+      "strike": 0,
+      "out": 3,
       "bases": []
     }
   },
@@ -1102992,9 +1102981,20 @@
     "status": "live",
     "phaseCode": "T8",
     "leg": 1,
-    "matchPeriod": "후반 73'",
-    "homeScore": 0,
-    "awayScore": 0
+    "matchPeriod": "후반 79'",
+    "homeScore": 1,
+    "awayScore": 0,
+    "scorers": {
+      "home": [
+        {
+          "n": "Emerson Mauricio",
+          "m": 76,
+          "nat": "El Salvador",
+          "pid": "espn:347531"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-11-26",
@@ -1103007,7 +1103007,7 @@
     "timeTbd": false,
     "gameId": "GUATEMALA_ESPN_401879605",
     "status": "live",
-    "matchPeriod": "후반 72'",
+    "matchPeriod": "후반 77'",
     "homeScore": 3,
     "awayScore": 2,
     "scorers": {
@@ -1103033,6 +1103033,11 @@
           "n": "Hector Morales",
           "m": 39,
           "pid": "espn:288943"
+        },
+        {
+          "n": "Diego Ruiz",
+          "m": 73,
+          "pid": "espn:264162"
         }
       ]
     }
@@ -1103050,15 +1103055,15 @@
     "status": "live",
     "homeScore": 0,
     "awayScore": 1,
-    "inningInfo": "4회말",
+    "inningInfo": "5회초",
     "liveState": {
-      "pitcher": "Eduardo Vera",
-      "batter": "Manuel Orduno",
-      "pitcherPid": "mlb:622747",
-      "batterPid": "mlb:655212",
+      "pitcher": "Juan Diaz",
+      "batter": "César Salazar",
+      "pitcherPid": "mlb:673215",
+      "batterPid": "mlb:663967",
       "ball": 0,
-      "strike": 0,
-      "out": 2,
+      "strike": 2,
+      "out": 1,
       "bases": []
     }
   },
@@ -1103078,13 +1103083,16 @@
     "inningInfo": "4회말",
     "liveState": {
       "pitcher": "Ross Carver",
-      "batter": "Dayson Croes",
+      "batter": "Ramón Urías",
       "pitcherPid": "mlb:687102",
-      "batterPid": "mlb:806401",
-      "ball": 2,
-      "strike": 1,
-      "out": 1,
-      "bases": []
+      "batterPid": "mlb:602104",
+      "ball": 0,
+      "strike": 0,
+      "out": 2,
+      "bases": [
+        1,
+        2
+      ]
     }
   },
   {
@@ -1103100,15 +1103108,15 @@
     "status": "live",
     "homeScore": 2,
     "awayScore": 1,
-    "inningInfo": "4회초",
+    "inningInfo": "4회말",
     "liveState": {
-      "pitcher": "Jonatan Bernal",
-      "batter": "Alfredo Hurtado",
-      "pitcherPid": "mlb:685763",
-      "batterPid": "mlb:685771",
-      "ball": 0,
-      "strike": 0,
-      "out": 2,
+      "pitcher": "Odrisamer Despaigne",
+      "batter": "Orlando Pina",
+      "pitcherPid": "mlb:628333",
+      "batterPid": "mlb:669315",
+      "ball": 3,
+      "strike": 1,
+      "out": 0,
       "bases": []
     }
   },
@@ -1103125,7 +1103133,7 @@
     "status": "live",
     "phaseCode": "T8",
     "leg": 1,
-    "matchPeriod": "전반 24'",
+    "matchPeriod": "전반 29'",
     "homeScore": 0,
     "awayScore": 0,
     "cards": {
@@ -1103156,13 +1103164,13 @@
     "awayScore": 0,
     "inningInfo": "1회초",
     "liveState": {
-      "pitcher": "Humberto Castellanos",
-      "batter": "Julian Ornelas",
-      "pitcherPid": "mlb:528748",
-      "batterPid": "mlb:676140",
-      "ball": 2,
-      "strike": 1,
-      "out": 2,
+      "pitcher": "Patrick Murphy",
+      "batter": "Taiki Sekine",
+      "pitcherPid": "mlb:641907",
+      "batterPid": "mlb:692460",
+      "ball": 1,
+      "strike": 0,
+      "out": 3,
       "bases": []
     }
   },
