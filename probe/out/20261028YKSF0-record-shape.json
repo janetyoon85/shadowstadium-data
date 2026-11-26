@@ -1,0 +1,394 @@
+{
+ "$": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.code": {
+  "n": 1,
+  "t": "number",
+  "ex": 200
+ },
+ "$.success": {
+  "n": 1,
+  "t": "boolean",
+  "ex": true
+ },
+ "$.result": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.recordData": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.recordData.awayKeyStat": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.recordData.awayKeyStat.hit": {
+  "n": 1,
+  "t": "number",
+  "ex": 5
+ },
+ "$.result.recordData.awayKeyStat.bhome": {
+  "n": 1,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.recordData.awayKeyStat.err": {
+  "n": 1,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.recordData.awayKeyStat.hr": {
+  "n": 1,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.recordData.awayKeyStat.so": {
+  "n": 1,
+  "t": "number",
+  "ex": 6
+ },
+ "$.result.recordData.awayKeyStat.sb": {
+  "n": 1,
+  "t": "number",
+  "ex": 1
+ },
+ "$.result.recordData.homePitcher": {
+  "n": 1,
+  "t": "array"
+ },
+ "$.result.recordData.homePitcher[]": {
+  "n": 6,
+  "t": "object"
+ },
+ "$.result.recordData.homePitcher[].bb": {
+  "n": 6,
+  "t": "number",
+  "ex": 2
+ },
+ "$.result.recordData.homePitcher[].hit": {
+  "n": 6,
+  "t": "number",
+  "ex": 3
+ },
+ "$.result.recordData.homePitcher[].bf": {
+  "n": 6,
+  "t": "number",
+  "ex": 75
+ },
+ "$.result.recordData.homePitcher[].era": {
+  "n": 6,
+  "t": "string",
+  "ex": "2.10"
+ },
+ "$.result.recordData.homePitcher[].name": {
+  "n": 6,
+  "t": "string",
+  "ex": "마에다"
+ },
+ "$.result.recordData.homePitcher[].inn": {
+  "n": 6,
+  "t": "string",
+  "ex": "4.2"
+ },
+ "$.result.recordData.homePitcher[].run": {
+  "n": 6,
+  "t": "number",
+  "ex": 2
+ },
+ "$.result.recordData.homePitcher[].hr": {
+  "n": 6,
+  "t": "number",
+  "ex": 1
+ },
+ "$.result.recordData.homePitcher[].so": {
+  "n": 6,
+  "t": "number",
+  "ex": 4
+ },
+ "$.result.recordData.homePitcher[].er": {
+  "n": 6,
+  "t": "number",
+  "ex": 2
+ },
+ "$.result.recordData.homePitcher[].wls": {
+  "n": 6,
+  "t": "string",
+  "ex": ""
+ },
+ "$.result.recordData.homePitcher[].playerId": {
+  "n": 6,
+  "t": "string",
+  "ex": "2104078"
+ },
+ "$.result.recordData.awayPitcher": {
+  "n": 1,
+  "t": "array"
+ },
+ "$.result.recordData.awayPitcher[]": {
+  "n": 4,
+  "t": "object"
+ },
+ "$.result.recordData.awayPitcher[].bb": {
+  "n": 4,
+  "t": "number",
+  "ex": 2
+ },
+ "$.result.recordData.awayPitcher[].hit": {
+  "n": 4,
+  "t": "number",
+  "ex": 3
+ },
+ "$.result.recordData.awayPitcher[].bf": {
+  "n": 4,
+  "t": "number",
+  "ex": 59
+ },
+ "$.result.recordData.awayPitcher[].era": {
+  "n": 4,
+  "t": "string",
+  "ex": "3.30"
+ },
+ "$.result.recordData.awayPitcher[].name": {
+  "n": 4,
+  "t": "string",
+  "ex": "다이라"
+ },
+ "$.result.recordData.awayPitcher[].inn": {
+  "n": 4,
+  "t": "string",
+  "ex": "4.0"
+ },
+ "$.result.recordData.awayPitcher[].run": {
+  "n": 4,
+  "t": "number",
+  "ex": 3
+ },
+ "$.result.recordData.awayPitcher[].hr": {
+  "n": 4,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.recordData.awayPitcher[].so": {
+  "n": 4,
+  "t": "number",
+  "ex": 4
+ },
+ "$.result.recordData.awayPitcher[].er": {
+  "n": 4,
+  "t": "number",
+  "ex": 3
+ },
+ "$.result.recordData.awayPitcher[].wls": {
+  "n": 4,
+  "t": "string",
+  "ex": "패"
+ },
+ "$.result.recordData.awayPitcher[].playerId": {
+  "n": 4,
+  "t": "string",
+  "ex": "1300031"
+ },
+ "$.result.recordData.homeKeyStat": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.recordData.homeKeyStat.hit": {
+  "n": 1,
+  "t": "number",
+  "ex": 4
+ },
+ "$.result.recordData.homeKeyStat.bhome": {
+  "n": 1,
+  "t": "number",
+  "ex": 1
+ },
+ "$.result.recordData.homeKeyStat.err": {
+  "n": 1,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.recordData.homeKeyStat.hr": {
+  "n": 1,
+  "t": "number",
+  "ex": 1
+ },
+ "$.result.recordData.homeKeyStat.so": {
+  "n": 1,
+  "t": "number",
+  "ex": 10
+ },
+ "$.result.recordData.homeKeyStat.sb": {
+  "n": 1,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.recordData.awayBatter": {
+  "n": 1,
+  "t": "array"
+ },
+ "$.result.recordData.awayBatter[]": {
+  "n": 11,
+  "t": "object"
+ },
+ "$.result.recordData.awayBatter[].bb": {
+  "n": 11,
+  "t": "number",
+  "ex": 1
+ },
+ "$.result.recordData.awayBatter[].ab": {
+  "n": 11,
+  "t": "number",
+  "ex": 3
+ },
+ "$.result.recordData.awayBatter[].posName": {
+  "n": 11,
+  "t": "string",
+  "ex": "좌익수-우익수"
+ },
+ "$.result.recordData.awayBatter[].seqno": {
+  "n": 11,
+  "t": "number",
+  "ex": 1
+ },
+ "$.result.recordData.awayBatter[].batOrder": {
+  "n": 11,
+  "t": "number",
+  "ex": 1
+ },
+ "$.result.recordData.awayBatter[].hr": {
+  "n": 11,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.recordData.awayBatter[].run": {
+  "n": 11,
+  "t": "number",
+  "ex": 1
+ },
+ "$.result.recordData.awayBatter[].sb": {
+  "n": 11,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.recordData.awayBatter[].hit": {
+  "n": 11,
+  "t": "number",
+  "ex": 1
+ },
+ "$.result.recordData.awayBatter[].avg": {
+  "n": 11,
+  "t": "string",
+  "ex": "0.274"
+ },
+ "$.result.recordData.awayBatter[].pos": {
+  "n": 11,
+  "t": "string",
+  "ex": "7-9"
+ },
+ "$.result.recordData.awayBatter[].name": {
+  "n": 11,
+  "t": "string",
+  "ex": "와타라이"
+ },
+ "$.result.recordData.awayBatter[].rbi": {
+  "n": 11,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.recordData.awayBatter[].so": {
+  "n": 11,
+  "t": "number",
+  "ex": 1
+ },
+ "$.result.recordData.awayBatter[].playerId": {
+  "n": 11,
+  "t": "string",
+  "ex": "1850873"
+ },
+ "$.result.recordData.homeBatter": {
+  "n": 1,
+  "t": "array"
+ },
+ "$.result.recordData.homeBatter[]": {
+  "n": 10,
+  "t": "object"
+ },
+ "$.result.recordData.homeBatter[].bb": {
+  "n": 10,
+  "t": "number",
+  "ex": 1
+ },
+ "$.result.recordData.homeBatter[].ab": {
+  "n": 10,
+  "t": "number",
+  "ex": 3
+ },
+ "$.result.recordData.homeBatter[].posName": {
+  "n": 10,
+  "t": "string",
+  "ex": "우익수-1루수"
+ },
+ "$.result.recordData.homeBatter[].seqno": {
+  "n": 10,
+  "t": "number",
+  "ex": 1
+ },
+ "$.result.recordData.homeBatter[].batOrder": {
+  "n": 10,
+  "t": "number",
+  "ex": 1
+ },
+ "$.result.recordData.homeBatter[].hr": {
+  "n": 10,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.recordData.homeBatter[].run": {
+  "n": 10,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.recordData.homeBatter[].sb": {
+  "n": 10,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.recordData.homeBatter[].hit": {
+  "n": 10,
+  "t": "number",
+  "ex": 2
+ },
+ "$.result.recordData.homeBatter[].avg": {
+  "n": 10,
+  "t": "string",
+  "ex": "0.274"
+ },
+ "$.result.recordData.homeBatter[].pos": {
+  "n": 10,
+  "t": "string",
+  "ex": "9-3"
+ },
+ "$.result.recordData.homeBatter[].name": {
+  "n": 10,
+  "t": "string",
+  "ex": "마사키"
+ },
+ "$.result.recordData.homeBatter[].rbi": {
+  "n": 10,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.recordData.homeBatter[].so": {
+  "n": 10,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.recordData.homeBatter[].playerId": {
+  "n": 10,
+  "t": "string",
+  "ex": "2103735"
+ }
+}
