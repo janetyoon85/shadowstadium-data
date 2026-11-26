@@ -1,0 +1,1952 @@
+{
+ "$": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.code": {
+  "n": 1,
+  "t": "number",
+  "ex": 200
+ },
+ "$.success": {
+  "n": 1,
+  "t": "boolean",
+  "ex": true
+ },
+ "$.result": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.game": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.game.gameId": {
+  "n": 1,
+  "t": "string",
+  "ex": "77771107KTSS02026"
+ },
+ "$.result.game.serviceGameId": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.game.eventGameId": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.game.superCategoryId": {
+  "n": 1,
+  "t": "string",
+  "ex": "baseball"
+ },
+ "$.result.game.upperCategoryId": {
+  "n": 1,
+  "t": "string",
+  "ex": "kbaseball"
+ },
+ "$.result.game.upperCategoryName": {
+  "n": 1,
+  "t": "string",
+  "ex": "국내야구"
+ },
+ "$.result.game.categoryId": {
+  "n": 1,
+  "t": "string",
+  "ex": "kbo"
+ },
+ "$.result.game.categoryName": {
+  "n": 1,
+  "t": "string",
+  "ex": "KBO리그"
+ },
+ "$.result.game.gameDate": {
+  "n": 1,
+  "t": "string",
+  "ex": "2026-11-07"
+ },
+ "$.result.game.gameDateTime": {
+  "n": 1,
+  "t": "string",
+  "ex": "2026-11-07T14:00:00"
+ },
+ "$.result.game.timeTbd": {
+  "n": 1,
+  "t": "boolean",
+  "ex": false
+ },
+ "$.result.game.stadium": {
+  "n": 1,
+  "t": "string",
+  "ex": "대구"
+ },
+ "$.result.game.title": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.game.homeTeamCode": {
+  "n": 1,
+  "t": "string",
+  "ex": "SS"
+ },
+ "$.result.game.homeTeamName": {
+  "n": 1,
+  "t": "string",
+  "ex": "삼성"
+ },
+ "$.result.game.homeTeamScore": {
+  "n": 1,
+  "t": "number",
+  "ex": 10
+ },
+ "$.result.game.awayTeamCode": {
+  "n": 1,
+  "t": "string",
+  "ex": "KT"
+ },
+ "$.result.game.awayTeamName": {
+  "n": 1,
+  "t": "string",
+  "ex": "KT"
+ },
+ "$.result.game.awayTeamScore": {
+  "n": 1,
+  "t": "number",
+  "ex": 5
+ },
+ "$.result.game.winner": {
+  "n": 1,
+  "t": "string",
+  "ex": "HOME"
+ },
+ "$.result.game.statusCode": {
+  "n": 1,
+  "t": "string",
+  "ex": "RESULT"
+ },
+ "$.result.game.statusNum": {
+  "n": 1,
+  "t": "number",
+  "ex": 4
+ },
+ "$.result.game.statusInfo": {
+  "n": 1,
+  "t": "string",
+  "ex": "9회초"
+ },
+ "$.result.game.cancel": {
+  "n": 1,
+  "t": "boolean",
+  "ex": false
+ },
+ "$.result.game.suspended": {
+  "n": 1,
+  "t": "boolean",
+  "ex": false
+ },
+ "$.result.game.hasVideo": {
+  "n": 1,
+  "t": "boolean",
+  "ex": true
+ },
+ "$.result.game.seasonCode": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.game.seasonYear": {
+  "n": 1,
+  "t": "number",
+  "ex": 2026
+ },
+ "$.result.game.roundCode": {
+  "n": 1,
+  "t": "string",
+  "ex": "kbo_ps_ks"
+ },
+ "$.result.game.generalTitle": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.game.generalInfo3": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.game.manualRelayUrl": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.game.emptyScoreBeforeResult": {
+  "n": 1,
+  "t": "boolean",
+  "ex": false
+ },
+ "$.result.game.reversedHomeAway": {
+  "n": 1,
+  "t": "boolean",
+  "ex": true
+ },
+ "$.result.game.neutralGround": {
+  "n": 1,
+  "t": "boolean",
+  "ex": false
+ },
+ "$.result.game.homeTeamEmblemUrl": {
+  "n": 1,
+  "t": "string",
+  "ex": "https://sports-phinf.pstatic.net/team/kb"
+ },
+ "$.result.game.awayTeamEmblemUrl": {
+  "n": 1,
+  "t": "string",
+  "ex": "https://sports-phinf.pstatic.net/team/kb"
+ },
+ "$.result.game.homeTeamShortName": {
+  "n": 1,
+  "t": "string",
+  "ex": "삼성"
+ },
+ "$.result.game.awayTeamShortName": {
+  "n": 1,
+  "t": "string",
+  "ex": "KT"
+ },
+ "$.result.game.homeTeamFullName": {
+  "n": 1,
+  "t": "string",
+  "ex": "삼성 라이온즈"
+ },
+ "$.result.game.awayTeamFullName": {
+  "n": 1,
+  "t": "string",
+  "ex": "kt wiz"
+ },
+ "$.result.game.scheduledTv": {
+  "n": 1,
+  "t": "boolean",
+  "ex": false
+ },
+ "$.result.game.gameOnAir": {
+  "n": 1,
+  "t": "boolean",
+  "ex": false
+ },
+ "$.result.game.pv": {
+  "n": 1,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.game.cv": {
+  "n": 1,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.game.peak": {
+  "n": 1,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.game.embedUrl": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.game.gameCenterUrl": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.game.gameCenterUrl.baseUrl": {
+  "n": 1,
+  "t": "string",
+  "ex": "https://m.sports.naver.com/game/77771107"
+ },
+ "$.result.game.gameCenterUrl.cheerTabUrl": {
+  "n": 1,
+  "t": "string",
+  "ex": "https://m.sports.naver.com/game/77771107"
+ },
+ "$.result.game.liveList": {
+  "n": 1,
+  "t": "array"
+ },
+ "$.result.game.hasLiveStream": {
+  "n": 1,
+  "t": "boolean",
+  "ex": false
+ },
+ "$.result.game.chzzkLive": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.game.chzzkLives": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.game.broadcastChzzkLives": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.game.competitionStartDate": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.game.competitionEndDate": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.game.leaderBoardEnable": {
+  "n": 1,
+  "t": "boolean",
+  "ex": false
+ },
+ "$.result.game.widgetEnable": {
+  "n": 1,
+  "t": "boolean",
+  "ex": false
+ },
+ "$.result.game.enable": {
+  "n": 1,
+  "t": "boolean",
+  "ex": true
+ },
+ "$.result.game.commentInfo": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.game.commentInfo.title": {
+  "n": 1,
+  "t": "string",
+  "ex": "KT vs 삼성 11월 07일"
+ },
+ "$.result.game.commentInfo.description": {
+  "n": 1,
+  "t": "string",
+  "ex": "KBO리그 이야기를 함께 해요!"
+ },
+ "$.result.game.commentInfo.templateId": {
+  "n": 1,
+  "t": "string",
+  "ex": "kbaseball"
+ },
+ "$.result.game.commentInfo.categoryLogo": {
+  "n": 1,
+  "t": "string",
+  "ex": "https://sports-phinf.pstatic.net/categor"
+ },
+ "$.result.game.commentInfo.hasTeamInfo": {
+  "n": 1,
+  "t": "boolean",
+  "ex": true
+ },
+ "$.result.game.commentInfo.expose": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.game.commentInfo.expose.state": {
+  "n": 1,
+  "t": "boolean",
+  "ex": false
+ },
+ "$.result.game.commentInfo.expose.endDateTime": {
+  "n": 1,
+  "t": "string",
+  "ex": "2026-11-08T14:00:00"
+ },
+ "$.result.game.specialMatchInfo": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.game.seriesOutcome": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.game.seriesOutcome.home": {
+  "n": 1,
+  "t": "number",
+  "ex": 3
+ },
+ "$.result.game.seriesOutcome.draw": {
+  "n": 1,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.game.seriesOutcome.away": {
+  "n": 1,
+  "t": "number",
+  "ex": 1
+ },
+ "$.result.game.latestSeriesOutcome": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.game.latestSeriesOutcome.home": {
+  "n": 1,
+  "t": "number",
+  "ex": 4
+ },
+ "$.result.game.latestSeriesOutcome.draw": {
+  "n": 1,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.game.latestSeriesOutcome.away": {
+  "n": 1,
+  "t": "number",
+  "ex": 1
+ },
+ "$.result.game.currentInning": {
+  "n": 1,
+  "t": "string",
+  "ex": "9회초"
+ },
+ "$.result.game.homeTeamScoreByInning": {
+  "n": 1,
+  "t": "array"
+ },
+ "$.result.game.homeTeamScoreByInning[]": {
+  "n": 9,
+  "t": "string",
+  "ex": "6"
+ },
+ "$.result.game.awayTeamScoreByInning": {
+  "n": 1,
+  "t": "array"
+ },
+ "$.result.game.awayTeamScoreByInning[]": {
+  "n": 9,
+  "t": "string",
+  "ex": "1"
+ },
+ "$.result.game.homeTeamRheb": {
+  "n": 1,
+  "t": "array"
+ },
+ "$.result.game.homeTeamRheb[]": {
+  "n": 4,
+  "t": "number",
+  "ex": 10
+ },
+ "$.result.game.awayTeamRheb": {
+  "n": 1,
+  "t": "array"
+ },
+ "$.result.game.awayTeamRheb[]": {
+  "n": 4,
+  "t": "number",
+  "ex": 5
+ },
+ "$.result.game.homeStarterName": {
+  "n": 1,
+  "t": "string",
+  "ex": "장찬희"
+ },
+ "$.result.game.awayStarterName": {
+  "n": 1,
+  "t": "string",
+  "ex": "로건"
+ },
+ "$.result.game.winPitcherName": {
+  "n": 1,
+  "t": "string",
+  "ex": "이재희"
+ },
+ "$.result.game.losePitcherName": {
+  "n": 1,
+  "t": "string",
+  "ex": "로건"
+ },
+ "$.result.game.homeCurrentPitcherName": {
+  "n": 1,
+  "t": "string",
+  "ex": "이승민"
+ },
+ "$.result.game.awayCurrentPitcherName": {
+  "n": 1,
+  "t": "string",
+  "ex": "주권"
+ },
+ "$.result.game.info": {
+  "n": 1,
+  "t": "string",
+  "ex": ""
+ },
+ "$.result.game.dheader": {
+  "n": 1,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.game.seriesGameNo": {
+  "n": 1,
+  "t": "number",
+  "ex": 4
+ },
+ "$.result.game.weatherInfo": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.game.weatherInfo.weather": {
+  "n": 1,
+  "t": "string",
+  "ex": "6.8° 구름많음"
+ },
+ "$.result.game.weatherInfo.dongCode": {
+  "n": 1,
+  "t": "string",
+  "ex": "06260123"
+ },
+ "$.result.game.weatherInfo.leisureWeatherCode": {
+  "n": 1,
+  "t": "string",
+  "ex": "LSBB0004"
+ },
+ "$.result.game.weatherInfo.regionCode": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.game.weatherInfo.weatherIconCode": {
+  "n": 1,
+  "t": "string",
+  "ex": "5"
+ },
+ "$.result.game.enablePreview": {
+  "n": 1,
+  "t": "boolean",
+  "ex": true
+ },
+ "$.result.game.ptsFlag": {
+  "n": 1,
+  "t": "string",
+  "ex": "1"
+ },
+ "$.result.game.broadChannel": {
+  "n": 1,
+  "t": "string",
+  "ex": "SBS"
+ },
+ "$.result.game.round": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.game.roundName": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.game.roundGameNo": {
+  "n": 1,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.game.pool": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.textRelayData": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.textRelayData.category": {
+  "n": 1,
+  "t": "string",
+  "ex": "kbo"
+ },
+ "$.result.textRelayData.gameId": {
+  "n": 1,
+  "t": "string",
+  "ex": "77771107KTSS02026"
+ },
+ "$.result.textRelayData.no": {
+  "n": 1,
+  "t": "number",
+  "ex": 105
+ },
+ "$.result.textRelayData.inn": {
+  "n": 1,
+  "t": "number",
+  "ex": 9
+ },
+ "$.result.textRelayData.homeOrAway": {
+  "n": 1,
+  "t": "string",
+  "ex": "0"
+ },
+ "$.result.textRelayData.pitcherVsBatterCareerStats": {
+  "n": 1,
+  "t": "string",
+  "ex": "4타수 2안타 0홈런 0.500"
+ },
+ "$.result.textRelayData.inningScore": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.textRelayData.inningScore.home": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.textRelayData.inningScore.home.1": {
+  "n": 1,
+  "t": "string",
+  "ex": "6"
+ },
+ "$.result.textRelayData.inningScore.home.2": {
+  "n": 1,
+  "t": "string",
+  "ex": "0"
+ },
+ "$.result.textRelayData.inningScore.home.3": {
+  "n": 1,
+  "t": "string",
+  "ex": "1"
+ },
+ "$.result.textRelayData.inningScore.home.4": {
+  "n": 1,
+  "t": "string",
+  "ex": "0"
+ },
+ "$.result.textRelayData.inningScore.home.5": {
+  "n": 1,
+  "t": "string",
+  "ex": "2"
+ },
+ "$.result.textRelayData.inningScore.home.6": {
+  "n": 1,
+  "t": "string",
+  "ex": "0"
+ },
+ "$.result.textRelayData.inningScore.home.7": {
+  "n": 1,
+  "t": "string",
+  "ex": "1"
+ },
+ "$.result.textRelayData.inningScore.home.8": {
+  "n": 1,
+  "t": "string",
+  "ex": "0"
+ },
+ "$.result.textRelayData.inningScore.home.9": {
+  "n": 1,
+  "t": "string",
+  "ex": "-"
+ },
+ "$.result.textRelayData.inningScore.away": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.textRelayData.inningScore.away.1": {
+  "n": 1,
+  "t": "string",
+  "ex": "1"
+ },
+ "$.result.textRelayData.inningScore.away.2": {
+  "n": 1,
+  "t": "string",
+  "ex": "0"
+ },
+ "$.result.textRelayData.inningScore.away.3": {
+  "n": 1,
+  "t": "string",
+  "ex": "0"
+ },
+ "$.result.textRelayData.inningScore.away.4": {
+  "n": 1,
+  "t": "string",
+  "ex": "0"
+ },
+ "$.result.textRelayData.inningScore.away.5": {
+  "n": 1,
+  "t": "string",
+  "ex": "3"
+ },
+ "$.result.textRelayData.inningScore.away.6": {
+  "n": 1,
+  "t": "string",
+  "ex": "0"
+ },
+ "$.result.textRelayData.inningScore.away.7": {
+  "n": 1,
+  "t": "string",
+  "ex": "0"
+ },
+ "$.result.textRelayData.inningScore.away.8": {
+  "n": 1,
+  "t": "string",
+  "ex": "1"
+ },
+ "$.result.textRelayData.inningScore.away.9": {
+  "n": 1,
+  "t": "string",
+  "ex": "0"
+ },
+ "$.result.textRelayData.homeEntry": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.textRelayData.homeEntry.batter": {
+  "n": 1,
+  "t": "array"
+ },
+ "$.result.textRelayData.homeEntry.batter[]": {
+  "n": 4,
+  "t": "object"
+ },
+ "$.result.textRelayData.homeEntry.batter[].hittype": {
+  "n": 4,
+  "t": "string",
+  "ex": "좌투좌타"
+ },
+ "$.result.textRelayData.homeEntry.batter[].pos": {
+  "n": 4,
+  "t": "string",
+  "ex": "중견수"
+ },
+ "$.result.textRelayData.homeEntry.batter[].pitchingStyle": {
+  "n": 4,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.textRelayData.homeEntry.batter[].name": {
+  "n": 4,
+  "t": "string",
+  "ex": "김현준"
+ },
+ "$.result.textRelayData.homeEntry.batter[].pcode": {
+  "n": 4,
+  "t": "string",
+  "ex": "51417"
+ },
+ "$.result.textRelayData.homeEntry.pitcher": {
+  "n": 1,
+  "t": "array"
+ },
+ "$.result.textRelayData.homeEntry.pitcher[]": {
+  "n": 7,
+  "t": "object"
+ },
+ "$.result.textRelayData.homeEntry.pitcher[].hittype": {
+  "n": 7,
+  "t": "string",
+  "ex": "우투우타"
+ },
+ "$.result.textRelayData.homeEntry.pitcher[].pos": {
+  "n": 7,
+  "t": "string",
+  "ex": "투수"
+ },
+ "$.result.textRelayData.homeEntry.pitcher[].pitchingStyle": {
+  "n": 7,
+  "t": "string",
+  "ex": "우완투수"
+ },
+ "$.result.textRelayData.homeEntry.pitcher[].name": {
+  "n": 7,
+  "t": "string",
+  "ex": "후라도"
+ },
+ "$.result.textRelayData.homeEntry.pitcher[].pcode": {
+  "n": 7,
+  "t": "string",
+  "ex": "53375"
+ },
+ "$.result.textRelayData.awayEntry": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.textRelayData.awayEntry.batter": {
+  "n": 1,
+  "t": "array"
+ },
+ "$.result.textRelayData.awayEntry.batter[]": {
+  "n": 3,
+  "t": "object"
+ },
+ "$.result.textRelayData.awayEntry.batter[].hittype": {
+  "n": 3,
+  "t": "string",
+  "ex": "우투우타"
+ },
+ "$.result.textRelayData.awayEntry.batter[].pos": {
+  "n": 3,
+  "t": "string",
+  "ex": "중견수"
+ },
+ "$.result.textRelayData.awayEntry.batter[].pitchingStyle": {
+  "n": 3,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.textRelayData.awayEntry.batter[].name": {
+  "n": 3,
+  "t": "string",
+  "ex": "배정대"
+ },
+ "$.result.textRelayData.awayEntry.batter[].pcode": {
+  "n": 3,
+  "t": "string",
+  "ex": "64166"
+ },
+ "$.result.textRelayData.awayEntry.pitcher": {
+  "n": 1,
+  "t": "array"
+ },
+ "$.result.textRelayData.awayEntry.pitcher[]": {
+  "n": 6,
+  "t": "object"
+ },
+ "$.result.textRelayData.awayEntry.pitcher[].hittype": {
+  "n": 6,
+  "t": "string",
+  "ex": "우투우타"
+ },
+ "$.result.textRelayData.awayEntry.pitcher[].pos": {
+  "n": 6,
+  "t": "string",
+  "ex": "투수"
+ },
+ "$.result.textRelayData.awayEntry.pitcher[].pitchingStyle": {
+  "n": 6,
+  "t": "string",
+  "ex": "우완투수"
+ },
+ "$.result.textRelayData.awayEntry.pitcher[].name": {
+  "n": 6,
+  "t": "string",
+  "ex": "소형준"
+ },
+ "$.result.textRelayData.awayEntry.pitcher[].pcode": {
+  "n": 6,
+  "t": "string",
+  "ex": "50030"
+ },
+ "$.result.textRelayData.homeLineup": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.textRelayData.homeLineup.batter": {
+  "n": 1,
+  "t": "array"
+ },
+ "$.result.textRelayData.homeLineup.batter[]": {
+  "n": 13,
+  "t": "object"
+ },
+ "$.result.textRelayData.homeLineup.batter[].bb": {
+  "n": 13,
+  "t": "number",
+  "ex": 3
+ },
+ "$.result.textRelayData.homeLineup.batter[].ab": {
+  "n": 13,
+  "t": "number",
+  "ex": 3
+ },
+ "$.result.textRelayData.homeLineup.batter[].posName": {
+  "n": 13,
+  "t": "string",
+  "ex": "중견수"
+ },
+ "$.result.textRelayData.homeLineup.batter[].seqno": {
+  "n": 13,
+  "t": "number",
+  "ex": 1
+ },
+ "$.result.textRelayData.homeLineup.batter[].batOrder": {
+  "n": 13,
+  "t": "number",
+  "ex": 1
+ },
+ "$.result.textRelayData.homeLineup.batter[].seasonHra": {
+  "n": 13,
+  "t": "number",
+  "ex": 0.286
+ },
+ "$.result.textRelayData.homeLineup.batter[].birth": {
+  "n": 13,
+  "t": "string",
+  "ex": "20010308"
+ },
+ "$.result.textRelayData.homeLineup.batter[].weight": {
+  "n": 13,
+  "t": "string",
+  "ex": "64.0"
+ },
+ "$.result.textRelayData.homeLineup.batter[].run": {
+  "n": 13,
+  "t": "number",
+  "ex": 2
+ },
+ "$.result.textRelayData.homeLineup.batter[].hr": {
+  "n": 13,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.textRelayData.homeLineup.batter[].psHra": {
+  "n": 13,
+  "t": "number",
+  "ex": 0.286
+ },
+ "$.result.textRelayData.homeLineup.batter[].vsHra": {
+  "n": 13,
+  "t": "string",
+  "ex": "0.358"
+ },
+ "$.result.textRelayData.homeLineup.batter[].backnum": {
+  "n": 13,
+  "t": "string",
+  "ex": "58"
+ },
+ "$.result.textRelayData.homeLineup.batter[].hit": {
+  "n": 13,
+  "t": "number",
+  "ex": 1
+ },
+ "$.result.textRelayData.homeLineup.batter[].hitType": {
+  "n": 13,
+  "t": "string",
+  "ex": "우투좌타"
+ },
+ "$.result.textRelayData.homeLineup.batter[].pos": {
+  "n": 13,
+  "t": "number",
+  "ex": 8
+ },
+ "$.result.textRelayData.homeLineup.batter[].hbp": {
+  "n": 13,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.textRelayData.homeLineup.batter[].name": {
+  "n": 13,
+  "t": "string",
+  "ex": "김지찬"
+ },
+ "$.result.textRelayData.homeLineup.batter[].rbi": {
+  "n": 13,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.textRelayData.homeLineup.batter[].todayHra": {
+  "n": 13,
+  "t": "number",
+  "ex": 0.333
+ },
+ "$.result.textRelayData.homeLineup.batter[].so": {
+  "n": 13,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.textRelayData.homeLineup.batter[].height": {
+  "n": 13,
+  "t": "string",
+  "ex": "163.0"
+ },
+ "$.result.textRelayData.homeLineup.batter[].cin": {
+  "n": 13,
+  "t": "null|string",
+  "ex": null
+ },
+ "$.result.textRelayData.homeLineup.batter[].cout": {
+  "n": 13,
+  "t": "null|string",
+  "ex": null
+ },
+ "$.result.textRelayData.homeLineup.batter[].pa": {
+  "n": 13,
+  "t": "number",
+  "ex": 6
+ },
+ "$.result.textRelayData.homeLineup.batter[].pcode": {
+  "n": 13,
+  "t": "string",
+  "ex": "50458"
+ },
+ "$.result.textRelayData.homeLineup.pitcher": {
+  "n": 1,
+  "t": "array"
+ },
+ "$.result.textRelayData.homeLineup.pitcher[]": {
+  "n": 6,
+  "t": "object"
+ },
+ "$.result.textRelayData.homeLineup.pitcher[].bb": {
+  "n": 6,
+  "t": "number",
+  "ex": 2
+ },
+ "$.result.textRelayData.homeLineup.pitcher[].kk": {
+  "n": 6,
+  "t": "number",
+  "ex": 1
+ },
+ "$.result.textRelayData.homeLineup.pitcher[].vsEra": {
+  "n": 6,
+  "t": "string",
+  "ex": "7.20"
+ },
+ "$.result.textRelayData.homeLineup.pitcher[].seqno": {
+  "n": 6,
+  "t": "number",
+  "ex": 1
+ },
+ "$.result.textRelayData.homeLineup.pitcher[].ballCount": {
+  "n": 6,
+  "t": "number",
+  "ex": 63
+ },
+ "$.result.textRelayData.homeLineup.pitcher[].inn": {
+  "n": 6,
+  "t": "string",
+  "ex": "4.0"
+ },
+ "$.result.textRelayData.homeLineup.pitcher[].birth": {
+  "n": 6,
+  "t": "string",
+  "ex": "20071005"
+ },
+ "$.result.textRelayData.homeLineup.pitcher[].weight": {
+  "n": 6,
+  "t": "string",
+  "ex": "80.0"
+ },
+ "$.result.textRelayData.homeLineup.pitcher[].run": {
+  "n": 6,
+  "t": "number",
+  "ex": 1
+ },
+ "$.result.textRelayData.homeLineup.pitcher[].hr": {
+  "n": 6,
+  "t": "number",
+  "ex": 1
+ },
+ "$.result.textRelayData.homeLineup.pitcher[].seasonEra": {
+  "n": 6,
+  "t": "string",
+  "ex": "4.50"
+ },
+ "$.result.textRelayData.homeLineup.pitcher[].er": {
+  "n": 6,
+  "t": "number",
+  "ex": 1
+ },
+ "$.result.textRelayData.homeLineup.pitcher[].psEra": {
+  "n": 6,
+  "t": "string",
+  "ex": "2.25"
+ },
+ "$.result.textRelayData.homeLineup.pitcher[].backnum": {
+  "n": 6,
+  "t": "string",
+  "ex": "60"
+ },
+ "$.result.textRelayData.homeLineup.pitcher[].hit": {
+  "n": 6,
+  "t": "number",
+  "ex": 2
+ },
+ "$.result.textRelayData.homeLineup.pitcher[].hitType": {
+  "n": 6,
+  "t": "string",
+  "ex": "우투우타"
+ },
+ "$.result.textRelayData.homeLineup.pitcher[].hbp": {
+  "n": 6,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.textRelayData.homeLineup.pitcher[].name": {
+  "n": 6,
+  "t": "string",
+  "ex": "장찬희"
+ },
+ "$.result.textRelayData.homeLineup.pitcher[].wp": {
+  "n": 6,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.textRelayData.homeLineup.pitcher[].todayEra": {
+  "n": 6,
+  "t": "number",
+  "ex": 2.25
+ },
+ "$.result.textRelayData.homeLineup.pitcher[].height": {
+  "n": 6,
+  "t": "string",
+  "ex": "186.0"
+ },
+ "$.result.textRelayData.homeLineup.pitcher[].pcode": {
+  "n": 6,
+  "t": "string",
+  "ex": "56460"
+ },
+ "$.result.textRelayData.awayLineup": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.textRelayData.awayLineup.batter": {
+  "n": 1,
+  "t": "array"
+ },
+ "$.result.textRelayData.awayLineup.batter[]": {
+  "n": 14,
+  "t": "object"
+ },
+ "$.result.textRelayData.awayLineup.batter[].bb": {
+  "n": 14,
+  "t": "number",
+  "ex": 1
+ },
+ "$.result.textRelayData.awayLineup.batter[].ab": {
+  "n": 14,
+  "t": "number",
+  "ex": 4
+ },
+ "$.result.textRelayData.awayLineup.batter[].posName": {
+  "n": 14,
+  "t": "string",
+  "ex": "지명타자"
+ },
+ "$.result.textRelayData.awayLineup.batter[].seqno": {
+  "n": 14,
+  "t": "number",
+  "ex": 1
+ },
+ "$.result.textRelayData.awayLineup.batter[].batOrder": {
+  "n": 14,
+  "t": "number",
+  "ex": 1
+ },
+ "$.result.textRelayData.awayLineup.batter[].seasonHra": {
+  "n": 14,
+  "t": "number",
+  "ex": 0.267
+ },
+ "$.result.textRelayData.awayLineup.batter[].birth": {
+  "n": 14,
+  "t": "string",
+  "ex": "19970323"
+ },
+ "$.result.textRelayData.awayLineup.batter[].weight": {
+  "n": 14,
+  "t": "string",
+  "ex": "85.0"
+ },
+ "$.result.textRelayData.awayLineup.batter[].run": {
+  "n": 14,
+  "t": "number",
+  "ex": 1
+ },
+ "$.result.textRelayData.awayLineup.batter[].hr": {
+  "n": 14,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.textRelayData.awayLineup.batter[].psHra": {
+  "n": 14,
+  "t": "number",
+  "ex": 0.267
+ },
+ "$.result.textRelayData.awayLineup.batter[].vsHra": {
+  "n": 14,
+  "t": "string",
+  "ex": "0.000"
+ },
+ "$.result.textRelayData.awayLineup.batter[].backnum": {
+  "n": 14,
+  "t": "string",
+  "ex": "3"
+ },
+ "$.result.textRelayData.awayLineup.batter[].hit": {
+  "n": 14,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.textRelayData.awayLineup.batter[].hitType": {
+  "n": 14,
+  "t": "string",
+  "ex": "우투좌타"
+ },
+ "$.result.textRelayData.awayLineup.batter[].pos": {
+  "n": 14,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.textRelayData.awayLineup.batter[].hbp": {
+  "n": 14,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.textRelayData.awayLineup.batter[].name": {
+  "n": 14,
+  "t": "string",
+  "ex": "최원준"
+ },
+ "$.result.textRelayData.awayLineup.batter[].rbi": {
+  "n": 14,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.textRelayData.awayLineup.batter[].todayHra": {
+  "n": 14,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.textRelayData.awayLineup.batter[].so": {
+  "n": 14,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.textRelayData.awayLineup.batter[].height": {
+  "n": 14,
+  "t": "string",
+  "ex": "178.0"
+ },
+ "$.result.textRelayData.awayLineup.batter[].cin": {
+  "n": 14,
+  "t": "null|string",
+  "ex": null
+ },
+ "$.result.textRelayData.awayLineup.batter[].cout": {
+  "n": 14,
+  "t": "null|string",
+  "ex": null
+ },
+ "$.result.textRelayData.awayLineup.batter[].pa": {
+  "n": 14,
+  "t": "number",
+  "ex": 5
+ },
+ "$.result.textRelayData.awayLineup.batter[].pcode": {
+  "n": 14,
+  "t": "string",
+  "ex": "66606"
+ },
+ "$.result.textRelayData.awayLineup.pitcher": {
+  "n": 1,
+  "t": "array"
+ },
+ "$.result.textRelayData.awayLineup.pitcher[]": {
+  "n": 7,
+  "t": "object"
+ },
+ "$.result.textRelayData.awayLineup.pitcher[].bb": {
+  "n": 7,
+  "t": "number",
+  "ex": 3
+ },
+ "$.result.textRelayData.awayLineup.pitcher[].kk": {
+  "n": 7,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.textRelayData.awayLineup.pitcher[].vsEra": {
+  "n": 7,
+  "t": "string",
+  "ex": "0.00"
+ },
+ "$.result.textRelayData.awayLineup.pitcher[].seqno": {
+  "n": 7,
+  "t": "number",
+  "ex": 1
+ },
+ "$.result.textRelayData.awayLineup.pitcher[].ballCount": {
+  "n": 7,
+  "t": "number",
+  "ex": 48
+ },
+ "$.result.textRelayData.awayLineup.pitcher[].inn": {
+  "n": 7,
+  "t": "string",
+  "ex": "1.0"
+ },
+ "$.result.textRelayData.awayLineup.pitcher[].birth": {
+  "n": 7,
+  "t": "string",
+  "ex": "19970523"
+ },
+ "$.result.textRelayData.awayLineup.pitcher[].weight": {
+  "n": 7,
+  "t": "string",
+  "ex": "105.0"
+ },
+ "$.result.textRelayData.awayLineup.pitcher[].run": {
+  "n": 7,
+  "t": "number",
+  "ex": 6
+ },
+ "$.result.textRelayData.awayLineup.pitcher[].hr": {
+  "n": 7,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.textRelayData.awayLineup.pitcher[].seasonEra": {
+  "n": 7,
+  "t": "string",
+  "ex": "3.59"
+ },
+ "$.result.textRelayData.awayLineup.pitcher[].er": {
+  "n": 7,
+  "t": "number",
+  "ex": 6
+ },
+ "$.result.textRelayData.awayLineup.pitcher[].psEra": {
+  "n": 7,
+  "t": "string",
+  "ex": "54.00"
+ },
+ "$.result.textRelayData.awayLineup.pitcher[].backnum": {
+  "n": 7,
+  "t": "string",
+  "ex": "43"
+ },
+ "$.result.textRelayData.awayLineup.pitcher[].hit": {
+  "n": 7,
+  "t": "number",
+  "ex": 5
+ },
+ "$.result.textRelayData.awayLineup.pitcher[].hitType": {
+  "n": 7,
+  "t": "string",
+  "ex": "좌투우타"
+ },
+ "$.result.textRelayData.awayLineup.pitcher[].hbp": {
+  "n": 7,
+  "t": "number",
+  "ex": 1
+ },
+ "$.result.textRelayData.awayLineup.pitcher[].name": {
+  "n": 7,
+  "t": "string",
+  "ex": "로건"
+ },
+ "$.result.textRelayData.awayLineup.pitcher[].wp": {
+  "n": 7,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.textRelayData.awayLineup.pitcher[].todayEra": {
+  "n": 7,
+  "t": "number",
+  "ex": 54
+ },
+ "$.result.textRelayData.awayLineup.pitcher[].height": {
+  "n": 7,
+  "t": "string",
+  "ex": "186.0"
+ },
+ "$.result.textRelayData.awayLineup.pitcher[].pcode": {
+  "n": 7,
+  "t": "string",
+  "ex": "55912"
+ },
+ "$.result.textRelayData.currentGameState": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.textRelayData.currentGameState.homeScore": {
+  "n": 1,
+  "t": "string",
+  "ex": "10"
+ },
+ "$.result.textRelayData.currentGameState.awayScore": {
+  "n": 1,
+  "t": "string",
+  "ex": "5"
+ },
+ "$.result.textRelayData.currentGameState.homeHit": {
+  "n": 1,
+  "t": "string",
+  "ex": "11"
+ },
+ "$.result.textRelayData.currentGameState.awayHit": {
+  "n": 1,
+  "t": "string",
+  "ex": "4"
+ },
+ "$.result.textRelayData.currentGameState.homeBallFour": {
+  "n": 1,
+  "t": "string",
+  "ex": "12"
+ },
+ "$.result.textRelayData.currentGameState.awayBallFour": {
+  "n": 1,
+  "t": "string",
+  "ex": "7"
+ },
+ "$.result.textRelayData.currentGameState.homeError": {
+  "n": 1,
+  "t": "string",
+  "ex": "0"
+ },
+ "$.result.textRelayData.currentGameState.awayError": {
+  "n": 1,
+  "t": "string",
+  "ex": "0"
+ },
+ "$.result.textRelayData.currentGameState.pitcher": {
+  "n": 1,
+  "t": "string",
+  "ex": "50464"
+ },
+ "$.result.textRelayData.currentGameState.batter": {
+  "n": 1,
+  "t": "string",
+  "ex": "66706"
+ },
+ "$.result.textRelayData.currentGameState.strike": {
+  "n": 1,
+  "t": "string",
+  "ex": "3"
+ },
+ "$.result.textRelayData.currentGameState.ball": {
+  "n": 1,
+  "t": "string",
+  "ex": "1"
+ },
+ "$.result.textRelayData.currentGameState.out": {
+  "n": 1,
+  "t": "string",
+  "ex": "3"
+ },
+ "$.result.textRelayData.currentGameState.base1": {
+  "n": 1,
+  "t": "string",
+  "ex": "0"
+ },
+ "$.result.textRelayData.currentGameState.base2": {
+  "n": 1,
+  "t": "string",
+  "ex": "0"
+ },
+ "$.result.textRelayData.currentGameState.base3": {
+  "n": 1,
+  "t": "string",
+  "ex": "0"
+ },
+ "$.result.textRelayData.textRelays": {
+  "n": 1,
+  "t": "array"
+ },
+ "$.result.textRelayData.textRelays[]": {
+  "n": 5,
+  "t": "object"
+ },
+ "$.result.textRelayData.textRelays[].title": {
+  "n": 5,
+  "t": "string",
+  "ex": "====================================="
+ },
+ "$.result.textRelayData.textRelays[].titleStyle": {
+  "n": 5,
+  "t": "string",
+  "ex": "99"
+ },
+ "$.result.textRelayData.textRelays[].no": {
+  "n": 5,
+  "t": "number",
+  "ex": 105
+ },
+ "$.result.textRelayData.textRelays[].inn": {
+  "n": 5,
+  "t": "number",
+  "ex": 9
+ },
+ "$.result.textRelayData.textRelays[].homeOrAway": {
+  "n": 5,
+  "t": "string",
+  "ex": "0"
+ },
+ "$.result.textRelayData.textRelays[].statusCode": {
+  "n": 5,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.textRelayData.textRelays[].textOptions": {
+  "n": 5,
+  "t": "array"
+ },
+ "$.result.textRelayData.textRelays[].textOptions[]": {
+  "n": 26,
+  "t": "object"
+ },
+ "$.result.textRelayData.textRelays[].textOptions[].currentGameState": {
+  "n": 26,
+  "t": "object"
+ },
+ "$.result.textRelayData.textRelays[].textOptions[].seqno": {
+  "n": 26,
+  "t": "number",
+  "ex": 595
+ },
+ "$.result.textRelayData.textRelays[].textOptions[].text": {
+  "n": 26,
+  "t": "string",
+  "ex": "====================================="
+ },
+ "$.result.textRelayData.textRelays[].textOptions[].type": {
+  "n": 26,
+  "t": "number",
+  "ex": 99
+ },
+ "$.result.textRelayData.textRelays[].textOptions[].currentPlayersInfo": {
+  "n": 26,
+  "t": "object"
+ },
+ "$.result.textRelayData.textRelays[].textOptions[].stuff": {
+  "n": 26,
+  "t": "string",
+  "ex": ""
+ },
+ "$.result.textRelayData.textRelays[].ptsOptions": {
+  "n": 5,
+  "t": "array"
+ },
+ "$.result.textRelayData.textRelays[].metricOption": {
+  "n": 5,
+  "t": "object"
+ },
+ "$.result.textRelayData.textRelays[].metricOption.homeTeamWinRate": {
+  "n": 5,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.textRelayData.textRelays[].metricOption.awayTeamWinRate": {
+  "n": 5,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.textRelayData.textRelays[].metricOption.wpaByPlate": {
+  "n": 5,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.textRelayData.textRelays[].textOptions[].batterRecord": {
+  "n": 4,
+  "t": "object"
+ },
+ "$.result.textRelayData.textRelays[].textOptions[].pitchNum": {
+  "n": 14,
+  "t": "number",
+  "ex": 1
+ },
+ "$.result.textRelayData.textRelays[].textOptions[].pitchResult": {
+  "n": 14,
+  "t": "string",
+  "ex": "T"
+ },
+ "$.result.textRelayData.textRelays[].textOptions[].ptsPitchId": {
+  "n": 14,
+  "t": "string",
+  "ex": "261107_171519"
+ },
+ "$.result.textRelayData.textRelays[].textOptions[].speed": {
+  "n": 14,
+  "t": "string",
+  "ex": "130"
+ },
+ "$.result.textRelayData.textRelays[].ptsOptions[]": {
+  "n": 14,
+  "t": "object"
+ },
+ "$.result.textRelayData.textRelays[].ptsOptions[].pitchId": {
+  "n": 14,
+  "t": "string",
+  "ex": "261107_171519"
+ },
+ "$.result.textRelayData.textRelays[].ptsOptions[].inn": {
+  "n": 14,
+  "t": "number",
+  "ex": 9
+ },
+ "$.result.textRelayData.textRelays[].ptsOptions[].ballcount": {
+  "n": 14,
+  "t": "number",
+  "ex": 1
+ },
+ "$.result.textRelayData.textRelays[].ptsOptions[].crossPlateX": {
+  "n": 14,
+  "t": "number",
+  "ex": 0.069298
+ },
+ "$.result.textRelayData.textRelays[].ptsOptions[].crossPlateY": {
+  "n": 14,
+  "t": "number",
+  "ex": 0.7083
+ },
+ "$.result.textRelayData.textRelays[].ptsOptions[].topSz": {
+  "n": 14,
+  "t": "number",
+  "ex": 3.38
+ },
+ "$.result.textRelayData.textRelays[].ptsOptions[].bottomSz": {
+  "n": 14,
+  "t": "number",
+  "ex": 1.639
+ },
+ "$.result.textRelayData.textRelays[].ptsOptions[].vy0": {
+  "n": 14,
+  "t": "number",
+  "ex": -118.589
+ },
+ "$.result.textRelayData.textRelays[].ptsOptions[].vz0": {
+  "n": 14,
+  "t": "number",
+  "ex": 2.55407
+ },
+ "$.result.textRelayData.textRelays[].ptsOptions[].vx0": {
+  "n": 14,
+  "t": "number",
+  "ex": -1.31199
+ },
+ "$.result.textRelayData.textRelays[].ptsOptions[].z0": {
+  "n": 14,
+  "t": "number",
+  "ex": 5.33263
+ },
+ "$.result.textRelayData.textRelays[].ptsOptions[].y0": {
+  "n": 14,
+  "t": "number",
+  "ex": 55
+ },
+ "$.result.textRelayData.textRelays[].ptsOptions[].x0": {
+  "n": 14,
+  "t": "number",
+  "ex": 1.00235
+ },
+ "$.result.textRelayData.textRelays[].ptsOptions[].ax": {
+  "n": 14,
+  "t": "number",
+  "ex": -2.60325
+ },
+ "$.result.textRelayData.textRelays[].ptsOptions[].ay": {
+  "n": 14,
+  "t": "number",
+  "ex": 24.0726
+ },
+ "$.result.textRelayData.textRelays[].ptsOptions[].az": {
+  "n": 14,
+  "t": "number",
+  "ex": -28.5188
+ },
+ "$.result.textRelayData.textRelays[].ptsOptions[].stance": {
+  "n": 14,
+  "t": "string",
+  "ex": "L"
+ },
+ "$.result.textRelayData.textRelays[].textOptions[].playerChange": {
+  "n": 2,
+  "t": "object"
+ },
+ "$.result.textRelayData.lastValidMetricOption": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.textRelayData.lastValidMetricOption.homeTeamWinRate": {
+  "n": 1,
+  "t": "number",
+  "ex": 100
+ },
+ "$.result.textRelayData.lastValidMetricOption.awayTeamWinRate": {
+  "n": 1,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.textRelayData.lastValidMetricOption.wpaByPlate": {
+  "n": 1,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.relatedGames": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.relatedGames.games": {
+  "n": 1,
+  "t": "array"
+ },
+ "$.result.relatedGames.games[]": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.relatedGames.games[].gameId": {
+  "n": 1,
+  "t": "string",
+  "ex": "77771107KTSS02026"
+ },
+ "$.result.relatedGames.games[].serviceGameId": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.relatedGames.games[].eventGameId": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.relatedGames.games[].superCategoryId": {
+  "n": 1,
+  "t": "string",
+  "ex": "baseball"
+ },
+ "$.result.relatedGames.games[].upperCategoryId": {
+  "n": 1,
+  "t": "string",
+  "ex": "kbaseball"
+ },
+ "$.result.relatedGames.games[].upperCategoryName": {
+  "n": 1,
+  "t": "string",
+  "ex": "국내야구"
+ },
+ "$.result.relatedGames.games[].categoryId": {
+  "n": 1,
+  "t": "string",
+  "ex": "kbo"
+ },
+ "$.result.relatedGames.games[].categoryName": {
+  "n": 1,
+  "t": "string",
+  "ex": "KBO리그"
+ },
+ "$.result.relatedGames.games[].gameDate": {
+  "n": 1,
+  "t": "string",
+  "ex": "2026-11-07"
+ },
+ "$.result.relatedGames.games[].gameDateTime": {
+  "n": 1,
+  "t": "string",
+  "ex": "2026-11-07T14:00:00"
+ },
+ "$.result.relatedGames.games[].timeTbd": {
+  "n": 1,
+  "t": "boolean",
+  "ex": false
+ },
+ "$.result.relatedGames.games[].stadium": {
+  "n": 1,
+  "t": "string",
+  "ex": "대구"
+ },
+ "$.result.relatedGames.games[].title": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.relatedGames.games[].homeTeamCode": {
+  "n": 1,
+  "t": "string",
+  "ex": "SS"
+ },
+ "$.result.relatedGames.games[].homeTeamName": {
+  "n": 1,
+  "t": "string",
+  "ex": "삼성"
+ },
+ "$.result.relatedGames.games[].homeTeamScore": {
+  "n": 1,
+  "t": "number",
+  "ex": 10
+ },
+ "$.result.relatedGames.games[].awayTeamCode": {
+  "n": 1,
+  "t": "string",
+  "ex": "KT"
+ },
+ "$.result.relatedGames.games[].awayTeamName": {
+  "n": 1,
+  "t": "string",
+  "ex": "KT"
+ },
+ "$.result.relatedGames.games[].awayTeamScore": {
+  "n": 1,
+  "t": "number",
+  "ex": 5
+ },
+ "$.result.relatedGames.games[].winner": {
+  "n": 1,
+  "t": "string",
+  "ex": "HOME"
+ },
+ "$.result.relatedGames.games[].statusCode": {
+  "n": 1,
+  "t": "string",
+  "ex": "RESULT"
+ },
+ "$.result.relatedGames.games[].statusNum": {
+  "n": 1,
+  "t": "number",
+  "ex": 4
+ },
+ "$.result.relatedGames.games[].statusInfo": {
+  "n": 1,
+  "t": "string",
+  "ex": "9회초"
+ },
+ "$.result.relatedGames.games[].cancel": {
+  "n": 1,
+  "t": "boolean",
+  "ex": false
+ },
+ "$.result.relatedGames.games[].suspended": {
+  "n": 1,
+  "t": "boolean",
+  "ex": false
+ },
+ "$.result.relatedGames.games[].hasVideo": {
+  "n": 1,
+  "t": "boolean",
+  "ex": true
+ },
+ "$.result.relatedGames.games[].seasonCode": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.relatedGames.games[].seasonYear": {
+  "n": 1,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.relatedGames.games[].roundCode": {
+  "n": 1,
+  "t": "string",
+  "ex": "kbo_ps_ks"
+ },
+ "$.result.relatedGames.games[].generalTitle": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.relatedGames.games[].generalInfo3": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.relatedGames.games[].manualRelayUrl": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.relatedGames.games[].emptyScoreBeforeResult": {
+  "n": 1,
+  "t": "boolean",
+  "ex": false
+ },
+ "$.result.relatedGames.games[].reversedHomeAway": {
+  "n": 1,
+  "t": "boolean",
+  "ex": true
+ },
+ "$.result.relatedGames.games[].neutralGround": {
+  "n": 1,
+  "t": "boolean",
+  "ex": false
+ },
+ "$.result.relatedGames.games[].homeTeamEmblemUrl": {
+  "n": 1,
+  "t": "string",
+  "ex": "https://sports-phinf.pstatic.net/team/kb"
+ },
+ "$.result.relatedGames.games[].awayTeamEmblemUrl": {
+  "n": 1,
+  "t": "string",
+  "ex": "https://sports-phinf.pstatic.net/team/kb"
+ },
+ "$.result.relatedGames.games[].homeTeamShortName": {
+  "n": 1,
+  "t": "string",
+  "ex": "삼성"
+ },
+ "$.result.relatedGames.games[].awayTeamShortName": {
+  "n": 1,
+  "t": "string",
+  "ex": "KT"
+ },
+ "$.result.relatedGames.games[].homeTeamFullName": {
+  "n": 1,
+  "t": "string",
+  "ex": "삼성 라이온즈"
+ },
+ "$.result.relatedGames.games[].awayTeamFullName": {
+  "n": 1,
+  "t": "string",
+  "ex": "kt wiz"
+ },
+ "$.result.relatedGames.games[].scheduledTv": {
+  "n": 1,
+  "t": "boolean",
+  "ex": false
+ },
+ "$.result.relatedGames.games[].gameOnAir": {
+  "n": 1,
+  "t": "boolean",
+  "ex": false
+ },
+ "$.result.relatedGames.games[].pv": {
+  "n": 1,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.relatedGames.games[].cv": {
+  "n": 1,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.relatedGames.games[].peak": {
+  "n": 1,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.relatedGames.games[].embedUrl": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.relatedGames.games[].gameCenterUrl": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.relatedGames.games[].gameCenterUrl.baseUrl": {
+  "n": 1,
+  "t": "string",
+  "ex": "https://m.sports.naver.com/game/77771107"
+ },
+ "$.result.relatedGames.games[].gameCenterUrl.cheerTabUrl": {
+  "n": 1,
+  "t": "string",
+  "ex": "https://m.sports.naver.com/game/77771107"
+ },
+ "$.result.relatedGames.games[].liveList": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.relatedGames.games[].hasLiveStream": {
+  "n": 1,
+  "t": "boolean",
+  "ex": false
+ },
+ "$.result.relatedGames.games[].chzzkLive": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.relatedGames.games[].chzzkLives": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ }
+}

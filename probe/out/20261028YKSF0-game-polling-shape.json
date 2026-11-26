@@ -1,0 +1,1355 @@
+{
+ "$": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.code": {
+  "n": 1,
+  "t": "number",
+  "ex": 200
+ },
+ "$.success": {
+  "n": 1,
+  "t": "boolean",
+  "ex": true
+ },
+ "$.result": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.game": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.game.gameId": {
+  "n": 1,
+  "t": "string",
+  "ex": "20261028YKSF0"
+ },
+ "$.result.game.serviceGameId": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.game.eventGameId": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.game.superCategoryId": {
+  "n": 1,
+  "t": "string",
+  "ex": "baseball"
+ },
+ "$.result.game.upperCategoryId": {
+  "n": 1,
+  "t": "string",
+  "ex": "wbaseball"
+ },
+ "$.result.game.upperCategoryName": {
+  "n": 1,
+  "t": "string",
+  "ex": "해외야구"
+ },
+ "$.result.game.categoryId": {
+  "n": 1,
+  "t": "string",
+  "ex": "npb"
+ },
+ "$.result.game.categoryName": {
+  "n": 1,
+  "t": "string",
+  "ex": "일본프로야구"
+ },
+ "$.result.game.gameDate": {
+  "n": 1,
+  "t": "string",
+  "ex": "2026-10-28"
+ },
+ "$.result.game.gameDateTime": {
+  "n": 1,
+  "t": "string",
+  "ex": "2026-10-28T18:00:00"
+ },
+ "$.result.game.timeTbd": {
+  "n": 1,
+  "t": "boolean",
+  "ex": false
+ },
+ "$.result.game.stadium": {
+  "n": 1,
+  "t": "string",
+  "ex": "미즈호 PayPay 돔 후쿠오카"
+ },
+ "$.result.game.title": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.game.homeTeamCode": {
+  "n": 1,
+  "t": "string",
+  "ex": "SF"
+ },
+ "$.result.game.homeTeamName": {
+  "n": 1,
+  "t": "string",
+  "ex": "소프트뱅크"
+ },
+ "$.result.game.homeTeamScore": {
+  "n": 1,
+  "t": "number",
+  "ex": 4
+ },
+ "$.result.game.awayTeamCode": {
+  "n": 1,
+  "t": "string",
+  "ex": "YK"
+ },
+ "$.result.game.awayTeamName": {
+  "n": 1,
+  "t": "string",
+  "ex": "요코하마"
+ },
+ "$.result.game.awayTeamScore": {
+  "n": 1,
+  "t": "number",
+  "ex": 2
+ },
+ "$.result.game.winner": {
+  "n": 1,
+  "t": "string",
+  "ex": "HOME"
+ },
+ "$.result.game.statusCode": {
+  "n": 1,
+  "t": "string",
+  "ex": "RESULT"
+ },
+ "$.result.game.statusNum": {
+  "n": 1,
+  "t": "number",
+  "ex": 4
+ },
+ "$.result.game.statusInfo": {
+  "n": 1,
+  "t": "string",
+  "ex": "9회초"
+ },
+ "$.result.game.cancel": {
+  "n": 1,
+  "t": "boolean",
+  "ex": false
+ },
+ "$.result.game.suspended": {
+  "n": 1,
+  "t": "boolean",
+  "ex": false
+ },
+ "$.result.game.hasVideo": {
+  "n": 1,
+  "t": "boolean",
+  "ex": false
+ },
+ "$.result.game.seasonCode": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.game.seasonYear": {
+  "n": 1,
+  "t": "number",
+  "ex": 2026
+ },
+ "$.result.game.roundCode": {
+  "n": 1,
+  "t": "string",
+  "ex": "npb_js"
+ },
+ "$.result.game.generalTitle": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.game.generalInfo3": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.game.manualRelayUrl": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.game.emptyScoreBeforeResult": {
+  "n": 1,
+  "t": "boolean",
+  "ex": false
+ },
+ "$.result.game.reversedHomeAway": {
+  "n": 1,
+  "t": "boolean",
+  "ex": true
+ },
+ "$.result.game.neutralGround": {
+  "n": 1,
+  "t": "boolean",
+  "ex": false
+ },
+ "$.result.game.homeTeamEmblemUrl": {
+  "n": 1,
+  "t": "string",
+  "ex": "https://sports-phinf.pstatic.net/team/np"
+ },
+ "$.result.game.awayTeamEmblemUrl": {
+  "n": 1,
+  "t": "string",
+  "ex": "https://sports-phinf.pstatic.net/team/np"
+ },
+ "$.result.game.homeTeamShortName": {
+  "n": 1,
+  "t": "string",
+  "ex": "소프트뱅크"
+ },
+ "$.result.game.awayTeamShortName": {
+  "n": 1,
+  "t": "string",
+  "ex": "요코하마"
+ },
+ "$.result.game.homeTeamFullName": {
+  "n": 1,
+  "t": "string",
+  "ex": "소프트뱅크 호크스"
+ },
+ "$.result.game.awayTeamFullName": {
+  "n": 1,
+  "t": "string",
+  "ex": "요코하마 DeNA베이스타스"
+ },
+ "$.result.game.scheduledTv": {
+  "n": 1,
+  "t": "boolean",
+  "ex": false
+ },
+ "$.result.game.gameOnAir": {
+  "n": 1,
+  "t": "boolean",
+  "ex": false
+ },
+ "$.result.game.pv": {
+  "n": 1,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.game.cv": {
+  "n": 1,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.game.peak": {
+  "n": 1,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.game.embedUrl": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.game.gameCenterUrl": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.game.gameCenterUrl.baseUrl": {
+  "n": 1,
+  "t": "string",
+  "ex": "https://m.sports.naver.com/game/20261028"
+ },
+ "$.result.game.gameCenterUrl.cheerTabUrl": {
+  "n": 1,
+  "t": "string",
+  "ex": "https://m.sports.naver.com/game/20261028"
+ },
+ "$.result.game.liveList": {
+  "n": 1,
+  "t": "array"
+ },
+ "$.result.game.hasLiveStream": {
+  "n": 1,
+  "t": "boolean",
+  "ex": false
+ },
+ "$.result.game.chzzkLive": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.game.chzzkLives": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.game.broadcastChzzkLives": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.game.competitionStartDate": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.game.competitionEndDate": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.game.leaderBoardEnable": {
+  "n": 1,
+  "t": "boolean",
+  "ex": false
+ },
+ "$.result.game.widgetEnable": {
+  "n": 1,
+  "t": "boolean",
+  "ex": false
+ },
+ "$.result.game.enable": {
+  "n": 1,
+  "t": "boolean",
+  "ex": true
+ },
+ "$.result.game.commentInfo": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.game.commentInfo.title": {
+  "n": 1,
+  "t": "string",
+  "ex": "요코하마 vs 소프트뱅크 10월 28일"
+ },
+ "$.result.game.commentInfo.description": {
+  "n": 1,
+  "t": "string",
+  "ex": "일본프로야구 이야기를 함께 해요!"
+ },
+ "$.result.game.commentInfo.templateId": {
+  "n": 1,
+  "t": "string",
+  "ex": "wbaseball"
+ },
+ "$.result.game.commentInfo.categoryLogo": {
+  "n": 1,
+  "t": "string",
+  "ex": "https://sports-phinf.pstatic.net/categor"
+ },
+ "$.result.game.commentInfo.hasTeamInfo": {
+  "n": 1,
+  "t": "boolean",
+  "ex": true
+ },
+ "$.result.game.commentInfo.expose": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.game.commentInfo.expose.state": {
+  "n": 1,
+  "t": "boolean",
+  "ex": false
+ },
+ "$.result.game.commentInfo.expose.endDateTime": {
+  "n": 1,
+  "t": "string",
+  "ex": "2026-10-29T18:00:00"
+ },
+ "$.result.game.specialMatchInfo": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.game.seriesOutcome": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.game.seriesOutcome.home": {
+  "n": 1,
+  "t": "number",
+  "ex": 4
+ },
+ "$.result.game.seriesOutcome.draw": {
+  "n": 1,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.game.seriesOutcome.away": {
+  "n": 1,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.game.latestSeriesOutcome": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.game.latestSeriesOutcome.home": {
+  "n": 1,
+  "t": "number",
+  "ex": 4
+ },
+ "$.result.game.latestSeriesOutcome.draw": {
+  "n": 1,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.game.latestSeriesOutcome.away": {
+  "n": 1,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.game.currentInning": {
+  "n": 1,
+  "t": "string",
+  "ex": "9회초"
+ },
+ "$.result.game.homeTeamScoreByInning": {
+  "n": 1,
+  "t": "array"
+ },
+ "$.result.game.homeTeamScoreByInning[]": {
+  "n": 9,
+  "t": "string",
+  "ex": "0"
+ },
+ "$.result.game.awayTeamScoreByInning": {
+  "n": 1,
+  "t": "array"
+ },
+ "$.result.game.awayTeamScoreByInning[]": {
+  "n": 9,
+  "t": "string",
+  "ex": "2"
+ },
+ "$.result.game.homeTeamRheb": {
+  "n": 1,
+  "t": "array"
+ },
+ "$.result.game.homeTeamRheb[]": {
+  "n": 4,
+  "t": "number",
+  "ex": 4
+ },
+ "$.result.game.awayTeamRheb": {
+  "n": 1,
+  "t": "array"
+ },
+ "$.result.game.awayTeamRheb[]": {
+  "n": 4,
+  "t": "number",
+  "ex": 2
+ },
+ "$.result.game.homeStarterName": {
+  "n": 1,
+  "t": "string",
+  "ex": "마에다"
+ },
+ "$.result.game.awayStarterName": {
+  "n": 1,
+  "t": "string",
+  "ex": "타이라"
+ },
+ "$.result.game.winPitcherName": {
+  "n": 1,
+  "t": "string",
+  "ex": "에르난데스"
+ },
+ "$.result.game.losePitcherName": {
+  "n": 1,
+  "t": "string",
+  "ex": "타이라"
+ },
+ "$.result.game.homeCurrentPitcherName": {
+  "n": 1,
+  "t": "string",
+  "ex": "스기야마"
+ },
+ "$.result.game.awayCurrentPitcherName": {
+  "n": 1,
+  "t": "string",
+  "ex": "후카자와"
+ },
+ "$.result.game.info": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.game.dheader": {
+  "n": 1,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.game.seriesGameNo": {
+  "n": 1,
+  "t": "number",
+  "ex": 4
+ },
+ "$.result.game.weatherInfo": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.game.weatherInfo.weather": {
+  "n": 1,
+  "t": "string",
+  "ex": "12° 흐림"
+ },
+ "$.result.game.weatherInfo.dongCode": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.game.weatherInfo.leisureWeatherCode": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.game.weatherInfo.regionCode": {
+  "n": 1,
+  "t": "string",
+  "ex": "WDJPN02379"
+ },
+ "$.result.game.weatherInfo.weatherIconCode": {
+  "n": 1,
+  "t": "string",
+  "ex": "7"
+ },
+ "$.result.textRelayData": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.textRelayData.category": {
+  "n": 1,
+  "t": "string",
+  "ex": "npb"
+ },
+ "$.result.textRelayData.gameId": {
+  "n": 1,
+  "t": "string",
+  "ex": "20261028YKSF0"
+ },
+ "$.result.textRelayData.no": {
+  "n": 1,
+  "t": "number",
+  "ex": 15999999
+ },
+ "$.result.textRelayData.inn": {
+  "n": 1,
+  "t": "number",
+  "ex": 9
+ },
+ "$.result.textRelayData.homeOrAway": {
+  "n": 1,
+  "t": "string",
+  "ex": "0"
+ },
+ "$.result.textRelayData.homeScore": {
+  "n": 1,
+  "t": "number",
+  "ex": 4
+ },
+ "$.result.textRelayData.awayScore": {
+  "n": 1,
+  "t": "number",
+  "ex": 2
+ },
+ "$.result.textRelayData.statusInfo": {
+  "n": 1,
+  "t": "string",
+  "ex": "9회초"
+ },
+ "$.result.textRelayData.statusCode": {
+  "n": 1,
+  "t": "number",
+  "ex": 4
+ },
+ "$.result.textRelayData.baseInfo": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.textRelayData.baseInfo.batterLineup": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.textRelayData.baseInfo.batterLineup.home": {
+  "n": 1,
+  "t": "array"
+ },
+ "$.result.textRelayData.baseInfo.batterLineup.home[]": {
+  "n": 9,
+  "t": "object"
+ },
+ "$.result.textRelayData.baseInfo.batterLineup.home[].position": {
+  "n": 9,
+  "t": "string",
+  "ex": "1B"
+ },
+ "$.result.textRelayData.baseInfo.batterLineup.home[].pCode": {
+  "n": 9,
+  "t": "string",
+  "ex": "2103735"
+ },
+ "$.result.textRelayData.baseInfo.batterLineup.home[].name": {
+  "n": 9,
+  "t": "string",
+  "ex": "마사키"
+ },
+ "$.result.textRelayData.baseInfo.batterLineup.away": {
+  "n": 1,
+  "t": "array"
+ },
+ "$.result.textRelayData.baseInfo.batterLineup.away[]": {
+  "n": 9,
+  "t": "object"
+ },
+ "$.result.textRelayData.baseInfo.batterLineup.away[].position": {
+  "n": 9,
+  "t": "string",
+  "ex": "RF"
+ },
+ "$.result.textRelayData.baseInfo.batterLineup.away[].pCode": {
+  "n": 9,
+  "t": "string",
+  "ex": "1850873"
+ },
+ "$.result.textRelayData.baseInfo.batterLineup.away[].name": {
+  "n": 9,
+  "t": "string",
+  "ex": "와타라이"
+ },
+ "$.result.textRelayData.baseInfo.homePitcher": {
+  "n": 1,
+  "t": "string",
+  "ex": "스기야마"
+ },
+ "$.result.textRelayData.baseInfo.homePitcherId": {
+  "n": 1,
+  "t": "string",
+  "ex": "1800107"
+ },
+ "$.result.textRelayData.baseInfo.homePitcherPitchBallCount": {
+  "n": 1,
+  "t": "string",
+  "ex": "11"
+ },
+ "$.result.textRelayData.baseInfo.awayPitcher": {
+  "n": 1,
+  "t": "string",
+  "ex": "후카자와"
+ },
+ "$.result.textRelayData.baseInfo.awayPitcherId": {
+  "n": 1,
+  "t": "string",
+  "ex": "2100109"
+ },
+ "$.result.textRelayData.baseInfo.awayPitcherPitchBallCount": {
+  "n": 1,
+  "t": "string",
+  "ex": "14"
+ },
+ "$.result.textRelayData.baseInfo.ballCount": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.textRelayData.baseInfo.ballCount.batter": {
+  "n": 1,
+  "t": "string",
+  "ex": "마츠오"
+ },
+ "$.result.textRelayData.baseInfo.ballCount.batterId": {
+  "n": 1,
+  "t": "string",
+  "ex": "2100277"
+ },
+ "$.result.textRelayData.baseInfo.ballCount.batterHitType": {
+  "n": 1,
+  "t": "string",
+  "ex": "R"
+ },
+ "$.result.textRelayData.baseInfo.ballCount.s": {
+  "n": 1,
+  "t": "number",
+  "ex": 3
+ },
+ "$.result.textRelayData.baseInfo.ballCount.b": {
+  "n": 1,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.textRelayData.baseInfo.ballCount.o": {
+  "n": 1,
+  "t": "number",
+  "ex": 3
+ },
+ "$.result.textRelayData.baseInfo.ballCount.base1": {
+  "n": 1,
+  "t": "string",
+  "ex": ""
+ },
+ "$.result.textRelayData.baseInfo.ballCount.base1Id": {
+  "n": 1,
+  "t": "string",
+  "ex": ""
+ },
+ "$.result.textRelayData.baseInfo.ballCount.base2": {
+  "n": 1,
+  "t": "string",
+  "ex": ""
+ },
+ "$.result.textRelayData.baseInfo.ballCount.base2Id": {
+  "n": 1,
+  "t": "string",
+  "ex": ""
+ },
+ "$.result.textRelayData.baseInfo.ballCount.base3": {
+  "n": 1,
+  "t": "string",
+  "ex": ""
+ },
+ "$.result.textRelayData.baseInfo.ballCount.base3Id": {
+  "n": 1,
+  "t": "string",
+  "ex": ""
+ },
+ "$.result.textRelayData.baseInfo.ballCount.batterPlayType": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.textRelayData.baseInfo.inningScore": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.textRelayData.baseInfo.inningScore.home": {
+  "n": 1,
+  "t": "array"
+ },
+ "$.result.textRelayData.baseInfo.inningScore.home[]": {
+  "n": 8,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.textRelayData.baseInfo.inningScore.away": {
+  "n": 1,
+  "t": "array"
+ },
+ "$.result.textRelayData.baseInfo.inningScore.away[]": {
+  "n": 9,
+  "t": "number",
+  "ex": 2
+ },
+ "$.result.textRelayData.baseInfo.nextPlayer": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.textRelayData.baseInfo.nextPlayer.player": {
+  "n": 1,
+  "t": "string",
+  "ex": "미모리"
+ },
+ "$.result.textRelayData.baseInfo.nextPlayer.playerNum": {
+  "n": 1,
+  "t": "number",
+  "ex": 7
+ },
+ "$.result.textRelayData.baseInfo.nextPlayer.nextPlayer": {
+  "n": 1,
+  "t": "string",
+  "ex": "하야시"
+ },
+ "$.result.textRelayData.baseInfo.nextPlayer.nextPlayerNum": {
+  "n": 1,
+  "t": "number",
+  "ex": 8
+ },
+ "$.result.textRelayData.baseInfo.nextPlayer.nextNextPlayer": {
+  "n": 1,
+  "t": "string",
+  "ex": "가츠마타"
+ },
+ "$.result.textRelayData.baseInfo.nextPlayer.nextNextPlayerNum": {
+  "n": 1,
+  "t": "number",
+  "ex": 9
+ },
+ "$.result.textRelayData.baseInfo.rheb": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.textRelayData.baseInfo.rheb.home": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.textRelayData.baseInfo.rheb.home.r": {
+  "n": 1,
+  "t": "number",
+  "ex": 4
+ },
+ "$.result.textRelayData.baseInfo.rheb.home.h": {
+  "n": 1,
+  "t": "number",
+  "ex": 5
+ },
+ "$.result.textRelayData.baseInfo.rheb.home.e": {
+  "n": 1,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.textRelayData.baseInfo.rheb.home.b": {
+  "n": 1,
+  "t": "number",
+  "ex": 3
+ },
+ "$.result.textRelayData.baseInfo.rheb.away": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.textRelayData.baseInfo.rheb.away.r": {
+  "n": 1,
+  "t": "number",
+  "ex": 2
+ },
+ "$.result.textRelayData.baseInfo.rheb.away.h": {
+  "n": 1,
+  "t": "number",
+  "ex": 4
+ },
+ "$.result.textRelayData.baseInfo.rheb.away.e": {
+  "n": 1,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.textRelayData.baseInfo.rheb.away.b": {
+  "n": 1,
+  "t": "number",
+  "ex": 2
+ },
+ "$.result.textRelayData.baseInfo.homePitcherPlayType": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.textRelayData.baseInfo.awayPitcherPlayType": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.textRelayData.textRelays": {
+  "n": 1,
+  "t": "array"
+ },
+ "$.result.textRelayData.textRelays[]": {
+  "n": 7,
+  "t": "object"
+ },
+ "$.result.textRelayData.textRelays[].inn": {
+  "n": 7,
+  "t": "number",
+  "ex": 9
+ },
+ "$.result.textRelayData.textRelays[].no": {
+  "n": 7,
+  "t": "number",
+  "ex": 15999999
+ },
+ "$.result.textRelayData.textRelays[].homeOrAway": {
+  "n": 7,
+  "t": "string",
+  "ex": "0"
+ },
+ "$.result.textRelayData.textRelays[].title": {
+  "n": 7,
+  "t": "string",
+  "ex": "경기종료"
+ },
+ "$.result.textRelayData.textRelays[].titleStyle": {
+  "n": 7,
+  "t": "string",
+  "ex": "99"
+ },
+ "$.result.textRelayData.textRelays[].text": {
+  "n": 7,
+  "t": "string",
+  "ex": ""
+ },
+ "$.result.relatedGames": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.relatedGames.games": {
+  "n": 1,
+  "t": "array"
+ },
+ "$.result.relatedGames.games[]": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.relatedGames.games[].gameId": {
+  "n": 1,
+  "t": "string",
+  "ex": "20261028YKSF0"
+ },
+ "$.result.relatedGames.games[].serviceGameId": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.relatedGames.games[].eventGameId": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.relatedGames.games[].superCategoryId": {
+  "n": 1,
+  "t": "string",
+  "ex": "baseball"
+ },
+ "$.result.relatedGames.games[].upperCategoryId": {
+  "n": 1,
+  "t": "string",
+  "ex": "wbaseball"
+ },
+ "$.result.relatedGames.games[].upperCategoryName": {
+  "n": 1,
+  "t": "string",
+  "ex": "해외야구"
+ },
+ "$.result.relatedGames.games[].categoryId": {
+  "n": 1,
+  "t": "string",
+  "ex": "npb"
+ },
+ "$.result.relatedGames.games[].categoryName": {
+  "n": 1,
+  "t": "string",
+  "ex": "일본프로야구"
+ },
+ "$.result.relatedGames.games[].gameDate": {
+  "n": 1,
+  "t": "string",
+  "ex": "2026-10-28"
+ },
+ "$.result.relatedGames.games[].gameDateTime": {
+  "n": 1,
+  "t": "string",
+  "ex": "2026-10-28T18:00:00"
+ },
+ "$.result.relatedGames.games[].timeTbd": {
+  "n": 1,
+  "t": "boolean",
+  "ex": false
+ },
+ "$.result.relatedGames.games[].stadium": {
+  "n": 1,
+  "t": "string",
+  "ex": "미즈호 PayPay 돔 후쿠오카"
+ },
+ "$.result.relatedGames.games[].title": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.relatedGames.games[].homeTeamCode": {
+  "n": 1,
+  "t": "string",
+  "ex": "SF"
+ },
+ "$.result.relatedGames.games[].homeTeamName": {
+  "n": 1,
+  "t": "string",
+  "ex": "소프트뱅크"
+ },
+ "$.result.relatedGames.games[].homeTeamScore": {
+  "n": 1,
+  "t": "number",
+  "ex": 4
+ },
+ "$.result.relatedGames.games[].awayTeamCode": {
+  "n": 1,
+  "t": "string",
+  "ex": "YK"
+ },
+ "$.result.relatedGames.games[].awayTeamName": {
+  "n": 1,
+  "t": "string",
+  "ex": "요코하마"
+ },
+ "$.result.relatedGames.games[].awayTeamScore": {
+  "n": 1,
+  "t": "number",
+  "ex": 2
+ },
+ "$.result.relatedGames.games[].winner": {
+  "n": 1,
+  "t": "string",
+  "ex": "HOME"
+ },
+ "$.result.relatedGames.games[].statusCode": {
+  "n": 1,
+  "t": "string",
+  "ex": "RESULT"
+ },
+ "$.result.relatedGames.games[].statusNum": {
+  "n": 1,
+  "t": "number",
+  "ex": 4
+ },
+ "$.result.relatedGames.games[].statusInfo": {
+  "n": 1,
+  "t": "string",
+  "ex": "9회초"
+ },
+ "$.result.relatedGames.games[].cancel": {
+  "n": 1,
+  "t": "boolean",
+  "ex": false
+ },
+ "$.result.relatedGames.games[].suspended": {
+  "n": 1,
+  "t": "boolean",
+  "ex": false
+ },
+ "$.result.relatedGames.games[].hasVideo": {
+  "n": 1,
+  "t": "boolean",
+  "ex": false
+ },
+ "$.result.relatedGames.games[].seasonCode": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.relatedGames.games[].seasonYear": {
+  "n": 1,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.relatedGames.games[].roundCode": {
+  "n": 1,
+  "t": "string",
+  "ex": "npb_js"
+ },
+ "$.result.relatedGames.games[].generalTitle": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.relatedGames.games[].generalInfo3": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.relatedGames.games[].manualRelayUrl": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.relatedGames.games[].emptyScoreBeforeResult": {
+  "n": 1,
+  "t": "boolean",
+  "ex": false
+ },
+ "$.result.relatedGames.games[].reversedHomeAway": {
+  "n": 1,
+  "t": "boolean",
+  "ex": true
+ },
+ "$.result.relatedGames.games[].neutralGround": {
+  "n": 1,
+  "t": "boolean",
+  "ex": false
+ },
+ "$.result.relatedGames.games[].homeTeamEmblemUrl": {
+  "n": 1,
+  "t": "string",
+  "ex": "https://sports-phinf.pstatic.net/team/np"
+ },
+ "$.result.relatedGames.games[].awayTeamEmblemUrl": {
+  "n": 1,
+  "t": "string",
+  "ex": "https://sports-phinf.pstatic.net/team/np"
+ },
+ "$.result.relatedGames.games[].homeTeamShortName": {
+  "n": 1,
+  "t": "string",
+  "ex": "소프트뱅크"
+ },
+ "$.result.relatedGames.games[].awayTeamShortName": {
+  "n": 1,
+  "t": "string",
+  "ex": "요코하마"
+ },
+ "$.result.relatedGames.games[].homeTeamFullName": {
+  "n": 1,
+  "t": "string",
+  "ex": "소프트뱅크 호크스"
+ },
+ "$.result.relatedGames.games[].awayTeamFullName": {
+  "n": 1,
+  "t": "string",
+  "ex": "요코하마 DeNA베이스타스"
+ },
+ "$.result.relatedGames.games[].scheduledTv": {
+  "n": 1,
+  "t": "boolean",
+  "ex": false
+ },
+ "$.result.relatedGames.games[].gameOnAir": {
+  "n": 1,
+  "t": "boolean",
+  "ex": false
+ },
+ "$.result.relatedGames.games[].pv": {
+  "n": 1,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.relatedGames.games[].cv": {
+  "n": 1,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.relatedGames.games[].peak": {
+  "n": 1,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.relatedGames.games[].embedUrl": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.relatedGames.games[].gameCenterUrl": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.relatedGames.games[].gameCenterUrl.baseUrl": {
+  "n": 1,
+  "t": "string",
+  "ex": "https://m.sports.naver.com/game/20261028"
+ },
+ "$.result.relatedGames.games[].gameCenterUrl.cheerTabUrl": {
+  "n": 1,
+  "t": "string",
+  "ex": "https://m.sports.naver.com/game/20261028"
+ },
+ "$.result.relatedGames.games[].liveList": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.relatedGames.games[].hasLiveStream": {
+  "n": 1,
+  "t": "boolean",
+  "ex": false
+ },
+ "$.result.relatedGames.games[].chzzkLive": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.relatedGames.games[].chzzkLives": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.relatedGames.games[].broadcastChzzkLives": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.relatedGames.games[].competitionStartDate": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.relatedGames.games[].competitionEndDate": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.relatedGames.games[].leaderBoardEnable": {
+  "n": 1,
+  "t": "boolean",
+  "ex": false
+ },
+ "$.result.relatedGames.games[].widgetEnable": {
+  "n": 1,
+  "t": "boolean",
+  "ex": false
+ },
+ "$.result.relatedGames.games[].enable": {
+  "n": 1,
+  "t": "boolean",
+  "ex": true
+ },
+ "$.result.relatedGames.games[].commentInfo": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.relatedGames.games[].commentInfo.title": {
+  "n": 1,
+  "t": "string",
+  "ex": "요코하마 vs 소프트뱅크 10월 28일"
+ },
+ "$.result.relatedGames.games[].commentInfo.description": {
+  "n": 1,
+  "t": "string",
+  "ex": "일본프로야구 이야기를 함께 해요!"
+ },
+ "$.result.relatedGames.games[].commentInfo.templateId": {
+  "n": 1,
+  "t": "string",
+  "ex": "wbaseball"
+ },
+ "$.result.relatedGames.games[].commentInfo.categoryLogo": {
+  "n": 1,
+  "t": "string",
+  "ex": "https://sports-phinf.pstatic.net/categor"
+ },
+ "$.result.relatedGames.games[].commentInfo.hasTeamInfo": {
+  "n": 1,
+  "t": "boolean",
+  "ex": true
+ },
+ "$.result.relatedGames.games[].commentInfo.expose": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.relatedGames.games[].commentInfo.expose.state": {
+  "n": 1,
+  "t": "boolean",
+  "ex": false
+ },
+ "$.result.relatedGames.games[].commentInfo.expose.endDateTime": {
+  "n": 1,
+  "t": "string",
+  "ex": "2026-10-29T18:00:00"
+ },
+ "$.result.relatedGames.games[].specialMatchInfo": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.relatedGames.games[].seriesOutcome": {
+  "n": 1,
+  "t": "object"
+ },
+ "$.result.relatedGames.games[].seriesOutcome.home": {
+  "n": 1,
+  "t": "number",
+  "ex": 4
+ },
+ "$.result.relatedGames.games[].seriesOutcome.draw": {
+  "n": 1,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.relatedGames.games[].seriesOutcome.away": {
+  "n": 1,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.relatedGames.games[].latestSeriesOutcome": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.relatedGames.games[].currentInning": {
+  "n": 1,
+  "t": "string",
+  "ex": "9회초"
+ },
+ "$.result.relatedGames.games[].homeTeamScoreByInning": {
+  "n": 1,
+  "t": "array"
+ },
+ "$.result.relatedGames.games[].homeTeamScoreByInning[]": {
+  "n": 9,
+  "t": "string",
+  "ex": "0"
+ },
+ "$.result.relatedGames.games[].awayTeamScoreByInning": {
+  "n": 1,
+  "t": "array"
+ },
+ "$.result.relatedGames.games[].awayTeamScoreByInning[]": {
+  "n": 9,
+  "t": "string",
+  "ex": "2"
+ },
+ "$.result.relatedGames.games[].homeTeamRheb": {
+  "n": 1,
+  "t": "array"
+ },
+ "$.result.relatedGames.games[].homeTeamRheb[]": {
+  "n": 4,
+  "t": "number",
+  "ex": 4
+ },
+ "$.result.relatedGames.games[].awayTeamRheb": {
+  "n": 1,
+  "t": "array"
+ },
+ "$.result.relatedGames.games[].awayTeamRheb[]": {
+  "n": 4,
+  "t": "number",
+  "ex": 2
+ },
+ "$.result.relatedGames.games[].homeStarterName": {
+  "n": 1,
+  "t": "string",
+  "ex": "마에다"
+ },
+ "$.result.relatedGames.games[].awayStarterName": {
+  "n": 1,
+  "t": "string",
+  "ex": "타이라"
+ },
+ "$.result.relatedGames.games[].winPitcherName": {
+  "n": 1,
+  "t": "string",
+  "ex": "에르난데스"
+ },
+ "$.result.relatedGames.games[].losePitcherName": {
+  "n": 1,
+  "t": "string",
+  "ex": "타이라"
+ },
+ "$.result.relatedGames.games[].homeCurrentPitcherName": {
+  "n": 1,
+  "t": "string",
+  "ex": "스기야마"
+ },
+ "$.result.relatedGames.games[].awayCurrentPitcherName": {
+  "n": 1,
+  "t": "string",
+  "ex": "후카자와"
+ },
+ "$.result.relatedGames.games[].info": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ },
+ "$.result.relatedGames.games[].dheader": {
+  "n": 1,
+  "t": "number",
+  "ex": 0
+ },
+ "$.result.relatedGames.games[].seriesGameNo": {
+  "n": 1,
+  "t": "number",
+  "ex": 4
+ },
+ "$.result.relatedGames.games[].weatherInfo": {
+  "n": 1,
+  "t": "null",
+  "ex": null
+ }
+}

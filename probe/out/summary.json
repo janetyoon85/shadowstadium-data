@@ -1,49 +1,82 @@
 {
- "at": "2026-11-26T02:39:11.095Z",
+ "at": "2026-11-26T02:43:02.416Z",
  "summary": [
   {
    "id": "77771108KTSS02026",
-   "relay": {
-    "status": 0,
-    "err": "The operation was aborted due to timeout"
-   },
-   "record": {
+   "game-polling": {
     "status": 200,
-    "bytes": 15350
+    "bytes": 85794
    },
-   "preview": {
-    "status": 200,
-    "bytes": 13951
+   "relayInfo": {
+    "keys": [
+     "category",
+     "gameId",
+     "no",
+     "inn",
+     "homeOrAway",
+     "pitcherVsBatterCareerStats",
+     "inningScore",
+     "homeEntry",
+     "awayEntry",
+     "homeLineup",
+     "awayLineup",
+     "currentGameState",
+     "textRelays",
+     "lastValidMetricOption"
+    ],
+    "textRelays": 6,
+    "hasPts": true
    }
   },
   {
    "id": "77771107KTSS02026",
-   "relay": {
-    "status": 0,
-    "err": "The operation was aborted due to timeout"
-   },
-   "record": {
+   "game-polling": {
     "status": 200,
-    "bytes": 17885
+    "bytes": 84745
    },
-   "preview": {
-    "status": 200,
-    "bytes": 13938
+   "relayInfo": {
+    "keys": [
+     "category",
+     "gameId",
+     "no",
+     "inn",
+     "homeOrAway",
+     "pitcherVsBatterCareerStats",
+     "inningScore",
+     "homeEntry",
+     "awayEntry",
+     "homeLineup",
+     "awayLineup",
+     "currentGameState",
+     "textRelays",
+     "lastValidMetricOption"
+    ],
+    "textRelays": 5,
+    "hasPts": true
    }
   },
   {
    "id": "20261028YKSF0",
-   "relay": {
-    "status": 0,
-    "err": "The operation was aborted due to timeout"
-   },
-   "record": {
+   "game-polling": {
     "status": 200,
-    "bytes": 4820
+    "bytes": 7273
    },
-   "preview": {
-    "status": 200,
-    "bytes": 57
+   "relayInfo": {
+    "keys": [
+     "category",
+     "gameId",
+     "no",
+     "inn",
+     "homeOrAway",
+     "homeScore",
+     "awayScore",
+     "statusInfo",
+     "statusCode",
+     "baseInfo",
+     "textRelays"
+    ],
+    "textRelays": 7,
+    "hasPts": false
    }
   }
  ]
