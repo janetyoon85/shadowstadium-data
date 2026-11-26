@@ -30,15 +30,15 @@ const targets = [...latest('KBO', 2), ...latest('NPB', 1), '77771108KTSS02026'];
 const summary = [];
 for (const id of [...new Set(targets)]) {
   const row = { id };
-  for (const ep of ['relay', 'record', 'preview']) {
+  for (const ep of ['game-polling']) {
     const r = await get(`https://api-gw.sports.naver.com/schedule/games/${id}/${ep}`);
     row[ep] = { status: r.status, bytes: r.bytes, err: r.err };
     if (r.json) fs.writeFileSync(path.join(OUT, `${id}-${ep}-shape.json`), JSON.stringify(shape(r.json), null, 1));
-    if (ep === 'relay' && r.json) {
+    if (ep === 'game-polling' && r.json) {
       // 이닝별 relay 도 있는지(textRelayData 가 이닝 단위인 경우) — 마지막 이닝 하나만 더 본다
       const rd = r.json.result?.textRelayData || r.json.textRelayData || {};
-      row.relayInfo = { keys: Object.keys(rd), textRelays: (rd.textRelays || []).length, inningTotal: rd.inningScore ? Object.keys(rd.inningScore).length : null };
-      const first = (rd.textRelays || [])[0];
+      row.relayInfo = { keys: Object.keys(rd), textRelays: (rd.textRelays || []).length, hasPts: (rd.textRelays || []).some((x) => (x.ptsOptions || []).length) };
+      const first = (rd.textRelays || []).find((x) => (x.ptsOptions || []).length) || (rd.textRelays || [])[0];
       if (first) fs.writeFileSync(path.join(OUT, `${id}-relay-first.json`), JSON.stringify(first, null, 1).slice(0, 6000));
     }
     await new Promise((res) => setTimeout(res, 800));
