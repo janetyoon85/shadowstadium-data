@@ -1,0 +1,31 @@
+name: Probe KBO NPB relay
+
+# 일회성 조사(2026-11-26) — probe/trigger.txt 가 바뀌면 한 번 돌고 probe/out 에 결과 구조를 커밋한다.
+on:
+  push:
+    paths: ['probe/trigger.txt']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Probe
+        run: node probe/probe.mjs
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A probe/out
+          git diff --cached --quiet || git commit -m "chore(probe): 네이버 야구 relay 구조 조사"
+          for i in 1 2 3 4 5; do git push && break || { git pull --rebase --autostash -X theirs origin main; sleep 2; }; done
