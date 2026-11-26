@@ -1,6 +1,7 @@
 name: Probe KBO NPB relay
 
 # 일회성 조사(2026-11-26) — probe/trigger.txt 가 바뀌면 한 번 돌고 probe/out 에 결과 구조를 커밋한다.
+# 네이버는 GitHub 서버에서 응답하지 않을 수 있어 다른 크롤러처럼 pick-runner 로 러너를 고르고 TLS1.2 로 접속한다.
 on:
   push:
     paths: ['probe/trigger.txt']
@@ -9,10 +10,24 @@ on:
 permissions:
   contents: write
 
+env:
+  NAVER_TLS12: '1'
+  NODE_OPTIONS: '--tls-max-v1.2'
+
 jobs:
+  pick:
+    uses: ./.github/workflows/pick-runner.yml
+    secrets: inherit
+    with:
+      fallback_runner: ubuntu-latest
+      force: 'true'
   probe:
-    runs-on: ubuntu-latest
-    timeout-minutes: 6
+    needs: pick
+    runs-on: ${{ needs.pick.outputs.runner }}
+    timeout-minutes: 8
+    defaults:
+      run:
+        shell: bash
     steps:
       - uses: actions/checkout@v4
         with:
