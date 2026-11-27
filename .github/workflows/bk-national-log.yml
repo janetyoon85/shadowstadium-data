@@ -36,7 +36,7 @@ jobs:
         run: node scripts/build-bk-national-log.mjs
       - name: Commit and push
         run: |
-          if [[ -z "$(git status --porcelain basketball/national-log)" ]]; then exit 0; fi
+          if [[ -z "$(git status --porcelain basketball/national-log basketball/national-link.json)" ]]; then exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add basketball/national-log
