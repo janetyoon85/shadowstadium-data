@@ -1,0 +1,50 @@
+name: National Team ESPN Log
+
+# 대표팀(축구) 경기 선수별 기록 보충(match-maps/_national-espn.json, 2026-11-27) — games.json 의 끝난 대표팀 경기를 ESPN 경기 요약에서 한 번에 최대 60건씩 쌓는다. 한국 경기 먼저.
+on:
+  schedule:
+    - cron: '40 */2 * * *'
+  push:
+    paths: ['.github/national-espn-now']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: national-espn-log
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Fetch crawler code (private)
+        uses: ./.github/actions/fetch-code
+        with:
+          token: ${{ secrets.PRIVATE_DATA_TOKEN }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Build
+        run: node scripts/build-national-espn-log.mjs --max=60
+      - name: Commit and push
+        run: |
+          if [[ -z "$(git status --porcelain match-maps/_national-espn.json)" ]]; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add match-maps/_national-espn.json
+          git commit -m "chore(data): 대표팀 경기 선수 기록 ESPN 보충 ($(date +'%Y-%m-%d %H:%M'))"
+          for i in $(seq 1 20); do
+            if git push; then exit 0; fi
+            if ! git pull --rebase --autostash origin main; then
+              node scripts/merge-json-conflicts.mjs && GIT_EDITOR=true git rebase --continue || { git rebase --abort; git reset --hard origin/main; exit 1; }
+            fi
+            sleep $((RANDOM % 8 + 1))
+          done
+          exit 1
