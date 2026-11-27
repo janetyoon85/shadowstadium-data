@@ -1,0 +1,50 @@
+name: Upcoming Games Slim
+
+# 앞으로 열릴 경기 슬림 목록(upcoming-slim.json) 생성(2026-11-27, 팀 시즌 캘린더 구독용). games.json·농구 경기에서 계산만 한다 — 외부 호출 없음.
+on:
+  schedule:
+    - cron: '25 * * * *'
+  push:
+    paths: ['.github/upcoming-slim-now']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: upcoming-slim
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Fetch crawler code (private)
+        uses: ./.github/actions/fetch-code
+        with:
+          token: ${{ secrets.PRIVATE_DATA_TOKEN }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Build
+        run: node scripts/build-upcoming-slim.mjs
+      - name: Commit and push
+        run: |
+          if [[ -z "$(git status --porcelain upcoming-slim.json)" ]]; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add upcoming-slim.json
+          git commit -m "chore(data): 앞으로 열릴 경기 슬림 목록 ($(date +'%Y-%m-%d %H:%M'))"
+          for i in $(seq 1 20); do
+            if git push; then exit 0; fi
+            if ! git pull --rebase --autostash origin main; then
+              node scripts/merge-json-conflicts.mjs && GIT_EDITOR=true git rebase --continue || { git rebase --abort; git reset --hard origin/main; exit 1; }
+            fi
+            sleep $((RANDOM % 8 + 1))
+          done
+          exit 1
