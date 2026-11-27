@@ -1106507,8 +1106507,8 @@
           "n": "데벨리흐",
           "m": 61,
           "pid": "espn:261131",
-          "pk": true,
-          "nat": "Croatia"
+          "nat": "Croatia",
+          "pk": true
         }
       ],
       "away": []
@@ -1106601,8 +1106601,8 @@
           "m": 89,
           "a": "Marcos Leonardo",
           "nat": "Netherlands",
-          "aNat": "Brazil",
           "pid": "espn:149577",
+          "aNat": "Brazil",
           "apid": "espn:304571"
         }
       ],
@@ -1109492,17 +1109492,19 @@
     "gameId": "ABL_MLBSTATS_851234",
     "status": "live",
     "homeScore": 0,
-    "awayScore": 0,
+    "awayScore": 1,
     "inningInfo": "1회초",
     "liveState": {
       "pitcher": "Lachlan Brook",
-      "batter": "Victor Cardoza",
+      "batter": "Kota Hirayama",
       "pitcherPid": "mlb:820859",
-      "batterPid": "mlb:808282",
-      "ball": 0,
-      "strike": 0,
+      "batterPid": "mlb:831781",
+      "ball": 2,
+      "strike": 2,
       "out": 0,
-      "bases": []
+      "bases": [
+        2
+      ]
     }
   },
   {
@@ -1109521,13 +1109523,15 @@
     "inningInfo": "1회초",
     "liveState": {
       "pitcher": "Hiro Wyatt",
-      "batter": "Jack Lines",
+      "batter": "Deinys Gonzalez",
       "pitcherPid": "mlb:702965",
-      "batterPid": "mlb:813922",
-      "ball": 3,
-      "strike": 2,
-      "out": 0,
-      "bases": []
+      "batterPid": "mlb:821637",
+      "ball": 1,
+      "strike": 0,
+      "out": 2,
+      "bases": [
+        1
+      ]
     }
   },
   {
@@ -1117663,6 +1117667,30 @@
   {
     "date": "2026-12-06",
     "time": "04:30",
+    "league": "BOLIVIA",
+    "venueId": "estadio_felix_capriles",
+    "home": "우니베르시타리오 데 빈토",
+    "away": "오리엔테 페트롤레로",
+    "stadium": "Estadio Félix Capriles",
+    "timeTbd": false,
+    "gameId": "BOLIVIA_ESPN_401936945",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-12-06",
+    "time": "04:30",
+    "league": "BOLIVIA",
+    "venueId": "estadio_jesus_bermudez",
+    "home": "레알 오루로",
+    "away": "레알 토마야포",
+    "stadium": "Estadio Jesús Bermúdez",
+    "timeTbd": false,
+    "gameId": "BOLIVIA_ESPN_401936946",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-12-06",
+    "time": "04:30",
     "league": "ITBASEBALL",
     "venueId": "stadio_nino_cavalli_parma",
     "home": "파르마 베이스볼 클럽 1949",
@@ -1118805,6 +1118833,42 @@
   {
     "date": "2026-12-07",
     "time": "05:00",
+    "league": "BOLIVIA",
+    "venueId": "estadio_gilberto_parada",
+    "home": "과비라",
+    "away": "ABB",
+    "stadium": "Estadio Gilberto Parada",
+    "timeTbd": false,
+    "gameId": "BOLIVIA_ESPN_401936943",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-12-07",
+    "time": "05:00",
+    "league": "BOLIVIA",
+    "venueId": "estadio_hernando_siles",
+    "home": "볼리바르",
+    "away": "아우로라",
+    "stadium": "Estadio Hernando Siles",
+    "timeTbd": false,
+    "gameId": "BOLIVIA_ESPN_401936958",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-12-07",
+    "time": "05:00",
+    "league": "BOLIVIA",
+    "venueId": "estadio_villa_ingenio",
+    "home": "올웨이스 레디",
+    "away": "GV 산호세",
+    "stadium": "Municipal Villa Ingenio",
+    "timeTbd": false,
+    "gameId": "BOLIVIA_ESPN_401936944",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-12-07",
+    "time": "05:00",
     "league": "ECUADOR",
     "venueId": "estadio_banco_pichincha",
     "home": "바르셀로나 SC",
@@ -1119258,6 +1119322,42 @@
     "stadium": "Complexo Desportivo FC Alverca",
     "timeTbd": false,
     "gameId": "PORTUGAL_ESPN_401885384",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-12-08",
+    "time": "08:00",
+    "league": "BOLIVIA",
+    "venueId": "estadio_olimpico_patria",
+    "home": "인데펜디엔테 페트롤레로",
+    "away": "더 스트롱기스트",
+    "stadium": "Estadio Olímpico Patria",
+    "timeTbd": false,
+    "gameId": "BOLIVIA_ESPN_401936957",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-12-08",
+    "time": "08:00",
+    "league": "BOLIVIA",
+    "venueId": "estadio_tahuichi_aguilera",
+    "home": "블루밍",
+    "away": "레알 포토시",
+    "stadium": "Estadio Ramón Tahuichi",
+    "timeTbd": false,
+    "gameId": "BOLIVIA_ESPN_401936941",
+    "status": "scheduled"
+  },
+  {
+    "date": "2026-12-08",
+    "time": "08:00",
+    "league": "BOLIVIA",
+    "venueId": "estadio_victor_ugarte",
+    "home": "나시오날 포토시",
+    "away": "산안토니오 불로불로",
+    "stadium": "Estadio Víctor Agustín Ugarte",
+    "timeTbd": false,
+    "gameId": "BOLIVIA_ESPN_401936942",
     "status": "scheduled"
   },
   {
