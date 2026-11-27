@@ -81,10 +81,14 @@ jobs:
         run: |
           if [ $(( $(date +%s) / 60 % 4 )) -eq 0 ] || DATA_ROOT="$PWD" node scripts/live-assist-gate.mjs || grep -q '"status": "down"' naver-health.json 2>/dev/null; then node scripts/fetch-schedule.mjs || echo "유럽 보강 실패(무시)"; else echo "유럽 보강: 이번 실행은 건너뜀"; fi
 
+      # 홈용 가벼운 경기 데이터(2026-11-27) — 앱이 26MB 전체 파일보다 먼저 읽는 games-hot.json 과 전체 파일 지문 games-version.json. 점수·상태가 갱신된 같은 실행에서 만들어 1~2분 안에 최신이 된다(GitHub cron 은 지연·누락이 잦아 따로 두지 않음). 실패해도 이 실행을 실패시키지 않는다.
+      - name: Build games-hot (home feed)
+        run: node scripts/build-games-hot.mjs || echo "games-hot 생성 실패(무시)"
+
       - name: Check for changes
         id: changes
         run: |
-          if [[ -n "$(git status --porcelain games.json standings.json daum-venue-map.json naver-health-alert.json espn-health-alert.json apisports-state.json apbc-npb-paths.json ops-ledger)" ]]; then echo "changed=true" >> $GITHUB_OUTPUT; else echo "changed=false" >> $GITHUB_OUTPUT; fi
+          if [[ -n "$(git status --porcelain games.json games-hot.json games-version.json standings.json daum-venue-map.json naver-health-alert.json espn-health-alert.json apisports-state.json apbc-npb-paths.json ops-ledger)" ]]; then echo "changed=true" >> $GITHUB_OUTPUT; else echo "changed=false" >> $GITHUB_OUTPUT; fi
 
       - name: Commit and push
         if: steps.changes.outputs.changed == 'true'
@@ -93,6 +97,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           cp games.json games_2026.json
           git add games.json games_2026.json standings.json daum-venue-map.json
+          for f in games-hot.json games-version.json; do if [ -e "$f" ]; then git add "$f"; fi; done
           # 불통 알림 상태(한 번만 알리려고)·API-Sports 하루 사용량 — 파일이 없으면 git add 가 통째로 실패하므로 하나씩(없는 건 건너뜀)
           for f in naver-health-alert.json espn-health-alert.json apisports-state.json apbc-npb-paths.json; do if [ -e "$f" ]; then git add "$f"; fi; done
           git add -A ops-ledger 2>/dev/null || true   # 복구 기록(일일 보고용)
