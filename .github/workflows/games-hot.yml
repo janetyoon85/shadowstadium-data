@@ -1,0 +1,51 @@
+name: Games Hot
+
+# 홈용 가벼운 경기 데이터(games-hot.json)와 전체 파일 지문(games-version.json) 생성(2026-11-27, "시작할 때 큰 파일 때문에 옛 점수가 남던 문제").
+# games.json 에서 계산만 한다 — 외부 호출 없음. games.json 이 바뀌면 바로, 아니면 5분마다.
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  push:
+    paths: ['games.json']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: games-hot
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Fetch crawler code (private)
+        uses: ./.github/actions/fetch-code
+        with:
+          token: ${{ secrets.PRIVATE_DATA_TOKEN }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Build
+        run: node scripts/build-games-hot.mjs
+      - name: Commit and push
+        run: |
+          if [[ -z "$(git status --porcelain games-hot.json games-version.json)" ]]; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add games-hot.json games-version.json
+          git commit -m "chore(data): 홈용 경기 데이터 ($(date +'%Y-%m-%d %H:%M'))"
+          for i in $(seq 1 20); do
+            if git push; then exit 0; fi
+            if ! git pull --rebase --autostash origin main; then
+              node scripts/merge-json-conflicts.mjs && GIT_EDITOR=true git rebase --continue || { git rebase --abort; git reset --hard origin/main; exit 1; }
+            fi
+            sleep $((RANDOM % 8 + 1))
+          done
+          exit 1
