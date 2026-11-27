@@ -41,11 +41,19 @@ jobs:
           DATA_ROOT: ${{ github.workspace }}
         run: node scripts/moderate-cheers.mjs
 
+      - name: Notify team rooms
+        # 팀 응원방 새 글 알림(2026-11-27) — 점검(가림)이 끝난 뒤 실행해 가려진 글은 알리지 않는다. 방당 3시간에 한 번, 본문 미포함.
+        continue-on-error: true
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          FIREBASE_DATABASE_URL: ${{ vars.FIREBASE_DATABASE_URL }}
+        run: node scripts/notify-team-room.mjs
+
       - name: Commit state
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add cheer-moderation-state.json
+          git add cheer-moderation-state.json sent-team-room.json
           git diff --cached --quiet && exit 0
           git commit -m "chore(cheers): 운영 점검 상태 [skip ci]"
           for i in $(seq 1 10); do
