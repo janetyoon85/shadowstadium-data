@@ -850002,11 +850002,11 @@
     "time": "23:00",
     "league": "SCOTTISHCUP",
     "venueId": "venue_tbc",
-    "home": "렌프루",
-    "away": "Broxburn",
+    "home": "Strathspey Thistle",
+    "away": "Dalbeattie Star",
     "stadium": "",
     "timeTbd": false,
-    "gameId": "SCOTTISHCUP_ESPN_401921128",
+    "gameId": "SCOTTISHCUP_ESPN_401921119",
     "status": "completed",
     "homeScore": 3,
     "awayScore": 2
@@ -850016,11 +850016,11 @@
     "time": "23:00",
     "league": "SCOTTISHCUP",
     "venueId": "venue_tbc",
-    "home": "Strathspey Thistle",
-    "away": "Dalbeattie Star",
+    "home": "렌프루",
+    "away": "Broxburn",
     "stadium": "",
     "timeTbd": false,
-    "gameId": "SCOTTISHCUP_ESPN_401921119",
+    "gameId": "SCOTTISHCUP_ESPN_401921128",
     "status": "completed",
     "homeScore": 3,
     "awayScore": 2
@@ -1108424,8 +1108424,8 @@
           "n": "체리",
           "m": 81,
           "pid": "espn:116893",
-          "nat": "Suriname",
-          "pk": true
+          "pk": true,
+          "nat": "Suriname"
         },
         {
           "n": "비쇼프",
@@ -1108681,8 +1108681,8 @@
           "m": 80,
           "a": "Tim Lemperle",
           "nat": "Germany",
-          "aNat": "Germany",
           "pid": "espn:336355",
+          "aNat": "Germany",
           "apid": "espn:303792"
         },
         {
@@ -1108690,8 +1108690,8 @@
           "m": 90,
           "a": "Andrej Kramaric",
           "nat": "Germany",
-          "aNat": "Croatia",
           "pid": "espn:372035",
+          "aNat": "Croatia",
           "apid": "espn:139520"
         }
       ],
@@ -1108751,16 +1108751,16 @@
           "n": "마테타",
           "m": 73,
           "pid": "espn:241187",
-          "pk": true,
-          "nat": "France"
+          "nat": "France",
+          "pk": true
         },
         {
           "n": "맥닐",
           "m": 81,
           "a": "Jørgen Strand Larsen",
           "nat": "England",
-          "pid": "espn:273495",
           "aNat": "Norway",
+          "pid": "espn:273495",
           "apid": "espn:252747"
         }
       ],
@@ -1109214,19 +1109214,16 @@
     "status": "live",
     "homeScore": 8,
     "awayScore": 8,
-    "inningInfo": "10회말",
+    "inningInfo": "11회초",
     "liveState": {
-      "pitcher": "Chester Pimentel",
-      "batter": "Marvin Alcantara",
-      "pitcherPid": "mlb:660435",
-      "batterPid": "mlb:800421",
+      "pitcher": "Dale Stanavich",
+      "batter": "Gorkys Hernández",
+      "pitcherPid": "mlb:689359",
+      "batterPid": "mlb:491676",
       "ball": 0,
       "strike": 0,
-      "out": 1,
-      "bases": [
-        1,
-        2
-      ]
+      "out": 0,
+      "bases": []
     }
   },
   {
@@ -1109239,20 +1109236,9 @@
     "stadium": "Estadio Alfonso Carrasquel",
     "timeTbd": false,
     "gameId": "LVBP_MLBSTATS_869957",
-    "status": "live",
+    "status": "completed",
     "homeScore": 0,
-    "awayScore": 6,
-    "inningInfo": "9회말",
-    "liveState": {
-      "pitcher": "Felipe Vázquez",
-      "batter": "Gabriel Noriega",
-      "pitcherPid": "mlb:553878",
-      "batterPid": "mlb:527045",
-      "ball": 2,
-      "strike": 0,
-      "out": 2,
-      "bases": []
-    }
+    "awayScore": 6
   },
   {
     "date": "2026-11-27",
@@ -1109267,7 +1109253,7 @@
     "status": "live",
     "phaseCode": "T8",
     "leg": 1,
-    "matchPeriod": "후반 87'",
+    "matchPeriod": "후반 89'",
     "homeScore": 1,
     "awayScore": 1,
     "scorers": {
@@ -1109370,14 +1109356,16 @@
     "inningInfo": "2회초",
     "liveState": {
       "pitcher": "Luis Romero",
-      "batter": "Alan Lopez",
+      "batter": "Drew Avans",
       "pitcherPid": "mlb:673603",
-      "batterPid": "mlb:674706",
+      "batterPid": "mlb:682183",
       "ball": 0,
       "strike": 0,
       "out": 2,
       "bases": [
-        1
+        1,
+        2,
+        3
       ]
     }
   },
