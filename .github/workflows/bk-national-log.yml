@@ -33,13 +33,15 @@ jobs:
         with:
           node-version: '20'
       - name: Build player logs
-        run: node scripts/build-bk-national-log.mjs
+        run: |
+          node scripts/build-bk-national-log.mjs
+          node scripts/build-bk-national-link.mjs
       - name: Commit and push
         run: |
           if [[ -z "$(git status --porcelain basketball/national-log basketball/national-link.json)" ]]; then exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add basketball/national-log
+          git add basketball/national-log basketball/national-link.json
           git commit -m "chore(data): 농구 대표팀 경기 기록 ($(date +'%Y-%m-%d %H:%M'))"
           for i in $(seq 1 20); do
             if git push; then exit 0; fi
