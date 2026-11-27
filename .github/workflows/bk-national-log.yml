@@ -1,0 +1,51 @@
+name: Basketball National Team Logs
+
+# 농구 대표팀(FIBA·올림픽) 선수 경기 기록(basketball/national-log/) 누적(2026-11-27).
+# ESPN 의 FIBA·올림픽 경기 박스스코어를 받아(한 번에 최대 60경기) 선수별 줄로 누적한다. 앱은 선수 카드를 열 때 그 선수의 조각 하나만 받는다.
+on:
+  schedule:
+    - cron: '50 3,9,15,21 * * *'
+  push:
+    paths: ['.github/bk-national-now']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bk-national-log
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Fetch crawler code (private)
+        uses: ./.github/actions/fetch-code
+        with:
+          token: ${{ secrets.PRIVATE_DATA_TOKEN }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Build player logs
+        run: node scripts/build-bk-national-log.mjs
+      - name: Commit and push
+        run: |
+          if [[ -z "$(git status --porcelain basketball/national-log)" ]]; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add basketball/national-log
+          git commit -m "chore(data): 농구 대표팀 경기 기록 ($(date +'%Y-%m-%d %H:%M'))"
+          for i in $(seq 1 20); do
+            if git push; then exit 0; fi
+            if ! git pull --rebase --autostash origin main; then
+              node scripts/merge-json-conflicts.mjs && GIT_EDITOR=true git rebase --continue || { git rebase --abort; git reset --hard origin/main; exit 1; }
+            fi
+            sleep $((RANDOM % 8 + 1))
+          done
+          exit 1
