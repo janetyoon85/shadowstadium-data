@@ -1119053,7 +1119053,7 @@
     "stadium": "Gaziantep Stadium",
     "timeTbd": false,
     "gameId": "TURKEY_ESPN_401888368",
-    "status": "live",
+    "status": "completed",
     "homeScore": 1,
     "awayScore": 2,
     "matchPeriod": "후반 90'+6'",
@@ -1119107,7 +1119107,9 @@
           "pid": "espn:356402"
         }
       ]
-    }
+    },
+    "assistsChecked": true,
+    "assistsAt": 1795888415664
   },
   {
     "date": "2026-11-29",
@@ -1119340,9 +1119342,45 @@
     "timeTbd": false,
     "gameId": "BELGIUM_ESPN_401878932",
     "status": "live",
-    "homeScore": 1,
+    "homeScore": 2,
     "awayScore": 1,
-    "matchPeriod": "전반 34'"
+    "matchPeriod": "전반 35'",
+    "scorers": {
+      "home": [
+        {
+          "n": "Steve Ngoura",
+          "m": 3,
+          "nat": "France",
+          "pid": "espn:346520"
+        },
+        {
+          "n": "Steve Ngoura",
+          "m": 34,
+          "nat": "France",
+          "pid": "espn:346520"
+        }
+      ],
+      "away": [
+        {
+          "n": "Myron van Brederode",
+          "m": 9,
+          "nat": "Netherlands",
+          "pid": "espn:309156"
+        }
+      ]
+    },
+    "cards": {
+      "home": [
+        {
+          "n": "Hannes Van Der Bruggen",
+          "type": "Y",
+          "m": 17,
+          "pid": "espn:177363",
+          "nat": "Belgium"
+        }
+      ],
+      "away": []
+    }
   },
   {
     "date": "2026-11-29",
