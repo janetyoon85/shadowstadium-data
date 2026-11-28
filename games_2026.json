@@ -1108992,8 +1108992,8 @@
           "m": 68,
           "a": "Dave Kwakman",
           "nat": "Netherlands",
-          "aNat": "Netherlands",
           "pid": "espn:338775",
+          "aNat": "Netherlands",
           "apid": "espn:346269"
         },
         {
@@ -1109001,8 +1109001,8 @@
           "m": 73,
           "a": "Ro-Zangelo Daal",
           "nat": "Netherlands",
-          "aNat": "Netherlands",
           "pid": "espn:389354",
+          "aNat": "Netherlands",
           "apid": "espn:338775"
         },
         {
@@ -1109010,8 +1109010,8 @@
           "m": 84,
           "a": "Calvin Stengs",
           "nat": "Netherlands",
-          "aNat": "Netherlands",
           "pid": "espn:389354",
+          "aNat": "Netherlands",
           "apid": "espn:248677"
         }
       ]
@@ -1109831,9 +1109831,9 @@
         {
           "n": "킹",
           "m": 7,
-          "pk": true,
           "nat": "Norway",
-          "pid": "espn:141188"
+          "pid": "espn:141188",
+          "pk": true
         }
       ]
     },
@@ -1114352,7 +1114352,7 @@
     "stadium": "Panda Heritage Stadium",
     "timeTbd": false,
     "gameId": "PREMIER12_WBSC_203888",
-    "status": "live",
+    "status": "completed",
     "homeScore": 4,
     "awayScore": 1,
     "linescore": {
@@ -1114365,7 +1114365,7 @@
         1,
         0,
         0,
-        null
+        0
       ],
       "a": [
         0,
@@ -1114388,20 +1114388,10 @@
       ],
       "lob": [
         9,
-        3
+        4
       ]
     },
-    "inningInfo": "9회초",
-    "liveState": {
-      "pitcher": "CRUZ Keny",
-      "batter": "ZHOU Yi",
-      "ball": 0,
-      "strike": 0,
-      "out": 2,
-      "bases": [
-        3
-      ]
-    }
+    "inningInfo": "9회초"
   },
   {
     "date": "2026-11-28",
@@ -1114492,7 +1114482,7 @@
     "stadium": "Yongchuang Sports Center",
     "timeTbd": false,
     "gameId": "WOMENFRIENDLY_ESPN_401934222",
-    "status": "live",
+    "status": "completed",
     "matchPeriod": "후반 90'+2'",
     "homeScore": 3,
     "awayScore": 0,
@@ -1114536,7 +1114526,9 @@
           "pid": "espn:402922"
         }
       ]
-    }
+    },
+    "assistsChecked": true,
+    "assistsAt": 1795872643173
   },
   {
     "date": "2026-11-28",
@@ -1114551,7 +1114543,7 @@
     "status": "live",
     "awayScore": 1,
     "homeScore": 0,
-    "matchPeriod": "후반 56'",
+    "matchPeriod": "후반 12'",
     "scorers": {
       "home": [],
       "away": [
@@ -1114589,7 +1114581,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "하프타임"
+    "matchPeriod": "전반종료"
   },
   {
     "date": "2026-11-28",
@@ -1114604,7 +1114596,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "하프타임",
+    "matchPeriod": "전반종료",
     "cards": {
       "home": [
         {
@@ -1114638,7 +1114630,7 @@
     "status": "live",
     "awayScore": 0,
     "homeScore": 0,
-    "matchPeriod": "하프타임",
+    "matchPeriod": "전반종료",
     "cards": {
       "home": [
         {
@@ -1114694,15 +1114686,13 @@
           "n": "Stephane Aziz Ki",
           "type": "Y",
           "m": 14,
-          "pid": "espn:255169",
-          "nat": "Burkina Faso"
+          "pid": "espn:255169"
         },
         {
           "n": "Mudathiri Yahya",
           "type": "Y",
           "m": 25,
-          "pid": "espn:187663",
-          "nat": "Tanzania"
+          "pid": "espn:187663"
         }
       ],
       "away": []
@@ -1114720,8 +1114710,8 @@
     "gameId": "0sMvYSAR85O3E4C",
     "status": "live",
     "awayScore": 0,
-    "matchPeriod": "전반 26'",
     "homeScore": 0,
+    "matchPeriod": "전반 26'",
     "cards": {
       "home": [],
       "away": [
@@ -1114748,7 +1114738,7 @@
     "status": "live",
     "homeScore": 2,
     "awayScore": 0,
-    "matchPeriod": "전반 30'",
+    "matchPeriod": "전반 31'",
     "scorers": {
       "home": [
         {
@@ -1114809,7 +1114799,10 @@
     "stadium": "Nelson Mandela Bay Stadium",
     "timeTbd": false,
     "gameId": "SOUTHAFRICA_ESPN_401902005",
-    "status": "scheduled"
+    "status": "live",
+    "matchPeriod": "전반 1'",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-11-28",
@@ -1114821,7 +1114814,10 @@
     "stadium": "Moses Mabhida Stadium",
     "timeTbd": false,
     "gameId": "SOUTHAFRICA_ESPN_401902006",
-    "status": "scheduled"
+    "status": "live",
+    "matchPeriod": "전반 1'",
+    "homeScore": 0,
+    "awayScore": 0
   },
   {
     "date": "2026-11-28",
