@@ -36,10 +36,10 @@ jobs:
         run: node scripts/build-games-hot.mjs
       - name: Commit and push
         run: |
-          if [[ -z "$(git status --porcelain games-hot.json games-version.json games-core.json games-archive.json)" ]]; then exit 0; fi
+          if [[ -z "$(git status --porcelain games-hot.json games-version.json games-core.json games-archive.json data-manifest.json)" ]]; then exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          for f in games-hot.json games-version.json games-core.json games-archive.json; do if [ -e "$f" ]; then git add "$f"; fi; done
+          for f in games-hot.json games-version.json games-core.json games-archive.json data-manifest.json; do if [ -e "$f" ]; then git add "$f"; fi; done
           git commit -m "chore(data): 홈용 경기 데이터 ($(date +'%Y-%m-%d %H:%M'))"
           for i in $(seq 1 20); do
             if git push; then exit 0; fi
