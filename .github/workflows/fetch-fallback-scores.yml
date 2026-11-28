@@ -88,7 +88,7 @@ jobs:
       - name: Check for changes
         id: changes
         run: |
-          if [[ -n "$(git status --porcelain games.json games-hot.json games-version.json standings.json daum-venue-map.json naver-health-alert.json espn-health-alert.json apisports-state.json apbc-npb-paths.json ops-ledger)" ]]; then echo "changed=true" >> $GITHUB_OUTPUT; else echo "changed=false" >> $GITHUB_OUTPUT; fi
+          if [[ -n "$(git status --porcelain games.json games-hot.json games-version.json games-core.json games-archive.json standings.json daum-venue-map.json naver-health-alert.json espn-health-alert.json apisports-state.json apbc-npb-paths.json ops-ledger)" ]]; then echo "changed=true" >> $GITHUB_OUTPUT; else echo "changed=false" >> $GITHUB_OUTPUT; fi
 
       - name: Commit and push
         if: steps.changes.outputs.changed == 'true'
@@ -97,7 +97,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           cp games.json games_2026.json
           git add games.json games_2026.json standings.json daum-venue-map.json
-          for f in games-hot.json games-version.json; do if [ -e "$f" ]; then git add "$f"; fi; done
+          for f in games-hot.json games-version.json games-core.json games-archive.json; do if [ -e "$f" ]; then git add "$f"; fi; done
           # 불통 알림 상태(한 번만 알리려고)·API-Sports 하루 사용량 — 파일이 없으면 git add 가 통째로 실패하므로 하나씩(없는 건 건너뜀)
           for f in naver-health-alert.json espn-health-alert.json apisports-state.json apbc-npb-paths.json; do if [ -e "$f" ]; then git add "$f"; fi; done
           git add -A ops-ledger 2>/dev/null || true   # 복구 기록(일일 보고용)
